@@ -2333,7 +2333,7 @@ function renderChapterEditorView({
       <!-- MAIN SPLIT WORKSPACE -->
       <div class="flex-1 grid ${
         splitViewMode === "split"
-          ? "grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-[#242422]"
+          ? "grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#242422]"
           : "grid-cols-1 max-w-3xl mx-auto w-full"
       } overflow-hidden">
         <!-- COLUMN 1 / PANEL A: UNIFIED OUTLINE CANVAS WITH BULLETED LIST EDITOR -->
@@ -2360,7 +2360,7 @@ function renderChapterEditorView({
                     </div>
 
                     <!-- Compact Chapter Number Bar -->
-                    <div class="flex items-center gap-1 overflow-x-auto pb-1 no-scrollbar">
+                    <div class="flex items-center gap-1.5 overflow-x-auto py-1 min-h-[38px] no-scrollbar">
                       ${Array.from({ length: selectedBook.chapterCount }, (_, i) => i + 1)
                         .map((chN) => {
                           const cKey = `${selectedBook.id}-${chN}`;
@@ -2370,7 +2370,7 @@ function renderChapterEditorView({
                             <button
                               type="button"
                               data-quick-ch="${chN}"
-                              class="quick-chapter-pill shrink-0 px-2.5 py-0.5 rounded text-xs font-mono transition flex items-center gap-1 ${
+                              class="quick-chapter-pill shrink-0 px-2.5 py-1.5 rounded text-xs leading-none font-mono transition flex items-center gap-1 ${
                                 isCur
                                   ? "bg-[#C4B79C] text-[#141413] font-bold shadow-2xs"
                                   : cStatus !== "empty"
@@ -2380,7 +2380,7 @@ function renderChapterEditorView({
                               title="Jump to ${selectedBook.name} ${chN}"
                             >
                               <span>${chN}</span>
-                              ${cStatus !== "empty" && !isCur ? '<span class="w-1 h-1 rounded-full bg-[#C4B79C]"></span>' : ""}
+                              ${cStatus !== "empty" && !isCur ? '<span class="w-1.5 h-1.5 rounded-full bg-[#C4B79C]"></span>' : ""}
                             </button>
                           `;
                         })
