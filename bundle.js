@@ -1298,10 +1298,11 @@ let firebaseApp = null;
 let auth = null;
 let db = null;
 let googleProvider = null;
+let cachedFirebaseSDK = null;
 
 // Dynamically initialize Firebase Auth & Firestore ES Module SDKs
 async function ensureFirebase() {
-  if (firebaseApp) return { auth, db };
+  if (cachedFirebaseSDK) return cachedFirebaseSDK;
 
   if (!isFirebaseConfigured()) {
     throw new Error(
@@ -1323,7 +1324,21 @@ async function ensureFirebase() {
   db = getFirestore(firebaseApp);
   googleProvider = new GoogleAuthProvider();
 
-  return { auth, db, signInWithPopup, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged, doc, setDoc, getDoc, serverTimestamp };
+  cachedFirebaseSDK = {
+    auth,
+    db,
+    signInWithPopup,
+    signInWithRedirect,
+    getRedirectResult,
+    signOut,
+    onAuthStateChanged,
+    doc,
+    setDoc,
+    getDoc,
+    serverTimestamp
+  };
+
+  return cachedFirebaseSDK;
 }
 
 function preloadFirebaseSDK() {
