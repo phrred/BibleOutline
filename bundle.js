@@ -2305,7 +2305,10 @@ function renderChapterEditorView({
       </div>
 
       <!-- MAIN SPLIT WORKSPACE -->
-      <div class="flex-1 grid grid-cols-2 divide-x divide-[#242422] overflow-hidden">
+      <div
+        class="flex-1 grid grid-cols-2 divide-x divide-[#242422] overflow-hidden"
+        style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));"
+      >
         <!-- COLUMN 1 / PANEL A: UNIFIED OUTLINE CANVAS WITH BULLETED LIST EDITOR -->
         <div class="h-full overflow-hidden flex flex-col bg-[#161614] p-6 space-y-3">
                   <!-- Top Bar & One-Click Chapter Selector for Current Book -->
