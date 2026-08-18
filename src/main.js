@@ -445,16 +445,30 @@ class BibleOutlineStudio {
     if (signInBtn) {
       signInBtn.addEventListener("click", async () => {
         try {
-          this.cloudSyncStatus = "Connecting to Google Sign-In...";
-          this.render();
+          signInBtn.disabled = true;
+          signInBtn.innerHTML = `<span>⏳ Opening Google Pop-Up...</span>`;
           const user = await signInWithGoogleSSO();
           this.googleUser = user;
           this.cloudSyncStatus = `Signed in as ${user.displayName || user.email}`;
+          await this.syncCloudOutlinesWithLocal(user);
           this.render();
         } catch (err) {
+          console.error("Google SSO Error:", err);
+          alert(
+            `Google Pop-Up Error:\n${err.message}\n\nTip: You can try clicking "Sign in via Full Page Redirect" directly below.`
+          );
           this.cloudSyncStatus = `Notice: ${err.message}`;
           this.render();
         }
+      });
+    }
+
+    const redirectBtn = document.getElementById("sso-signin-google-redirect-btn");
+    if (redirectBtn) {
+      redirectBtn.addEventListener("click", async () => {
+        redirectBtn.disabled = true;
+        redirectBtn.innerHTML = `<span>Redirecting to Google...</span>`;
+        await signInWithGoogleRedirect();
       });
     }
 

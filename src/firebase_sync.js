@@ -17,7 +17,7 @@ async function ensureFirebase() {
 
   // Load official Firebase V9/V10 JS SDK modules from CDN
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js");
-  const { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } = await import(
+  const { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged } = await import(
     "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"
   );
   const { getFirestore, doc, setDoc, getDoc, serverTimestamp } = await import(
@@ -29,7 +29,7 @@ async function ensureFirebase() {
   db = getFirestore(firebaseApp);
   googleProvider = new GoogleAuthProvider();
 
-  return { auth, db, signInWithPopup, signOut, onAuthStateChanged, doc, setDoc, getDoc, serverTimestamp };
+  return { auth, db, signInWithPopup, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged, doc, setDoc, getDoc, serverTimestamp };
 }
 
 export function preloadFirebaseSDK() {
@@ -38,7 +38,9 @@ export function preloadFirebaseSDK() {
 
 export async function listenForAuthChanges(callback) {
   try {
-    const { auth, onAuthStateChanged } = await ensureFirebase();
+    const { auth, onAuthStateChanged, getRedirectResult } = await ensureFirebase();
+    // Check if we just returned from Google OAuth redirect
+    getRedirectResult(auth).catch(() => {});
     onAuthStateChanged(auth, (user) => {
       callback(user);
     });
@@ -51,6 +53,11 @@ export async function signInWithGoogleSSO() {
   const { auth, signInWithPopup } = await ensureFirebase();
   const result = await signInWithPopup(auth, googleProvider);
   return result.user;
+}
+
+export async function signInWithGoogleRedirect() {
+  const { auth, signInWithRedirect } = await ensureFirebase();
+  await signInWithRedirect(auth, googleProvider);
 }
 
 export async function signOutUser() {
