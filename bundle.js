@@ -1393,18 +1393,18 @@ async function saveOutlinesToCloud(user, localData) {
 
   if (localData.chapters) {
     for (const [cid, ch] of Object.entries(localData.chapters)) {
-      const hasRichNotes = Boolean(
-        ch.chapterOutlineRichHTML &&
-          !ch.chapterOutlineRichHTML.includes("SECTIONHEADING") &&
-          ch.chapterOutlineRichHTML.trim().length > 20
-      );
-      const hasNotes =
+      const hasBulletContent =
         Array.isArray(ch.headingBlocks) &&
-        ch.headingBlocks.some((hb) => hb.notes && hb.notes.trim().length > 0);
-      const hasSummary = ch.takeaway && ch.takeaway.trim().length > 0;
-      const isDone = ch.status === "completed" || ch.status === "in-progress";
+        ch.headingBlocks.some(
+          (hb) =>
+            (hb.points && hb.points.some((p) => p && p.trim().length > 0)) ||
+            (hb.notes && hb.notes.trim().length > 0)
+        );
+      const hasRichHTML = Boolean(ch.chapterOutlineRichHTML);
+      const hasSummary = Boolean(ch.takeaway && ch.takeaway.trim().length > 0);
+      const isDoneOrInProgress = ch.status === "completed" || ch.status === "in-progress";
 
-      if (hasRichNotes || hasNotes || hasSummary || isDone) {
+      if (hasBulletContent || hasRichHTML || hasSummary || isDoneOrInProgress) {
         activeChapters[cid] = ch;
       }
     }
