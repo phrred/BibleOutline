@@ -2272,41 +2272,15 @@ function renderChapterEditorView({
           <span class="text-[10px] text-[#6D6B66]">[${bookData.bookSummary ? "Written" : "Add"}]</span>
         </button>
 
-        <!-- Right: Layout Switcher & Refresh ESV -->
+        <!-- Right: Refresh ESV -->
         <div class="flex items-center gap-2">
-          <div class="flex items-center bg-[#141413] p-0.5 rounded border border-[#242422]">
-            <button
-              data-split-mode="outline"
-              class="split-mode-btn px-2 py-0.5 rounded transition ${
-                splitViewMode === "outline" ? "bg-[#282825] text-[#EAE8E2]" : "text-[#7B7974]"
-              }"
-            >
-              Outline
-            </button>
-            <button
-              data-split-mode="split"
-              class="split-mode-btn px-2 py-0.5 rounded transition ${
-                splitViewMode === "split" ? "bg-[#282825] text-[#EAE8E2]" : "text-[#7B7974]"
-              }"
-            >
-              Side-by-Side
-            </button>
-            <button
-              data-split-mode="scripture"
-              class="split-mode-btn px-2 py-0.5 rounded transition ${
-                splitViewMode === "scripture" ? "bg-[#282825] text-[#EAE8E2]" : "text-[#7B7974]"
-              }"
-            >
-              Scripture
-            </button>
-          </div>
-
           <button
             id="refresh-esv-btn"
-            class="text-[#7B7974] hover:text-[#C4B79C] transition"
+            class="text-xs text-[#7B7974] hover:text-[#C4B79C] transition flex items-center gap-1"
             title="Refresh ESV text & headings from Crossway API"
           >
-            ↻ Refresh ESV
+            <span>↻</span>
+            <span>Refresh ESV Scripture</span>
           </button>
         </div>
       </div>
@@ -2331,7 +2305,7 @@ function renderChapterEditorView({
       </div>
 
       <!-- MAIN SPLIT WORKSPACE -->
-      <div class="flex-1 grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#242422] overflow-hidden">
+      <div class="flex-1 grid grid-cols-2 divide-x divide-[#242422] overflow-hidden">
         <!-- COLUMN 1 / PANEL A: UNIFIED OUTLINE CANVAS WITH BULLETED LIST EDITOR -->
         <div class="h-full overflow-hidden flex flex-col bg-[#161614] p-6 space-y-3">
                   <!-- Top Bar & One-Click Chapter Selector for Current Book -->
