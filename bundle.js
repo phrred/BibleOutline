@@ -1326,6 +1326,10 @@ async function ensureFirebase() {
   return { auth, db, signInWithPopup, signOut, onAuthStateChanged, doc, setDoc, getDoc, serverTimestamp };
 }
 
+function preloadFirebaseSDK() {
+  ensureFirebase().catch(() => {});
+}
+
 async function listenForAuthChanges(callback) {
   try {
     const { auth, onAuthStateChanged } = await ensureFirebase();
@@ -2945,16 +2949,19 @@ class BibleOutlineStudio {
       openSsoBtn.addEventListener("click", async () => {
         if (!this.googleUser) {
           try {
-            this.cloudSyncStatus = "Connecting to Google Sign-In...";
-            this.render();
+            openSsoBtn.disabled = true;
+            openSsoBtn.innerHTML = `<span>⏳ Opening Google Sign-In...</span>`;
             const user = await signInWithGoogleSSO();
             this.googleUser = user;
             this.cloudSyncStatus = `Signed in as ${user.displayName || user.email}`;
             await this.syncCloudOutlinesWithLocal(user);
             this.render();
           } catch (err) {
+            console.error("Google Sign-In Error:", err);
+            alert(
+              `Google Sign-In Error:\n${err.message}\n\nNote: If you are testing on Vercel, remember to add your Vercel domain (e.g., vercel.app) to console.firebase.google.com -> Authentication -> Settings -> Authorized domains.`
+            );
             this.cloudSyncStatus = `Notice: ${err.message}`;
-            if (ssoModal) ssoModal.classList.remove("hidden");
             this.render();
           }
         } else if (ssoModal) {
@@ -3462,6 +3469,7 @@ class BibleOutlineStudio {
 function initApp() {
   if (!window.bibleOutlineApp) {
     window.bibleOutlineApp = new BibleOutlineStudio();
+    preloadFirebaseSDK();
     console.log("⚡ window.bibleOutlineApp initialized successfully!");
   }
 }

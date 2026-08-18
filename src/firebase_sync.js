@@ -32,6 +32,10 @@ async function ensureFirebase() {
   return { auth, db, signInWithPopup, signOut, onAuthStateChanged, doc, setDoc, getDoc, serverTimestamp };
 }
 
+export function preloadFirebaseSDK() {
+  ensureFirebase().catch(() => {});
+}
+
 export async function listenForAuthChanges(callback) {
   try {
     const { auth, onAuthStateChanged } = await ensureFirebase();
