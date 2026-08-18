@@ -2445,8 +2445,11 @@ function renderChapterEditorView({
                   <div
                     id="chapter-rich-outline-editor"
                     class="flex-1 bg-[#1A1A18] border border-[#2B2B28] rounded-lg p-5 space-y-4 overflow-y-auto shadow-inner"
-                  >${blocks
-                    .map((block, idx) => {
+                  >${
+                    chData.chapterOutlineRichHTML
+                      ? chData.chapterOutlineRichHTML
+                      : blocks
+                          .map((block, idx) => {
                       const isCol = Boolean(chCollapsedState[idx]);
                       const pts =
                         Array.isArray(block.points) && block.points.length > 0
@@ -2525,7 +2528,8 @@ function renderChapterEditorView({
                         </div>
                       `;
                     })
-                    .join("")}
+                    .join("")
+                  }
                   </div>
                 </div>
               `
@@ -3277,6 +3281,15 @@ class BibleOutlineStudio {
         if (editor) {
           if (!this.data.chapters[chKey]) {
             this.data.chapters[chKey] = { headingBlocks: [], status: "empty" };
+          }
+          const hIdx = parseInt(canvas.getAttribute("data-section-editor"), 10);
+          const block = this.data.chapters[chKey].headingBlocks[hIdx];
+          if (block) {
+            const lis = Array.from(canvas.querySelectorAll("li"))
+              .map((li) => li.innerText.trim())
+              .filter((p) => p.length > 0);
+            block.points = lis;
+            block.notes = lis.join("\n");
           }
           this.data.chapters[chKey].chapterOutlineRichHTML = editor.innerHTML;
           if (this.data.chapters[chKey].status === "empty" && canvas.textContent.trim().length > 0) {

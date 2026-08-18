@@ -704,6 +704,15 @@ class BibleOutlineStudio {
           if (!this.data.chapters[chKey]) {
             this.data.chapters[chKey] = { headingBlocks: [], status: "empty" };
           }
+          const hIdx = parseInt(canvas.getAttribute("data-section-editor"), 10);
+          const block = this.data.chapters[chKey].headingBlocks[hIdx];
+          if (block) {
+            const lis = Array.from(canvas.querySelectorAll("li"))
+              .map((li) => li.innerText.trim())
+              .filter((p) => p.length > 0);
+            block.points = lis;
+            block.notes = lis.join("\n");
+          }
           this.data.chapters[chKey].chapterOutlineRichHTML = editor.innerHTML;
           if (this.data.chapters[chKey].status === "empty" && canvas.textContent.trim().length > 0) {
             this.data.chapters[chKey].status = "in-progress";

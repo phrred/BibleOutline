@@ -321,8 +321,11 @@ export function renderChapterEditorView({
                   <div
                     id="chapter-rich-outline-editor"
                     class="flex-1 bg-[#1A1A18] border border-[#2B2B28] rounded-lg p-5 space-y-4 overflow-y-auto shadow-inner"
-                  >${blocks
-                    .map((block, idx) => {
+                  >${
+                    chData.chapterOutlineRichHTML
+                      ? chData.chapterOutlineRichHTML
+                      : blocks
+                          .map((block, idx) => {
                       const isCol = Boolean(chCollapsedState[idx]);
                       const pts =
                         Array.isArray(block.points) && block.points.length > 0
@@ -401,7 +404,8 @@ export function renderChapterEditorView({
                         </div>
                       `;
                     })
-                    .join("")}
+                    .join("")
+                  }
                   </div>
                 </div>
               `
