@@ -111,22 +111,34 @@ export async function saveOutlinesToCloud(user, localData) {
       const isDoneOrInProgress = ch.status === "completed" || ch.status === "in-progress";
 
       if (hasBulletContent || hasRichHTML || hasSummary || isDoneOrInProgress) {
-        activeChapters[cid] = ch;
+        activeChapters[cid] = {
+          status: ch.status || "in-progress",
+          chapterOutlineRichHTML: ch.chapterOutlineRichHTML || "",
+          takeaway: ch.takeaway || "",
+          headingBlocks: Array.isArray(ch.headingBlocks)
+            ? ch.headingBlocks.map((hb) => ({
+                heading: hb.heading || "",
+                verses: hb.verses || "",
+                notes: hb.notes || "",
+                points: Array.isArray(hb.points) ? hb.points : []
+              }))
+            : []
+        };
       }
     }
   }
 
-  await setDoc(
-    userDocRef,
-    {
+  const payload = JSON.parse(
+    JSON.stringify({
       email: user.email || "",
       displayName: user.displayName || "User",
-      lastSynced: serverTimestamp(),
+      lastSyncedTimestamp: Date.now(),
       books: activeBooks,
       chapters: activeChapters
-    },
-    { merge: true }
+    })
   );
+
+  await setDoc(userDocRef, payload, { merge: true });
 
   return true;
 }
@@ -149,7 +161,8 @@ export function debouncedCloudAutoSave(user, localData, onStatusUpdate, delayMs 
     } catch (err) {
       console.warn("Cloud auto-save error:", err);
       if (onStatusUpdate) {
-        onStatusUpdate("⚠️ Local saved (Firebase offline)");
+        const msg = err.message || "Firebase offline";
+        onStatusUpdate(`⚠️ ${msg.slice(0, 32)}`);
       }
     }
   }, delayMs);
