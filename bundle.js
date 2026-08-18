@@ -2331,16 +2331,9 @@ function renderChapterEditorView({
       </div>
 
       <!-- MAIN SPLIT WORKSPACE -->
-      <div class="flex-1 grid ${
-        splitViewMode === "split"
-          ? "grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#242422]"
-          : "grid-cols-1 max-w-3xl mx-auto w-full"
-      } overflow-hidden">
+      <div class="flex-1 grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#242422] overflow-hidden">
         <!-- COLUMN 1 / PANEL A: UNIFIED OUTLINE CANVAS WITH BULLETED LIST EDITOR -->
-        ${
-          splitViewMode === "split" || splitViewMode === "outline"
-            ? `
-                <div class="h-full overflow-hidden flex flex-col bg-[#161614] p-6 space-y-3">
+        <div class="h-full overflow-hidden flex flex-col bg-[#161614] p-6 space-y-3">
                   <!-- Top Bar & One-Click Chapter Selector for Current Book -->
                   <div class="space-y-2 border-b border-[#262624] pb-2.5 shrink-0">
                     <div class="flex items-center justify-between gap-2">
@@ -2540,56 +2533,49 @@ function renderChapterEditorView({
                     .join("")}
                   </div>
                 </div>
-              `
-            : ""
-        }
 
         <!-- COLUMN 2 / PANEL B: BIBLE SCRIPTURE READER -->
-        ${
-          splitViewMode === "split" || splitViewMode === "scripture"
-            ? `
-                <div class="h-full overflow-y-auto p-8 bg-[#151513] flex flex-col">
-                  <!-- Quiet Bible Reader Header -->
-                  <div class="flex items-center justify-between border-b border-[#242422] pb-2 shrink-0">
-                    <span class="text-xs font-mono uppercase tracking-wider text-[#A19E97]">
-                      ESV Scripture • ${selectedBook.name} ${chapterNum}
-                    </span>
-                    <span class="text-[11px] text-[#6D6B66]">Click any verse number badge to quote</span>
-                  </div>
+        <div class="h-full overflow-y-auto p-8 bg-[#151513] flex flex-col">
+          <!-- Quiet Bible Reader Header -->
+          <div class="flex items-center justify-between border-b border-[#242422] pb-2 shrink-0">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#A19E97]">
+              ESV Scripture • ${selectedBook.name} ${chapterNum}
+            </span>
+            <span class="text-[11px] font-mono text-[#7B7974]">
+              Click any verse number badge to quote
+            </span>
+          </div>
 
-                  <!-- Scripture Reader Display -->
-                  <div class="flex-1 pt-4">
-                    ${
-                      isLoadingESV
-                        ? `
-                            <div class="flex flex-col items-center justify-center py-20 text-xs text-[#8C8A84] space-y-2">
-                              <div>Fetching ${selectedBook.name} ${chapterNum} from official ESV API...</div>
-                            </div>
-                          `
-                        : esvErrorMessage
-                        ? `
-                            <div class="text-xs text-[#E57373] py-4">
-                              ${esvErrorMessage}
-                            </div>
-                          `
-                        : chData.chapterScripture && chData.chapterScripture.trim()
-                        ? `
-                            <div
-                              id="scripture-reader-display"
-                              class="font-serif text-base leading-[1.8] text-[#EAE8E2] space-y-3"
-                            >${formatESVTextToHTML(chData.chapterScripture)}</div>
-                          `
-                        : `
-                            <div class="text-xs text-[#8C8A84] py-8">
-                              Loading scripture...
-                            </div>
-                          `
-                    }
-                  </div>
-                </div>
-              `
-            : ""
-        }
+          <!-- Scripture Reader Display -->
+          <div class="flex-1 pt-4">
+            ${
+              isLoadingESV
+                ? `
+                    <div class="flex flex-col items-center justify-center py-20 text-xs text-[#8C8A84] space-y-2">
+                      <div>Fetching ${selectedBook.name} ${chapterNum} from official ESV API...</div>
+                    </div>
+                  `
+                : esvErrorMessage
+                ? `
+                    <div class="text-xs text-[#E57373] py-4">
+                      ${esvErrorMessage}
+                    </div>
+                  `
+                : chData.chapterScripture && chData.chapterScripture.trim()
+                ? `
+                    <div
+                      id="scripture-reader-display"
+                      class="font-serif text-base leading-[1.8] text-[#EAE8E2] space-y-3"
+                    >${formatESVTextToHTML(chData.chapterScripture)}</div>
+                  `
+                : `
+                    <div class="text-xs text-[#8C8A84] py-8">
+                      Loading scripture...
+                    </div>
+                  `
+            }
+          </div>
+        </div>
       </div>
     </div>
   `;
