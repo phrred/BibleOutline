@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+*.swp
+
+# Temporary verification & scratch scripts
+scratch/
+test_run.*
+*.log
+
+# Firebase & IDE
+.firebase/
+.idea/
+.vscode/

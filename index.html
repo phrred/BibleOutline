@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bible Outline & Storyline Studio</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+  <!-- Google Fonts for Parchment & Manuscript Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            stone: {
+              50: '#faf8f5',
+              100: '#f2ede4',
+              200: '#e5ddd0',
+              300: '#d5c7b4',
+              400: '#a89882',
+              500: '#8c7a65',
+              600: '#736250',
+              700: '#5a4c3e',
+              800: '#2b2621',
+              900: '#1c1815',
+              950: '#14110e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-stone-950 text-stone-100 font-sans antialiased overflow-hidden">
+  <div id="app" class="h-screen w-screen flex flex-col items-center justify-center bg-[#141413] text-[#EAE8E2] font-serif select-none">
+    <div class="text-2xl font-bold mb-2 text-[#EAE8E2]">Bible Outline & Storyline Studio</div>
+  </div>
+  <script src="./bundle.js?v=16"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+import { BIBLE_ERAS } from "../../data/bible_catalog.js";
+import { extractESVHeadings } from "../esv_api.js";
+
+export function renderBookRollupView({
+  selectedBook,
+  data
+}) {
+  const bookData = data.books[selectedBook.id] || { bookSummary: "" };
+
+  return `
+    <div class="max-w-3xl mx-auto p-10 space-y-10 text-[#EAE8E2] bg-[#141413] min-h-full">
+      <!-- Quiet Book Header -->
+      <div class="border-b border-[#242422] pb-6 space-y-3">
+        <div class="flex items-center justify-between text-xs text-[#8C8A84]">
+          <span>${selectedBook.testament} • ${selectedBook.category}</span>
+          <span>${selectedBook.author} • ${selectedBook.date}</span>
+        </div>
+
+        <h1 class="font-serif text-3xl font-bold text-[#EAE8E2] tracking-tight">
+          ${selectedBook.name}
+        </h1>
+
+        <p class="text-xs leading-relaxed text-[#A19E97]">
+          ${selectedBook.context}
+        </p>
+      </div>
+
+      <!-- Overall Book Summary Section -->
+      <div class="space-y-2">
+        <label class="block text-xs font-mono uppercase tracking-wider text-[#C4B79C]">
+          Overall Book Summary
+        </label>
+        <textarea
+          id="book-summary-textarea"
+          rows="4"
+          placeholder="Write your synthesis of what happens across the entire book of ${selectedBook.name}..."
+          class="w-full bg-[#191917] border border-[#262624] focus:border-[#C4B79C] rounded-md p-4 text-[#EAE8E2] text-sm leading-relaxed placeholder:text-[#6D6B66] focus:outline-none transition"
+        >${(bookData.bookSummary || "").replace(/</g, "&lt;")}</textarea>
+      </div>
+
+      <!-- Complete Book Chapter Rollup -->
+      <div class="space-y-6 pt-4">
+        <div class="flex items-center justify-between border-b border-[#242422] pb-2">
+          <h2 class="font-serif text-xl font-bold text-[#EAE8E2]">
+            Complete Book Outline (${selectedBook.chapterCount} ch)
+          </h2>
+        </div>
+
+        <div class="space-y-8">
+          ${(() => {
+            const rows = [];
+            for (let ch = 1; ch <= selectedBook.chapterCount; ch++) {
+              const chKey = `${selectedBook.id}-${ch}`;
+              const chData = data.chapters[chKey] || {
+                headingBlocks: [],
+                chapterScripture: "",
+                takeaway: ""
+              };
+
+              let blocks = chData.headingBlocks;
+              if (!Array.isArray(blocks) || blocks.length === 0) {
+                blocks = extractESVHeadings(chData.chapterScripture, `${selectedBook.name} ${ch}`).map(
+                  (h) => ({
+                    heading: h.heading,
+                    verses: h.verses,
+                    notes: ""
+                  })
+                );
+              }
+
+              rows.push(`
+                <div class="border-b border-[#222220] pb-6 space-y-4">
+                  <div class="flex items-center justify-between">
+                    <h3 class="font-serif text-lg font-bold text-[#DBCFB3]">
+                      Chapter ${ch}
+                    </h3>
+                    <button
+                      data-chapter-num="${ch}"
+                      class="open-chapter-editor-btn text-xs text-[#8C8A84] hover:text-[#EAE8E2] transition"
+                    >
+                      Outline Side-by-Side →
+                    </button>
+                  </div>
+
+                  <div class="space-y-4">
+                    ${blocks
+                      .map((block) => `
+                        <div class="space-y-1">
+                          <div class="flex items-center gap-2">
+                            <span class="font-serif font-semibold text-sm text-[#EAE8E2]">
+                              ${block.heading}
+                            </span>
+                            ${
+                              block.verses
+                                ? `<span class="text-xs font-mono text-[#7B7974]">(${block.verses})</span>`
+                                : ""
+                            }
+                          </div>
+                          ${(() => {
+                            const pts = Array.isArray(block.points)
+                              ? block.points.filter((p) => p && p.trim().length > 0)
+                              : block.notes
+                              ? block.notes
+                                  .split("\n")
+                                  .map((p) => p.replace(/^[•\-\*]\s*/, "").trim())
+                                  .filter(Boolean)
+                              : [];
+
+                            if (pts.length > 0) {
+                              return `
+                                <ul class="space-y-1 pl-3 text-sm text-[#EAE8E2]">
+                                  ${pts
+                                    .map(
+                                      (pt) => `
+                                    <li class="flex items-start gap-2">
+                                      <span class="text-[#C4B79C] select-none">•</span>
+                                      <span>${pt.replace(/</g, "&lt;")}</span>
+                                    </li>
+                                  `
+                                    )
+                                    .join("")}
+                                </ul>
+                              `;
+                            }
+                            return `
+                              <div class="text-xs text-[#6D6B66] italic">
+                                No outline points under "${block.heading}"
+                              </div>
+                            `;
+                          })()}
+                        </div>
+                      `)
+                      .join("")}
+                  </div>
+
+                  ${
+                    chData.takeaway && chData.takeaway.trim()
+                      ? `
+                          <div class="text-xs text-[#C4B79C] pt-1">
+                            Takeaway: ${chData.takeaway}
+                          </div>
+                        `
+                      : ""
+                  }
+                </div>
+              `);
+            }
+            return rows.join("");
+          })()}
+        </div>
+      </div>
+    </div>
+  `;
+}
