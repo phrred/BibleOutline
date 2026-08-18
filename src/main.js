@@ -375,9 +375,25 @@ class BibleOutlineStudio {
     const closeSsoBtn = document.getElementById("close-cloud-sso-modal-btn");
     const ssoModal = document.getElementById("cloud-sso-modal");
 
-    if (openSsoBtn && ssoModal) {
-      openSsoBtn.addEventListener("click", () => {
-        ssoModal.classList.remove("hidden");
+    if (openSsoBtn) {
+      openSsoBtn.addEventListener("click", async () => {
+        if (!this.googleUser) {
+          try {
+            this.cloudSyncStatus = "Connecting to Google Sign-In...";
+            this.render();
+            const user = await signInWithGoogleSSO();
+            this.googleUser = user;
+            this.cloudSyncStatus = `Signed in as ${user.displayName || user.email}`;
+            await saveOutlinesToCloud(user, this.data);
+            this.render();
+          } catch (err) {
+            this.cloudSyncStatus = `Notice: ${err.message}`;
+            if (ssoModal) ssoModal.classList.remove("hidden");
+            this.render();
+          }
+        } else if (ssoModal) {
+          ssoModal.classList.remove("hidden");
+        }
       });
     }
     if (closeSsoBtn && ssoModal) {
