@@ -230,17 +230,54 @@ export function renderChapterEditorView({
           splitViewMode === "split" || splitViewMode === "outline"
             ? `
                 <div class="h-full overflow-hidden flex flex-col bg-[#161614] p-6 space-y-3">
-                  <!-- Top Bar & Rich Google Docs Formatting Toolbar -->
-                  <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#262624] pb-2.5 shrink-0">
-                    <div class="flex items-center gap-1.5 text-xs">
-                      <span class="font-mono uppercase tracking-wider text-[#A19E97]">
-                        Chapter Outline
-                      </span>
-                      <span class="text-[#6D6B66]">•</span>
-                      <span class="text-[#C4B79C] text-[11px]">
-                        One Unified Document Canvas
-                      </span>
+                  <!-- Top Bar & One-Click Chapter Selector for Current Book -->
+                  <div class="space-y-2 border-b border-[#262624] pb-2.5 shrink-0">
+                    <div class="flex items-center justify-between gap-2">
+                      <div class="flex items-center gap-1.5 text-xs">
+                        <span class="font-mono uppercase tracking-wider text-[#DBCFB3] font-semibold">
+                          ${selectedBook.name} Chapters:
+                        </span>
+                      </div>
+                      <!-- Real-Time Save Indicator -->
+                      <div
+                        id="editor-save-indicator"
+                        class="text-[11px] font-mono text-[#34A853] flex items-center gap-1"
+                      >
+                        <span>✓</span>
+                        <span>Saved</span>
+                      </div>
                     </div>
+
+                    <!-- Compact Chapter Number Bar -->
+                    <div class="flex items-center gap-1 overflow-x-auto pb-1 no-scrollbar">
+                      ${Array.from({ length: selectedBook.chapterCount }, (_, i) => i + 1)
+                        .map((chN) => {
+                          const cKey = `${selectedBook.id}-${chN}`;
+                          const cStatus = data.chapters?.[cKey]?.status || "empty";
+                          const isCur = chN === chapterNum;
+                          return `
+                            <button
+                              type="button"
+                              data-quick-ch="${chN}"
+                              class="quick-chapter-pill shrink-0 px-2.5 py-0.5 rounded text-xs font-mono transition flex items-center gap-1 ${
+                                isCur
+                                  ? "bg-[#C4B79C] text-[#141413] font-bold shadow-2xs"
+                                  : cStatus !== "empty"
+                                  ? "bg-[#252522] text-[#DBCFB3] hover:bg-[#30302C]"
+                                  : "bg-[#181816] text-[#6D6B66] hover:bg-[#22221F] hover:text-[#EAE8E2]"
+                              }"
+                              title="Jump to ${selectedBook.name} ${chN}"
+                            >
+                              <span>${chN}</span>
+                              ${cStatus !== "empty" && !isCur ? '<span class="w-1 h-1 rounded-full bg-[#C4B79C]"></span>' : ""}
+                            </button>
+                          `;
+                        })
+                        .join("")}
+                    </div>
+
+                    <!-- Google Docs Rich Toolbar Row -->
+                    <div class="flex items-center justify-between pt-1">
 
                     <!-- Google Docs Rich Toolbar Buttons -->
                     <div class="flex items-center gap-1 bg-[#1A1A18] p-1 rounded border border-[#2B2B28] text-xs">
@@ -354,18 +391,6 @@ export function renderChapterEditorView({
                                   ? `<span class="text-xs font-mono text-[#7B7974] font-normal">(${block.verses})</span>`
                                   : ""
                               }
-                            </div>
-
-                            <div class="flex items-center gap-2" onclick="event.stopPropagation()">
-                              <button
-                                type="button"
-                                data-ensure-bullet="${idx}"
-                                class="px-2 py-0.5 rounded bg-[#2A2A27] hover:bg-[#383834] text-[#C4B79C] text-xs font-mono transition flex items-center gap-1"
-                                title="Add/Ensure Bulleted List (•) in this section"
-                              >
-                                <span>•</span>
-                                <span>Bulleted List</span>
-                              </button>
                             </div>
                           </div>
 

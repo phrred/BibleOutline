@@ -106,15 +106,35 @@ class BibleOutlineStudio {
   }
 
   notifyDataChanged() {
+    const saveBadge = document.getElementById("editor-save-indicator");
+    if (saveBadge) {
+      saveBadge.innerHTML = `<span class="text-[#A19E97]">⏳</span><span class="text-[#A19E97]">Saving...</span>`;
+    }
     debouncedSaveOutlineStorage(this.data, 200);
+    setTimeout(() => {
+      if (saveBadge && !this.googleUser) {
+        saveBadge.innerHTML = `<span class="text-[#34A853]">✓</span><span class="text-[#34A853]">Saved locally</span>`;
+      }
+    }, 300);
+
     if (this.googleUser) {
-      debouncedCloudAutoSave(this.googleUser, this.data, (status) => {
-        this.cloudSyncStatus = status;
-        const ssoBtn = document.getElementById("open-cloud-sso-btn");
-        if (ssoBtn) {
-          ssoBtn.innerHTML = `<span class="text-[10px]">🟢</span><span>${this.googleUser.displayName || "Google"} • ${status}</span>`;
-        }
-      }, 1000);
+      debouncedCloudAutoSave(
+        this.googleUser,
+        this.data,
+        (status) => {
+          this.cloudSyncStatus = status;
+          const ssoBtn = document.getElementById("open-cloud-sso-btn");
+          if (ssoBtn) {
+            ssoBtn.innerHTML = `<span class="text-[10px]">🟢</span><span>${
+              this.googleUser.displayName || "Google"
+            } • ${status}</span>`;
+          }
+          if (saveBadge && status.includes("Auto-saved")) {
+            saveBadge.innerHTML = `<span class="text-[#34A853]">🟢</span><span class="text-[#34A853]">Saved to cloud</span>`;
+          }
+        },
+        1000
+      );
     }
   }
 
@@ -585,9 +605,21 @@ class BibleOutlineStudio {
     const openChapterEditorBtns = document.querySelectorAll(".open-chapter-editor-btn");
     openChapterEditorBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
+        this.saveActiveChapterEditorBeforeSwitch();
         const ch = parseInt(btn.getAttribute("data-chapter-num"), 10);
         this.selectedChapterNum = ch;
         this.activeView = "chapter-outliner";
+        this.render();
+        this.autoLoadESVForCurrentChapter();
+      });
+    });
+
+    const quickChapterPills = document.querySelectorAll(".quick-chapter-pill");
+    quickChapterPills.forEach((pill) => {
+      pill.addEventListener("click", () => {
+        this.saveActiveChapterEditorBeforeSwitch();
+        const ch = parseInt(pill.getAttribute("data-quick-ch"), 10);
+        this.selectedChapterNum = ch;
         this.render();
         this.autoLoadESVForCurrentChapter();
       });

@@ -1946,19 +1946,6 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
                 : ""
             }
           </div>
-
-          <!-- Free Production Web App Publishing Section -->
-          <div class="bg-[#1C1C1A] border border-[#262624] rounded-lg p-4 space-y-2">
-            <h4 class="font-semibold text-[#DBCFB3]">How to Publish for Free (Web App)</h4>
-            <p class="text-[11px] leading-relaxed">
-              This app is a self-contained modern HTML/ES-Module client with zero server dependencies (+ official ESV API integration). You can publish it for free in under 60 seconds:
-            </p>
-            <ul class="space-y-1.5 text-[11px] list-disc list-inside text-[#A19E97]">
-              <li><strong>Vercel (Recommended):</strong> Drag & drop your "BibleOutline" folder to <a href="https://vercel.com/new" target="_blank" class="underline text-[#DBCFB3]">vercel.com</a> (vercel.json included).</li>
-              <li><strong>Cloudflare Pages:</strong> Connect GitHub or drop folder at <a href="https://pages.cloudflare.com" target="_blank" class="underline text-[#DBCFB3]">pages.cloudflare.com</a>.</li>
-              <li><strong>Firebase Hosting:</strong> Run "firebase init hosting && firebase deploy".</li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
@@ -2354,17 +2341,54 @@ function renderChapterEditorView({
           splitViewMode === "split" || splitViewMode === "outline"
             ? `
                 <div class="h-full overflow-hidden flex flex-col bg-[#161614] p-6 space-y-3">
-                  <!-- Top Bar & Rich Google Docs Formatting Toolbar -->
-                  <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#262624] pb-2.5 shrink-0">
-                    <div class="flex items-center gap-1.5 text-xs">
-                      <span class="font-mono uppercase tracking-wider text-[#A19E97]">
-                        Chapter Outline
-                      </span>
-                      <span class="text-[#6D6B66]">•</span>
-                      <span class="text-[#C4B79C] text-[11px]">
-                        One Unified Document Canvas
-                      </span>
+                  <!-- Top Bar & One-Click Chapter Selector for Current Book -->
+                  <div class="space-y-2 border-b border-[#262624] pb-2.5 shrink-0">
+                    <div class="flex items-center justify-between gap-2">
+                      <div class="flex items-center gap-1.5 text-xs">
+                        <span class="font-mono uppercase tracking-wider text-[#DBCFB3] font-semibold">
+                          ${selectedBook.name} Chapters:
+                        </span>
+                      </div>
+                      <!-- Real-Time Save Indicator -->
+                      <div
+                        id="editor-save-indicator"
+                        class="text-[11px] font-mono text-[#34A853] flex items-center gap-1"
+                      >
+                        <span>✓</span>
+                        <span>Saved</span>
+                      </div>
                     </div>
+
+                    <!-- Compact Chapter Number Bar -->
+                    <div class="flex items-center gap-1 overflow-x-auto pb-1 no-scrollbar">
+                      ${Array.from({ length: selectedBook.chapterCount }, (_, i) => i + 1)
+                        .map((chN) => {
+                          const cKey = `${selectedBook.id}-${chN}`;
+                          const cStatus = data.chapters?.[cKey]?.status || "empty";
+                          const isCur = chN === chapterNum;
+                          return `
+                            <button
+                              type="button"
+                              data-quick-ch="${chN}"
+                              class="quick-chapter-pill shrink-0 px-2.5 py-0.5 rounded text-xs font-mono transition flex items-center gap-1 ${
+                                isCur
+                                  ? "bg-[#C4B79C] text-[#141413] font-bold shadow-2xs"
+                                  : cStatus !== "empty"
+                                  ? "bg-[#252522] text-[#DBCFB3] hover:bg-[#30302C]"
+                                  : "bg-[#181816] text-[#6D6B66] hover:bg-[#22221F] hover:text-[#EAE8E2]"
+                              }"
+                              title="Jump to ${selectedBook.name} ${chN}"
+                            >
+                              <span>${chN}</span>
+                              ${cStatus !== "empty" && !isCur ? '<span class="w-1 h-1 rounded-full bg-[#C4B79C]"></span>' : ""}
+                            </button>
+                          `;
+                        })
+                        .join("")}
+                    </div>
+
+                    <!-- Google Docs Rich Toolbar Row -->
+                    <div class="flex items-center justify-between pt-1">
 
                     <!-- Google Docs Rich Toolbar Buttons -->
                     <div class="flex items-center gap-1 bg-[#1A1A18] p-1 rounded border border-[#2B2B28] text-xs">
@@ -2478,18 +2502,6 @@ function renderChapterEditorView({
                                   ? `<span class="text-xs font-mono text-[#7B7974] font-normal">(${block.verses})</span>`
                                   : ""
                               }
-                            </div>
-
-                            <div class="flex items-center gap-2" onclick="event.stopPropagation()">
-                              <button
-                                type="button"
-                                data-ensure-bullet="${idx}"
-                                class="px-2 py-0.5 rounded bg-[#2A2A27] hover:bg-[#383834] text-[#C4B79C] text-xs font-mono transition flex items-center gap-1"
-                                title="Add/Ensure Bulleted List (•) in this section"
-                              >
-                                <span>•</span>
-                                <span>Bulleted List</span>
-                              </button>
                             </div>
                           </div>
 
@@ -2680,15 +2692,35 @@ class BibleOutlineStudio {
   }
 
   notifyDataChanged() {
+    const saveBadge = document.getElementById("editor-save-indicator");
+    if (saveBadge) {
+      saveBadge.innerHTML = `<span class="text-[#A19E97]">⏳</span><span class="text-[#A19E97]">Saving...</span>`;
+    }
     debouncedSaveOutlineStorage(this.data, 200);
+    setTimeout(() => {
+      if (saveBadge && !this.googleUser) {
+        saveBadge.innerHTML = `<span class="text-[#34A853]">✓</span><span class="text-[#34A853]">Saved locally</span>`;
+      }
+    }, 300);
+
     if (this.googleUser) {
-      debouncedCloudAutoSave(this.googleUser, this.data, (status) => {
-        this.cloudSyncStatus = status;
-        const ssoBtn = document.getElementById("open-cloud-sso-btn");
-        if (ssoBtn) {
-          ssoBtn.innerHTML = `<span class="text-[10px]">🟢</span><span>${this.googleUser.displayName || "Google"} • ${status}</span>`;
-        }
-      }, 1000);
+      debouncedCloudAutoSave(
+        this.googleUser,
+        this.data,
+        (status) => {
+          this.cloudSyncStatus = status;
+          const ssoBtn = document.getElementById("open-cloud-sso-btn");
+          if (ssoBtn) {
+            ssoBtn.innerHTML = `<span class="text-[10px]">🟢</span><span>${
+              this.googleUser.displayName || "Google"
+            } • ${status}</span>`;
+          }
+          if (saveBadge && status.includes("Auto-saved")) {
+            saveBadge.innerHTML = `<span class="text-[#34A853]">🟢</span><span class="text-[#34A853]">Saved to cloud</span>`;
+          }
+        },
+        1000
+      );
     }
   }
 
@@ -3159,9 +3191,21 @@ class BibleOutlineStudio {
     const openChapterEditorBtns = document.querySelectorAll(".open-chapter-editor-btn");
     openChapterEditorBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
+        this.saveActiveChapterEditorBeforeSwitch();
         const ch = parseInt(btn.getAttribute("data-chapter-num"), 10);
         this.selectedChapterNum = ch;
         this.activeView = "chapter-outliner";
+        this.render();
+        this.autoLoadESVForCurrentChapter();
+      });
+    });
+
+    const quickChapterPills = document.querySelectorAll(".quick-chapter-pill");
+    quickChapterPills.forEach((pill) => {
+      pill.addEventListener("click", () => {
+        this.saveActiveChapterEditorBeforeSwitch();
+        const ch = parseInt(pill.getAttribute("data-quick-ch"), 10);
+        this.selectedChapterNum = ch;
         this.render();
         this.autoLoadESVForCurrentChapter();
       });

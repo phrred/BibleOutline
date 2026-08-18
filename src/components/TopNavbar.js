@@ -160,19 +160,6 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
                 : ""
             }
           </div>
-
-          <!-- Free Production Web App Publishing Section -->
-          <div class="bg-[#1C1C1A] border border-[#262624] rounded-lg p-4 space-y-2">
-            <h4 class="font-semibold text-[#DBCFB3]">How to Publish for Free (Web App)</h4>
-            <p class="text-[11px] leading-relaxed">
-              This app is a self-contained modern HTML/ES-Module client with zero server dependencies (+ official ESV API integration). You can publish it for free in under 60 seconds:
-            </p>
-            <ul class="space-y-1.5 text-[11px] list-disc list-inside text-[#A19E97]">
-              <li><strong>Vercel (Recommended):</strong> Drag & drop your "BibleOutline" folder to <a href="https://vercel.com/new" target="_blank" class="underline text-[#DBCFB3]">vercel.com</a> (vercel.json included).</li>
-              <li><strong>Cloudflare Pages:</strong> Connect GitHub or drop folder at <a href="https://pages.cloudflare.com" target="_blank" class="underline text-[#DBCFB3]">pages.cloudflare.com</a>.</li>
-              <li><strong>Firebase Hosting:</strong> Run "firebase init hosting && firebase deploy".</li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
