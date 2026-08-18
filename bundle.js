@@ -1393,29 +1393,31 @@ async function saveOutlinesToCloud(user, localData) {
 
   if (localData.chapters) {
     for (const [cid, ch] of Object.entries(localData.chapters)) {
-      const hasBulletContent =
-        Array.isArray(ch.headingBlocks) &&
-        ch.headingBlocks.some(
-          (hb) =>
-            (hb.points && hb.points.some((p) => p && p.trim().length > 0)) ||
-            (hb.notes && hb.notes.trim().length > 0)
-        );
-      const hasSummary = Boolean(ch.takeaway && ch.takeaway.trim().length > 0);
-      const isDoneOrInProgress = ch.status === "completed" || ch.status === "in-progress";
+      const activeSections = Array.isArray(ch.headingBlocks)
+        ? ch.headingBlocks
+            .map((hb) => {
+              const pts = Array.isArray(hb.points)
+                ? hb.points.map((p) => (p || "").trim()).filter((p) => p.length > 0)
+                : [];
+              if (pts.length === 0) return null;
+              return {
+                heading: hb.heading || "Section",
+                points: pts
+              };
+            })
+            .filter(Boolean)
+        : [];
 
-      if (hasBulletContent || hasSummary || isDoneOrInProgress) {
-        activeChapters[cid] = {
-          status: ch.status || "in-progress",
-          takeaway: ch.takeaway || "",
-          headingBlocks: Array.isArray(ch.headingBlocks)
-            ? ch.headingBlocks.map((hb) => ({
-                heading: hb.heading || "",
-                verses: hb.verses || "",
-                notes: hb.notes || "",
-                points: Array.isArray(hb.points) ? hb.points : []
-              }))
-            : []
+      const hasSummary = Boolean(ch.takeaway && ch.takeaway.trim().length > 0);
+
+      if (activeSections.length > 0 || hasSummary) {
+        const compactCh = {
+          sections: activeSections
         };
+        if (hasSummary) {
+          compactCh.takeaway = ch.takeaway.trim();
+        }
+        activeChapters[cid] = compactCh;
       }
     }
   }
@@ -2640,10 +2642,31 @@ class BibleOutlineStudio {
       if (cloudData && cloudData.chapters) {
         let merged = false;
         for (const [cid, ch] of Object.entries(cloudData.chapters)) {
-          if (ch && (ch.chapterOutlineRichHTML || ch.headingBlocks)) {
-            this.data.chapters[cid] = ch;
-            merged = true;
+          if (!ch) continue;
+          if (!this.data.chapters[cid]) {
+            this.data.chapters[cid] = { headingBlocks: [], status: "in-progress" };
           }
+          if (ch.takeaway) {
+            this.data.chapters[cid].takeaway = ch.takeaway;
+          }
+          const cloudSections = ch.sections || ch.headingBlocks || [];
+          cloudSections.forEach((cs, sIdx) => {
+            let match = this.data.chapters[cid].headingBlocks.find(
+              (hb) => hb.heading && hb.heading.toLowerCase() === cs.heading.toLowerCase()
+            );
+            if (!match) {
+              match = this.data.chapters[cid].headingBlocks[sIdx];
+            }
+            if (match) {
+              match.points = Array.isArray(cs.points) ? cs.points : [];
+            } else {
+              this.data.chapters[cid].headingBlocks.push({
+                heading: cs.heading,
+                points: Array.isArray(cs.points) ? cs.points : []
+              });
+            }
+          });
+          merged = true;
         }
         if (merged) {
           saveOutlineStorage(this.data);
