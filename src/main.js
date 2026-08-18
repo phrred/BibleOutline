@@ -46,6 +46,17 @@ class BibleOutlineStudio {
     this.rootElement = document.getElementById("app");
     this.render();
     this.autoLoadESVForCurrentChapter(true);
+
+    // Listen for persisted Google SSO sign-in session
+    listenForAuthChanges((user) => {
+      this.googleUser = user;
+      if (user) {
+        this.cloudSyncStatus = `Synced as ${user.displayName || user.email}`;
+      } else {
+        this.cloudSyncStatus = "Not signed in";
+      }
+      this.render();
+    });
   }
 
   notifyDataChanged() {

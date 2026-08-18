@@ -1311,7 +1311,7 @@ async function ensureFirebase() {
 
   // Load official Firebase V9/V10 JS SDK modules from CDN
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js");
-  const { getAuth, GoogleAuthProvider, signInWithPopup, signOut, fontAuthStateChanged } = await import(
+  const { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } = await import(
     "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"
   );
   const { getFirestore, doc, setDoc, getDoc, serverTimestamp } = await import(
@@ -1323,7 +1323,18 @@ async function ensureFirebase() {
   db = getFirestore(firebaseApp);
   googleProvider = new GoogleAuthProvider();
 
-  return { auth, db, signInWithPopup, signOut, doc, setDoc, getDoc, serverTimestamp };
+  return { auth, db, signInWithPopup, signOut, onAuthStateChanged, doc, setDoc, getDoc, serverTimestamp };
+}
+
+async function listenForAuthChanges(callback) {
+  try {
+    const { auth, onAuthStateChanged } = await ensureFirebase();
+    onAuthStateChanged(auth, (user) => {
+      callback(user);
+    });
+  } catch (err) {
+    console.warn("Firebase Auth listener skip:", err);
+  }
 }
 
 async function signInWithGoogleSSO() {
@@ -2560,6 +2571,17 @@ class BibleOutlineStudio {
     this.rootElement = document.getElementById("app");
     this.render();
     this.autoLoadESVForCurrentChapter(true);
+
+    // Listen for persisted Google SSO sign-in session
+    listenForAuthChanges((user) => {
+      this.googleUser = user;
+      if (user) {
+        this.cloudSyncStatus = `Synced as ${user.displayName || user.email}`;
+      } else {
+        this.cloudSyncStatus = "Not signed in";
+      }
+      this.render();
+    });
   }
 
   notifyDataChanged() {
