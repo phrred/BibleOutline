@@ -202,7 +202,6 @@ class BibleOutlineStudio {
       }
     });
 
-    this.data.chapters[chKey].chapterOutlineRichHTML = richEditor.innerHTML;
     saveOutlineStorage(this.data);
   }
 
@@ -713,7 +712,6 @@ class BibleOutlineStudio {
             block.points = lis;
             block.notes = lis.join("\n");
           }
-          this.data.chapters[chKey].chapterOutlineRichHTML = editor.innerHTML;
           if (this.data.chapters[chKey].status === "empty" && canvas.textContent.trim().length > 0) {
             this.data.chapters[chKey].status = "in-progress";
           }

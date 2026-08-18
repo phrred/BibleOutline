@@ -1400,14 +1400,12 @@ async function saveOutlinesToCloud(user, localData) {
             (hb.points && hb.points.some((p) => p && p.trim().length > 0)) ||
             (hb.notes && hb.notes.trim().length > 0)
         );
-      const hasRichHTML = Boolean(ch.chapterOutlineRichHTML);
       const hasSummary = Boolean(ch.takeaway && ch.takeaway.trim().length > 0);
       const isDoneOrInProgress = ch.status === "completed" || ch.status === "in-progress";
 
-      if (hasBulletContent || hasRichHTML || hasSummary || isDoneOrInProgress) {
+      if (hasBulletContent || hasSummary || isDoneOrInProgress) {
         activeChapters[cid] = {
           status: ch.status || "in-progress",
-          chapterOutlineRichHTML: ch.chapterOutlineRichHTML || "",
           takeaway: ch.takeaway || "",
           headingBlocks: Array.isArray(ch.headingBlocks)
             ? ch.headingBlocks.map((hb) => ({
@@ -2445,11 +2443,8 @@ function renderChapterEditorView({
                   <div
                     id="chapter-rich-outline-editor"
                     class="flex-1 bg-[#1A1A18] border border-[#2B2B28] rounded-lg p-5 space-y-4 overflow-y-auto shadow-inner"
-                  >${
-                    chData.chapterOutlineRichHTML
-                      ? chData.chapterOutlineRichHTML
-                      : blocks
-                          .map((block, idx) => {
+                  >${blocks
+                    .map((block, idx) => {
                       const isCol = Boolean(chCollapsedState[idx]);
                       const pts =
                         Array.isArray(block.points) && block.points.length > 0
@@ -2528,8 +2523,7 @@ function renderChapterEditorView({
                         </div>
                       `;
                     })
-                    .join("")
-                  }
+                    .join("")}
                   </div>
                 </div>
               `
@@ -2780,7 +2774,6 @@ class BibleOutlineStudio {
       }
     });
 
-    this.data.chapters[chKey].chapterOutlineRichHTML = richEditor.innerHTML;
     saveOutlineStorage(this.data);
   }
 
@@ -3291,7 +3284,6 @@ class BibleOutlineStudio {
             block.points = lis;
             block.notes = lis.join("\n");
           }
-          this.data.chapters[chKey].chapterOutlineRichHTML = editor.innerHTML;
           if (this.data.chapters[chKey].status === "empty" && canvas.textContent.trim().length > 0) {
             this.data.chapters[chKey].status = "in-progress";
           }

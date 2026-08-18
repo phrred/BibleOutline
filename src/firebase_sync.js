@@ -106,14 +106,12 @@ export async function saveOutlinesToCloud(user, localData) {
             (hb.points && hb.points.some((p) => p && p.trim().length > 0)) ||
             (hb.notes && hb.notes.trim().length > 0)
         );
-      const hasRichHTML = Boolean(ch.chapterOutlineRichHTML);
       const hasSummary = Boolean(ch.takeaway && ch.takeaway.trim().length > 0);
       const isDoneOrInProgress = ch.status === "completed" || ch.status === "in-progress";
 
-      if (hasBulletContent || hasRichHTML || hasSummary || isDoneOrInProgress) {
+      if (hasBulletContent || hasSummary || isDoneOrInProgress) {
         activeChapters[cid] = {
           status: ch.status || "in-progress",
-          chapterOutlineRichHTML: ch.chapterOutlineRichHTML || "",
           takeaway: ch.takeaway || "",
           headingBlocks: Array.isArray(ch.headingBlocks)
             ? ch.headingBlocks.map((hb) => ({
