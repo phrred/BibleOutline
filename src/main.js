@@ -52,11 +52,36 @@ class BibleOutlineStudio {
       this.googleUser = user;
       if (user) {
         this.cloudSyncStatus = `Synced as ${user.displayName || user.email}`;
+        this.syncCloudOutlinesWithLocal(user);
       } else {
         this.cloudSyncStatus = "Not signed in";
       }
       this.render();
     });
+  }
+
+  // Two-way synchronization between Firestore cloud outlines & local storage
+  async syncCloudOutlinesWithLocal(user) {
+    if (!user) return;
+    try {
+      const cloudData = await loadOutlinesFromCloud(user);
+      if (cloudData && cloudData.chapters) {
+        let merged = false;
+        for (const [cid, ch] of Object.entries(cloudData.chapters)) {
+          if (ch && (ch.chapterOutlineRichHTML || ch.headingBlocks)) {
+            this.data.chapters[cid] = ch;
+            merged = true;
+          }
+        }
+        if (merged) {
+          saveOutlineStorage(this.data);
+          this.render();
+        }
+      }
+      await saveOutlinesToCloud(user, this.data);
+    } catch (err) {
+      console.warn("Cloud sync error:", err);
+    }
   }
 
   notifyDataChanged() {
@@ -395,7 +420,7 @@ class BibleOutlineStudio {
             const user = await signInWithGoogleSSO();
             this.googleUser = user;
             this.cloudSyncStatus = `Signed in as ${user.displayName || user.email}`;
-            await saveOutlinesToCloud(user, this.data);
+            await this.syncCloudOutlinesWithLocal(user);
             this.render();
           } catch (err) {
             this.cloudSyncStatus = `Notice: ${err.message}`;
