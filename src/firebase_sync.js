@@ -16,14 +16,31 @@ async function ensureFirebase() {
     );
   }
 
-  // Load official Firebase V9/V10 JS SDK modules from CDN
+// Load official Firebase V9/V10 JS SDK modules from CDN
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js");
-  const { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged } = await import(
-    "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"
-  );
-  const { getFirestore, doc, setDoc, getDoc, serverTimestamp } = await import(
-    "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"
-  );
+  const {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signInWithRedirect,
+    getRedirectResult,
+    signOut,
+    onAuthStateChanged
+  } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js");
+  const {
+    getFirestore,
+    doc,
+    setDoc,
+    getDoc,
+    getDocs,
+    collection,
+    query,
+    orderBy,
+    limit,
+    writeBatch,
+    deleteDoc,
+    serverTimestamp
+  } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
 
   firebaseApp = initializeApp(FIREBASE_CONFIG);
   auth = getAuth(firebaseApp);
@@ -41,6 +58,13 @@ async function ensureFirebase() {
     doc,
     setDoc,
     getDoc,
+    getDocs,
+    collection,
+    query,
+    orderBy,
+    limit,
+    writeBatch,
+    deleteDoc,
     serverTimestamp
   };
 
@@ -80,109 +104,361 @@ export async function signOutUser() {
   await signOut(auth);
 }
 
-export async function saveOutlinesToCloud(user, localData) {
-  if (!user || !user.uid) return false;
-  const { db, doc, setDoc, serverTimestamp } = await ensureFirebase();
-  const userDocRef = doc(db, "users", user.uid);
+// Clean and compact chapter outline data for lean, high-fidelity storage
+export function cleanChapterData(ch) {
+  if (!ch) return null;
+  const activeSections = Array.isArray(ch.headingBlocks)
+    ? ch.headingBlocks
+        .map((hb) => {
+          const pts = Array.isArray(hb.points)
+            ? hb.points.map((p) => (p || "").trim()).filter((p) => p.length > 0)
+            : [];
+          const notes = (hb.notes || "").trim();
+          const verses = (hb.verses || "").trim();
+          const heading = (hb.heading || "").trim();
+          if (!heading && pts.length === 0 && !notes) return null;
+          const block = { heading: heading || "Section" };
+          if (verses) block.verses = verses;
+          if (pts.length > 0) block.points = pts;
+          if (notes) block.notes = notes;
+          return block;
+        })
+        .filter(Boolean)
+    : [];
 
-  // Extract non-empty books and chapters for lightweight cloud storage
-  const activeBooks = {};
-  const activeChapters = {};
+  const takeaway = (ch.takeaway || "").trim();
+  const richHTML = (ch.chapterOutlineRichHTML || "").trim();
+  const status = ch.status && ch.status !== "empty" ? ch.status : null;
+  const updatedAt = ch.updatedAt || null;
 
-  if (localData.books) {
-    for (const [bid, b] of Object.entries(localData.books)) {
-      if (b && b.bookSummary && b.bookSummary.trim()) {
-        activeBooks[bid] = b;
-      }
-    }
-  }
+  const hasContent = activeSections.length > 0 || takeaway.length > 0 || richHTML.length > 0;
+  if (!hasContent) return null;
 
+  const compact = {};
+  if (activeSections.length > 0) compact.headingBlocks = activeSections;
+  if (takeaway) compact.takeaway = takeaway;
+  if (richHTML) compact.chapterOutlineRichHTML = richHTML;
+  if (status) compact.status = status;
+  if (updatedAt) compact.updatedAt = updatedAt;
+  return compact;
+}
+
+// Extract active content for a specific book to store in its own subcollection document
+export function extractBookData(bookId, localData) {
+  if (!bookId || !localData) return null;
+  const b = localData.books?.[bookId] || {};
+  const bookSummary = (b.bookSummary || "").trim();
+  const myBookTheme = (b.myBookTheme || "").trim();
+  const updatedAt = b.updatedAt || Date.now();
+
+  const chaptersMap = {};
   if (localData.chapters) {
+    const prefix = `${bookId}-`;
     for (const [cid, ch] of Object.entries(localData.chapters)) {
-      const activeSections = Array.isArray(ch.headingBlocks)
-        ? ch.headingBlocks
-            .map((hb) => {
-              const pts = Array.isArray(hb.points)
-                ? hb.points.map((p) => (p || "").trim()).filter((p) => p.length > 0)
-                : [];
-              if (pts.length === 0) return null;
-              return {
-                heading: hb.heading || "Section",
-                points: pts
-              };
-            })
-            .filter(Boolean)
-        : [];
-
-      const hasSummary = Boolean(ch.takeaway && ch.takeaway.trim().length > 0);
-
-      if (activeSections.length > 0 || hasSummary) {
-        const compactCh = {
-          sections: activeSections
-        };
-        if (hasSummary) {
-          compactCh.takeaway = ch.takeaway.trim();
+      if (cid.startsWith(prefix)) {
+        const cleaned = cleanChapterData(ch);
+        if (cleaned) {
+          chaptersMap[cid] = cleaned;
         }
-        activeChapters[cid] = compactCh;
       }
     }
   }
 
-  const payload = JSON.parse(
-    JSON.stringify({
-      email: user.email || "",
-      displayName: user.displayName || "User",
-      lastSyncedTimestamp: Date.now(),
-      books: activeBooks,
-      chapters: activeChapters,
-      quizHistory: Array.isArray(localData.quizHistory) ? localData.quizHistory.slice(0, 50) : []
-    })
-  );
+  const hasAnyChapters = Object.keys(chaptersMap).length > 0;
+  const hasBookContent = bookSummary.length > 0 || myBookTheme.length > 0;
 
-  await setDoc(userDocRef, payload, { merge: true });
+  if (!hasAnyChapters && !hasBookContent) {
+    return null;
+  }
+
+  return {
+    bookId,
+    bookSummary,
+    myBookTheme,
+    updatedAt,
+    chapters: chaptersMap
+  };
+}
+
+// Save only a single book document to /users/{uid}/books/{bookId} (Option A: Granular Save)
+export async function saveBookToCloud(user, bookId, localData) {
+  if (!user || !user.uid || !bookId) return false;
+  const { db, doc, setDoc } = await ensureFirebase();
+
+  const bookData = extractBookData(bookId, localData);
+  const bookDocRef = doc(db, "users", user.uid, "books", bookId);
+
+  if (bookData) {
+    const payload = JSON.parse(JSON.stringify(bookData));
+    await setDoc(bookDocRef, payload, { merge: true });
+  }
+
+  // Update root document metadata for cloud sync state
+  try {
+    const userDocRef = doc(db, "users", user.uid);
+    await setDoc(
+      userDocRef,
+      {
+        email: user.email || "",
+        displayName: user.displayName || "User",
+        lastSyncedTimestamp: Date.now(),
+        storageModel: "book_subcollections_v2",
+        lastActiveBookId: bookId
+      },
+      { merge: true }
+    );
+  } catch (_) {}
 
   return true;
 }
 
-let cloudSaveTimer = null;
-export function debouncedCloudAutoSave(user, localData, onStatusUpdate, delayMs = 1200) {
-  if (!user || !user.uid) return;
-  if (cloudSaveTimer) clearTimeout(cloudSaveTimer);
+// Granular per-book debounced cloud auto-save
+const bookSaveTimers = new Map();
+export function debouncedCloudAutoSaveBook(user, bookId, localData, onStatusUpdate, delayMs = 900) {
+  if (!user || !user.uid || !bookId) return;
 
-  if (onStatusUpdate) {
-    onStatusUpdate("☁️ Saving to Firebase...");
+  if (bookSaveTimers.has(bookId)) {
+    clearTimeout(bookSaveTimers.get(bookId));
   }
 
-  cloudSaveTimer = setTimeout(async () => {
+  if (onStatusUpdate) {
+    onStatusUpdate(`☁️ Saving ${bookId}...`);
+  }
+
+  const timer = setTimeout(async () => {
+    bookSaveTimers.delete(bookId);
     try {
-      await saveOutlinesToCloud(user, localData);
+      await saveBookToCloud(user, bookId, localData);
       if (onStatusUpdate) {
-        onStatusUpdate("☁️ Auto-saved to Firebase");
+        onStatusUpdate(`☁️ ${bookId} saved to cloud`);
       }
     } catch (err) {
-      console.warn("Cloud auto-save error:", err);
+      console.warn(`Cloud auto-save error for ${bookId}:`, err);
       if (onStatusUpdate) {
         const msg = err.message || "Firebase offline";
         onStatusUpdate(`⚠️ ${msg.slice(0, 32)}`);
       }
     }
   }, delayMs);
+
+  bookSaveTimers.set(bookId, timer);
 }
 
+// Save a completed diagnostic quiz record into /users/{uid}/quizzes/{quizId}
+export async function saveQuizToCloud(user, quizRecord) {
+  if (!user || !user.uid || !quizRecord) return false;
+  const qId = quizRecord.id || `quiz_${quizRecord.date || Date.now()}`;
+  const { db, doc, setDoc } = await ensureFirebase();
+  const quizDocRef = doc(db, "users", user.uid, "quizzes", qId);
+  const payload = JSON.parse(JSON.stringify({ ...quizRecord, id: qId }));
+  await setDoc(quizDocRef, payload, { merge: true });
+  return true;
+}
+
+// Save book mastery ratings into /users/{uid}/meta/mastery
+export async function saveMasteryToCloud(user, bookMastery) {
+  if (!user || !user.uid || !bookMastery) return false;
+  const { db, doc, setDoc } = await ensureFirebase();
+  const masteryDocRef = doc(db, "users", user.uid, "meta", "mastery");
+  const payload = JSON.parse(JSON.stringify({ bookMastery, updatedAt: Date.now() }));
+  await setDoc(masteryDocRef, payload, { merge: true });
+  return true;
+}
+
+// Delete a specific quiz record from /users/{uid}/quizzes/{quizId}
+export async function deleteQuizFromCloud(user, quizId) {
+  if (!user || !user.uid || !quizId) return false;
+  try {
+    const { db, doc, deleteDoc } = await ensureFirebase();
+    const quizDocRef = doc(db, "users", user.uid, "quizzes", quizId);
+    await deleteDoc(quizDocRef);
+    return true;
+  } catch (err) {
+    console.warn("Delete quiz from cloud error:", err);
+    return false;
+  }
+}
+
+// Clear all quiz records in /users/{uid}/quizzes
+export async function clearAllQuizzesFromCloud(user) {
+  if (!user || !user.uid) return false;
+  try {
+    const { db, doc, deleteDoc, getDocs, collection } = await ensureFirebase();
+    const quizzesColRef = collection(db, "users", user.uid, "quizzes");
+    const quizzesSnap = await getDocs(quizzesColRef);
+    const deletePromises = [];
+    quizzesSnap.forEach((qDoc) => {
+      deletePromises.push(deleteDoc(qDoc.ref));
+    });
+    await Promise.all(deletePromises);
+    return true;
+  } catch (err) {
+    console.warn("Clear quizzes from cloud error:", err);
+    return false;
+  }
+}
+
+// Full backup of all active books, quizzes, and mastery across subcollections
+export async function saveAllOutlinesToCloud(user, localData) {
+  if (!user || !user.uid) return false;
+  const { db, doc, setDoc } = await ensureFirebase();
+
+  // 1. Root user doc
+  const userDocRef = doc(db, "users", user.uid);
+  await setDoc(
+    userDocRef,
+    {
+      email: user.email || "",
+      displayName: user.displayName || "User",
+      lastSyncedTimestamp: Date.now(),
+      storageModel: "book_subcollections_v2"
+    },
+    { merge: true }
+  );
+
+  // 2. Discover and save all active books to /users/{uid}/books/{bookId}
+  const activeBookIds = new Set();
+  if (localData.books) {
+    Object.keys(localData.books).forEach((bid) => activeBookIds.add(bid));
+  }
+  if (localData.chapters) {
+    Object.keys(localData.chapters).forEach((cid) => {
+      const bid = cid.split("-")[0];
+      if (bid) activeBookIds.add(bid);
+    });
+  }
+
+  const bookSavePromises = [];
+  for (const bid of activeBookIds) {
+    const bookData = extractBookData(bid, localData);
+    if (bookData) {
+      const bookDocRef = doc(db, "users", user.uid, "books", bid);
+      bookSavePromises.push(setDoc(bookDocRef, JSON.parse(JSON.stringify(bookData)), { merge: true }));
+    }
+  }
+  await Promise.all(bookSavePromises);
+
+  // 3. Save quiz history (up to 50 items) to /users/{uid}/quizzes/{quizId}
+  if (Array.isArray(localData.quizHistory) && localData.quizHistory.length > 0) {
+    const quizPromises = localData.quizHistory.slice(0, 50).map((q) => {
+      const qId = q.id || `quiz_${q.date || Date.now()}`;
+      const qRef = doc(db, "users", user.uid, "quizzes", qId);
+      return setDoc(qRef, JSON.parse(JSON.stringify({ ...q, id: qId })), { merge: true });
+    });
+    await Promise.all(quizPromises);
+  }
+
+  // 4. Save mastery to /users/{uid}/meta/mastery
+  if (localData.bookMastery && Object.keys(localData.bookMastery).length > 0) {
+    await saveMasteryToCloud(user, localData.bookMastery);
+  }
+
+  return true;
+}
+
+// Load all outlines from subcollections, with backward-compatibility for legacy v1 single-doc data
 export async function loadOutlinesFromCloud(user) {
   if (!user || !user.uid) return null;
-  const { db, doc, getDoc } = await ensureFirebase();
-  const userDocRef = doc(db, "users", user.uid);
-  const snapshot = await getDoc(userDocRef);
+  const { db, doc, getDoc, getDocs, collection } = await ensureFirebase();
 
-  if (snapshot.exists()) {
-    const data = snapshot.data();
-    return {
-      books: data.books || {},
-      chapters: data.chapters || {},
-      quizHistory: data.quizHistory || []
-    };
+  const userDocRef = doc(db, "users", user.uid);
+  const rootSnap = await getDoc(userDocRef);
+  const rootData = rootSnap.exists() ? rootSnap.data() : {};
+
+  // Fetch books subcollection
+  const booksColRef = collection(db, "users", user.uid, "books");
+  const booksSnap = await getDocs(booksColRef);
+
+  const booksMap = {};
+  const chaptersMap = {};
+
+  if (!booksSnap.empty) {
+    // Loaded from Option A Subcollections!
+    booksSnap.forEach((bDoc) => {
+      const bData = bDoc.data();
+      const bid = bDoc.id || bData.bookId;
+      if (bid) {
+        booksMap[bid] = {
+          bookSummary: bData.bookSummary || "",
+          myBookTheme: bData.myBookTheme || "",
+          updatedAt: bData.updatedAt || null
+        };
+        if (bData.chapters && typeof bData.chapters === "object") {
+          for (const [cid, ch] of Object.entries(bData.chapters)) {
+            if (ch) {
+              chaptersMap[cid] = ch;
+            }
+          }
+        }
+      }
+    });
+  } else if (rootData.books || rootData.chapters) {
+    // Backward compatibility: Legacy monolithic v1 format found on root doc!
+    if (rootData.books) {
+      for (const [bid, b] of Object.entries(rootData.books)) {
+        if (b) booksMap[bid] = b;
+      }
+    }
+    if (rootData.chapters) {
+      for (const [cid, ch] of Object.entries(rootData.chapters)) {
+        if (ch) chaptersMap[cid] = ch;
+      }
+    }
+
+    // Auto-migrate legacy format to Option A subcollections in background
+    setTimeout(() => {
+      saveAllOutlinesToCloud(user, {
+        books: booksMap,
+        chapters: chaptersMap,
+        quizHistory: rootData.quizHistory || [],
+        bookMastery: rootData.bookMastery || {}
+      }).catch((e) => console.warn("Auto-migration to subcollections notice:", e));
+    }, 500);
   }
-  return null;
+
+  // Fetch quizzes subcollection
+  let quizHistory = [];
+  try {
+    const quizzesColRef = collection(db, "users", user.uid, "quizzes");
+    const quizzesSnap = await getDocs(quizzesColRef);
+    if (!quizzesSnap.empty) {
+      quizzesSnap.forEach((qDoc) => {
+        quizHistory.push(qDoc.data());
+      });
+      quizHistory.sort((a, b) => (b.date || 0) - (a.date || 0));
+    }
+  } catch (err) {
+    console.warn("Quizzes subcollection load fallback:", err);
+  }
+
+  if (quizHistory.length === 0 && Array.isArray(rootData.quizHistory)) {
+    quizHistory = rootData.quizHistory;
+  }
+
+  // Fetch mastery doc
+  let bookMastery = {};
+  try {
+    const masteryDocRef = doc(db, "users", user.uid, "meta", "mastery");
+    const masterySnap = await getDoc(masteryDocRef);
+    if (masterySnap.exists()) {
+      bookMastery = masterySnap.data().bookMastery || {};
+    } else if (rootData.bookMastery) {
+      bookMastery = rootData.bookMastery;
+    }
+  } catch (_) {}
+
+  return {
+    books: booksMap,
+    chapters: chaptersMap,
+    quizHistory,
+    bookMastery,
+    lastSyncedTimestamp: rootData.lastSyncedTimestamp || Date.now()
+  };
 }
+
+// Aliases for compatibility
+export const saveOutlinesToCloud = saveAllOutlinesToCloud;
+export const debouncedCloudAutoSave = (user, localData, onStatusUpdate, delayMs) => {
+  debouncedCloudAutoSaveBook(user, localData?.selectedBookId || "GEN", localData, onStatusUpdate, delayMs);
+};
 

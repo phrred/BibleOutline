@@ -186,7 +186,9 @@ export function exportToMarkdown(data, bookId = null) {
     for (let ch = 1; ch <= book.chapterCount; ch++) {
       const chKey = `${book.id}-${ch}`;
       const chData = data.chapters[chKey];
-      if (chData && (chData.chapterTitle.trim() || chData.notes.trim() || chData.sections.length > 0)) {
+      const hasHeadingNotes = Array.isArray(chData?.headingBlocks) && chData.headingBlocks.some((b) => (b.notes && b.notes.trim()) || (Array.isArray(b.points) && b.points.length > 0));
+      const hasLegacyNotes = Boolean((chData?.chapterTitle || "").trim() || (chData?.notes || "").trim() || (chData?.sections || []).length > 0);
+      if (chData && (hasHeadingNotes || hasLegacyNotes || (chData.takeaway && chData.takeaway.trim()))) {
         outlinedCount++;
       }
     }

@@ -66,3 +66,23 @@ Because this web app is built as a self-contained modern ES-Module static client
    };
    ```
 5. Click **"☁️ Google SSO / Sync"** in the top navigation bar to sign in and back up your Bible outlines across all your devices.
+
+---
+
+## 🧪 Automated Regression Testing
+
+You can run the automated regression test suite after making any code changes to verify all functionality remains intact:
+
+```bash
+# Run the complete test suite (Unit Logic + Headless Browser E2E)
+./run_tests.sh
+
+# Run unit tests only (~0.03s)
+./run_tests.sh --unit
+
+# Run headless browser E2E tests only (~0.7s)
+./run_tests.sh --e2e
+```
+
+The runner automatically compiles `bundle.js` from `src/`, verifies the local web server, launches an isolated Headless Chrome instance via CDP, executes all 12 regression tests across 2 suites, and outputs a formatted pass/fail report.
+

@@ -8,9 +8,19 @@ import { BIBLE_BOOKS, getBookById } from "../data/bible_catalog.js";
 import { fetchESVChapter, extractESVHeadings, formatESVTextToHTML } from "./esv_api.js";
 import {
   signInWithGoogleSSO,
+  signInWithGoogleRedirect,
   signOutUser,
-  saveOutlinesToCloud,
+  listenForAuthChanges,
+  preloadFirebaseSDK,
+  saveBookToCloud,
+  debouncedCloudAutoSaveBook,
+  saveQuizToCloud,
+  deleteQuizFromCloud,
+  clearAllQuizzesFromCloud,
+  saveMasteryToCloud,
+  saveAllOutlinesToCloud,
   loadOutlinesFromCloud,
+  saveOutlinesToCloud,
   debouncedCloudAutoSave
 } from "./firebase_sync.js";
 import { renderSidebar } from "./components/Sidebar.js";
@@ -83,47 +93,108 @@ class BibleOutlineStudio {
     if (!user) return;
     try {
       const cloudData = await loadOutlinesFromCloud(user);
-      if (cloudData && cloudData.chapters) {
+      if (cloudData) {
         let merged = false;
-        for (const [cid, ch] of Object.entries(cloudData.chapters)) {
-          if (!ch) continue;
-          if (!this.data.chapters[cid]) {
-            this.data.chapters[cid] = { headingBlocks: [], status: "in-progress" };
-          }
-          if (ch.takeaway) {
-            this.data.chapters[cid].takeaway = ch.takeaway;
-          }
-          const cloudSections = ch.sections || ch.headingBlocks || [];
-          cloudSections.forEach((cs, sIdx) => {
-            let match = this.data.chapters[cid].headingBlocks.find(
-              (hb) => hb.heading && hb.heading.toLowerCase() === cs.heading.toLowerCase()
-            );
-            if (!match) {
-              match = this.data.chapters[cid].headingBlocks[sIdx];
+
+        // 1. Merge Book Summaries & Themes
+        if (cloudData.books) {
+          for (const [bid, b] of Object.entries(cloudData.books)) {
+            if (!b) continue;
+            if (!this.data.books[bid]) {
+              this.data.books[bid] = { bookSummary: "", myBookTheme: "", updatedAt: null };
             }
-            if (match) {
-              match.points = Array.isArray(cs.points) ? cs.points : [];
-            } else {
-              this.data.chapters[cid].headingBlocks.push({
-                heading: cs.heading,
-                points: Array.isArray(cs.points) ? cs.points : []
+            if (b.bookSummary && b.bookSummary.trim()) {
+              this.data.books[bid].bookSummary = b.bookSummary;
+              merged = true;
+            }
+            if (b.myBookTheme && b.myBookTheme.trim()) {
+              this.data.books[bid].myBookTheme = b.myBookTheme;
+              merged = true;
+            }
+          }
+        }
+
+        // 2. Merge Chapters
+        if (cloudData.chapters) {
+          for (const [cid, ch] of Object.entries(cloudData.chapters)) {
+            if (!ch) continue;
+            if (!this.data.chapters[cid]) {
+              this.data.chapters[cid] = { headingBlocks: [], status: "in-progress" };
+            }
+            if (ch.takeaway) {
+              this.data.chapters[cid].takeaway = ch.takeaway;
+              merged = true;
+            }
+            if (ch.chapterOutlineRichHTML) {
+              this.data.chapters[cid].chapterOutlineRichHTML = ch.chapterOutlineRichHTML;
+              merged = true;
+            }
+            if (ch.status && ch.status !== "empty") {
+              this.data.chapters[cid].status = ch.status;
+            }
+            const cloudSections = ch.headingBlocks || ch.sections || [];
+            if (Array.isArray(cloudSections) && cloudSections.length > 0) {
+              cloudSections.forEach((cs, sIdx) => {
+                let match = this.data.chapters[cid].headingBlocks.find(
+                  (hb) => hb.heading && hb.heading.toLowerCase() === cs.heading.toLowerCase()
+                );
+                if (!match) {
+                  match = this.data.chapters[cid].headingBlocks[sIdx];
+                }
+                if (match) {
+                  if (Array.isArray(cs.points) && cs.points.length > 0) {
+                    match.points = cs.points;
+                  }
+                  if (cs.notes && cs.notes.trim()) {
+                    match.notes = cs.notes;
+                  }
+                } else {
+                  this.data.chapters[cid].headingBlocks.push({
+                    heading: cs.heading || "Section",
+                    verses: cs.verses || "",
+                    notes: cs.notes || "",
+                    points: Array.isArray(cs.points) ? cs.points : []
+                  });
+                }
               });
+              merged = true;
+            }
+          }
+        }
+
+        // 3. Merge Quiz History
+        if (Array.isArray(cloudData.quizHistory) && cloudData.quizHistory.length > 0) {
+          if (!Array.isArray(this.data.quizHistory)) this.data.quizHistory = [];
+          const existingIds = new Set(this.data.quizHistory.map((q) => q.id || `${q.date}`));
+          cloudData.quizHistory.forEach((q) => {
+            const qKey = q.id || `${q.date}`;
+            if (!existingIds.has(qKey)) {
+              this.data.quizHistory.push(q);
+              existingIds.add(qKey);
+              merged = true;
             }
           });
+          this.data.quizHistory.sort((a, b) => (b.date || 0) - (a.date || 0));
+        }
+
+        // 4. Merge Book Mastery
+        if (cloudData.bookMastery && typeof cloudData.bookMastery === "object") {
+          this.data.bookMastery = { ...this.data.bookMastery, ...cloudData.bookMastery };
           merged = true;
         }
+
         if (merged) {
           saveOutlineStorage(this.data);
           this.render();
         }
       }
-      await saveOutlinesToCloud(user, this.data);
+      await saveAllOutlinesToCloud(user, this.data);
     } catch (err) {
       console.warn("Cloud sync error:", err);
     }
   }
 
-  notifyDataChanged() {
+  notifyDataChanged(bookId = null) {
     const saveBadge = document.getElementById("editor-save-indicator");
     if (saveBadge) {
       saveBadge.innerHTML = `<span class="text-[#A19E97]">⏳</span><span class="text-[#A19E97]">Saving...</span>`;
@@ -136,8 +207,10 @@ class BibleOutlineStudio {
     }, 300);
 
     if (this.googleUser) {
-      debouncedCloudAutoSave(
+      const targetBook = bookId || this.selectedBookId || "GEN";
+      debouncedCloudAutoSaveBook(
         this.googleUser,
+        targetBook,
         this.data,
         (status) => {
           this.cloudSyncStatus = status;
@@ -147,11 +220,11 @@ class BibleOutlineStudio {
               this.googleUser.displayName || "Google"
             } • ${status}</span>`;
           }
-          if (saveBadge && status.includes("Auto-saved")) {
+          if (saveBadge && status.includes("saved to cloud")) {
             saveBadge.innerHTML = `<span class="text-[#34A853]">🟢</span><span class="text-[#34A853]">Saved to cloud</span>`;
           }
         },
-        1000
+        800
       );
     }
   }
@@ -752,8 +825,7 @@ class BibleOutlineStudio {
           this.render();
           const cloudData = await loadOutlinesFromCloud(this.googleUser);
           if (cloudData) {
-            this.data = { ...this.data, ...cloudData };
-            saveOutlineStorage(this.data);
+            await this.syncCloudOutlinesWithLocal(this.googleUser);
             this.cloudSyncStatus = "✓ Outlines restored from Firebase Cloud!";
             this.render();
           } else {
@@ -1275,6 +1347,12 @@ class BibleOutlineStudio {
       };
       this.data.quizHistory.unshift(newRecord);
       this.notifyDataChanged();
+      if (this.googleUser) {
+        saveQuizToCloud(this.googleUser, newRecord).catch(() => {});
+        if (this.data.bookMastery) {
+          saveMasteryToCloud(this.googleUser, this.data.bookMastery).catch(() => {});
+        }
+      }
       this.render();
     };
 
@@ -1563,6 +1641,9 @@ class BibleOutlineStudio {
             this.viewingPastTest = null;
           }
           this.notifyDataChanged();
+          if (this.googleUser) {
+            deleteQuizFromCloud(this.googleUser, testId).catch(() => {});
+          }
           this.render();
         }
       });
@@ -1576,6 +1657,9 @@ class BibleOutlineStudio {
           this.data.quizHistory = [];
           this.viewingPastTest = null;
           this.notifyDataChanged();
+          if (this.googleUser) {
+            clearAllQuizzesFromCloud(this.googleUser).catch(() => {});
+          }
           this.render();
         }
       });
