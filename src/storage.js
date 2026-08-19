@@ -32,7 +32,9 @@ export function createInitialStorage() {
     version: 1,
     lastSaved: Date.now(),
     books,
-    chapters
+    chapters,
+    quizHistory: [],
+    bookMastery: {}
   };
 }
 
@@ -47,6 +49,11 @@ export function loadOutlineStorage() {
     const data = JSON.parse(raw);
     // Ensure all 66 books & 1,189 chapters exist even if newly added fields
     const defaultData = createInitialStorage();
+    if (!data.books) data.books = defaultData.books;
+    if (!data.chapters) data.chapters = defaultData.chapters;
+    if (!Array.isArray(data.quizHistory)) data.quizHistory = [];
+    if (!data.bookMastery) data.bookMastery = {};
+
     BIBLE_BOOKS.forEach((book) => {
       if (!data.books[book.id]) {
         data.books[book.id] = defaultData.books[book.id];

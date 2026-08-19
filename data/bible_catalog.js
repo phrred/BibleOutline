@@ -9,11 +9,11 @@ export const BIBLE_ERAS = [
     timeframe: "Primeval History",
     summary: "God creates the cosmos, earth, and humanity in His image to steward creation in harmony with Him. Humanity's rebellion in the Garden of Eden introduces sin, alienation, mortality, and broken relationships across creation. Yet, God promises a future Seed who will crush the serpent's head.",
     keyTurningPoints: [
-      "Creation of heaven, earth, and image-bearers (Gen 1–2)",
-      "The Fall & First Gospel / Protoevangelium promise (Gen 3)",
-      "Cain & Abel / Spread of corruption (Gen 4–6)",
-      "The Flood and Noahic Covenant (Gen 6–9)",
-      "Tower of Babel & dispersion of nations (Gen 11)"
+      "Creation of the heavens and the earth",
+      "The Fall of Man and the serpent in the Garden",
+      "Cain and Abel",
+      "The Great Flood and Noah's Ark",
+      "The Tower of Babel"
     ],
     bookIds: ["GEN"]
   },
@@ -24,11 +24,11 @@ export const BIBLE_ERAS = [
     timeframe: "c. 2100 – 1800 BC",
     summary: "God initiates His rescue plan for all nations by calling Abraham out of Ur and cutting an unconditional covenant to give him descendants, land, and global blessing. Through Isaac, Jacob (renamed Israel), and Joseph, God preserves His people through famine and relocates them to Egypt.",
     keyTurningPoints: [
-      "The Abrahamic Covenant & Call (Gen 12, 15, 17)",
-      "Binding of Isaac / Test of Faith (Gen 22)",
-      "Jacob wrestling with God & the 12 Patriarchs (Gen 28, 32)",
-      "Joseph sold into slavery and exalted in Egypt to save nations (Gen 37–50)",
-      "Job's suffering, wisdom, and encounter with the Creator (Job)"
+      "The Abrahamic Covenant & Call",
+      "The Binding of Isaac",
+      "Jacob wrestling with God",
+      "Joseph sold into slavery and exalted in Egypt",
+      "Job's suffering and encounter with God"
     ],
     bookIds: ["GEN", "JOB"]
   },
@@ -39,11 +39,11 @@ export const BIBLE_ERAS = [
     timeframe: "c. 1526 – 1050 BC",
     summary: "After 400 years of oppression in Egypt, God raises up Moses to deliver Israel via the Passover and Red Sea. At Mount Sinai, God establishes the Mosaic Covenant, Tabernacle worship, and holiness laws. Led by Joshua, Israel inherits the Promised Land, followed by the turbulent era of the Judges.",
     keyTurningPoints: [
-      "The Burning Bush, Ten Plagues & First Passover (Exo 1–13)",
-      "Crossing the Red Sea & Giving of the Torah at Sinai (Exo 14–24)",
-      "Tabernacle presence & Levitical sacrificial system (Exo 25–Lev 27)",
-      "Wilderness wandering & second generation covenant (Num–Deut)",
-      "Conquest of Canaan under Joshua & cycle of Judges/Redeemers (Josh–Ruth)"
+      "The Burning Bush and the Ten Plagues of Egypt",
+      "Crossing the Red Sea and the Ten Commandments",
+      "The Tabernacle and Levitical offerings",
+      "The Twelve Spies and Wilderness Wandering",
+      "The Conquest of Jericho and the Promised Land"
     ],
     bookIds: ["EXO", "LEV", "NUM", "DEU", "JOS", "JDG", "RUT"]
   },
@@ -54,11 +54,11 @@ export const BIBLE_ERAS = [
     timeframe: "c. 1050 – 931 BC (United) / 931 – 586 BC (Divided)",
     summary: "Israel transitions from judges to a monarchy under Saul, David, and Solomon. God cuts the Davidic Covenant, promising an eternal throne. Solomon builds the First Temple in Jerusalem and sponsors Israel's Golden Age of Poetic & Wisdom literature, before civil war splits the kingdom into Israel (North) and Judah (South).",
     keyTurningPoints: [
-      "Samuel anoints David & Davidic Covenant promised (1 Sam 16, 2 Sam 7)",
-      "Solomon dedicates the Temple in Jerusalem (1 Kings 8 / 2 Chron 5–7)",
-      "The Psalter: Prayers, laments, and worship songs across Israel's history",
+      "Samuel anoints David and the Davidic Covenant",
+      "Solomon dedicates the Temple in Jerusalem",
+      "The Psalms: Prayers, laments, and praises",
       "Wisdom literature: Proverbs, Ecclesiastes, and Song of Solomon",
-      "Division of Kingdom (931 BC) into Idolatrous North (Israel) & Judah (South)"
+      "The Division of the Kingdom into Israel and Judah"
     ],
     bookIds: ["1SA", "2SA", "1KI", "2KI", "1CH", "2CH", "PSA", "PRO", "ECC", "SNG"]
   },
@@ -69,11 +69,11 @@ export const BIBLE_ERAS = [
     timeframe: "c. 800 – 400 BC",
     summary: "God sends Major and Minor Prophets to warn kings and people to repent of idolatry and injustice while prophesying a New Covenant. Northern Israel falls to Assyria (722 BC) and Southern Judah falls to Babylon (586 BC), destroying the Temple. After 70 years, a remnant returns under Ezra and Nehemiah to rebuild.",
     keyTurningPoints: [
-      "Prophetic warnings & New Covenant promises (Isaiah, Jeremiah, Ezekiel)",
-      "Fall of Jerusalem & Babylonian Exile (586 BC; Lamentations, Daniel)",
-      "Cyrus's Decree & Rebuilding the Second Temple (Ezra, Haggai, Zechariah)",
-      "Esther's deliverance of the Jews in Persia (Esther)",
-      "Nehemiah rebuilds Jerusalem's walls & Malachi closes the OT era (Neh, Mal)"
+      "Prophetic warnings and New Covenant promises",
+      "The Fall of Jerusalem and Babylonian Exile",
+      "Rebuilding the Second Temple under Zerubbabel",
+      "Esther's deliverance of the Jews in Persia",
+      "Nehemiah rebuilding the walls of Jerusalem"
     ],
     bookIds: [
       "ISA", "JER", "LAM", "EZE", "DAN",
@@ -88,11 +88,11 @@ export const BIBLE_ERAS = [
     timeframe: "c. 5 BC – AD 30",
     summary: "After 400 years of intertestamental silence, God Himself arrives in the flesh. Jesus of Nazareth fulfills all Old Testament types, prophecies, and covenants. He inaugurates the Kingdom of God, preaches grace and truth, dies on the cross as the substitutionary sacrifice for sin, and rises bodily on the third day.",
     keyTurningPoints: [
-      "Incarnation, Virgin Birth & Baptism by John the Baptist",
-      "Sermon on the Mount & Parables of the Kingdom",
-      "Signs, Miracles & Transfiguration revealing Christ's deity",
-      "Crucifixion, Atonement for sin & Rending of the Temple veil",
-      "Bodily Resurrection & The Great Commission"
+      "The Incarnation and Virgin Birth of Jesus",
+      "The Sermon on the Mount and Parables of the Kingdom",
+      "The Transfiguration and Miracles of Jesus",
+      "The Crucifixion and Atonement on the Cross",
+      "The Bodily Resurrection and Great Commission"
     ],
     bookIds: ["MAT", "MRK", "LUK", "JHN"]
   },
@@ -103,11 +103,11 @@ export const BIBLE_ERAS = [
     timeframe: "AD 30 – AD 95",
     summary: "The risen Christ sends the Holy Spirit at Pentecost, empowering apostles and disciples to bear witness from Jerusalem to Judea, Samaria, and the ends of the earth. Paul and other apostles write inspired pastoral and theological epistles to ground local churches in faith, unity, ethics, and suffering.",
     keyTurningPoints: [
-      "Pentecost & birth of the Spirit-empowered Church (Acts 2)",
-      "Conversion of Saul (Paul) & Missionary Journeys to the Gentile world",
-      "Jerusalem Council affirming salvation by grace alone through faith (Acts 15)",
-      "Pauline Epistles (Romans to Philemon) expounding gospel justification & living",
-      "General Epistles (Hebrews to Jude) encouraging perseverance under trial"
+      "The Day of Pentecost and the birth of the Church",
+      "The Conversion of Saul and Missionary Journeys",
+      "The Jerusalem Council",
+      "Paul's Epistles expounding gospel justification and life",
+      "The General Epistles encouraging perseverance under trial"
     ],
     bookIds: [
       "ACT", "ROM", "1CO", "2CO", "GAL", "EPH", "PHP", "COL",
@@ -122,11 +122,11 @@ export const BIBLE_ERAS = [
     timeframe: "Consummation of History",
     summary: "John's apocalyptic vision on Patmos unveils the exalted Christ who holds the scroll of history. Through vivid symbolic visions of cosmic conflict, judgment of evil, and the defeat of Satan and Babylon, the narrative climaxes in the Return of Christ, the Last Judgment, and the New Jerusalem descending to earth.",
     keyTurningPoints: [
-      "Letters to the Seven Churches of Asia Minor (Rev 2–3)",
-      "The Lamb slain standing before the Throne (Rev 4–5)",
-      "Seven Seals, Trumpets, and Bowls of Judgment (Rev 6–18)",
-      "Return of the Rider on the White Horse & Final Defeat of Evil (Rev 19–20)",
-      "New Heaven, New Earth & Tree of Life restored (Rev 21–22)"
+      "Letters to the Seven Churches of Asia Minor",
+      "The Lamb slain standing before the Throne",
+      "The Seals, Trumpets, and Bowls of Judgment",
+      "The Return of Christ and Final Defeat of Evil",
+      "The New Heaven, New Earth, and New Jerusalem"
     ],
     bookIds: ["REV"]
   }

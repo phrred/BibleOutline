@@ -8,7 +8,8 @@ export function renderBookRollupView({
   const bookData = data.books[selectedBook.id] || { bookSummary: "" };
 
   return `
-    <div class="max-w-3xl mx-auto p-10 space-y-10 text-[#EAE8E2] bg-[#141413] min-h-full">
+    <div class="h-full w-full overflow-y-auto bg-[#141413] text-[#EAE8E2]">
+      <div class="max-w-3xl mx-auto p-6 md:p-10 space-y-10">
       <!-- Quiet Book Header -->
       <div class="border-b border-[#242422] pb-6 space-y-3">
         <div class="flex items-center justify-between text-xs text-[#8C8A84]">
@@ -16,9 +17,20 @@ export function renderBookRollupView({
           <span>${selectedBook.author} • ${selectedBook.date}</span>
         </div>
 
-        <h1 class="font-serif text-3xl font-bold text-[#EAE8E2] tracking-tight">
-          ${selectedBook.name}
-        </h1>
+        <div class="flex items-center justify-between">
+          <h1 class="font-serif text-3xl font-bold text-[#EAE8E2] tracking-tight">
+            ${selectedBook.name}
+          </h1>
+
+          <button
+            data-launch-book-quiz="${selectedBook.id}"
+            class="launch-book-quiz-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#C4B79C] text-[#C4B79C] hover:text-[#141413] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5"
+            title="Launch a chapter mastery quiz for ${selectedBook.name}"
+          >
+            <span>📝 Quiz This Book</span>
+            <span>→</span>
+          </button>
+        </div>
 
         <p class="text-xs leading-relaxed text-[#A19E97]">
           ${selectedBook.context}
@@ -150,5 +162,6 @@ export function renderBookRollupView({
         </div>
       </div>
     </div>
+  </div>
   `;
 }

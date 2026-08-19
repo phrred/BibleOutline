@@ -18,6 +18,8 @@ import { renderSidebar } from "./components/Sidebar.js";
 import { renderTopNavbar } from "./components/TopNavbar.js";
 import { renderBookRollupView } from "./components/BookRollupView.js";
 import { renderChapterEditorView } from "./components/ChapterEditorView.js";
+import { renderDiagnosticQuizView } from "./components/DiagnosticQuizView.js";
+import { DiagnosticSession } from "./quiz_engine.js";
 
 // Global map of collapsed states for headings
 window.collapsedHeadingsMap = window.collapsedHeadingsMap || {};
@@ -27,9 +29,16 @@ class BibleOutlineStudio {
     this.data = loadOutlineStorage();
     this.selectedBookId = "GEN";
     this.selectedChapterNum = 1;
-    this.activeView = "chapter-outliner"; // 'chapter-outliner' (side-by-side) | 'book-rollup'
+    this.activeView = "chapter-outliner"; // 'chapter-outliner' (side-by-side) | 'book-rollup' | 'quiz-diagnostic'
     this.splitViewMode = "split"; // 'split' | 'outline' | 'scripture'
     this.isCollapsed = false;
+
+    // Quiz & Diagnostic state
+    this.activeQuizTab = "diagnostic"; // 'diagnostic' | 'book-quizzes'
+    this.quizSession = null;
+    this.quizScorecard = null;
+    this.selectedQuizScope = "ALL";
+    this.selectedQuizQuestionCount = 25;
 
     // SSO & Cloud Sync state
     this.googleUser = null;
@@ -326,7 +335,17 @@ class BibleOutlineStudio {
             <!-- Main Scrollable Canvas -->
             <main id="main-scroll-canvas" class="flex-1 flex flex-col overflow-hidden bg-[#161614]">
               ${
-                this.activeView === "book-rollup"
+                this.activeView === "quiz-diagnostic"
+                  ? renderDiagnosticQuizView({
+                      activeQuizTab: this.activeQuizTab,
+                      session: this.quizSession,
+                      scorecard: this.quizScorecard,
+                      selectedScope: this.selectedQuizScope,
+                      selectedQuestionCount: this.selectedQuizQuestionCount,
+                      selectedBookId: this.selectedBookId,
+                      data: this.data
+                    })
+                  : this.activeView === "book-rollup"
                   ? renderBookRollupView({
                       selectedBook: book,
                       data: this.data
@@ -973,6 +992,215 @@ class BibleOutlineStudio {
     if (nextChBtn) {
       nextChBtn.addEventListener("click", () => this.stepToNextChapter());
     }
+
+    // 5. Quiz & Diagnostic Studio interactions
+    const quizTabBtns = document.querySelectorAll(".quiz-tab-switch-btn");
+    quizTabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.activeQuizTab = btn.getAttribute("data-quiz-tab");
+        this.quizSession = null;
+        this.quizScorecard = null;
+        this.render();
+      });
+    });
+
+    const selectScopeBtns = document.querySelectorAll(".select-scope-btn");
+    selectScopeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.selectedQuizScope = btn.getAttribute("data-select-scope");
+        this.render();
+      });
+    });
+
+    const selectCountBtns = document.querySelectorAll(".select-count-btn");
+    selectCountBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.selectedQuizQuestionCount = parseInt(btn.getAttribute("data-select-count"), 10);
+        this.render();
+      });
+    });
+
+    const startDiagnosticBtn = document.getElementById("start-diagnostic-btn");
+    if (startDiagnosticBtn) {
+      startDiagnosticBtn.addEventListener("click", () => {
+        this.quizSession = new DiagnosticSession({
+          scope: this.selectedQuizScope,
+          questionCount: this.selectedQuizQuestionCount
+        });
+        this.quizScorecard = null;
+        this.render();
+      });
+    }
+
+    const launchBookQuizBtns = document.querySelectorAll(".launch-book-quiz-btn");
+    launchBookQuizBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const bId = btn.getAttribute("data-launch-book-quiz");
+        const bObj = getBookById(bId);
+        if (!bObj) return;
+        this.selectedBookId = bId;
+        this.activeView = "quiz-diagnostic";
+        this.activeQuizTab = "diagnostic";
+        this.quizSession = new DiagnosticSession({
+          scope: "ALL",
+          questionCount: Math.min(bObj.chapterCount, 15),
+          specificBookId: bId
+        });
+        this.quizScorecard = null;
+        this.render();
+      });
+    });
+
+    const examInput = document.getElementById("exam-answer-input");
+    const saveCurrentExamInput = () => {
+      if (examInput && this.quizSession) {
+        this.quizSession.submitCurrentAnswer(examInput.value);
+      }
+    };
+
+    if (examInput) {
+      examInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          saveCurrentExamInput();
+          if (this.quizSession.currentIndex < this.quizSession.questions.length - 1) {
+            this.quizSession.nextQuestion();
+            this.render();
+          } else {
+            this.quizScorecard = this.quizSession.finishExam();
+            if (!Array.isArray(this.data.quizHistory)) this.data.quizHistory = [];
+            this.data.quizHistory.push({
+              date: Date.now(),
+              scope: this.quizSession.scope,
+              total: this.quizScorecard.totalQuestions,
+              correct: this.quizScorecard.totalCorrect,
+              pct: this.quizScorecard.overallPct
+            });
+            this.notifyDataChanged();
+            this.render();
+          }
+        }
+      });
+    }
+
+    const examNextBtn = document.getElementById("exam-next-btn");
+    if (examNextBtn) {
+      examNextBtn.addEventListener("click", () => {
+        saveCurrentExamInput();
+        this.quizSession.nextQuestion();
+        this.render();
+      });
+    }
+
+    const examPrevBtn = document.getElementById("exam-prev-btn");
+    if (examPrevBtn) {
+      examPrevBtn.addEventListener("click", () => {
+        saveCurrentExamInput();
+        this.quizSession.prevQuestion();
+        this.render();
+      });
+    }
+
+    const examSkipBtn = document.getElementById("exam-skip-btn");
+    if (examSkipBtn) {
+      examSkipBtn.addEventListener("click", () => {
+        this.quizSession.nextQuestion();
+        this.render();
+      });
+    }
+
+    const examFinishBtn = document.getElementById("exam-finish-btn");
+    if (examFinishBtn) {
+      examFinishBtn.addEventListener("click", () => {
+        saveCurrentExamInput();
+        this.quizScorecard = this.quizSession.finishExam();
+        if (!Array.isArray(this.data.quizHistory)) this.data.quizHistory = [];
+        this.data.quizHistory.push({
+          date: Date.now(),
+          scope: this.quizSession.scope,
+          total: this.quizScorecard.totalQuestions,
+          correct: this.quizScorecard.totalCorrect,
+          pct: this.quizScorecard.overallPct
+        });
+        this.notifyDataChanged();
+        this.render();
+      });
+    }
+
+    const resetDiagBtn = document.getElementById("reset-diagnostic-config-btn");
+    if (resetDiagBtn) {
+      resetDiagBtn.addEventListener("click", () => {
+        this.quizSession = null;
+        this.quizScorecard = null;
+        this.render();
+      });
+    }
+
+    // Inline Scripture Inspection on Missed Questions in Quiz Scorecard
+    const inspectBtns = document.querySelectorAll(".inspect-scripture-btn");
+    inspectBtns.forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const bId = btn.getAttribute("data-book-id");
+        const ch = parseInt(btn.getAttribute("data-chapter"), 10);
+        const qIdx = btn.getAttribute("data-q-idx");
+        const container = document.getElementById(`inline-scripture-container-${qIdx}`);
+        const body = document.getElementById(`inline-scripture-body-${qIdx}`);
+        const icon = btn.querySelector(`.inspect-icon-${qIdx}`);
+
+        if (!container || !body) return;
+
+        const isHidden = container.classList.contains("hidden");
+        if (!isHidden) {
+          container.classList.add("hidden");
+          if (icon) icon.textContent = "▼";
+          return;
+        }
+
+        container.classList.remove("hidden");
+        if (icon) icon.textContent = "▲";
+
+        if (body.getAttribute("data-loaded") === "true") return;
+
+        const book = getBookById(bId);
+        const bookName = book?.name || bId;
+
+        // Check local chapter notes cache first
+        const chapterData = this.storage.getChapterData(bId, ch);
+        if (chapterData && chapterData.chapterScripture) {
+          body.innerHTML = formatESVTextToHTML(chapterData.chapterScripture);
+          body.setAttribute("data-loaded", "true");
+          return;
+        }
+
+        try {
+          body.innerHTML = `<div class="text-[#8C8A84] italic animate-pulse">Loading ${bookName} ${ch} (ESV)...</div>`;
+          const esvText = await fetchESVChapter(bookName, ch);
+          if (esvText) {
+            body.innerHTML = formatESVTextToHTML(esvText);
+            body.setAttribute("data-loaded", "true");
+          } else {
+            body.innerHTML = `<p class="text-[#8C8A84] italic">Scripture text unavailable for ${bookName} ${ch}.</p>`;
+          }
+        } catch (err) {
+          console.error("Failed to load inline scripture:", err);
+          body.innerHTML = `<p class="text-rose-400 text-xs">Could not load ESV scripture: ${err.message}</p>`;
+        }
+      });
+    });
+
+    // Close buttons on inline scripture inspector
+    const closeScriptureBtns = document.querySelectorAll("[data-close-scripture]");
+    closeScriptureBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const qIdx = btn.getAttribute("data-close-scripture");
+        const container = document.getElementById(`inline-scripture-container-${qIdx}`);
+        const icon = document.querySelector(`.inspect-icon-${qIdx}`);
+        if (container) {
+          container.classList.add("hidden");
+          if (icon) icon.textContent = "▼";
+        }
+      });
+    });
 
     // Keyboard shortcuts: Left / Right arrow
     const handleKeyDown = (e) => {

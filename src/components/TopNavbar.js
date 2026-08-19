@@ -35,6 +35,18 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
         >
           Full Book Outline (${selectedBook.name})
         </button>
+
+        <button
+          data-view="quiz-diagnostic"
+          class="studio-view-btn px-3 py-1 rounded text-xs transition flex items-center gap-1.5 ${
+            activeView === "quiz-diagnostic"
+              ? "bg-[#2B2B28] text-[#EAE8E2] font-medium shadow-2xs"
+              : "text-[#8C8A84] hover:text-[#EAE8E2]"
+          }"
+        >
+          <span>🎯</span>
+          <span>Diagnostic & Quizzes</span>
+        </button>
       </nav>
 
       <!-- Right: Quiet Actions & Cloud SSO Modal Trigger -->
