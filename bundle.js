@@ -4854,16 +4854,6 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
       <!-- Right: Quiet Actions & Cloud SSO Modal Trigger -->
       <div class="flex items-center gap-3">
         <button
-          id="load-demo-btn"
-          class="text-[#8C8A84] hover:text-[#C4B79C] transition text-xs"
-          title="Load sample example outline notes for Genesis 1-3"
-        >
-          Sample Outlines
-        </button>
-
-        <span class="text-[#333330]">|</span>
-
-        <button
           id="open-cloud-sso-btn"
           class="px-3 py-1 rounded bg-[#1C1C1A] hover:bg-[#262623] border border-[#2B2B28] text-[#EAE8E2] transition flex items-center gap-1.5 text-xs font-medium"
           title="${googleUser ? 'Click to manage Google SSO / Firebase Cloud Sync' : 'Direct 1-click Google Sign-In to cloud-sync your Bible outlines'}"
@@ -7619,20 +7609,6 @@ class BibleOutlineStudio {
         });
       });
     });
-
-    // Load example outlines button
-    const demoBtn = document.getElementById("load-demo-btn");
-    if (demoBtn) {
-      demoBtn.addEventListener("click", () => {
-        this.data = injectExampleOutlines(this.data);
-        saveOutlineStorage(this.data);
-        this.selectedBookId = "GEN";
-        this.selectedChapterNum = 1;
-        this.activeView = "chapter-outliner";
-        this.render();
-        this.autoLoadESVForCurrentChapter();
-      });
-    }
 
     // Export button
     const exportCurMd = document.getElementById("export-current-book-btn");

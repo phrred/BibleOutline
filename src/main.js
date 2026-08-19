@@ -2,7 +2,6 @@ import {
   loadOutlineStorage,
   saveOutlineStorage,
   debouncedSaveOutlineStorage,
-  injectExampleOutlines,
   exportToMarkdown
 } from "./storage.js";
 import { BIBLE_BOOKS, getBookById } from "../data/bible_catalog.js";
@@ -642,20 +641,6 @@ class BibleOutlineStudio {
         });
       });
     });
-
-    // Load example outlines button
-    const demoBtn = document.getElementById("load-demo-btn");
-    if (demoBtn) {
-      demoBtn.addEventListener("click", () => {
-        this.data = injectExampleOutlines(this.data);
-        saveOutlineStorage(this.data);
-        this.selectedBookId = "GEN";
-        this.selectedChapterNum = 1;
-        this.activeView = "chapter-outliner";
-        this.render();
-        this.autoLoadESVForCurrentChapter();
-      });
-    }
 
     // Export button
     const exportCurMd = document.getElementById("export-current-book-btn");
