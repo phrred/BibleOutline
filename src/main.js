@@ -6,7 +6,7 @@ import {
   exportToMarkdown
 } from "./storage.js";
 import { BIBLE_BOOKS, getBookById } from "../data/bible_catalog.js";
-import { fetchESVChapter, extractESVHeadings } from "./esv_api.js";
+import { fetchESVChapter, extractESVHeadings, formatESVTextToHTML } from "./esv_api.js";
 import {
   signInWithGoogleSSO,
   signOutUser,
@@ -34,9 +34,14 @@ class BibleOutlineStudio {
     this.isCollapsed = false;
 
     // Quiz & Diagnostic state
-    this.activeQuizTab = "diagnostic"; // 'diagnostic' | 'book-quizzes'
+    this.activeQuizTab = "diagnostic"; // 'diagnostic' | 'book-quizzes' | 'history'
     this.quizSession = null;
     this.quizScorecard = null;
+    this.viewingPastTest = null;
+    this.questionReviewFilter = "all"; // 'all' | 'missed'
+    this.historySearchQuery = "";
+    this.historyScopeFilter = "ALL";
+    this.retakeModalTest = null;
     this.selectedQuizScope = "ALL";
     this.selectedQuizQuestionCount = 25;
 
@@ -53,8 +58,13 @@ class BibleOutlineStudio {
     this.searchQuery = "";
 
     this.rootElement = document.getElementById("app");
-    this.render();
-    this.autoLoadESVForCurrentChapter(true);
+
+    // Listen for browser Back & Forward navigation buttons
+    window.addEventListener("popstate", () => this.handlePopState());
+    window.addEventListener("hashchange", () => this.handlePopState());
+
+    // Restore initial state from URL Hash or set default
+    this.syncStateFromHash({ isInitial: true });
 
     // Listen for persisted Google SSO sign-in session
     listenForAuthChanges((user) => {
@@ -255,42 +265,229 @@ class BibleOutlineStudio {
     saveOutlineStorage(this.data);
   }
 
-  // Synchronized step to previous chapter / previous book
-  stepToPrevChapter() {
+  // Get canonical URL hash for current or specified state
+  getHashForState({
+    activeView = this.activeView,
+    bookId = this.selectedBookId,
+    chapterNum = this.selectedChapterNum,
+    activeQuizTab = this.activeQuizTab,
+    viewingPastTest = this.viewingPastTest,
+    selectedQuizBookId = this.selectedQuizBookId
+  } = {}) {
+    if (activeView === "book-rollup") {
+      return `#/book/${bookId}`;
+    }
+    if (activeView === "quiz-diagnostic") {
+      if (viewingPastTest) {
+        const tId = viewingPastTest.id || `hist_${viewingPastTest.date || ""}`;
+        return `#/quiz/history/${tId}`;
+      }
+      if (activeQuizTab === "book-quizzes") {
+        return selectedQuizBookId ? `#/quiz/book-quizzes/${selectedQuizBookId}` : `#/quiz/book-quizzes`;
+      }
+      if (activeQuizTab === "history") {
+        return `#/quiz/history`;
+      }
+      return `#/quiz/diagnostic`;
+    }
+    return `#/${bookId}/${chapterNum}`;
+  }
+
+  // Navigate to new state and manage browser history stack
+  navigateTo(options = {}, { push = true, forceLoadESV = false } = {}) {
     this.saveActiveChapterEditorBeforeSwitch();
+
+    let bookChanged = false;
+    let chapterChanged = false;
+
+    if (options.bookId && options.bookId !== this.selectedBookId) {
+      this.selectedBookId = options.bookId;
+      bookChanged = true;
+    }
+    if (options.chapterNum !== undefined && parseInt(options.chapterNum, 10) !== this.selectedChapterNum) {
+      this.selectedChapterNum = parseInt(options.chapterNum, 10);
+      chapterChanged = true;
+    }
+    if (options.activeView !== undefined && options.activeView !== this.activeView) {
+      this.activeView = options.activeView;
+    }
+    if (options.activeQuizTab !== undefined && options.activeQuizTab !== this.activeQuizTab) {
+      this.activeQuizTab = options.activeQuizTab;
+    }
+    if (options.viewingPastTest !== undefined) {
+      this.viewingPastTest = options.viewingPastTest;
+    }
+    if (options.selectedQuizBookId !== undefined) {
+      this.selectedQuizBookId = options.selectedQuizBookId;
+    }
+
+    const targetHash = this.getHashForState();
+    if (window.location.hash !== targetHash) {
+      if (push) {
+        window.history.pushState({ hash: targetHash }, "", targetHash);
+      } else {
+        window.history.replaceState({ hash: targetHash }, "", targetHash);
+      }
+    }
+
+    this.render();
+
+    if (bookChanged || chapterChanged || forceLoadESV) {
+      this.autoLoadESVForCurrentChapter();
+    }
+  }
+
+  // Handle browser Back / Forward buttons (popstate)
+  handlePopState() {
+    this.saveActiveChapterEditorBeforeSwitch();
+    this.syncStateFromHash({ isInitial: false });
+  }
+
+  // Parse window.location.hash and sync application state
+  syncStateFromHash({ isInitial = false } = {}) {
+    const rawHash = window.location.hash.trim().replace(/^#\/?/, "");
+    if (!rawHash) {
+      // Set default URL hash without adding extra history item
+      const defaultHash = this.getHashForState();
+      window.history.replaceState({ hash: defaultHash }, "", defaultHash);
+      if (isInitial) {
+        this.render();
+        this.autoLoadESVForCurrentChapter(true);
+      }
+      return;
+    }
+
+    const parts = rawHash.split("/").map((p) => decodeURIComponent(p).trim()).filter(Boolean);
+    const firstPart = parts[0]?.toLowerCase();
+
+    let bookChanged = false;
+    let chapterChanged = false;
+
+    if (firstPart === "book" || firstPart === "rollup") {
+      // #/book/:bookId
+      this.activeView = "book-rollup";
+      const bId = parts[1]?.toUpperCase();
+      if (bId && getBookById(bId)) {
+        if (this.selectedBookId !== bId) {
+          this.selectedBookId = bId;
+          this.selectedChapterNum = 1;
+          bookChanged = true;
+        }
+      }
+    } else if (firstPart === "quiz" || firstPart === "quiz-diagnostic") {
+      // #/quiz/:tab
+      this.activeView = "quiz-diagnostic";
+      const tab = parts[1]?.toLowerCase();
+      if (tab === "history") {
+        this.activeQuizTab = "history";
+        const testId = parts[2];
+        if (testId) {
+          const found = Array.isArray(this.data.quizHistory)
+            ? this.data.quizHistory.find(
+                (t, idx) =>
+                  (t.id || `hist_${t.date || idx}`) == testId ||
+                  idx == testId ||
+                  t.date == testId ||
+                  `hist_${t.date}` == testId
+              )
+            : null;
+          this.viewingPastTest = found || null;
+        } else {
+          this.viewingPastTest = null;
+        }
+      } else if (tab === "book-quizzes" || tab === "book") {
+        this.activeQuizTab = "book-quizzes";
+        this.viewingPastTest = null;
+        if (parts[2]) {
+          this.selectedQuizBookId = parts[2].toUpperCase();
+        }
+      } else {
+        this.activeQuizTab = "diagnostic";
+        this.viewingPastTest = null;
+      }
+    } else if (firstPart === "chapter" && parts.length >= 2) {
+      // #/chapter/:bookId/:chapterNum
+      this.activeView = "chapter-outliner";
+      const bId = parts[1]?.toUpperCase();
+      const chNum = parseInt(parts[2], 10) || 1;
+      const bObj = getBookById(bId);
+      if (bObj) {
+        if (this.selectedBookId !== bObj.id) {
+          this.selectedBookId = bObj.id;
+          bookChanged = true;
+        }
+        const validCh = Math.max(1, Math.min(chNum, bObj.chapterCount));
+        if (this.selectedChapterNum !== validCh) {
+          this.selectedChapterNum = validCh;
+          chapterChanged = true;
+        }
+      }
+    } else {
+      // #/:bookId or #/:bookId/:chapterNum (e.g. #/GEN/1, #/ROM/8, #/MAT)
+      const bId = parts[0]?.toUpperCase();
+      const bObj = getBookById(bId);
+      if (bObj) {
+        this.activeView = "chapter-outliner";
+        if (this.selectedBookId !== bObj.id) {
+          this.selectedBookId = bObj.id;
+          bookChanged = true;
+        }
+        const chNum = parseInt(parts[1], 10) || 1;
+        const validCh = Math.max(1, Math.min(chNum, bObj.chapterCount));
+        if (this.selectedChapterNum !== validCh) {
+          this.selectedChapterNum = validCh;
+          chapterChanged = true;
+        }
+      }
+    }
+
+    this.render();
+
+    if (isInitial || bookChanged || chapterChanged) {
+      this.autoLoadESVForCurrentChapter(isInitial);
+    }
+  }
+
+  // Synchronized step to previous chapter / previous book with browser history
+  stepToPrevChapter() {
     const book = this.getSelectedBook();
     if (this.selectedChapterNum > 1) {
-      this.selectedChapterNum--;
-      this.render();
-      this.autoLoadESVForCurrentChapter();
+      this.navigateTo({
+        bookId: this.selectedBookId,
+        chapterNum: this.selectedChapterNum - 1,
+        activeView: "chapter-outliner"
+      });
     } else {
       const bookIdx = BIBLE_BOOKS.findIndex((b) => b.id === book.id);
       if (bookIdx > 0) {
         const prevBook = BIBLE_BOOKS[bookIdx - 1];
-        this.selectedBookId = prevBook.id;
-        this.selectedChapterNum = prevBook.chapterCount;
-        this.render();
-        this.autoLoadESVForCurrentChapter();
+        this.navigateTo({
+          bookId: prevBook.id,
+          chapterNum: prevBook.chapterCount,
+          activeView: "chapter-outliner"
+        });
       }
     }
   }
 
-  // Synchronized step to next chapter / next book side-by-side
+  // Synchronized step to next chapter / next book with browser history
   stepToNextChapter() {
-    this.saveActiveChapterEditorBeforeSwitch();
     const book = this.getSelectedBook();
     if (this.selectedChapterNum < book.chapterCount) {
-      this.selectedChapterNum++;
-      this.render();
-      this.autoLoadESVForCurrentChapter();
+      this.navigateTo({
+        bookId: this.selectedBookId,
+        chapterNum: this.selectedChapterNum + 1,
+        activeView: "chapter-outliner"
+      });
     } else {
       const bookIdx = BIBLE_BOOKS.findIndex((b) => b.id === book.id);
       if (bookIdx < BIBLE_BOOKS.length - 1) {
         const nextBook = BIBLE_BOOKS[bookIdx + 1];
-        this.selectedBookId = nextBook.id;
-        this.selectedChapterNum = 1;
-        this.render();
-        this.autoLoadESVForCurrentChapter();
+        this.navigateTo({
+          bookId: nextBook.id,
+          chapterNum: 1,
+          activeView: "chapter-outliner"
+        });
       }
     }
   }
@@ -340,9 +537,14 @@ class BibleOutlineStudio {
                       activeQuizTab: this.activeQuizTab,
                       session: this.quizSession,
                       scorecard: this.quizScorecard,
+                      viewingPastTest: this.viewingPastTest,
+                      questionReviewFilter: this.questionReviewFilter,
                       selectedScope: this.selectedQuizScope,
                       selectedQuestionCount: this.selectedQuizQuestionCount,
                       selectedBookId: this.selectedBookId,
+                      historySearchQuery: this.historySearchQuery,
+                      historyScopeFilter: this.historyScopeFilter,
+                      retakeModalTest: this.retakeModalTest,
                       data: this.data
                     })
                   : this.activeView === "book-rollup"
@@ -422,12 +624,12 @@ class BibleOutlineStudio {
     const bookCards = document.querySelectorAll(".book-nav-card");
     bookCards.forEach((card) => {
       card.addEventListener("click", () => {
-        this.saveActiveChapterEditorBeforeSwitch();
         const bId = card.getAttribute("data-book-id");
-        this.selectedBookId = bId;
-        this.selectedChapterNum = 1;
-        this.render();
-        this.autoLoadESVForCurrentChapter();
+        this.navigateTo({
+          bookId: bId,
+          chapterNum: 1,
+          activeView: "chapter-outliner"
+        });
       });
     });
 
@@ -435,9 +637,9 @@ class BibleOutlineStudio {
     const studioViewBtns = document.querySelectorAll(".studio-view-btn");
     studioViewBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
-        this.saveActiveChapterEditorBeforeSwitch();
-        this.activeView = btn.getAttribute("data-view");
-        this.render();
+        this.navigateTo({
+          activeView: btn.getAttribute("data-view")
+        });
       });
     });
 
@@ -997,10 +1199,15 @@ class BibleOutlineStudio {
     const quizTabBtns = document.querySelectorAll(".quiz-tab-switch-btn");
     quizTabBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
-        this.activeQuizTab = btn.getAttribute("data-quiz-tab");
+        const tab = btn.getAttribute("data-quiz-tab");
         this.quizSession = null;
         this.quizScorecard = null;
-        this.render();
+        this.retakeModalTest = null;
+        this.navigateTo({
+          activeView: "quiz-diagnostic",
+          activeQuizTab: tab,
+          viewingPastTest: null
+        });
       });
     });
 
@@ -1028,6 +1235,8 @@ class BibleOutlineStudio {
           questionCount: this.selectedQuizQuestionCount
         });
         this.quizScorecard = null;
+        this.viewingPastTest = null;
+        this.retakeModalTest = null;
         this.render();
       });
     }
@@ -1047,6 +1256,8 @@ class BibleOutlineStudio {
           specificBookId: bId
         });
         this.quizScorecard = null;
+        this.viewingPastTest = null;
+        this.retakeModalTest = null;
         this.render();
       });
     });
@@ -1058,6 +1269,30 @@ class BibleOutlineStudio {
       }
     };
 
+    const finishCurrentExamSession = () => {
+      saveCurrentExamInput();
+      this.quizScorecard = this.quizSession.finishExam();
+      if (!Array.isArray(this.data.quizHistory)) this.data.quizHistory = [];
+      const newRecord = {
+        id: `quiz_${Date.now()}`,
+        date: Date.now(),
+        scope: this.quizSession.scope,
+        specificBookId: this.quizSession.specificBookId,
+        questionCount: this.quizScorecard.totalQuestions,
+        durationMs: this.quizScorecard.durationMs,
+        questions: this.quizSession.questions,
+        answers: this.quizSession.answers,
+        scorecard: this.quizScorecard,
+        // Legacy compat fields
+        total: this.quizScorecard.totalQuestions,
+        correct: this.quizScorecard.totalCorrect,
+        pct: this.quizScorecard.overallPct
+      };
+      this.data.quizHistory.unshift(newRecord);
+      this.notifyDataChanged();
+      this.render();
+    };
+
     if (examInput) {
       examInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
@@ -1067,17 +1302,7 @@ class BibleOutlineStudio {
             this.quizSession.nextQuestion();
             this.render();
           } else {
-            this.quizScorecard = this.quizSession.finishExam();
-            if (!Array.isArray(this.data.quizHistory)) this.data.quizHistory = [];
-            this.data.quizHistory.push({
-              date: Date.now(),
-              scope: this.quizSession.scope,
-              total: this.quizScorecard.totalQuestions,
-              correct: this.quizScorecard.totalCorrect,
-              pct: this.quizScorecard.overallPct
-            });
-            this.notifyDataChanged();
-            this.render();
+            finishCurrentExamSession();
           }
         }
       });
@@ -1112,18 +1337,7 @@ class BibleOutlineStudio {
     const examFinishBtn = document.getElementById("exam-finish-btn");
     if (examFinishBtn) {
       examFinishBtn.addEventListener("click", () => {
-        saveCurrentExamInput();
-        this.quizScorecard = this.quizSession.finishExam();
-        if (!Array.isArray(this.data.quizHistory)) this.data.quizHistory = [];
-        this.data.quizHistory.push({
-          date: Date.now(),
-          scope: this.quizSession.scope,
-          total: this.quizScorecard.totalQuestions,
-          correct: this.quizScorecard.totalCorrect,
-          pct: this.quizScorecard.overallPct
-        });
-        this.notifyDataChanged();
-        this.render();
+        finishCurrentExamSession();
       });
     }
 
@@ -1132,14 +1346,262 @@ class BibleOutlineStudio {
       resetDiagBtn.addEventListener("click", () => {
         this.quizSession = null;
         this.quizScorecard = null;
+        this.retakeModalTest = null;
+        this.navigateTo({
+          activeView: "quiz-diagnostic",
+          activeQuizTab: "diagnostic",
+          viewingPastTest: null
+        });
+      });
+    }
+
+    const backToHistoryBtn = document.getElementById("back-to-history-btn");
+    if (backToHistoryBtn) {
+      backToHistoryBtn.addEventListener("click", () => {
+        this.quizSession = null;
+        this.quizScorecard = null;
+        this.retakeModalTest = null;
+        this.navigateTo({
+          activeView: "quiz-diagnostic",
+          activeQuizTab: "history",
+          viewingPastTest: null
+        });
+      });
+    }
+
+    // Question review filter toggles (All vs Missed Only)
+    const reviewFilterBtns = document.querySelectorAll(".set-review-filter-btn");
+    reviewFilterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.questionReviewFilter = btn.getAttribute("data-set-review-filter");
+        this.render();
+      });
+    });
+
+    // History scope filter buttons
+    const filterHistoryScopeBtns = document.querySelectorAll(".filter-history-scope-btn");
+    filterHistoryScopeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.historyScopeFilter = btn.getAttribute("data-history-scope");
+        this.render();
+      });
+    });
+
+    // History search input
+    const historySearchInput = document.getElementById("history-search-input");
+    if (historySearchInput) {
+      historySearchInput.addEventListener("input", (e) => {
+        this.historySearchQuery = e.target.value;
+        this.render();
+        const reSearchInput = document.getElementById("history-search-input");
+        if (reSearchInput) {
+          reSearchInput.focus();
+          reSearchInput.setSelectionRange(reSearchInput.value.length, reSearchInput.value.length);
+        }
+      });
+    }
+
+    const clearHistorySearchBtn = document.getElementById("clear-history-search-btn");
+    if (clearHistorySearchBtn) {
+      clearHistorySearchBtn.addEventListener("click", () => {
+        this.historySearchQuery = "";
         this.render();
       });
     }
 
-    // Inline Scripture Inspection on Missed Questions in Quiz Scorecard
+    // Review past test buttons
+    const reviewPastTestBtns = document.querySelectorAll("[data-review-past-test]");
+    reviewPastTestBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const testId = btn.getAttribute("data-review-past-test");
+        const found = this.data.quizHistory.find(
+          (t, idx) =>
+            (t.id || `hist_${t.date || idx}`) == testId ||
+            idx == testId ||
+            t.date == testId ||
+            `hist_${t.date}` == testId
+        );
+        if (found) {
+          this.quizScorecard = null;
+          this.questionReviewFilter = "all";
+          this.navigateTo({
+            activeView: "quiz-diagnostic",
+            activeQuizTab: "history",
+            viewingPastTest: found
+          });
+        }
+      });
+    });
+
+    // Open Retake Modal
+    const openRetakeModalBtns = document.querySelectorAll("[data-open-retake-modal]");
+    openRetakeModalBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const testId = btn.getAttribute("data-open-retake-modal");
+        const found = this.data.quizHistory.find(
+          (t, idx) =>
+            (t.id || `hist_${t.date || idx}`) == testId ||
+            idx == testId ||
+            t.date == testId ||
+            `hist_${t.date}` == testId
+        );
+        if (found) {
+          this.retakeModalTest = found;
+          this.render();
+        } else if (this.viewingPastTest) {
+          this.retakeModalTest = this.viewingPastTest;
+          this.render();
+        }
+      });
+    });
+
+    // Close Retake Modal
+    const closeRetakeModalBtn = document.getElementById("close-retake-modal-btn");
+    if (closeRetakeModalBtn) {
+      closeRetakeModalBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.retakeModalTest = null;
+        this.render();
+      });
+    }
+
+    const retakeModalOverlay = document.getElementById("retake-quiz-modal");
+    if (retakeModalOverlay) {
+      retakeModalOverlay.addEventListener("click", (e) => {
+        if (e.target.id === "retake-quiz-modal") {
+          this.retakeModalTest = null;
+          this.render();
+        }
+      });
+    }
+
+    // Retake Option selected
+    const retakeOptionBtns = document.querySelectorAll(".retake-option-btn");
+    retakeOptionBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const action = btn.getAttribute("data-action-retake");
+        const testId = btn.getAttribute("data-test-id");
+        const test =
+          this.retakeModalTest ||
+          this.data.quizHistory.find(
+            (t, idx) =>
+              (t.id || `hist_${t.date || idx}`) == testId ||
+              idx == testId ||
+              t.date == testId ||
+              `hist_${t.date}` == testId
+          ) ||
+          this.viewingPastTest;
+
+        if (!test) {
+          this.retakeModalTest = null;
+          this.render();
+          return;
+        }
+
+        let newSession = null;
+        if (action === "exact") {
+          const questions =
+            test.questions ||
+            (test.scorecard?.allReviewedQuestions?.map((r) => r.question)) ||
+            [];
+          if (questions.length > 0) {
+            newSession = new DiagnosticSession({
+              scope: test.scope || "ALL",
+              specificBookId: test.specificBookId,
+              customQuestions: questions
+            });
+          } else {
+            newSession = new DiagnosticSession({
+              scope: test.scope || "ALL",
+              questionCount: test.questionCount || test.total || 25,
+              specificBookId: test.specificBookId
+            });
+          }
+        } else if (action === "missed") {
+          const missedList = test.scorecard?.missedQuestions || test.missedQuestions || [];
+          const missedQuestions = missedList.map((m) => m.question || m).filter(Boolean);
+          if (missedQuestions.length > 0) {
+            newSession = new DiagnosticSession({
+              scope: test.scope || "ALL",
+              specificBookId: test.specificBookId,
+              customQuestions: missedQuestions
+            });
+          } else {
+            // For legacy tests where specific missed questions list is not available, launch targeted drill
+            newSession = new DiagnosticSession({
+              scope: test.scope || "ALL",
+              questionCount: Math.min(test.questionCount || test.total || 10, 10),
+              specificBookId: test.specificBookId
+            });
+          }
+        } else {
+          // "new" randomized test with same settings
+          newSession = new DiagnosticSession({
+            scope: test.scope || "ALL",
+            questionCount: test.questionCount || test.total || 25,
+            specificBookId: test.specificBookId
+          });
+        }
+
+        if (newSession) {
+          this.quizSession = newSession;
+          this.quizScorecard = null;
+          this.viewingPastTest = null;
+          this.retakeModalTest = null;
+          this.activeView = "quiz-diagnostic";
+          this.activeQuizTab = "diagnostic";
+          this.render();
+        }
+      });
+    });
+
+    // Delete single past test record
+    const deletePastTestBtns = document.querySelectorAll(".delete-past-test-btn");
+    deletePastTestBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const testId = btn.getAttribute("data-delete-past-test");
+        if (confirm("Delete this test session from your history?")) {
+          this.data.quizHistory = this.data.quizHistory.filter(
+            (t, idx) => (t.id || `hist_${t.date || idx}`) != testId && idx != testId
+          );
+          if (
+            this.viewingPastTest &&
+            (this.viewingPastTest.id == testId || `hist_${this.viewingPastTest.date}` == testId)
+          ) {
+            this.viewingPastTest = null;
+          }
+          this.notifyDataChanged();
+          this.render();
+        }
+      });
+    });
+
+    // Clear all test history
+    const clearAllHistoryBtn = document.getElementById("clear-all-quiz-history-btn");
+    if (clearAllHistoryBtn) {
+      clearAllHistoryBtn.addEventListener("click", () => {
+        if (confirm("Are you sure you want to permanently clear all test history? This cannot be undone.")) {
+          this.data.quizHistory = [];
+          this.viewingPastTest = null;
+          this.notifyDataChanged();
+          this.render();
+        }
+      });
+    }
+
+    // Inline Scripture Inspection on Questions in Quiz Scorecard / Review
     const inspectBtns = document.querySelectorAll(".inspect-scripture-btn");
     inspectBtns.forEach((btn) => {
-      btn.addEventListener("click", async () => {
+      btn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         const bId = btn.getAttribute("data-book-id");
         const ch = parseInt(btn.getAttribute("data-chapter"), 10);
         const qIdx = btn.getAttribute("data-q-idx");
@@ -1165,36 +1627,59 @@ class BibleOutlineStudio {
         const bookName = book?.name || bId;
 
         // Check local chapter notes cache first
-        const chapterData = this.storage.getChapterData(bId, ch);
+        const chKey = `${bId}-${ch}`;
+        const chapterData = this.data.chapters ? this.data.chapters[chKey] : null;
         if (chapterData && chapterData.chapterScripture) {
           body.innerHTML = formatESVTextToHTML(chapterData.chapterScripture);
           body.setAttribute("data-loaded", "true");
           return;
         }
 
-        try {
-          body.innerHTML = `<div class="text-[#8C8A84] italic animate-pulse">Loading ${bookName} ${ch} (ESV)...</div>`;
-          const esvText = await fetchESVChapter(bookName, ch);
-          if (esvText) {
-            body.innerHTML = formatESVTextToHTML(esvText);
-            body.setAttribute("data-loaded", "true");
-          } else {
-            body.innerHTML = `<p class="text-[#8C8A84] italic">Scripture text unavailable for ${bookName} ${ch}.</p>`;
+        const loadScripture = async () => {
+          try {
+            body.innerHTML = `<div class="text-[#8C8A84] italic animate-pulse">📖 Loading ${bookName} ${ch} (ESV Scripture)...</div>`;
+            const esvText = await fetchESVChapter(bookName, ch);
+            if (esvText) {
+              body.innerHTML = formatESVTextToHTML(esvText);
+              body.setAttribute("data-loaded", "true");
+              // Cache into chapter data for fast subsequent lookups
+              if (this.data.chapters && this.data.chapters[chKey]) {
+                this.data.chapters[chKey].chapterScripture = esvText;
+              }
+            } else {
+              body.innerHTML = `<p class="text-[#8C8A84] italic">Scripture text unavailable for ${bookName} ${ch}.</p>`;
+            }
+          } catch (err) {
+            console.error("Failed to load inline scripture:", err);
+            body.innerHTML = `
+              <div class="space-y-2 p-2 bg-rose-950/20 border border-rose-900/40 rounded-lg">
+                <p class="text-rose-400 text-xs font-semibold">Could not load ESV scripture: ${err.message}</p>
+                <button class="retry-inspect-btn text-xs px-3 py-1 bg-[#2A2A27] hover:bg-[#383834] text-[#EAE8E2] rounded transition">
+                  🔄 Retry Loading
+                </button>
+              </div>
+            `;
+            body.querySelector(".retry-inspect-btn")?.addEventListener("click", (ev) => {
+              ev.stopPropagation();
+              loadScripture();
+            });
           }
-        } catch (err) {
-          console.error("Failed to load inline scripture:", err);
-          body.innerHTML = `<p class="text-rose-400 text-xs">Could not load ESV scripture: ${err.message}</p>`;
-        }
+        };
+
+        await loadScripture();
       });
     });
 
     // Close buttons on inline scripture inspector
     const closeScriptureBtns = document.querySelectorAll("[data-close-scripture]");
     closeScriptureBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         const qIdx = btn.getAttribute("data-close-scripture");
         const container = document.getElementById(`inline-scripture-container-${qIdx}`);
-        const icon = document.querySelector(`.inspect-icon-${qIdx}`);
+        const inspectBtn = document.querySelector(`[data-inspect-scripture="true"][data-q-idx="${qIdx}"]`);
+        const icon = inspectBtn ? inspectBtn.querySelector(`.inspect-icon-${qIdx}`) : null;
         if (container) {
           container.classList.add("hidden");
           if (icon) icon.textContent = "▼";

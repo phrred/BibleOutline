@@ -134,7 +134,8 @@ export async function saveOutlinesToCloud(user, localData) {
       displayName: user.displayName || "User",
       lastSyncedTimestamp: Date.now(),
       books: activeBooks,
-      chapters: activeChapters
+      chapters: activeChapters,
+      quizHistory: Array.isArray(localData.quizHistory) ? localData.quizHistory.slice(0, 50) : []
     })
   );
 
@@ -178,7 +179,8 @@ export async function loadOutlinesFromCloud(user) {
     const data = snapshot.data();
     return {
       books: data.books || {},
-      chapters: data.chapters || {}
+      chapters: data.chapters || {},
+      quizHistory: data.quizHistory || []
     };
   }
   return null;

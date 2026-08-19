@@ -2860,22 +2860,25 @@ export function generateDynamicQuestions({ scope = "ALL", count = 25, questionTy
 // --------------------------------------------------------------------------
 
 export class DiagnosticSession {
-  constructor({ scope = "ALL", questionCount = 25, questionTypes = null, specificBookId = null }) {
+  constructor({ scope = "ALL", questionCount = 25, questionTypes = null, specificBookId = null, customQuestions = null }) {
     this.id = `diag_${Date.now()}`;
     this.scope = scope;
-    this.questionCount = questionCount;
+    this.questionCount = customQuestions && customQuestions.length > 0 ? customQuestions.length : questionCount;
     this.questionTypes = questionTypes;
     this.specificBookId = specificBookId;
     this.startTime = Date.now();
     this.endTime = null;
     this.currentIndex = 0;
     this.answers = {}; // qId -> { userInput, isCorrect, answeredAt }
-    this.questions = generateDynamicQuestions({
-      scope,
-      count: questionCount,
-      questionTypes,
-      specificBookId
-    });
+    this.questions =
+      customQuestions && customQuestions.length > 0
+        ? [...customQuestions]
+        : generateDynamicQuestions({
+            scope,
+            count: questionCount,
+            questionTypes,
+            specificBookId
+          });
     this.status = "in-progress"; // "in-progress" | "completed"
   }
 
@@ -2933,6 +2936,7 @@ export class DiagnosticSession {
     const byBook = {};
     const weakBooks = [];
     const missedQuestions = [];
+    const allReviewedQuestions = [];
 
     this.questions.forEach((q) => {
       const ans = this.answers[q.id];
@@ -2960,13 +2964,18 @@ export class DiagnosticSession {
         if (isCorrect) byBook[q.bookId].correct++;
       }
 
+      const qReview = {
+        question: q,
+        isCorrect,
+        userAnswer: ans ? ans.userInput : "(Skipped)",
+        correctAnswer: q.displayAnswer,
+        explanation: q.explanation
+      };
+
+      allReviewedQuestions.push(qReview);
+
       if (!isCorrect) {
-        missedQuestions.push({
-          question: q,
-          userAnswer: ans ? ans.userInput : "(Skipped)",
-          correctAnswer: q.displayAnswer,
-          explanation: q.explanation
-        });
+        missedQuestions.push(qReview);
       }
     });
 
@@ -2999,7 +3008,8 @@ export class DiagnosticSession {
       byGenre,
       byBook,
       weakBooks,
-      missedQuestions
+      missedQuestions,
+      allReviewedQuestions
     };
   }
 }
