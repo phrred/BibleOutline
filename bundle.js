@@ -7055,15 +7055,16 @@ const CURATED_QUESTION_BANK = [
   {
     "id": "nt_q45",
     "type": "facts",
-    "prompt": "Who was the archangel that visited Mary to announce the birth of Jesus?",
+    "prompt": "Which angel was sent by God to announce the birth of Jesus to Mary?",
     "bookId": "LUK",
     "chapterNum": 1,
     "acceptedAnswers": [
       "Gabriel",
-      "Angel Gabriel"
+      "Angel Gabriel",
+      "The angel Gabriel"
     ],
     "displayAnswer": "Gabriel",
-    "explanation": "Luke 1:26 tells that the angel Gabriel was sent from God to a city of Galilee named Nazareth.",
+    "explanation": "In Luke 1:26-31, God sent the angel Gabriel to Nazareth to announce to Mary that she would conceive and give birth to Jesus.",
     "scope": "NT",
     "genre": "Gospels"
   },
