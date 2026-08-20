@@ -305,11 +305,16 @@ Resolves and closes #{issue_number}.
             pr_url = gh_res.stdout.strip()
             print(f"🎉 Successfully opened Pull Request: {pr_url}")
 
-            # Comment on issue
-            subprocess.run(
-                ["gh", "issue", "comment", str(issue_number), "--body", f"🤖 An automated fix has been drafted in Pull Request: {pr_url}"],
-                cwd=root_dir
-            )
+            # Link and close issue upon PR creation
+            if issue_number and issue_number > 0:
+                subprocess.run(
+                    ["gh", "issue", "comment", str(issue_number), "--body", f"🤖 An automated fix has been drafted in Pull Request: {pr_url}"],
+                    cwd=root_dir
+                )
+                subprocess.run(
+                    ["gh", "issue", "close", str(issue_number), "--comment", f"Closed automatically: PR {pr_url} has been created to resolve this issue."],
+                    cwd=root_dir
+                )
             return True
         else:
             print(f"⚠️ Warning: `gh pr create` failed: {gh_res.stderr}")
@@ -397,6 +402,15 @@ def main():
     action = decision.get("action", "no_change")
     if action == "no_change":
         print("ℹ️ Agent determined no change is needed for this question.")
+        if issue_number and issue_number > 0 and not args.dry_run:
+            subprocess.run(
+                ["gh", "issue", "comment", str(issue_number), "--body", f"ℹ️ **AI Agent Review:** No changes needed for this question.\n\n**Rationale:** {decision.get('rationale', 'Question verified accurate against ESV.')}\n\n**Evidence:** {decision.get('esv_evidence', 'N/A')}"],
+                cwd=root_dir
+            )
+            subprocess.run(
+                ["gh", "issue", "close", str(issue_number), "--comment", "Closed: Question verified accurate (no changes required)."],
+                cwd=root_dir
+            )
         sys.exit(0)
 
     # Apply change
