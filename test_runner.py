@@ -30,6 +30,7 @@ RESET = "\033[0m"
 
 SRC_FILES = [
     "data/bible_catalog.js",
+    "data/quiz_bank.js",
     "src/storage.js",
     "src/firebase_config.js",
     "src/firebase_sync.js",
