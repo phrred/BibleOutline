@@ -3,10 +3,22 @@ name: AI Question Patcher (Flag to PR)
 on:
   issues:
     types: [opened, labeled]
+  issue_comment:
+    types: [created]
+  pull_request_review:
+    types: [submitted]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "PR Number to re-patch"
+        required: false
+      comments:
+        description: "Review feedback / instructions for AI agent"
+        required: false
 
 # Prevent duplicate concurrent workflow runs while letting active run finish safely
 concurrency:
-  group: question-flag-${{ github.event.issue.number }}
+  group: question-flag-${{ github.event.issue.number || github.event.pull_request.number || github.run_id }}
   cancel-in-progress: false
 
 permissions:
@@ -16,7 +28,11 @@ permissions:
 
 jobs:
   process_flag:
-    if: (github.event.action == 'labeled' && github.event.label.name == 'question-flag') || (github.event.action == 'opened' && contains(github.event.issue.labels.*.name, 'question-flag'))
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'issues' && ((github.event.action == 'labeled' && github.event.label.name == 'question-flag') || (github.event.action == 'opened' && contains(github.event.issue.labels.*.name, 'question-flag')))) ||
+      (github.event_name == 'issue_comment' && !github.event.comment.user.login.endsWith('[bot]') && (contains(github.event.comment.body, '/patch') || contains(github.event.comment.body, '/fix') || contains(github.event.comment.body, '/repatch') || (github.event.issue.pull_request && startsWith(github.event.issue.title, 'Fix question')))) ||
+      (github.event_name == 'pull_request_review' && !github.event.review.user.login.endsWith('[bot]') && startsWith(github.event.pull_request.title, 'Fix question'))
     runs-on: ubuntu-latest
 
     steps:
