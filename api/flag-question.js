@@ -118,7 +118,7 @@ The agent will:
       body: JSON.stringify({
         title: issueTitle,
         body: issueBody,
-        labels: ["question-flag", "needs-agent-review"]
+        labels: ["question-flag"]
       })
     });
 

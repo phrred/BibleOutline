@@ -2,12 +2,12 @@ name: AI Question Patcher (Flag to PR)
 
 on:
   issues:
-    types: [labeled]
+    types: [opened, labeled]
 
-# Prevent duplicate concurrent workflow runs for the exact same issue
+# Prevent duplicate concurrent workflow runs while letting active run finish safely
 concurrency:
   group: question-flag-${{ github.event.issue.number }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   process_flag:
-    if: github.event.label.name == 'question-flag'
+    if: (github.event.action == 'labeled' && github.event.label.name == 'question-flag') || (github.event.action == 'opened' && contains(github.event.issue.labels.*.name, 'question-flag'))
     runs-on: ubuntu-latest
 
     steps:
