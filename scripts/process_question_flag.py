@@ -68,17 +68,40 @@ def save_quiz_bank(quiz_bank_path, prefix_content, questions, suffix_content):
     with open(quiz_bank_path, 'w', encoding='utf-8') as f:
         f.write(new_content)
 
+def get_available_models(api_key):
+    """Dynamically query Google AI Studio API to discover available models for this key."""
+    try:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models?key={api_key}"
+        req = urllib.request.Request(url, headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=10.0) as resp:
+            data = json.loads(resp.read().decode('utf-8'))
+            supported = [
+                m["name"].replace("models/", "")
+                for m in data.get("models", [])
+                if "generateContent" in m.get("supportedGenerationMethods", [])
+            ]
+            # Prioritize flash models, then pro models
+            flash = [m for m in supported if "flash" in m]
+            pro = [m for m in supported if "pro" in m and m not in flash]
+            others = [m for m in supported if m not in flash and m not in pro]
+            discovered = flash + pro + others
+            print(f"📡 Discovered {len(discovered)} available Gemini models: {discovered[:4]}")
+            return discovered
+    except Exception as e:
+        print(f"⚠️ Model discovery note: {e}")
+        return ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro"]
+
 def call_gemini_agent(api_key, question_obj, flag_data):
-    """Call Google Gemini Flash/Pro models with automatic fallback across model versions."""
-    candidate_models = [
-        os.environ.get("GEMINI_MODEL"),
-        "gemini-2.0-flash",
+    """Call Google Gemini Flash/Pro models with dynamic model discovery and automatic fallback."""
+    discovered = get_available_models(api_key)
+    env_model = os.environ.get("GEMINI_MODEL")
+    candidate_models = ([env_model] if env_model else []) + discovered + [
         "gemini-1.5-flash",
-        "gemini-2.0-flash-exp",
-        "gemini-1.5-pro",
-        "gemini-2.5-flash"
+        "gemini-2.0-flash",
+        "gemini-1.5-pro"
     ]
-    candidate_models = [m for m in candidate_models if m]
+    # Deduplicate while preserving order
+    candidate_models = list(dict.fromkeys([m for m in candidate_models if m]))
 
     system_instruction = """
 You are an expert biblical scholar, test designer, and software engineer maintaining the Bible Outline Studio question repository.
