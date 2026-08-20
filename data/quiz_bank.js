@@ -2724,17 +2724,21 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_175",
     "type": "book_id",
-    "prompt": "In which masterclass of Christian tact and persuasion does Paul appeal for the freedom and brotherhood of the runaway slave Onesimus?",
+    "prompt": "In which epistle does Paul appeal to a Christian master on behalf of the bondservant Onesimus, asking that he be received no longer as a bondservant but as a beloved brother?",
     "bookId": "PHM",
     "chapterNum": 1,
     "acceptedAnswers": [
       "Philemon",
-      "Phm"
+      "Phm",
+      "Philem",
+      "Book of Philemon",
+      "Letter to Philemon",
+      "Epistle to Philemon"
     ],
     "displayAnswer": "Philemon",
-    "explanation": "Philemon demonstrates how the gospel transforms social and domestic relationships in Christ.",
+    "explanation": "In Paul's letter to Philemon, he appeals on behalf of Onesimus, asking Philemon to receive him back 'no longer as a bondservant but more than a bondservant, as a beloved brother' (Philemon 1:16).",
     "scope": "NT",
-    "genre": "Pauline Epistles"
+    "genre": "Epistles"
   },
   {
     "id": "bmpi_176",
