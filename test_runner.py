@@ -102,6 +102,13 @@ class CDPClient:
         while b'\r\n\r\n' not in buf:
             buf += self.sock.recv(1024)
 
+        # Ensure page scripts are fully loaded
+        wait_start = time.time()
+        while time.time() - wait_start < timeout:
+            if self.evaluate("Boolean(window.BIBLE_BOOKS)") is True:
+                break
+            time.sleep(0.15)
+
     def read_message(self):
         head = self.sock.recv(2)
         if not head or len(head) < 2:

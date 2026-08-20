@@ -584,7 +584,7 @@ export const CURATED_QUESTION_BANK = [
   {
     id: "bmpi_poet_11",
     type: "book_id",
-    prompt: "In what book does this sovereignty proverb appear: 'The king's heart is a stream of water in the hand of the Lord; he turns it wherever he will'?",
+    prompt: "In what book does this saying on divine sovereignty appear: 'The king's heart is a stream of water in the hand of the Lord; he turns it wherever he will'?",
     bookId: "PRO",
     chapterNum: 21,
     acceptedAnswers: ["Proverbs", "Prov", "Proverbs 21"],
@@ -704,10 +704,22 @@ export const CURATED_QUESTION_BANK = [
   {
     id: "bmpi_gosp_9",
     type: "facts",
-    prompt: "Which four chapters in John (14\u201317) contain Jesus' Upper Room Farewell Discourse and High Priestly Prayer?",
+    prompt: "Which four chapters in John contain Jesus' Upper Room Farewell Discourse and High Priestly Prayer?",
     bookId: "JHN",
     chapterNum: 14,
-    acceptedAnswers: ["John 14-17", "John 14 to 17", "14-17", "Jn 14-17"],
+    acceptedAnswers: [
+      "John 14-17",
+      "John 14 to 17",
+      "John 14, 15, 16, 17",
+      "John 14, 15, 16, and 17",
+      "Jn 14-17",
+      "14-17",
+      "14 to 17",
+      "14, 15, 16, 17",
+      "14, 15, 16, and 17",
+      "chapters 14-17",
+      "chapters 14 to 17"
+    ],
     displayAnswer: "John 14\u201317",
     explanation: "John 14\u201317: Jesus comforts His disciples, promises the Holy Spirit, and prays for believers.",
     scope: "NT",
@@ -3054,7 +3066,7 @@ export const CURATED_QUESTION_BANK = [
   // BIBLE MASTERY PROFICIENCY INDICATOR (BMPI) CURATED QUESTIONS
   // =========================================================================
   {
-    id: "bmpi_pent_1",
+    id: "supp_pent_1",
     type: "book_id",
     prompt: "Which book contains the foundational marriage principle: 'Therefore a man shall leave his father and his mother and hold fast to his wife, and they shall become one flesh'?",
     bookId: "GEN",
@@ -3067,7 +3079,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pentateuch"
   },
   {
-    id: "bmpi_pent_2",
+    id: "supp_pent_2",
     type: "book_id",
     prompt: "In which book does Moses strike the rock twice in anger at Meribah, resulting in him not entering the Promised Land?",
     bookId: "NUM",
@@ -3080,7 +3092,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pentateuch"
   },
   {
-    id: "bmpi_pent_3",
+    id: "supp_pent_3",
     type: "verse_completion",
     prompt: "Deuteronomy 29:29: 'The ______ things belong to the Lord our God, but the things that are revealed belong to us and to our children forever...'",
     bookId: "DEU",
@@ -3093,7 +3105,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pentateuch"
   },
   {
-    id: "bmpi_pent_4",
+    id: "supp_pent_4",
     type: "book_id",
     prompt: "In which book is the foundational principle given: 'For the life of the flesh is in the blood, and I have given it for you on the altar to make atonement for your souls'?",
     bookId: "LEV",
@@ -3106,7 +3118,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pentateuch"
   },
   {
-    id: "bmpi_pent_5",
+    id: "supp_pent_5",
     type: "facts",
     prompt: "Which sister of Moses challenged his spiritual leadership authority and was temporarily struck with leprosy?",
     bookId: "NUM",
@@ -3119,7 +3131,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pentateuch"
   },
   {
-    id: "bmpi_pent_6",
+    id: "supp_pent_6",
     type: "facts",
     prompt: "Who was Aaron's son and successor as High Priest who worked alongside Joshua during the conquest and tribal land division?",
     bookId: "NUM",
@@ -3132,7 +3144,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pentateuch"
   },
   {
-    id: "bmpi_hist_1",
+    id: "supp_hist_1",
     type: "verse_completion",
     prompt: "Joshua 1:8: 'This Book of the Law shall not depart from your mouth, but you shall ______ on it day and night...'",
     bookId: "JOS",
@@ -3145,7 +3157,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Historical"
   },
   {
-    id: "bmpi_hist_2",
+    id: "supp_hist_2",
     type: "verse_completion",
     prompt: "1 Samuel 15:22: 'Behold, to ______ is better than sacrifice, and to listen than the fat of rams.'",
     bookId: "1SA",
@@ -3158,7 +3170,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Historical"
   },
   {
-    id: "bmpi_hist_3",
+    id: "supp_hist_3",
     type: "verse_completion",
     prompt: "1 Samuel 16:7: 'For the Lord sees not as man sees: man looks on the outward appearance, but the Lord looks on the ______.'",
     bookId: "1SA",
@@ -3171,7 +3183,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Historical"
   },
   {
-    id: "bmpi_hist_4",
+    id: "supp_hist_4",
     type: "book_id",
     prompt: "Which book contains the prayer of Jabez ('Oh that you would bless me indeed and enlarge my border, that your hand might be with me...')?",
     bookId: "1CH",
@@ -3184,7 +3196,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Historical"
   },
   {
-    id: "bmpi_hist_5",
+    id: "supp_hist_5",
     type: "facts",
     prompt: "Which Godly High Priest hid the boy Joash from wicked Queen Athaliah for six years and crowned him king of Judah?",
     bookId: "2KI",
@@ -3197,7 +3209,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Historical"
   },
   {
-    id: "bmpi_hist_6",
+    id: "supp_hist_6",
     type: "facts",
     prompt: "Which king of Judah was struck with leprosy in the Temple when he arrogantly attempted to burn incense on the altar?",
     bookId: "2CH",
@@ -3210,7 +3222,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Historical"
   },
   {
-    id: "bmpi_hist_7",
+    id: "supp_hist_7",
     type: "facts",
     prompt: "Which courageous prophet stood alone before Kings Ahab and Jehoshaphat, faithfully prophesying Ahab's defeat against 400 court prophets?",
     bookId: "1KI",
@@ -3223,7 +3235,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Historical"
   },
   {
-    id: "bmpi_hist_8",
+    id: "supp_hist_8",
     type: "facts",
     prompt: "Which beloved son of David led a massive rebellion against his father, briefly taking Jerusalem before being killed in the forest of Ephraim?",
     bookId: "2SA",
@@ -3236,7 +3248,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Historical"
   },
   {
-    id: "bmpi_poet_1",
+    id: "supp_poet_1",
     type: "verse_completion",
     prompt: "Psalm 37:4: '______ yourself in the Lord, and he will give you the desires of your heart.'",
     bookId: "PSA",
@@ -3249,7 +3261,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Wisdom & Poetry"
   },
   {
-    id: "bmpi_poet_2",
+    id: "supp_poet_2",
     type: "verse_completion",
     prompt: "Job 23:10: 'But he knows the way that I take; when he has ______ me, I shall come out as gold.'",
     bookId: "JOB",
@@ -3262,7 +3274,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Wisdom & Poetry"
   },
   {
-    id: "bmpi_poet_3",
+    id: "supp_poet_3",
     type: "verse_completion",
     prompt: "Proverbs 21:1: 'The king's heart is a stream of water in the hand of the Lord; he ______ it wherever he will.'",
     bookId: "PRO",
@@ -3275,7 +3287,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Wisdom & Poetry"
   },
   {
-    id: "bmpi_poet_4",
+    id: "supp_poet_4",
     type: "verse_completion",
     prompt: "Ecclesiastes 12:13: 'The end of the matter; all has been heard. Fear God and keep his ______, for this is the whole duty of man.'",
     bookId: "ECC",
@@ -3288,7 +3300,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Wisdom & Poetry"
   },
   {
-    id: "bmpi_prop_1",
+    id: "supp_prop_1",
     type: "verse_completion",
     prompt: "Zechariah 4:6: 'Not by might, nor by power, but by my ______, says the Lord of hosts.'",
     bookId: "ZEC",
@@ -3301,7 +3313,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Minor Prophets"
   },
   {
-    id: "bmpi_prop_2",
+    id: "supp_prop_2",
     type: "verse_completion",
     prompt: "Ezekiel 22:30: 'And I sought for a man among them who should build up the wall and stand in the ______ before me for the land... but I found none.'",
     bookId: "EZE",
@@ -3314,7 +3326,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Major Prophets"
   },
   {
-    id: "bmpi_prop_3",
+    id: "supp_prop_3",
     type: "verse_completion",
     prompt: "Isaiah 26:3: 'You keep him in perfect ______ whose mind is stayed on you, because he trusts in you.'",
     bookId: "ISA",
@@ -3327,7 +3339,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Major Prophets"
   },
   {
-    id: "bmpi_prop_4",
+    id: "supp_prop_4",
     type: "verse_completion",
     prompt: "Isaiah 40:31: 'But they who wait for the Lord shall renew their strength; they shall mount up with wings like ______...'",
     bookId: "ISA",
@@ -3340,7 +3352,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Major Prophets"
   },
   {
-    id: "bmpi_prop_5",
+    id: "supp_prop_5",
     type: "verse_completion",
     prompt: "Isaiah 55:11: 'So shall my word be that goes out from my mouth; it shall not return to me ______...'",
     bookId: "ISA",
@@ -3353,7 +3365,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Major Prophets"
   },
   {
-    id: "bmpi_prop_6",
+    id: "supp_prop_6",
     type: "verse_completion",
     prompt: "Haggai 1:4: 'Is it a time for you yourselves to dwell in your paneled houses, while this ______ lies in ruins?'",
     bookId: "HAG",
@@ -3366,7 +3378,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Minor Prophets"
   },
   {
-    id: "bmpi_prop_7",
+    id: "supp_prop_7",
     type: "book_id",
     prompt: "Which Old Testament book consists of a single chapter declaring the divine judgment and complete downfall of Edom?",
     bookId: "OBA",
@@ -3379,7 +3391,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Minor Prophets"
   },
   {
-    id: "bmpi_prop_8",
+    id: "supp_prop_8",
     type: "facts",
     prompt: "Which prophet was a herdsman and tender of sycamore fig trees from Tekoa called to prophesy in Northern Israel?",
     bookId: "AMO",
@@ -3392,7 +3404,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Minor Prophets"
   },
   {
-    id: "bmpi_gosp_1",
+    id: "supp_gosp_1",
     type: "verse_completion",
     prompt: "Acts 4:12: 'And there is salvation in no one else, for there is no other ______ under heaven given among men by which we must be saved.'",
     bookId: "ACT",
@@ -3405,7 +3417,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Acts (History)"
   },
   {
-    id: "bmpi_gosp_2",
+    id: "supp_gosp_2",
     type: "verse_completion",
     prompt: "Matthew 6:33: 'But seek first the ______ of God and his righteousness, and all these things will be added to you.'",
     bookId: "MAT",
@@ -3418,7 +3430,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Gospels"
   },
   {
-    id: "bmpi_gosp_3",
+    id: "supp_gosp_3",
     type: "facts",
     prompt: "Which early church leader from Cyprus was named Joseph, nicknamed 'Son of Encouragement', and welcomed Paul into ministry?",
     bookId: "ACT",
@@ -3431,7 +3443,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Acts (History)"
   },
   {
-    id: "bmpi_gosp_4",
+    id: "supp_gosp_4",
     type: "facts",
     prompt: "Which silversmith in Ephesus stirred up a citywide riot against Paul because the Gospel threatened the trade of Artemis shrines?",
     bookId: "ACT",
@@ -3444,7 +3456,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Acts (History)"
   },
   {
-    id: "bmpi_gosp_5",
+    id: "supp_gosp_5",
     type: "facts",
     prompt: "Which eloquent Jewish teacher from Alexandria was mighty in the Scriptures and was mentored more accurately in Ephesus by Priscilla and Aquila?",
     bookId: "ACT",
@@ -3457,7 +3469,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Acts (History)"
   },
   {
-    id: "bmpi_epist_1",
+    id: "supp_epist_1",
     type: "verse_completion",
     prompt: "1 Thessalonians 4:16: 'For the Lord himself will descend from heaven with a cry of command, with the voice of an archangel, and with the sound of the ______ of God.'",
     bookId: "1TH",
@@ -3470,7 +3482,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pauline Epistles"
   },
   {
-    id: "bmpi_epist_2",
+    id: "supp_epist_2",
     type: "verse_completion",
     prompt: "Colossians 2:9: 'For in him the whole fullness of ______ dwells bodily.'",
     bookId: "COL",
@@ -3483,7 +3495,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pauline Epistles"
   },
   {
-    id: "bmpi_epist_3",
+    id: "supp_epist_3",
     type: "verse_completion",
     prompt: "1 Corinthians 10:13: 'No temptation has overtaken you that is not common to man. God is ______, and he will not let you be tempted beyond your ability...'",
     bookId: "1CO",
@@ -3496,7 +3508,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pauline Epistles"
   },
   {
-    id: "bmpi_epist_4",
+    id: "supp_epist_4",
     type: "verse_completion",
     prompt: "2 Corinthians 10:4: 'For the weapons of our warfare are not of the flesh but have divine power to destroy ______.'",
     bookId: "2CO",
@@ -3509,7 +3521,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pauline Epistles"
   },
   {
-    id: "bmpi_epist_5",
+    id: "supp_epist_5",
     type: "verse_completion",
     prompt: "2 Thessalonians 3:10: 'If anyone is not willing to work, let him not ______.'",
     bookId: "2TH",
@@ -3522,7 +3534,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pauline Epistles"
   },
   {
-    id: "bmpi_epist_6",
+    id: "supp_epist_6",
     type: "facts",
     prompt: "In 2 Timothy 4:10, which former ministry associate deserted Paul during his final imprisonment in Rome because he 'fell in love with this present world'?",
     bookId: "2TI",
@@ -3535,7 +3547,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pauline Epistles"
   },
   {
-    id: "bmpi_epist_7",
+    id: "supp_epist_7",
     type: "facts",
     prompt: "Which fellow worker from Philippi brought a sacrificial financial gift to Paul in prison and nearly died from illness in the work of Christ?",
     bookId: "PHP",
@@ -3548,7 +3560,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "Pauline Epistles"
   },
   {
-    id: "bmpi_epist_8",
+    id: "supp_epist_8",
     type: "verse_completion",
     prompt: "Hebrews 13:7: 'Remember your leaders, those who spoke to you the word of God. Consider the outcome of their way of life, and ______ their faith.'",
     bookId: "HEB",
@@ -3561,7 +3573,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "General Epistles"
   },
   {
-    id: "bmpi_epist_9",
+    id: "supp_epist_9",
     type: "verse_completion",
     prompt: "1 Peter 3:18: 'For Christ also suffered once for sins, the righteous for the unrighteous, that he might bring us to ______...'",
     bookId: "1PE",
@@ -3574,7 +3586,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "General Epistles"
   },
   {
-    id: "bmpi_epist_10",
+    id: "supp_epist_10",
     type: "facts",
     prompt: "Which church leader in 3 John loved to put himself first, refused to receive the apostles, and excommunicated members who showed hospitality?",
     bookId: "3JN",
@@ -3587,7 +3599,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "General Epistles"
   },
   {
-    id: "bmpi_epist_11",
+    id: "supp_epist_11",
     type: "book_id",
     prompt: "Which short New Testament letter urges believers to 'contend earnestly for the faith that was once for all delivered to the saints'?",
     bookId: "JUD",
@@ -3600,7 +3612,7 @@ export const CURATED_QUESTION_BANK = [
     genre: "General Epistles"
   },
   {
-    id: "bmpi_epist_12",
+    id: "supp_epist_12",
     type: "facts",
     prompt: "In Revelation 3:20, to which of the seven churches of Asia Minor did Jesus give the famous invitation: 'Behold, I stand at the door and knock'?",
     bookId: "REV",
