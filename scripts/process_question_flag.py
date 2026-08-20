@@ -85,25 +85,48 @@ def get_available_models(api_key):
                 m for m in supported
                 if not any(k in m for k in ["-tts", "-audio", "-embed", "embedding", "-realtime", "aqa", "imagen"])
             ]
-            # Prioritize standard fast models
-            priority = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-flash-lite-latest", "gemini-1.5-pro", "gemini-3.6-flash"]
-            ordered = [m for m in priority if m in text_models] + [m for m in text_models if m not in priority]
-            print(f"📡 Discovered {len(ordered)} active text models: {ordered[:5]}")
+            # Prioritize newest Gemini 3.x Flash models, then 2.x, 1.5, and flash-lite
+            priority = [
+                "gemini-3.6-flash",
+                "gemini-3.5-flash",
+                "gemini-3-flash",
+                "gemini-3.6-flash-preview",
+                "gemini-2.0-flash",
+                "gemini-1.5-flash",
+                "gemini-flash-lite-latest",
+                "gemini-1.5-pro",
+                "gemini-3.0-pro"
+            ]
+            
+            # Sort with gemini-3 first, then priority list, then others
+            gemini3_models = [m for m in text_models if "gemini-3" in m and "flash" in m]
+            ordered = (
+                gemini3_models
+                + [m for m in priority if m in text_models and m not in gemini3_models]
+                + [m for m in text_models if m not in priority and m not in gemini3_models]
+            )
+            print(f"📡 Discovered {len(ordered)} active text models (prioritizing Gemini 3 & Flash): {ordered[:5]}")
             return ordered
     except Exception as e:
         print(f"⚠️ Model discovery note: {e}")
-        return ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-flash-lite-latest", "gemini-1.5-pro"]
+        return [
+            "gemini-3.6-flash",
+            "gemini-2.0-flash",
+            "gemini-1.5-flash",
+            "gemini-flash-lite-latest",
+            "gemini-1.5-pro"
+        ]
 
 def call_gemini_agent(api_key, question_obj, flag_data):
     """Call Google Gemini Flash/Pro models with dynamic discovery, continuous fallback, and intelligent resilience."""
     discovered = get_available_models(api_key)
     env_model = os.environ.get("GEMINI_MODEL")
-    candidate_models = ([env_model] if env_model else []) + discovered + [
-        "gemini-1.5-flash",
+    candidate_models = ([env_model] if env_model else []) + [
+        "gemini-3.6-flash",
         "gemini-2.0-flash",
-        "gemini-flash-lite-latest",
-        "gemini-1.5-pro"
-    ]
+        "gemini-1.5-flash",
+        "gemini-flash-lite-latest"
+    ] + discovered
     candidate_models = list(dict.fromkeys([m for m in candidate_models if m]))
 
     system_instruction = """
