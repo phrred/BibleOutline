@@ -3,732 +3,190 @@ import { getBookById } from "./bible_catalog.js";
 // --------------------------------------------------------------------------
 // COMPACT QUESTION BANK REPOSITORY
 // Auto-hydrated at load time for minimal bundle footprint and fast evaluation
+// Contains all 300 BMPI Assessment Questions + 100 GFC Exam Questions + Diagnostic Pools
 // --------------------------------------------------------------------------
 
 export const RAW_QUESTIONS = [
   {
-    "id": "bmpi_pent_2",
-    "t": "facts",
-    "p": "This leader had his priestly leadership confirmed when his dry almond rod miraculously sprouted, budded, and produced ripe almonds.",
-    "b": "NUM",
-    "c": 17,
-    "a": [
-      "Aaron",
-      "Aaron the priest"
-    ],
-    "e": "Numbers 17:8: Aaron's rod sprouted, budded, blossomed, and produced almonds, proving God's choice."
-  },
-  {
-    "id": "bmpi_pent_7",
+    "id": "bmpi_1",
     "t": "book_chapter",
-    "p": "Book & chapter containing the Protoevangelium (first Gospel promise): 'I will put enmity between you and the woman, and between your offspring and hers; he will crush your head, and you will strike his heel.'",
+    "p": "In what book & chapter does the opening declaration of Scripture appear: 'In the beginning God created the heavens and the earth'?",
     "b": "GEN",
-    "c": 3,
+    "c": 1,
     "a": [
-      "Genesis 3",
-      "Gen 3",
-      "Genesis 3:15",
-      "Gen 3:15"
+      "Genesis 1",
+      "Gen 1",
+      "Genesis 1:1",
+      "Gen 1:1"
     ],
-    "e": "Genesis 3:15: First prophetic announcement of Christ defeating Satan."
+    "d": "Genesis 1 (Genesis 1:1)",
+    "e": "Genesis 1:1 begins the biblical canon with cosmic creation."
   },
   {
-    "id": "bmpi_pent_8",
-    "t": "book_chapter",
-    "p": "Book & chapter where God formally cuts His covenant of circumcision with Abraham and promises he will be the father of a multitude of nations:",
-    "b": "GEN",
-    "c": 17,
-    "a": [
-      "Genesis 17",
-      "Gen 17",
-      "Genesis 17:1-7"
-    ],
-    "e": "Genesis 17: God changes Abram's name to Abraham and establishes circumcision."
-  },
-  {
-    "id": "bmpi_pent_9",
-    "t": "chapter_in_book",
-    "p": "What chapter in Leviticus describes Yom Kippur (The Day of Atonement) and the scapegoat sent into the wilderness?",
-    "b": "LEV",
-    "c": 16,
-    "a": [
-      "16",
-      "Leviticus 16",
-      "Lev 16",
-      "ch 16",
-      "chapter 16"
-    ],
-    "d": "Leviticus 16 (or Chapter 16)",
-    "e": "Leviticus 16 details the high priest entering the Holy of Holies once a year with blood for atonement."
-  },
-  {
-    "id": "bmpi_pent_10",
-    "t": "facts",
-    "p": "Which two books in the Pentateuch record the Ten Commandments (Decalogue)?",
-    "b": "EXO",
-    "c": 20,
-    "a": [
-      "Exodus and Deuteronomy",
-      "Exodus & Deuteronomy",
-      "Exodus, Deuteronomy",
-      "Deuteronomy and Exodus",
-      "Exo and Deut"
-    ],
-    "e": "The Ten Commandments are given at Sinai in Exodus 20 and repeated before entering Canaan in Deuteronomy 5."
-  },
-  {
-    "id": "bmpi_pent_11",
+    "id": "bmpi_2",
     "t": "book_id",
-    "p": "In what book does Moses make a bronze serpent and set it on a pole so anyone bitten by a fiery serpent would look at it and live?",
-    "b": "NUM",
-    "c": 21,
+    "p": "In what book does the bride describe her beloved: 'My beloved is radiant and ruddy, distinguished among ten thousand'?",
+    "b": "SNG",
+    "c": 5,
     "a": [
-      "Numbers",
-      "Num"
+      "Song of Songs",
+      "Song of Solomon",
+      "Canticles",
+      "Song"
     ],
-    "e": "Numbers 21:8-9: Jesus refers to this in John 3:14 ('As Moses lifted up the serpent in the wilderness...')."
+    "d": "Song of Songs (Song 5:10)",
+    "e": "Song of Songs 5:10 contains the poetic celebration of marital love."
   },
   {
-    "id": "bmpi_pent_12",
+    "id": "bmpi_3",
     "t": "facts",
-    "p": "Which patriarch told his brothers: 'As for you, you meant evil against me, but God meant it for good, to bring it about that many people should be kept alive'?",
-    "b": "GEN",
-    "c": 50,
-    "a": [
-      "Joseph",
-      "Joseph son of Jacob"
-    ],
-    "e": "Genesis 50:20: The climax of Joseph's life and the theme of God's providence."
-  },
-  {
-    "id": "bmpi_pent_13",
-    "t": "book_chapter",
-    "p": "Book & chapter where God reveals His name 'I AM WHO I AM' (Yahweh) to Moses at the burning bush:",
-    "b": "EXO",
-    "c": 3,
-    "a": [
-      "Exodus 3",
-      "Exo 3",
-      "Exodus 3:14",
-      "Exodus ch 3"
-    ],
-    "e": "Exodus 3:14: God speaks to Moses at Mount Horeb from the burning bush."
-  },
-  {
-    "id": "bmpi_pent_14",
-    "t": "chapter_in_book",
-    "p": "What chapter in Exodus institutes the Passover lamb and the deliverance from the tenth plague?",
-    "b": "EXO",
-    "c": 12,
-    "a": [
-      "12",
-      "Exodus 12",
-      "Exo 12",
-      "ch 12",
-      "chapter 12"
-    ],
-    "d": "Exodus 12 (or Chapter 12)",
-    "e": "Exodus 12: The blood of the Passover lamb placed on doorposts protects Israel's firstborn."
-  },
-  {
-    "id": "bmpi_pent_15",
-    "t": "facts",
-    "p": "Moses' father-in-law who gave him practical advice on delegating judicial leadership and appointing capable leaders over thousands, hundreds, fifties, and tens:",
-    "b": "EXO",
-    "c": 18,
-    "a": [
-      "Jethro",
-      "Reuel",
-      "Jethro the priest of Midian"
-    ],
-    "d": "Jethro (Reuel)",
-    "e": "Exodus 18:13-27: Jethro's delegation model is a foundational biblical leadership principle."
-  },
-  {
-    "id": "bmpi_hist_2",
-    "t": "facts",
-    "p": "This godly high priest protected young Joash in a coup d'\u00e9tat against Athaliah and crowned him king, influencing the nation for good throughout his life:",
-    "b": "2KI",
-    "c": 11,
-    "a": [
-      "Jehoiada",
-      "Jehoiada the priest"
-    ],
-    "e": "2 Kings 11-12 & 2 Chronicles 24: Jehoiada guided King Joash in righteousness."
-  },
-  {
-    "id": "bmpi_hist_7",
-    "t": "facts",
-    "p": "This prophet and judge transitioned Israel from decentralized judges to centralized monarchy, exemplifying prayer: 'Far be it from me that I should sin against the Lord by ceasing to pray for you':",
-    "b": "1SA",
-    "c": 12,
-    "a": [
-      "Samuel",
-      "Prophet Samuel"
-    ],
-    "e": "1 Samuel 12:23: Samuel's dedication to intercession and teaching."
-  },
-  {
-    "id": "bmpi_hist_9",
-    "t": "facts",
-    "p": "This prophet had a classic power encounter with 450 prophets of Baal on Mount Carmel, calling down fire from heaven:",
-    "b": "1KI",
-    "c": 18,
-    "a": [
-      "Elijah",
-      "Elijah the Tishbite"
-    ],
-    "e": "1 Kings 18: Elijah's victory on Mount Carmel."
-  },
-  {
-    "id": "bmpi_hist_10",
-    "t": "facts",
-    "p": "This king of Judah prospered when he sought God, but grew proud and entered the Temple to burn incense, being struck by God with leprosy on his forehead:",
-    "b": "2CH",
-    "c": 26,
-    "a": [
-      "Uzziah",
-      "Azariah",
-      "King Uzziah"
-    ],
-    "d": "Uzziah (Azariah)",
-    "e": "2 Chronicles 26:16-21: Uzziah's pride and unlawful usurpation of the priesthood."
-  },
-  {
-    "id": "bmpi_hist_11",
-    "t": "facts",
-    "p": "This prophetess and judge led Israel during a time of crisis against Jabin king of Hazor and his general Sisera:",
-    "b": "JDG",
-    "c": 4,
-    "a": [
-      "Deborah"
-    ],
-    "e": "Judges 4-5: Deborah judged Israel and summoned Barak to battle."
-  },
-  {
-    "id": "bmpi_hist_12",
-    "t": "facts",
-    "p": "This courageous prophet stood alone against 400 false prophets before Ahab and Jehoshaphat, speaking truth despite being slapped and imprisoned:",
-    "b": "1KI",
-    "c": 22,
-    "a": [
-      "Micaiah",
-      "Micaiah son of Imlah"
-    ],
-    "e": "1 Kings 22: Micaiah prophesied Ahab's defeat and death at Ramoth-gilead."
-  },
-  {
-    "id": "bmpi_hist_13",
-    "t": "facts",
-    "p": "This wise king built the glorious temple in Jerusalem but finished poorly as his foreign wives turned his heart away after other gods:",
-    "b": "1KI",
-    "c": 11,
-    "a": [
-      "Solomon",
-      "King Solomon"
-    ],
-    "e": "1 Kings 11: Solomon's divided loyalty and tragic decline in old age."
-  },
-  {
-    "id": "bmpi_hist_14",
-    "t": "facts",
-    "p": "Aaron's son and successor as high priest, who served alongside Joshua in dividing the Promised Land by lot:",
-    "b": "NUM",
-    "c": 20,
-    "a": [
-      "Eleazar",
-      "Eleazar the priest"
-    ],
-    "e": "Numbers 20:25-28 & Joshua 14:1: Eleazar succeeded Aaron on Mount Hor.",
-    "g": "Historical"
-  },
-  {
-    "id": "bmpi_hist_15",
-    "t": "facts",
-    "p": "Elijah's servant and successor who received a double portion of his spirit and performed numerous miracles demonstrating God's compassion and power:",
-    "b": "2KI",
-    "c": 2,
-    "a": [
-      "Elisha",
-      "Elisha son of Shaphat"
-    ],
-    "e": "2 Kings 2-13: Elisha's extensive prophetic and pastoral ministry in Israel."
-  },
-  {
-    "id": "bmpi_hist_16",
-    "t": "facts",
-    "p": "This priest at Shiloh failed to discipline his corrupt sons Hophni and Phinehas, resulting in his sons dying on the same day and the Ark being captured:",
-    "b": "1SA",
-    "c": 2,
-    "a": [
-      "Eli",
-      "Eli the priest"
-    ],
-    "e": "1 Samuel 2-4: Eli's negative example of parental and spiritual negligence."
-  },
-  {
-    "id": "bmpi_hist_17",
-    "t": "facts",
-    "p": "This godly king sent Levites to teach the Law in Judah's cities and appointed honest judges, though he made an unwise alliance with wicked King Ahab:",
-    "b": "2CH",
-    "c": 17,
-    "a": [
-      "Jehoshaphat",
-      "King Jehoshaphat"
-    ],
-    "e": "2 Chronicles 17-20: Jehoshaphat led Judah to victory through prayer and worship."
-  },
-  {
-    "id": "bmpi_hist_18",
-    "t": "book_id",
-    "p": "In what Old Testament book does Boaz act as the kinsman-redeemer (Go'el), foreshadowing Christ and concluding with the genealogy of David?",
-    "b": "RUT",
-    "c": 4,
-    "a": [
-      "Ruth",
-      "Book of Ruth",
-      "Rut"
-    ],
-    "e": "Ruth 4: Boaz marries Ruth to redeem Elimelech's line, fathering Obed the grandfather of David."
-  },
-  {
-    "id": "bmpi_poet_2",
-    "t": "book_id",
-    "p": "In what book does this observation occur: 'Because the sentence against an evil deed is not executed speedily, the heart of the children of man is fully set to do evil'?",
-    "b": "ECC",
+    "p": "Which prophet lamented over his unheeding people: 'The harvest is past, the summer is ended, and we are not saved'?",
+    "b": "JER",
     "c": 8,
     "a": [
-      "Ecclesiastes",
-      "Ecc",
-      "Qoheleth"
+      "Jeremiah",
+      "Jer"
     ],
-    "e": "Ecclesiastes 8:11: Solomon observes how delayed justice encourages wickedness."
+    "d": "Jeremiah (Jeremiah 8:20)",
+    "e": "Jeremiah 8:20 is the sorrowful lament of the weeping prophet over Judah's spiritual blindness."
   },
   {
-    "id": "bmpi_poet_5",
-    "t": "book_id",
-    "p": "What book reflects on Joseph: 'He had sent a man before them, Joseph, who was sold as a slave. His feet were hurt with fetters; his neck was put in a collar of iron; until what he had said came to pass, the word of the Lord tested him'?",
-    "b": "PSA",
-    "c": 105,
+    "id": "bmpi_4",
+    "t": "facts",
+    "p": "To which imprisoned prophet did God give the promise: 'Call to me and I will answer you, and will tell you great and hidden things that you have not known'?",
+    "b": "JER",
+    "c": 33,
     "a": [
-      "Psalms",
-      "Psalm 105",
-      "Psalm",
-      "Psa 105"
+      "Jeremiah",
+      "Jer"
     ],
-    "d": "Psalms (Psalm 105)",
-    "e": "Psalm 105:17-19: A poetic historical psalm recounting God's covenant faithfulness."
+    "d": "Jeremiah (Jeremiah 33:3)",
+    "e": "Jeremiah 33:3 was given while Jeremiah was shut up in the court of the guard."
   },
   {
-    "id": "bmpi_poet_6",
-    "t": "book_id",
-    "p": "In what book does the phrase occur: 'I am my beloved's and my beloved is mine; he grazes among the lilies'?",
-    "b": "SNG",
-    "c": 6,
-    "a": [
-      "Song of Solomon",
-      "Song of Songs",
-      "Canticles",
-      "Sng"
-    ],
-    "d": "Song of Solomon (Song of Songs)",
-    "e": "Song of Solomon 6:3: The mutual devotion of bride and groom."
-  },
-  {
-    "id": "bmpi_poet_7",
-    "t": "book_id",
-    "p": "In what book does this historical reflection on Israel's craving occur: 'He gave them what they asked, but sent a wasting disease among them (leanness to their souls)'?",
-    "b": "PSA",
-    "c": 106,
-    "a": [
-      "Psalms",
-      "Psalm 106",
-      "Psalm",
-      "Psa 106"
-    ],
-    "d": "Psalms (Psalm 106)",
-    "e": "Psalm 106:15: Warning about demanding things contrary to God's good timing."
-  },
-  {
-    "id": "bmpi_poet_8",
+    "id": "bmpi_5",
     "t": "book_chapter",
-    "p": "Book & chapter containing: 'Delight yourself in the Lord, and he will give you the desires of your heart. Commit your way to the Lord; trust in him, and he will act':",
-    "b": "PSA",
-    "c": 37,
+    "p": "In what book & chapter does the foundational creation ordinance appear: 'Therefore a man shall leave his father and his mother and hold fast to his wife, and they shall become one flesh'?",
+    "b": "GEN",
+    "c": 2,
     "a": [
-      "Psalm 37",
-      "Psalms 37",
-      "Psa 37",
-      "Psalm 37:4"
+      "Genesis 2",
+      "Gen 2",
+      "Genesis 2:24",
+      "Gen 2:24"
     ],
-    "e": "Psalm 37:4-5: David's wisdom psalm on trusting the LORD over evildoers."
+    "d": "Genesis 2 (Genesis 2:24)",
+    "e": "Genesis 2:24 establishes the divine pattern for marriage."
   },
   {
-    "id": "bmpi_poet_9",
-    "t": "book_chapter",
-    "p": "Book & chapter where David cries: 'Create in me a clean heart, O God, and renew a right spirit within me. Cast me not away from your presence...':",
-    "b": "PSA",
-    "c": 51,
-    "a": [
-      "Psalm 51",
-      "Psalms 51",
-      "Psa 51",
-      "Psalm 51:10"
-    ],
-    "e": "Psalm 51:10-12: David's great prayer of confession after Nathan's confrontation."
-  },
-  {
-    "id": "bmpi_poet_10",
-    "t": "book_chapter",
-    "p": "Book & chapter: 'Trust in the Lord with all your heart, and do not lean on your own understanding. In all your ways acknowledge him, and he will make straight your paths':",
-    "b": "PRO",
+    "id": "bmpi_6",
+    "t": "facts",
+    "p": "Which prophet wrote the victorious testimony amidst national ruin: 'The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness'?",
+    "b": "LAM",
     "c": 3,
     "a": [
-      "Proverbs 3",
-      "Prov 3",
-      "Proverbs 3:5",
-      "Proverbs 3:5-6"
+      "Jeremiah",
+      "Jer"
     ],
-    "e": "Proverbs 3:5-6: Foundational biblical principle for divine guidance."
+    "d": "Jeremiah (Lamentations 3:22\u201323)",
+    "e": "Jeremiah penned Lamentations 3:22\u201323 following the destruction of Jerusalem."
   },
   {
-    "id": "bmpi_poet_11",
-    "t": "book_id",
-    "p": "In what book does this saying on divine sovereignty appear: 'The king's heart is a stream of water in the hand of the Lord; he turns it wherever he will'?",
-    "b": "PRO",
-    "c": 21,
+    "id": "bmpi_7",
+    "t": "facts",
+    "p": "To which perplexed prophet did God declare: 'Look among the nations, and see; wonder and be astounded. For I am doing a work in your days that you would not believe if told'?",
+    "b": "HAB",
+    "c": 1,
     "a": [
-      "Proverbs",
-      "Prov",
-      "Proverbs 21"
+      "Habakkuk",
+      "Hab"
     ],
-    "e": "Proverbs 21:1: Affirming God's ultimate sovereignty over earthly rulers."
+    "d": "Habakkuk (Habakkuk 1:5)",
+    "e": "Habakkuk 1:5 announced God raising up the Chaldeans."
   },
   {
-    "id": "bmpi_prop_2",
+    "id": "bmpi_8",
     "t": "book_id",
-    "p": "In what book does God encourage Zerubbabel: 'Not by might, nor by power, but by my Spirit, says the Lord of hosts'?",
+    "p": "In what prophetic book does the promise appear: 'For the earth will be filled with the knowledge of the glory of the Lord as the waters cover the sea'?",
+    "b": "HAB",
+    "c": 2,
+    "a": [
+      "Habakkuk",
+      "Hab"
+    ],
+    "d": "Habakkuk (Habakkuk 2:14)",
+    "e": "Habakkuk 2:14 foretells the universal triumph of God's glory."
+  },
+  {
+    "id": "bmpi_9",
+    "t": "book_id",
+    "p": "In what epistle does Paul urge a brother: 'receive him no longer as a bondservant but more than a bondservant, as a beloved brother... If you consider me your partner, receive him as you would receive me'?",
+    "b": "PHM",
+    "c": 1,
+    "a": [
+      "Philemon",
+      "Phm"
+    ],
+    "d": "Philemon (Philemon 1:16\u201317)",
+    "e": "Paul wrote Philemon to reconcile Philemon and the runaway slave Onesimus."
+  },
+  {
+    "id": "bmpi_10",
+    "t": "book_id",
+    "p": "In what book does the first Gospel prophecy appear: 'I will put enmity between you and the woman, and between your offspring and her offspring; he shall bruise your head, and you shall bruise his heel'?",
+    "b": "GEN",
+    "c": 3,
+    "a": [
+      "Genesis",
+      "Gen"
+    ],
+    "d": "Genesis (Genesis 3:15)",
+    "e": "Genesis 3:15 is the Protoevangelium foretelling Christ's victory over Satan."
+  },
+  {
+    "id": "bmpi_11",
+    "t": "book_id",
+    "p": "In what book does the prophet rejoice: 'Though the fig tree should not blossom, nor fruit be on the vines... yet I will rejoice in the Lord; I will take joy in the God of my salvation'?",
+    "b": "HAB",
+    "c": 3,
+    "a": [
+      "Habakkuk",
+      "Hab"
+    ],
+    "d": "Habakkuk (Habakkuk 3:17\u201318)",
+    "e": "Habakkuk 3:17\u201319 is one of Scripture's greatest confessions of triumphant faith."
+  },
+  {
+    "id": "bmpi_12",
+    "t": "book_id",
+    "p": "In what prophetic book does God encourage Zerubbabel: 'Not by might, nor by power, but by my Spirit, says the Lord of hosts'?",
     "b": "ZEC",
     "c": 4,
     "a": [
       "Zechariah",
-      "Zec",
-      "Zechariah 4"
+      "Zec"
     ],
-    "e": "Zechariah 4:6: The empowerment for rebuilding the Temple."
+    "d": "Zechariah (Zechariah 4:6)",
+    "e": "Zechariah 4:6 encouraged the post-exilic rebuilding of the temple."
   },
   {
-    "id": "bmpi_prop_7",
-    "t": "chapter_in_book",
-    "p": "What chapter in Ezekiel contains the vision of the Valley of Dry Bones coming to life by the breath (Spirit) of God?",
-    "b": "EZK",
-    "c": 37,
-    "a": [
-      "37",
-      "Ezekiel 37",
-      "Ezek 37",
-      "Ezk 37",
-      "ch 37",
-      "chapter 37"
-    ],
-    "d": "Ezekiel 37 (or Chapter 37)",
-    "e": "Ezekiel 37:1-14: Prophetic vision of Israel's national and spiritual resurrection.",
-    "s": "OT",
-    "g": "Major Prophets"
-  },
-  {
-    "id": "bmpi_prop_9",
-    "t": "facts",
-    "p": "Which prophet foretold the outpouring of the Holy Spirit: 'And it shall come to pass afterward, that I will pour out my Spirit on all flesh; your sons and your daughters shall prophesy...', quoted by Peter in Acts 2?",
-    "b": "JOL",
-    "c": 2,
-    "a": [
-      "Joel",
-      "Jol"
-    ],
-    "e": "Joel 2:28-32: Prophesied the outpouring of the Spirit fulfilled at Pentecost.",
-    "s": "OT",
-    "g": "Minor Prophets"
-  },
-  {
-    "id": "bmpi_prop_10",
-    "t": "facts",
-    "p": "Which prophet predicted the Messiah would be born in Bethlehem Ephrathah: 'from you shall come forth for me one who is to be ruler in Israel, whose coming forth is from of old, from ancient days'?",
-    "b": "MIC",
-    "c": 5,
-    "a": [
-      "Micah",
-      "Mic"
-    ],
-    "e": "Micah 5:2: Quoted by the chief priests and scribes to King Herod in Matthew 2:6."
-  },
-  {
-    "id": "bmpi_prop_11",
+    "id": "bmpi_13",
     "t": "book_id",
-    "p": "In what book does God challenge His people: 'Bring the full tithe into the storehouse, that there may be food in my house. And thereby put me to the test... if I will not open the windows of heaven for you'?",
-    "b": "MAL",
-    "c": 3,
-    "a": [
-      "Malachi",
-      "Mal"
-    ],
-    "e": "Malachi 3:10: The final Old Testament prophet addressing covenant unfaithfulness."
-  },
-  {
-    "id": "bmpi_gosp_2",
-    "t": "book_chapter",
-    "p": "Book & chapter containing the Great Commission: 'Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, teaching them to observe all that I have commanded you':",
-    "b": "MAT",
-    "c": 28,
-    "a": [
-      "Matthew 28",
-      "Matt 28",
-      "Mt 28",
-      "Matthew 28:19",
-      "Matthew 28:18-20"
-    ],
-    "e": "Matthew 28:18-20: Jesus' authoritative commission to the Church."
-  },
-  {
-    "id": "bmpi_gosp_6",
-    "t": "book_chapter",
-    "p": "Book & chapter: 'And the Word became flesh and dwelt among us, and we have seen his glory, glory as of the only Son from the Father, full of grace and truth':",
-    "b": "JHN",
-    "c": 1,
-    "a": [
-      "John 1",
-      "Jn 1",
-      "John 1:14",
-      "John ch 1"
-    ],
-    "e": "John 1:14: The pinnacle declaration of the Incarnation."
-  },
-  {
-    "id": "bmpi_gosp_7",
-    "t": "chapter_in_book",
-    "p": "In what chapter of Acts does Peter declare before the Sanhedrin: 'And there is salvation in no one else, for there is no other name under heaven given among men by which we must be saved'?",
+    "p": "Which New Testament book opens with: 'In the first book, O Theophilus, I have dealt with all that Jesus began to do and teach, until the day when he was taken up'?",
     "b": "ACT",
-    "c": 4,
-    "a": [
-      "4",
-      "Acts 4",
-      "Act 4",
-      "ch 4",
-      "chapter 4"
-    ],
-    "d": "Acts 4 (or Chapter 4)",
-    "e": "Acts 4:12: Peter boldly proclaims the exclusivity of Jesus Christ as Savior."
-  },
-  {
-    "id": "bmpi_gosp_8",
-    "t": "facts",
-    "p": "Which three chapters in Matthew comprise the complete Sermon on the Mount?",
-    "b": "MAT",
-    "c": 5,
-    "a": [
-      "Matthew 5, 6, 7",
-      "Matthew 5-7",
-      "Matt 5-7",
-      "5-7",
-      "5, 6, 7"
-    ],
-    "d": "Matthew 5, 6, and 7",
-    "e": "Matthew chapters 5, 6, and 7 contain the Beatitudes, Lord's Prayer, and Kingdom ethics."
-  },
-  {
-    "id": "bmpi_gosp_9",
-    "t": "facts",
-    "p": "Which four chapters in John contain Jesus' Upper Room Farewell Discourse and High Priestly Prayer?",
-    "b": "JHN",
-    "c": 14,
-    "a": [
-      "John 14-17",
-      "John 14 to 17",
-      "John 14, 15, 16, 17",
-      "John 14, 15, 16, and 17",
-      "Jn 14-17",
-      "14-17",
-      "14 to 17",
-      "14, 15, 16, 17",
-      "14, 15, 16, and 17",
-      "chapters 14-17",
-      "chapters 14 to 17"
-    ],
-    "d": "John 14\u201317",
-    "e": "John 14\u201317: Jesus comforts His disciples, promises the Holy Spirit, and prays for believers."
-  },
-  {
-    "id": "bmpi_gosp_10",
-    "t": "chapter_in_book",
-    "p": "What chapter in Luke contains the trilogy of parables: the Lost Sheep, the Lost Coin, and the Prodigal Son?",
-    "b": "LUK",
-    "c": 15,
-    "a": [
-      "15",
-      "Luke 15",
-      "Luk 15",
-      "ch 15",
-      "chapter 15"
-    ],
-    "d": "Luke 15 (or Chapter 15)",
-    "e": "Luke 15: Demonstrates God's lavish joy over one sinner who repents."
-  },
-  {
-    "id": "bmpi_paul_1",
-    "t": "book_chapter",
-    "p": "In what book and chapter does Paul explain: 'For the Lord himself will descend from heaven with a cry of command, with the voice of an archangel, and with the sound of the trumpet of God. And the dead in Christ will rise first. Then we who are alive, who are left, will be caught up together with them in the clouds...'?",
-    "b": "1TH",
-    "c": 4,
-    "a": [
-      "1 Thessalonians 4",
-      "1 Thess 4",
-      "1Th 4",
-      "1 Thessalonians 4:16-17"
-    ],
-    "e": "1 Thessalonians 4:13-18: Paul comforts believers concerning the resurrection and the return of Christ."
-  },
-  {
-    "id": "bmpi_paul_2",
-    "t": "book_id",
-    "p": "In what epistle does Paul write that the grace of God trains us to renounce ungodliness and worldly passions while waiting for our 'blessed hope, the appearing of the glory of our great God and Savior Jesus Christ'?",
-    "b": "TIT",
-    "c": 2,
-    "a": [
-      "Titus",
-      "Tit"
-    ],
-    "e": "Titus 2:11-14: Grace transforms daily character and fosters eager expectation of Christ's return."
-  },
-  {
-    "id": "bmpi_paul_3",
-    "t": "book_id",
-    "p": "In what book does Paul state his purpose for leaving a coworker: 'This is why I left you in Crete, so that you might put what remained into order, and appoint elders in every town as I directed you'?",
-    "b": "TIT",
     "c": 1,
     "a": [
-      "Titus",
-      "Tit"
+      "Acts",
+      "Acts of the Apostles",
+      "Act"
     ],
-    "e": "Titus 1:5: Paul's instructions to Titus on establishing godly church governance."
+    "d": "Acts (Acts 1:1\u20132)",
+    "e": "Acts 1:1 opens Luke's second volume addressed to Theophilus."
   },
   {
-    "id": "bmpi_paul_4",
+    "id": "bmpi_14",
     "t": "book_id",
-    "p": "What epistle contains the lofty christological declaration: 'For in him the whole fullness of deity dwells bodily, and you have been filled in him, who is the head of all rule and authority'?",
-    "b": "COL",
-    "c": 2,
-    "a": [
-      "Colossians",
-      "Col"
-    ],
-    "e": "Colossians 2:9-10: Refutes proto-Gnostic heresy by asserting Christ's complete and bodily deity."
-  },
-  {
-    "id": "bmpi_paul_5",
-    "t": "book_chapter",
-    "p": "Book & chapter: 'I have been crucified with Christ. It is no longer I who live, but Christ who lives in me. And the life I now live in the flesh I live by faith in the Son of God, who loved me and gave himself for me':",
-    "b": "GAL",
-    "c": 2,
-    "a": [
-      "Galatians 2",
-      "Gal 2",
-      "Galatians 2:20",
-      "Gal 2:20"
-    ],
-    "e": "Galatians 2:20: The heart of the believer's identification and union with Christ."
-  },
-  {
-    "id": "bmpi_paul_6",
-    "t": "book_id",
-    "p": "In what epistle does Paul pen the famous aphorism: 'for we walk by faith, not by sight'?",
-    "b": "2CO",
-    "c": 5,
-    "a": [
-      "2 Corinthians",
-      "2 Cor",
-      "2Cor"
-    ],
-    "e": "2 Corinthians 5:7: Living with an eternal heavenly perspective amidst mortal trials."
-  },
-  {
-    "id": "bmpi_paul_7",
-    "t": "chapter_in_book",
-    "p": "What chapter in Romans teaches that our old self was crucified with Christ so that we would no longer be enslaved to sin, but walk in newness of life?",
-    "b": "ROM",
-    "c": 6,
-    "a": [
-      "6",
-      "Romans 6",
-      "Rom 6",
-      "ch 6",
-      "chapter 6"
-    ],
-    "d": "Romans 6 (or Chapter 6)",
-    "e": "Romans 6: Explains baptism into Christ's death and resurrection power over sin."
-  },
-  {
-    "id": "bmpi_paul_8",
-    "t": "chapter_in_book",
-    "p": "In what chapter of Romans does Paul exclaim: 'No, in all these things we are more than conquerors through him who loved us' and declare nothing can separate us from God's love?",
-    "b": "ROM",
-    "c": 8,
-    "a": [
-      "8",
-      "Romans 8",
-      "Rom 8",
-      "ch 8",
-      "chapter 8"
-    ],
-    "d": "Romans 8 (or Chapter 8)",
-    "e": "Romans 8:37-39: The grand crescendo of Romans affirming eternal security."
-  },
-  {
-    "id": "bmpi_paul_9",
-    "t": "book_chapter",
-    "p": "Book & chapter: 'No temptation has overtaken you that is not common to man. God is faithful, and he will not let you be tempted beyond your ability, but with the temptation he will also provide the way of escape...':",
-    "b": "1CO",
-    "c": 10,
-    "a": [
-      "1 Corinthians 10",
-      "1 Cor 10",
-      "1Co 10",
-      "1 Corinthians 10:13"
-    ],
-    "e": "1 Corinthians 10:13: God's faithful provision of endurance and escape in temptation."
-  },
-  {
-    "id": "bmpi_paul_10",
-    "t": "chapter_in_book",
-    "p": "What chapter in 1 Corinthians is known as the 'Love Chapter', concluding with 'So now faith, hope, and love abide, these three; but the greatest of these is love'?",
-    "b": "1CO",
-    "c": 13,
-    "a": [
-      "13",
-      "1 Corinthians 13",
-      "1 Cor 13",
-      "ch 13",
-      "chapter 13"
-    ],
-    "d": "1 Corinthians 13 (or Chapter 13)",
-    "e": "1 Corinthians 13: Demonstrates that spiritual gifts without love are noisy and unprofitable."
-  },
-  {
-    "id": "bmpi_paul_11",
-    "t": "book_id",
-    "p": "In what epistle does Paul write: 'For the weapons of our warfare are not of the flesh but have divine power to destroy strongholds. We destroy arguments and every lofty opinion raised against the knowledge of God'?",
-    "b": "2CO",
-    "c": 10,
-    "a": [
-      "2 Corinthians",
-      "2 Cor",
-      "2Cor"
-    ],
-    "e": "2 Corinthians 10:4-5: Spiritual warfare through biblical truth and taking thoughts captive."
-  },
-  {
-    "id": "bmpi_paul_12",
-    "t": "book_id",
-    "p": "Which prison epistle emphasizes that true Christian joy transcends difficult circumstances, featuring 'Rejoice in the Lord always; again I will say, rejoice'?",
+    "p": "In what epistle does the command appear: 'do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God. And the peace of God... will guard your hearts'?",
     "b": "PHP",
     "c": 4,
     "a": [
@@ -736,65 +194,426 @@ export const RAW_QUESTIONS = [
       "Phil",
       "Php"
     ],
-    "e": "Philippians: Paul writes from Roman imprisonment with overflowing joy in Christ."
+    "d": "Philippians (Philippians 4:6\u20137)",
+    "e": "Philippians 4:6\u20137 provides God's prescription for overcoming anxiety."
   },
   {
-    "id": "bmpi_paul_13",
-    "t": "chapter_in_book",
-    "p": "What chapter in Ephesians describes the complete Armor of God (belt of truth, breastplate of righteousness, shield of faith, helmet of salvation, sword of the Spirit)?",
+    "id": "bmpi_15",
+    "t": "book_id",
+    "p": "In what epistle does the closing exhortation appear: 'But grow in the grace and knowledge of our Lord and Savior Jesus Christ. To him be the glory both now and to the day of eternity'?",
+    "b": "2PE",
+    "c": 3,
+    "a": [
+      "2 Peter",
+      "2 Pet",
+      "Second Peter"
+    ],
+    "d": "2 Peter (2 Peter 3:18)",
+    "e": "2 Peter 3:18 concludes Peter's final epistle."
+  },
+  {
+    "id": "bmpi_16",
+    "t": "book_id",
+    "p": "In what epistle does the command appear: 'Finally, be strong in the Lord and in the strength of his might. Put on the whole armor of God, that you may be able to stand against the schemes of the devil'?",
     "b": "EPH",
     "c": 6,
     "a": [
-      "6",
-      "Ephesians 6",
-      "Eph 6",
-      "ch 6",
-      "chapter 6"
+      "Ephesians",
+      "Eph"
     ],
-    "d": "Ephesians 6 (or Chapter 6)",
-    "e": "Ephesians 6:10-18: The believer's armor for standing against the schemes of the devil."
+    "d": "Ephesians (Ephesians 6:10\u201311)",
+    "e": "Ephesians 6:10\u201318 describes spiritual warfare and the armor of God."
   },
   {
-    "id": "bmpi_paul_14",
+    "id": "bmpi_17",
     "t": "book_id",
-    "p": "In what short letter does Paul urge a Christian slave owner to receive back his runaway slave Onesimus 'no longer as a bondservant but more than a bondservant, as a beloved brother'?",
-    "b": "PHM",
-    "c": 1,
+    "p": "In what epistle does the author ask: 'What good is it, my brothers, if someone says he has faith but does not have works? Can that faith save him?'",
+    "b": "JAS",
+    "c": 2,
     "a": [
-      "Philemon",
-      "Phm"
+      "James",
+      "Jas"
     ],
-    "e": "Philemon: A masterwork of Christian persuasion, reconciliation, and brotherhood."
+    "d": "James (James 2:14)",
+    "e": "James 2:14\u201326 demonstrates that genuine saving faith always produces righteous works."
   },
   {
-    "id": "bmpi_paul_15",
+    "id": "bmpi_18",
     "t": "book_id",
-    "p": "Paul's final recorded letter, written from a Roman dungeon facing execution, where he writes 'I have fought the good fight, I have finished the race, I have kept the faith':",
+    "p": "In what epistle is a young minister charged: 'Do your best to present yourself to God as one approved, a worker who has no need to be ashamed, rightly handling the word of truth'?",
     "b": "2TI",
-    "c": 4,
+    "c": 2,
     "a": [
       "2 Timothy",
       "2 Tim",
-      "2Ti"
+      "Second Timothy"
     ],
-    "e": "2 Timothy 4:6-8: Paul's final charge and farewell to his son in the faith, Timothy."
+    "d": "2 Timothy (2 Timothy 2:15)",
+    "e": "2 Timothy 2:15 instructs Timothy on diligent pastoral ministry."
   },
   {
-    "id": "bmpi_gen_1",
+    "id": "bmpi_19",
     "t": "book_id",
-    "p": "In what epistle does the author instruct: 'Remember your leaders, those who spoke to you the word of God. Consider the outcome of their way of life, and imitate their faith'?",
+    "p": "In what book does the promise appear: 'He who goes out weeping, bearing the seed for sowing, shall come home with shouts of joy, bringing his sheaves with him'?",
+    "b": "PSA",
+    "c": 126,
+    "a": [
+      "Psalms",
+      "Psalm",
+      "Psalm 126",
+      "Psalms 126",
+      "Ps 126"
+    ],
+    "d": "Psalms (Psalm 126:6)",
+    "e": "Psalm 126:6 is a song of ascents celebrating restoration from captivity."
+  },
+  {
+    "id": "bmpi_20",
+    "t": "book_chapter",
+    "p": "In what book & chapter does God call Abram: 'Go from your country and your kindred and your father's house to the land that I will show you. And I will make of you a great nation...'?",
+    "b": "GEN",
+    "c": 12,
+    "a": [
+      "Genesis 12",
+      "Gen 12",
+      "Genesis 12:1-3"
+    ],
+    "d": "Genesis 12 (Genesis 12:1\u20133)",
+    "e": "Genesis 12:1\u20133 is the foundational Abrahamic Covenant."
+  },
+  {
+    "id": "bmpi_21",
+    "t": "book_id",
+    "p": "In what book does Moses strike the rock twice at Meribah in anger rather than speaking to it as God commanded, resulting in his exclusion from entering Canaan?",
+    "b": "NUM",
+    "c": 20,
+    "a": [
+      "Numbers",
+      "Num"
+    ],
+    "d": "Numbers (Numbers 20:8\u201312)",
+    "e": "Numbers 20 records Moses striking the rock at Meribah."
+  },
+  {
+    "id": "bmpi_22",
+    "t": "facts",
+    "p": "Which leader delivered the farewell charge: 'Be strong and courageous. Do not fear or be in dread of them, for it is the Lord your God who goes with you. He will not leave you or forsake you'?",
+    "b": "DEU",
+    "c": 31,
+    "a": [
+      "Moses"
+    ],
+    "d": "Moses (Deuteronomy 31:6)",
+    "e": "Deuteronomy 31:6 is Moses' charge to Israel and Joshua before his death."
+  },
+  {
+    "id": "bmpi_23",
+    "t": "book_id",
+    "p": "In what book does a devoted daughter-in-law declare: 'Do not urge me to leave you or to return from following you. For where you go I will go, and where you lodge I will lodge. Your people shall be my people, and your God my God'?",
+    "b": "RUT",
+    "c": 1,
+    "a": [
+      "Ruth",
+      "Rut"
+    ],
+    "d": "Ruth (Ruth 1:16)",
+    "e": "Ruth 1:16 is Ruth's covenant pledge of loyalty to Naomi and Yahweh."
+  },
+  {
+    "id": "bmpi_24",
+    "t": "facts",
+    "p": "Who accepted Mordecai's challenge: 'And who knows whether you have not come to the kingdom for such a time as this?' and risked her life before the king?",
+    "b": "EST",
+    "c": 4,
+    "a": [
+      "Esther",
+      "Queen Esther",
+      "Hadassah"
+    ],
+    "d": "Esther (Esther 4:14\u201316)",
+    "e": "Esther 4:14\u201316 records Queen Esther interceding for her people in Persia."
+  },
+  {
+    "id": "bmpi_25",
+    "t": "book_id",
+    "p": "In what epistle does the triumph over death climax with: 'Death is swallowed up in victory... But thanks be to God, who gives us the victory through our Lord Jesus Christ'?",
+    "b": "1CO",
+    "c": 15,
+    "a": [
+      "1 Corinthians",
+      "1 Cor",
+      "First Corinthians"
+    ],
+    "d": "1 Corinthians (1 Corinthians 15:54\u201357)",
+    "e": "1 Corinthians 15:54\u201357 celebrates Christ's victory over the grave."
+  },
+  {
+    "id": "bmpi_26",
+    "t": "book_id",
+    "p": "In what epistle does the encouragement appear: 'And let us not grow weary of doing good, for in due season we will reap, if we do not give up'?",
+    "b": "GAL",
+    "c": 6,
+    "a": [
+      "Galatians",
+      "Gal"
+    ],
+    "d": "Galatians (Galatians 6:9)",
+    "e": "Galatians 6:9 encourages steadfast perseverance in ministry."
+  },
+  {
+    "id": "bmpi_27",
+    "t": "book_id",
+    "p": "In what prophetic book does the repeated judgment formula appear: 'For three transgressions of Judah, and for four, I will not revoke the punishment...'?",
+    "b": "AMO",
+    "c": 2,
+    "a": [
+      "Amos",
+      "Amo"
+    ],
+    "d": "Amos (Amos 2:4)",
+    "e": "Amos 1\u20132 pronounces divine judgment on the nations and Israel."
+  },
+  {
+    "id": "bmpi_28",
+    "t": "book_id",
+    "p": "In what epistle does Paul open with praise: 'Blessed be the God and Father of our Lord Jesus Christ, who has blessed us in Christ with every spiritual blessing in the heavenly places'?",
+    "b": "EPH",
+    "c": 1,
+    "a": [
+      "Ephesians",
+      "Eph"
+    ],
+    "d": "Ephesians (Ephesians 1:3)",
+    "e": "Ephesians 1:3\u201314 is a doxology of sovereign election, redemption, and sealing."
+  },
+  {
+    "id": "bmpi_29",
+    "t": "book_id",
+    "p": "In what book do the rhetorical questions on God's omnipresence appear: 'Where shall I go from your Spirit? Or where shall I flee from your presence?'",
+    "b": "PSA",
+    "c": 139,
+    "a": [
+      "Psalms",
+      "Psalm",
+      "Psalm 139",
+      "Psalms 139",
+      "Ps 139"
+    ],
+    "d": "Psalms (Psalm 139:7)",
+    "e": "Psalm 139:7\u201312 proclaims God's inescapable presence and omniscience."
+  },
+  {
+    "id": "bmpi_30",
+    "t": "facts",
+    "p": "Which patriarch declared to his brothers: 'As for you, you meant evil against me, but God meant it for good, to bring it about that many people should be kept alive'?",
+    "b": "GEN",
+    "c": 50,
+    "a": [
+      "Joseph"
+    ],
+    "d": "Joseph (Genesis 50:20)",
+    "e": "Genesis 50:20 is Joseph's classic confession of God's overarching providence."
+  },
+  {
+    "id": "bmpi_31",
+    "t": "book_id",
+    "p": "In what book of the Pentateuch is the foundational Shema given: 'Hear, O Israel: The Lord our God, the Lord is one. You shall love the Lord your God with all your heart and with all your soul and with all your might'?",
+    "b": "DEU",
+    "c": 6,
+    "a": [
+      "Deuteronomy",
+      "Deut",
+      "Dt"
+    ],
+    "d": "Deuteronomy (Deuteronomy 6:4\u20135)",
+    "e": "Deuteronomy 6:4\u20135 is the cornerstone confession of monotheism and supreme devotion."
+  },
+  {
+    "id": "bmpi_32",
+    "t": "facts",
+    "p": "To which military leader taking over leadership after Moses did God promise: 'Every place that the sole of your foot will tread upon I have given to you, just as I promised to Moses'?",
+    "b": "JOS",
+    "c": 1,
+    "a": [
+      "Joshua",
+      "Joshua son of Nun"
+    ],
+    "d": "Joshua (Joshua 1:3)",
+    "e": "Joshua 1:3 is God's commissioning promise to Joshua."
+  },
+  {
+    "id": "bmpi_33",
+    "t": "facts",
+    "p": "Which prophet and judge committed to Israel: 'Far be it from me that I should sin against the Lord by ceasing to pray for you, and I will instruct you in the good and the right way'?",
+    "b": "1SA",
+    "c": 12,
+    "a": [
+      "Samuel"
+    ],
+    "d": "Samuel (1 Samuel 12:23)",
+    "e": "1 Samuel 12:23 illustrates the pastoral intercession and teaching role of Samuel."
+  },
+  {
+    "id": "bmpi_34",
+    "t": "book_id",
+    "p": "In what poetic book does Zophar pose the rhetorical question: 'Can you find out the deep things of God? Can you find out the limit of the Almighty?'",
+    "b": "JOB",
+    "c": 11,
+    "a": [
+      "Job"
+    ],
+    "d": "Job (Job 11:7)",
+    "e": "Job 11:7 reflects the transcendent mystery of God's wisdom and sovereign purposes."
+  },
+  {
+    "id": "bmpi_35",
+    "t": "book_id",
+    "p": "In what epistle is divine wisdom characterized: 'the wisdom from above is first pure, then peaceable, gentle, open to reason, full of mercy and good fruits, impartial and sincere'?",
+    "b": "JAS",
+    "c": 3,
+    "a": [
+      "James",
+      "Jas"
+    ],
+    "d": "James (James 3:17)",
+    "e": "James 3:17 contrasts heavenly wisdom with worldly, unspiritual wisdom."
+  },
+  {
+    "id": "bmpi_36",
+    "t": "book_id",
+    "p": "In what apocalyptic book do the 144,000 redeemed from the earth sing a new song before the throne and the four living creatures?",
+    "b": "REV",
+    "c": 14,
+    "a": [
+      "Revelation",
+      "Rev",
+      "Apocalypse"
+    ],
+    "d": "Revelation (Revelation 14:3)",
+    "e": "Revelation 14:3 depicts the heavenly chorus of the redeemed."
+  },
+  {
+    "id": "bmpi_37",
+    "t": "book_id",
+    "p": "In what epistle does the description of Christ's return appear: 'For the Lord himself will descend from heaven with a cry of command, with the voice of an archangel, and with the sound of the trumpet of God. And the dead in Christ will rise first'?",
+    "b": "1TH",
+    "c": 4,
+    "a": [
+      "1 Thessalonians",
+      "1 Thess",
+      "First Thessalonians"
+    ],
+    "d": "1 Thessalonians (1 Thessalonians 4:16\u201317)",
+    "e": "1 Thessalonians 4:16\u201317 gives Paul's classic teaching on the return of Christ."
+  },
+  {
+    "id": "bmpi_38",
+    "t": "book_id",
+    "p": "In what historical book does James deliver the verdict: 'Therefore my judgment is that we should not trouble those of the Gentiles who turn to God, but should write to them to abstain from the things polluted by idols...'?",
+    "b": "ACT",
+    "c": 15,
+    "a": [
+      "Acts",
+      "Acts of the Apostles",
+      "Act"
+    ],
+    "d": "Acts (Acts 15:19\u201320)",
+    "e": "Acts 15:19\u201320 records the decisive decree of the Jerusalem Council."
+  },
+  {
+    "id": "bmpi_39",
+    "t": "book_id",
+    "p": "In what wisdom book does the observation appear: 'Because the sentence against an evil deed is not executed speedily, the heart of the children of man is fully set to do evil'?",
+    "b": "ECC",
+    "c": 8,
+    "a": [
+      "Ecclesiastes",
+      "Eccl",
+      "Qoheleth"
+    ],
+    "d": "Ecclesiastes (Ecclesiastes 8:11)",
+    "e": "Ecclesiastes 8:11 reflects on societal injustice when judgment is delayed."
+  },
+  {
+    "id": "bmpi_40",
+    "t": "facts",
+    "p": "Which dying patriarch made the sons of Israel swear an oath: 'God will surely visit you, and you shall carry up my bones from here'?",
+    "b": "GEN",
+    "c": 50,
+    "a": [
+      "Joseph"
+    ],
+    "d": "Joseph (Genesis 50:25)",
+    "e": "Genesis 50:25 and Hebrews 11:22 celebrate Joseph's faith regarding the Exodus."
+  },
+  {
+    "id": "bmpi_41",
+    "t": "book_id",
+    "p": "In what book is the 'Law of the King' given, commanding the future king to write for himself a copy of the law and read it all the days of his life so that his heart may not be lifted up above his brothers?",
+    "b": "DEU",
+    "c": 17,
+    "a": [
+      "Deuteronomy",
+      "Deut",
+      "Dt"
+    ],
+    "d": "Deuteronomy (Deuteronomy 17:18\u201320)",
+    "e": "Deuteronomy 17:18\u201320 prescribes royal humility and daily saturation in God's Word."
+  },
+  {
+    "id": "bmpi_42",
+    "t": "facts",
+    "p": "To which newly appointed leader did God charge: 'This Book of the Law shall not depart from your mouth, but you shall meditate on it day and night, so that you may be careful to do according to all that is written in it'?",
+    "b": "JOS",
+    "c": 1,
+    "a": [
+      "Joshua",
+      "Joshua son of Nun"
+    ],
+    "d": "Joshua (Joshua 1:8)",
+    "e": "Joshua 1:8 is God's charge to Joshua for spiritual courage and prosperity."
+  },
+  {
+    "id": "bmpi_43",
+    "t": "facts",
+    "p": "Which prophet confronted King Saul saying: 'Has the Lord as great delight in burnt offerings and sacrifices, as in obeying the voice of the Lord? Behold, to obey is better than sacrifice, and to listen than the fat of rams'?",
+    "b": "1SA",
+    "c": 15,
+    "a": [
+      "Samuel"
+    ],
+    "d": "Samuel (1 Samuel 15:22)",
+    "e": "1 Samuel 15:22 marks the divine rejection of Saul's kingship for disobedience."
+  },
+  {
+    "id": "bmpi_44",
+    "t": "facts",
+    "p": "Which suffering patriarch confessed in the midst of affliction: 'But he knows the way that I take; when he has tried me, I shall come out as gold'?",
+    "b": "JOB",
+    "c": 23,
+    "a": [
+      "Job"
+    ],
+    "d": "Job (Job 23:10)",
+    "e": "Job 23:10 expresses unshakeable confidence in God's refining purpose."
+  },
+  {
+    "id": "bmpi_45",
+    "t": "book_id",
+    "p": "In what book are believers urged: 'Remember your leaders, those who spoke to you the word of God. Consider the outcome of their way of life, and imitate their faith'?",
     "b": "HEB",
     "c": 13,
     "a": [
       "Hebrews",
       "Heb"
     ],
-    "e": "Hebrews 13:7: Highlights the crucial leadership principle of godly role modeling."
+    "d": "Hebrews (Hebrews 13:7)",
+    "e": "Hebrews 13:7 highlights the power of godly pastoral modeling."
   },
   {
-    "id": "bmpi_gen_2",
+    "id": "bmpi_46",
     "t": "book_id",
-    "p": "Which short epistle opens: 'The elder to the elect lady and her children, whom I love in truth, and not only I, but also all who know the truth'?",
+    "p": "Which short letter is addressed by 'the elder to the elect lady and her children, whom I love in truth'?",
     "b": "2JN",
     "c": 1,
     "a": [
@@ -802,37 +621,1644 @@ export const RAW_QUESTIONS = [
       "2 Jn",
       "Second John"
     ],
-    "e": "2 John 1: Warns against deceivers who do not confess Jesus Christ coming in the flesh."
+    "d": "2 John (2 John 1:1)",
+    "e": "2 John 1:1 is addressed to the elect lady and her children walking in truth."
   },
   {
-    "id": "bmpi_gen_3",
+    "id": "bmpi_47",
     "t": "book_id",
-    "p": "In what epistle does the author recount that the archangel Michael, when disputing with the devil about the body of Moses, said: 'The Lord rebuke you!'?",
+    "p": "In what pastoral epistle does Paul explain that the grace of God has appeared, 'training us to renounce ungodliness and worldly passions, and to live self-controlled, upright, and godly lives in the present age'?",
+    "b": "TIT",
+    "c": 2,
+    "a": [
+      "Titus",
+      "Tit"
+    ],
+    "d": "Titus (Titus 2:11\u201312)",
+    "e": "Titus 2:11\u201314 explains the sanctifying power of sovereign grace."
+  },
+  {
+    "id": "bmpi_48",
+    "t": "book_id",
+    "p": "In what epistle does the author demonstrate that Christ's eternal high priesthood belongs to the order of Melchizedek rather than the temporal Levitical priesthood of Aaron?",
+    "b": "HEB",
+    "c": 7,
+    "a": [
+      "Hebrews",
+      "Heb"
+    ],
+    "d": "Hebrews (Hebrews 7:11\u201317)",
+    "e": "Hebrews 7 expounds the superior, indestructible priesthood of Melchizedek fulfilled in Jesus."
+  },
+  {
+    "id": "bmpi_49",
+    "t": "book_id",
+    "p": "In what book does the ironic counsel appear: 'Rejoice, O young man, in your youth, and let your heart cheer you in the days of your youth... but know that for all these things God will bring you into judgment'?",
+    "b": "ECC",
+    "c": 11,
+    "a": [
+      "Ecclesiastes",
+      "Eccl",
+      "Qoheleth"
+    ],
+    "d": "Ecclesiastes (Ecclesiastes 11:9)",
+    "e": "Ecclesiastes 11:9 balances youthful joy with ultimate divine accountability."
+  },
+  {
+    "id": "bmpi_50",
+    "t": "book_id",
+    "p": "In what book does God institute the Passover: 'The blood shall be a sign for you, on the houses where you are. And when I see the blood, I will pass over you, and no plague will befall you to destroy you'?",
+    "b": "EXO",
+    "c": 12,
+    "a": [
+      "Exodus",
+      "Exo",
+      "Ex"
+    ],
+    "d": "Exodus (Exodus 12:13)",
+    "e": "Exodus 12:13 is the institution of the Passover lamb and deliverance from Egypt."
+  },
+  {
+    "id": "bmpi_51",
+    "t": "book_id",
+    "p": "In what book does the theological maxim appear: 'The secret things belong to the Lord our God, but the things that are revealed belong to us and to our children forever, that we may do all the words of this law'?",
+    "b": "DEU",
+    "c": 29,
+    "a": [
+      "Deuteronomy",
+      "Deut",
+      "Dt"
+    ],
+    "d": "Deuteronomy (Deuteronomy 29:29)",
+    "e": "Deuteronomy 29:29 balances God's unsearchable mysteries with His revealed commandments."
+  },
+  {
+    "id": "bmpi_52",
+    "t": "facts",
+    "p": "Which leader testified at the end of his life: 'Not one word has failed of all the good things that the Lord your God promised concerning you. All have come to pass for you; not one of them has failed'?",
+    "b": "JOS",
+    "c": 23,
+    "a": [
+      "Joshua",
+      "Joshua son of Nun"
+    ],
+    "d": "Joshua (Joshua 23:14)",
+    "e": "Joshua 23:14 is Joshua's farewell testimony to God's unbroken faithfulness."
+  },
+  {
+    "id": "bmpi_53",
+    "t": "book_id",
+    "p": "In what book does the Lord say to Samuel regarding the anointing of David: 'Do not look on his appearance or on the height of his stature... For the Lord sees not as man sees: man looks on the outward appearance, but the Lord looks on the heart'?",
+    "b": "1SA",
+    "c": 16,
+    "a": [
+      "1 Samuel",
+      "1 Sam",
+      "First Samuel"
+    ],
+    "d": "1 Samuel (1 Samuel 16:7)",
+    "e": "1 Samuel 16:7 establishes God's standard of inner character in leadership."
+  },
+  {
+    "id": "bmpi_54",
+    "t": "facts",
+    "p": "Who confessed in humble submission after God spoke from the whirlwind: 'I know that you can do all things, and that no purpose of yours can be thwarted'?",
+    "b": "JOB",
+    "c": 42,
+    "a": [
+      "Job"
+    ],
+    "d": "Job (Job 42:2)",
+    "e": "Job 42:2 marks Job's total surrender to the sovereign majesty of God."
+  },
+  {
+    "id": "bmpi_55",
+    "t": "book_id",
+    "p": "In what epistle did Paul charge his coworker: 'This is why I left you in Crete, so that you might put what remained into order and appoint elders in every town as I directed you'?",
+    "b": "TIT",
+    "c": 1,
+    "a": [
+      "Titus",
+      "Tit"
+    ],
+    "d": "Titus (Titus 1:5)",
+    "e": "Titus 1:5 sets forth the apostolic mandate to establish godly church leadership in Crete."
+  },
+  {
+    "id": "bmpi_56",
+    "t": "book_id",
+    "p": "In what general epistle does the author record that the archangel Michael, when contending with the devil about the body of Moses, did not presume to pronounce a blasphemous judgment, but said, 'The Lord rebuke you'?",
     "b": "JUD",
     "c": 1,
     "a": [
       "Jude",
       "Jud"
     ],
-    "e": "Jude 9: A warning against arrogant blasphemy by illustrating Michael's reverent humility."
+    "d": "Jude (Jude 1:9)",
+    "e": "Jude 1:9 warns against blaspheming angelic majesties using the example of Michael."
   },
   {
-    "id": "bmpi_gen_4",
+    "id": "bmpi_57",
     "t": "book_id",
-    "p": "In what epistle does this gospel summary occur: 'For Christ also suffered once for sins, the righteous for the unrighteous, that he might bring us to God, being put to death in the flesh but made alive in the spirit'?",
-    "b": "1PE",
+    "p": "In what book does the opening funeral dirge lament: 'How lonely sits the city that was full of people! How like a widow has she become, she who was great among the nations!'?",
+    "b": "LAM",
+    "c": 1,
+    "a": [
+      "Lamentations",
+      "Lam"
+    ],
+    "d": "Lamentations (Lamentations 1:1)",
+    "e": "Lamentations 1:1 is the grief-stricken opening over the destruction of Jerusalem."
+  },
+  {
+    "id": "bmpi_58",
+    "t": "book_id",
+    "p": "In what book does the psalmist recount of Joseph: 'He had sent a man ahead of them, Joseph, who was sold as a slave. His feet were hurt with fetters; his neck was put in a collar of iron; until what he had said came to pass, the word of the Lord tested him'?",
+    "b": "PSA",
+    "c": 105,
+    "a": [
+      "Psalms",
+      "Psalm",
+      "Psalm 105",
+      "Psalms 105",
+      "Ps 105"
+    ],
+    "d": "Psalms (Psalm 105:17\u201319)",
+    "e": "Psalm 105:17\u201319 reflects on God's sovereign testing and elevation of Joseph."
+  },
+  {
+    "id": "bmpi_59",
+    "t": "book_id",
+    "p": "In what book does the bride express intimate devotion: 'I am my beloved's, and his desire is for me'?",
+    "b": "SNG",
+    "c": 7,
+    "a": [
+      "Song of Songs",
+      "Song of Solomon",
+      "Canticles",
+      "Song"
+    ],
+    "d": "Song of Songs (Song 7:10)",
+    "e": "Song of Songs 7:10 expresses the beauty of mutual marital delight."
+  },
+  {
+    "id": "bmpi_60",
+    "t": "book_id",
+    "p": "In what book of the Law does the principle of substitutionary blood atonement appear: 'For the life of the flesh is in the blood, and I have given it for you on the altar to make atonement for your souls'?",
+    "b": "LEV",
+    "c": 17,
+    "a": [
+      "Leviticus",
+      "Lev",
+      "Lv"
+    ],
+    "d": "Leviticus (Leviticus 17:11)",
+    "e": "Leviticus 17:11 is the central Old Testament text on blood atonement."
+  },
+  {
+    "id": "bmpi_61",
+    "t": "book_id",
+    "p": "In what historical book did God promise Solomon: 'if my people who are called by my name humble themselves, and pray and seek my face and turn from their wicked ways, then I will hear from heaven and will forgive their sin and heal their land'?",
+    "b": "2CH",
+    "c": 7,
+    "a": [
+      "2 Chronicles",
+      "2 Chron",
+      "Second Chronicles"
+    ],
+    "d": "2 Chronicles (2 Chronicles 7:14)",
+    "e": "2 Chronicles 7:14 is God's covenant promise at the dedication of the temple."
+  },
+  {
+    "id": "bmpi_62",
+    "t": "facts",
+    "p": "Which prophet challenged the prophets of Baal on Mount Carmel: 'How long will you go limping between two different opinions? If the Lord is God, follow him; but if Baal, then follow him'?",
+    "b": "1KI",
+    "c": 18,
+    "a": [
+      "Elijah",
+      "Elijah the Tishbite"
+    ],
+    "d": "Elijah (1 Kings 18:21)",
+    "e": "1 Kings 18:21 records Elijah's dramatic power encounter on Mount Carmel."
+  },
+  {
+    "id": "bmpi_63",
+    "t": "facts",
+    "p": "Which young shepherd confronted Goliath declaring: 'You come to me with a sword and with a spear and with a javelin, but I come to you in the name of the Lord of hosts, the God of the armies of Israel'?",
+    "b": "1SA",
+    "c": 17,
+    "a": [
+      "David"
+    ],
+    "d": "David (1 Samuel 17:45)",
+    "e": "1 Samuel 17:45 shows David's faith in the sovereign power of Yahweh."
+  },
+  {
+    "id": "bmpi_64",
+    "t": "facts",
+    "p": "Which king of Judah prayed when confronted by an overwhelming allied army: 'O our God, will you not execute judgment on them? For we are powerless against this great horde that is coming against us. We do not know what to do, but our eyes are on you'?",
+    "b": "2CH",
+    "c": 20,
+    "a": [
+      "Jehoshaphat",
+      "King Jehoshaphat"
+    ],
+    "d": "Jehoshaphat (2 Chronicles 20:12)",
+    "e": "2 Chronicles 20:12 is Jehoshaphat's model prayer of total reliance on God."
+  },
+  {
+    "id": "bmpi_65",
+    "t": "book_id",
+    "p": "In what pastoral epistle does Paul charge Timothy regarding church leadership: 'Do not be hasty in the laying on of hands, nor take part in the sins of others; keep yourself pure'?",
+    "b": "1TI",
+    "c": 5,
+    "a": [
+      "1 Timothy",
+      "1 Tim",
+      "First Timothy"
+    ],
+    "d": "1 Timothy (1 Timothy 5:22)",
+    "e": "1 Timothy 5:22 warns against careless ordination and compromising leadership."
+  },
+  {
+    "id": "bmpi_66",
+    "t": "facts",
+    "p": "Which king of Judah, after falling mortally ill, wept bitterly and prayed to the Lord, receiving 15 additional years of life and the miraculous retreat of the sun's shadow?",
+    "b": "2KI",
+    "c": 20,
+    "a": [
+      "Hezekiah",
+      "King Hezekiah"
+    ],
+    "d": "Hezekiah (2 Kings 20:1\u20136, Isaiah 38)",
+    "e": "2 Kings 20 records Hezekiah's prayer, recovery, and the sign on the dial of Ahaz."
+  },
+  {
+    "id": "bmpi_67",
+    "t": "book_id",
+    "p": "In what book does the dramatic confession appear: 'The Lord gave, and the Lord has taken away; blessed be the name of the Lord'?",
+    "b": "JOB",
+    "c": 1,
+    "a": [
+      "Job"
+    ],
+    "d": "Job (Job 1:21)",
+    "e": "Job 1:21 is Job's worshipful response after losing all his possessions and children."
+  },
+  {
+    "id": "bmpi_68",
+    "t": "facts",
+    "p": "Which prophet saw the vision of the Lord seated on a throne, high and lifted up, with the train of His robe filling the temple, crying: 'Woe is me! For I am lost; for I am a man of unclean lips'?",
+    "b": "ISA",
+    "c": 6,
+    "a": [
+      "Isaiah",
+      "Isa"
+    ],
+    "d": "Isaiah (Isaiah 6:1\u20135)",
+    "e": "Isaiah 6:1\u20138 is Isaiah's heavenly commissioning vision."
+  },
+  {
+    "id": "bmpi_69",
+    "t": "book_id",
+    "p": "In what prophetic book does the Lord declare through the prophet: 'For my thoughts are not your thoughts, neither are your ways my ways, declares the Lord. For as the heavens are higher than the earth, so are my ways higher than your ways'?",
+    "b": "ISA",
+    "c": 55,
+    "a": [
+      "Isaiah",
+      "Isa"
+    ],
+    "d": "Isaiah (Isaiah 55:8\u20139)",
+    "e": "Isaiah 55:8\u20139 proclaims the infinite superiority of God's wisdom and counsel."
+  },
+  {
+    "id": "bmpi_70",
+    "t": "book_id",
+    "p": "In what book of the Pentateuch is the holiness code repeatedly grounded in: 'You shall be holy, for I the Lord your God am holy'?",
+    "b": "LEV",
+    "c": 19,
+    "a": [
+      "Leviticus",
+      "Lev",
+      "Lv"
+    ],
+    "d": "Leviticus (Leviticus 19:2)",
+    "e": "Leviticus 19:2 sets the standard of moral and ritual holiness reflecting God's character."
+  },
+  {
+    "id": "bmpi_71",
+    "t": "book_id",
+    "p": "In what Gospel does Jesus call Peter and Andrew with the words: 'Follow me, and I will make you fishers of men'?",
+    "b": "MAT",
+    "c": 4,
+    "a": [
+      "Matthew",
+      "Mark",
+      "Mat",
+      "Mrk"
+    ],
+    "d": "Matthew (Matthew 4:19 / Mark 1:17)",
+    "e": "Matthew 4:19 and Mark 1:17 record Jesus' initial call of the disciples into evangelistic ministry."
+  },
+  {
+    "id": "bmpi_72",
+    "t": "book_id",
+    "p": "In what historical book does the refrain appear: 'In those days there was no king in Israel. Everyone did what was right in his own eyes'?",
+    "b": "JDG",
+    "c": 21,
+    "a": [
+      "Judges",
+      "Jdg"
+    ],
+    "d": "Judges (Judges 21:25)",
+    "e": "Judges 21:25 summarizes the moral and spiritual anarchy of the Judges era."
+  },
+  {
+    "id": "bmpi_73",
+    "t": "book_id",
+    "p": "In what Gospel does Jesus command His disciples: 'The harvest is plentiful, but the laborers are few; therefore pray earnestly to the Lord of the harvest to send out laborers into his harvest'?",
+    "b": "MAT",
+    "c": 9,
+    "a": [
+      "Matthew",
+      "Luke",
+      "Mat",
+      "Luk"
+    ],
+    "d": "Matthew (Matthew 9:37\u201338 / Luke 10:2)",
+    "e": "Matthew 9:37\u201338 reveals Christ's compassion for the unshepherded crowds."
+  },
+  {
+    "id": "bmpi_74",
+    "t": "book_id",
+    "p": "In what book does David invite believers: 'Oh, magnify the Lord with me, and let us exalt his name together!'?",
+    "b": "PSA",
+    "c": 34,
+    "a": [
+      "Psalms",
+      "Psalm",
+      "Psalm 34",
+      "Psalms 34",
+      "Ps 34"
+    ],
+    "d": "Psalms (Psalm 34:3)",
+    "e": "Psalm 34:3 is a call to corporate praise after experiencing God's deliverance."
+  },
+  {
+    "id": "bmpi_75",
+    "t": "book_id",
+    "p": "In what epistle does Paul declare: 'For in him the whole fullness of deity dwells bodily, and you have been filled in him, who is the head of all rule and authority'?",
+    "b": "COL",
+    "c": 2,
+    "a": [
+      "Colossians",
+      "Col"
+    ],
+    "d": "Colossians (Colossians 2:9\u201310)",
+    "e": "Colossians 2:9\u201310 asserts the absolute deity of Christ and the believer's completeness in Him."
+  },
+  {
+    "id": "bmpi_76",
+    "t": "book_id",
+    "p": "In what Gospel does the Great Commission charge appear: 'Go into all the world and proclaim the gospel to the whole creation'?",
+    "b": "MRK",
+    "c": 16,
+    "a": [
+      "Mark",
+      "Gospel of Mark",
+      "Mrk"
+    ],
+    "d": "Mark (Mark 16:15)",
+    "e": "Mark 16:15 gives the evangelistic mandate to preach the gospel to all creation."
+  },
+  {
+    "id": "bmpi_77",
+    "t": "book_id",
+    "p": "In what Gospel does the prologue open: 'In the beginning was the Word, and the Word was with God, and the Word was God'?",
+    "b": "JHN",
+    "c": 1,
+    "a": [
+      "John",
+      "Gospel of John",
+      "Jhn"
+    ],
+    "d": "John (John 1:1)",
+    "e": "John 1:1 presents the eternal deity and preexistence of the incarnate Logos."
+  },
+  {
+    "id": "bmpi_78",
+    "t": "book_id",
+    "p": "In what book does the psalmist testify: 'Your word is a lamp to my feet and a light to my path'?",
+    "b": "PSA",
+    "c": 119,
+    "a": [
+      "Psalms",
+      "Psalm",
+      "Psalm 119",
+      "Psalms 119",
+      "Ps 119"
+    ],
+    "d": "Psalms (Psalm 119:105)",
+    "e": "Psalm 119:105 celebrates the illuminating guidance of God's Word."
+  },
+  {
+    "id": "bmpi_79",
+    "t": "book_id",
+    "p": "In what prophetic book does the Lord declare: 'And I sought for a man among them who should build up the wall and stand in the breach before me for the land, that I should not destroy it, but I found none'?",
+    "b": "EZE",
+    "c": 22,
+    "a": [
+      "Ezekiel",
+      "Eze"
+    ],
+    "d": "Ezekiel (Ezekiel 22:30)",
+    "e": "Ezekiel 22:30 shows God seeking intercessors and righteous spiritual leaders in times of national crisis."
+  },
+  {
+    "id": "bmpi_80",
+    "t": "facts",
+    "p": "Which young exiled leader 'resolved that he would not defile himself with the king's food, or with the wine that he drank' in Babylon?",
+    "b": "DAN",
+    "c": 1,
+    "a": [
+      "Daniel",
+      "Belteshazzar"
+    ],
+    "d": "Daniel (Daniel 1:8)",
+    "e": "Daniel 1:8 records Daniel's early resolve for holy living in pagan Babylon."
+  },
+  {
+    "id": "bmpi_81",
+    "t": "book_id",
+    "p": "In what book of the Pentateuch is Moses described: 'Now the man Moses was very meek, more than all people who were on the face of the earth'?",
+    "b": "NUM",
+    "c": 12,
+    "a": [
+      "Numbers",
+      "Num"
+    ],
+    "d": "Numbers (Numbers 12:3)",
+    "e": "Numbers 12:3 highlights Moses' genuine meekness when opposed by Aaron and Miriam."
+  },
+  {
+    "id": "bmpi_82",
+    "t": "book_id",
+    "p": "In what Gospel does Jesus teach servant leadership: 'whoever would be great among you must be your servant... even as the Son of Man came not to be served but to serve, and to give his life as a ransom for many'?",
+    "b": "MAT",
+    "c": 20,
+    "a": [
+      "Matthew",
+      "Mark",
+      "Mat",
+      "Mrk"
+    ],
+    "d": "Matthew (Matthew 20:26\u201328 / Mark 10:43\u201345)",
+    "e": "Matthew 20:26\u201328 redefines true kingdom leadership as humble servanthood modeled by Christ."
+  },
+  {
+    "id": "bmpi_83",
+    "t": "book_id",
+    "p": "In what Gospel does Jesus declare: 'I am the good shepherd. The good shepherd lays down his life for the sheep'?",
+    "b": "JHN",
+    "c": 10,
+    "a": [
+      "John",
+      "Gospel of John",
+      "Jhn"
+    ],
+    "d": "John (John 10:11)",
+    "e": "John 10:11 portrays Jesus as the sacrificial Good Shepherd."
+  },
+  {
+    "id": "bmpi_84",
+    "t": "book_id",
+    "p": "In what Gospel does the distressed father cry out to Jesus: 'I believe; help my unbelief!'?",
+    "b": "MRK",
+    "c": 9,
+    "a": [
+      "Mark",
+      "Gospel of Mark",
+      "Mrk"
+    ],
+    "d": "Mark (Mark 9:24)",
+    "e": "Mark 9:23\u201324 records the father's honest prayer when Jesus heals his demonized son."
+  },
+  {
+    "id": "bmpi_85",
+    "t": "book_id",
+    "p": "In what book does the promise appear: 'Delight yourself in the Lord, and he will give you the desires of your heart'?",
+    "b": "PSA",
+    "c": 37,
+    "a": [
+      "Psalms",
+      "Psalm",
+      "Psalm 37",
+      "Psalms 37",
+      "Ps 37"
+    ],
+    "d": "Psalms (Psalm 37:4)",
+    "e": "Psalm 37:4 encourages finding ultimate satisfaction in Yahweh."
+  },
+  {
+    "id": "bmpi_86",
+    "t": "book_id",
+    "p": "In what prophetic book does the Lord say He will return to His place until they acknowledge their guilt, prompting the plea: 'Come, let us return to the Lord; for he has torn us, that he may heal us'?",
+    "b": "HOS",
+    "c": 6,
+    "a": [
+      "Hosea",
+      "Hos"
+    ],
+    "d": "Hosea (Hosea 5:15\u20136:1)",
+    "e": "Hosea 6:1 calls backsliding Israel to genuine covenant repentance."
+  },
+  {
+    "id": "bmpi_87",
+    "t": "book_id",
+    "p": "In what prophetic book does the promise appear: 'You keep him in perfect peace whose mind is stayed on you, because he trusts in you'?",
+    "b": "ISA",
+    "c": 26,
+    "a": [
+      "Isaiah",
+      "Isa"
+    ],
+    "d": "Isaiah (Isaiah 26:3)",
+    "e": "Isaiah 26:3 promises unshakable peace to those whose minds are fixed on God."
+  },
+  {
+    "id": "bmpi_88",
+    "t": "book_id",
+    "p": "In what epistle does Paul declare: 'I have been crucified with Christ. It is no longer I who live, but Christ who lives in me. And the life I now live in the flesh I live by faith in the Son of God'?",
+    "b": "GAL",
+    "c": 2,
+    "a": [
+      "Galatians",
+      "Gal"
+    ],
+    "d": "Galatians (Galatians 2:20)",
+    "e": "Galatians 2:20 is Paul's testimony of union with Christ in His death and resurrection."
+  },
+  {
+    "id": "bmpi_89",
+    "t": "book_id",
+    "p": "In what prophetic book does the prophecy appear: 'All we like sheep have gone astray; we have turned\u2014every one\u2014to his own way; and the Lord has laid on him the iniquity of us all'?",
+    "b": "ISA",
+    "c": 53,
+    "a": [
+      "Isaiah",
+      "Isa"
+    ],
+    "d": "Isaiah (Isaiah 53:6)",
+    "e": "Isaiah 53:6 foretells Christ's substitutionary sin-bearing on the cross."
+  },
+  {
+    "id": "bmpi_90",
+    "t": "book_id",
+    "p": "In what book does David pray following his conviction of sin: 'Create in me a clean heart, O God, and renew a right spirit within me'?",
+    "b": "PSA",
+    "c": 51,
+    "a": [
+      "Psalms",
+      "Psalm",
+      "Psalm 51",
+      "Psalms 51",
+      "Ps 51"
+    ],
+    "d": "Psalms (Psalm 51:10)",
+    "e": "Psalm 51:10 is David's prayer of brokenhearted repentance."
+  },
+  {
+    "id": "bmpi_91",
+    "t": "book_id",
+    "p": "In what epistle does Paul state the core principle of Christian pilgrimage: 'for we walk by faith, not by sight'?",
+    "b": "2CO",
+    "c": 5,
+    "a": [
+      "2 Corinthians",
+      "2 Cor",
+      "Second Corinthians"
+    ],
+    "d": "2 Corinthians (2 Corinthians 5:7)",
+    "e": "2 Corinthians 5:7 defines walking by unseen eternal realities."
+  },
+  {
+    "id": "bmpi_92",
+    "t": "book_id",
+    "p": "In what wisdom book does the proverb appear: 'A soft answer turns away wrath, but a harsh word stirs up anger'?",
+    "b": "PRO",
+    "c": 15,
+    "a": [
+      "Proverbs",
+      "Prov",
+      "Pr"
+    ],
+    "d": "Proverbs (Proverbs 15:1)",
+    "e": "Proverbs 15:1 teaches the pacifying power of gentle communication."
+  },
+  {
+    "id": "bmpi_93",
+    "t": "book_id",
+    "p": "In what epistle does Paul declare the universal need of humanity: 'for all have sinned and fall short of the glory of God'?",
+    "b": "ROM",
     "c": 3,
     "a": [
-      "1 Peter",
-      "1 Pet",
-      "1Pe"
+      "Romans",
+      "Rom"
     ],
-    "e": "1 Peter 3:18: The heart of Christ's substitutionary suffering on behalf of believers."
+    "d": "Romans (Romans 3:23)",
+    "e": "Romans 3:23 establishes universal human guilt requiring divine justification in Christ."
   },
   {
-    "id": "bmpi_gen_5",
+    "id": "bmpi_94",
     "t": "book_id",
-    "p": "In which short epistle does John commend Gaius for showing hospitality to traveling missionary workers ('fellow workers for the truth') while rebuking Diotrephes?",
+    "p": "In what prophetic book does God promise: 'so shall my word be that goes out from my mouth; it shall not return to me empty, but it shall accomplish that which I purpose'?",
+    "b": "ISA",
+    "c": 55,
+    "a": [
+      "Isaiah",
+      "Isa"
+    ],
+    "d": "Isaiah (Isaiah 55:11)",
+    "e": "Isaiah 55:11 guarantees the sovereign efficacy of God's Word."
+  },
+  {
+    "id": "bmpi_95",
+    "t": "book_id",
+    "p": "In what wisdom book does the guidance command appear: 'Trust in the Lord with all your heart, and do not lean on your own understanding. In all your ways acknowledge him, and he will make straight your paths'?",
+    "b": "PRO",
+    "c": 3,
+    "a": [
+      "Proverbs",
+      "Prov",
+      "Pr"
+    ],
+    "d": "Proverbs (Proverbs 3:5\u20136)",
+    "e": "Proverbs 3:5\u20136 gives the classic biblical pattern for divine guidance."
+  },
+  {
+    "id": "bmpi_96",
+    "t": "book_id",
+    "p": "In what wisdom book does the proverb appear: 'The king's heart is a stream of water in the hand of the Lord; he turns it wherever he will'?",
+    "b": "PRO",
+    "c": 21,
+    "a": [
+      "Proverbs",
+      "Prov",
+      "Pr"
+    ],
+    "d": "Proverbs (Proverbs 21:1)",
+    "e": "Proverbs 21:1 asserts God's sovereign control over earthly rulers."
+  },
+  {
+    "id": "bmpi_97",
+    "t": "book_chapter",
+    "p": "In what book & chapter does the promise appear: 'they who wait for the Lord shall renew their strength; they shall mount up with wings like eagles; they shall run and not be weary; they shall walk and not faint'?",
+    "b": "ISA",
+    "c": 40,
+    "a": [
+      "Isaiah 40",
+      "Isa 40",
+      "Isaiah 40:31",
+      "Isa 40:31"
+    ],
+    "d": "Isaiah 40 (Isaiah 40:31)",
+    "e": "Isaiah 40:31 promises divine endurance to those who wait upon Yahweh."
+  },
+  {
+    "id": "bmpi_98",
+    "t": "book_id",
+    "p": "In what Gospel does the incarnational summary appear: 'And the Word became flesh and dwelt among us, and we have seen his glory, glory as of the only Son from the Father, full of grace and truth'?",
+    "b": "JHN",
+    "c": 1,
+    "a": [
+      "John",
+      "Gospel of John",
+      "Jhn"
+    ],
+    "d": "John (John 1:14)",
+    "e": "John 1:14 encapsulates the divine Incarnation of the Son of God."
+  },
+  {
+    "id": "bmpi_99",
+    "t": "book_id",
+    "p": "In what book does Peter preach before the Sanhedrin: 'And there is salvation in no one else, for there is no other name under heaven given among men by which we must be saved'?",
+    "b": "ACT",
+    "c": 4,
+    "a": [
+      "Acts",
+      "Acts of the Apostles",
+      "Act"
+    ],
+    "d": "Acts (Acts 4:12)",
+    "e": "Acts 4:12 proclaims the exclusive saving power of Jesus Christ."
+  },
+  {
+    "id": "bmpi_100",
+    "t": "book_id",
+    "p": "In what Gospel does Jesus comfort His disciples in the Upper Room: 'Let not your hearts be troubled. Believe in God; believe also in me'?",
+    "b": "JHN",
+    "c": 14,
+    "a": [
+      "John",
+      "Gospel of John",
+      "Jhn"
+    ],
+    "d": "John (John 14:1)",
+    "e": "John 14:1 opens the Farewell Discourse with comforting assurance."
+  },
+  {
+    "id": "bmpi_101",
+    "t": "book_id",
+    "p": "In what epistle does Paul explain our co-crucifixion with Christ: 'We know that our old self was crucified with him in order that the body of sin might be brought to nothing, so that we would no longer be enslaved to sin'?",
+    "b": "ROM",
+    "c": 6,
+    "a": [
+      "Romans",
+      "Rom"
+    ],
+    "d": "Romans (Romans 6:6)",
+    "e": "Romans 6:6 explains liberation from the tyranny of sin through union with Christ."
+  },
+  {
+    "id": "bmpi_102",
+    "t": "book_id",
+    "p": "In what epistle does Paul proclaim: 'No, in all these things we are more than conquerors through him who loved us'?",
+    "b": "ROM",
+    "c": 8,
+    "a": [
+      "Romans",
+      "Rom"
+    ],
+    "d": "Romans (Romans 8:37)",
+    "e": "Romans 8:37 celebrates the unshakeable security of the believer in Christ's love."
+  },
+  {
+    "id": "bmpi_103",
+    "t": "book_id",
+    "p": "In what epistle does the promise appear: 'No temptation has overtaken you that is not common to man. God is faithful, and he will not let you be tempted beyond your ability, but with the temptation he will also provide the way of escape'?",
+    "b": "1CO",
+    "c": 10,
+    "a": [
+      "1 Corinthians",
+      "1 Cor",
+      "First Corinthians"
+    ],
+    "d": "1 Corinthians (1 Corinthians 10:13)",
+    "e": "1 Corinthians 10:13 assures believers of God's faithfulness amidst temptation."
+  },
+  {
+    "id": "bmpi_104",
+    "t": "book_id",
+    "p": "In what epistle does the 'Love Chapter' conclude: 'So now faith, hope, and love abide, these three; but the greatest of these is love'?",
+    "b": "1CO",
+    "c": 13,
+    "a": [
+      "1 Corinthians",
+      "1 Cor",
+      "First Corinthians"
+    ],
+    "d": "1 Corinthians (1 Corinthians 13:13)",
+    "e": "1 Corinthians 13:13 exalts love above all spiritual gifts and virtues."
+  },
+  {
+    "id": "bmpi_105",
+    "t": "book_id",
+    "p": "In what epistle does the golden chain of redemption appear: 'And we know that for those who love God all things work together for good, for those who are called according to his purpose. For those whom he foreknew he also predestined to be conformed to the image of his Son'?",
+    "b": "ROM",
+    "c": 8,
+    "a": [
+      "Romans",
+      "Rom"
+    ],
+    "d": "Romans (Romans 8:28\u201329)",
+    "e": "Romans 8:28\u201330 details God's sovereign providence conforming believers to Christ."
+  },
+  {
+    "id": "bmpi_106",
+    "t": "book_id",
+    "p": "In what Gospel does Jesus command in the Sermon on the Mount: 'But seek first the kingdom of God and his righteousness, and all these things will be added to you'?",
+    "b": "MAT",
+    "c": 6,
+    "a": [
+      "Matthew",
+      "Gospel of Matthew",
+      "Mat"
+    ],
+    "d": "Matthew (Matthew 6:33)",
+    "e": "Matthew 6:33 establishes the primary priority of God's kingdom over earthly anxieties."
+  },
+  {
+    "id": "bmpi_107",
+    "t": "book_id",
+    "p": "In what epistle does Paul explain apostolic warfare: 'For the weapons of our warfare are not of the flesh but have divine power to destroy strongholds'?",
+    "b": "2CO",
+    "c": 10,
+    "a": [
+      "2 Corinthians",
+      "2 Cor",
+      "Second Corinthians"
+    ],
+    "d": "2 Corinthians (2 Corinthians 10:4)",
+    "e": "2 Corinthians 10:4\u20135 teaches demolishing arguments and taking every thought captive to obey Christ."
+  },
+  {
+    "id": "bmpi_108",
+    "t": "book_id",
+    "p": "In what prophetic book does the Bethlehem prophecy appear: 'But you, O Bethlehem Ephrathah, who are too little to be among the clans of Judah, from you shall come forth for me one who is to be ruler in Israel, whose coming forth is from of old, from ancient days'?",
+    "b": "MIC",
+    "c": 5,
+    "a": [
+      "Micah",
+      "Mic"
+    ],
+    "d": "Micah (Micah 5:2)",
+    "e": "Micah 5:2 foretells the birthplace and eternal preexistence of the Messiah."
+  },
+  {
+    "id": "bmpi_109",
+    "t": "book_id",
+    "p": "In what prophetic book does the summary of true religion appear: 'He has told you, O man, what is good; and what does the Lord require of you but to do justice, and to love kindness, and to walk humbly with your God'?",
+    "b": "MIC",
+    "c": 6,
+    "a": [
+      "Micah",
+      "Mic"
+    ],
+    "d": "Micah (Micah 6:8)",
+    "e": "Micah 6:8 summarizes the heart of genuine covenant obedience."
+  },
+  {
+    "id": "bmpi_110",
+    "t": "book_id",
+    "p": "In what post-exilic prophetic book does the Lord challenge the returned remnant: 'Is it a time for you yourselves to dwell in your paneled houses, while this house lies in ruins?'",
+    "b": "HAG",
+    "c": 1,
+    "a": [
+      "Haggai",
+      "Hag"
+    ],
+    "d": "Haggai (Haggai 1:4)",
+    "e": "Haggai 1:4 rebukes the returned exiles for prioritizing personal luxury over rebuilding the temple."
+  },
+  {
+    "id": "bmpi_111",
+    "t": "book_id",
+    "p": "Which Minor Prophet repeatedly emphasizes 'the Day of the Lord' five times as both a devastating locust plague and a future cosmic judgment and restoration?",
+    "b": "JOE",
+    "c": 1,
+    "a": [
+      "Joel",
+      "Joe"
+    ],
+    "d": "Joel",
+    "e": "Joel 1\u20133 focuses extensively on the themes of the Day of the Lord and the outpouring of the Spirit."
+  },
+  {
+    "id": "bmpi_112",
+    "t": "book_id",
+    "p": "Which two Old Testament books trace the era of charismatic leaders and judges delivering Israel between the conquest and the monarchy?",
+    "b": "JDG",
+    "c": 1,
+    "a": [
+      "Judges and Ruth",
+      "Judges & Ruth",
+      "Judges",
+      "Ruth"
+    ],
+    "d": "Judges and Ruth",
+    "e": "Judges and Ruth document life, leadership, and redemption during the judges era."
+  },
+  {
+    "id": "bmpi_113",
+    "t": "book_id",
+    "p": "Which two historical books trace the post-exilic return of the Jewish remnant, the rebuilding of the second temple, and the reconstruction of Jerusalem's defensive walls?",
+    "b": "EZR",
+    "c": 1,
+    "a": [
+      "Ezra and Nehemiah",
+      "Ezra & Nehemiah",
+      "Ezra",
+      "Nehemiah"
+    ],
+    "d": "Ezra and Nehemiah",
+    "e": "Ezra and Nehemiah chronicle the post-exilic restoration under Zerubbabel, Ezra, and Nehemiah."
+  },
+  {
+    "id": "bmpi_114",
+    "t": "book_id",
+    "p": "Which book of the Pentateuch is structured around the lives of four key patriarchs: Abraham, Isaac, Jacob, and Joseph?",
+    "b": "GEN",
+    "c": 12,
+    "a": [
+      "Genesis",
+      "Gen"
+    ],
+    "d": "Genesis (Genesis 12\u201350)",
+    "e": "Genesis 12\u201350 records the foundational patriarchal history of the covenant family."
+  },
+  {
+    "id": "bmpi_115",
+    "t": "book_id",
+    "p": "Which Old Testament historical book chronicles Israel's initial military conquest of Canaan and the division of the Promised Land among the twelve tribes?",
+    "b": "JOS",
+    "c": 1,
+    "a": [
+      "Joshua",
+      "Jos"
+    ],
+    "d": "Joshua",
+    "e": "Joshua records the crossing of the Jordan, conquest of Jericho and Ai, and tribal allocations."
+  },
+  {
+    "id": "bmpi_116",
+    "t": "book_id",
+    "p": "Which poetic wisdom book wrestles with the profound mystery of innocent human suffering and divine sovereignty through poetic dialogues and God's speeches from the whirlwind?",
+    "b": "JOB",
+    "c": 1,
+    "a": [
+      "Job"
+    ],
+    "d": "Job",
+    "e": "Job addresses the theological problem of righteous suffering and God's unsearchable sovereignty."
+  },
+  {
+    "id": "bmpi_117",
+    "t": "book_id",
+    "p": "Which book of the Law details the sacrificial system, priestly consecration, and the annual Day of Atonement (Yom Kippur)?",
+    "b": "LEV",
+    "c": 1,
+    "a": [
+      "Leviticus",
+      "Lev",
+      "Lv"
+    ],
+    "d": "Leviticus",
+    "e": "Leviticus provides the liturgical, ceremonial, and moral holiness requirements for Israel."
+  },
+  {
+    "id": "bmpi_118",
+    "t": "book_id",
+    "p": "Which book of the Law contains Moses' series of farewell sermons on the plains of Moab reiterating the covenant to the new generation before entering Canaan?",
+    "b": "DEU",
+    "c": 1,
+    "a": [
+      "Deuteronomy",
+      "Deut",
+      "Dt"
+    ],
+    "d": "Deuteronomy",
+    "e": "Deuteronomy ('second law') restates the covenant, Shema, and blessings/curses."
+  },
+  {
+    "id": "bmpi_119",
+    "t": "book_id",
+    "p": "Which historical books trace the monarchy from Solomon's golden reign and the division into Northern/Southern kingdoms through the eventual falls of Samaria and Jerusalem?",
+    "b": "1KI",
+    "c": 1,
+    "a": [
+      "1 Kings and 2 Kings",
+      "1 & 2 Kings",
+      "1 Kings",
+      "2 Kings",
+      "Kings"
+    ],
+    "d": "1 & 2 Kings",
+    "e": "1 & 2 Kings narrate the monarchic history of Israel and Judah."
+  },
+  {
+    "id": "bmpi_120",
+    "t": "book_id",
+    "p": "Which Major Prophet served as the 'weeping prophet' warning Judah of impending Babylonian exile for over 40 years, while also weeping over the fallen city in Lamentations?",
+    "b": "JER",
+    "c": 1,
+    "a": [
+      "Jeremiah",
+      "Jer"
+    ],
+    "d": "Jeremiah",
+    "e": "Jeremiah authored both his prophetic book and the funeral laments of Lamentations."
+  },
+  {
+    "id": "bmpi_121",
+    "t": "book_id",
+    "p": "Which poetic book celebrates in rich lyrical imagery the intimate marital love between a bridegroom and his bride, reflecting Christ's love for His church?",
+    "b": "SNG",
+    "c": 1,
+    "a": [
+      "Song of Songs",
+      "Song of Solomon",
+      "Canticles",
+      "Song"
+    ],
+    "d": "Song of Songs",
+    "e": "Song of Songs celebrates pure marital passion and covenant intimacy."
+  },
+  {
+    "id": "bmpi_122",
+    "t": "book_id",
+    "p": "Which book of the Pentateuch chronicles Israel's 40-year wilderness wanderings, two military censuses, and repeated rebellions from Sinai to the Jordan?",
+    "b": "NUM",
+    "c": 1,
+    "a": [
+      "Numbers",
+      "Num"
+    ],
+    "d": "Numbers",
+    "e": "Numbers (in the wilderness) recounts the journeys, censuses, and trials of Israel."
+  },
+  {
+    "id": "bmpi_123",
+    "t": "book_id",
+    "p": "Which book of the Bible traces redemptive history from cosmic origins and human creation down to the death of Joseph in Egypt?",
+    "b": "GEN",
+    "c": 1,
+    "a": [
+      "Genesis",
+      "Gen"
+    ],
+    "d": "Genesis",
+    "e": "Genesis spans primeval origins (1\u201311) to patriarchal history (12\u201350)."
+  },
+  {
+    "id": "bmpi_124",
+    "t": "facts",
+    "p": "Which cupbearer to King Artaxerxes persevered through mockery and military threats to lead the remnant in rebuilding Jerusalem's walls in just 52 days?",
+    "b": "NEH",
+    "c": 1,
+    "a": [
+      "Nehemiah"
+    ],
+    "d": "Nehemiah",
+    "e": "Nehemiah organized the reconstruction of Jerusalem's defensive walls amidst severe opposition."
+  },
+  {
+    "id": "bmpi_125",
+    "t": "book_id",
+    "p": "Which two Old Testament books illustrate how a scribe skilled in the Law of Moses brought spiritual and covenant renewal to the returned remnant?",
+    "b": "EZR",
+    "c": 7,
+    "a": [
+      "Ezra and Nehemiah",
+      "Ezra & Nehemiah",
+      "Ezra",
+      "Nehemiah"
+    ],
+    "d": "Ezra and Nehemiah (Ezra 7\u201310, Nehemiah 8)",
+    "e": "Ezra read and expounded the Law of Moses publicly to the assembled congregation in Nehemiah 8."
+  },
+  {
+    "id": "bmpi_126",
+    "t": "book_id",
+    "p": "Which historical books trace the monarchy during the united kingdom under Saul, David, and Solomon?",
+    "b": "1SA",
+    "c": 1,
+    "a": [
+      "1 Samuel, 2 Samuel, 1 Kings",
+      "1 Samuel",
+      "2 Samuel",
+      "1 Kings",
+      "Samuel and Kings"
+    ],
+    "d": "1 Samuel, 2 Samuel, 1 Kings",
+    "e": "1 & 2 Samuel and 1 Kings cover the United Monarchy before the kingdom split under Rehoboam."
+  },
+  {
+    "id": "bmpi_127",
+    "t": "book_id",
+    "p": "In which historical book is the name of God never explicitly mentioned, yet His sovereign providence is vividly displayed saving the Jewish people from genocide?",
+    "b": "EST",
+    "c": 1,
+    "a": [
+      "Esther",
+      "Est"
+    ],
+    "d": "Esther",
+    "e": "Esther showcases the unseen, flawless providence of God orchestrating deliverance in Persia."
+  },
+  {
+    "id": "bmpi_128",
+    "t": "book_id",
+    "p": "Which two Old Testament books contain the full historical records of the Ten Commandments given at Mount Sinai?",
+    "b": "EXO",
+    "c": 20,
+    "a": [
+      "Exodus and Deuteronomy",
+      "Exodus & Deuteronomy",
+      "Exodus",
+      "Deuteronomy"
+    ],
+    "d": "Exodus & Deuteronomy (Exodus 20, Deuteronomy 5)",
+    "e": "The Decalogue is recorded in Exodus 20 and restated in Deuteronomy 5."
+  },
+  {
+    "id": "bmpi_129",
+    "t": "book_id",
+    "p": "Which wisdom book shows that a righteous person's sufferings become clearer when understood as allowed by God for deeper consecration and faith beyond circumstances?",
+    "b": "JOB",
+    "c": 1,
+    "a": [
+      "Job"
+    ],
+    "d": "Job",
+    "e": "Job demonstrates unwavering devotion to God regardless of unexplained calamity."
+  },
+  {
+    "id": "bmpi_130",
+    "t": "book_id",
+    "p": "Which book of the Pentateuch details the burning bush, the Ten Plagues, the crossing of the Red Sea, the giving of the Law, and the construction of the Tabernacle?",
+    "b": "EXO",
+    "c": 1,
+    "a": [
+      "Exodus",
+      "Exo",
+      "Ex"
+    ],
+    "d": "Exodus",
+    "e": "Exodus recounts redemption from slavery, covenant ratification, and God dwelling with His people."
+  },
+  {
+    "id": "bmpi_131",
+    "t": "book_id",
+    "p": "Which Old Testament historical book contains the most extensive biographical account of the rise and tragic fall of Saul, the first king of Israel?",
+    "b": "1SA",
+    "c": 9,
+    "a": [
+      "1 Samuel",
+      "1 Sam",
+      "First Samuel"
+    ],
+    "d": "1 Samuel (1 Samuel 9\u201331)",
+    "e": "1 Samuel records Saul's anointing, military victories, unlawful sacrifice, jealousy of David, and death on Mount Gilboa."
+  },
+  {
+    "id": "bmpi_132",
+    "t": "book_id",
+    "p": "Which two Old Testament books serve primarily to stimulate and guide the holy worship and praises of God's covenant people?",
+    "b": "PSA",
+    "c": 1,
+    "a": [
+      "Psalms and Leviticus",
+      "Leviticus and Psalms",
+      "Psalms",
+      "Leviticus"
+    ],
+    "d": "Psalms & Leviticus",
+    "e": "Leviticus prescribes ceremonial worship while Psalms provides the hymnal and prayerbook of Israel."
+  },
+  {
+    "id": "bmpi_133",
+    "t": "book_id",
+    "p": "Which book of the Pentateuch reviews Israel's 40-year wanderings and provides Moses' final covenant charges, blessings, and curses before Israel crosses into Canaan?",
+    "b": "DEU",
+    "c": 1,
+    "a": [
+      "Deuteronomy",
+      "Deut",
+      "Dt"
+    ],
+    "d": "Deuteronomy",
+    "e": "Deuteronomy is Moses' covenant renewal sermon on the plains of Moab."
+  },
+  {
+    "id": "bmpi_134",
+    "t": "book_id",
+    "p": "Which Old Testament books give firsthand accounts of Jewish life during the Babylonian/Persian exile or apocalyptic messages directed to exiles?",
+    "b": "DAN",
+    "c": 1,
+    "a": [
+      "Daniel, Esther, Ezekiel",
+      "Daniel",
+      "Esther",
+      "Ezekiel"
+    ],
+    "d": "Daniel, Esther, Ezekiel",
+    "e": "Ezekiel and Daniel ministered in Babylon while Esther lived in the Persian royal court of Susa."
+  },
+  {
+    "id": "bmpi_135",
+    "t": "book_id",
+    "p": "Which two historical books treat in full detail the reign of King David, the establishment of Jerusalem as capital, and the Davidic Covenant?",
+    "b": "2SA",
+    "c": 1,
+    "a": [
+      "2 Samuel and 1 Chronicles",
+      "2 Samuel & 1 Chronicles",
+      "2 Samuel",
+      "1 Chronicles"
+    ],
+    "d": "2 Samuel & 1 Chronicles",
+    "e": "2 Samuel and 1 Chronicles focus on David's righteous kingship, military conquests, and temple preparations."
+  },
+  {
+    "id": "bmpi_136",
+    "t": "book_id",
+    "p": "Which book of the Bible opens with Israel under severe Egyptian oppression 400 years after Joseph and concludes with God's glorious presence filling the newly built Tabernacle?",
+    "b": "EXO",
+    "c": 1,
+    "a": [
+      "Exodus",
+      "Exo",
+      "Ex"
+    ],
+    "d": "Exodus",
+    "e": "Exodus spans from slavery in Egypt to the glory of Yahweh filling the completed Tabernacle (Exodus 40)."
+  },
+  {
+    "id": "bmpi_137",
+    "t": "book_id",
+    "p": "Which poetic book contains 150 prayers and songs expressing total dependence upon God, personal lament, thanksgiving, and exuberant corporate worship?",
+    "b": "PSA",
+    "c": 1,
+    "a": [
+      "Psalms",
+      "Psalm",
+      "Psalter"
+    ],
+    "d": "Psalms",
+    "e": "The Book of Psalms is the inspired collection of 150 liturgical songs and prayers."
+  },
+  {
+    "id": "bmpi_138",
+    "t": "book_id",
+    "p": "Which Major Prophet experienced dramatic visions by the Chebar Canal in Babylon, warning of Jerusalem's fall (ch. 1\u201324) and concluding with future restoration, the dry bones vision, and the new temple (ch. 33\u201348)?",
+    "b": "EZE",
+    "c": 1,
+    "a": [
+      "Ezekiel",
+      "Eze"
+    ],
+    "d": "Ezekiel",
+    "e": "Ezekiel transitions from judgments on Jerusalem to glorious visions of Israel's national and spiritual rebirth."
+  },
+  {
+    "id": "bmpi_139",
+    "t": "book_id",
+    "p": "In which prophetic book was the prophet commanded to marry an unfaithful woman named Gomer as a living visual parable of God's redeeming covenant love toward unfaithful Israel?",
+    "b": "HOS",
+    "c": 1,
+    "a": [
+      "Hosea",
+      "Hos"
+    ],
+    "d": "Hosea",
+    "e": "Hosea's marriage to Gomer symbolizes Yahweh's unfailing love and redemption of spiritual adulterers."
+  },
+  {
+    "id": "bmpi_140",
+    "t": "book_id",
+    "p": "Which Minor Prophet used a catastrophic locust plague as a vivid forewarning of the imminent 'Day of the Lord' and prophesied the future outpouring of the Spirit on all flesh?",
+    "b": "JOE",
+    "c": 1,
+    "a": [
+      "Joel",
+      "Joe"
+    ],
+    "d": "Joel",
+    "e": "Joel 2:28\u201332 was famously quoted by Peter on the Day of Pentecost in Acts 2."
+  },
+  {
+    "id": "bmpi_141",
+    "t": "book_id",
+    "p": "Which prophetic book was delivered by a herdsman and tender of sycamore figs from Tekoa, pronouncing divine judgment on Northern Israel for social injustice and empty ritualism?",
+    "b": "AMO",
+    "c": 1,
+    "a": [
+      "Amos",
+      "Amo"
+    ],
+    "d": "Amos",
+    "e": "Amos was a Judean layman called to roar like a lion against the decadent northern kingdom of Jeroboam II."
+  },
+  {
+    "id": "bmpi_142",
+    "t": "book_id",
+    "p": "Which book combines historical court narratives of faith under pagan rule (fiery furnace, lions' den) with apocalyptic visions showing that the Most High rules the kingdom of men?",
+    "b": "DAN",
+    "c": 1,
+    "a": [
+      "Daniel",
+      "Dan"
+    ],
+    "d": "Daniel",
+    "e": "Daniel 1\u20136 records faithful living in exile while 7\u201312 foretells the rise and fall of world empires."
+  },
+  {
+    "id": "bmpi_143",
+    "t": "book_id",
+    "p": "Which Old Testament Major Prophet is addressed by God as 'son of man' over 90 times throughout his prophetic book?",
+    "b": "EZE",
+    "c": 2,
+    "a": [
+      "Ezekiel",
+      "Eze"
+    ],
+    "d": "Ezekiel (Ezekiel 2:1)",
+    "e": "God consistently addresses Ezekiel as 'son of man' (ben-adam) emphasizing human frailty before divine majesty."
+  },
+  {
+    "id": "bmpi_144",
+    "t": "book_id",
+    "p": "Which prophetic book highlights God's missionary compassion for Gentile nations through a reluctant prophet who was swallowed by a great fish after fleeing toward Tarshish?",
+    "b": "JON",
+    "c": 1,
+    "a": [
+      "Jonah",
+      "Jon"
+    ],
+    "d": "Jonah",
+    "e": "Jonah demonstrates that God's redeeming mercy extends even to ruthless pagan cities like Nineveh."
+  },
+  {
+    "id": "bmpi_145",
+    "t": "book_id",
+    "p": "Which book of the Law contains the comprehensive legal and ceremonial regulations detailing how Israel was to maintain holiness in worship, diet, and community life?",
+    "b": "LEV",
+    "c": 1,
+    "a": [
+      "Leviticus",
+      "Lev",
+      "Lv"
+    ],
+    "d": "Leviticus",
+    "e": "Leviticus provides the liturgical framework for living as God's set-apart, holy nation."
+  },
+  {
+    "id": "bmpi_146",
+    "t": "book_id",
+    "p": "Which Old Testament wisdom book focuses primarily on horizontal human relationships, parenting, speech, work ethic, and financial prudence?",
+    "b": "PRO",
+    "c": 1,
+    "a": [
+      "Proverbs",
+      "Prov",
+      "Pr"
+    ],
+    "d": "Proverbs",
+    "e": "The Book of Proverbs provides inspired practical wisdom for daily righteous living."
+  },
+  {
+    "id": "bmpi_147",
+    "t": "book_id",
+    "p": "Which Minor Prophet from Moresheth was a contemporary of Isaiah who preached against urban exploitation and foretold the Messiah's birth in Bethlehem Ephrathah?",
+    "b": "MIC",
+    "c": 1,
+    "a": [
+      "Micah",
+      "Mic"
+    ],
+    "d": "Micah",
+    "e": "Micah ministered to rural Judah while Isaiah ministered in Jerusalem's royal court."
+  },
+  {
+    "id": "bmpi_148",
+    "t": "book_id",
+    "p": "Which prophetic book is a poetic oracle announcing the certain, total destruction of Nineveh, the capital of the brutal Assyrian Empire?",
+    "b": "NAH",
+    "c": 1,
+    "a": [
+      "Nahum",
+      "Nah"
+    ],
+    "d": "Nahum",
+    "e": "Nahum prophesied the fall of Nineveh, which was fulfilled when the city fell in 612 BC."
+  },
+  {
+    "id": "bmpi_149",
+    "t": "book_id",
+    "p": "Which post-exilic prophetic book consists of four messages delivered over four months in 520 BC, prodding Zerubbabel and Joshua to resume rebuilding the temple?",
+    "b": "HAG",
+    "c": 1,
+    "a": [
+      "Haggai",
+      "Hag"
+    ],
+    "d": "Haggai",
+    "e": "Haggai's concise messages successfully motivated the exiles to complete the second temple."
+  },
+  {
+    "id": "bmpi_150",
+    "t": "book_id",
+    "p": "Which post-exilic prophetic book contains eight night visions (including the four horsemen and golden lampstand) alongside rich prophecies of the Messiah riding on a donkey?",
+    "b": "ZEC",
+    "c": 1,
+    "a": [
+      "Zechariah",
+      "Zec"
+    ],
+    "d": "Zechariah",
+    "e": "Zechariah provided apocalyptic encouragement to the post-exilic community and rich messianic detail."
+  },
+  {
+    "id": "bmpi_151",
+    "t": "book_id",
+    "p": "Which prophetic book depicts a prophet's honest wrestling with apparent contradictions in God's justice, culminating in the declaration: 'the righteous shall live by his faith'?",
+    "b": "HAB",
+    "c": 2,
+    "a": [
+      "Habakkuk",
+      "Hab"
+    ],
+    "d": "Habakkuk",
+    "e": "Habakkuk moves from questioning God's ways to radiant faith on the heights."
+  },
+  {
+    "id": "bmpi_152",
+    "t": "book_id",
+    "p": "Which post-exilic prophetic book addresses spiritual lethargy, corrupt priests, and marital infidelity approximately a century after the return, concluding with the promise of Elijah?",
+    "b": "MAL",
+    "c": 1,
+    "a": [
+      "Malachi",
+      "Mal"
+    ],
+    "d": "Malachi",
+    "e": "Malachi closes the Old Testament canon confronting spiritual apathy with disputation oracles."
+  },
+  {
+    "id": "bmpi_153",
+    "t": "book_id",
+    "p": "Which apocalyptic New Testament book provides the climactic unveiling of Jesus Christ as the triumphant Lamb, reigning King, and Judge of the cosmos?",
+    "b": "REV",
+    "c": 1,
+    "a": [
+      "Revelation",
+      "Rev",
+      "Apocalypse"
+    ],
+    "d": "Revelation",
+    "e": "Revelation provides the prophetic climax of redemptive history."
+  },
+  {
+    "id": "bmpi_154",
+    "t": "book_id",
+    "p": "In which joyful prison epistle does Paul declare that the Christian life transcends adverse circumstances: 'Rejoice in the Lord always; again I will say, rejoice'?",
+    "b": "PHP",
+    "c": 4,
+    "a": [
+      "Philippians",
+      "Phil",
+      "Php"
+    ],
+    "d": "Philippians",
+    "e": "Philippians radiates Christ-centered joy despite Roman imprisonment."
+  },
+  {
+    "id": "bmpi_155",
+    "t": "book_id",
+    "p": "Which short letter urges believers to 'contend for the faith that was once for all delivered to the saints' against ungodly infiltrators?",
+    "b": "JUD",
+    "c": 1,
+    "a": [
+      "Jude",
+      "Jud"
+    ],
+    "d": "Jude",
+    "e": "Jude warns against apostates and urges building up believers in holy faith."
+  },
+  {
+    "id": "bmpi_156",
+    "t": "book_id",
+    "p": "Which Gospel presents Jesus with rapid, action-oriented urgency as the tireless Servant of the Lord who came 'not to be served but to serve, and to give his life as a ransom for many'?",
+    "b": "MRK",
+    "c": 10,
+    "a": [
+      "Mark",
+      "Gospel of Mark",
+      "Mrk"
+    ],
+    "d": "Mark",
+    "e": "Mark emphasizes the servanthood, authority, and suffering of Christ."
+  },
+  {
+    "id": "bmpi_157",
+    "t": "book_id",
+    "p": "In which epistle does Paul systematically address severe congregational factions, lawsuits, sexual immorality, marriage, Christian liberty, the Lord's Supper, spiritual gifts, and the resurrection?",
+    "b": "1CO",
+    "c": 1,
+    "a": [
+      "1 Corinthians",
+      "1 Cor",
+      "First Corinthians"
+    ],
+    "d": "1 Corinthians",
+    "e": "1 Corinthians applies the gospel of the cross to resolve practical church crises."
+  },
+  {
+    "id": "bmpi_158",
+    "t": "book_id",
+    "p": "Which Gospel was written with the explicit purpose: 'these are written so that you may believe that Jesus is the Christ, the Son of God, and that by believing you may have life in his name'?",
+    "b": "JHN",
+    "c": 20,
+    "a": [
+      "John",
+      "Gospel of John",
+      "Jhn"
+    ],
+    "d": "John",
+    "e": "John 20:30\u201331 states the evangelistic and theological purpose of the fourth Gospel."
+  },
+  {
+    "id": "bmpi_159",
+    "t": "book_id",
+    "p": "Which moving final epistle was written by Paul from a cold Roman dungeon shortly before his execution, urging Timothy to 'fan into flame the gift of God' and 'preach the word'?",
+    "b": "2TI",
+    "c": 1,
+    "a": [
+      "2 Timothy",
+      "2 Tim",
+      "Second Timothy"
+    ],
+    "d": "2 Timothy",
+    "e": "2 Timothy is Paul's last recorded apostolic testament and pastoral charge."
+  },
+  {
+    "id": "bmpi_160",
+    "t": "book_id",
+    "p": "Which prison epistle exalts the absolute cosmic supremacy and all-sufficiency of Christ over hollow human philosophies, legalism, and mystical asceticism?",
+    "b": "COL",
+    "c": 1,
+    "a": [
+      "Colossians",
+      "Col"
+    ],
+    "d": "Colossians",
+    "e": "Colossians presents Christ as the image of the invisible God in whom all fullness dwells."
+  },
+  {
+    "id": "bmpi_161",
+    "t": "book_id",
+    "p": "Which New Testament book traces the geographical and ethnic expansion of the Gospel from Jerusalem through Judea and Samaria to the ends of the earth?",
+    "b": "ACT",
+    "c": 1,
+    "a": [
+      "Acts",
+      "Acts of the Apostles",
+      "Act"
+    ],
+    "d": "Acts",
+    "e": "Acts chronicles the unstoppable spread of the early church through the Holy Spirit."
+  },
+  {
+    "id": "bmpi_162",
+    "t": "book_id",
+    "p": "In which intensely personal epistle does Paul defend his apostolic integrity, explain the glory of the New Covenant ministry, plead for the Jerusalem collection, and boast in his weaknesses?",
+    "b": "2CO",
+    "c": 1,
+    "a": [
+      "2 Corinthians",
+      "2 Cor",
+      "Second Corinthians"
+    ],
+    "d": "2 Corinthians",
+    "e": "2 Corinthians reveals Paul's pastoral heart, vulnerability, and apostolic authority."
+  },
+  {
+    "id": "bmpi_163",
+    "t": "book_id",
+    "p": "Which New Testament historical book provides the essential chronological and geographical framework for understanding the background of Paul's epistles?",
+    "b": "ACT",
+    "c": 13,
+    "a": [
+      "Acts",
+      "Acts of the Apostles",
+      "Act"
+    ],
+    "d": "Acts",
+    "e": "Acts 13\u201328 records Paul's three missionary journeys and journey to Rome."
+  },
+  {
+    "id": "bmpi_164",
+    "t": "book_id",
+    "p": "Which pastoral epistle was written to Timothy ministering at Ephesus, establishing qualifications for overseers and deacons and guiding conduct in the household of God?",
+    "b": "1TI",
+    "c": 3,
+    "a": [
+      "1 Timothy",
+      "1 Tim",
+      "First Timothy"
+    ],
+    "d": "1 Timothy",
+    "e": "1 Timothy 3:15 provides the blueprint for order, sound doctrine, and godliness in the local church."
+  },
+  {
+    "id": "bmpi_165",
+    "t": "book_id",
+    "p": "Which Gospel emphasizes Jesus' universal compassion for outcasts, the poor, women, and Samaritans, presenting Him as the Son of Man who came 'to seek and to save the lost'?",
+    "b": "LUK",
+    "c": 19,
+    "a": [
+      "Luke",
+      "Gospel of Luke",
+      "Luk"
+    ],
+    "d": "Luke",
+    "e": "Luke 19:10 captures the central mission of Christ in Luke's Gospel."
+  },
+  {
+    "id": "bmpi_166",
+    "t": "book_id",
+    "p": "Which brief personal epistle commends Gaius for his faithful hospitality to traveling missionaries and rebukes the arrogant, inhospitable Diotrephes?",
     "b": "3JN",
     "c": 1,
     "a": [
@@ -840,84 +2266,1805 @@ export const RAW_QUESTIONS = [
       "3 Jn",
       "Third John"
     ],
-    "e": "3 John 1-8: Commends support and hospitality for traveling ministers of the Gospel."
+    "d": "3 John",
+    "e": "3 John commends supporting gospel workers as 'fellow workers for the truth.'"
   },
   {
-    "id": "bmpi_gen_6",
-    "t": "chapter_in_book",
-    "p": "What chapter in Revelation describes the New Jerusalem descending out of heaven: 'He will wipe away every tear from their eyes, and death shall be no more, neither shall there be mourning, nor crying, nor pain anymore'?",
-    "b": "REV",
-    "c": 21,
+    "id": "bmpi_167",
+    "t": "book_id",
+    "p": "In which fiery polemical epistle does Paul vigorously defend justification by faith alone apart from the works of the Law against Judaizing legalism?",
+    "b": "GAL",
+    "c": 1,
     "a": [
-      "21",
-      "Revelation 21",
-      "Rev 21",
-      "ch 21",
-      "chapter 21"
+      "Galatians",
+      "Gal"
     ],
-    "d": "Revelation 21 (or Chapter 21)",
-    "e": "Revelation 21: The vision of the new heaven, new earth, and holy city."
+    "d": "Galatians",
+    "e": "Galatians is the Magna Carta of Christian liberty and justification by faith."
   },
   {
-    "id": "bmpi_gen_7",
-    "t": "chapter_in_book",
-    "p": "What chapter in James argues that 'faith by itself, if it does not have works, is dead', using Abraham and Rahab as examples of living faith?",
-    "b": "JAS",
+    "id": "bmpi_168",
+    "t": "book_id",
+    "p": "Which majestic epistle expounds the eternal mystery of the church as Christ's body and temple, urging believers to 'walk in a manner worthy of the calling to which you have been called'?",
+    "b": "EPH",
+    "c": 4,
+    "a": [
+      "Ephesians",
+      "Eph"
+    ],
+    "d": "Ephesians",
+    "e": "Ephesians connects cosmic theology with practical Christian walk in unity, purity, and warfare."
+  },
+  {
+    "id": "bmpi_169",
+    "t": "book_id",
+    "p": "Which Gospel opens with the genealogy of Jesus tracing through David and Abraham, emphasizing Jesus as the long-awaited Messianic King who fulfills Old Testament prophecy?",
+    "b": "MAT",
+    "c": 1,
+    "a": [
+      "Matthew",
+      "Gospel of Matthew",
+      "Mat"
+    ],
+    "d": "Matthew",
+    "e": "Matthew presents Jesus as the King of the Jews and authoritative interpreter of the Law."
+  },
+  {
+    "id": "bmpi_170",
+    "t": "book_id",
+    "p": "Which brief epistle warns the 'elect lady' to walk in love and truth while refusing hospitality and welcome to deceptive antichrists who deny that Jesus came in the flesh?",
+    "b": "2JN",
+    "c": 1,
+    "a": [
+      "2 John",
+      "2 Jn",
+      "Second John"
+    ],
+    "d": "2 John",
+    "e": "2 John balances loving Christian fellowship with uncompromising vigilance against false doctrine."
+  },
+  {
+    "id": "bmpi_171",
+    "t": "book_id",
+    "p": "Which epistle was written to Jewish believers tempted to retreat into Judaism, demonstrating the supreme finality of Christ over angels, Moses, and the Levitical priesthood?",
+    "b": "HEB",
+    "c": 1,
+    "a": [
+      "Hebrews",
+      "Heb"
+    ],
+    "d": "Hebrews",
+    "e": "Hebrews presents Jesus as the ultimate High Priest and mediator of a better covenant."
+  },
+  {
+    "id": "bmpi_172",
+    "t": "book_id",
+    "p": "Which masterpiece of Christian doctrine systematically unfolds the righteousness of God, universal condemnation, justification by grace, sanctification, election, and transformed living?",
+    "b": "ROM",
+    "c": 1,
+    "a": [
+      "Romans",
+      "Rom"
+    ],
+    "d": "Romans",
+    "e": "Romans is Paul's comprehensive theological exposition of the Gospel of God."
+  },
+  {
+    "id": "bmpi_173",
+    "t": "book_id",
+    "p": "In which early epistle does Paul comfort believers regarding deceased saints, concluding every chapter with an explicit reference to the blessed hope of Christ's return?",
+    "b": "1TH",
+    "c": 1,
+    "a": [
+      "1 Thessalonians",
+      "1 Thess",
+      "First Thessalonians"
+    ],
+    "d": "1 Thessalonians",
+    "e": "1 Thessalonians encourages holy living in light of the imminent return of Christ."
+  },
+  {
+    "id": "bmpi_174",
+    "t": "book_id",
+    "p": "Which epistle corrects the error that the 'Day of the Lord' had already arrived, explaining that the rebellion and the revealing of the 'man of lawlessness' must occur first?",
+    "b": "2TH",
     "c": 2,
     "a": [
-      "2",
-      "James 2",
-      "Jas 2",
-      "ch 2",
-      "chapter 2"
+      "2 Thessalonians",
+      "2 Thess",
+      "Second Thessalonians"
     ],
-    "d": "James 2 (or Chapter 2)",
-    "e": "James 2:14-26: Demonstrates that genuine saving faith inevitably produces righteous fruit."
+    "d": "2 Thessalonians",
+    "e": "2 Thessalonians clarifies prophetic chronology regarding the antichrist and the second coming."
   },
   {
-    "id": "bmpi_gen_8",
-    "t": "chapter_in_book",
-    "p": "What chapter in Hebrews explains that Jesus is a high priest forever after the order of Melchizedek, surpassing the Levitical priesthood?",
+    "id": "bmpi_175",
+    "t": "book_id",
+    "p": "In which masterclass of Christian tact and persuasion does Paul appeal for the freedom and brotherhood of the runaway slave Onesimus?",
+    "b": "PHM",
+    "c": 1,
+    "a": [
+      "Philemon",
+      "Phm"
+    ],
+    "d": "Philemon",
+    "e": "Philemon demonstrates how the gospel transforms social and domestic relationships in Christ."
+  },
+  {
+    "id": "bmpi_176",
+    "t": "book_id",
+    "p": "Which highly practical epistle acts as the 'Proverbs of the New Testament', testing genuine living faith through trials, speech, impartiality, and good works?",
+    "b": "JAS",
+    "c": 1,
+    "a": [
+      "James",
+      "Jas"
+    ],
+    "d": "James",
+    "e": "James insists that genuine faith without works is dead."
+  },
+  {
+    "id": "bmpi_177",
+    "t": "book_id",
+    "p": "Which general epistle was written by Peter to 'elect exiles of the Dispersion' suffering persecution, calling them to steadfast hope, holy submission, and fiery trials?",
+    "b": "1PE",
+    "c": 1,
+    "a": [
+      "1 Peter",
+      "1 Pet",
+      "First Peter"
+    ],
+    "d": "1 Peter",
+    "e": "1 Peter provides pastoral encouragement and theological grounding for Christian suffering."
+  },
+  {
+    "id": "bmpi_178",
+    "t": "book_id",
+    "p": "Which epistle was written so that 'you who believe in the name of the Son of God... may know that you have eternal life' through the tests of righteousness, love, and sound doctrine?",
+    "b": "1JN",
+    "c": 5,
+    "a": [
+      "1 John",
+      "1 Jn",
+      "First John"
+    ],
+    "d": "1 John",
+    "e": "1 John provides moral, relational, and doctrinal tests of genuine eternal life."
+  },
+  {
+    "id": "bmpi_179",
+    "t": "book_id",
+    "p": "Which short epistle draws upon vivid Old Testament judgments (unbelieving generation in Egypt, fallen angels, Sodom and Gomorrah) to warn against corrupt false teachers?",
+    "b": "JUD",
+    "c": 1,
+    "a": [
+      "Jude",
+      "Jud"
+    ],
+    "d": "Jude",
+    "e": "Jude warns of divine judgment upon apostates who pervert God's grace into sensuality."
+  },
+  {
+    "id": "bmpi_180",
+    "t": "book_id",
+    "p": "Which pastoral epistle instructs an apostolic representative in Crete to appoint elders of godly character, silence rebellious deceivers, and model sound doctrine in daily life?",
+    "b": "TIT",
+    "c": 1,
+    "a": [
+      "Titus",
+      "Tit"
+    ],
+    "d": "Titus",
+    "e": "Titus outlines healthy church structure, sound doctrine, and godly living in pagan Crete."
+  },
+  {
+    "id": "bmpi_181",
+    "t": "book_id",
+    "p": "Which two biblical books (one Old Testament wisdom book, one New Testament general epistle) provide the most extensive theological treatments on the meaning and response to suffering?",
+    "b": "JOB",
+    "c": 1,
+    "a": [
+      "Job and 1 Peter",
+      "Job & 1 Peter",
+      "Job",
+      "1 Peter"
+    ],
+    "d": "Job & 1 Peter",
+    "e": "Job explores righteous suffering and sovereignty; 1 Peter provides pastoral theology for suffering in Christ."
+  },
+  {
+    "id": "bmpi_182",
+    "t": "book_id",
+    "p": "Which three New Testament books provide the most profound Christological treatises establishing the full deity and supremacy of Jesus Christ?",
+    "b": "JHN",
+    "c": 1,
+    "a": [
+      "John, Colossians, Hebrews",
+      "John",
+      "Colossians",
+      "Hebrews"
+    ],
+    "d": "John, Colossians, Hebrews",
+    "e": "John 1, Colossians 1, and Hebrews 1 form the supreme New Testament triad on Christ's eternal deity."
+  },
+  {
+    "id": "bmpi_183",
+    "t": "book_id",
+    "p": "Which three New Testament books provide extensive theological arguments developing the core doctrine of justification by faith apart from legalism?",
+    "b": "ROM",
+    "c": 3,
+    "a": [
+      "Romans, Galatians, Hebrews",
+      "Romans",
+      "Galatians",
+      "Hebrews"
+    ],
+    "d": "Romans, Galatians, Hebrews",
+    "e": "Romans, Galatians, and Hebrews expound salvation by faith alone in Christ's finished work."
+  },
+  {
+    "id": "bmpi_184",
+    "t": "book_id",
+    "p": "Which two Pauline epistles are most intensely focused on doctrinal teaching and pastoral encouragement regarding the Second Coming of Christ and the Day of the Lord?",
+    "b": "1TH",
+    "c": 4,
+    "a": [
+      "1 Thessalonians and 2 Thessalonians",
+      "1 & 2 Thessalonians",
+      "1 Thessalonians",
+      "2 Thessalonians"
+    ],
+    "d": "1 & 2 Thessalonians",
+    "e": "1 and 2 Thessalonians provide detailed eschatological teaching on Christ's return and the man of lawlessness."
+  },
+  {
+    "id": "bmpi_185",
+    "t": "book_id",
+    "p": "Which two general epistles share close thematic parallels in exposing, condemning, and guarding the church against dangerous false teachers and apostates?",
+    "b": "2PE",
+    "c": 2,
+    "a": [
+      "2 Peter and Jude",
+      "2 Peter & Jude",
+      "2 Peter",
+      "Jude"
+    ],
+    "d": "2 Peter & Jude",
+    "e": "2 Peter 2 and Jude share striking parallels warning against deceptive, sensual false teachers."
+  },
+  {
+    "id": "bmpi_186",
+    "t": "book_id",
+    "p": "Which Gospel provides the most vivid historical and human details of Jesus' earthly life, including His birth in a manger, childhood growth in wisdom, and tears over Jerusalem?",
+    "b": "LUK",
+    "c": 2,
+    "a": [
+      "Luke",
+      "Gospel of Luke",
+      "Luk"
+    ],
+    "d": "Luke",
+    "e": "Luke highlights the true humanity, compassion, and historical setting of the Son of Man."
+  },
+  {
+    "id": "bmpi_187",
+    "t": "book_id",
+    "p": "Which Gospel contains the most exhaustive recorded treatment of Christ's Olivet Discourse on the end of the age and the final judgment (chapters 24\u201325)?",
+    "b": "MAT",
+    "c": 24,
+    "a": [
+      "Matthew",
+      "Gospel of Matthew",
+      "Mat"
+    ],
+    "d": "Matthew (Matthew 24\u201325)",
+    "e": "Matthew 24\u201325 provides the longest account of the Olivet Discourse, parables of readiness, and the sheep/goats judgment."
+  },
+  {
+    "id": "bmpi_188",
+    "t": "book_id",
+    "p": "Which one of the four Gospels contains no recorded narrative parables, focusing instead on seven public miraculous 'signs' and extended theological discourses?",
+    "b": "JHN",
+    "c": 1,
+    "a": [
+      "John",
+      "Gospel of John",
+      "Jhn"
+    ],
+    "d": "John",
+    "e": "John contains no narrative parables, featuring instead miraculous signs and 'I AM' discourses."
+  },
+  {
+    "id": "bmpi_189",
+    "t": "book_id",
+    "p": "In which epistle does Paul unfold the cosmic scope of the church as God's mystery to display His manifold wisdom to rulers and authorities in the heavenly realms?",
+    "b": "EPH",
+    "c": 3,
+    "a": [
+      "Ephesians",
+      "Eph"
+    ],
+    "d": "Ephesians (Ephesians 3:10)",
+    "e": "Ephesians 3:10 reveals the church as the theater of God's wisdom before celestial beings."
+  },
+  {
+    "id": "bmpi_190",
+    "t": "book_id",
+    "p": "Which general epistle contains almost no explicit doctrinal discussion of the Holy Spirit, focusing instead on practical wisdom, ethical tests, and controlling the tongue?",
+    "b": "JAS",
+    "c": 1,
+    "a": [
+      "James",
+      "Jas"
+    ],
+    "d": "James",
+    "e": "James is distinctive for its intense ethical and practical focus with minimal pneumatological exposition."
+  },
+  {
+    "id": "bmpi_191",
+    "t": "book_id",
+    "p": "In what book does Paul provide the foundational doctrinal exposition of the believer's spiritual union with Christ in His death, burial, and resurrection (chapter 6)?",
+    "b": "ROM",
+    "c": 6,
+    "a": [
+      "Romans",
+      "Rom"
+    ],
+    "d": "Romans (Romans 6)",
+    "e": "Romans 6 explains that union with Christ breaks the dominating power of sin in the believer's life."
+  },
+  {
+    "id": "bmpi_192",
+    "t": "book_id",
+    "p": "In what New Testament book does Paul trace the universal doctrinal consequence of the Fall: 'just as sin came into the world through one man, and death through sin, and so death spread to all men'?",
+    "b": "ROM",
+    "c": 5,
+    "a": [
+      "Romans",
+      "Rom"
+    ],
+    "d": "Romans (Romans 5:12)",
+    "e": "Romans 5:12\u201321 contrasts the cosmic ruin in Adam with the abundant grace in Christ."
+  },
+  {
+    "id": "bmpi_193",
+    "t": "book_chapter",
+    "p": "In what book & chapter is the foundational historical narrative of the Fall of mankind, the serpent's deception, and the original sin in Eden?",
+    "b": "GEN",
+    "c": 3,
+    "a": [
+      "Genesis 3",
+      "Gen 3"
+    ],
+    "d": "Genesis 3",
+    "e": "Genesis 3 records the historical entrance of sin, curse, and the first Gospel promise."
+  },
+  {
+    "id": "bmpi_194",
+    "t": "book_chapter",
+    "p": "In what epistle does Paul write the most extensive two-chapter treatise on cheerful, sacrificial Christian stewardship and giving (chapters 8\u20139)?",
+    "b": "2CO",
+    "c": 8,
+    "a": [
+      "2 Corinthians",
+      "2 Cor",
+      "2 Corinthians 8-9"
+    ],
+    "d": "2 Corinthians (2 Corinthians 8\u20139)",
+    "e": "2 Corinthians 8\u20139 presents the grace of giving modeled on Christ's self-giving love."
+  },
+  {
+    "id": "bmpi_195",
+    "t": "book_id",
+    "p": "In what book of the Pentateuch did God give Moses exact divine blueprints to build the Tabernacle 'according to the pattern that was shown you on the mountain'?",
+    "b": "EXO",
+    "c": 25,
+    "a": [
+      "Exodus",
+      "Exo",
+      "Ex"
+    ],
+    "d": "Exodus (Exodus 25\u201331)",
+    "e": "Exodus 25:40 records God's precise command for constructing the Tabernacle and its sacred furnishings."
+  },
+  {
+    "id": "bmpi_196",
+    "t": "book_id",
+    "p": "Which New Testament book provides the most comprehensive typological exposition demonstrating how the Old Testament sacrificial system, priesthood, and sanctuary prefigured Christ?",
     "b": "HEB",
+    "c": 8,
+    "a": [
+      "Hebrews",
+      "Heb"
+    ],
+    "d": "Hebrews",
+    "e": "Hebrews 8\u201310 demonstrates that the Levitical system was a shadow of the heavenly reality in Christ."
+  },
+  {
+    "id": "bmpi_197",
+    "t": "book_chapter",
+    "p": "In what book & chapter does Paul write the famous hymn of agape love: 'Love is patient and kind; love does not envy or boast; it is not arrogant or rude'?",
+    "b": "1CO",
+    "c": 13,
+    "a": [
+      "1 Corinthians 13",
+      "1 Cor 13",
+      "1Cor 13"
+    ],
+    "d": "1 Corinthians 13",
+    "e": "1 Corinthians 13 presents love as the supreme, enduring mark of Christian maturity."
+  },
+  {
+    "id": "bmpi_198",
+    "t": "book_id",
+    "p": "Which Gospel places supreme emphasis on God as Father, using the title 'Father' over 100 times to describe Jesus' intimate relationship and the believer's adoption?",
+    "b": "JHN",
+    "c": 1,
+    "a": [
+      "John",
+      "Gospel of John",
+      "Jhn"
+    ],
+    "d": "John",
+    "e": "John's Gospel emphasizes the Father's love, mission of the Son, and the fellowship of believers."
+  },
+  {
+    "id": "bmpi_199",
+    "t": "book_id",
+    "p": "Which two apostolic epistles contain the classic foundational texts affirming the verbal inspiration and authority of Scripture ('All Scripture is breathed out by God' / 'men spoke from God as they were carried along by the Holy Spirit')?",
+    "b": "2TI",
+    "c": 3,
+    "a": [
+      "2 Timothy and 2 Peter",
+      "2 Timothy & 2 Peter",
+      "2 Timothy",
+      "2 Peter"
+    ],
+    "d": "2 Timothy & 2 Peter (2 Timothy 3:16, 2 Peter 1:21)",
+    "e": "2 Timothy 3:16 and 2 Peter 1:21 are the foundational pillars on the divine inspiration of Scripture."
+  },
+  {
+    "id": "bmpi_200",
+    "t": "book_id",
+    "p": "Which two Pauline epistles contain explicit teaching on spiritual warfare against demonic rulers, principalities, and cosmic powers of darkness?",
+    "b": "EPH",
+    "c": 6,
+    "a": [
+      "Ephesians and Colossians",
+      "Ephesians & Colossians",
+      "Ephesians",
+      "Colossians"
+    ],
+    "d": "Ephesians & Colossians (Ephesians 6, Colossians 2)",
+    "e": "Ephesians 6:10\u201318 and Colossians 2:15 explain victory over cosmic spiritual powers through Christ."
+  },
+  {
+    "id": "bmpi_201",
+    "t": "book_id",
+    "p": "In which two Pauline epistles would you find the most extensive theological exposition of justification by faith alone apart from the works of the Law?",
+    "b": "ROM",
+    "c": 3,
+    "a": [
+      "Romans and Galatians",
+      "Romans & Galatians",
+      "Romans",
+      "Galatians"
+    ],
+    "d": "Romans & Galatians",
+    "e": "Romans and Galatians establish that a sinner is declared righteous solely through faith in Jesus Christ."
+  },
+  {
+    "id": "bmpi_202",
+    "t": "book_id",
+    "p": "In which general epistle does Peter explain God's design in allowing painful trials to refine our faith like gold tested by fire?",
+    "b": "1PE",
+    "c": 1,
+    "a": [
+      "1 Peter",
+      "1 Pet",
+      "First Peter"
+    ],
+    "d": "1 Peter (1 Peter 1:6\u20137)",
+    "e": "1 Peter 1:6\u20137 teaches that temporary trials authenticate genuine faith resulting in praise at Christ's revelation."
+  },
+  {
+    "id": "bmpi_203",
+    "t": "book_chapter",
+    "p": "In what book and chapters does Paul give the most extensive biblical instruction on the distribution, purpose, and orderly practice of spiritual gifts (spiritual gifts, the body, and prophecy/tongues)?",
+    "b": "1CO",
+    "c": 12,
+    "a": [
+      "1 Corinthians 12-14",
+      "1 Corinthians 12",
+      "1 Cor 12-14",
+      "1 Cor 12"
+    ],
+    "d": "1 Corinthians 12\u201314",
+    "e": "1 Corinthians 12\u201314 regulates spiritual gifts for the edification of the local church."
+  },
+  {
+    "id": "bmpi_204",
+    "t": "book_id",
+    "p": "Which two pastoral epistles contain the detailed biblical qualifications for elders/overseers and deacons in the local church?",
+    "b": "1TI",
+    "c": 3,
+    "a": [
+      "1 Timothy and Titus",
+      "1 Timothy & Titus",
+      "1 Timothy",
+      "Titus"
+    ],
+    "d": "1 Timothy & Titus (1 Timothy 3, Titus 1)",
+    "e": "1 Timothy 3:1\u201313 and Titus 1:5\u20139 define the character qualifications for pastoral leadership."
+  },
+  {
+    "id": "bmpi_205",
+    "t": "book_id",
+    "p": "Which New Testament book depicts the heavenly throne room with the Lamb looking as if it had been slain taking the seven-sealed scroll to execute cosmic judgment and redemption?",
+    "b": "REV",
+    "c": 5,
+    "a": [
+      "Revelation",
+      "Rev",
+      "Apocalypse"
+    ],
+    "d": "Revelation (Revelation 5)",
+    "e": "Revelation 5 reveals the Lion of Judah, the slain Lamb, as the only One worthy to open the seals."
+  },
+  {
+    "id": "bmpi_206",
+    "t": "book_chapter",
+    "p": "In what book & chapter is the famous 'Hall of Faith' reviewing the triumphant perseverance of Old Testament heroes from Abel to the prophets?",
+    "b": "HEB",
+    "c": 11,
+    "a": [
+      "Hebrews 11",
+      "Heb 11"
+    ],
+    "d": "Hebrews 11",
+    "e": "Hebrews 11 defines faith and showcases OT patriarchs and martyrs who persevered trusting God's promises."
+  },
+  {
+    "id": "bmpi_207",
+    "t": "book_chapter",
+    "p": "In what book and three consecutive chapters does Paul address God's sovereign election, the hardening of ethnic Israel, and the future salvation of 'all Israel' (chapters 9\u201311)?",
+    "b": "ROM",
+    "c": 9,
+    "a": [
+      "Romans 9-11",
+      "Romans 9",
+      "Rom 9-11",
+      "Rom 9"
+    ],
+    "d": "Romans 9\u201311",
+    "e": "Romans 9\u201311 addresses sovereign grace, Israel's stumbling over Christ, and their future restoration."
+  },
+  {
+    "id": "bmpi_208",
+    "t": "book_id",
+    "p": "In which epistle does John provide the profound theological declaration: 'God is love, and whoever abides in love abides in God, and God abides in him'?",
+    "b": "1JN",
+    "c": 4,
+    "a": [
+      "1 John",
+      "1 Jn",
+      "First John"
+    ],
+    "d": "1 John (1 John 4:8, 16)",
+    "e": "1 John 4:8 and 16 define the very essence of God's character as holy, self-giving love."
+  },
+  {
+    "id": "bmpi_209",
+    "t": "book_chapter",
+    "p": "In what book and chapters is the Sermon on the Mount (the Beatitudes, Lord's Prayer, and wise/foolish builders)?",
+    "b": "MAT",
+    "c": 5,
+    "a": [
+      "Matthew 5-7",
+      "Matthew 5",
+      "Mat 5-7",
+      "Mat 5"
+    ],
+    "d": "Matthew 5\u20137",
+    "e": "Matthew 5\u20137 is Jesus' manifesto on the character, ethics, and righteousness of the Kingdom of God."
+  },
+  {
+    "id": "bmpi_210",
+    "t": "book_chapter",
+    "p": "In what book and chapters is Jesus' Upper Room Farewell Discourse and High Priestly Prayer (the True Vine, promise of the Holy Spirit, and prayer for unity)?",
+    "b": "JHN",
+    "c": 14,
+    "a": [
+      "John 14-17",
+      "John 14",
+      "Jhn 14-17",
+      "Jhn 14"
+    ],
+    "d": "John 14\u201317",
+    "e": "John 14\u201317 contains Jesus' intimate last discourse to the eleven and His prayer to the Father."
+  },
+  {
+    "id": "bmpi_211",
+    "t": "book_id",
+    "p": "Which two Old Testament books contain explicit prophetic declarations of personal, bodily resurrection from the dead ('In my flesh I shall see God' / 'Many of those who sleep in the dust of the earth shall awake')?",
+    "b": "JOB",
+    "c": 19,
+    "a": [
+      "Job and Daniel",
+      "Job & Daniel",
+      "Job",
+      "Daniel"
+    ],
+    "d": "Job & Daniel (Job 19:25\u201327, Daniel 12:2)",
+    "e": "Job 19:25\u201327 and Daniel 12:2 provide clear Old Testament witnesses to bodily resurrection."
+  },
+  {
+    "id": "bmpi_212",
+    "t": "book_id",
+    "p": "Which single New Testament book provides the most comprehensive prophetic narrative of the final triumph of Christ, the binding of Satan, the Millennium, and the New Jerusalem?",
+    "b": "REV",
+    "c": 1,
+    "a": [
+      "Revelation",
+      "Rev",
+      "Apocalypse"
+    ],
+    "d": "Revelation",
+    "e": "The Book of Revelation is the capstone of prophetic revelation culminating in the new creation."
+  },
+  {
+    "id": "bmpi_213",
+    "t": "book_id",
+    "p": "Which two Old Testament books explicitly name Satan by name as an adversary standing before the Lord (in the heavenly council against Job and against Joshua the high priest)?",
+    "b": "JOB",
+    "c": 1,
+    "a": [
+      "Job and Zechariah",
+      "Job & Zechariah",
+      "Job",
+      "Zechariah"
+    ],
+    "d": "Job & Zechariah (Job 1\u20132, Zechariah 3:1)",
+    "e": "Job 1\u20132 and Zechariah 3:1 explicitly portray the adversary (ha-Satan) accusing God's servants."
+  },
+  {
+    "id": "bmpi_214",
+    "t": "book_id",
+    "p": "Which Old Testament Major Prophet had dramatic visions of the valley of dry bones coming to life and the glory of the Lord departing and returning to the temple?",
+    "b": "EZE",
+    "c": 37,
+    "a": [
+      "Ezekiel",
+      "Eze"
+    ],
+    "d": "Ezekiel (Ezekiel 37)",
+    "e": "Ezekiel 37 depicts the spiritual and national resurrection of Israel by the Spirit of God."
+  },
+  {
+    "id": "bmpi_215",
+    "t": "book_id",
+    "p": "In which Gospel does Jesus tell Peter: 'Simon, Simon, behold, Satan demanded to have you, that he might sift you like wheat, but I have prayed for you that your faith may not fail'?",
+    "b": "LUK",
+    "c": 22,
+    "a": [
+      "Luke",
+      "Gospel of Luke",
+      "Luk"
+    ],
+    "d": "Luke (Luke 22:31\u201332)",
+    "e": "Luke 22:31\u201332 records Jesus' pastoral intercession for Peter prior to his denial."
+  },
+  {
+    "id": "bmpi_216",
+    "t": "facts",
+    "p": "Which boy king began reigning over Judah at age eight, purged idolatry throughout the land, and led nationwide covenant renewal when the Book of the Law was rediscovered in the temple?",
+    "b": "2KI",
+    "c": 22,
+    "a": [
+      "Josiah",
+      "King Josiah"
+    ],
+    "d": "Josiah (2 Kings 22\u201323)",
+    "e": "Josiah was the godly reformer king who turned to the Lord with all his heart, soul, and might."
+  },
+  {
+    "id": "bmpi_217",
+    "t": "facts",
+    "p": "Which great king of Israel united the twelve tribes, conquered Jerusalem as capital, wrote numerous psalms, and is remembered as a 'man after God's own heart'?",
+    "b": "2SA",
+    "c": 5,
+    "a": [
+      "David",
+      "King David"
+    ],
+    "d": "David",
+    "e": "David established the United Kingdom and received the eternal Davidic Covenant (2 Samuel 7)."
+  },
+  {
+    "id": "bmpi_218",
+    "t": "facts",
+    "p": "Which apostle was thoroughly trained in Jewish law under Gamaliel and equipped by God to be the primary apostle and theologian to the Gentile world?",
+    "b": "ACT",
+    "c": 22,
+    "a": [
+      "Paul",
+      "Saul of Tarsus",
+      "Apostle Paul"
+    ],
+    "d": "Paul",
+    "e": "Paul used his rigorous rabbinic and Hellenistic background to contextualize theology across the Roman Empire."
+  },
+  {
+    "id": "bmpi_219",
+    "t": "facts",
+    "p": "Which judge of Israel delivered his people from the Midianites with only 300 men blowing trumpets and holding torches in clay jars?",
+    "b": "JDG",
     "c": 7,
     "a": [
-      "7",
-      "Hebrews 7",
-      "Heb 7",
-      "ch 7",
-      "chapter 7"
+      "Gideon",
+      "Jerubbaal"
     ],
-    "d": "Hebrews 7 (or Chapter 7)",
-    "e": "Hebrews 7: Christ's indestructible life and eternal priesthood superior to Aaron's line."
+    "d": "Gideon (Judges 7)",
+    "e": "Judges 7 records God trimming Gideon's army to 300 to show that deliverance belongs to the Lord."
   },
   {
-    "id": "bmpi_gen_9",
+    "id": "bmpi_220",
+    "t": "facts",
+    "p": "Which trusted apostolic coworker of Paul was sent to handle tough assignments in Corinth and was left in Crete to set church leadership in order?",
+    "b": "TIT",
+    "c": 1,
+    "a": [
+      "Titus"
+    ],
+    "d": "Titus",
+    "e": "Titus was Paul's dependable trouble-shooter deployed to challenging ministry environments."
+  },
+  {
+    "id": "bmpi_221",
+    "t": "facts",
+    "p": "Which beloved physician and faithful travel companion of Paul authored both the third Gospel and the Book of Acts?",
+    "b": "COL",
+    "c": 4,
+    "a": [
+      "Luke",
+      "Dr. Luke",
+      "Saint Luke"
+    ],
+    "d": "Luke",
+    "e": "Luke's two-volume historical work (Luke\u2013Acts) comprises over 25% of the New Testament."
+  },
+  {
+    "id": "bmpi_222",
+    "t": "facts",
+    "p": "Which king of Israel built the first magnificent temple in Jerusalem and was granted extraordinary wisdom by God, but had his heart led astray in old age by foreign wives?",
+    "b": "1KI",
+    "c": 3,
+    "a": [
+      "Solomon",
+      "King Solomon",
+      "Jedidiah"
+    ],
+    "d": "Solomon",
+    "e": "1 Kings 3\u201311 records Solomon's unparalleled wisdom, temple construction, and tragic idolatry."
+  },
+  {
+    "id": "bmpi_223",
+    "t": "facts",
+    "p": "Which godly king of Judah reopened and cleansed the temple, celebrated a grand national Passover, and trusted God when the Assyrian army under Sennacherib besieged Jerusalem?",
+    "b": "2KI",
+    "c": 18,
+    "a": [
+      "Hezekiah",
+      "King Hezekiah"
+    ],
+    "d": "Hezekiah (2 Kings 18\u201320)",
+    "e": "Hezekiah trusted in the Lord and was miraculously delivered when an angel struck 185,000 Assyrian soldiers."
+  },
+  {
+    "id": "bmpi_224",
+    "t": "facts",
+    "p": "Which fisherman apostle confessed Jesus as 'the Christ, the Son of the living God', preached at Pentecost, and opened the door of the Gospel to Gentiles at Cornelius's house?",
+    "b": "MAT",
+    "c": 16,
+    "a": [
+      "Peter",
+      "Simon Peter",
+      "Cephas",
+      "Simon"
+    ],
+    "d": "Peter (Simon Peter)",
+    "e": "Peter was the leading spokesman of the twelve apostles in the Gospels and early Acts."
+  },
+  {
+    "id": "bmpi_225",
+    "t": "facts",
+    "p": "Which faithful spy alongside Joshua wholly followed the Lord into old age and declared at age 85: 'Give me this hill country... the Lord will be with me, and I shall drive them out'?",
+    "b": "JOS",
+    "c": 14,
+    "a": [
+      "Caleb",
+      "Caleb son of Jephunneh"
+    ],
+    "d": "Caleb (Joshua 14:12)",
+    "e": "Joshua 14:6\u201315 celebrates Caleb's lifelong faith and inheritance of Hebron."
+  },
+  {
+    "id": "bmpi_226",
+    "t": "facts",
+    "p": "Which godly high priest protected the infant Joash during Athaliah's bloody coup and later orchestrated his coronation as king of Judah?",
+    "b": "2KI",
+    "c": 11,
+    "a": [
+      "Jehoiada",
+      "Jehoiada the priest"
+    ],
+    "d": "Jehoiada (2 Kings 11\u201312)",
+    "e": "Jehoiada guided young King Joash in righteousness throughout his lifetime."
+  },
+  {
+    "id": "bmpi_227",
+    "t": "facts",
+    "p": "Which patriarch was providentially sold into Egyptian slavery to preserve his family and the covenant line during a catastrophic seven-year famine?",
+    "b": "GEN",
+    "c": 45,
+    "a": [
+      "Joseph"
+    ],
+    "d": "Joseph (Genesis 45:5\u20138)",
+    "e": "Genesis 45:5 records Joseph recognizing God's hand in preserving life in Egypt."
+  },
+  {
+    "id": "bmpi_228",
+    "t": "facts",
+    "p": "Which Old Testament prophet stood on his watchtower to dialogue with God over apparent divine injustice, concluding with an act of resolute faith in Yahweh his strength?",
+    "b": "HAB",
+    "c": 2,
+    "a": [
+      "Habakkuk",
+      "Hab"
+    ],
+    "d": "Habakkuk (Habakkuk 2\u20133)",
+    "e": "Habakkuk's dialogue with God transitions from deep perplexity to triumphant worship."
+  },
+  {
+    "id": "bmpi_229",
+    "t": "facts",
+    "p": "Which sensitive and weeping prophet faithfully ministered for over 40 years despite constant rejection, loneliness, mockery, and imprisonment in a muddy cistern?",
+    "b": "JER",
+    "c": 1,
+    "a": [
+      "Jeremiah",
+      "Jer"
+    ],
+    "d": "Jeremiah",
+    "e": "Jeremiah was called from the womb and sustained by God amidst relentless opposition."
+  },
+  {
+    "id": "bmpi_230",
+    "t": "facts",
+    "p": "Which military and spiritual leader succeeded Moses, led Israel across the Jordan, and challenged the people in his farewell address: 'Choose this day whom you will serve... as for me and my house, we will serve the Lord'?",
+    "b": "JOS",
+    "c": 24,
+    "a": [
+      "Joshua",
+      "Joshua son of Nun"
+    ],
+    "d": "Joshua (Joshua 24:15)",
+    "e": "Joshua 24:15 is Joshua's famous covenant charge at Shechem."
+  },
+  {
+    "id": "bmpi_231",
+    "t": "facts",
+    "p": "Which seer ministered at the royal court of David and offered David the choice of three divine punishments following the unlawful census?",
+    "b": "2SA",
+    "c": 24,
+    "a": [
+      "Gad",
+      "Gad the seer"
+    ],
+    "d": "Gad (2 Samuel 24:11)",
+    "e": "2 Samuel 24:11 identifies Gad as David's personal seer and court prophet."
+  },
+  {
+    "id": "bmpi_232",
+    "t": "facts",
+    "p": "Which handsome son of David stole the hearts of Israel and launched a major rebellion against his father, forcing David to flee Jerusalem before being killed in the forest of Ephraim?",
+    "b": "2SA",
+    "c": 15,
+    "a": [
+      "Absalom"
+    ],
+    "d": "Absalom (2 Samuel 15\u201318)",
+    "e": "2 Samuel 15\u201318 records Absalom's tragic insurrection against King David."
+  },
+  {
+    "id": "bmpi_233",
+    "t": "facts",
+    "p": "Which prophetess and sister of Moses challenged his sole leadership authority and was struck temporarily with leprosy outside the camp?",
+    "b": "NUM",
+    "c": 12,
+    "a": [
+      "Miriam"
+    ],
+    "d": "Miriam (Numbers 12:1\u201315)",
+    "e": "Numbers 12 records God defending Moses' meekness and chastening Miriam with leprosy."
+  },
+  {
+    "id": "bmpi_234",
+    "t": "facts",
+    "p": "Who was the first king of Israel whose lack of integrity and unlawful sacrifice at Gilgal caused God to reject his dynasty?",
+    "b": "1SA",
+    "c": 13,
+    "a": [
+      "Saul",
+      "King Saul",
+      "Saul of Kish"
+    ],
+    "d": "Saul (1 Samuel 13\u201315)",
+    "e": "1 Samuel 13 and 15 record King Saul's disobedience resulting in God tearing the kingdom from him."
+  },
+  {
+    "id": "bmpi_235",
+    "t": "facts",
+    "p": "Which king of Judah began his reign with great spiritual reforms but finished poorly by imprisoning Hanani the seer and seeking physicians rather than the Lord when afflicted in his feet?",
+    "b": "2CH",
+    "c": 16,
+    "a": [
+      "Asa",
+      "King Asa"
+    ],
+    "d": "Asa (2 Chronicles 14\u201316)",
+    "e": "2 Chronicles 16:7\u201312 warns how King Asa failed to trust God in his later years."
+  },
+  {
+    "id": "bmpi_236",
+    "t": "facts",
+    "p": "Which prophet and judge transitioned Israel from the period of the judges to the monarchy and is remembered for his powerful life of prayer and intercession?",
+    "b": "1SA",
+    "c": 7,
+    "a": [
+      "Samuel"
+    ],
+    "d": "Samuel",
+    "e": "Samuel was the pivotal transition leader from theocracy to the Davidic kingdom."
+  },
+  {
+    "id": "bmpi_237",
+    "t": "facts",
+    "p": "Which court prophet courageously confronted King David over his sin with Bathsheba and Uriah with the piercing words: 'You are the man!'?",
+    "b": "2SA",
+    "c": 12,
+    "a": [
+      "Nathan",
+      "Nathan the prophet"
+    ],
+    "d": "Nathan (2 Samuel 12:7)",
+    "e": "Nathan used a parable of a poor man's ewe lamb to convict David of his grievous sin."
+  },
+  {
+    "id": "bmpi_238",
+    "t": "facts",
+    "p": "Which prophet called down fire from heaven on Mount Carmel in a dramatic power encounter with 450 prophets of Baal, and was later fed by ravens in the wilderness?",
+    "b": "1KI",
+    "c": 18,
+    "a": [
+      "Elijah",
+      "Elijah the Tishbite"
+    ],
+    "d": "Elijah (1 Kings 17\u201319)",
+    "e": "1 Kings 18 records Elijah's supernatural vindication of Yahweh as the one true God."
+  },
+  {
+    "id": "bmpi_239",
+    "t": "facts",
+    "p": "Which patriarch received the covenant promise: 'in you all the families of the earth shall be blessed' and believed the Lord, and it was counted to him as righteousness?",
+    "b": "GEN",
+    "c": 12,
+    "a": [
+      "Abraham",
+      "Abram"
+    ],
+    "d": "Abraham (Genesis 12:3, 15:6)",
+    "e": "Genesis 12:1\u20133 and 15:6 establish Abraham as the father of all who believe."
+  },
+  {
+    "id": "bmpi_240",
+    "t": "facts",
+    "p": "Which supreme Old Testament mediator and prophet spoke with God face to face 'as a man speaks to his friend' and led Israel out of Egyptian bondage?",
+    "b": "EXO",
+    "c": 33,
+    "a": [
+      "Moses"
+    ],
+    "d": "Moses (Exodus 33:11)",
+    "e": "Exodus 33:11 and Deuteronomy 34:10 celebrate Moses' unique intimacy with God."
+  },
+  {
+    "id": "bmpi_241",
+    "t": "facts",
+    "p": "Which scribe and priest 'set his heart to study the Law of the Lord, and to do it and to teach his statutes and rules in Israel'?",
+    "b": "EZR",
+    "c": 7,
+    "a": [
+      "Ezra",
+      "Ezra the scribe",
+      "Ezra the priest"
+    ],
+    "d": "Ezra (Ezra 7:10)",
+    "e": "Ezra 7:10 is the classic model of personal study, obedience, and exposition of Scripture."
+  },
+  {
+    "id": "bmpi_242",
+    "t": "facts",
+    "p": "Which powerful king of Judah became proud after great military success and entered the temple to burn incense unlawfully, being struck with leprosy on his forehead?",
+    "b": "2CH",
+    "c": 26,
+    "a": [
+      "Uzziah",
+      "King Uzziah",
+      "Azariah"
+    ],
+    "d": "Uzziah (2 Chronicles 26:16\u201321)",
+    "e": "2 Chronicles 26:16 warns that when Uzziah became strong, his heart was lifted up to his destruction."
+  },
+  {
+    "id": "bmpi_243",
+    "t": "facts",
+    "p": "Which female judge and prophetess of Israel held court under a palm tree and inspired Barak to lead 10,000 men to defeat the Canaanite commander Sisera?",
+    "b": "JDG",
+    "c": 4,
+    "a": [
+      "Deborah"
+    ],
+    "d": "Deborah (Judges 4\u20135)",
+    "e": "Judges 4\u20135 celebrates Deborah as a mother in Israel and victorious judge."
+  },
+  {
+    "id": "bmpi_244",
+    "t": "facts",
+    "p": "Which prophet stood alone before King Ahab and King Jehoshaphat, faithfully prophesying Ahab's death in battle despite 400 court prophets lying to them?",
+    "b": "1KI",
+    "c": 22,
+    "a": [
+      "Micaiah",
+      "Micaiah son of Imlah"
+    ],
+    "d": "Micaiah (1 Kings 22)",
+    "e": "1 Kings 22:14: Micaiah declared: 'What the Lord says to me, that the will I speak.'"
+  },
+  {
+    "id": "bmpi_245",
+    "t": "facts",
+    "p": "Which prophet prophesied during the reigns of Josiah, Jehoiakim, and Zedekiah, enduring the stocks, mockery, and imprisonment while predicting the 70-year Babylonian exile?",
+    "b": "JER",
+    "c": 1,
+    "a": [
+      "Jeremiah",
+      "Jer"
+    ],
+    "d": "Jeremiah (Jeremiah 25:11)",
+    "e": "Jeremiah faithfully delivered God's unpopular message of surrender to Babylon."
+  },
+  {
+    "id": "bmpi_246",
+    "t": "facts",
+    "p": "Which Jewish queen in the Persian empire displayed courage by approaching King Ahasuerus uninvited, saving her people from Haman's genocidal plot?",
+    "b": "EST",
+    "c": 4,
+    "a": [
+      "Esther",
+      "Queen Esther",
+      "Hadassah"
+    ],
+    "d": "Esther (Esther 4\u20137)",
+    "e": "Esther's heroic intervention led to the deliverance of the Jews and the feast of Purim."
+  },
+  {
+    "id": "bmpi_247",
+    "t": "facts",
+    "p": "Which generous Levite from Cyprus, named 'Son of Encouragement', vouched for Saul in Jerusalem and recruited him to teach the flourishing multicultural church in Antioch?",
+    "b": "ACT",
+    "c": 4,
+    "a": [
+      "Barnabas",
+      "Joseph of Cyprus"
+    ],
+    "d": "Barnabas (Acts 4:36, 11:22\u201326)",
+    "e": "Acts 11:24 describes Barnabas as a good man full of the Holy Spirit and of faith."
+  },
+  {
+    "id": "bmpi_248",
+    "t": "facts",
+    "p": "Which leader invested deeply in twelve disciples during a three-year earthly ministry, launching a global movement that transformed human history?",
+    "b": "MAT",
+    "c": 10,
+    "a": [
+      "Jesus",
+      "Jesus Christ",
+      "Christ"
+    ],
+    "d": "Jesus (Jesus Christ)",
+    "e": "Jesus Christ modeled discipling a core group to carry out the Great Commission."
+  },
+  {
+    "id": "bmpi_249",
+    "t": "facts",
+    "p": "Which post-exilic prophet delivered four piercing messages in 520 BC challenging the remnant: 'Consider your ways!' and motivating them to rebuild the temple?",
+    "b": "HAG",
+    "c": 1,
+    "a": [
+      "Haggai",
+      "Hag"
+    ],
+    "d": "Haggai (Haggai 1:5\u20138)",
+    "e": "Haggai's prophetic ministry ignited the completion of the second temple."
+  },
+  {
+    "id": "bmpi_250",
+    "t": "facts",
+    "p": "Which aged statesman studied Jeremiah's prophecies in Babylon, calculated that the 70 years of exile were near completion, and prayed a passionate prayer of confession in chapter 9?",
+    "b": "DAN",
+    "c": 9,
+    "a": [
+      "Daniel"
+    ],
+    "d": "Daniel (Daniel 9:1\u20133)",
+    "e": "Daniel 9:2 records Daniel studying Jeremiah's scrolls and interceding for Jerusalem's restoration."
+  },
+  {
+    "id": "bmpi_251",
+    "t": "facts",
+    "p": "Which cupbearer to the Persian king prayed continually during crises, mobilized ordinary families to rebuild Jerusalem's walls, and instituted economic reforms for the poor?",
+    "b": "NEH",
+    "c": 1,
+    "a": [
+      "Nehemiah"
+    ],
+    "d": "Nehemiah (Nehemiah 1\u20136)",
+    "e": "Nehemiah combined dependent prayer with brilliant organizational and defensive strategy."
+  },
+  {
+    "id": "bmpi_252",
+    "t": "facts",
+    "p": "Which 'beloved disciple' reclined next to Jesus at the Last Supper and in his old age was exiled to Patmos, receiving the apocalyptic vision of Revelation?",
+    "b": "REV",
+    "c": 1,
+    "a": [
+      "John",
+      "Apostle John",
+      "Saint John"
+    ],
+    "d": "John (Apostle John)",
+    "e": "John authored the fourth Gospel, three epistles, and the Apocalypse."
+  },
+  {
+    "id": "bmpi_253",
+    "t": "facts",
+    "p": "Which apostle planted local churches across Galatia, Macedonia, Achaia, and Asia Minor, declaring: 'I press on toward the goal for the prize of the upward call of God in Christ Jesus'?",
+    "b": "PHP",
+    "c": 3,
+    "a": [
+      "Paul",
+      "Apostle Paul",
+      "Saul of Tarsus"
+    ],
+    "d": "Paul (Apostle Paul)",
+    "e": "Paul was the primary pioneer missionary and theologian of the New Testament church."
+  },
+  {
+    "id": "bmpi_254",
+    "t": "facts",
+    "p": "Which godly ministry couple hosted house churches in Corinth, Ephesus, and Rome, and privately explained the way of God more accurately to the eloquent Apollos?",
+    "b": "ACT",
+    "c": 18,
+    "a": [
+      "Priscilla and Aquila",
+      "Priscilla & Aquila",
+      "Aquila and Priscilla",
+      "Prisca and Aquila"
+    ],
+    "d": "Priscilla & Aquila (Acts 18:24\u201326)",
+    "e": "Acts 18:26 shows Priscilla and Aquila mentoring Apollos in sound doctrine."
+  },
+  {
+    "id": "bmpi_255",
+    "t": "facts",
+    "p": "Which prophet and leader from Jerusalem accompanied Paul on his second missionary journey and sang hymns at midnight in the Philippian jail?",
+    "b": "ACT",
+    "c": 15,
+    "a": [
+      "Silas",
+      "Silvanus"
+    ],
+    "d": "Silas (Silvanus) (Acts 15:40, 16:25)",
+    "e": "Acts 16:25 records Paul and Silas praying and singing hymns in prison."
+  },
+  {
+    "id": "bmpi_256",
+    "t": "facts",
+    "p": "Which godly deaconess and servant of the church at Cenchreae was commended by Paul in Romans 16 as a patron of many and the trusted courier of the Epistle to the Romans?",
+    "b": "ROM",
+    "c": 16,
+    "a": [
+      "Phoebe"
+    ],
+    "d": "Phoebe (Romans 16:1\u20132)",
+    "e": "Romans 16:1\u20132 commends Phoebe as a servant (diakonos) and patron (prostatis)."
+  },
+  {
+    "id": "bmpi_257",
+    "t": "facts",
+    "p": "Which silversmith in Ephesus stirred up a citywide riot against Paul because the Gospel was destroying the lucrative trade in silver shrines of Artemis?",
+    "b": "ACT",
+    "c": 19,
+    "a": [
+      "Demetrius"
+    ],
+    "d": "Demetrius (Acts 19:24\u201329)",
+    "e": "Acts 19:24 records Demetrius inciting the silversmiths against Paul's preaching."
+  },
+  {
+    "id": "bmpi_258",
+    "t": "facts",
+    "p": "Which eloquent Jewish believer from Alexandria was mighty in the scriptures and vigorously refuted Jewish opponents in public, showing from Scripture that Jesus was the Christ?",
+    "b": "ACT",
+    "c": 18,
+    "a": [
+      "Apollos"
+    ],
+    "d": "Apollos (Acts 18:24\u201328)",
+    "e": "Acts 18:24\u201328 highlights Apollos's powerful evangelistic and apologetic preaching."
+  },
+  {
+    "id": "bmpi_259",
+    "t": "facts",
+    "p": "Which patriarch demonstrated supreme obedience on Mount Moriah by trusting that God was able to raise his son Isaac even from the dead?",
+    "b": "GEN",
+    "c": 22,
+    "a": [
+      "Abraham",
+      "Abram"
+    ],
+    "d": "Abraham (Genesis 22, Hebrews 11:17\u201319)",
+    "e": "Genesis 22:1\u201314 records the testing of Abraham and God providing the ram in the thicket."
+  },
+  {
+    "id": "bmpi_260",
+    "t": "facts",
+    "p": "Which former coworker of Paul deserted him during his final imprisonment in Rome because he was 'in love with this present world'?",
+    "b": "2TI",
+    "c": 4,
+    "a": [
+      "Demas"
+    ],
+    "d": "Demas (2 Timothy 4:10)",
+    "e": "2 Timothy 4:10 mourns Demas deserting Paul and going to Thessalonica."
+  },
+  {
+    "id": "bmpi_261",
+    "t": "facts",
+    "p": "Which young man in Troas fell asleep during Paul's prolonged midnight sermon, plunged from a third-story window to his death, and was miraculously raised to life by Paul?",
+    "b": "ACT",
+    "c": 20,
+    "a": [
+      "Eutychus"
+    ],
+    "d": "Eutychus (Acts 20:9\u201312)",
+    "e": "Acts 20:9\u201312 records Paul raising Eutychus from the dead."
+  },
+  {
+    "id": "bmpi_262",
+    "t": "facts",
+    "p": "Which businesswoman and seller of purple goods from Thyatira had her heart opened by the Lord at Philippi, becoming the first recorded European convert to Christianity?",
+    "b": "ACT",
+    "c": 16,
+    "a": [
+      "Lydia"
+    ],
+    "d": "Lydia (Acts 16:14\u201315)",
+    "e": "Acts 16:14 records the Lord opening Lydia's heart to heed Paul's message."
+  },
+  {
+    "id": "bmpi_263",
+    "t": "facts",
+    "p": "Which Christian woman is greeted as 'our sister' in the opening of the Epistle to Philemon, likely Philemon's wife and hostess of the Colossian house church?",
+    "b": "PHM",
+    "c": 1,
+    "a": [
+      "Apphia"
+    ],
+    "d": "Apphia (Philemon 1:2)",
+    "e": "Philemon 1:2 greets Philemon, Apphia our sister, and Archippus our fellow soldier."
+  },
+  {
+    "id": "bmpi_264",
+    "t": "facts",
+    "p": "Which metal craftsman did Paul warn Timothy about in his last letter, stating: 'Alexander the coppersmith did me great harm; the Lord will repay him according to his deeds'?",
+    "b": "2TI",
+    "c": 4,
+    "a": [
+      "Alexander",
+      "Alexander the coppersmith"
+    ],
+    "d": "Alexander the coppersmith (2 Timothy 4:14)",
+    "e": "2 Timothy 4:14\u201315 warns Timothy to beware of Alexander's fierce opposition to sound teaching."
+  },
+  {
+    "id": "bmpi_265",
+    "t": "facts",
+    "p": "Which son of Aaron was invested with the high priestly garments on Mount Hor and served alongside Joshua in dividing the Promised Land by lot?",
+    "b": "NUM",
+    "c": 20,
+    "a": [
+      "Eleazar",
+      "Eleazar the priest"
+    ],
+    "d": "Eleazar (Numbers 20:26\u201328, Joshua 14:1)",
+    "e": "Eleazar succeeded Aaron as High Priest throughout the conquest and settlement."
+  },
+  {
+    "id": "bmpi_266",
+    "t": "facts",
+    "p": "Which wealthy Christian citizen of Colossae hosted a house church and received Paul's personal letter pleading for the reconciliation of his runaway slave Onesimus?",
+    "b": "PHM",
+    "c": 1,
+    "a": [
+      "Philemon"
+    ],
+    "d": "Philemon (Philemon 1:1\u20132)",
+    "e": "Philemon hosted the Colossian congregation in his household."
+  },
+  {
+    "id": "bmpi_267",
+    "t": "facts",
+    "p": "Which young apostolic coworker is the only contemporary leader explicitly named at the conclusion of the Epistle to the Hebrews: 'our brother Timothy has been released'?",
+    "b": "HEB",
+    "c": 13,
+    "a": [
+      "Timothy"
+    ],
+    "d": "Timothy (Hebrews 13:23)",
+    "e": "Hebrews 13:23 mentions Timothy's recent release from imprisonment."
+  },
+  {
+    "id": "bmpi_268",
+    "t": "facts",
+    "p": "Which two men does Paul name in 1 Timothy as examples of those who rejected a good conscience and shipwrecked their faith, whom Paul handed over to Satan to learn not to blaspheme?",
+    "b": "1TI",
+    "c": 1,
+    "a": [
+      "Hymenaeus and Alexander",
+      "Hymenaeus & Alexander",
+      "Hymenaeus",
+      "Alexander"
+    ],
+    "d": "Hymenaeus and Alexander (1 Timothy 1:19\u201320)",
+    "e": "1 Timothy 1:20 records apostolic discipline against Hymenaeus and Alexander."
+  },
+  {
+    "id": "bmpi_269",
+    "t": "facts",
+    "p": "Which young cousin of Barnabas deserted the first missionary journey at Perga, caused a sharp disagreement between Paul and Barnabas, but was later commended by Paul as 'very useful to me for ministry'?",
+    "b": "2TI",
+    "c": 4,
+    "a": [
+      "John Mark",
+      "Mark"
+    ],
+    "d": "John Mark (Acts 15:37\u201339, 2 Timothy 4:11)",
+    "e": "2 Timothy 4:11 marks the full restoration of Mark as Paul's valued coworker and author of the second Gospel."
+  },
+  {
+    "id": "bmpi_270",
+    "t": "facts",
+    "p": "Which faithful missionary brother served as coworker to Paul and later as amanuensis/courier for Peter's first epistle ('By Silvanus, a faithful brother as I regard him, I have written briefly to you')?",
+    "b": "1PE",
+    "c": 5,
+    "a": [
+      "Silvanus",
+      "Silas"
+    ],
+    "d": "Silvanus (Silas) (1 Peter 5:12)",
+    "e": "1 Peter 5:12 acknowledges Silvanus in the composition and transmission of 1 Peter."
+  },
+  {
+    "id": "bmpi_271",
+    "t": "facts",
+    "p": "Which prophet served as Elijah's attendant, asked for a double portion of his spirit at the Jordan River, and performed twice as many recorded miracles across Northern Israel?",
+    "b": "2KI",
+    "c": 2,
+    "a": [
+      "Elisha",
+      "Elisha son of Shaphat"
+    ],
+    "d": "Elisha (2 Kings 2:9\u201315)",
+    "e": "Elisha succeeded Elijah with a miraculous ministry of pastoral compassion and prophetic power."
+  },
+  {
+    "id": "bmpi_272",
+    "t": "facts",
+    "p": "Which prophet's autobiographical book candidly recounts his own nationalistic prejudice, anger at God's mercy to Nineveh, and God's object lesson through a sheltering plant and a worm?",
+    "b": "JON",
+    "c": 4,
+    "a": [
+      "Jonah",
+      "Jonah son of Amittai"
+    ],
+    "d": "Jonah (Jonah 4)",
+    "e": "Jonah 4 contrasts Jonah's bitter exclusivity with Yahweh's boundless compassion."
+  },
+  {
+    "id": "bmpi_273",
+    "t": "facts",
+    "p": "Which apostle is the only contemporary leader referred to by Peter in 2 Peter: 'count the patience of our Lord as salvation, just as our beloved brother Paul also wrote to you according to the wisdom given him'?",
+    "b": "2PE",
+    "c": 3,
+    "a": [
+      "Paul",
+      "Apostle Paul"
+    ],
+    "d": "Paul (2 Peter 3:15\u201316)",
+    "e": "2 Peter 3:15\u201316 equates Paul's letters with the rest of inspired Scripture."
+  },
+  {
+    "id": "bmpi_274",
+    "t": "facts",
+    "p": "Which Gentile author investigated eyewitness accounts from the beginning and wrote an orderly narrative so that Theophilus might have certainty concerning what he had been taught?",
+    "b": "LUK",
+    "c": 1,
+    "a": [
+      "Luke",
+      "Dr. Luke",
+      "Saint Luke"
+    ],
+    "d": "Luke (Luke 1:1\u20134)",
+    "e": "Luke's historical prologue establishes the rigorous historical basis of the Gospel."
+  },
+  {
+    "id": "bmpi_275",
+    "t": "facts",
+    "p": "Which elderly high priest at Shiloh failed to discipline his blasphemous sons Hophni and Phinehas, resulting in his sons dying in battle, the Ark being captured, and his own sudden death?",
+    "b": "1SA",
+    "c": 4,
+    "a": [
+      "Eli",
+      "Eli the priest"
+    ],
+    "d": "Eli (1 Samuel 2:27\u201336, 4:18)",
+    "e": "1 Samuel 4:18 records the tragic death of Eli upon hearing that the Ark of God was captured."
+  },
+  {
+    "id": "bmpi_276",
+    "t": "facts",
+    "p": "Which righteous king of Judah established judges throughout the fortified cities of Judah but was rebuked by the prophet Jehu for making an ungodly military alliance with wicked King Ahab of Israel?",
+    "b": "2CH",
+    "c": 19,
+    "a": [
+      "Jehoshaphat",
+      "King Jehoshaphat"
+    ],
+    "d": "Jehoshaphat (2 Chronicles 19:1\u20133)",
+    "e": "2 Chronicles 19:2: 'Should you help the wicked and love those who hate the Lord?'"
+  },
+  {
+    "id": "bmpi_277",
+    "t": "facts",
+    "p": "Which young coworker of Paul was prone to timidity and stomach ailments, prompting Paul to encourage him: 'God gave us a spirit not of fear but of power and love and self-control'?",
+    "b": "2TI",
+    "c": 1,
+    "a": [
+      "Timothy"
+    ],
+    "d": "Timothy (2 Timothy 1:7)",
+    "e": "2 Timothy 1:7 encouraged young Timothy in his pastoral calling amidst persecution."
+  },
+  {
+    "id": "bmpi_278",
+    "t": "facts",
+    "p": "Which Colossian believer was urged by Paul: 'if he has wronged you at all, or owes you anything, charge that to my account. I, Paul, write this with my own hand: I will repay it'?",
+    "b": "PHM",
+    "c": 1,
+    "a": [
+      "Philemon"
+    ],
+    "d": "Philemon (Philemon 1:18\u201319)",
+    "e": "Paul beautifully models Christ's substitutionary imputation in his plea to Philemon."
+  },
+  {
+    "id": "bmpi_279",
+    "t": "facts",
+    "p": "Which apostle, the brother of John and son of Zebedee, was the first of the twelve apostles to be martyred when King Herod Agrippa I executed him with the sword?",
+    "b": "ACT",
+    "c": 12,
+    "a": [
+      "James",
+      "James son of Zebedee",
+      "James the brother of John"
+    ],
+    "d": "James (son of Zebedee) (Acts 12:2)",
+    "e": "Acts 12:2 records Herod Agrippa I executing James with the sword in Jerusalem."
+  },
+  {
+    "id": "bmpi_280",
+    "t": "facts",
+    "p": "Which post-exilic prophet confronted the returned remnant for offering blemished sacrifices, withholding tithes, and committing widespread divorce, promising that God would send His messenger to prepare the way?",
+    "b": "MAL",
+    "c": 1,
+    "a": [
+      "Malachi",
+      "Mal"
+    ],
+    "d": "Malachi (Malachi 1\u20133)",
+    "e": "Malachi addressed the spiritual lethargy and nominalism of the post-exilic community."
+  },
+  {
+    "id": "bmpi_281",
+    "t": "book_id",
+    "p": "In which Old Testament narrative does Boaz act as the righteous 'kinsman-redeemer' (goel) for Ruth and Naomi, concluding with the genealogy of King David?",
+    "b": "RUT",
+    "c": 4,
+    "a": [
+      "Ruth",
+      "Rut"
+    ],
+    "d": "Ruth (Ruth 4)",
+    "e": "Ruth 4:18\u201322 connects Boaz and Ruth to the messianic royal line of David and Jesus."
+  },
+  {
+    "id": "bmpi_282",
+    "t": "book_id",
+    "p": "Which wisdom book attributed to Solomon in his mature years warns against cynical secularism by demonstrating that all earthly pursuits 'under the sun' are vanity without God?",
+    "b": "ECC",
+    "c": 1,
+    "a": [
+      "Ecclesiastes",
+      "Eccl",
+      "Qoheleth"
+    ],
+    "d": "Ecclesiastes",
+    "e": "Ecclesiastes explores life 'under the sun' pointing toward eternal accountability."
+  },
+  {
+    "id": "bmpi_283",
+    "t": "book_id",
+    "p": "In which single-chapter Old Testament prophetic book does God pronounce total destruction on Edom for gloating and violence against their brother Jacob during Jerusalem's fall?",
+    "b": "OBA",
+    "c": 1,
+    "a": [
+      "Obadiah",
+      "Oba"
+    ],
+    "d": "Obadiah",
+    "e": "Obadiah is a 21-verse prophecy of divine retribution against the pride of Edom."
+  },
+  {
+    "id": "bmpi_284",
+    "t": "book_id",
+    "p": "Which Minor Prophet during the reign of King Josiah repeatedly uses 'the Day of the Lord' as a major theme warning of universal judgment and concluding with God rejoicing over His remnant with singing?",
+    "b": "ZEP",
+    "c": 1,
+    "a": [
+      "Zephaniah",
+      "Zep"
+    ],
+    "d": "Zephaniah",
+    "e": "Zephaniah 3:17: 'The Lord your God is in your midst... he will exult over you with loud singing.'"
+  },
+  {
+    "id": "bmpi_285",
     "t": "book_chapter",
-    "p": "Book & chapter: 'If we say we have fellowship with him while we walk in darkness, we lie and do not practice the truth. But if we walk in the light, as he is in the light, we have fellowship with one another, and the blood of Jesus his Son cleanses us from all sin':",
+    "p": "In what book & chapter does the ironic admonition appear: 'Rejoice, O young man, in your youth... but know that for all these things God will bring you into judgment'?",
+    "b": "ECC",
+    "c": 11,
+    "a": [
+      "Ecclesiastes 11",
+      "Eccl 11"
+    ],
+    "d": "Ecclesiastes 11 (Ecclesiastes 11:9)",
+    "e": "Ecclesiastes 11:9 warns young people to live in joyous yet accountable awareness of God's judgment."
+  },
+  {
+    "id": "bmpi_286",
+    "t": "book_id",
+    "p": "Which Minor Prophet opens with God declaring: 'I will utterly sweep away everything from the face of the earth' and urges: 'Seek the Lord, all you humble of the land... seek righteousness; seek humility'?",
+    "b": "ZEP",
+    "c": 2,
+    "a": [
+      "Zephaniah",
+      "Zep"
+    ],
+    "d": "Zephaniah (Zephaniah 1:2, 2:3)",
+    "e": "Zephaniah proclaims both catastrophic global judgment and the preservation of a humble remnant."
+  },
+  {
+    "id": "bmpi_287",
+    "t": "book_chapter",
+    "p": "In what book & chapter does the grand conclusion appear: 'The end of the matter; all has been heard. Fear God and keep his commandments, for this is the whole duty of man'?",
+    "b": "ECC",
+    "c": 12,
+    "a": [
+      "Ecclesiastes 12",
+      "Eccl 12"
+    ],
+    "d": "Ecclesiastes 12 (Ecclesiastes 12:13)",
+    "e": "Ecclesiastes 12:13 resolves the search for life's ultimate meaning in reverent obedience to God."
+  },
+  {
+    "id": "bmpi_288",
+    "t": "book_id",
+    "p": "Which prophetic book opens: 'The Lord is a jealous and avenging God... slow to anger and great in power, and the Lord will by no means clear the guilty', predicting the overthrow of Nineveh?",
+    "b": "NAH",
+    "c": 1,
+    "a": [
+      "Nahum",
+      "Nah"
+    ],
+    "d": "Nahum (Nahum 1:2\u20133)",
+    "e": "Nahum proclaims divine vengeance against oppressive, bloodthirsty Nineveh."
+  },
+  {
+    "id": "bmpi_289",
+    "t": "book_chapter",
+    "p": "In what epistle & chapter does Paul enforce the work ethic rule: 'If anyone is not willing to work, let him not eat'?",
+    "b": "2TH",
+    "c": 3,
+    "a": [
+      "2 Thessalonians 3",
+      "2 Thess 3",
+      "2Thess 3"
+    ],
+    "d": "2 Thessalonians 3 (2 Thessalonians 3:10)",
+    "e": "2 Thessalonians 3:10 rebukes idleness caused by misguided eschatological fanaticism."
+  },
+  {
+    "id": "bmpi_290",
+    "t": "book_id",
+    "p": "Which Pauline epistle concludes every one of its five chapters with a direct reference to the second coming of Jesus Christ?",
+    "b": "1TH",
+    "c": 1,
+    "a": [
+      "1 Thessalonians",
+      "1 Thess",
+      "First Thessalonians"
+    ],
+    "d": "1 Thessalonians",
+    "e": "1 Thessalonians 1:10, 2:19, 3:13, 4:16\u201317, 5:23 all spotlight the return of Christ."
+  },
+  {
+    "id": "bmpi_291",
+    "t": "book_chapter",
+    "p": "In what epistle & chapter does Paul give the rapid-fire commands: 'Do not quench the Spirit. Do not despise prophecies, but test everything; hold fast what is good'?",
+    "b": "1TH",
+    "c": 5,
+    "a": [
+      "1 Thessalonians 5",
+      "1 Thess 5",
+      "1Thess 5"
+    ],
+    "d": "1 Thessalonians 5 (1 Thessalonians 5:19\u201321)",
+    "e": "1 Thessalonians 5:19\u201321 balances openness to the Spirit's work with rigorous discernment."
+  },
+  {
+    "id": "bmpi_292",
+    "t": "book_chapter",
+    "p": "In what book & chapter does the closing universal invitation of Scripture appear: 'The Spirit and the Bride say, \"Come.\" And let the one who hears say, \"Come.\" And let the one who is thirsty come; let the one who desires take the water of life without price'?",
+    "b": "REV",
+    "c": 22,
+    "a": [
+      "Revelation 22",
+      "Rev 22"
+    ],
+    "d": "Revelation 22 (Revelation 22:17)",
+    "e": "Revelation 22:17 is the final gospel invitation of the biblical canon."
+  },
+  {
+    "id": "bmpi_293",
+    "t": "book_chapter",
+    "p": "In what epistle & chapter does John provide the reassuring promise of cleansing: 'If we confess our sins, he is faithful and just to forgive us our sins and to cleanse us from all unrighteousness'?",
     "b": "1JN",
     "c": 1,
     "a": [
       "1 John 1",
       "1 Jn 1",
-      "1 John 1:6-7"
+      "1John 1"
     ],
-    "e": "1 John 1:6-9: Walking in the light, authentic fellowship, and forgiveness through confession."
+    "d": "1 John 1 (1 John 1:9)",
+    "e": "1 John 1:9 assures believers of daily forgiveness and restoration of fellowship through confession."
   },
   {
-    "id": "bmpi_gen_10",
-    "t": "chapter_in_book",
-    "p": "What chapter in Revelation shows the Lion of the tribe of Judah appearing as a Lamb looking as if it had been slain, alone worthy to open the scroll with seven seals?",
+    "id": "bmpi_294",
+    "t": "book_chapter",
+    "p": "In what book & chapter does the vision of the New Jerusalem declare: 'He will wipe away every tear from their eyes, and death shall be no more, neither shall there be mourning, nor crying, nor pain anymore, for the former things have passed away'?",
     "b": "REV",
+    "c": 21,
+    "a": [
+      "Revelation 21",
+      "Rev 21"
+    ],
+    "d": "Revelation 21 (Revelation 21:4)",
+    "e": "Revelation 21:1\u20134 depicts eternal glory in the new heaven and new earth."
+  },
+  {
+    "id": "bmpi_295",
+    "t": "book_id",
+    "p": "In which short epistle does John denounce Diotrephes, 'who likes to put himself first', for speaking wicked nonsense and refusing to welcome traveling missionary brethren?",
+    "b": "3JN",
+    "c": 1,
+    "a": [
+      "3 John",
+      "3 Jn",
+      "Third John"
+    ],
+    "d": "3 John (3 John 1:9\u201310)",
+    "e": "3 John 1:9\u201310 exposes arrogant, authoritarian leadership in the church."
+  },
+  {
+    "id": "bmpi_296",
+    "t": "book_id",
+    "p": "In which personal letter to his friend Gaius does John declare his greatest pastoral joy: 'I have no greater joy than to hear that my children are walking in the truth'?",
+    "b": "3JN",
+    "c": 1,
+    "a": [
+      "3 John",
+      "3 Jn",
+      "Third John"
+    ],
+    "d": "3 John (3 John 1:4)",
+    "e": "3 John 1:4 captures the heartbeat of apostolic ministry."
+  },
+  {
+    "id": "bmpi_297",
+    "t": "book_id",
+    "p": "In which practical epistle does the author cite Elijah praying for drought and rain to prove that: 'The prayer of a righteous person has great power as it is working'?",
+    "b": "JAS",
     "c": 5,
     "a": [
-      "5",
-      "Revelation 5",
-      "Rev 5",
-      "ch 5",
-      "chapter 5"
+      "James",
+      "Jas"
     ],
-    "d": "Revelation 5 (or Chapter 5)",
-    "e": "Revelation 5: The heavenly throne room worshiping the Worthy Lamb."
+    "d": "James (James 5:16\u201318)",
+    "e": "James 5:16\u201318 uses Elijah as an inspiring model of fervent, prevailing prayer."
+  },
+  {
+    "id": "bmpi_298",
+    "t": "book_id",
+    "p": "In what pastoral epistle does Paul outline intergenerational women's mentoring: 'Older women likewise are to be reverent in behavior... and so train the young women to love their husbands and children'?",
+    "b": "TIT",
+    "c": 2,
+    "a": [
+      "Titus",
+      "Tit"
+    ],
+    "d": "Titus (Titus 2:3\u20135)",
+    "e": "Titus 2:3\u20135 establishes the biblical model of discipleship among Christian women."
+  },
+  {
+    "id": "bmpi_299",
+    "t": "book_id",
+    "p": "In which Gospel does the unique parable of the Growing Seed appear: 'The earth produces by itself, first the blade, then the ear, then the full grain in the ear'?",
+    "b": "MRK",
+    "c": 4,
+    "a": [
+      "Mark",
+      "Gospel of Mark",
+      "Mrk"
+    ],
+    "d": "Mark (Mark 4:26\u201329)",
+    "e": "Mark 4:26\u201329 is a parable found exclusively in the Gospel of Mark illustrating the mysterious growth of the Kingdom."
+  },
+  {
+    "id": "bmpi_300",
+    "t": "facts",
+    "p": "Which post-exilic leader illustrates focused biblical ministry: 'For Ezra had set his heart to study the Law of the Lord, and to do it and to teach his statutes and rules in Israel'?",
+    "b": "EZR",
+    "c": 7,
+    "a": [
+      "Ezra",
+      "Ezra the scribe",
+      "Ezra the priest"
+    ],
+    "d": "Ezra (Ezra 7:10)",
+    "e": "Ezra 7:10 stands as the quintessential model of personal devotion, life obedience, and faithful biblical exposition."
   },
   {
     "id": "nt_q1",
@@ -4931,4 +8078,5 @@ export function hydrateQuestion(raw) {
 
 export const CURATED_QUESTION_BANK = RAW_QUESTIONS.map(hydrateQuestion);
 
+export const BMPI_TEST_300_BANK = CURATED_QUESTION_BANK.filter(q => q.id.startsWith("bmpi_"));
 export const GFC_TEST_100_BANK = CURATED_QUESTION_BANK.filter(q => q.id.startsWith("gfc_"));

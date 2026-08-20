@@ -22,6 +22,7 @@ class UnitTester:
             ("ESV Parser & Heading Extraction", self.test_esv_parser),
             ("Diagnostic Quiz Engine & BMPI Matching", self.test_quiz_engine),
             ("GFC 100-Question Assessment & Bank Integrity", self.test_gfc_quiz_bank),
+            ("BMPI 300-Question Assessment & Bank Integrity", self.test_bmpi_300_bank),
             ("Storage & Option A Subcollection Serialization", self.test_storage_serialization),
             ("Deep Merge & Local Storage Scaffolding", self.test_storage_scaffolding),
             ("Markdown Exporter Integrity", self.test_markdown_export)
@@ -156,6 +157,41 @@ class UnitTester:
         assert r.get("sessionCount") == 100, f"Expected 100 questions in GFC session, got {r.get('sessionCount')}"
         assert r.get("evalLuke") == True, "Expected 'Luke' to be evaluated as correct for Acts authorship"
         assert r.get("evalWrong") == False, "Expected 'Barnabas' to be evaluated as incorrect for Acts authorship"
+
+    def test_bmpi_300_bank(self):
+        js = """
+        (() => {
+            const bmpiPool = CURATED_QUESTION_BANK.filter(q => q.id.startsWith("bmpi_"));
+            const dedicatedBank = typeof BMPI_TEST_300_BANK !== "undefined" ? BMPI_TEST_300_BANK : [];
+            const bmpiSession = new DiagnosticSession({ scope: 'BMPI', questionCount: 300 });
+            
+            // Test evaluating specific BMPI questions
+            const q1 = bmpiPool.find(q => q.id === "bmpi_1");
+            const evalGen1 = q1 ? evaluateAnswer(q1, "Genesis 1").isCorrect : false;
+            
+            const q30 = bmpiPool.find(q => q.id === "bmpi_30");
+            const evalJoseph = q30 ? evaluateAnswer(q30, "Joseph").isCorrect : false;
+
+            const q300 = bmpiPool.find(q => q.id === "bmpi_300");
+            const evalEzra = q300 ? evaluateAnswer(q300, "Ezra").isCorrect : false;
+
+            return {
+                bmpiCount: bmpiPool.length,
+                dedicatedCount: dedicatedBank.length,
+                sessionCount: bmpiSession.questions.length,
+                evalGen1,
+                evalJoseph,
+                evalEzra
+            };
+        })()
+        """
+        r = self.eval_js(js)
+        assert r.get("bmpiCount") == 300, f"Expected 300 BMPI questions in curated bank, got {r.get('bmpiCount')}"
+        assert r.get("dedicatedCount") == 300, f"Expected 300 BMPI questions in BMPI_TEST_300_BANK, got {r.get('dedicatedCount')}"
+        assert r.get("sessionCount") == 300, f"Expected 300 questions in BMPI session, got {r.get('sessionCount')}"
+        assert r.get("evalGen1") == True, "Expected 'Genesis 1' to be evaluated as correct for Q1"
+        assert r.get("evalJoseph") == True, "Expected 'Joseph' to be evaluated as correct for Q30"
+        assert r.get("evalEzra") == True, "Expected 'Ezra' to be evaluated as correct for Q300"
 
     def test_storage_serialization(self):
         js = """
