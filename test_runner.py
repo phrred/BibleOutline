@@ -181,6 +181,38 @@ def is_port_open(port):
     except Exception:
         return False
 
+def find_chrome_executable():
+    """Locate Chrome / Chromium executable cross-platform (Mac, Linux CI, Windows)."""
+    if os.environ.get("CHROME_BIN") and os.path.exists(os.environ["CHROME_BIN"]):
+        return os.environ["CHROME_BIN"]
+
+    import shutil
+    for cmd in ["google-chrome", "google-chrome-stable", "chromium-browser", "chromium", "chrome"]:
+        p = shutil.which(cmd)
+        if p:
+            return p
+
+    candidates = [
+        # macOS
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "/Applications/Chromium.app/Contents/MacOS/Chromium",
+        os.path.expanduser("~/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"),
+        # Linux / Ubuntu CI
+        "/usr/bin/google-chrome",
+        "/usr/bin/google-chrome-stable",
+        "/usr/bin/chromium-browser",
+        "/usr/bin/chromium",
+        "/snap/bin/chromium",
+        # Windows
+        r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+        r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+    ]
+    for c in candidates:
+        if os.path.exists(c):
+            return c
+
+    return "google-chrome"
+
 def main():
     parser = argparse.ArgumentParser(description="Bible Outline Studio Regression Test Runner")
     parser.add_argument("--unit", action="store_true", help="Run Unit Logic Tests only")
@@ -216,10 +248,14 @@ def main():
 
     # Step 3: Launch Headless Chrome
     cdp_port = find_free_port()
-    print(f"{DIM}🌐 Launching isolated Headless Chrome (CDP port {cdp_port})...{RESET}", end="", flush=True)
+    chrome_bin = find_chrome_executable()
+    print(f"{DIM}🌐 Launching isolated Headless Chrome ({chrome_bin}, CDP port {cdp_port})...{RESET}", end="", flush=True)
     chrome_proc = subprocess.Popen([
-        '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-        '--headless',
+        chrome_bin,
+        '--headless=new',
+        '--no-sandbox',
+        '--disable-gpu',
+        '--disable-dev-shm-usage',
         f'--remote-debugging-port={cdp_port}',
         f'http://localhost:{server_port}/'
     ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
