@@ -23,6 +23,7 @@ class E2ETester:
             ("E2E: Chapter Outliner & Canvas Interactions", self.test_chapter_outliner_canvas),
             ("E2E: Book Rollup & Bible Plot Views", self.test_book_rollup_and_plot),
             ("E2E: Diagnostic Quiz Flow & Scorecard", self.test_diagnostic_quiz_flow),
+            ("E2E: Question Flag Modal & Interaction Flow", self.test_flag_question_modal_flow),
             ("E2E: Cloud Sync & Deep Merge Lifecycle", self.test_cloud_sync_lifecycle)
         ]
 
@@ -231,3 +232,54 @@ class E2ETester:
         assert r.get("hasDeleteQuiz") == True, "deleteQuizFromCloud function missing"
         assert r.get("hasSaveMastery") == True, "saveMasteryToCloud function missing"
         assert r.get("initialCount") == 2 and r.get("afterCount") == 1, "Quiz deletion logic failed"
+
+    def test_flag_question_modal_flow(self):
+        r = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            app.activeView = 'quiz-diagnostic';
+            app.activeQuizTab = 'diagnostic';
+            app.quizSession = new DiagnosticSession({ scope: 'NT', questionCount: 3 });
+            app.quizScorecard = null;
+            app.flagModalData = null;
+            app.render();
+
+            // 1. Verify flag button exists on active question card
+            const flagBtn = document.querySelector('.flag-active-question-btn');
+            const hasFlagBtn = Boolean(flagBtn);
+
+            // 2. Click flag button
+            if (flagBtn) flagBtn.click();
+            const modalOpen = Boolean(document.getElementById('flag-modal-overlay'));
+            const modalHeader = document.querySelector('#flag-modal-overlay h3')?.textContent || '';
+
+            // 3. Select 'too_specific' category
+            const tooSpecificOption = document.querySelector('[data-flag-category="too_specific"]');
+            if (tooSpecificOption) tooSpecificOption.click();
+            const selectedCat = app.flagModalData?.category;
+
+            // 4. Fill in suggested answer and comments
+            const suggInput = document.getElementById('flag-suggested-answer-input');
+            const commentsInput = document.getElementById('flag-comments-input');
+            if (suggInput) suggInput.value = 'E2E Suggested Fix';
+            if (commentsInput) commentsInput.value = 'E2E Test Comment';
+
+            // 5. Close modal
+            const cancelBtn = document.getElementById('flag-modal-cancel-btn');
+            if (cancelBtn) cancelBtn.click();
+            const modalClosed = !document.getElementById('flag-modal-overlay');
+
+            return {
+                hasFlagBtn,
+                modalOpen,
+                modalHeader,
+                selectedCat,
+                modalClosed
+            };
+        })()
+        """)
+        assert r.get("hasFlagBtn") == True, "Flag button missing on active question card"
+        assert r.get("modalOpen") == True, "Flag modal failed to open upon clicking flag button"
+        assert "Flag Question" in r.get("modalHeader"), "Flag modal title missing"
+        assert r.get("selectedCat") == "too_specific", f"Category selection failed, got {r.get('selectedCat')}"
+        assert r.get("modalClosed") == True, "Flag modal failed to close upon clicking cancel"

@@ -25,7 +25,8 @@ class UnitTester:
             ("BMPI 300-Question Assessment & Bank Integrity", self.test_bmpi_300_bank),
             ("Storage & Option A Subcollection Serialization", self.test_storage_serialization),
             ("Deep Merge & Local Storage Scaffolding", self.test_storage_scaffolding),
-            ("Markdown Exporter Integrity", self.test_markdown_export)
+            ("Markdown Exporter Integrity", self.test_markdown_export),
+            ("Question Flag Modal & Categories Integrity", self.test_flag_question_modal)
         ]
 
         results = []
@@ -299,3 +300,53 @@ class UnitTester:
         assert r.get("fullHasTakeaway") == True, "Markdown export missing chapter takeaway"
         assert r.get("singleHasGenesis") == True, "Single book export missing Genesis"
         assert r.get("singleOmitsFullHeader") == True, "Single book export should omit full Bible header"
+
+    def test_flag_question_modal(self):
+        js = """
+        (() => {
+            const categories = FLAG_CATEGORIES;
+            const testQuestion = {
+                id: 'bmpi_99',
+                prompt: 'Where was Abraham called from?',
+                displayAnswer: 'Ur of the Chaldeans',
+                bookId: 'GEN',
+                chapterNum: 11
+            };
+
+            const html = renderFlagQuestionModal({
+                question: testQuestion,
+                category: 'wrong_answer',
+                comments: 'Needs Haran nuance',
+                suggestedAnswer: 'Ur / Haran',
+                isSubmitting: false
+            });
+
+            const nullHtml = renderFlagQuestionModal(null);
+
+            return {
+                catCount: categories.length,
+                hasWrongAnswer: categories.some(c => c.id === 'wrong_answer'),
+                hasTooSpecific: categories.some(c => c.id === 'too_specific'),
+                hasPoorlyPhrased: categories.some(c => c.id === 'poorly_phrased'),
+                hasTypo: categories.some(c => c.id === 'typo'),
+                hasBadQuestion: categories.some(c => c.id === 'bad_question'),
+                rendersTitle: html.includes('Flag Question for Review'),
+                rendersQuestionId: html.includes('bmpi_99'),
+                rendersSuggestedAns: html.includes('Ur / Haran'),
+                rendersComments: html.includes('Needs Haran nuance'),
+                nullIsBlank: nullHtml === ''
+            };
+        })()
+        """
+        r = self.eval_js(js)
+        assert r.get("catCount") == 6, f"Expected 6 flag categories, got {r.get('catCount')}"
+        assert r.get("hasWrongAnswer") == True, "Missing wrong_answer category"
+        assert r.get("hasTooSpecific") == True, "Missing too_specific category"
+        assert r.get("hasPoorlyPhrased") == True, "Missing poorly_phrased category"
+        assert r.get("hasTypo") == True, "Missing typo category"
+        assert r.get("hasBadQuestion") == True, "Missing bad_question category"
+        assert r.get("rendersTitle") == True, "Flag modal header missing"
+        assert r.get("rendersQuestionId") == True, "Flag modal question ID missing"
+        assert r.get("rendersSuggestedAns") == True, "Flag modal suggested answer input missing"
+        assert r.get("rendersComments") == True, "Flag modal comments input missing"
+        assert r.get("nullIsBlank") == True, "Null flag modal data should return empty string"

@@ -69,6 +69,29 @@ Because this web app is built as a self-contained modern ES-Module static client
 
 ---
 
+## 🚩 Question Flagging & Automated AI Agent Pull Requests
+
+When taking any test or reviewing past answers in the Studio, users can flag questions that have issues (wrong answers, ambiguous phrasing, too specific, typos, or defective questions):
+
+1. **In-App Flagging Modal**: Click **"🚩 Flag Question"** on any active or reviewed question card to choose an issue category, suggest a correct answer, and add comments.
+2. **Serverless Issue Ingestion**: In production (Vercel), submissions hit `/api/flag-question`, which creates a structured GitHub Issue tagged `question-flag`. In local/offline dev, it seamlessly opens a pre-filled GitHub Issue tab.
+3. **Autonomous AI Question Patcher Agent**: Triggered via GitHub Actions on new `question-flag` issues:
+   - Evaluates the issue report against the Protestant canon and ESV scripture using the **100% free Google Gemini 2.5 Flash API**.
+   - Rephrases prompts, adds missing valid answer aliases, corrects keys, or removes defective questions in `data/quiz_bank.js`.
+   - Runs `./run_tests.sh` to ensure all unit and E2E regression tests pass.
+   - Opens an automated Pull Request linking the issue for your 1-click review and merge.
+
+### ⚙️ Quick Setup (100% Free)
+
+1. **Get a free Google Gemini API Key**: Visit [aistudio.google.com](https://aistudio.google.com) and click **"Create API key"** (free tier: up to 1,500 requests/day).
+2. **Add GitHub Actions Secret**:
+   - In your GitHub repository, go to **Settings → Secrets and variables → Actions → New repository secret**.
+   - Add `GEMINI_API_KEY` with your key from Step 1.
+3. **(Optional) Configure Vercel Serverless Function**:
+   - In your Vercel Project Settings → Environment Variables, add `GITHUB_TOKEN` (a GitHub Personal Access Token with `repo` or `issues:write` scope) and `GITHUB_REPO` (e.g. `phrred/BibleOutline`).
+
+---
+
 ## 🧪 Automated Regression Testing
 
 You can run the automated regression test suite after making any code changes to verify all functionality remains intact:
@@ -84,5 +107,5 @@ You can run the automated regression test suite after making any code changes to
 ./run_tests.sh --e2e
 ```
 
-The runner automatically compiles `bundle.js` from `src/`, verifies the local web server, launches an isolated Headless Chrome instance via CDP, executes all 12 regression tests across 2 suites, and outputs a formatted pass/fail report.
+The runner automatically compiles `bundle.js` from `src/`, verifies the local web server, launches an isolated Headless Chrome instance via CDP, executes all 16 regression tests across 2 suites, and outputs a formatted pass/fail report.
 

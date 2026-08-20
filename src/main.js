@@ -53,6 +53,7 @@ class BibleOutlineStudio {
     this.retakeModalTest = null;
     this.selectedQuizScope = "ALL";
     this.selectedQuizQuestionCount = 25;
+    this.flagModalData = null;
 
     // SSO & Cloud Sync state
     this.googleUser = null;
@@ -617,6 +618,7 @@ class BibleOutlineStudio {
                       historySearchQuery: this.historySearchQuery,
                       historyScopeFilter: this.historyScopeFilter,
                       retakeModalTest: this.retakeModalTest,
+                      flagModalData: this.flagModalData,
                       data: this.data
                     })
                   : this.activeView === "book-rollup"
@@ -1756,6 +1758,131 @@ class BibleOutlineStudio {
       });
     });
 
+    // Flag Active Question (During Exam)
+    const flagActiveBtns = document.querySelectorAll(".flag-active-question-btn");
+    flagActiveBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!this.quizSession) return;
+        const q = this.quizSession.getCurrentQuestion();
+        const userAns = document.getElementById("exam-answer-input")?.value || "";
+        this.flagModalData = {
+          question: q,
+          userAnswer: userAns,
+          category: "wrong_answer",
+          suggestedAnswer: "",
+          comments: "",
+          isSubmitting: false,
+          errorMessage: ""
+        };
+        this.render();
+      });
+    });
+
+    // Flag Review Question (Scorecard & History)
+    const flagReviewBtns = document.querySelectorAll(".flag-review-question-btn");
+    flagReviewBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const qId = btn.getAttribute("data-flag-review-question");
+        const qIdx = parseInt(btn.getAttribute("data-q-idx"), 10);
+        let questionObj = null;
+        let userAns = "";
+
+        const scorecardQuestions =
+          this.quizScorecard?.allReviewedQuestions ||
+          this.viewingPastTest?.scorecard?.allReviewedQuestions ||
+          this.viewingPastTest?.allReviewedQuestions ||
+          [];
+        if (scorecardQuestions && scorecardQuestions[qIdx]) {
+          const item = scorecardQuestions[qIdx];
+          questionObj = item.question || item;
+          userAns = item.userAnswer || "";
+        }
+        if (!questionObj) {
+          questionObj = (this.quizSession?.questions || this.viewingPastTest?.questions || []).find(
+            (q) => q.id === qId
+          );
+        }
+        if (!questionObj && qId) {
+          questionObj = { id: qId, prompt: `Question ${qId}` };
+        }
+
+        if (questionObj) {
+          this.flagModalData = {
+            question: questionObj,
+            userAnswer: userAns,
+            category: "wrong_answer",
+            suggestedAnswer: "",
+            comments: "",
+            isSubmitting: false,
+            errorMessage: ""
+          };
+          this.render();
+        }
+      });
+    });
+
+    // Flag Modal - Category Picker
+    const flagCatOptions = document.querySelectorAll(".flag-category-option");
+    flagCatOptions.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (!this.flagModalData) return;
+        const comms = document.getElementById("flag-comments-input")?.value;
+        const sugg = document.getElementById("flag-suggested-answer-input")?.value;
+        if (comms !== undefined) this.flagModalData.comments = comms;
+        if (sugg !== undefined) this.flagModalData.suggestedAnswer = sugg;
+        this.flagModalData.category = btn.getAttribute("data-flag-category");
+        this.render();
+      });
+    });
+
+    // Flag Modal - Close / Cancel
+    const flagCloseBtn = document.getElementById("flag-modal-close-btn");
+    const flagCancelBtn = document.getElementById("flag-modal-cancel-btn");
+    const closeFlagModal = (e) => {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      this.flagModalData = null;
+      this.render();
+    };
+    if (flagCloseBtn) flagCloseBtn.addEventListener("click", closeFlagModal);
+    if (flagCancelBtn) flagCancelBtn.addEventListener("click", closeFlagModal);
+
+    const flagModalOverlay = document.getElementById("flag-modal-overlay");
+    if (flagModalOverlay) {
+      flagModalOverlay.addEventListener("click", (e) => {
+        if (e.target.id === "flag-modal-overlay") {
+          closeFlagModal(e);
+        }
+      });
+    }
+
+    // Flag Modal - Submit
+    const flagSubmitBtn = document.getElementById("flag-modal-submit-btn");
+    if (flagSubmitBtn) {
+      flagSubmitBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!this.flagModalData || this.flagModalData.isSubmitting) return;
+
+        const comms = document.getElementById("flag-comments-input")?.value || "";
+        const sugg = document.getElementById("flag-suggested-answer-input")?.value || "";
+        this.flagModalData.comments = comms;
+        this.flagModalData.suggestedAnswer = sugg;
+        this.flagModalData.isSubmitting = true;
+        this.flagModalData.errorMessage = "";
+        this.render();
+
+        await this.submitQuestionFlag(this.flagModalData);
+      });
+    }
+
     // Keyboard shortcuts: Left / Right arrow
     const handleKeyDown = (e) => {
       const tag = e.target.tagName;
@@ -1772,6 +1899,137 @@ class BibleOutlineStudio {
     window.removeEventListener("keydown", window.appNavListener);
     window.appNavListener = handleKeyDown;
     window.addEventListener("keydown", window.appNavListener);
+  }
+
+  showToast(message, type = "info", durationMs = 4500) {
+    let container = document.getElementById("toast-container");
+    if (!container) {
+      container = document.createElement("div");
+      container.id = "toast-container";
+      container.className = "fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none max-w-sm";
+      document.body.appendChild(container);
+    }
+
+    const toast = document.createElement("div");
+    const isSuccess = type === "success";
+    const isError = type === "error";
+    toast.className = `pointer-events-auto p-3.5 rounded-xl border shadow-2xl text-xs flex items-start gap-2.5 transition-all duration-300 transform translate-y-2 opacity-0 ${
+      isSuccess
+        ? "bg-[#18261B] border-[#2A4D30] text-emerald-200"
+        : isError
+        ? "bg-[#281816] border-[#4D2622] text-rose-200"
+        : "bg-[#1C1C1A] border-[#383834] text-[#EAE8E2]"
+    }`;
+
+    toast.innerHTML = `
+      <span class="text-sm shrink-0">${isSuccess ? "✓" : isError ? "⚠️" : "ℹ️"}</span>
+      <div class="leading-relaxed font-sans">${message}</div>
+    `;
+
+    container.appendChild(toast);
+
+    requestAnimationFrame(() => {
+      toast.classList.remove("translate-y-2", "opacity-0");
+      toast.classList.add("translate-y-0", "opacity-100");
+    });
+
+    setTimeout(() => {
+      toast.classList.remove("opacity-100");
+      toast.classList.add("opacity-0");
+      setTimeout(() => {
+        toast.remove();
+      }, 300);
+    }, durationMs);
+  }
+
+  async submitQuestionFlag(flagData) {
+    const q = flagData.question;
+    const bookObj = q.bookId ? getBookById(q.bookId) : null;
+    const bookName = bookObj?.name || q.bookId || "";
+
+    const payload = {
+      questionId: q.id,
+      prompt: q.prompt,
+      bookId: q.bookId || "",
+      bookName: bookName,
+      chapterNum: q.chapterNum || null,
+      type: q.type || "",
+      expectedAnswer: q.displayAnswer || (Array.isArray(q.answers) ? q.answers[0] : "") || "",
+      userAnswer: flagData.userAnswer || "",
+      category: flagData.category,
+      suggestedAnswer: flagData.suggestedAnswer || "",
+      comments: flagData.comments || "",
+      submittedAt: new Date().toISOString()
+    };
+
+    try {
+      const response = await fetch("/api/flag-question", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        const result = await response.json().catch(() => ({}));
+        this.flagModalData = null;
+        this.render();
+        this.showToast(
+          `🚩 <strong>Question Flagged!</strong> Issue #${result.issueNumber || "submitted"} created. Automated agent will review it and open a PR.`,
+          "success",
+          5000
+        );
+        return;
+      }
+      throw new Error(`Server returned ${response.status}`);
+    } catch (err) {
+      console.warn("Direct API submission unavailable, using GitHub issue fallback:", err);
+
+      const categoryLabels = {
+        wrong_answer: "Wrong Answer",
+        too_specific: "Too Specific / Obscure",
+        poorly_phrased: "Poorly Phrased / Ambiguous",
+        typo: "Typo / Formatting Error",
+        bad_question: "Remove / Defective Question",
+        other: "Other Feedback"
+      };
+
+      const title = `[Question Flag] ${q.id}: ${q.prompt.substring(0, 50)}...`;
+      const body = `## 🚩 Question Flag Report
+
+### Question Info
+- **ID:** \`${q.id}\`
+- **Book / Chapter:** ${bookName} ${q.chapterNum || ""}
+- **Type:** \`${q.type || "N/A"}\`
+- **Current Prompt:** "${q.prompt}"
+- **Expected Answer:** \`${payload.expectedAnswer}\`
+- **User Answer:** \`${payload.userAnswer || "(None)"}\`
+
+---
+
+### Issue Details
+- **Issue Category:** **${categoryLabels[flagData.category] || flagData.category}**
+- **Suggested Correct Answer:** ${flagData.suggestedAnswer ? `\`${flagData.suggestedAnswer}\`` : "*(None provided)*"}
+- **User Comments & Rationale:**
+> ${flagData.comments ? flagData.comments.replace(/\n/g, "\n> ") : "*(No additional comments)*"}
+
+---
+<!-- METADATA: ${JSON.stringify(payload)} -->
+`;
+
+      const githubIssueUrl = `https://github.com/phrred/BibleOutline/issues/new?title=${encodeURIComponent(
+        title
+      )}&body=${encodeURIComponent(body)}&labels=question-flag`;
+
+      window.open(githubIssueUrl, "_blank", "noopener,noreferrer");
+
+      this.flagModalData = null;
+      this.render();
+      this.showToast(
+        `🚩 <strong>GitHub Issue Opened:</strong> Submit the pre-filled issue in the new tab to trigger the AI agent PR workflow.`,
+        "info",
+        6000
+      );
+    }
   }
 
   downloadFile(filename, content, mimeType) {

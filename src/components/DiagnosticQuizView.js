@@ -1,5 +1,6 @@
 import { BIBLE_BOOKS, getBookById } from "../../data/bible_catalog.js";
 import { DiagnosticSession } from "../quiz_engine.js";
+import { renderFlagQuestionModal } from "./FlagQuestionModal.js";
 
 // Format milliseconds into human-readable duration e.g. "2m 15s"
 function formatDuration(ms) {
@@ -56,6 +57,7 @@ export function renderDiagnosticQuizView({
   historySearchQuery = "",
   historyScopeFilter = "ALL",
   retakeModalTest = null,
+  flagModalData = null,
   data = {}
 }) {
   const quizHistory = Array.isArray(data.quizHistory) ? data.quizHistory : [];
@@ -174,6 +176,9 @@ export function renderDiagnosticQuizView({
 
       <!-- Retake Modal Overlay -->
       ${retakeModalTest ? renderRetakeModal(retakeModalTest) : ""}
+
+      <!-- Flag Question Modal Overlay -->
+      ${flagModalData ? renderFlagQuestionModal(flagModalData) : ""}
     </div>
   `;
 }
@@ -337,7 +342,17 @@ function renderActiveExamView(session) {
           <span class="text-[11px] font-mono text-[#8C8A84] uppercase tracking-wider">
             Diagnostic Question ${currentIdx + 1}
           </span>
-          <span class="text-[11px] text-[#6D6B66]">Press Enter ↵ to advance</span>
+          <div class="flex items-center gap-3">
+            <button
+              data-flag-active-question="${q.id}"
+              class="flag-active-question-btn text-[11px] text-[#8C8A84] hover:text-[#C4B79C] flex items-center gap-1 transition px-2 py-0.5 rounded hover:bg-[#262623] cursor-pointer"
+              title="Report an issue or suggest a correction for this question"
+            >
+              <span>🚩</span>
+              <span>Flag Question</span>
+            </button>
+            <span class="text-[11px] text-[#6D6B66] hidden sm:inline">Press Enter ↵ to advance</span>
+          </div>
         </div>
 
         <!-- Prompt -->
@@ -768,9 +783,20 @@ function renderScorecardView({
                           }">
                             ${isPassed ? "✓ Correct" : "✗ Missed"} (Question ${idx + 1})
                           </span>
-                          <span class="text-[11px] font-mono text-[#8C8A84]">
-                            ${q.scope || "Bible"} • ${q.genre || "Scripture"}
-                          </span>
+                          <div class="flex items-center gap-2">
+                            <span class="text-[11px] font-mono text-[#8C8A84] hidden sm:inline">
+                              ${q.scope || "Bible"} • ${q.genre || "Scripture"}
+                            </span>
+                            <button
+                              data-flag-review-question="${q.id}"
+                              data-q-idx="${idx}"
+                              class="flag-review-question-btn text-[11px] text-[#8C8A84] hover:text-[#C4B79C] flex items-center gap-1 transition px-2 py-0.5 rounded bg-[#141413] border border-[#2B2B28] hover:border-[#383834] cursor-pointer"
+                              title="Report an issue or suggest a correction for this question"
+                            >
+                              <span>🚩</span>
+                              <span>Flag</span>
+                            </button>
+                          </div>
                         </div>
 
                         <!-- Prompt -->

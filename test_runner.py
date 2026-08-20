@@ -40,6 +40,7 @@ SRC_FILES = [
     "src/components/TopNavbar.js",
     "src/components/BookRollupView.js",
     "src/components/ChapterEditorView.js",
+    "src/components/FlagQuestionModal.js",
     "src/components/DiagnosticQuizView.js",
     "src/main.js"
 ]
