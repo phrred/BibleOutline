@@ -147,7 +147,7 @@ export const RAW_QUESTIONS = [
   {
     "id": "bmpi_hist_2",
     "t": "facts",
-    "p": "This godly high priest protected young Joash in a coup d'état against Athaliah and crowned him king, influencing the nation for good throughout his life:",
+    "p": "This godly high priest protected young Joash in a coup d'\u00e9tat against Athaliah and crowned him king, influencing the nation for good throughout his life:",
     "b": "2KI",
     "c": 11,
     "a": [
@@ -554,8 +554,8 @@ export const RAW_QUESTIONS = [
       "chapters 14-17",
       "chapters 14 to 17"
     ],
-    "d": "John 14–17",
-    "e": "John 14–17: Jesus comforts His disciples, promises the Holy Spirit, and prays for believers."
+    "d": "John 14\u201317",
+    "e": "John 14\u201317: Jesus comforts His disciples, promises the Holy Spirit, and prays for believers."
   },
   {
     "id": "bmpi_gosp_10",
@@ -930,7 +930,7 @@ export const RAW_QUESTIONS = [
       "John Baptist",
       "John the baptizer"
     ],
-    "e": "John the Baptist preached in the wilderness of Judea: 'Prepare the way of the Lord' (Matt 3:1–3, Mark 1:3)."
+    "e": "John the Baptist preached in the wilderness of Judea: 'Prepare the way of the Lord' (Matt 3:1\u20133, Mark 1:3)."
   },
   {
     "id": "nt_q2",
@@ -946,7 +946,7 @@ export const RAW_QUESTIONS = [
       "Luk 10"
     ],
     "d": "Luke 10 (or Chapter 10)",
-    "e": "Jesus tells the Parable of the Good Samaritan to a lawyer in Luke 10:25–37."
+    "e": "Jesus tells the Parable of the Good Samaritan to a lawyer in Luke 10:25\u201337."
   },
   {
     "id": "nt_q3",
@@ -975,7 +975,7 @@ export const RAW_QUESTIONS = [
       "Doubting Thomas",
       "Didymus"
     ],
-    "e": "In John 20:24–29, Thomas confessed 'My Lord and my God!' after seeing and touching Jesus' wounds."
+    "e": "In John 20:24\u201329, Thomas confessed 'My Lord and my God!' after seeing and touching Jesus' wounds."
   },
   {
     "id": "nt_q5",
@@ -1022,7 +1022,7 @@ export const RAW_QUESTIONS = [
       "Mt 6"
     ],
     "d": "Matthew 6 (or Chapter 6)",
-    "e": "The Lord's Prayer ('Our Father in heaven...') is recorded in Matthew 6:9–13 (and Luke 11)."
+    "e": "The Lord's Prayer ('Our Father in heaven...') is recorded in Matthew 6:9\u201313 (and Luke 11)."
   },
   {
     "id": "nt_q8",
@@ -1122,7 +1122,7 @@ export const RAW_QUESTIONS = [
       "Act 20",
       "Acts ch 20"
     ],
-    "e": "In Acts 20:17–38 at Miletus, Paul delivers his emotional farewell address to the elders of the church of Ephesus."
+    "e": "In Acts 20:17\u201338 at Miletus, Paul delivers his emotional farewell address to the elders of the church of Ephesus."
   },
   {
     "id": "nt_q15",
@@ -1160,7 +1160,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Nicodemus"
     ],
-    "e": "In John 3:1–9, Nicodemus visited Jesus by night, where Jesus taught him: 'You must be born again.'"
+    "e": "In John 3:1\u20139, Nicodemus visited Jesus by night, where Jesus taught him: 'You must be born again.'"
   },
   {
     "id": "nt_q18",
@@ -1190,18 +1190,18 @@ export const RAW_QUESTIONS = [
   {
     "id": "nt_q20",
     "t": "chapter_in_book",
-    "p": "What chapter in Luke contains the Parables of the Lost Sheep, the Lost Coin, and the Prodigal Son?",
+    "p": "What chapter in Luke contains the parable of the Good Samaritan who had compassion on the beaten traveler?",
     "b": "LUK",
-    "c": 15,
+    "c": 10,
     "a": [
-      "15",
-      "ch 15",
-      "chapter 15",
-      "Luke 15",
-      "Luk 15"
+      "10",
+      "Luke 10",
+      "Luk 10",
+      "ch 10",
+      "chapter 10"
     ],
     "d": "Luke 15 (or Chapter 15)",
-    "e": "Luke 15 contains Jesus' trio of parables celebrating the joy of heaven over one repentant sinner."
+    "e": "Luke 10:25\u201337 contains Jesus's Parable of the Good Samaritan."
   },
   {
     "id": "nt_q21",
@@ -1226,7 +1226,7 @@ export const RAW_QUESTIONS = [
       "Act 4",
       "Acts ch 4"
     ],
-    "e": "Acts 4:32–37 describes the radical generosity and unity of the early Jerusalem church."
+    "e": "Acts 4:32\u201337 describes the radical generosity and unity of the early Jerusalem church."
   },
   {
     "id": "nt_q23",
@@ -1239,7 +1239,7 @@ export const RAW_QUESTIONS = [
       "Gal 5",
       "Galatians ch 5"
     ],
-    "e": "Galatians 5:22–23 lists the 9 fruits of the Holy Spirit in contrast to the works of the flesh."
+    "e": "Galatians 5:22\u201323 lists the 9 fruits of the Holy Spirit in contrast to the works of the flesh."
   },
   {
     "id": "nt_q24",
@@ -1264,7 +1264,7 @@ export const RAW_QUESTIONS = [
       "Joseph of Arimathaea",
       "Joseph Arimathea"
     ],
-    "e": "Joseph of Arimathea, a disciple of Jesus, boldly asked Pilate for the body and placed it in his own new tomb (Matt 27:57–60)."
+    "e": "Joseph of Arimathea, a disciple of Jesus, boldly asked Pilate for the body and placed it in his own new tomb (Matt 27:57\u201360)."
   },
   {
     "id": "nt_q26",
@@ -1299,18 +1299,18 @@ export const RAW_QUESTIONS = [
   {
     "id": "nt_q28",
     "t": "chapter_in_book",
-    "p": "What chapter in Romans opens with 'There is therefore now no condemnation for those who are in Christ Jesus'?",
+    "p": "What chapter in Romans opens with: 'I appeal to you therefore, brothers, by the mercies of God, to present your bodies as a living sacrifice, holy and acceptable to God...'?",
     "b": "ROM",
-    "c": 8,
+    "c": 12,
     "a": [
-      "8",
-      "ch 8",
-      "chapter 8",
-      "Romans 8",
-      "Rom 8"
+      "12",
+      "Romans 12",
+      "Rom 12",
+      "ch 12",
+      "chapter 12"
     ],
     "d": "Romans 8 (or Chapter 8)",
-    "e": "Romans 8 is a glorious chapter celebrating life in the Spirit, assurance, and God's inseparable love."
+    "e": "Romans 12:1\u20132 is the classic exhortation to wholehearted spiritual consecration."
   },
   {
     "id": "nt_q29",
@@ -1371,16 +1371,15 @@ export const RAW_QUESTIONS = [
   {
     "id": "nt_q33",
     "t": "book_chapter",
-    "p": "What book & chapter is the Great Commission? ('Go therefore and make disciples of all nations...')",
-    "b": "MAT",
-    "c": 28,
+    "p": "What book & chapter describes the birth of Jesus in a manger in Bethlehem with angels appearing to shepherds in the fields?",
+    "b": "LUK",
+    "c": 2,
     "a": [
-      "Matthew 28",
-      "Matt 28",
-      "Mt 28",
-      "Matthew ch 28"
+      "Luke 2",
+      "Luk 2",
+      "Luke 2:1-20"
     ],
-    "e": "Matthew 28:18–20 concludes Matthew's Gospel with Jesus' Great Commission to His disciples."
+    "e": "Luke 2 records the nativity of Jesus and the angels proclaiming peace to shepherds."
   },
   {
     "id": "nt_q34",
@@ -1418,7 +1417,7 @@ export const RAW_QUESTIONS = [
       "Mary",
       "Virgin Mary"
     ],
-    "e": "Mary was chosen by God to conceive Jesus through the Holy Spirit (Luke 1:26–38)."
+    "e": "Mary was chosen by God to conceive Jesus through the Holy Spirit (Luke 1:26\u201338)."
   },
   {
     "id": "nt_q37",
@@ -1435,18 +1434,17 @@ export const RAW_QUESTIONS = [
   {
     "id": "nt_q38",
     "t": "chapter_in_book",
-    "p": "What chapter in Acts is the outpouring of the Holy Spirit at Pentecost?",
+    "p": "What chapter in Acts describes the conversion of Saul on the road to Damascus when a light from heaven flashed around him?",
     "b": "ACT",
-    "c": 2,
+    "c": 9,
     "a": [
-      "2",
-      "ch 2",
-      "chapter 2",
-      "Acts 2",
-      "Act 2"
+      "9",
+      "Acts 9",
+      "ch 9",
+      "chapter 9"
     ],
     "d": "Acts 2 (or Chapter 2)",
-    "e": "Acts 2 describes the Day of Pentecost when tongues of fire appeared and Peter preached his famous sermon."
+    "e": "Acts 9 records the dramatic conversion of Saul on the road to Damascus."
   },
   {
     "id": "nt_q39",
@@ -1486,7 +1484,7 @@ export const RAW_QUESTIONS = [
       "leper",
       "lepers"
     ],
-    "e": "In Luke 17:11–19, Jesus cleansed ten lepers on the border of Samaria and Galilee, and a Samaritan returned to praise God."
+    "e": "In Luke 17:11\u201319, Jesus cleansed ten lepers on the border of Samaria and Galilee, and a Samaritan returned to praise God."
   },
   {
     "id": "nt_q41",
@@ -1502,7 +1500,7 @@ export const RAW_QUESTIONS = [
       "Luk 12"
     ],
     "d": "Luke 12 (or Chapter 12)",
-    "e": "In Luke 12:16–21, Jesus warned against greed with the Parable of the Rich Fool."
+    "e": "In Luke 12:16\u201321, Jesus warned against greed with the Parable of the Rich Fool."
   },
   {
     "id": "nt_q42",
@@ -1536,7 +1534,7 @@ export const RAW_QUESTIONS = [
       "Zacchaeus",
       "Zaccheus"
     ],
-    "e": "Luke 19:1–10 tells how Zacchaeus climbed a sycamore-fig tree, and Jesus stayed at his house, bringing salvation."
+    "e": "Luke 19:1\u201310 tells how Zacchaeus climbed a sycamore-fig tree, and Jesus stayed at his house, bringing salvation."
   },
   {
     "id": "nt_q45",
@@ -1575,7 +1573,7 @@ export const RAW_QUESTIONS = [
       "Act"
     ],
     "d": "Acts (Acts 20)",
-    "e": "In Acts 20:9–12 in Troas, Eutychus fell asleep during Paul's preaching, fell out of a 3rd story window, and Paul raised him."
+    "e": "In Acts 20:9\u201312 in Troas, Eutychus fell asleep during Paul's preaching, fell out of a 3rd story window, and Paul raised him."
   },
   {
     "id": "nt_q48",
@@ -1603,15 +1601,14 @@ export const RAW_QUESTIONS = [
   {
     "id": "nt_q50",
     "t": "book_chapter",
-    "p": "What book & chapter describes the coming of the Holy Spirit on Pentecost?",
+    "p": "What book & chapter describes the Jerusalem Council deciding that Gentile believers do not need to follow Jewish ceremonial circumcision?",
     "b": "ACT",
-    "c": 2,
+    "c": 15,
     "a": [
-      "Acts 2",
-      "Act 2",
-      "Acts ch 2"
+      "Acts 15",
+      "Act 15"
     ],
-    "e": "Acts 2 records the Holy Spirit descending like a mighty rushing wind on Pentecost."
+    "e": "Acts 15 details the Jerusalem Council affirming salvation by grace alone through faith."
   },
   {
     "id": "ot_q1",
@@ -1736,7 +1733,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Ehud"
     ],
-    "e": "Judges 3:15–26 details how Ehud delivered Israel by striking down the corpulent King Eglon."
+    "e": "Judges 3:15\u201326 details how Ehud delivered Israel by striking down the corpulent King Eglon."
   },
   {
     "id": "ot_q11",
@@ -1749,7 +1746,7 @@ export const RAW_QUESTIONS = [
       "King Solomon"
     ],
     "d": "Solomon (King Solomon)",
-    "e": "King Solomon built the First Temple over seven years (1 Kings 6; 2 Chron 3–7)."
+    "e": "King Solomon built the First Temple over seven years (1 Kings 6; 2 Chron 3\u20137)."
   },
   {
     "id": "ot_q12",
@@ -1764,7 +1761,7 @@ export const RAW_QUESTIONS = [
       "Caleb & Joshua"
     ],
     "d": "Joshua and Caleb (or Caleb and Joshua)",
-    "e": "In Numbers 14:6–9, Joshua and Caleb stood alone among the 12 spies urging Israel to trust the Lord."
+    "e": "In Numbers 14:6\u20139, Joshua and Caleb stood alone among the 12 spies urging Israel to trust the Lord."
   },
   {
     "id": "ot_q13",
@@ -1832,7 +1829,7 @@ export const RAW_QUESTIONS = [
       "Joshua",
       "Joshua son of Nun"
     ],
-    "e": "Joshua 1:1–9: The Lord commissioned Joshua: 'Moses my servant is dead. Now therefore arise, go over this Jordan.'"
+    "e": "Joshua 1:1\u20139: The Lord commissioned Joshua: 'Moses my servant is dead. Now therefore arise, go over this Jordan.'"
   },
   {
     "id": "ot_q18",
@@ -1848,7 +1845,7 @@ export const RAW_QUESTIONS = [
       "Jer 31"
     ],
     "d": "Jeremiah 31 (or Chapter 31)",
-    "e": "Jeremiah 31:31–34 foretells the New Covenant written upon the heart, quoted in Hebrews 8."
+    "e": "Jeremiah 31:31\u201334 foretells the New Covenant written upon the heart, quoted in Hebrews 8."
   },
   {
     "id": "ot_q19",
@@ -1859,7 +1856,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Samson"
     ],
-    "e": "Judges 13–16 chronicles Samson's mighty deeds and downfall through Delilah."
+    "e": "Judges 13\u201316 chronicles Samson's mighty deeds and downfall through Delilah."
   },
   {
     "id": "ot_q20",
@@ -1882,7 +1879,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Nehemiah"
     ],
-    "e": "Nehemiah mobilized the community to rebuild the walls of Jerusalem amidst intense opposition (Neh 1–6)."
+    "e": "Nehemiah mobilized the community to rebuild the walls of Jerusalem amidst intense opposition (Neh 1\u20136)."
   },
   {
     "id": "ot_q22",
@@ -2004,7 +2001,7 @@ export const RAW_QUESTIONS = [
       "Esther",
       "Hadassah"
     ],
-    "e": "Esther 4:14–16 details Queen Esther standing before the Persian King Xerxes to avert Haman's genocide."
+    "e": "Esther 4:14\u201316 details Queen Esther standing before the Persian King Xerxes to avert Haman's genocide."
   },
   {
     "id": "ot_q31",
@@ -2079,7 +2076,7 @@ export const RAW_QUESTIONS = [
       "Eli",
       "Eli the priest"
     ],
-    "e": "Eli was high priest and judge at Shiloh when young Samuel ministered before the Lord (1 Sam 1–4)."
+    "e": "Eli was high priest and judge at Shiloh when young Samuel ministered before the Lord (1 Sam 1\u20134)."
   },
   {
     "id": "ot_q37",
@@ -2094,7 +2091,7 @@ export const RAW_QUESTIONS = [
       "Brass snake"
     ],
     "d": "Bronze Serpent (Bronze Snake)",
-    "e": "Numbers 21:8–9 recounts Moses lifting the bronze serpent, which Jesus cited as a foreshadowing of the Cross in John 3:14."
+    "e": "Numbers 21:8\u20139 recounts Moses lifting the bronze serpent, which Jesus cited as a foreshadowing of the Cross in John 3:14."
   },
   {
     "id": "ot_q38",
@@ -2121,19 +2118,19 @@ export const RAW_QUESTIONS = [
     "a": [
       "Rachel"
     ],
-    "e": "Jacob loved Rachel and served Laban for 14 years to marry her (Genesis 29:18–30)."
+    "e": "Jacob loved Rachel and served Laban for 14 years to marry her (Genesis 29:18\u201330)."
   },
   {
     "id": "ot_q40",
     "t": "facts",
-    "p": "Which Minor Prophet prophesied that the Messiah ruler would come from Bethlehem Ephrathah?",
-    "b": "MIC",
-    "c": 5,
+    "p": "Which Minor Prophet prophesied that the sun of righteousness would rise with healing in its wings before the great Day of the Lord?",
+    "b": "MAL",
+    "c": 4,
     "a": [
-      "Micah",
-      "Mic"
+      "Malachi",
+      "Mal"
     ],
-    "e": "Micah 5:2: 'But you, O Bethlehem Ephrathah... from you shall come forth for me one who is to be ruler in Israel...'"
+    "e": "Malachi 4:2 foretells the coming Sun of Righteousness with healing in His wings."
   },
   {
     "id": "ot_q41",
@@ -2202,7 +2199,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Amos"
     ],
-    "e": "Amos 7:14: 'I was no prophet, nor a prophet’s son, but I was a herdsman and a dresser of sycamore figs.'"
+    "e": "Amos 7:14: 'I was no prophet, nor a prophet\u2019s son, but I was a herdsman and a dresser of sycamore figs.'"
   },
   {
     "id": "ot_q46",
@@ -2279,15 +2276,14 @@ export const RAW_QUESTIONS = [
   {
     "id": "bw_q1",
     "t": "book_chapter",
-    "p": "Book & chapter: 'In the beginning was the Word, and the Word was with God, and the Word was God.'",
-    "b": "JHN",
-    "c": 1,
+    "p": "What book & chapter contains the heavenly throne room vision where the four living creatures cry day and night: 'Holy, holy, holy is the Lord God Almighty'?",
+    "b": "REV",
+    "c": 4,
     "a": [
-      "John 1",
-      "Jn 1",
-      "John ch 1"
+      "Revelation 4",
+      "Rev 4"
     ],
-    "e": "John 1:1 is the profound opening prologue of John's Gospel declaring the eternal deity of Christ."
+    "e": "Revelation 4 depicts the ceaseless worship of the Creator in the heavenly throne room."
   },
   {
     "id": "bw_q2",
@@ -2331,28 +2327,27 @@ export const RAW_QUESTIONS = [
   {
     "id": "bw_q5",
     "t": "book_chapter",
-    "p": "What book & chapter is the Call of Abram ('Go from your country and your kindred to the land that I will show you')?",
+    "p": "What book & chapter describes the six days of cosmic creation culminating with God resting on the seventh day?",
     "b": "GEN",
-    "c": 12,
+    "c": 1,
     "a": [
-      "Genesis 12",
-      "Gen 12",
-      "Genesis ch 12"
+      "Genesis 1",
+      "Gen 1"
     ],
-    "e": "Genesis 12:1–3 is the foundational Abrahamic call through whom all families of the earth will be blessed."
+    "e": "Genesis 1 is the historical record of God speaking creation into existence."
   },
   {
     "id": "bw_q6",
     "t": "book_chapter",
-    "p": "What book & chapter contains the famous 'Love Chapter' ('Love is patient and kind; love does not envy...')?",
+    "p": "What book & chapter contains the supreme apostolic treatise on the bodily resurrection of Christ ('O death, where is your victory?')?",
     "b": "1CO",
-    "c": 13,
+    "c": 15,
     "a": [
-      "1 Corinthians 13",
-      "1 Cor 13",
-      "1Cor 13"
+      "1 Corinthians 15",
+      "1 Cor 15",
+      "1Cor 15"
     ],
-    "e": "1 Corinthians 13 is Paul's celebrated description of Christian agape love."
+    "e": "1 Corinthians 15 details the gospel of Christ's resurrection and the believer's future glorified body."
   },
   {
     "id": "bw_q7",
@@ -2378,7 +2373,7 @@ export const RAW_QUESTIONS = [
       "Rev 21",
       "Revelation ch 21"
     ],
-    "e": "Revelation 21:1–4 portrays the descent of the New Jerusalem and eternal fellowship with God."
+    "e": "Revelation 21:1\u20134 portrays the descent of the New Jerusalem and eternal fellowship with God."
   },
   {
     "id": "bw_q9",
@@ -2539,7 +2534,7 @@ export const RAW_QUESTIONS = [
       "Josh 10"
     ],
     "d": "Joshua 10 (or Chapter 10)",
-    "e": "Joshua 10:12–14 records Joshua commanding the sun to stand still over Gibeon and the moon over Aijalon."
+    "e": "Joshua 10:12\u201314 records Joshua commanding the sun to stand still over Gibeon and the moon over Aijalon."
   },
   {
     "id": "det_q10",
@@ -2562,7 +2557,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Deborah"
     ],
-    "e": "Judges 4–5 chronicles Deborah judging Israel under the palm tree and composing her triumphal song."
+    "e": "Judges 4\u20135 chronicles Deborah judging Israel under the palm tree and composing her triumphal song."
   },
   {
     "id": "det_q12",
@@ -2696,21 +2691,20 @@ export const RAW_QUESTIONS = [
       "King Josiah"
     ],
     "d": "Josiah (King Josiah)",
-    "e": "2 Kings 22–23 recounts King Josiah hearing the words of the Law found by Hilkiah the high priest and purging idolatry."
+    "e": "2 Kings 22\u201323 recounts King Josiah hearing the words of the Law found by Hilkiah the high priest and purging idolatry."
   },
   {
     "id": "det_q22",
     "t": "book_chapter",
-    "p": "What book & chapter is David's prayer of repentance after being confronted by Nathan ('Create in me a clean heart, O God')?",
+    "p": "What book & chapter is the beloved Shepherd Psalm: 'The Lord is my shepherd; I shall not want. He makes me lie down in green pastures...'?",
     "b": "PSA",
-    "c": 51,
+    "c": 23,
     "a": [
-      "Psalm 51",
-      "Psalms 51",
-      "Ps 51",
-      "Psa 51"
+      "Psalm 23",
+      "Psalms 23",
+      "Ps 23"
     ],
-    "e": "Psalm 51 is King David's raw penitential psalm following his adultery with Bathsheba."
+    "e": "Psalm 23 is David's classic psalm portraying Yahweh as the Good Shepherd."
   },
   {
     "id": "det_q23",
@@ -2938,7 +2932,7 @@ export const RAW_QUESTIONS = [
       "Mars' Hill"
     ],
     "d": "Mars Hill (The Areopagus)",
-    "e": "In Acts 17:22–31, Paul preached at the Areopagus (Mars Hill) in Athens regarding the Creator God and the resurrection."
+    "e": "In Acts 17:22\u201331, Paul preached at the Areopagus (Mars Hill) in Athens regarding the Creator God and the resurrection."
   },
   {
     "id": "det_q40",
@@ -2954,18 +2948,18 @@ export const RAW_QUESTIONS = [
   {
     "id": "det_q41",
     "t": "chapter_in_book",
-    "p": "What chapter in Ephesians describes the full Armor of God (belt of truth, breastplate of righteousness, shield of faith)?",
+    "p": "What chapter in Ephesians contains the cornerstone statement on salvation: 'For by grace you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works...'?",
     "b": "EPH",
-    "c": 6,
+    "c": 2,
     "a": [
-      "6",
-      "ch 6",
-      "chapter 6",
-      "Ephesians 6",
-      "Eph 6"
+      "2",
+      "Ephesians 2",
+      "Eph 2",
+      "ch 2",
+      "chapter 2"
     ],
     "d": "Ephesians 6 (or Chapter 6)",
-    "e": "Ephesians 6:10–18 instructs believers to 'Put on the whole armor of God, that you may be able to stand against the schemes of the devil.'"
+    "e": "Ephesians 2:8\u20139 provides the core doctrine of salvation by grace through faith alone."
   },
   {
     "id": "det_q42",
@@ -3002,7 +2996,7 @@ export const RAW_QUESTIONS = [
       "Rev 2-3"
     ],
     "d": "Revelation 2 (and 3)",
-    "e": "Revelation 2–3 contains Christ's specific messages to Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, and Laodicea."
+    "e": "Revelation 2\u20133 contains Christ's specific messages to Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, and Laodicea."
   },
   {
     "id": "supp_pent_1",
@@ -3075,15 +3069,15 @@ export const RAW_QUESTIONS = [
   {
     "id": "supp_pent_6",
     "t": "facts",
-    "p": "Who was Aaron's son and successor as High Priest who worked alongside Joshua during the conquest and tribal land division?",
+    "p": "Which faithful spy alongside Joshua had a different spirit and wholly followed the Lord, receiving Hebron as his inheritance?",
     "b": "NUM",
-    "c": 20,
+    "c": 14,
     "a": [
-      "Eleazar",
-      "Eleazar the priest"
+      "Caleb",
+      "Caleb son of Jephunneh"
     ],
     "d": "Eleazar (the High Priest)",
-    "e": "Eleazar succeeded Aaron on Mount Hor (Numbers 20) and ministered as High Priest throughout the leadership of Joshua."
+    "e": "Numbers 14:24 and Joshua 14:14 celebrate Caleb's unwavering faith and reward with Hebron."
   },
   {
     "id": "supp_hist_1",
@@ -3130,8 +3124,8 @@ export const RAW_QUESTIONS = [
       "1Chronicles",
       "1Chron"
     ],
-    "d": "1 Chronicles (1 Chron 4:9–10)",
-    "e": "1 Chronicles 4:9–10 records Jabez praying for God's protection and blessing, and God granted his request."
+    "d": "1 Chronicles (1 Chron 4:9\u201310)",
+    "e": "1 Chronicles 4:9\u201310 records Jabez praying for God's protection and blessing, and God granted his request."
   },
   {
     "id": "supp_hist_5",
@@ -3158,20 +3152,20 @@ export const RAW_QUESTIONS = [
       "King Uzziah"
     ],
     "d": "Uzziah (Azariah)",
-    "e": "2 Chronicles 26:16–21 recounts King Uzziah's pride leading to his downfall when he usurped the priest's duty."
+    "e": "2 Chronicles 26:16\u201321 recounts King Uzziah's pride leading to his downfall when he usurped the priest's duty."
   },
   {
     "id": "supp_hist_7",
     "t": "facts",
-    "p": "Which courageous prophet stood alone before Kings Ahab and Jehoshaphat, faithfully prophesying Ahab's defeat against 400 court prophets?",
-    "b": "1KI",
+    "p": "Which righteous king of Judah found the lost Book of the Law during temple renovations and tore his clothes in repentance?",
+    "b": "2KI",
     "c": 22,
     "a": [
-      "Micaiah",
-      "Micaiah son of Imlah"
+      "Josiah",
+      "King Josiah"
     ],
     "d": "Micaiah (son of Imlah)",
-    "e": "1 Kings 22:14: Micaiah declared, 'As the Lord lives, what the Lord says to me, that the will I speak.'"
+    "e": "2 Kings 22: Josiah tore his clothes when Shaphan read the recovered Book of the Law."
   },
   {
     "id": "supp_hist_8",
@@ -3182,7 +3176,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Absalom"
     ],
-    "e": "2 Samuel 15–18 chronicles Absalom's conspiracy, David's flight from Jerusalem, and David's grief over his death."
+    "e": "2 Samuel 15\u201318 chronicles Absalom's conspiracy, David's flight from Jerusalem, and David's grief over his death."
   },
   {
     "id": "supp_poet_1",
@@ -3323,13 +3317,14 @@ export const RAW_QUESTIONS = [
   {
     "id": "supp_prop_8",
     "t": "facts",
-    "p": "Which prophet was a herdsman and tender of sycamore fig trees from Tekoa called to prophesy in Northern Israel?",
-    "b": "AMO",
-    "c": 7,
+    "p": "Which prophet wrestled with God's justice in using the Babylonians to judge Judah, concluding: 'the righteous shall live by his faith'?",
+    "b": "HAB",
+    "c": 2,
     "a": [
-      "Amos"
+      "Habakkuk",
+      "Hab"
     ],
-    "e": "Amos 7:14: 'I was no prophet, nor a prophet's son, but I was a herdsman and a dresser of sycamore figs.'"
+    "e": "Habakkuk 2:4 is the foundational Old Testament declaration of justification by faith."
   },
   {
     "id": "supp_gosp_1",
@@ -3374,7 +3369,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Demetrius"
     ],
-    "e": "In Acts 19:24–29, Demetrius gathered fellow craftsmen shouting 'Great is Artemis of the Ephesians!'"
+    "e": "In Acts 19:24\u201329, Demetrius gathered fellow craftsmen shouting 'Great is Artemis of the Ephesians!'"
   },
   {
     "id": "supp_gosp_5",
@@ -3385,7 +3380,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Apollos"
     ],
-    "e": "Acts 18:24–28 describes Apollos powerfully refuting the Jews in public, proving from the Scriptures that Jesus was the Christ."
+    "e": "Acts 18:24\u201328 describes Apollos powerfully refuting the Jews in public, proving from the Scriptures that Jesus was the Christ."
   },
   {
     "id": "supp_epist_1",
@@ -3433,7 +3428,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "strongholds"
     ],
-    "e": "2 Corinthians 10:4–5 emphasizes spiritual warfare and taking every thought captive to obey Christ."
+    "e": "2 Corinthians 10:4\u20135 emphasizes spiritual warfare and taking every thought captive to obey Christ."
   },
   {
     "id": "supp_epist_5",
@@ -3466,7 +3461,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Epaphroditus"
     ],
-    "e": "Philippians 2:25–30 praises Epaphroditus as 'my brother and fellow worker and fellow soldier, and your messenger.'"
+    "e": "Philippians 2:25\u201330 praises Epaphroditus as 'my brother and fellow worker and fellow soldier, and your messenger.'"
   },
   {
     "id": "supp_epist_8",
@@ -3501,7 +3496,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Diotrephes"
     ],
-    "e": "3 John 9–10 warns against Diotrephes, who loved to have the preeminence and spoke malicious words against the apostles."
+    "e": "3 John 9\u201310 warns against Diotrephes, who loved to have the preeminence and spoke malicious words against the apostles."
   },
   {
     "id": "supp_epist_11",
@@ -3527,7 +3522,7 @@ export const RAW_QUESTIONS = [
       "Laodiceans"
     ],
     "d": "Laodicea (Church in Laodicea)",
-    "e": "Revelation 3:14–22 was written to the lukewarm church in Laodicea."
+    "e": "Revelation 3:14\u201322 was written to the lukewarm church in Laodicea."
   },
   {
     "id": "gfc_who_1",
@@ -3542,7 +3537,7 @@ export const RAW_QUESTIONS = [
       "Dr. Luke",
       "Doctor Luke"
     ],
-    "e": "Luke, the physician and companion of Paul, wrote both the Gospel of Luke and the Acts of the Apostles (Acts 1:1, Luke 1:1–4)."
+    "e": "Luke, the physician and companion of Paul, wrote both the Gospel of Luke and the Acts of the Apostles (Acts 1:1, Luke 1:1\u20134)."
   },
   {
     "id": "gfc_who_2",
@@ -3620,7 +3615,7 @@ export const RAW_QUESTIONS = [
       "Balaam",
       "Balaam son of Beor"
     ],
-    "e": "Numbers 22–24: Balaam could only speak what God commanded, prophesying a star and scepter out of Jacob (Numbers 24:17)."
+    "e": "Numbers 22\u201324: Balaam could only speak what God commanded, prophesying a star and scepter out of Jacob (Numbers 24:17)."
   },
   {
     "id": "gfc_who_8",
@@ -3659,7 +3654,7 @@ export const RAW_QUESTIONS = [
       "Simon Peter"
     ],
     "d": "Peter (Cephas)",
-    "e": "Galatians 2:11–14: Paul opposed Peter to his face because his conduct was not in step with the truth of the gospel."
+    "e": "Galatians 2:11\u201314: Paul opposed Peter to his face because his conduct was not in step with the truth of the gospel."
   },
   {
     "id": "gfc_geo_1",
@@ -3676,7 +3671,7 @@ export const RAW_QUESTIONS = [
       "Horeb"
     ],
     "d": "Mount Sinai (Horeb)",
-    "e": "Exodus 19–20: God descended on Mount Sinai in fire and smoke and audibly proclaimed the Ten Commandments."
+    "e": "Exodus 19\u201320: God descended on Mount Sinai in fire and smoke and audibly proclaimed the Ten Commandments."
   },
   {
     "id": "gfc_geo_2",
@@ -3687,7 +3682,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Ephesus"
     ],
-    "e": "Acts 19:23–41: The theater riot in Ephesus where the mob shouted 'Great is Artemis of the Ephesians!' for two hours."
+    "e": "Acts 19:23\u201341: The theater riot in Ephesus where the mob shouted 'Great is Artemis of the Ephesians!' for two hours."
   },
   {
     "id": "gfc_geo_3",
@@ -3762,7 +3757,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Damascus"
     ],
-    "e": "Acts 9:3–4: As Saul drew near to Damascus, suddenly a light from heaven shone around him and he fell to the ground."
+    "e": "Acts 9:3\u20134: As Saul drew near to Damascus, suddenly a light from heaven shone around him and he fell to the ground."
   },
   {
     "id": "gfc_geo_9",
@@ -3841,8 +3836,8 @@ export const RAW_QUESTIONS = [
       "Gen",
       "Ge"
     ],
-    "d": "Genesis (Genesis 37–50)",
-    "e": "Genesis 37–50 details Joseph's coat of many colors, Potiphar's house, prison, and rise to prime minister of Egypt."
+    "d": "Genesis (Genesis 37\u201350)",
+    "e": "Genesis 37\u201350 details Joseph's coat of many colors, Potiphar's house, prison, and rise to prime minister of Egypt."
   },
   {
     "id": "gfc_book_5",
@@ -3855,8 +3850,8 @@ export const RAW_QUESTIONS = [
       "Num",
       "Nu"
     ],
-    "d": "Numbers (Numbers 13–14)",
-    "e": "Numbers 13–14 records the 10 fearful spies and the resulting 40-year wandering in the wilderness."
+    "d": "Numbers (Numbers 13\u201314)",
+    "e": "Numbers 13\u201314 records the 10 fearful spies and the resulting 40-year wandering in the wilderness."
   },
   {
     "id": "gfc_book_6",
@@ -3869,8 +3864,8 @@ export const RAW_QUESTIONS = [
       "Jol",
       "Joe"
     ],
-    "d": "Joel (Joel 1–2)",
-    "e": "Joel 1–2 uses the locust plague as a warning of the Day of the Lord, followed by the promise of the Spirit in Joel 2:28.",
+    "d": "Joel (Joel 1\u20132)",
+    "e": "Joel 1\u20132 uses the locust plague as a warning of the Day of the Lord, followed by the promise of the Spirit in Joel 2:28.",
     "s": "OT",
     "g": "Minor Prophets"
   },
@@ -3885,7 +3880,7 @@ export const RAW_QUESTIONS = [
       "Eph"
     ],
     "d": "Ephesians (Ephesians 6)",
-    "e": "Ephesians 6:10–20 describes the belt of truth, breastplate of righteousness, shield of faith, helmet of salvation, and sword of the Spirit."
+    "e": "Ephesians 6:10\u201320 describes the belt of truth, breastplate of righteousness, shield of faith, helmet of salvation, and sword of the Spirit."
   },
   {
     "id": "gfc_book_8",
@@ -3913,8 +3908,8 @@ export const RAW_QUESTIONS = [
       "Hosea",
       "Hos"
     ],
-    "d": "Hosea (Hosea 1–3)",
-    "e": "Hosea 1–3 portrays God's relentless, forgiving love for spiritual adulterers."
+    "d": "Hosea (Hosea 1\u20133)",
+    "e": "Hosea 1\u20133 portrays God's relentless, forgiving love for spiritual adulterers."
   },
   {
     "id": "gfc_book_10",
@@ -3928,7 +3923,7 @@ export const RAW_QUESTIONS = [
       "Gospel of Matthew"
     ],
     "d": "Matthew (Matthew 2)",
-    "e": "Matthew 2:1–12 uniquely records the visit and worship of the wise men."
+    "e": "Matthew 2:1\u201312 uniquely records the visit and worship of the wise men."
   },
   {
     "id": "gfc_book_11",
@@ -3942,7 +3937,7 @@ export const RAW_QUESTIONS = [
       "Ecc"
     ],
     "d": "Ecclesiastes (Ecclesiastes 3)",
-    "e": "Ecclesiastes 3:1–8 contains the famous poem on the appointed times and sovereign seasons of life."
+    "e": "Ecclesiastes 3:1\u20138 contains the famous poem on the appointed times and sovereign seasons of life."
   },
   {
     "id": "gfc_book_12",
@@ -3970,7 +3965,7 @@ export const RAW_QUESTIONS = [
       "Prov"
     ],
     "d": "Proverbs (Proverbs 9)",
-    "e": "Proverbs 9:1–6 contrasts Lady Wisdom's banquet invitation with the destructive feast of Lady Folly."
+    "e": "Proverbs 9:1\u20136 contrasts Lady Wisdom's banquet invitation with the destructive feast of Lady Folly."
   },
   {
     "id": "gfc_book_14",
@@ -3997,7 +3992,7 @@ export const RAW_QUESTIONS = [
       "Deu"
     ],
     "d": "Deuteronomy (Deuteronomy 6:5)",
-    "e": "Deuteronomy 6:4–5 is the centerpiece Shema, quoted by Jesus as the first and greatest commandment."
+    "e": "Deuteronomy 6:4\u20135 is the centerpiece Shema, quoted by Jesus as the first and greatest commandment."
   },
   {
     "id": "gfc_book_16",
@@ -4011,7 +4006,7 @@ export const RAW_QUESTIONS = [
       "Gospel of John"
     ],
     "d": "John (John 4)",
-    "e": "John 4:1–42 records Jesus revealing Himself as the Messiah to the Samaritan woman."
+    "e": "John 4:1\u201342 records Jesus revealing Himself as the Messiah to the Samaritan woman."
   },
   {
     "id": "gfc_book_17",
@@ -4038,7 +4033,7 @@ export const RAW_QUESTIONS = [
       "Gospel of Luke"
     ],
     "d": "Luke (Luke 10)",
-    "e": "Luke 10:25–37 uniquely preserves Jesus' famous parable of the merciful Samaritan."
+    "e": "Luke 10:25\u201337 uniquely preserves Jesus' famous parable of the merciful Samaritan."
   },
   {
     "id": "gfc_book_19",
@@ -4052,7 +4047,7 @@ export const RAW_QUESTIONS = [
       "1Ti",
       "First Timothy"
     ],
-    "d": "1 Timothy (1 Tim 5:1–2)",
+    "d": "1 Timothy (1 Tim 5:1\u20132)",
     "e": "1 Timothy 5 gives pastoral guidelines for relationships within the household of God."
   },
   {
@@ -4068,7 +4063,7 @@ export const RAW_QUESTIONS = [
       "Second Samuel"
     ],
     "d": "2 Samuel (2 Samuel 7)",
-    "e": "2 Samuel 7:12–16 contains Nathan's prophecy of David's eternal royal dynasty, fulfilled in Christ."
+    "e": "2 Samuel 7:12\u201316 contains Nathan's prophecy of David's eternal royal dynasty, fulfilled in Christ."
   },
   {
     "id": "gfc_loc_1",
@@ -4095,7 +4090,7 @@ export const RAW_QUESTIONS = [
       "Gen 12",
       "Ge 12"
     ],
-    "e": "Genesis 12:1–3 initiates the Abrahamic Covenant of land, seed, and global blessing."
+    "e": "Genesis 12:1\u20133 initiates the Abrahamic Covenant of land, seed, and global blessing."
   },
   {
     "id": "gfc_loc_3",
@@ -4111,7 +4106,7 @@ export const RAW_QUESTIONS = [
       "Matthew 5 to 7",
       "5, 6, 7"
     ],
-    "d": "Matthew 5–7",
+    "d": "Matthew 5\u20137",
     "e": "Matthew chapters 5, 6, and 7 comprise the inaugural discourse of Jesus on Kingdom ethics and discipleship."
   },
   {
@@ -4125,7 +4120,7 @@ export const RAW_QUESTIONS = [
       "Matt 28",
       "Mt 28"
     ],
-    "e": "Matthew 28:18–20 concludes Matthew's Gospel with Christ's universal commission to His church."
+    "e": "Matthew 28:18\u201320 concludes Matthew's Gospel with Christ's universal commission to His church."
   },
   {
     "id": "gfc_loc_5",
@@ -4137,7 +4132,7 @@ export const RAW_QUESTIONS = [
       "Acts 2",
       "Act 2"
     ],
-    "e": "Acts 2:1–4 describes the birth of the New Testament church at Pentecost and Peter's sermon."
+    "e": "Acts 2:1\u20134 describes the birth of the New Testament church at Pentecost and Peter's sermon."
   },
   {
     "id": "gfc_loc_6",
@@ -4151,7 +4146,7 @@ export const RAW_QUESTIONS = [
       "Ro 5",
       "Romans 5:19"
     ],
-    "e": "Romans 5:12–21 develops the profound theological parallel and contrast between Adam and Christ."
+    "e": "Romans 5:12\u201321 develops the profound theological parallel and contrast between Adam and Christ."
   },
   {
     "id": "gfc_loc_7",
@@ -4178,7 +4173,7 @@ export const RAW_QUESTIONS = [
       "Jn 3",
       "John 3:3"
     ],
-    "e": "John 3:1–21 records Jesus' nighttime discourse on spiritual regeneration, including John 3:16."
+    "e": "John 3:1\u201321 records Jesus' nighttime discourse on spiritual regeneration, including John 3:16."
   },
   {
     "id": "gfc_loc_9",
@@ -4191,7 +4186,7 @@ export const RAW_QUESTIONS = [
       "Rev 20",
       "Revelation 20:2"
     ],
-    "e": "Revelation 20:1–3 describes the millennial binding of Satan followed by the Great White Throne Judgment."
+    "e": "Revelation 20:1\u20133 describes the millennial binding of Satan followed by the Great White Throne Judgment."
   },
   {
     "id": "gfc_loc_10",
@@ -4396,7 +4391,7 @@ export const RAW_QUESTIONS = [
       "Sarah",
       "Sarai"
     ],
-    "e": "Genesis 18:12–14: Sarah reacted in disbelief before giving birth to Isaac as God promised."
+    "e": "Genesis 18:12\u201314: Sarah reacted in disbelief before giving birth to Isaac as God promised."
   },
   {
     "id": "gfc_quote_4",
@@ -4427,7 +4422,7 @@ export const RAW_QUESTIONS = [
       "Zebedee's wife"
     ],
     "d": "The mother of James and John (Zebedee's sons / Salome)",
-    "e": "Matthew 20:20–21: Prompting Jesus to teach that greatness in the Kingdom is found in serving others."
+    "e": "Matthew 20:20\u201321: Prompting Jesus to teach that greatness in the Kingdom is found in serving others."
   },
   {
     "id": "gfc_quote_6",
@@ -4476,7 +4471,7 @@ export const RAW_QUESTIONS = [
     "a": [
       "Job"
     ],
-    "e": "Job 19:25–26: Job's profound declaration of confidence in his living Redeemer and bodily resurrection."
+    "e": "Job 19:25\u201326: Job's profound declaration of confidence in his living Redeemer and bodily resurrection."
   },
   {
     "id": "gfc_quote_10",
@@ -4493,7 +4488,7 @@ export const RAW_QUESTIONS = [
   {
     "id": "gfc_err_1",
     "t": "book_id",
-    "p": "To which New Testament book would you turn to correct the error: 'As long as you believe the right things, it doesn’t matter how you live your life'?",
+    "p": "To which New Testament book would you turn to correct the error: 'As long as you believe the right things, it doesn\u2019t matter how you live your life'?",
     "b": "JAS",
     "c": 2,
     "a": [
@@ -4506,7 +4501,7 @@ export const RAW_QUESTIONS = [
   {
     "id": "gfc_err_2",
     "t": "book_id",
-    "p": "To which epistle would you turn to correct the error: 'I’m sure I don’t have any spiritual gifts; only special people do'?",
+    "p": "To which epistle would you turn to correct the error: 'I\u2019m sure I don\u2019t have any spiritual gifts; only special people do'?",
     "b": "1CO",
     "c": 12,
     "a": [
@@ -4533,7 +4528,7 @@ export const RAW_QUESTIONS = [
   {
     "id": "gfc_err_4",
     "t": "book_id",
-    "p": "To which Old Testament book would you turn to correct the retribution error: 'If you are sick or suffering, you must have secret sin; good people don’t suffer'?",
+    "p": "To which Old Testament book would you turn to correct the retribution error: 'If you are sick or suffering, you must have secret sin; good people don\u2019t suffer'?",
     "b": "JOB",
     "c": 1,
     "a": [
@@ -4544,7 +4539,7 @@ export const RAW_QUESTIONS = [
   {
     "id": "gfc_err_5",
     "t": "book_id",
-    "p": "To which prophetic book would you turn to correct the error: 'God only cares about religious rituals; He doesn’t care about the poor, vulnerable, and oppressed'?",
+    "p": "To which prophetic book would you turn to correct the error: 'God only cares about religious rituals; He doesn\u2019t care about the poor, vulnerable, and oppressed'?",
     "b": "AMO",
     "c": 5,
     "a": [
@@ -4568,7 +4563,7 @@ export const RAW_QUESTIONS = [
   {
     "id": "gfc_err_7",
     "t": "book_id",
-    "p": "To which book would you turn to correct the nihilistic error: 'In the end it won’t make any difference whom we followed or what we did; everybody gets treated the exact same when history ends'?",
+    "p": "To which book would you turn to correct the nihilistic error: 'In the end it won\u2019t make any difference whom we followed or what we did; everybody gets treated the exact same when history ends'?",
     "b": "REV",
     "c": 20,
     "a": [
@@ -4576,12 +4571,12 @@ export const RAW_QUESTIONS = [
       "Rev",
       "Apocalypse"
     ],
-    "e": "Revelation 20–22 reveals final cosmic judgment, eternal life for the redeemed, and eternal separation for the wicked."
+    "e": "Revelation 20\u201322 reveals final cosmic judgment, eternal life for the redeemed, and eternal separation for the wicked."
   },
   {
     "id": "gfc_err_8",
     "t": "book_id",
-    "p": "To which Gospel would you turn to correct the pluralistic error: 'There’s nothing unique about Jesus; He’s just one path among many, like any other prophet or good moral teacher'?",
+    "p": "To which Gospel would you turn to correct the pluralistic error: 'There\u2019s nothing unique about Jesus; He\u2019s just one path among many, like any other prophet or good moral teacher'?",
     "b": "JHN",
     "c": 14,
     "a": [
@@ -4589,7 +4584,7 @@ export const RAW_QUESTIONS = [
       "Jn",
       "Gospel of John"
     ],
-    "e": "John 1:1–14 and John 14:6 present Christ as the eternal Word made flesh: 'I am the way, and the truth, and the life. No one comes to the Father except through me.'"
+    "e": "John 1:1\u201314 and John 14:6 present Christ as the eternal Word made flesh: 'I am the way, and the truth, and the life. No one comes to the Father except through me.'"
   },
   {
     "id": "gfc_err_9",
@@ -4604,12 +4599,12 @@ export const RAW_QUESTIONS = [
       "First Timothy"
     ],
     "d": "1 Timothy (1 Timothy 3)",
-    "e": "1 Timothy 3:1–7 sets forth the indispensable spiritual, moral, and character qualifications for overseers/elders."
+    "e": "1 Timothy 3:1\u20137 sets forth the indispensable spiritual, moral, and character qualifications for overseers/elders."
   },
   {
     "id": "gfc_err_10",
     "t": "book_id",
-    "p": "To which book would you turn to correct the ascetic error: 'The Bible doesn’t say anything good about romantic love and marital intimacy; that’s too physical for God to care about'?",
+    "p": "To which book would you turn to correct the ascetic error: 'The Bible doesn\u2019t say anything good about romantic love and marital intimacy; that\u2019s too physical for God to care about'?",
     "b": "SNG",
     "c": 1,
     "a": [
@@ -4624,159 +4619,156 @@ export const RAW_QUESTIONS = [
   {
     "id": "gfc_chr_1",
     "t": "facts",
-    "p": "Which of the following biblical events happened FIRST chronologically: (A) Judges rule over Israel, (B) Saul is anointed king, (C) God's promise to Abraham, or (D) Pentecost?",
+    "p": "Chronologically, which of these events occurred first: God's covenant promise to Abraham, the era of the Judges, Saul being anointed king, or Pentecost?",
     "b": "GEN",
     "c": 12,
     "a": [
       "God's promise to Abraham",
-      "Gods promise to Abraham",
-      "promise to Abraham",
+      "Promise to Abraham",
       "Abraham",
-      "C"
+      "Abram",
+      "God's covenant to Abraham"
     ],
-    "d": "God's promise to Abraham (~2000 BC)",
-    "e": "Abraham (~2000 BC) preceded the Judges (~1375–1050 BC), Saul (~1050 BC), and Pentecost (AD 33).",
+    "d": "God's promise to Abraham (Genesis 12 c. 2090 BC)",
+    "e": "Abraham (~2000 BC) preceded the Judges (~1375\u20131050 BC), Saul (~1050 BC), and Pentecost (AD 33).",
     "s": "ALL",
     "g": "Historical"
   },
   {
     "id": "gfc_chr_2",
     "t": "facts",
-    "p": "Which of the following events happened FIRST chronologically: (A) Paul is shipwrecked, (B) Timothy is circumcised, (C) Jesus is crucified, or (D) Peter denies Jesus?",
+    "p": "Chronologically, which of these events occurred first: Peter denying Jesus, Jesus being crucified, Timothy being circumcised, or Paul being shipwrecked?",
     "b": "MAT",
     "c": 26,
     "a": [
-      "Peter denies Jesus",
+      "Peter denying Jesus",
       "Peter's denial",
-      "Peter denies Christ",
-      "D"
+      "Peter denies Jesus",
+      "Peter denial"
     ],
-    "d": "Peter denies Jesus (night before the crucifixion)",
+    "d": "Peter denies Jesus (Gospels c. AD 30)",
     "e": "Peter's denial occurred early Friday morning before Jesus' crucifixion later that day, followed years later by Timothy's circumcision (Acts 16) and Paul's shipwreck (Acts 27)."
   },
   {
     "id": "gfc_chr_3",
     "t": "facts",
-    "p": "Which of the following events happened FIRST chronologically: (A) The Great Flood, (B) The New Jerusalem descends, (C) The Fall of man, or (D) Christ is born?",
+    "p": "Chronologically, which of these events occurred first: the Fall of man in Eden, Noah's Great Flood, the Nativity of Christ, or the descent of the New Jerusalem?",
     "b": "GEN",
     "c": 3,
     "a": [
-      "The fall of man",
-      "Fall of man",
+      "The Fall of man",
       "The Fall",
-      "Fall",
-      "C"
+      "Fall of man",
+      "Fall"
     ],
     "d": "The Fall of man (Genesis 3)",
-    "e": "The Fall (Gen 3) preceded the Flood (Gen 6–9), the Nativity (Matt 1), and the New Jerusalem (Rev 21).",
+    "e": "The Fall (Gen 3) preceded the Flood (Gen 6\u20139), the Nativity (Matt 1), and the New Jerusalem (Rev 21).",
     "s": "ALL"
   },
   {
     "id": "gfc_chr_4",
     "t": "facts",
-    "p": "Which of the following events happened FIRST chronologically: (A) Jesus washes the disciples' feet, (B) David is anointed king, (C) The crossing of the Red Sea, or (D) Naaman is cleansed of leprosy?",
+    "p": "Chronologically, which of these events occurred first: Israel crossing the Red Sea, David being anointed king, Naaman cleansed of leprosy, or Jesus washing the disciples' feet?",
     "b": "EXO",
     "c": 14,
     "a": [
-      "The crossing of the Red Sea",
-      "Crossing of the Red Sea",
+      "Crossing the Red Sea",
+      "Israel crossing the Red Sea",
       "Red Sea",
-      "C"
+      "The crossing of the Red Sea"
     ],
-    "d": "The crossing of the Red Sea (Exodus 14, ~1446 BC)",
+    "d": "Crossing the Red Sea (Exodus 14 c. 1446 BC)",
     "e": "The Red Sea crossing (~1446 BC) preceded David (~1000 BC), Naaman (~850 BC), and Jesus washing the disciples' feet (AD 33).",
     "s": "ALL"
   },
   {
     "id": "gfc_chr_5",
     "t": "facts",
-    "p": "Which of the following events happened FIRST chronologically: (A) The disciples filled with the Spirit at Pentecost, (B) Stephen is stoned, (C) Apollos instructed by Priscilla and Aquila, or (D) Two disciples meet Jesus on the road to Emmaus?",
+    "p": "Chronologically, which of these events occurred first: two disciples meeting Jesus on the road to Emmaus, the Holy Spirit poured out at Pentecost, Stephen being stoned, or Apollos instructed by Priscilla and Aquila?",
     "b": "LUK",
     "c": 24,
     "a": [
-      "Two disciples encounter Jesus on the road to Emmaus",
+      "Two disciples on the road to Emmaus",
       "Road to Emmaus",
       "Emmaus",
-      "D"
+      "Disciples on the road to Emmaus"
     ],
-    "d": "Two disciples encounter Jesus on the road to Emmaus (Resurrection Sunday, Luke 24)",
+    "d": "Two disciples meet Jesus on the road to Emmaus (Luke 24, Resurrection Sunday)",
     "e": "Emmaus occurred on Resurrection Sunday (Luke 24), prior to Pentecost 50 days later (Acts 2), Stephen's martyrdom (Acts 7), and Apollos at Ephesus (Acts 18)."
   },
   {
     "id": "gfc_chr_6",
     "t": "facts",
-    "p": "Which of the following events happened FIRST chronologically: (A) Rehoboam splits the kingdom, (B) Hannah prays for a son before Eli, (C) Nehemiah rebuilds Jerusalem's walls, or (D) The Babylonian Exile?",
+    "p": "Chronologically, which of these events occurred first: Hannah praying for a son before Eli, Rehoboam splitting the kingdom, the Babylonian Exile, or Nehemiah rebuilding Jerusalem's walls?",
     "b": "1SA",
     "c": 1,
     "a": [
-      "Hannah prays before Eli",
-      "Hannah prays",
-      "Hannah",
-      "B"
+      "Hannah praying for a son",
+      "Hannah praying",
+      "Hannah's prayer",
+      "Hannah"
     ],
-    "d": "Hannah prays before Eli (~1100 BC, 1 Samuel 1)",
+    "d": "Hannah praying for a son before Eli (1 Samuel 1 c. 1100 BC)",
     "e": "Hannah praying (~1100 BC) preceded the divided kingdom (~930 BC), the Babylonian Exile (586 BC), and Nehemiah (445 BC)."
   },
   {
     "id": "gfc_chr_7",
     "t": "facts",
-    "p": "Which of the following divine callings happened FIRST chronologically: (A) God calls Abram out of Ur, (B) God calls Gideon a mighty man of valor, (C) God calls Moses out of the burning bush, or (D) God calls Ananias to lay hands on Saul?",
+    "p": "Chronologically, which divine calling occurred first: God calling Abram out of Ur, God calling Moses at the burning bush, God calling Gideon, or God calling Ananias to lay hands on Saul?",
     "b": "GEN",
     "c": 12,
     "a": [
-      "God calls Abram out of Ur of the Chaldeans",
-      "God calls Abram",
+      "God calling Abram out of Ur",
+      "God calling Abram",
       "Abram out of Ur",
-      "A"
+      "Abram",
+      "Abraham"
     ],
-    "d": "God calls Abram out of Ur (~2000 BC, Genesis 12)",
+    "d": "God calling Abram out of Ur (Genesis 12 c. 2090 BC)",
     "e": "Abram (~2000 BC) was called before Moses (~1446 BC), Gideon (~1160 BC), and Ananias in Damascus (AD 34).",
     "s": "ALL"
   },
   {
     "id": "gfc_chr_8",
     "t": "facts",
-    "p": "Which of the following events happened FIRST chronologically: (A) Malachi prophesies, (B) Joseph sold into slavery, (C) Sarah laughs at the promise of a son, or (D) The Ten Plagues on Egypt?",
+    "p": "Chronologically, which of these events occurred first: Sarah laughing at the promise of a son, Joseph being sold into slavery, the Ten Plagues on Egypt, or Malachi prophesying?",
     "b": "GEN",
     "c": 18,
     "a": [
-      "Sarah laughs",
-      "Sarah laughs at the promise of a son",
-      "Sarah",
-      "C"
+      "Sarah laughing at the promise of a son",
+      "Sarah laughing",
+      "Sarah laughs"
     ],
-    "d": "Sarah laughs (Genesis 18, ~2067 BC)",
+    "d": "Sarah laughs at the promise of a son (Genesis 18 c. 2067 BC)",
     "e": "Sarah laughing (~2067 BC) occurred before Joseph was sold (~1898 BC), the Ten Plagues (~1446 BC), and Malachi (~430 BC)."
   },
   {
     "id": "gfc_chr_9",
     "t": "facts",
-    "p": "Which of the following events happened FIRST chronologically: (A) Herod beheads John the Baptist, (B) Herod the Great inquires where the Christ is to be born, (C) King Agrippa listens to Paul, or (D) Herod Agrippa I is struck by an angel for taking God's glory?",
+    "p": "Chronologically, which of these events occurred first: Herod the Great inquiring where Christ was to be born, Herod Antipas beheading John the Baptist, Herod Agrippa I struck by an angel, or King Agrippa II hearing Paul?",
     "b": "MAT",
     "c": 2,
     "a": [
-      "Herod discovers where the Christ was to be born",
-      "Herod the Great inquires where the Christ was to be born",
-      "Herod discovers",
-      "B"
+      "Herod the Great inquiring where Christ was to be born",
+      "Herod the Great",
+      "Herod inquiring where Christ was to be born"
     ],
-    "d": "Herod discovers where the Christ was to be born (~4 BC, Matthew 2)",
+    "d": "Herod the Great inquires where the Christ is to be born (Matthew 2 c. 5-4 BC)",
     "e": "Herod the Great (~4 BC, Matt 2) preceded Herod Antipas executing John (~AD 29, Matt 14), Herod Agrippa I struck down (AD 44, Acts 12), and King Agrippa II hearing Paul (AD 59, Acts 26)."
   },
   {
     "id": "gfc_chr_10",
     "t": "facts",
-    "p": "Which of the following events happened FIRST chronologically: (A) Barnabas finds Saul in Tarsus, (B) Jesus is baptized, (C) Daniel prays despite King Darius's decree, or (D) Levi leaves his tax booth to follow Jesus?",
+    "p": "Chronologically, which of these events occurred first: Daniel praying despite King Darius's decree, Jesus being baptized, Levi leaving his tax booth, or Barnabas finding Saul in Tarsus?",
     "b": "DAN",
     "c": 6,
     "a": [
-      "Daniel ignores Darius's decree",
-      "Daniel prays",
-      "Daniel in the lions den",
-      "Daniel",
-      "C"
+      "Daniel praying despite Darius's decree",
+      "Daniel praying",
+      "Daniel in the lions' den",
+      "Daniel"
     ],
-    "d": "Daniel ignores Darius's decree (~539 BC, Daniel 6)",
+    "d": "Daniel prays despite King Darius's decree (Daniel 6 c. 539 BC)",
     "e": "Daniel (~539 BC) preceded Jesus' baptism (~AD 26), Matthew/Levi's calling (~AD 27), and Barnabas seeking Saul (~AD 43).",
     "s": "ALL"
   },
@@ -4830,7 +4822,7 @@ export const RAW_QUESTIONS = [
       "Isa"
     ],
     "d": "Isaiah (Isaiah 7:14)",
-    "e": "Isaiah 7:14 is quoted in Matthew 1:22–23 as fulfilled in the conception and virgin birth of Jesus."
+    "e": "Isaiah 7:14 is quoted in Matthew 1:22\u201323 as fulfilled in the conception and virgin birth of Jesus."
   },
   {
     "id": "gfc_mes_5",
@@ -4842,8 +4834,8 @@ export const RAW_QUESTIONS = [
       "Isaiah",
       "Isa"
     ],
-    "d": "Isaiah (Isaiah 61:1–2)",
-    "e": "Isaiah 61:1–2 was read by Jesus in the Nazareth synagogue in Luke 4:18–19: 'Today this Scripture has been fulfilled in your hearing.'"
+    "d": "Isaiah (Isaiah 61:1\u20132)",
+    "e": "Isaiah 61:1\u20132 was read by Jesus in the Nazareth synagogue in Luke 4:18\u201319: 'Today this Scripture has been fulfilled in your hearing.'"
   },
   {
     "id": "gfc_mes_6",
@@ -4859,7 +4851,7 @@ export const RAW_QUESTIONS = [
       "Ps 110"
     ],
     "d": "Psalms (Psalm 110:4)",
-    "e": "Psalm 110:4 is expounded in Hebrews 5–7 as the basis for Christ's eternal, Melchizedekian priesthood."
+    "e": "Psalm 110:4 is expounded in Hebrews 5\u20137 as the basis for Christ's eternal, Melchizedekian priesthood."
   },
   {
     "id": "gfc_mes_7",
@@ -4904,7 +4896,7 @@ export const RAW_QUESTIONS = [
       "Isa"
     ],
     "d": "Isaiah (Isaiah 53:9)",
-    "e": "Isaiah 53:9 was fulfilled when Joseph of Arimathea, a wealthy council member, buried Jesus in his own new tomb (Matthew 27:57–60)."
+    "e": "Isaiah 53:9 was fulfilled when Joseph of Arimathea, a wealthy council member, buried Jesus in his own new tomb (Matthew 27:57\u201360)."
   },
   {
     "id": "gfc_mes_10",
