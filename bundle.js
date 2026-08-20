@@ -16960,10 +16960,33 @@ class BibleOutlineStudio {
       });
     }
 
-    // Keyboard shortcuts: Left / Right arrow
+    // Keyboard shortcuts: Left / Right arrow navigation (only when not editing text)
     const handleKeyDown = (e) => {
-      const tag = e.target.tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      const target = e.target;
+      const active = document.activeElement;
+
+      // Check if user is typing in any text box, textarea, input, or contenteditable canvas
+      const isInputTarget =
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.tagName === "SELECT" ||
+          target.isContentEditable ||
+          Boolean(target.closest && target.closest("[contenteditable='true']")) ||
+          Boolean(target.closest && target.closest(".section-bullet-canvas, .outline-rich-editor, textarea, input")));
+
+      const isInputActive =
+        active &&
+        (active.tagName === "INPUT" ||
+          active.tagName === "TEXTAREA" ||
+          active.tagName === "SELECT" ||
+          active.isContentEditable ||
+          Boolean(active.closest && active.closest("[contenteditable='true']")) ||
+          Boolean(active.closest && active.closest(".section-bullet-canvas, .outline-rich-editor, textarea, input")));
+
+      if (isInputTarget || isInputActive) {
+        return;
+      }
 
       if (this.activeView === "chapter-outliner") {
         if (e.key === "ArrowRight") {
