@@ -49,7 +49,7 @@ export function formatESVTextToHTML(rawText) {
         return `<span class="esv-verse-num inline-block font-mono text-xs text-[#C4B79C] mr-1.5 select-none cursor-pointer hover:underline" data-verse="${vNum}" title="Click to insert v${vNum} quote into outline"><sup>${vNum}</sup></span>`;
       });
 
-      return `<p class="leading-[1.8] text-[#EAE8E2]">${withFormattedVerses}</p>`;
+      return `<p class="font-reader text-[15.5px] leading-[1.85] text-[#ECE9E0] mb-3">${withFormattedVerses}</p>`;
     })
     .join("");
 

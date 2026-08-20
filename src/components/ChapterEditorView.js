@@ -432,7 +432,7 @@ export function renderChapterEditorView({
                 ? `
                     <div
                       id="scripture-reader-display"
-                      class="font-serif text-base leading-[1.8] text-[#EAE8E2] space-y-3"
+                      class="font-reader text-[15.5px] leading-[1.85] text-[#ECE9E0] space-y-3.5"
                     >${formatESVTextToHTML(chData.chapterScripture)}</div>
                   `
                 : `
