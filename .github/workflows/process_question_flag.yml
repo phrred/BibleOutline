@@ -11,8 +11,8 @@ permissions:
 
 jobs:
   process_flag:
-    # Only run for issues labeled 'question-flag'
-    if: contains(github.event.issue.labels.*.name, 'question-flag')
+    # Trigger if issue has label 'question-flag' OR title starts with '[Question Flag]'
+    if: contains(github.event.issue.labels.*.name, 'question-flag') || startsWith(github.event.issue.title, '[Question Flag]')
     runs-on: ubuntu-latest
 
     steps:
