@@ -72,44 +72,69 @@ class CDPClient:
         self.sock = None
         self.msg_id = 0
 
-    def connect(self, timeout=6.0):
+    def connect(self, timeout=15.0):
         start = time.time()
-        tabs = []
+        page_tab = None
         while time.time() - start < timeout:
             try:
-                res = urllib.request.urlopen(f"http://localhost:{self.port}/json", timeout=1.0).read()
+                res = urllib.request.urlopen(f"http://127.0.0.1:{self.port}/json", timeout=2.0).read()
                 tabs = json.loads(res.decode('utf-8'))
-                if tabs:
+                page_tabs = [t for t in tabs if t.get('type') == 'page' and t.get('webSocketDebuggerUrl')]
+                if page_tabs:
+                    page_tab = page_tabs[0]
                     break
             except Exception:
-                time.sleep(0.3)
+                pass
 
-        page_tabs = [t for t in tabs if t.get('type') == 'page']
-        if not page_tabs:
+            # If no page tab found yet after initial grace period, try creating one via /json/new
+            if time.time() - start > 1.5 and not page_tab:
+                for method in ["PUT", "GET"]:
+                    try:
+                        req = urllib.request.Request(
+                            f"http://127.0.0.1:{self.port}/json/new?http://127.0.0.1:{self.server_port}/",
+                            headers={"User-Agent": "BibleOutline-TestRunner"},
+                            method=method
+                        )
+                        new_res = urllib.request.urlopen(req, timeout=2.0).read()
+                        new_tab = json.loads(new_res.decode('utf-8'))
+                        if new_tab.get('webSocketDebuggerUrl'):
+                            page_tab = new_tab
+                            break
+                    except Exception:
+                        pass
+                if page_tab:
+                    break
+
+            time.sleep(0.3)
+
+        if not page_tab:
             raise RuntimeError("No browser page tab found in Chrome CDP")
 
-        ws_url = page_tabs[0]['webSocketDebuggerUrl']
+        ws_url = page_tab['webSocketDebuggerUrl']
         host, path = ws_url.split('ws://')[1].split('/', 1)
         path = '/' + path.lstrip('/')
         p = int(host.split(':')[1])
         h = host.split(':')[0]
 
         self.sock = socket.socket()
-        self.sock.settimeout(5.0)
+        self.sock.settimeout(10.0)
         self.sock.connect((h, p))
         self.sock.sendall(
             f'GET {path} HTTP/1.1\r\nHost: {h}:{p}\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==\r\nSec-WebSocket-Version: 13\r\n\r\n'.encode('utf-8')
         )
         buf = b''
         while b'\r\n\r\n' not in buf:
-            buf += self.sock.recv(1024)
+            chunk = self.sock.recv(1024)
+            if not chunk:
+                break
+            buf += chunk
 
         # Ensure page scripts are fully loaded
         wait_start = time.time()
         while time.time() - wait_start < timeout:
             if self.evaluate("typeof BIBLE_BOOKS !== 'undefined'") is True:
                 break
-            time.sleep(0.15)
+            time.sleep(0.2)
 
     def read_message(self):
         head = self.sock.recv(2)
@@ -247,6 +272,10 @@ def main():
         print(f"{DIM}📡 Connecting to local web server on port {server_port}... {GREEN}✓ Active{RESET}")
 
     # Step 3: Launch Headless Chrome
+    import tempfile
+    import shutil
+
+    user_data_dir = tempfile.mkdtemp(prefix="chrome_cdp_")
     cdp_port = find_free_port()
     chrome_bin = find_chrome_executable()
     print(f"{DIM}🌐 Launching isolated Headless Chrome ({chrome_bin}, CDP port {cdp_port})...{RESET}", end="", flush=True)
@@ -256,19 +285,39 @@ def main():
         '--no-sandbox',
         '--disable-gpu',
         '--disable-dev-shm-usage',
+        '--disable-software-rasterizer',
+        '--disable-extensions',
+        '--disable-background-networking',
+        '--disable-default-apps',
+        '--disable-sync',
+        '--disable-translate',
+        '--no-first-run',
+        '--no-default-browser-check',
+        f'--user-data-dir={user_data_dir}',
         f'--remote-debugging-port={cdp_port}',
-        f'http://localhost:{server_port}/'
+        '--remote-debugging-address=127.0.0.1',
+        f'http://127.0.0.1:{server_port}/'
     ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-    time.sleep(1.2)
+    time.sleep(1.0)
     cdp = CDPClient(cdp_port, server_port=server_port)
     try:
         cdp.connect()
         print(f" {GREEN}✓ Connected{RESET}\n")
     except Exception as e:
         print(f" {RED}✗ Failed to connect: {e}{RESET}\n")
-        if chrome_proc: chrome_proc.terminate()
-        if http_proc: http_proc.terminate()
+        if chrome_proc:
+            try:
+                chrome_proc.terminate()
+            except Exception:
+                pass
+        if http_proc:
+            try:
+                http_proc.terminate()
+            except Exception:
+                pass
+        if user_data_dir and os.path.exists(user_data_dir):
+            shutil.rmtree(user_data_dir, ignore_errors=True)
         sys.exit(1)
 
     all_results = []
@@ -309,11 +358,30 @@ def main():
     total_count = len(all_results)
 
     # Cleanup
-    cdp.close()
+    try:
+        cdp.close()
+    except Exception:
+        pass
     if chrome_proc:
-        chrome_proc.terminate()
+        try:
+            chrome_proc.terminate()
+            chrome_proc.wait(timeout=2.0)
+        except Exception:
+            try:
+                chrome_proc.kill()
+            except Exception:
+                pass
     if http_proc:
-        http_proc.terminate()
+        try:
+            http_proc.terminate()
+            http_proc.wait(timeout=2.0)
+        except Exception:
+            try:
+                http_proc.kill()
+            except Exception:
+                pass
+    if user_data_dir and os.path.exists(user_data_dir):
+        shutil.rmtree(user_data_dir, ignore_errors=True)
 
     # Summary
     print(f"{BOLD}======================================================{RESET}")

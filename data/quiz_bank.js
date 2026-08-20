@@ -2979,15 +2979,16 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_191",
     "type": "book_id",
-    "prompt": "In what book does Paul provide the foundational doctrinal exposition of the believer's spiritual union with Christ in His death, burial, and resurrection (chapter 6)?",
+    "prompt": "In which book does Paul explain the believer's union with Christ in His death, burial, and resurrection (chapter 6)?",
     "bookId": "ROM",
     "chapterNum": 6,
     "acceptedAnswers": [
       "Romans",
-      "Rom"
+      "Rom",
+      "Book of Romans"
     ],
     "displayAnswer": "Romans (Romans 6)",
-    "explanation": "Romans 6 explains that union with Christ breaks the dominating power of sin in the believer's life.",
+    "explanation": "Romans 6 explains that union with Christ in His death, burial, and resurrection frees the believer from the mastery of sin.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
