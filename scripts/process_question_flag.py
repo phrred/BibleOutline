@@ -69,9 +69,16 @@ def save_quiz_bank(quiz_bank_path, prefix_content, questions, suffix_content):
         f.write(new_content)
 
 def call_gemini_agent(api_key, question_obj, flag_data):
-    """Call Google Gemini 2.5 Flash / 1.5 Flash to evaluate the question and proposed fix."""
-    model_name = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
+    """Call Google Gemini Flash/Pro models with automatic fallback across model versions."""
+    candidate_models = [
+        os.environ.get("GEMINI_MODEL"),
+        "gemini-2.0-flash",
+        "gemini-1.5-flash",
+        "gemini-2.0-flash-exp",
+        "gemini-1.5-pro",
+        "gemini-2.5-flash"
+    ]
+    candidate_models = [m for m in candidate_models if m]
 
     system_instruction = """
 You are an expert biblical scholar, test designer, and software engineer maintaining the Bible Outline Studio question repository.
@@ -130,24 +137,37 @@ Please evaluate this report against ESV scripture and output the resolution JSON
         }
     }
 
-    req = urllib.request.Request(
-        url,
-        data=json.dumps(payload).encode('utf-8'),
-        headers={"Content-Type": "application/json"}
-    )
+    last_error = None
+    for model_name in candidate_models:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={api_key}"
+        req = urllib.request.Request(
+            url,
+            data=json.dumps(payload).encode('utf-8'),
+            headers={"Content-Type": "application/json"}
+        )
 
-    try:
-        with urllib.request.urlopen(req, timeout=30.0) as resp:
-            resp_data = json.loads(resp.read().decode('utf-8'))
-            text_resp = resp_data['candidates'][0]['content']['parts'][0]['text']
-            return json.loads(text_resp)
-    except urllib.error.HTTPError as e:
-        err_body = e.read().decode('utf-8')
-        print(f"❌ Gemini API HTTP Error ({e.code}): {err_body}")
-        raise
-    except Exception as e:
-        print(f"❌ Gemini API Call failed: {e}")
-        raise
+        try:
+            print(f"✨ Trying model: {model_name}...")
+            with urllib.request.urlopen(req, timeout=30.0) as resp:
+                resp_data = json.loads(resp.read().decode('utf-8'))
+                text_resp = resp_data['candidates'][0]['content']['parts'][0]['text']
+                parsed = json.loads(text_resp)
+                print(f"✓ Model {model_name} responded successfully!")
+                return parsed
+        except urllib.error.HTTPError as e:
+            err_body = e.read().decode('utf-8')
+            last_error = err_body
+            print(f"⚠️ Model {model_name} HTTP Error ({e.code}): {err_body}")
+            if e.code in [404, 400]:
+                continue
+            break
+        except Exception as e:
+            last_error = str(e)
+            print(f"⚠️ Model {model_name} call failed: {e}")
+            continue
+
+    print(f"❌ All Gemini models failed. Last error: {last_error}")
+    raise RuntimeError(f"Gemini API invocation failed across all candidate models: {last_error}")
 
 def run_regression_tests(root_dir):
     """Run automated unit tests to verify bundle and data validity."""
