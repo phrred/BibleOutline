@@ -6,17 +6,19 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_1",
     "type": "book_chapter",
-    "prompt": "In what book & chapter does the opening declaration of Scripture appear: 'In the beginning God created the heavens and the earth'?",
+    "prompt": "In which book and chapter does the verse 'In the beginning, God created the heavens and the earth' appear?",
     "bookId": "GEN",
     "chapterNum": 1,
     "acceptedAnswers": [
       "Genesis 1",
       "Gen 1",
+      "Genesis Chapter 1",
       "Genesis 1:1",
-      "Gen 1:1"
+      "Gen 1:1",
+      "Book of Genesis 1"
     ],
     "displayAnswer": "Genesis 1 (Genesis 1:1)",
-    "explanation": "Genesis 1:1 begins the biblical canon with cosmic creation.",
+    "explanation": "Genesis 1:1 opens the Old Testament with God creating the heavens and the earth.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
