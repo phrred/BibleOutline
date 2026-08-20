@@ -86,9 +86,10 @@ This issue is automatically processed by the GitHub Actions AI Agent (\`process_
 The agent will:
 1. Verify the biblical citation against ESV scripture.
 2. Evaluate the user's critique and suggested correction.
-3. Apply the appropriate modification (rephrase prompt, expand answer aliases, update explanation, or remove question).
-4. Run automated test suites to ensure zero regressions.
-5. Open an automated Pull Request linking this issue.
+3. **Policy for "Too Specific" questions**: If the question is flagged as \`too_specific\` (demanding overly obscure trivia or hyper-specific detail), REMOVE the question entirely from the question bank (\`action: "delete"\`).
+4. **Other categories**: Apply the appropriate modification (rephrase prompt, expand accepted answer aliases, update explanation, or remove question).
+5. Run automated test suites to ensure zero regressions.
+6. Open an automated Pull Request linking this issue.
 
 <!-- METADATA: ${JSON.stringify({
     questionId,

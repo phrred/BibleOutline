@@ -153,7 +153,9 @@ Question Schema:
 
 Decide whether to:
 1. "update": Improve the prompt to be clear and concise, add missing valid answer aliases to `acceptedAnswers`, fix incorrect answers, or clarify explanation.
-2. "delete": Remove the question entirely if it is fundamentally defective, nonsensical, or irreconcilable.
+2. "delete": Remove the question entirely if:
+   - The question is flagged or identified as "too_specific" (demanding overly trivial details, obscure trivia, hyper-specific verse minutiae, or pedantic phrasing that distracts from major biblical storylines/themes). Do NOT try to salvage or rephrase overly specific trivia questions—delete them from the question bank.
+   - The question is fundamentally defective, nonsensical, or irreconcilable.
 3. "no_change": If the question and answer are already 100% accurate and the user's complaint is incorrect.
 
 Output strict JSON with the following structure:
@@ -226,10 +228,18 @@ Please evaluate this report against ESV scripture and output the resolution JSON
     comments = flag_data.get("comments", "")
     sugg = flag_data.get("suggestedAnswer", "")
     updated_q = dict(question_obj)
-    
+
+    if category in ["too_specific", "bad_question"]:
+        return {
+            "action": "delete",
+            "rationale": f"Question flagged as '{category}' (overly trivial/specific detail or defective). Removed from question bank.",
+            "esv_evidence": f"Ref: {question_obj.get('bookId')} {question_obj.get('chapterNum')}",
+            "pr_summary": f"Remove overly specific/defective question {question_obj.get('id')}"
+        }
+
     if sugg and sugg not in updated_q.get("acceptedAnswers", []):
         updated_q["acceptedAnswers"] = list(dict.fromkeys(updated_q.get("acceptedAnswers", []) + [sugg]))
-        
+
     return {
         "action": "update",
         "updated_question": updated_q,

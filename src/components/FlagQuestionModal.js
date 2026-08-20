@@ -11,7 +11,7 @@ export const FLAG_CATEGORIES = [
     id: "too_specific",
     label: "Too Specific / Obscure",
     icon: "🎯",
-    desc: "The question demands overly trivial details or obscure phrasing"
+    desc: "Overly trivial details or obscure trivia — removes question from bank"
   },
   {
     id: "poorly_phrased",
