@@ -690,12 +690,21 @@ function renderScorecardView({
           ${
             pastTestId
               ? `
-                <button
-                  data-open-retake-modal="${pastTestId}"
-                  class="px-5 py-2 rounded-lg bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] text-xs font-bold font-serif transition flex items-center gap-1.5 shadow"
-                >
-                  <span>🔄 Retake This Test</span>
-                </button>
+                <div class="flex items-center gap-2">
+                  <button
+                    data-delete-past-test="${pastTestId}"
+                    class="delete-past-test-btn px-3.5 py-2 rounded-lg bg-transparent hover:bg-rose-500/20 text-[#8C8A84] hover:text-rose-400 text-xs font-semibold transition flex items-center gap-1.5 border border-[#33332F] hover:border-rose-500/40 cursor-pointer"
+                    title="Delete this test from your history"
+                  >
+                    <span>🗑️ Delete Test</span>
+                  </button>
+                  <button
+                    data-open-retake-modal="${pastTestId}"
+                    class="open-retake-modal-btn px-5 py-2 rounded-lg bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] text-xs font-bold font-serif transition flex items-center gap-1.5 shadow cursor-pointer"
+                  >
+                    <span>🔄 Retake This Test</span>
+                  </button>
+                </div>
               `
               : ""
           }
@@ -1197,7 +1206,7 @@ function renderTestHistoryAndProgressView({ data, historySearchQuery = "", histo
               <div class="space-y-3">
                 ${filteredHistory
                   .map((t, idx) => {
-                    const testId = t.id || `hist_${t.date || idx}`;
+                    const testId = t.id || (t.date ? `quiz_${t.date}` : `quiz_${idx}`);
                     const scorePct = t.pct !== undefined ? t.pct : (t.scorecard?.overallPct || 0);
                     const correctCount = t.correct !== undefined ? t.correct : (t.scorecard?.totalCorrect || 0);
                     const totalCount = t.total || t.questionCount || (t.scorecard?.totalQuestions) || 0;
@@ -1239,21 +1248,21 @@ function renderTestHistoryAndProgressView({ data, historySearchQuery = "", histo
                         <div class="flex items-center gap-2 shrink-0">
                           <button
                             data-review-past-test="${testId}"
-                            class="review-past-test-btn px-3 py-1.5 rounded-lg bg-[#2A2A27] hover:bg-[#C4B79C] text-[#DBCFB3] hover:text-[#141413] text-xs font-semibold transition border border-[#383834] flex items-center gap-1 shadow-xs"
+                            class="review-past-test-btn px-3 py-1.5 rounded-lg bg-[#2A2A27] hover:bg-[#C4B79C] text-[#DBCFB3] hover:text-[#141413] text-xs font-semibold transition border border-[#383834] flex items-center gap-1 shadow-xs cursor-pointer"
                           >
                             <span>🔍 Review</span>
                           </button>
 
                           <button
                             data-open-retake-modal="${testId}"
-                            class="open-retake-modal-btn px-3 py-1.5 rounded-lg bg-[#2A2A27] hover:bg-[#383834] text-[#EAE8E2] text-xs font-semibold transition border border-[#383834] flex items-center gap-1"
+                            class="open-retake-modal-btn px-3 py-1.5 rounded-lg bg-[#2A2A27] hover:bg-[#383834] text-[#EAE8E2] text-xs font-semibold transition border border-[#383834] flex items-center gap-1 cursor-pointer"
                           >
                             <span>🔄 Retake</span>
                           </button>
 
                           <button
                             data-delete-past-test="${testId}"
-                            class="delete-past-test-btn px-2.5 py-1.5 rounded-lg bg-transparent hover:bg-rose-500/20 text-[#8C8A84] hover:text-rose-400 text-xs transition"
+                            class="delete-past-test-btn px-2.5 py-1.5 rounded-lg bg-transparent hover:bg-rose-500/20 text-[#8C8A84] hover:text-rose-400 text-xs transition cursor-pointer"
                             title="Delete this test record"
                           >
                             <span>🗑️</span>

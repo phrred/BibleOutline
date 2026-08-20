@@ -11285,7 +11285,15 @@ function loadOutlineStorage() {
     const defaultData = createInitialStorage();
     if (!data.books) data.books = defaultData.books;
     if (!data.chapters) data.chapters = defaultData.chapters;
-    if (!Array.isArray(data.quizHistory)) data.quizHistory = [];
+    if (!Array.isArray(data.quizHistory)) {
+      data.quizHistory = [];
+    } else {
+      data.quizHistory.forEach((q, idx) => {
+        if (!q.id) {
+          q.id = `quiz_${q.date || Date.now()}_${idx}`;
+        }
+      });
+    }
     if (!data.bookMastery) data.bookMastery = {};
 
     BIBLE_BOOKS.forEach((book) => {
@@ -11924,7 +11932,9 @@ async function loadOutlinesFromCloud(user) {
     const quizzesSnap = await getDocs(quizzesColRef);
     if (!quizzesSnap.empty) {
       quizzesSnap.forEach((qDoc) => {
-        quizHistory.push(qDoc.data());
+        const qData = qDoc.data() || {};
+        const qId = qDoc.id || qData.id || `quiz_${qData.date || Date.now()}`;
+        quizHistory.push({ ...qData, id: qId });
       });
       quizHistory.sort((a, b) => (b.date || 0) - (a.date || 0));
     }
@@ -11933,7 +11943,10 @@ async function loadOutlinesFromCloud(user) {
   }
 
   if (quizHistory.length === 0 && Array.isArray(rootData.quizHistory)) {
-    quizHistory = rootData.quizHistory;
+    quizHistory = rootData.quizHistory.map((q, idx) => ({
+      ...q,
+      id: q.id || `quiz_${q.date || Date.now()}_${idx}`
+    }));
   }
 
   // Fetch mastery doc
@@ -14377,12 +14390,21 @@ function renderScorecardView({
           ${
             pastTestId
               ? `
-                <button
-                  data-open-retake-modal="${pastTestId}"
-                  class="px-5 py-2 rounded-lg bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] text-xs font-bold font-serif transition flex items-center gap-1.5 shadow"
-                >
-                  <span>🔄 Retake This Test</span>
-                </button>
+                <div class="flex items-center gap-2">
+                  <button
+                    data-delete-past-test="${pastTestId}"
+                    class="delete-past-test-btn px-3.5 py-2 rounded-lg bg-transparent hover:bg-rose-500/20 text-[#8C8A84] hover:text-rose-400 text-xs font-semibold transition flex items-center gap-1.5 border border-[#33332F] hover:border-rose-500/40 cursor-pointer"
+                    title="Delete this test from your history"
+                  >
+                    <span>🗑️ Delete Test</span>
+                  </button>
+                  <button
+                    data-open-retake-modal="${pastTestId}"
+                    class="open-retake-modal-btn px-5 py-2 rounded-lg bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] text-xs font-bold font-serif transition flex items-center gap-1.5 shadow cursor-pointer"
+                  >
+                    <span>🔄 Retake This Test</span>
+                  </button>
+                </div>
               `
               : ""
           }
@@ -14884,7 +14906,7 @@ function renderTestHistoryAndProgressView({ data, historySearchQuery = "", histo
               <div class="space-y-3">
                 ${filteredHistory
                   .map((t, idx) => {
-                    const testId = t.id || `hist_${t.date || idx}`;
+                    const testId = t.id || (t.date ? `quiz_${t.date}` : `quiz_${idx}`);
                     const scorePct = t.pct !== undefined ? t.pct : (t.scorecard?.overallPct || 0);
                     const correctCount = t.correct !== undefined ? t.correct : (t.scorecard?.totalCorrect || 0);
                     const totalCount = t.total || t.questionCount || (t.scorecard?.totalQuestions) || 0;
@@ -14926,21 +14948,21 @@ function renderTestHistoryAndProgressView({ data, historySearchQuery = "", histo
                         <div class="flex items-center gap-2 shrink-0">
                           <button
                             data-review-past-test="${testId}"
-                            class="review-past-test-btn px-3 py-1.5 rounded-lg bg-[#2A2A27] hover:bg-[#C4B79C] text-[#DBCFB3] hover:text-[#141413] text-xs font-semibold transition border border-[#383834] flex items-center gap-1 shadow-xs"
+                            class="review-past-test-btn px-3 py-1.5 rounded-lg bg-[#2A2A27] hover:bg-[#C4B79C] text-[#DBCFB3] hover:text-[#141413] text-xs font-semibold transition border border-[#383834] flex items-center gap-1 shadow-xs cursor-pointer"
                           >
                             <span>🔍 Review</span>
                           </button>
 
                           <button
                             data-open-retake-modal="${testId}"
-                            class="open-retake-modal-btn px-3 py-1.5 rounded-lg bg-[#2A2A27] hover:bg-[#383834] text-[#EAE8E2] text-xs font-semibold transition border border-[#383834] flex items-center gap-1"
+                            class="open-retake-modal-btn px-3 py-1.5 rounded-lg bg-[#2A2A27] hover:bg-[#383834] text-[#EAE8E2] text-xs font-semibold transition border border-[#383834] flex items-center gap-1 cursor-pointer"
                           >
                             <span>🔄 Retake</span>
                           </button>
 
                           <button
                             data-delete-past-test="${testId}"
-                            class="delete-past-test-btn px-2.5 py-1.5 rounded-lg bg-transparent hover:bg-rose-500/20 text-[#8C8A84] hover:text-rose-400 text-xs transition"
+                            class="delete-past-test-btn px-2.5 py-1.5 rounded-lg bg-transparent hover:bg-rose-500/20 text-[#8C8A84] hover:text-rose-400 text-xs transition cursor-pointer"
                             title="Delete this test record"
                           >
                             <span>🗑️</span>
@@ -15575,10 +15597,13 @@ class BibleOutlineStudio {
           const found = Array.isArray(this.data.quizHistory)
             ? this.data.quizHistory.find(
                 (t, idx) =>
-                  (t.id || `hist_${t.date || idx}`) == testId ||
-                  idx == testId ||
-                  t.date == testId ||
-                  `hist_${t.date}` == testId
+                  String(t.id) === String(testId) ||
+                  String(t.date) === String(testId) ||
+                  `quiz_${t.date}` === String(testId) ||
+                  `hist_${t.date}` === String(testId) ||
+                  `quiz_${t.date || idx}` === String(testId) ||
+                  `hist_${t.date || idx}` === String(testId) ||
+                  String(idx) === String(testId)
               )
             : null;
           this.viewingPastTest = found || null;
@@ -16439,6 +16464,17 @@ class BibleOutlineStudio {
     });
 
     const examInput = document.getElementById("exam-answer-input");
+    if (examInput) {
+      // Automatically keep focus on the answer box when moving from one question to the next
+      requestAnimationFrame(() => {
+        if (document.getElementById("exam-answer-input") === examInput) {
+          examInput.focus();
+          const valLen = examInput.value ? examInput.value.length : 0;
+          examInput.setSelectionRange(valLen, valLen);
+        }
+      });
+    }
+
     const saveCurrentExamInput = () => {
       if (examInput && this.quizSession) {
         this.quizSession.submitCurrentAnswer(examInput.value);
@@ -16599,10 +16635,13 @@ class BibleOutlineStudio {
         const testId = btn.getAttribute("data-review-past-test");
         const found = this.data.quizHistory.find(
           (t, idx) =>
-            (t.id || `hist_${t.date || idx}`) == testId ||
-            idx == testId ||
-            t.date == testId ||
-            `hist_${t.date}` == testId
+            String(t.id) === String(testId) ||
+            String(t.date) === String(testId) ||
+            `quiz_${t.date}` === String(testId) ||
+            `hist_${t.date}` === String(testId) ||
+            `quiz_${t.date || idx}` === String(testId) ||
+            `hist_${t.date || idx}` === String(testId) ||
+            String(idx) === String(testId)
         );
         if (found) {
           this.quizScorecard = null;
@@ -16620,25 +16659,90 @@ class BibleOutlineStudio {
     const openRetakeModalBtns = document.querySelectorAll("[data-open-retake-modal]");
     openRetakeModalBtns.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        e.preventDefault();
         e.stopPropagation();
         const testId = btn.getAttribute("data-open-retake-modal");
         const found = this.data.quizHistory.find(
           (t, idx) =>
-            (t.id || `hist_${t.date || idx}`) == testId ||
-            idx == testId ||
-            t.date == testId ||
-            `hist_${t.date}` == testId
+            String(t.id) === String(testId) ||
+            String(t.date) === String(testId) ||
+            `quiz_${t.date}` === String(testId) ||
+            `hist_${t.date}` === String(testId) ||
+            `quiz_${t.date || idx}` === String(testId) ||
+            `hist_${t.date || idx}` === String(testId) ||
+            String(idx) === String(testId)
         );
         if (found) {
           this.retakeModalTest = found;
           this.render();
-        } else if (this.viewingPastTest) {
-          this.retakeModalTest = this.viewingPastTest;
-          this.render();
         }
       });
     });
+
+    // Retake Options in Retake Modal
+    const retakeFullBtn = document.getElementById("retake-full-test-btn");
+    if (retakeFullBtn) {
+      retakeFullBtn.addEventListener("click", () => {
+        const test = this.retakeModalTest;
+        if (!test) return;
+        this.retakeModalTest = null;
+        let newSession = null;
+        if (Array.isArray(test.questions) && test.questions.length > 0) {
+          newSession = new DiagnosticSession({
+            scope: test.scope || "ALL",
+            customQuestions: test.questions,
+            specificBookId: test.specificBookId
+          });
+        } else {
+          newSession = new DiagnosticSession({
+            scope: test.scope || "ALL",
+            questionCount: test.questionCount || test.total || 25,
+            specificBookId: test.specificBookId
+          });
+        }
+        if (newSession) {
+          this.quizSession = newSession;
+          this.quizScorecard = null;
+          this.viewingPastTest = null;
+          this.activeView = "quiz-diagnostic";
+          this.activeQuizTab = "diagnostic";
+          this.render();
+        }
+      });
+    }
+
+    const retakeMissedBtn = document.getElementById("retake-missed-only-btn");
+    if (retakeMissedBtn) {
+      retakeMissedBtn.addEventListener("click", () => {
+        const test = this.retakeModalTest;
+        if (!test) return;
+        this.retakeModalTest = null;
+        const missedPool = test.scorecard?.missedQuestions || [];
+        const missedQuestions = missedPool.map((m) => m.question || m).filter(Boolean);
+        let newSession = null;
+        if (missedQuestions.length > 0) {
+          newSession = new DiagnosticSession({
+            scope: test.scope || "ALL",
+            customQuestions: missedQuestions,
+            specificBookId: test.specificBookId
+          });
+        } else {
+          newSession = new DiagnosticSession({
+            scope: test.scope || "ALL",
+            questionCount: test.questionCount || 25,
+            specificBookId: test.specificBookId
+          });
+        }
+
+        if (newSession) {
+          this.quizSession = newSession;
+          this.quizScorecard = null;
+          this.viewingPastTest = null;
+          this.activeView = "quiz-diagnostic";
+          this.activeQuizTab = "diagnostic";
+          this.render();
+        }
+      });
+    }
 
     // Close Retake Modal
     const closeRetakeModalBtn = document.getElementById("close-retake-modal-btn");
@@ -16661,88 +16765,6 @@ class BibleOutlineStudio {
       });
     }
 
-    // Retake Option selected
-    const retakeOptionBtns = document.querySelectorAll(".retake-option-btn");
-    retakeOptionBtns.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const action = btn.getAttribute("data-action-retake");
-        const testId = btn.getAttribute("data-test-id");
-        const test =
-          this.retakeModalTest ||
-          this.data.quizHistory.find(
-            (t, idx) =>
-              (t.id || `hist_${t.date || idx}`) == testId ||
-              idx == testId ||
-              t.date == testId ||
-              `hist_${t.date}` == testId
-          ) ||
-          this.viewingPastTest;
-
-        if (!test) {
-          this.retakeModalTest = null;
-          this.render();
-          return;
-        }
-
-        let newSession = null;
-        if (action === "exact") {
-          const questions =
-            test.questions ||
-            (test.scorecard?.allReviewedQuestions?.map((r) => r.question)) ||
-            [];
-          if (questions.length > 0) {
-            newSession = new DiagnosticSession({
-              scope: test.scope || "ALL",
-              specificBookId: test.specificBookId,
-              customQuestions: questions
-            });
-          } else {
-            newSession = new DiagnosticSession({
-              scope: test.scope || "ALL",
-              questionCount: test.questionCount || test.total || 25,
-              specificBookId: test.specificBookId
-            });
-          }
-        } else if (action === "missed") {
-          const missedList = test.scorecard?.missedQuestions || test.missedQuestions || [];
-          const missedQuestions = missedList.map((m) => m.question || m).filter(Boolean);
-          if (missedQuestions.length > 0) {
-            newSession = new DiagnosticSession({
-              scope: test.scope || "ALL",
-              specificBookId: test.specificBookId,
-              customQuestions: missedQuestions
-            });
-          } else {
-            // For legacy tests where specific missed questions list is not available, launch targeted drill
-            newSession = new DiagnosticSession({
-              scope: test.scope || "ALL",
-              questionCount: Math.min(test.questionCount || test.total || 10, 10),
-              specificBookId: test.specificBookId
-            });
-          }
-        } else {
-          // "new" randomized test with same settings
-          newSession = new DiagnosticSession({
-            scope: test.scope || "ALL",
-            questionCount: test.questionCount || test.total || 25,
-            specificBookId: test.specificBookId
-          });
-        }
-
-        if (newSession) {
-          this.quizSession = newSession;
-          this.quizScorecard = null;
-          this.viewingPastTest = null;
-          this.retakeModalTest = null;
-          this.activeView = "quiz-diagnostic";
-          this.activeQuizTab = "diagnostic";
-          this.render();
-        }
-      });
-    });
-
     // Delete single past test record
     const deletePastTestBtns = document.querySelectorAll(".delete-past-test-btn");
     deletePastTestBtns.forEach((btn) => {
@@ -16750,18 +16772,52 @@ class BibleOutlineStudio {
         e.stopPropagation();
         const testId = btn.getAttribute("data-delete-past-test");
         if (confirm("Delete this test session from your history?")) {
-          this.data.quizHistory = this.data.quizHistory.filter(
-            (t, idx) => (t.id || `hist_${t.date || idx}`) != testId && idx != testId
+          const target = this.data.quizHistory.find(
+            (t, idx) =>
+              (t.id && String(t.id) === String(testId)) ||
+              (t.date && String(t.date) === String(testId)) ||
+              `quiz_${t.date}` === String(testId) ||
+              `hist_${t.date}` === String(testId) ||
+              `quiz_${t.date || idx}` === String(testId) ||
+              `hist_${t.date || idx}` === String(testId) ||
+              String(idx) === String(testId)
           );
+
+          const idsToDelete = new Set(
+            [
+              testId,
+              target?.id,
+              target?.date ? `quiz_${target.date}` : null,
+              target?.date ? `hist_${target.date}` : null,
+              target?.date ? String(target.date) : null
+            ].filter(Boolean)
+          );
+
+          this.data.quizHistory = this.data.quizHistory.filter((t, idx) => {
+            if (target && t === target) return false;
+            if (t.id && idsToDelete.has(String(t.id))) return false;
+            if (t.date && idsToDelete.has(String(t.date))) return false;
+            if (t.date && idsToDelete.has(`quiz_${t.date}`)) return false;
+            if (t.date && idsToDelete.has(`hist_${t.date}`)) return false;
+            if (idsToDelete.has(String(idx))) return false;
+            return true;
+          });
+
           if (
             this.viewingPastTest &&
-            (this.viewingPastTest.id == testId || `hist_${this.viewingPastTest.date}` == testId)
+            (idsToDelete.has(String(this.viewingPastTest.id)) ||
+              idsToDelete.has(String(this.viewingPastTest.date)) ||
+              idsToDelete.has(`quiz_${this.viewingPastTest.date}`) ||
+              idsToDelete.has(`hist_${this.viewingPastTest.date}`))
           ) {
             this.viewingPastTest = null;
           }
+
           this.notifyDataChanged();
           if (this.googleUser) {
-            deleteQuizFromCloud(this.googleUser, testId).catch(() => {});
+            idsToDelete.forEach((id) => {
+              deleteQuizFromCloud(this.googleUser, id).catch(() => {});
+            });
           }
           this.render();
         }

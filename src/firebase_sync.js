@@ -423,7 +423,9 @@ export async function loadOutlinesFromCloud(user) {
     const quizzesSnap = await getDocs(quizzesColRef);
     if (!quizzesSnap.empty) {
       quizzesSnap.forEach((qDoc) => {
-        quizHistory.push(qDoc.data());
+        const qData = qDoc.data() || {};
+        const qId = qDoc.id || qData.id || `quiz_${qData.date || Date.now()}`;
+        quizHistory.push({ ...qData, id: qId });
       });
       quizHistory.sort((a, b) => (b.date || 0) - (a.date || 0));
     }
@@ -432,7 +434,10 @@ export async function loadOutlinesFromCloud(user) {
   }
 
   if (quizHistory.length === 0 && Array.isArray(rootData.quizHistory)) {
-    quizHistory = rootData.quizHistory;
+    quizHistory = rootData.quizHistory.map((q, idx) => ({
+      ...q,
+      id: q.id || `quiz_${q.date || Date.now()}_${idx}`
+    }));
   }
 
   // Fetch mastery doc

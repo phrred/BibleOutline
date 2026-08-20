@@ -485,10 +485,13 @@ class BibleOutlineStudio {
           const found = Array.isArray(this.data.quizHistory)
             ? this.data.quizHistory.find(
                 (t, idx) =>
-                  (t.id || `hist_${t.date || idx}`) == testId ||
-                  idx == testId ||
-                  t.date == testId ||
-                  `hist_${t.date}` == testId
+                  String(t.id) === String(testId) ||
+                  String(t.date) === String(testId) ||
+                  `quiz_${t.date}` === String(testId) ||
+                  `hist_${t.date}` === String(testId) ||
+                  `quiz_${t.date || idx}` === String(testId) ||
+                  `hist_${t.date || idx}` === String(testId) ||
+                  String(idx) === String(testId)
               )
             : null;
           this.viewingPastTest = found || null;
@@ -1349,6 +1352,17 @@ class BibleOutlineStudio {
     });
 
     const examInput = document.getElementById("exam-answer-input");
+    if (examInput) {
+      // Automatically keep focus on the answer box when moving from one question to the next
+      requestAnimationFrame(() => {
+        if (document.getElementById("exam-answer-input") === examInput) {
+          examInput.focus();
+          const valLen = examInput.value ? examInput.value.length : 0;
+          examInput.setSelectionRange(valLen, valLen);
+        }
+      });
+    }
+
     const saveCurrentExamInput = () => {
       if (examInput && this.quizSession) {
         this.quizSession.submitCurrentAnswer(examInput.value);
@@ -1509,10 +1523,13 @@ class BibleOutlineStudio {
         const testId = btn.getAttribute("data-review-past-test");
         const found = this.data.quizHistory.find(
           (t, idx) =>
-            (t.id || `hist_${t.date || idx}`) == testId ||
-            idx == testId ||
-            t.date == testId ||
-            `hist_${t.date}` == testId
+            String(t.id) === String(testId) ||
+            String(t.date) === String(testId) ||
+            `quiz_${t.date}` === String(testId) ||
+            `hist_${t.date}` === String(testId) ||
+            `quiz_${t.date || idx}` === String(testId) ||
+            `hist_${t.date || idx}` === String(testId) ||
+            String(idx) === String(testId)
         );
         if (found) {
           this.quizScorecard = null;
@@ -1530,25 +1547,90 @@ class BibleOutlineStudio {
     const openRetakeModalBtns = document.querySelectorAll("[data-open-retake-modal]");
     openRetakeModalBtns.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        e.preventDefault();
         e.stopPropagation();
         const testId = btn.getAttribute("data-open-retake-modal");
         const found = this.data.quizHistory.find(
           (t, idx) =>
-            (t.id || `hist_${t.date || idx}`) == testId ||
-            idx == testId ||
-            t.date == testId ||
-            `hist_${t.date}` == testId
+            String(t.id) === String(testId) ||
+            String(t.date) === String(testId) ||
+            `quiz_${t.date}` === String(testId) ||
+            `hist_${t.date}` === String(testId) ||
+            `quiz_${t.date || idx}` === String(testId) ||
+            `hist_${t.date || idx}` === String(testId) ||
+            String(idx) === String(testId)
         );
         if (found) {
           this.retakeModalTest = found;
           this.render();
-        } else if (this.viewingPastTest) {
-          this.retakeModalTest = this.viewingPastTest;
-          this.render();
         }
       });
     });
+
+    // Retake Options in Retake Modal
+    const retakeFullBtn = document.getElementById("retake-full-test-btn");
+    if (retakeFullBtn) {
+      retakeFullBtn.addEventListener("click", () => {
+        const test = this.retakeModalTest;
+        if (!test) return;
+        this.retakeModalTest = null;
+        let newSession = null;
+        if (Array.isArray(test.questions) && test.questions.length > 0) {
+          newSession = new DiagnosticSession({
+            scope: test.scope || "ALL",
+            customQuestions: test.questions,
+            specificBookId: test.specificBookId
+          });
+        } else {
+          newSession = new DiagnosticSession({
+            scope: test.scope || "ALL",
+            questionCount: test.questionCount || test.total || 25,
+            specificBookId: test.specificBookId
+          });
+        }
+        if (newSession) {
+          this.quizSession = newSession;
+          this.quizScorecard = null;
+          this.viewingPastTest = null;
+          this.activeView = "quiz-diagnostic";
+          this.activeQuizTab = "diagnostic";
+          this.render();
+        }
+      });
+    }
+
+    const retakeMissedBtn = document.getElementById("retake-missed-only-btn");
+    if (retakeMissedBtn) {
+      retakeMissedBtn.addEventListener("click", () => {
+        const test = this.retakeModalTest;
+        if (!test) return;
+        this.retakeModalTest = null;
+        const missedPool = test.scorecard?.missedQuestions || [];
+        const missedQuestions = missedPool.map((m) => m.question || m).filter(Boolean);
+        let newSession = null;
+        if (missedQuestions.length > 0) {
+          newSession = new DiagnosticSession({
+            scope: test.scope || "ALL",
+            customQuestions: missedQuestions,
+            specificBookId: test.specificBookId
+          });
+        } else {
+          newSession = new DiagnosticSession({
+            scope: test.scope || "ALL",
+            questionCount: test.questionCount || 25,
+            specificBookId: test.specificBookId
+          });
+        }
+
+        if (newSession) {
+          this.quizSession = newSession;
+          this.quizScorecard = null;
+          this.viewingPastTest = null;
+          this.activeView = "quiz-diagnostic";
+          this.activeQuizTab = "diagnostic";
+          this.render();
+        }
+      });
+    }
 
     // Close Retake Modal
     const closeRetakeModalBtn = document.getElementById("close-retake-modal-btn");
@@ -1571,88 +1653,6 @@ class BibleOutlineStudio {
       });
     }
 
-    // Retake Option selected
-    const retakeOptionBtns = document.querySelectorAll(".retake-option-btn");
-    retakeOptionBtns.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const action = btn.getAttribute("data-action-retake");
-        const testId = btn.getAttribute("data-test-id");
-        const test =
-          this.retakeModalTest ||
-          this.data.quizHistory.find(
-            (t, idx) =>
-              (t.id || `hist_${t.date || idx}`) == testId ||
-              idx == testId ||
-              t.date == testId ||
-              `hist_${t.date}` == testId
-          ) ||
-          this.viewingPastTest;
-
-        if (!test) {
-          this.retakeModalTest = null;
-          this.render();
-          return;
-        }
-
-        let newSession = null;
-        if (action === "exact") {
-          const questions =
-            test.questions ||
-            (test.scorecard?.allReviewedQuestions?.map((r) => r.question)) ||
-            [];
-          if (questions.length > 0) {
-            newSession = new DiagnosticSession({
-              scope: test.scope || "ALL",
-              specificBookId: test.specificBookId,
-              customQuestions: questions
-            });
-          } else {
-            newSession = new DiagnosticSession({
-              scope: test.scope || "ALL",
-              questionCount: test.questionCount || test.total || 25,
-              specificBookId: test.specificBookId
-            });
-          }
-        } else if (action === "missed") {
-          const missedList = test.scorecard?.missedQuestions || test.missedQuestions || [];
-          const missedQuestions = missedList.map((m) => m.question || m).filter(Boolean);
-          if (missedQuestions.length > 0) {
-            newSession = new DiagnosticSession({
-              scope: test.scope || "ALL",
-              specificBookId: test.specificBookId,
-              customQuestions: missedQuestions
-            });
-          } else {
-            // For legacy tests where specific missed questions list is not available, launch targeted drill
-            newSession = new DiagnosticSession({
-              scope: test.scope || "ALL",
-              questionCount: Math.min(test.questionCount || test.total || 10, 10),
-              specificBookId: test.specificBookId
-            });
-          }
-        } else {
-          // "new" randomized test with same settings
-          newSession = new DiagnosticSession({
-            scope: test.scope || "ALL",
-            questionCount: test.questionCount || test.total || 25,
-            specificBookId: test.specificBookId
-          });
-        }
-
-        if (newSession) {
-          this.quizSession = newSession;
-          this.quizScorecard = null;
-          this.viewingPastTest = null;
-          this.retakeModalTest = null;
-          this.activeView = "quiz-diagnostic";
-          this.activeQuizTab = "diagnostic";
-          this.render();
-        }
-      });
-    });
-
     // Delete single past test record
     const deletePastTestBtns = document.querySelectorAll(".delete-past-test-btn");
     deletePastTestBtns.forEach((btn) => {
@@ -1660,18 +1660,52 @@ class BibleOutlineStudio {
         e.stopPropagation();
         const testId = btn.getAttribute("data-delete-past-test");
         if (confirm("Delete this test session from your history?")) {
-          this.data.quizHistory = this.data.quizHistory.filter(
-            (t, idx) => (t.id || `hist_${t.date || idx}`) != testId && idx != testId
+          const target = this.data.quizHistory.find(
+            (t, idx) =>
+              (t.id && String(t.id) === String(testId)) ||
+              (t.date && String(t.date) === String(testId)) ||
+              `quiz_${t.date}` === String(testId) ||
+              `hist_${t.date}` === String(testId) ||
+              `quiz_${t.date || idx}` === String(testId) ||
+              `hist_${t.date || idx}` === String(testId) ||
+              String(idx) === String(testId)
           );
+
+          const idsToDelete = new Set(
+            [
+              testId,
+              target?.id,
+              target?.date ? `quiz_${target.date}` : null,
+              target?.date ? `hist_${target.date}` : null,
+              target?.date ? String(target.date) : null
+            ].filter(Boolean)
+          );
+
+          this.data.quizHistory = this.data.quizHistory.filter((t, idx) => {
+            if (target && t === target) return false;
+            if (t.id && idsToDelete.has(String(t.id))) return false;
+            if (t.date && idsToDelete.has(String(t.date))) return false;
+            if (t.date && idsToDelete.has(`quiz_${t.date}`)) return false;
+            if (t.date && idsToDelete.has(`hist_${t.date}`)) return false;
+            if (idsToDelete.has(String(idx))) return false;
+            return true;
+          });
+
           if (
             this.viewingPastTest &&
-            (this.viewingPastTest.id == testId || `hist_${this.viewingPastTest.date}` == testId)
+            (idsToDelete.has(String(this.viewingPastTest.id)) ||
+              idsToDelete.has(String(this.viewingPastTest.date)) ||
+              idsToDelete.has(`quiz_${this.viewingPastTest.date}`) ||
+              idsToDelete.has(`hist_${this.viewingPastTest.date}`))
           ) {
             this.viewingPastTest = null;
           }
+
           this.notifyDataChanged();
           if (this.googleUser) {
-            deleteQuizFromCloud(this.googleUser, testId).catch(() => {});
+            idsToDelete.forEach((id) => {
+              deleteQuizFromCloud(this.googleUser, id).catch(() => {});
+            });
           }
           this.render();
         }

@@ -177,6 +177,10 @@ class E2ETester:
             }
             app.quizSession.submitCurrentAnswer("A");
             app.quizSession.nextQuestion();
+            app.render();
+
+            const inputAfterNext = document.getElementById('exam-answer-input');
+            const hasInputAfterNext = Boolean(inputAfterNext);
 
             // Finish
             const scorecard = app.quizSession.finishExam();
@@ -187,12 +191,14 @@ class E2ETester:
 
             return {
                 hasSession,
+                hasInputAfterNext,
                 scorecardTotal,
                 hasScorecard: Boolean(app.quizScorecard)
             };
         })()
         """)
         assert r.get("hasSession") == True, "Quiz diagnostic session failed to start"
+        assert r.get("hasInputAfterNext") == True, "Exam answer input missing after advancing question"
         assert r.get("scorecardTotal") == 3, f"Expected 3 questions in scorecard, got {r.get('scorecardTotal')}"
         assert r.get("hasScorecard") == True, "Scorecard failed to render"
 
@@ -207,15 +213,21 @@ class E2ETester:
             const hasDeleteQuiz = typeof deleteQuizFromCloud === 'function';
             const hasSaveMastery = typeof saveMasteryToCloud === 'function';
 
-            // Simulate quiz deletion
+            // Simulate quiz deletion across different ID formats
             app.data.quizHistory = [
                 { id: 'quiz_test_1', date: 1000, questionCount: 10, total: 10, correct: 10 },
-                { id: 'quiz_test_2', date: 2000, questionCount: 10, total: 10, correct: 9 }
+                { id: 'quiz_test_2', date: 2000, questionCount: 10, total: 10, correct: 9 },
+                { date: 3000, questionCount: 10, total: 10, correct: 8 } // Legacy format without explicit id
             ];
 
             const initialCount = app.data.quizHistory.length;
+            // Delete quiz_test_1 by ID
             app.data.quizHistory = app.data.quizHistory.filter(t => t.id !== 'quiz_test_1');
-            const afterCount = app.data.quizHistory.length;
+            const afterCount1 = app.data.quizHistory.length;
+
+            // Delete legacy test by date
+            app.data.quizHistory = app.data.quizHistory.filter(t => t.date !== 3000 && `quiz_${t.date}` !== 'quiz_3000');
+            const afterCount2 = app.data.quizHistory.length;
 
             return {
                 hasDebouncedSaveBook,
@@ -223,7 +235,8 @@ class E2ETester:
                 hasDeleteQuiz,
                 hasSaveMastery,
                 initialCount,
-                afterCount
+                afterCount1,
+                afterCount2
             };
         })()
         """)
@@ -231,7 +244,9 @@ class E2ETester:
         assert r.get("hasSaveQuiz") == True, "saveQuizToCloud function missing"
         assert r.get("hasDeleteQuiz") == True, "deleteQuizFromCloud function missing"
         assert r.get("hasSaveMastery") == True, "saveMasteryToCloud function missing"
-        assert r.get("initialCount") == 2 and r.get("afterCount") == 1, "Quiz deletion logic failed"
+        assert r.get("initialCount") == 3, "Initial quiz count mismatch"
+        assert r.get("afterCount1") == 2, "Quiz deletion by explicit ID failed"
+        assert r.get("afterCount2") == 1, "Quiz deletion by date / legacy ID failed"
 
     def test_flag_question_modal_flow(self):
         r = self.eval_js("""

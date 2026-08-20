@@ -52,7 +52,15 @@ export function loadOutlineStorage() {
     const defaultData = createInitialStorage();
     if (!data.books) data.books = defaultData.books;
     if (!data.chapters) data.chapters = defaultData.chapters;
-    if (!Array.isArray(data.quizHistory)) data.quizHistory = [];
+    if (!Array.isArray(data.quizHistory)) {
+      data.quizHistory = [];
+    } else {
+      data.quizHistory.forEach((q, idx) => {
+        if (!q.id) {
+          q.id = `quiz_${q.date || Date.now()}_${idx}`;
+        }
+      });
+    }
     if (!data.bookMastery) data.bookMastery = {};
 
     BIBLE_BOOKS.forEach((book) => {
