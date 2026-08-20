@@ -2,7 +2,7 @@ name: AI Question Patcher (Flag to PR)
 
 on:
   issues:
-    types: [opened, reopened, labeled]
+    types: [labeled]
 
 # Prevent duplicate concurrent workflow runs for the exact same issue
 concurrency:
@@ -16,11 +16,7 @@ permissions:
 
 jobs:
   process_flag:
-    # Avoid duplicate execution when issue is both opened and labeled simultaneously
-    if: >-
-      (github.event.action == 'opened' && (startsWith(github.event.issue.title, '[Question Flag]') || contains(github.event.issue.labels.*.name, 'question-flag'))) ||
-      (github.event.action == 'reopened' && (startsWith(github.event.issue.title, '[Question Flag]') || contains(github.event.issue.labels.*.name, 'question-flag'))) ||
-      (github.event.action == 'labeled' && github.event.label.name == 'question-flag')
+    if: github.event.label.name == 'question-flag'
     runs-on: ubuntu-latest
 
     steps:
