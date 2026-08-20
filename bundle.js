@@ -11250,6 +11250,7 @@ function createInitialStorage() {
     for (let ch = 1; ch <= book.chapterCount; ch++) {
       const chKey = `${book.id}-${ch}`;
       chapters[chKey] = {
+        headingBlocks: [], // Array of heading blocks e.g. { heading, verses, points, notes }
         chapterTitle: "",
         sections: [], // Array of string section titles e.g. "v1-11: Call of Abram"
         notes: "",    // Notes of what happened
@@ -11295,6 +11296,8 @@ function loadOutlineStorage() {
         const chKey = `${book.id}-${ch}`;
         if (!data.chapters[chKey]) {
           data.chapters[chKey] = defaultData.chapters[chKey];
+        } else if (!Array.isArray(data.chapters[chKey].headingBlocks)) {
+          data.chapters[chKey].headingBlocks = [];
         }
       }
     });
@@ -12573,11 +12576,16 @@ function renderSidebar({
   let outlinedChapters = 0;
   for (const chKey in data.chapters) {
     const ch = data.chapters[chKey];
-    if (
-      ch &&
-      (Array.isArray(ch.headingBlocks) &&
-        ch.headingBlocks.some((b) => b.notes && b.notes.trim().length > 0))
-    ) {
+    const hasHeadingContent =
+      Array.isArray(ch?.headingBlocks) &&
+      ch.headingBlocks.some(
+        (b) =>
+          (b.notes && b.notes.trim().length > 0) ||
+          (Array.isArray(b.points) && b.points.some((p) => p && p.trim().length > 0))
+      );
+    const hasLegacyContent = Boolean((ch?.notes || "").trim() || (ch?.chapterTitle || "").trim() || (ch?.sections || []).length > 0);
+    const hasTakeaway = Boolean((ch?.takeaway || "").trim());
+    if (ch && (hasHeadingContent || hasLegacyContent || hasTakeaway || ch.status === "completed")) {
       outlinedChapters++;
     }
   }
@@ -12665,11 +12673,16 @@ function renderSidebar({
             let chCount = 0;
             for (let c = 1; c <= book.chapterCount; c++) {
               const ch = data.chapters[`${book.id}-${c}`];
-              if (
-                ch &&
-                Array.isArray(ch.headingBlocks) &&
-                ch.headingBlocks.some((b) => b.notes && b.notes.trim().length > 0)
-              ) {
+              const hasHeadingContent =
+                Array.isArray(ch?.headingBlocks) &&
+                ch.headingBlocks.some(
+                  (b) =>
+                    (b.notes && b.notes.trim().length > 0) ||
+                    (Array.isArray(b.points) && b.points.some((p) => p && p.trim().length > 0))
+                );
+              const hasLegacyContent = Boolean((ch?.notes || "").trim() || (ch?.chapterTitle || "").trim() || (ch?.sections || []).length > 0);
+              const hasTakeaway = Boolean((ch?.takeaway || "").trim());
+              if (ch && (hasHeadingContent || hasLegacyContent || hasTakeaway || ch.status === "completed")) {
                 chCount++;
               }
             }
@@ -15174,6 +15187,9 @@ class BibleOutlineStudio {
       if (cloudData) {
         let merged = false;
 
+        if (!this.data.books) this.data.books = {};
+        if (!this.data.chapters) this.data.chapters = {};
+
         // 1. Merge Book Summaries & Themes
         if (cloudData.books) {
           for (const [bid, b] of Object.entries(cloudData.books)) {
@@ -15199,6 +15215,9 @@ class BibleOutlineStudio {
             if (!this.data.chapters[cid]) {
               this.data.chapters[cid] = { headingBlocks: [], status: "in-progress" };
             }
+            if (!Array.isArray(this.data.chapters[cid].headingBlocks)) {
+              this.data.chapters[cid].headingBlocks = [];
+            }
             if (ch.takeaway) {
               this.data.chapters[cid].takeaway = ch.takeaway;
               merged = true;
@@ -15213,25 +15232,36 @@ class BibleOutlineStudio {
             const cloudSections = ch.headingBlocks || ch.sections || [];
             if (Array.isArray(cloudSections) && cloudSections.length > 0) {
               cloudSections.forEach((cs, sIdx) => {
+                if (!cs) return;
+                const csHeading = (cs.heading || "").trim();
                 let match = this.data.chapters[cid].headingBlocks.find(
-                  (hb) => hb.heading && hb.heading.toLowerCase() === cs.heading.toLowerCase()
+                  (hb) => hb && hb.heading && csHeading && hb.heading.toLowerCase() === csHeading.toLowerCase()
                 );
-                if (!match) {
+                if (!match && this.data.chapters[cid].headingBlocks[sIdx]) {
                   match = this.data.chapters[cid].headingBlocks[sIdx];
                 }
+
+                const pts = Array.isArray(cs.points) && cs.points.length > 0
+                  ? cs.points.map((p) => (p || "").trim()).filter(Boolean)
+                  : cs.notes
+                  ? cs.notes.split("\n").map((p) => p.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+                  : [""];
+                const nts = cs.notes || (pts.filter(Boolean).length > 0 ? pts.join("\n") : "");
+
                 if (match) {
-                  if (Array.isArray(cs.points) && cs.points.length > 0) {
-                    match.points = cs.points;
+                  if (pts.filter(Boolean).length > 0) {
+                    match.points = pts;
                   }
-                  if (cs.notes && cs.notes.trim()) {
-                    match.notes = cs.notes;
+                  if (nts.trim().length > 0) {
+                    match.notes = nts;
                   }
+                  if (cs.verses) match.verses = cs.verses;
                 } else {
                   this.data.chapters[cid].headingBlocks.push({
-                    heading: cs.heading || "Section",
+                    heading: csHeading || "Section",
                     verses: cs.verses || "",
-                    notes: cs.notes || "",
-                    points: Array.isArray(cs.points) ? cs.points : []
+                    notes: nts,
+                    points: pts
                   });
                 }
               });
@@ -15321,11 +15351,11 @@ class BibleOutlineStudio {
 
     const synced = extracted.map((h, idx) => {
       const matchTitle = existing.find(
-        (eb) => eb.heading.toLowerCase() === h.heading.toLowerCase() && !eb.heading.includes("Overview")
+        (eb) => eb && eb.heading && h.heading && eb.heading.toLowerCase() === h.heading.toLowerCase() && !eb.heading.includes("Overview")
       );
       const matchIdx = existing[idx];
       const pts = matchTitle?.points || matchIdx?.points || [""];
-      const nts = matchTitle?.notes || matchIdx?.notes || "";
+      const nts = matchTitle?.notes || matchIdx?.notes || (Array.isArray(pts) ? pts.join("\n") : "");
       return {
         heading: h.heading,
         verses: h.verses,
@@ -15333,6 +15363,16 @@ class BibleOutlineStudio {
         points: pts
       };
     });
+
+    // Preserve custom headings not in ESV text
+    if (existing.length > extracted.length) {
+      for (let i = extracted.length; i < existing.length; i++) {
+        const extra = existing[i];
+        if (extra && extra.heading && !extracted.some((h) => h && h.heading.toLowerCase() === extra.heading.toLowerCase())) {
+          synced.push(extra);
+        }
+      }
+    }
 
     const currentRichHTML = this.data.chapters[chKey]?.chapterOutlineRichHTML;
     const currentStatus = this.data.chapters[chKey]?.status || "empty";

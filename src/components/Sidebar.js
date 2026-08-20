@@ -27,11 +27,16 @@ export function renderSidebar({
   let outlinedChapters = 0;
   for (const chKey in data.chapters) {
     const ch = data.chapters[chKey];
-    if (
-      ch &&
-      (Array.isArray(ch.headingBlocks) &&
-        ch.headingBlocks.some((b) => b.notes && b.notes.trim().length > 0))
-    ) {
+    const hasHeadingContent =
+      Array.isArray(ch?.headingBlocks) &&
+      ch.headingBlocks.some(
+        (b) =>
+          (b.notes && b.notes.trim().length > 0) ||
+          (Array.isArray(b.points) && b.points.some((p) => p && p.trim().length > 0))
+      );
+    const hasLegacyContent = Boolean((ch?.notes || "").trim() || (ch?.chapterTitle || "").trim() || (ch?.sections || []).length > 0);
+    const hasTakeaway = Boolean((ch?.takeaway || "").trim());
+    if (ch && (hasHeadingContent || hasLegacyContent || hasTakeaway || ch.status === "completed")) {
       outlinedChapters++;
     }
   }
@@ -119,11 +124,16 @@ export function renderSidebar({
             let chCount = 0;
             for (let c = 1; c <= book.chapterCount; c++) {
               const ch = data.chapters[`${book.id}-${c}`];
-              if (
-                ch &&
-                Array.isArray(ch.headingBlocks) &&
-                ch.headingBlocks.some((b) => b.notes && b.notes.trim().length > 0)
-              ) {
+              const hasHeadingContent =
+                Array.isArray(ch?.headingBlocks) &&
+                ch.headingBlocks.some(
+                  (b) =>
+                    (b.notes && b.notes.trim().length > 0) ||
+                    (Array.isArray(b.points) && b.points.some((p) => p && p.trim().length > 0))
+                );
+              const hasLegacyContent = Boolean((ch?.notes || "").trim() || (ch?.chapterTitle || "").trim() || (ch?.sections || []).length > 0);
+              const hasTakeaway = Boolean((ch?.takeaway || "").trim());
+              if (ch && (hasHeadingContent || hasLegacyContent || hasTakeaway || ch.status === "completed")) {
                 chCount++;
               }
             }

@@ -252,14 +252,66 @@ class UnitTester:
             const bookKeys = Object.keys(initial.books);
             const chapterKeys = Object.keys(initial.chapters);
 
+            // Simulate incoming cloud data on fresh computer
+            const cloudPayload = {
+                books: {
+                    "GEN": { bookSummary: "Genesis Summary from Cloud", myBookTheme: "Origins", updatedAt: 2000 }
+                },
+                chapters: {
+                    "GEN-1": {
+                        headingBlocks: [
+                            { heading: "The Creation of the World", verses: "v1-31", points: ["God creates light"], notes: "Day 1" }
+                        ],
+                        takeaway: "Creation takeaway",
+                        status: "completed"
+                    }
+                },
+                quizHistory: [{ id: 'q_cloud_1', date: 12345, total: 10, correct: 10 }],
+                bookMastery: { "GEN": 3 }
+            };
+
+            // Test merging simulated cloudData into initial storage
+            const mergedData = JSON.parse(JSON.stringify(initial));
+            // 1. Books
+            for (const [bid, b] of Object.entries(cloudPayload.books)) {
+                if (b.bookSummary) mergedData.books[bid].bookSummary = b.bookSummary;
+                if (b.myBookTheme) mergedData.books[bid].myBookTheme = b.myBookTheme;
+            }
+            // 2. Chapters
+            for (const [cid, ch] of Object.entries(cloudPayload.chapters)) {
+                if (!Array.isArray(mergedData.chapters[cid].headingBlocks)) {
+                    mergedData.chapters[cid].headingBlocks = [];
+                }
+                if (ch.takeaway) mergedData.chapters[cid].takeaway = ch.takeaway;
+                if (ch.status) mergedData.chapters[cid].status = ch.status;
+                const secs = ch.headingBlocks || [];
+                secs.forEach((cs) => {
+                    mergedData.chapters[cid].headingBlocks.push({
+                        heading: cs.heading,
+                        verses: cs.verses || "",
+                        notes: cs.notes || "",
+                        points: cs.points || [""]
+                    });
+                });
+            }
+            // 3. Quiz & Mastery
+            mergedData.quizHistory.push(...cloudPayload.quizHistory);
+            mergedData.bookMastery = { ...mergedData.bookMastery, ...cloudPayload.bookMastery };
+
             return {
                 version: initial.version,
                 bookKeysCount: bookKeys.length,
                 chapterKeysCount: chapterKeys.length,
                 hasGen1: Boolean(initial.chapters['GEN-1']),
                 hasRev22: Boolean(initial.chapters['REV-22']),
+                hasGen1HeadingBlocksArray: Array.isArray(initial.chapters['GEN-1'].headingBlocks),
                 hasQuizHistory: Array.isArray(initial.quizHistory),
-                hasBookMastery: typeof initial.bookMastery === 'object'
+                hasBookMastery: typeof initial.bookMastery === 'object',
+                mergedGenSummary: mergedData.books['GEN'].bookSummary,
+                mergedGen1Points: mergedData.chapters['GEN-1'].headingBlocks[0]?.points?.[0],
+                mergedGen1Takeaway: mergedData.chapters['GEN-1'].takeaway,
+                mergedQuizCount: mergedData.quizHistory.length,
+                mergedGenMastery: mergedData.bookMastery['GEN']
             };
         })()
         """
@@ -269,8 +321,14 @@ class UnitTester:
         assert r.get("chapterKeysCount") == 1189, f"Expected 1,189 chapters in initial storage, got {r.get('chapterKeysCount')}"
         assert r.get("hasGen1") == True, "Genesis 1 missing from initial storage"
         assert r.get("hasRev22") == True, "Revelation 22 missing from initial storage"
+        assert r.get("hasGen1HeadingBlocksArray") == True, "Genesis 1 headingBlocks array missing from initial storage"
         assert r.get("hasQuizHistory") == True, "Quiz history array missing"
         assert r.get("hasBookMastery") == True, "Book mastery object missing"
+        assert r.get("mergedGenSummary") == "Genesis Summary from Cloud", "Merged book summary failed"
+        assert r.get("mergedGen1Points") == "God creates light", "Merged chapter heading points failed"
+        assert r.get("mergedGen1Takeaway") == "Creation takeaway", "Merged chapter takeaway failed"
+        assert r.get("mergedQuizCount") == 1, "Merged quiz history count mismatch"
+        assert r.get("mergedGenMastery") == 3, "Merged book mastery mismatch"
 
     def test_markdown_export(self):
         js = """

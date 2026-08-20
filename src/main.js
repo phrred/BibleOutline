@@ -97,6 +97,9 @@ class BibleOutlineStudio {
       if (cloudData) {
         let merged = false;
 
+        if (!this.data.books) this.data.books = {};
+        if (!this.data.chapters) this.data.chapters = {};
+
         // 1. Merge Book Summaries & Themes
         if (cloudData.books) {
           for (const [bid, b] of Object.entries(cloudData.books)) {
@@ -122,6 +125,9 @@ class BibleOutlineStudio {
             if (!this.data.chapters[cid]) {
               this.data.chapters[cid] = { headingBlocks: [], status: "in-progress" };
             }
+            if (!Array.isArray(this.data.chapters[cid].headingBlocks)) {
+              this.data.chapters[cid].headingBlocks = [];
+            }
             if (ch.takeaway) {
               this.data.chapters[cid].takeaway = ch.takeaway;
               merged = true;
@@ -136,25 +142,36 @@ class BibleOutlineStudio {
             const cloudSections = ch.headingBlocks || ch.sections || [];
             if (Array.isArray(cloudSections) && cloudSections.length > 0) {
               cloudSections.forEach((cs, sIdx) => {
+                if (!cs) return;
+                const csHeading = (cs.heading || "").trim();
                 let match = this.data.chapters[cid].headingBlocks.find(
-                  (hb) => hb.heading && hb.heading.toLowerCase() === cs.heading.toLowerCase()
+                  (hb) => hb && hb.heading && csHeading && hb.heading.toLowerCase() === csHeading.toLowerCase()
                 );
-                if (!match) {
+                if (!match && this.data.chapters[cid].headingBlocks[sIdx]) {
                   match = this.data.chapters[cid].headingBlocks[sIdx];
                 }
+
+                const pts = Array.isArray(cs.points) && cs.points.length > 0
+                  ? cs.points.map((p) => (p || "").trim()).filter(Boolean)
+                  : cs.notes
+                  ? cs.notes.split("\n").map((p) => p.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+                  : [""];
+                const nts = cs.notes || (pts.filter(Boolean).length > 0 ? pts.join("\n") : "");
+
                 if (match) {
-                  if (Array.isArray(cs.points) && cs.points.length > 0) {
-                    match.points = cs.points;
+                  if (pts.filter(Boolean).length > 0) {
+                    match.points = pts;
                   }
-                  if (cs.notes && cs.notes.trim()) {
-                    match.notes = cs.notes;
+                  if (nts.trim().length > 0) {
+                    match.notes = nts;
                   }
+                  if (cs.verses) match.verses = cs.verses;
                 } else {
                   this.data.chapters[cid].headingBlocks.push({
-                    heading: cs.heading || "Section",
+                    heading: csHeading || "Section",
                     verses: cs.verses || "",
-                    notes: cs.notes || "",
-                    points: Array.isArray(cs.points) ? cs.points : []
+                    notes: nts,
+                    points: pts
                   });
                 }
               });
@@ -244,11 +261,11 @@ class BibleOutlineStudio {
 
     const synced = extracted.map((h, idx) => {
       const matchTitle = existing.find(
-        (eb) => eb.heading.toLowerCase() === h.heading.toLowerCase() && !eb.heading.includes("Overview")
+        (eb) => eb && eb.heading && h.heading && eb.heading.toLowerCase() === h.heading.toLowerCase() && !eb.heading.includes("Overview")
       );
       const matchIdx = existing[idx];
       const pts = matchTitle?.points || matchIdx?.points || [""];
-      const nts = matchTitle?.notes || matchIdx?.notes || "";
+      const nts = matchTitle?.notes || matchIdx?.notes || (Array.isArray(pts) ? pts.join("\n") : "");
       return {
         heading: h.heading,
         verses: h.verses,
@@ -256,6 +273,16 @@ class BibleOutlineStudio {
         points: pts
       };
     });
+
+    // Preserve custom headings not in ESV text
+    if (existing.length > extracted.length) {
+      for (let i = extracted.length; i < existing.length; i++) {
+        const extra = existing[i];
+        if (extra && extra.heading && !extracted.some((h) => h && h.heading.toLowerCase() === extra.heading.toLowerCase())) {
+          synced.push(extra);
+        }
+      }
+    }
 
     const currentRichHTML = this.data.chapters[chKey]?.chapterOutlineRichHTML;
     const currentStatus = this.data.chapters[chKey]?.status || "empty";

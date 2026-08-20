@@ -17,6 +17,7 @@ export function createInitialStorage() {
     for (let ch = 1; ch <= book.chapterCount; ch++) {
       const chKey = `${book.id}-${ch}`;
       chapters[chKey] = {
+        headingBlocks: [], // Array of heading blocks e.g. { heading, verses, points, notes }
         chapterTitle: "",
         sections: [], // Array of string section titles e.g. "v1-11: Call of Abram"
         notes: "",    // Notes of what happened
@@ -62,6 +63,8 @@ export function loadOutlineStorage() {
         const chKey = `${book.id}-${ch}`;
         if (!data.chapters[chKey]) {
           data.chapters[chKey] = defaultData.chapters[chKey];
+        } else if (!Array.isArray(data.chapters[chKey].headingBlocks)) {
+          data.chapters[chKey].headingBlocks = [];
         }
       }
     });

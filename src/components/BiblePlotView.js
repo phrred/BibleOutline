@@ -12,7 +12,16 @@ export function renderBiblePlotView({ selectedEraId, onSelectEra, onSelectBook, 
       totalCh += b.chapterCount;
       for (let c = 1; c <= b.chapterCount; c++) {
         const chData = data.chapters[`${b.id}-${c}`];
-        if (chData && (chData.status === "completed" || chData.notes.trim() || chData.chapterTitle.trim() || chData.sections.length > 0)) {
+        const hasHeadingContent =
+          Array.isArray(chData?.headingBlocks) &&
+          chData.headingBlocks.some(
+            (bk) =>
+              (bk.notes && bk.notes.trim().length > 0) ||
+              (Array.isArray(bk.points) && bk.points.some((p) => p && p.trim().length > 0))
+          );
+        const hasLegacyContent = Boolean((chData?.notes || "").trim() || (chData?.chapterTitle || "").trim() || (chData?.sections || []).length > 0);
+        const hasTakeaway = Boolean((chData?.takeaway || "").trim());
+        if (chData && (chData.status === "completed" || hasHeadingContent || hasLegacyContent || hasTakeaway)) {
           completedCh++;
         }
       }
