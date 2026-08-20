@@ -525,6 +525,14 @@ def main():
         with open(args.event_path, 'r', encoding='utf-8') as f:
             event_json = json.load(f)
 
+            # Skip comments from bots to prevent recursive loops
+            sender = event_json.get("sender", {}).get("login", "")
+            comment_user = event_json.get("comment", {}).get("user", {}).get("login", "")
+            review_user = event_json.get("review", {}).get("user", {}).get("login", "")
+            if sender.endswith("[bot]") or comment_user.endswith("[bot]") or review_user.endswith("[bot]"):
+                print(f"🤖 Ignoring bot event from {sender or comment_user or review_user}.")
+                return
+
             # Check if this is an issue_comment on a PR
             if "comment" in event_json and "issue" in event_json and "pull_request" in event_json["issue"]:
                 pr_num = event_json["issue"].get("number", 0)
@@ -545,6 +553,10 @@ def main():
                 return
             elif "issue" in event_json:
                 issue = event_json.get("issue", {})
+                labels = [l.get("name") if isinstance(l, dict) else str(l) for l in issue.get("labels", [])]
+                if "question-flag" not in labels:
+                    print("ℹ️ Issue is not labeled 'question-flag'. Skipping.")
+                    return
                 issue_number = issue.get("number", 0)
                 body = issue.get("body", "")
                 flag_data = parse_metadata_from_body(body)
