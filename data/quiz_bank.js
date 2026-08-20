@@ -6017,21 +6017,6 @@ export const CURATED_QUESTION_BANK = [
     "genre": "Gospels"
   },
   {
-    "id": "nt_q45",
-    "type": "facts",
-    "prompt": "Who was the archangel that visited Mary to announce the birth of Jesus?",
-    "bookId": "LUK",
-    "chapterNum": 1,
-    "acceptedAnswers": [
-      "Gabriel",
-      "Angel Gabriel"
-    ],
-    "displayAnswer": "Gabriel",
-    "explanation": "Luke 1:26 tells that the angel Gabriel was sent from God to a city of Galilee named Nazareth.",
-    "scope": "NT",
-    "genre": "Gospels"
-  },
-  {
     "id": "nt_q46",
     "type": "facts",
     "prompt": "Who was the Roman Emperor who ordered the census at the time of Jesus' birth?",
