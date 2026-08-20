@@ -21,6 +21,7 @@ class UnitTester:
             ("Bible Catalog Integrity (66 Books, 1189 Chapters, 8 Eras)", self.test_catalog_integrity),
             ("ESV Parser & Heading Extraction", self.test_esv_parser),
             ("Diagnostic Quiz Engine & BMPI Matching", self.test_quiz_engine),
+            ("GFC 100-Question Assessment & Bank Integrity", self.test_gfc_quiz_bank),
             ("Storage & Option A Subcollection Serialization", self.test_storage_serialization),
             ("Deep Merge & Local Storage Scaffolding", self.test_storage_scaffolding),
             ("Markdown Exporter Integrity", self.test_markdown_export)
@@ -127,6 +128,34 @@ class UnitTester:
         assert r.get("scorecardTotal") == 10, "Scorecard total questions mismatch"
         assert r.get("hasGenreBreakdown") == True, "Scorecard genre breakdown missing"
         assert r.get("hasTestamentBreakdown") == True, "Scorecard testament breakdown missing"
+
+    def test_gfc_quiz_bank(self):
+        js = """
+        (() => {
+            const gfcPool = CURATED_QUESTION_BANK.filter(q => q.id.startsWith("gfc_"));
+            const dedicatedBank = typeof GFC_TEST_100_BANK !== "undefined" ? GFC_TEST_100_BANK : [];
+            const gfcSession = new DiagnosticSession({ scope: 'GFC', questionCount: 100 });
+            
+            // Test evaluating specific GFC question
+            const qActs = gfcPool.find(q => q.id === "gfc_who_1");
+            const evalLuke = qActs ? evaluateAnswer(qActs, "Luke").isCorrect : false;
+            const evalWrong = qActs ? evaluateAnswer(qActs, "Barnabas").isCorrect : true;
+
+            return {
+                gfcCount: gfcPool.length,
+                dedicatedCount: dedicatedBank.length,
+                sessionCount: gfcSession.questions.length,
+                evalLuke,
+                evalWrong
+            };
+        })()
+        """
+        r = self.eval_js(js)
+        assert r.get("gfcCount") == 100, f"Expected 100 GFC questions in curated bank, got {r.get('gfcCount')}"
+        assert r.get("dedicatedCount") == 100, f"Expected 100 GFC questions in GFC_TEST_100_BANK, got {r.get('dedicatedCount')}"
+        assert r.get("sessionCount") == 100, f"Expected 100 questions in GFC session, got {r.get('sessionCount')}"
+        assert r.get("evalLuke") == True, "Expected 'Luke' to be evaluated as correct for Acts authorship"
+        assert r.get("evalWrong") == False, "Expected 'Barnabas' to be evaluated as incorrect for Acts authorship"
 
     def test_storage_serialization(self):
         js = """

@@ -5532,14 +5532,1229 @@ const CURATED_QUESTION_BANK = [
     explanation: "Revelation 3:14–22 was written to the lukewarm church in Laodicea.",
     scope: "NT",
     genre: "Apocalyptic"
-  }
+  },
+
+  // =========================================================================
+  // GFC BIBLE KNOWLEDGE TEST BANK (100 CURATED QUESTIONS)
+  // =========================================================================
+  {
+    id: "gfc_who_1",
+    type: "facts",
+    prompt: "Who wrote the Book of Acts?",
+    bookId: "ACT",
+    chapterNum: 1,
+    acceptedAnswers: ["Luke", "Saint Luke", "St. Luke", "Dr. Luke", "Doctor Luke"],
+    displayAnswer: "Luke",
+    explanation: "Luke, the physician and companion of Paul, wrote both the Gospel of Luke and the Acts of the Apostles (Acts 1:1, Luke 1:1\u20134).",
+    scope: "NT",
+    genre: "Acts (History)"
+  },
+  {
+    id: "gfc_who_2",
+    type: "facts",
+    prompt: "Who appeared with Jesus on the Mount of Transfiguration?",
+    bookId: "MAT",
+    chapterNum: 17,
+    acceptedAnswers: ["Moses and Elijah", "Moses & Elijah", "Elijah and Moses", "Elijah & Moses", "Moses, Elijah"],
+    displayAnswer: "Moses and Elijah",
+    explanation: "Matthew 17:3 records Moses (representing the Law) and Elijah (representing the Prophets) talking with the transfigured Christ.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_who_3",
+    type: "facts",
+    prompt: "Who directed the rebuilding of the walls of Jerusalem after the Babylonian exile?",
+    bookId: "NEH",
+    chapterNum: 2,
+    acceptedAnswers: ["Nehemiah", "Nehemiah the governor", "Nehemiah the cupbearer"],
+    displayAnswer: "Nehemiah",
+    explanation: "Nehemiah served as cupbearer to Artaxerxes and governor of Judah, leading the rebuilding of Jerusalem's walls in 52 days (Nehemiah 6:15).",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_who_4",
+    type: "facts",
+    prompt: "Which judge killed a thousand Philistines with a donkey's jawbone?",
+    bookId: "JDG",
+    chapterNum: 15,
+    acceptedAnswers: ["Samson"],
+    displayAnswer: "Samson",
+    explanation: "Judges 15:15: Samson struck down 1,000 Philistines with a fresh jawbone of a donkey at Lehi.",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_who_5",
+    type: "facts",
+    prompt: "Who succeeded Moses and led the Israelites into the Promised Land across the Jordan River?",
+    bookId: "JOS",
+    chapterNum: 1,
+    acceptedAnswers: ["Joshua", "Joshua son of Nun"],
+    displayAnswer: "Joshua",
+    explanation: "Joshua 1: Moses' assistant whom God commissioned: 'Be strong and courageous... for you shall cause this people to inherit the land.'",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_who_6",
+    type: "facts",
+    prompt: "Which apostle was exiled to the island of Patmos where he received the apocalyptic vision of Revelation?",
+    bookId: "REV",
+    chapterNum: 1,
+    acceptedAnswers: ["John", "Apostle John", "Saint John", "St. John"],
+    displayAnswer: "John (Apostle John)",
+    explanation: "Revelation 1:9: 'I, John, your brother and partner in the tribulation... was on the island called Patmos on account of the word of God.'",
+    scope: "NT",
+    genre: "Apocalyptic"
+  },
+  {
+    id: "gfc_who_7",
+    type: "facts",
+    prompt: "Which pagan prophet was hired by Balak king of Moab to curse Israel, but God compelled him to speak only blessings?",
+    bookId: "NUM",
+    chapterNum: 22,
+    acceptedAnswers: ["Balaam", "Balaam son of Beor"],
+    displayAnswer: "Balaam",
+    explanation: "Numbers 22\u201324: Balaam could only speak what God commanded, prophesying a star and scepter out of Jacob (Numbers 24:17).",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_who_8",
+    type: "facts",
+    prompt: "Who became the first king of the northern 10 tribes of Israel when the united monarchy divided?",
+    bookId: "1KI",
+    chapterNum: 12,
+    acceptedAnswers: ["Jeroboam", "Jeroboam I", "Jeroboam son of Nebat"],
+    displayAnswer: "Jeroboam (son of Nebat)",
+    explanation: "1 Kings 12: Jeroboam led the northern rebellion against Rehoboam and set up golden calves at Bethel and Dan.",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_who_9",
+    type: "facts",
+    prompt: "Which wise and discerning woman intervened to rescue David and his men from shedding blood after her foolish husband Nabal insulted them?",
+    bookId: "1SA",
+    chapterNum: 25,
+    acceptedAnswers: ["Abigail"],
+    displayAnswer: "Abigail",
+    explanation: "1 Samuel 25: Abigail brought provisions to David, restrained his vengeance, and later became David's wife after Nabal died.",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_who_10",
+    type: "facts",
+    prompt: "Which apostle was publicly rebuked by Paul in Antioch for withdrawing from eating with Gentiles out of fear of the circumcision party?",
+    bookId: "GAL",
+    chapterNum: 2,
+    acceptedAnswers: ["Peter", "Cephas", "Simon Peter"],
+    displayAnswer: "Peter (Cephas)",
+    explanation: "Galatians 2:11\u201314: Paul opposed Peter to his face because his conduct was not in step with the truth of the gospel.",
+    scope: "NT",
+    genre: "Pauline Epistles"
+  },
+  {
+    id: "gfc_geo_1",
+    type: "facts",
+    prompt: "On what mountain did God meet with Moses and give him the Ten Commandments?",
+    bookId: "EXO",
+    chapterNum: 19,
+    acceptedAnswers: ["Mount Sinai", "Sinai", "Mt. Sinai", "Mt Sinai", "Mount Horeb", "Horeb"],
+    displayAnswer: "Mount Sinai (Horeb)",
+    explanation: "Exodus 19\u201320: God descended on Mount Sinai in fire and smoke and audibly proclaimed the Ten Commandments.",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_geo_2",
+    type: "facts",
+    prompt: "In what major Greco-Roman city did Demetrius the silversmith stir up a massive theater riot against Paul over Artemis worship?",
+    bookId: "ACT",
+    chapterNum: 19,
+    acceptedAnswers: ["Ephesus"],
+    displayAnswer: "Ephesus",
+    explanation: "Acts 19:23\u201341: The theater riot in Ephesus where the mob shouted 'Great is Artemis of the Ephesians!' for two hours.",
+    scope: "NT",
+    genre: "Acts (History)"
+  },
+  {
+    id: "gfc_geo_3",
+    type: "facts",
+    prompt: "In what Syrian city were the disciples of Jesus first called 'Christians'?",
+    bookId: "ACT",
+    chapterNum: 11,
+    acceptedAnswers: ["Antioch", "Antioch of Syria", "Syrian Antioch"],
+    displayAnswer: "Antioch",
+    explanation: "Acts 11:26: Barnabas and Saul taught a great many people in Antioch, where believers were first given the name Christians.",
+    scope: "NT",
+    genre: "Acts (History)"
+  },
+  {
+    id: "gfc_geo_4",
+    type: "facts",
+    prompt: "In which river was Jesus baptized by John the Baptist?",
+    bookId: "MAT",
+    chapterNum: 3,
+    acceptedAnswers: ["Jordan", "Jordan River", "River Jordan", "The Jordan River", "The Jordan"],
+    displayAnswer: "Jordan River",
+    explanation: "Matthew 3:13: Jesus came from Galilee to the Jordan to be baptized by John.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_geo_5",
+    type: "facts",
+    prompt: "What fortified Canaanite city saw its walls collapse after the Israelites marched around it for seven days?",
+    bookId: "JOS",
+    chapterNum: 6,
+    acceptedAnswers: ["Jericho"],
+    displayAnswer: "Jericho",
+    explanation: "Joshua 6: The conquest of Jericho where the priests blew ram's horns and the walls fell flat.",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_geo_6",
+    type: "facts",
+    prompt: "In what capital city on Mount Moriah did King Solomon build the glorious Temple of the Lord?",
+    bookId: "1KI",
+    chapterNum: 6,
+    acceptedAnswers: ["Jerusalem", "Mount Moriah", "Zion"],
+    displayAnswer: "Jerusalem",
+    explanation: "1 Kings 6 & 2 Chronicles 3:1: Solomon began to build the house of the Lord in Jerusalem on Mount Moriah.",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_geo_7",
+    type: "facts",
+    prompt: "To what great Assyrian capital city was the prophet Jonah commanded to preach repentance before fleeing toward Tarshish?",
+    bookId: "JON",
+    chapterNum: 1,
+    acceptedAnswers: ["Nineveh"],
+    displayAnswer: "Nineveh",
+    explanation: "Jonah 1:2: 'Arise, go to Nineveh, that great city, and call out against it, for their evil has come up before me.'",
+    scope: "OT",
+    genre: "Minor Prophets"
+  },
+  {
+    id: "gfc_geo_8",
+    type: "facts",
+    prompt: "Near what Syrian city was Saul blinded by a blazing light from heaven and confronted by Jesus on the road?",
+    bookId: "ACT",
+    chapterNum: 9,
+    acceptedAnswers: ["Damascus"],
+    displayAnswer: "Damascus",
+    explanation: "Acts 9:3\u20134: As Saul drew near to Damascus, suddenly a light from heaven shone around him and he fell to the ground.",
+    scope: "NT",
+    genre: "Acts (History)"
+  },
+  {
+    id: "gfc_geo_9",
+    type: "facts",
+    prompt: "In what garden on the Mount of Olives was Jesus betrayed by Judas and arrested after agonizing in prayer?",
+    bookId: "MAT",
+    chapterNum: 26,
+    acceptedAnswers: ["Gethsemane", "Garden of Gethsemane"],
+    displayAnswer: "Gethsemane",
+    explanation: "Matthew 26:36: Jesus came with them to a place called Gethsemane and prayed: 'Not as I will, but as you will.'",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_geo_10",
+    type: "facts",
+    prompt: "In what Judean village, the ancestral town of Jesse, was King David born and later anointed by Samuel?",
+    bookId: "1SA",
+    chapterNum: 16,
+    acceptedAnswers: ["Bethlehem", "Bethlehem Ephrathah", "City of David"],
+    displayAnswer: "Bethlehem",
+    explanation: "1 Samuel 16:1: Samuel traveled to Bethlehem to anoint David from among Jesse's sons.",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_book_1",
+    type: "book_id",
+    prompt: "In what book does Peter visit the Roman centurion Cornelius in Caesarea and declare that God shows no partiality between Jews and Gentiles?",
+    bookId: "ACT",
+    chapterNum: 10,
+    acceptedAnswers: ["Acts", "Acts of the Apostles", "Act"],
+    displayAnswer: "Acts (Acts 10)",
+    explanation: "Acts 10 recounts Peter's rooftop vision and the Holy Spirit falling upon Cornelius's Gentile household.",
+    scope: "NT",
+    genre: "Acts (History)"
+  },
+  {
+    id: "gfc_book_2",
+    type: "book_id",
+    prompt: "In what short letter does Paul urge a Christian master to receive back his runaway slave Onesimus 'no longer as a bondservant but... as a beloved brother'?",
+    bookId: "PHM",
+    chapterNum: 1,
+    acceptedAnswers: ["Philemon", "Philem", "Phlm"],
+    displayAnswer: "Philemon",
+    explanation: "Philemon is Paul's personal epistle appealing for reconciliation and Christian brotherhood between Philemon and Onesimus.",
+    scope: "NT",
+    genre: "Pauline Epistles"
+  },
+  {
+    id: "gfc_book_3",
+    type: "book_id",
+    prompt: "In what book does Aaron fashion a golden calf from melted earrings while Moses is up on the mountain receiving the Law?",
+    bookId: "EXO",
+    chapterNum: 32,
+    acceptedAnswers: ["Exodus", "Exod", "Exo"],
+    displayAnswer: "Exodus (Exodus 32)",
+    explanation: "Exodus 32 chronicles Israel's rapid idolatry at Mount Sinai and Moses shattering the stone tablets.",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_book_4",
+    type: "book_id",
+    prompt: "In what book is the narrative of Joseph being sold into Egyptian slavery by his brothers and later declaring 'God meant it for good'?",
+    bookId: "GEN",
+    chapterNum: 37,
+    acceptedAnswers: ["Genesis", "Gen", "Ge"],
+    displayAnswer: "Genesis (Genesis 37\u201350)",
+    explanation: "Genesis 37\u201350 details Joseph's coat of many colors, Potiphar's house, prison, and rise to prime minister of Egypt.",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_book_5",
+    type: "book_id",
+    prompt: "In what book do twelve spies explore the land of Canaan, with only Joshua and Caleb trusting the Lord to give them victory?",
+    bookId: "NUM",
+    chapterNum: 13,
+    acceptedAnswers: ["Numbers", "Num", "Nu"],
+    displayAnswer: "Numbers (Numbers 13\u201314)",
+    explanation: "Numbers 13\u201314 records the 10 fearful spies and the resulting 40-year wandering in the wilderness.",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_book_6",
+    type: "book_id",
+    prompt: "In what prophetic book is God's coming judgment on Judah portrayed as a devastating, unstoppable invasion of locusts?",
+    bookId: "JOL",
+    chapterNum: 1,
+    acceptedAnswers: ["Joel", "Jol", "Joe"],
+    displayAnswer: "Joel (Joel 1\u20132)",
+    explanation: "Joel 1\u20132 uses the locust plague as a warning of the Day of the Lord, followed by the promise of the Spirit in Joel 2:28.",
+    scope: "OT",
+    genre: "Minor Prophets"
+  },
+  {
+    id: "gfc_book_7",
+    type: "book_id",
+    prompt: "In what epistle does the Apostle Paul describe the full Armor of God to withstand the schemes of the devil?",
+    bookId: "EPH",
+    chapterNum: 6,
+    acceptedAnswers: ["Ephesians", "Eph"],
+    displayAnswer: "Ephesians (Ephesians 6)",
+    explanation: "Ephesians 6:10\u201320 describes the belt of truth, breastplate of righteousness, shield of faith, helmet of salvation, and sword of the Spirit.",
+    scope: "NT",
+    genre: "Pauline Epistles"
+  },
+  {
+    id: "gfc_book_8",
+    type: "book_id",
+    prompt: "In what Old Testament book do the exact prophetic words appear: 'My God, my God, why have you forsaken me? Why are you so far from saving me...'?",
+    bookId: "PSA",
+    chapterNum: 22,
+    acceptedAnswers: ["Psalms", "Psalm", "Psalm 22", "Psalms 22", "Ps 22"],
+    displayAnswer: "Psalms (Psalm 22:1)",
+    explanation: "Psalm 22:1 is David's prophetic lament of crucifixion, quoted by Jesus on the cross (Matthew 27:46).",
+    scope: "OT",
+    genre: "Poetry/Wisdom"
+  },
+  {
+    id: "gfc_book_9",
+    type: "book_id",
+    prompt: "In what book is a prophet commanded by God to marry an unfaithful woman named Gomer as a living object lesson of God's redeeming covenant love?",
+    bookId: "HOS",
+    chapterNum: 1,
+    acceptedAnswers: ["Hosea", "Hos"],
+    displayAnswer: "Hosea (Hosea 1\u20133)",
+    explanation: "Hosea 1\u20133 portrays God's relentless, forgiving love for spiritual adulterers.",
+    scope: "OT",
+    genre: "Minor Prophets"
+  },
+  {
+    id: "gfc_book_10",
+    type: "book_id",
+    prompt: "In what Gospel do the Magi from the East follow a miraculous star to Bethlehem and present gifts of gold, frankincense, and myrrh?",
+    bookId: "MAT",
+    chapterNum: 2,
+    acceptedAnswers: ["Matthew", "Matt", "Gospel of Matthew"],
+    displayAnswer: "Matthew (Matthew 2)",
+    explanation: "Matthew 2:1\u201312 uniquely records the visit and worship of the wise men.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_book_11",
+    type: "book_id",
+    prompt: "In what book does the famous passage appear: 'For everything there is a season, and a time for every matter under heaven: a time to be born, and a time to die...'?",
+    bookId: "ECC",
+    chapterNum: 3,
+    acceptedAnswers: ["Ecclesiastes", "Eccl", "Ecc"],
+    displayAnswer: "Ecclesiastes (Ecclesiastes 3)",
+    explanation: "Ecclesiastes 3:1\u20138 contains the famous poem on the appointed times and sovereign seasons of life.",
+    scope: "OT",
+    genre: "Poetry/Wisdom"
+  },
+  {
+    id: "gfc_book_12",
+    type: "book_id",
+    prompt: "In what poetic book is the repeated romantic refrain found: 'I adjure you, O daughters of Jerusalem... that you not stir up or awaken love until it pleases'?",
+    bookId: "SNG",
+    chapterNum: 2,
+    acceptedAnswers: ["Song of Solomon", "Song of Songs", "Canticles", "Song"],
+    displayAnswer: "Song of Solomon (Song of Songs)",
+    explanation: "Song of Solomon 2:7, 3:5, 8:4 cautions against premature intimacy outside its covenant timing.",
+    scope: "OT",
+    genre: "Poetry/Wisdom"
+  },
+  {
+    id: "gfc_book_13",
+    type: "book_id",
+    prompt: "In what wisdom book does the passage appear: 'Wisdom has built her house; she has hewn her seven pillars. She has slaughtered her beasts; she has mixed her wine...'?",
+    bookId: "PRO",
+    chapterNum: 9,
+    acceptedAnswers: ["Proverbs", "Prov"],
+    displayAnswer: "Proverbs (Proverbs 9)",
+    explanation: "Proverbs 9:1\u20136 contrasts Lady Wisdom's banquet invitation with the destructive feast of Lady Folly.",
+    scope: "OT",
+    genre: "Poetry/Wisdom"
+  },
+  {
+    id: "gfc_book_14",
+    type: "book_id",
+    prompt: "In what prophetic book is the prophet lowered with ropes into a muddy, dark cistern where he sank into the mire because of his preaching?",
+    bookId: "JER",
+    chapterNum: 38,
+    acceptedAnswers: ["Jeremiah", "Jer"],
+    displayAnswer: "Jeremiah (Jeremiah 38)",
+    explanation: "Jeremiah 38:6: Jeremiah was cast into the cistern of Malchiah and later rescued by Ebed-melech the Ethiopian.",
+    scope: "OT",
+    genre: "Major Prophets"
+  },
+  {
+    id: "gfc_book_15",
+    type: "book_id",
+    prompt: "In what book is the Great Commandment commanded: 'You shall love the Lord your God with all your heart and with all your soul and with all your might'?",
+    bookId: "DEU",
+    chapterNum: 6,
+    acceptedAnswers: ["Deuteronomy", "Deut", "Deu"],
+    displayAnswer: "Deuteronomy (Deuteronomy 6:5)",
+    explanation: "Deuteronomy 6:4\u20135 is the centerpiece Shema, quoted by Jesus as the first and greatest commandment.",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_book_16",
+    type: "book_id",
+    prompt: "In what Gospel does Jesus converse with a Samaritan woman at Jacob's well in Sychar, offering her 'living water'?",
+    bookId: "JHN",
+    chapterNum: 4,
+    acceptedAnswers: ["John", "Jn", "Gospel of John"],
+    displayAnswer: "John (John 4)",
+    explanation: "John 4:1\u201342 records Jesus revealing Himself as the Messiah to the Samaritan woman.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_book_17",
+    type: "book_id",
+    prompt: "In what epistle does the universal verdict on human guilt appear: 'for all have sinned and fall short of the glory of God'?",
+    bookId: "ROM",
+    chapterNum: 3,
+    acceptedAnswers: ["Romans", "Rom"],
+    displayAnswer: "Romans (Romans 3:23)",
+    explanation: "Romans 3:23 summarizes the universal need for justification by God's free grace in Jesus Christ.",
+    scope: "NT",
+    genre: "Pauline Epistles"
+  },
+  {
+    id: "gfc_book_18",
+    type: "book_id",
+    prompt: "In what Gospel is the Parable of the Good Samaritan told by Jesus in response to the question 'And who is my neighbor?'?",
+    bookId: "LUK",
+    chapterNum: 10,
+    acceptedAnswers: ["Luke", "Luk", "Gospel of Luke"],
+    displayAnswer: "Luke (Luke 10)",
+    explanation: "Luke 10:25\u201337 uniquely preserves Jesus' famous parable of the merciful Samaritan.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_book_19",
+    type: "book_id",
+    prompt: "In what pastoral letter does Paul instruct: 'Do not rebuke an older man but encourage him as you would a father, younger men as brothers, older women as mothers, younger women as sisters, in all purity'?",
+    bookId: "1TI",
+    chapterNum: 5,
+    acceptedAnswers: ["1 Timothy", "1 Tim", "1Ti", "First Timothy"],
+    displayAnswer: "1 Timothy (1 Tim 5:1\u20132)",
+    explanation: "1 Timothy 5 gives pastoral guidelines for relationships within the household of God.",
+    scope: "NT",
+    genre: "Pauline Epistles"
+  },
+  {
+    id: "gfc_book_20",
+    type: "book_id",
+    prompt: "In what historical book does God establish His unconditional Davidic Covenant: 'And your house and your kingdom shall be made sure forever before me. Your throne shall be established forever'?",
+    bookId: "2SA",
+    chapterNum: 7,
+    acceptedAnswers: ["2 Samuel", "2 Sam", "2Sa", "Second Samuel"],
+    displayAnswer: "2 Samuel (2 Samuel 7)",
+    explanation: "2 Samuel 7:12\u201316 contains Nathan's prophecy of David's eternal royal dynasty, fulfilled in Christ.",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_loc_1",
+    type: "book_chapter",
+    prompt: "In what book and chapter does God audibly speak the Ten Commandments to Israel from Mount Sinai?",
+    bookId: "EXO",
+    chapterNum: 20,
+    acceptedAnswers: ["Exodus 20", "Exod 20", "Exo 20", "Ex 20"],
+    displayAnswer: "Exodus 20",
+    explanation: "Exodus 20 records the initial proclamation of the Decalogue (repeated in Deuteronomy 5).",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_loc_2",
+    type: "book_chapter",
+    prompt: "In what book and chapter is the foundational Call of Abram: 'Go from your country and your kindred and your father's house to the land that I will show you. And I will make of you a great nation...'?",
+    bookId: "GEN",
+    chapterNum: 12,
+    acceptedAnswers: ["Genesis 12", "Gen 12", "Ge 12"],
+    displayAnswer: "Genesis 12",
+    explanation: "Genesis 12:1\u20133 initiates the Abrahamic Covenant of land, seed, and global blessing.",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_loc_3",
+    type: "facts",
+    prompt: "Which three chapters in Matthew contain the complete Sermon on the Mount (Beatitudes, Lord's Prayer, Golden Rule)?",
+    bookId: "MAT",
+    chapterNum: 5,
+    acceptedAnswers: ["Matthew 5-7", "Matthew 5, 6, 7", "Matt 5-7", "5-7", "Matthew 5 to 7", "5, 6, 7"],
+    displayAnswer: "Matthew 5\u20137",
+    explanation: "Matthew chapters 5, 6, and 7 comprise the inaugural discourse of Jesus on Kingdom ethics and discipleship.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_loc_4",
+    type: "book_chapter",
+    prompt: "In what book and chapter does the risen Christ issue the Great Commission: 'Go therefore and make disciples of all nations, baptizing them... and teaching them to observe all that I have commanded you'?",
+    bookId: "MAT",
+    chapterNum: 28,
+    acceptedAnswers: ["Matthew 28", "Matt 28", "Mt 28"],
+    displayAnswer: "Matthew 28",
+    explanation: "Matthew 28:18\u201320 concludes Matthew's Gospel with Christ's universal commission to His church.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_loc_5",
+    type: "book_chapter",
+    prompt: "In what book and chapter is the Holy Spirit poured out on the Day of Pentecost with a rushing wind and tongues as of fire?",
+    bookId: "ACT",
+    chapterNum: 2,
+    acceptedAnswers: ["Acts 2", "Act 2"],
+    displayAnswer: "Acts 2",
+    explanation: "Acts 2:1\u20134 describes the birth of the New Testament church at Pentecost and Peter's sermon.",
+    scope: "NT",
+    genre: "Acts (History)"
+  },
+  {
+    id: "gfc_loc_6",
+    type: "book_chapter",
+    prompt: "In what book and chapter does Paul contrast the Two Adams: 'For as by the one man's disobedience the many were made sinners, so by the one man's obedience the many will be made righteous'?",
+    bookId: "ROM",
+    chapterNum: 5,
+    acceptedAnswers: ["Romans 5", "Rom 5", "Ro 5", "Romans 5:19"],
+    displayAnswer: "Romans 5",
+    explanation: "Romans 5:12\u201321 develops the profound theological parallel and contrast between Adam and Christ.",
+    scope: "NT",
+    genre: "Pauline Epistles"
+  },
+  {
+    id: "gfc_loc_7",
+    type: "book_chapter",
+    prompt: "In what book and chapter does the famous 'Love Chapter' conclude: 'So now faith, hope, and love abide, these three; but the greatest of these is love'?",
+    bookId: "1CO",
+    chapterNum: 13,
+    acceptedAnswers: ["1 Corinthians 13", "1 Cor 13", "1Co 13", "1 Corinthians 13:13"],
+    displayAnswer: "1 Corinthians 13",
+    explanation: "1 Corinthians 13 defines the character and eternal supremacy of Christian love (agape).",
+    scope: "NT",
+    genre: "Pauline Epistles"
+  },
+  {
+    id: "gfc_loc_8",
+    type: "book_chapter",
+    prompt: "In what book and chapter does Jesus tell Nicodemus: 'Truly, truly, I say to you, unless one is born again he cannot see the kingdom of God'?",
+    bookId: "JHN",
+    chapterNum: 3,
+    acceptedAnswers: ["John 3", "Jn 3", "John 3:3"],
+    displayAnswer: "John 3",
+    explanation: "John 3:1\u201321 records Jesus' nighttime discourse on spiritual regeneration, including John 3:16.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_loc_9",
+    type: "book_chapter",
+    prompt: "In what book and chapter is the ancient serpent (Satan) bound and locked in the bottomless pit for a thousand years?",
+    bookId: "REV",
+    chapterNum: 20,
+    acceptedAnswers: ["Revelation 20", "Rev 20", "Revelation 20:2"],
+    displayAnswer: "Revelation 20",
+    explanation: "Revelation 20:1\u20133 describes the millennial binding of Satan followed by the Great White Throne Judgment.",
+    scope: "NT",
+    genre: "Apocalyptic"
+  },
+  {
+    id: "gfc_loc_10",
+    type: "book_chapter",
+    prompt: "In what book and chapter are Shadrach, Meshach, and Abednego thrown into the blazing fiery furnace and delivered unhurt alongside a fourth figure?",
+    bookId: "DAN",
+    chapterNum: 3,
+    acceptedAnswers: ["Daniel 3", "Dan 3", "Da 3"],
+    displayAnswer: "Daniel 3",
+    explanation: "Daniel 3 records the Hebrew youths refusing to bow to Nebuchadnezzar's golden idol and God protecting them in the flames.",
+    scope: "OT",
+    genre: "Major Prophets"
+  },
+  {
+    id: "gfc_top_1",
+    type: "facts",
+    prompt: "What is the primary narrative event recorded in Genesis 3?",
+    bookId: "GEN",
+    chapterNum: 3,
+    acceptedAnswers: ["The Fall", "The Fall of Man", "The Fall of Humanity", "Fall of Man", "Original Sin", "Temptation and Fall"],
+    displayAnswer: "The Fall of Man (Original Sin & First Gospel Promise)",
+    explanation: "Genesis 3 recounts the serpent's deception, the disobedience of Adam and Eve, the curse, and the Protoevangelium (Gen 3:15).",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_top_2",
+    type: "facts",
+    prompt: "What is the central prophetic theme of Isaiah 53?",
+    bookId: "ISA",
+    chapterNum: 53,
+    acceptedAnswers: ["The Suffering Servant", "Suffering Servant", "Substitutionary Atonement", "Messiah suffering", "Christ suffering"],
+    displayAnswer: "The Suffering Servant (Substitutionary Atonement)",
+    explanation: "Isaiah 53 foretells the Messiah pierced for our transgressions and bearing our iniquities.",
+    scope: "OT",
+    genre: "Major Prophets"
+  },
+  {
+    id: "gfc_top_3",
+    type: "facts",
+    prompt: "What is the central doctrinal theme of Romans 4?",
+    bookId: "ROM",
+    chapterNum: 4,
+    acceptedAnswers: ["Justification by Faith", "Abraham's faith counted as righteousness", "Faith of Abraham", "Abraham justified by faith"],
+    displayAnswer: "Justification by Faith (Abraham's faith counted as righteousness)",
+    explanation: "Romans 4 uses Abraham to prove that righteousness is credited through faith apart from works of the Law.",
+    scope: "NT",
+    genre: "Pauline Epistles"
+  },
+  {
+    id: "gfc_top_4",
+    type: "facts",
+    prompt: "What is the central subject of Psalm 119 (the longest chapter in the Bible)?",
+    bookId: "PSA",
+    chapterNum: 119,
+    acceptedAnswers: ["The Word of God", "God's Word", "The Law of the Lord", "Worth of God's Word", "Scripture", "The Law"],
+    displayAnswer: "The Word of God (Law, Testimonies, Precepts, and Statutes)",
+    explanation: "Psalm 119 contains 176 verses meditating on the glory, wisdom, and sufficiency of God's Word.",
+    scope: "OT",
+    genre: "Poetry/Wisdom"
+  },
+  {
+    id: "gfc_top_5",
+    type: "facts",
+    prompt: "What famous title is commonly given to Hebrews 11 due to its survey of Old Testament heroes from Abel to the prophets?",
+    bookId: "HEB",
+    chapterNum: 11,
+    acceptedAnswers: ["Hall of Faith", "Faith Hall of Fame", "The Faith Chapter", "Heroes of Faith"],
+    displayAnswer: "The Hall of Faith (Faith's Hall of Fame)",
+    explanation: "Hebrews 11 defines faith and chronicles the persevering trust of Old Testament saints.",
+    scope: "NT",
+    genre: "General Epistles"
+  },
+  {
+    id: "gfc_top_6",
+    type: "facts",
+    prompt: "What major historical ecclesiastical gathering is convened in Acts 15 to settle Gentile circumcision and salvation?",
+    bookId: "ACT",
+    chapterNum: 15,
+    acceptedAnswers: ["The Jerusalem Council", "Jerusalem Council", "Council of Jerusalem"],
+    displayAnswer: "The Jerusalem Council",
+    explanation: "Acts 15 affirmed that Gentiles are saved through the grace of the Lord Jesus Christ without needing circumcision.",
+    scope: "NT",
+    genre: "Acts (History)"
+  },
+  {
+    id: "gfc_top_7",
+    type: "facts",
+    prompt: "What is the major event of John 17, where Jesus prays for Himself, His disciples, and all future believers?",
+    bookId: "JHN",
+    chapterNum: 17,
+    acceptedAnswers: ["High Priestly Prayer", "Jesus's High Priestly Prayer", "The Farewell Prayer", "Priestly Prayer", "Jesus' prayer"],
+    displayAnswer: "Jesus' High Priestly Prayer",
+    explanation: "John 17 records Jesus praying for His disciples to be kept from the evil one and sanctified in the truth.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_top_8",
+    type: "facts",
+    prompt: "What grand climactic reality is revealed in Revelation 21 when the holy city descends out of heaven from God?",
+    bookId: "REV",
+    chapterNum: 21,
+    acceptedAnswers: ["New Heaven and New Earth", "New Jerusalem", "The New Creation", "New Heaven and Earth"],
+    displayAnswer: "The New Heaven, New Earth, and New Jerusalem",
+    explanation: "Revelation 21 depicts God dwelling with humanity in the new creation where death and pain are no more.",
+    scope: "NT",
+    genre: "Apocalyptic"
+  },
+  {
+    id: "gfc_top_9",
+    type: "facts",
+    prompt: "What famous trilogy of parables does Jesus tell in Luke 15 to illustrate God's joy over repentant sinners?",
+    bookId: "LUK",
+    chapterNum: 15,
+    acceptedAnswers: ["Parables of the Lost", "Lost Sheep, Lost Coin, Prodigal Son", "The Lost Sheep", "Prodigal Son", "Parables of Jesus"],
+    displayAnswer: "The Parables of the Lost Sheep, Lost Coin, and Prodigal Son",
+    explanation: "Luke 15 shows the seeking shepherd, the searching woman, and the running father celebrating the lost being found.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_top_10",
+    type: "facts",
+    prompt: "What miraculous revelation of God's presence and holy covenant name occurs in Exodus 3?",
+    bookId: "EXO",
+    chapterNum: 3,
+    acceptedAnswers: ["The Burning Bush", "Burning Bush", "Call of Moses"],
+    displayAnswer: "The Burning Bush (God reveals His name 'I AM WHO I AM' to Moses)",
+    explanation: "Exodus 3 records God appearing to Moses in a bush that burned without being consumed.",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_quote_1",
+    type: "facts",
+    prompt: "Who resolved: 'Go, gather all the Jews to be found in Susa, and hold a fast on my behalf... Then I will go to the king, though it is against the law, and if I perish, I perish'?",
+    bookId: "EST",
+    chapterNum: 4,
+    acceptedAnswers: ["Esther", "Queen Esther", "Hadassah"],
+    displayAnswer: "Queen Esther",
+    explanation: "Esther 4:16: Esther's courageous commitment to risk her life to plead before King Ahasuerus for the Jewish people.",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_quote_2",
+    type: "facts",
+    prompt: "Who asked Jesus the cynical question 'What is truth?' during His trial in the Praetorium?",
+    bookId: "JHN",
+    chapterNum: 18,
+    acceptedAnswers: ["Pontius Pilate", "Pilate"],
+    displayAnswer: "Pontius Pilate",
+    explanation: "John 18:38: The Roman governor's dismissive remark after Jesus declared He came to bear witness to the truth.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_quote_3",
+    type: "facts",
+    prompt: "Who laughed to herself in her tent, saying: 'After I am worn out, and my lord is old, shall I have pleasure?... Shall I indeed bear a child, now that I am old?'?",
+    bookId: "GEN",
+    chapterNum: 18,
+    acceptedAnswers: ["Sarah", "Sarai"],
+    displayAnswer: "Sarah",
+    explanation: "Genesis 18:12\u201314: Sarah reacted in disbelief before giving birth to Isaac as God promised.",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_quote_4",
+    type: "facts",
+    prompt: "Who lamented: 'O Jerusalem, Jerusalem, the city that kills the prophets and stones those who are sent to it! How often would I have gathered your children together as a hen gathers her brood under her wings, and you were not willing!'?",
+    bookId: "MAT",
+    chapterNum: 23,
+    acceptedAnswers: ["Jesus", "Jesus Christ", "Christ", "The Lord"],
+    displayAnswer: "Jesus Christ",
+    explanation: "Matthew 23:37 & Luke 13:34: Jesus weeping over the spiritual blindness of Jerusalem.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_quote_5",
+    type: "facts",
+    prompt: "Who requested of Jesus: 'Say that these two sons of mine are to sit, one at your right hand and one at your left, in your kingdom'?",
+    bookId: "MAT",
+    chapterNum: 20,
+    acceptedAnswers: ["The mother of James and John", "Mother of James and John", "Mother of Zebedee's sons", "Salome", "Zebedee's wife"],
+    displayAnswer: "The mother of James and John (Zebedee's sons / Salome)",
+    explanation: "Matthew 20:20\u201321: Prompting Jesus to teach that greatness in the Kingdom is found in serving others.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_quote_6",
+    type: "facts",
+    prompt: "Who asked his father on the way up Mount Moriah: 'Behold, the fire and the wood, but where is the lamb for a burnt offering?'?",
+    bookId: "GEN",
+    chapterNum: 22,
+    acceptedAnswers: ["Isaac"],
+    displayAnswer: "Isaac",
+    explanation: "Genesis 22:7: Abraham answered: 'God will provide for himself the lamb for a burnt offering, my son.'",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_quote_7",
+    type: "facts",
+    prompt: "Who said of Jesus: 'He must increase, but I must decrease'?",
+    bookId: "JHN",
+    chapterNum: 3,
+    acceptedAnswers: ["John the Baptist", "John Baptist", "John the Immerser"],
+    displayAnswer: "John the Baptist",
+    explanation: "John 3:30: John the Baptist declaring that his joy was fulfilled in exalting the Messiah.",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_quote_8",
+    type: "facts",
+    prompt: "Who taunted young David in the Valley of Elah: 'Am I a dog, that you come to me with sticks?' and cursed David by his gods?",
+    bookId: "1SA",
+    chapterNum: 17,
+    acceptedAnswers: ["Goliath", "Goliath of Gath", "The Philistine"],
+    displayAnswer: "Goliath of Gath",
+    explanation: "1 Samuel 17:43: Goliath's arrogant boast before David struck him with a sling and a stone.",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_quote_9",
+    type: "facts",
+    prompt: "Who declared in the midst of agonizing suffering: 'For I know that my Redeemer lives, and at the last he will stand upon the earth. And after my skin has been thus destroyed, yet in my flesh I shall see God'?",
+    bookId: "JOB",
+    chapterNum: 19,
+    acceptedAnswers: ["Job"],
+    displayAnswer: "Job",
+    explanation: "Job 19:25\u201326: Job's profound declaration of confidence in his living Redeemer and bodily resurrection.",
+    scope: "OT",
+    genre: "Poetry/Wisdom"
+  },
+  {
+    id: "gfc_quote_10",
+    type: "facts",
+    prompt: "Who prayed to God at Gibeon: 'Give your servant therefore an understanding mind to govern your people, that I may discern between good and evil, for who is able to govern this your great people?'?",
+    bookId: "1KI",
+    chapterNum: 3,
+    acceptedAnswers: ["Solomon", "King Solomon"],
+    displayAnswer: "Solomon",
+    explanation: "1 Kings 3:9: Solomon's humble request for wisdom which pleased the Lord.",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_err_1",
+    type: "book_id",
+    prompt: "To which New Testament book would you turn to correct the error: 'As long as you believe the right things, it doesn\u2019t matter how you live your life'?",
+    bookId: "JAS",
+    chapterNum: 2,
+    acceptedAnswers: ["James", "Jas", "Epistle of James"],
+    displayAnswer: "James",
+    explanation: "James 2:17, 26 teaches that faith without works is dead.",
+    scope: "NT",
+    genre: "General Epistles"
+  },
+  {
+    id: "gfc_err_2",
+    type: "book_id",
+    prompt: "To which epistle would you turn to correct the error: 'I\u2019m sure I don\u2019t have any spiritual gifts; only special people do'?",
+    bookId: "1CO",
+    chapterNum: 12,
+    acceptedAnswers: ["1 Corinthians", "1 Cor", "1Co", "First Corinthians"],
+    displayAnswer: "1 Corinthians (1 Corinthians 12)",
+    explanation: "1 Corinthians 12:7 explains: 'To each is given the manifestation of the Spirit for the common good.'",
+    scope: "NT",
+    genre: "Pauline Epistles"
+  },
+  {
+    id: "gfc_err_3",
+    type: "book_id",
+    prompt: "To which epistle would you turn to correct the legalistic error: 'We are saved by Jesus, but we also have to do our part by keeping the Old Testament ceremonial law'?",
+    bookId: "GAL",
+    chapterNum: 2,
+    acceptedAnswers: ["Galatians", "Gal"],
+    displayAnswer: "Galatians",
+    explanation: "Galatians 2:16 forcefully argues that justification is through faith in Christ alone, not by works of the law.",
+    scope: "NT",
+    genre: "Pauline Epistles"
+  },
+  {
+    id: "gfc_err_4",
+    type: "book_id",
+    prompt: "To which Old Testament book would you turn to correct the retribution error: 'If you are sick or suffering, you must have secret sin; good people don\u2019t suffer'?",
+    bookId: "JOB",
+    chapterNum: 1,
+    acceptedAnswers: ["Job"],
+    displayAnswer: "Job",
+    explanation: "Job refutes the simplistic theology that suffering is always a direct result of personal sin.",
+    scope: "OT",
+    genre: "Poetry/Wisdom"
+  },
+  {
+    id: "gfc_err_5",
+    type: "book_id",
+    prompt: "To which prophetic book would you turn to correct the error: 'God only cares about religious rituals; He doesn\u2019t care about the poor, vulnerable, and oppressed'?",
+    bookId: "AMO",
+    chapterNum: 5,
+    acceptedAnswers: ["Amos", "Amo"],
+    displayAnswer: "Amos",
+    explanation: "Amos 5:24 declares: 'Let justice roll down like waters, and righteousness like an ever-flowing stream!'",
+    scope: "OT",
+    genre: "Minor Prophets"
+  },
+  {
+    id: "gfc_err_6",
+    type: "book_id",
+    prompt: "To which book would you turn to correct the doubt: 'I know God promises to bless, but we cannot trust Him through hard trials like barrenness, betrayal, famine, and unjust imprisonment'?",
+    bookId: "GEN",
+    chapterNum: 50,
+    acceptedAnswers: ["Genesis", "Gen"],
+    displayAnswer: "Genesis",
+    explanation: "Genesis showcases God's unbreakable providence through Abraham, Sarah, Isaac, Jacob, and Joseph ('God meant it for good', Gen 50:20).",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_err_7",
+    type: "book_id",
+    prompt: "To which book would you turn to correct the nihilistic error: 'In the end it won\u2019t make any difference whom we followed or what we did; everybody gets treated the exact same when history ends'?",
+    bookId: "REV",
+    chapterNum: 20,
+    acceptedAnswers: ["Revelation", "Rev", "Apocalypse"],
+    displayAnswer: "Revelation",
+    explanation: "Revelation 20\u201322 reveals final cosmic judgment, eternal life for the redeemed, and eternal separation for the wicked.",
+    scope: "NT",
+    genre: "Apocalyptic"
+  },
+  {
+    id: "gfc_err_8",
+    type: "book_id",
+    prompt: "To which Gospel would you turn to correct the pluralistic error: 'There\u2019s nothing unique about Jesus; He\u2019s just one path among many, like any other prophet or good moral teacher'?",
+    bookId: "JHN",
+    chapterNum: 14,
+    acceptedAnswers: ["John", "Jn", "Gospel of John"],
+    displayAnswer: "John",
+    explanation: "John 1:1\u201314 and John 14:6 present Christ as the eternal Word made flesh: 'I am the way, and the truth, and the life. No one comes to the Father except through me.'",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_err_9",
+    type: "book_id",
+    prompt: "To which pastoral letter would you turn to correct worldly church leadership criteria: 'Pick elders based on corporate business wealth, degrees, popularity, and charismatic good looks'?",
+    bookId: "1TI",
+    chapterNum: 3,
+    acceptedAnswers: ["1 Timothy", "1 Tim", "1Ti", "First Timothy"],
+    displayAnswer: "1 Timothy (1 Timothy 3)",
+    explanation: "1 Timothy 3:1\u20137 sets forth the indispensable spiritual, moral, and character qualifications for overseers/elders.",
+    scope: "NT",
+    genre: "Pauline Epistles"
+  },
+  {
+    id: "gfc_err_10",
+    type: "book_id",
+    prompt: "To which book would you turn to correct the ascetic error: 'The Bible doesn\u2019t say anything good about romantic love and marital intimacy; that\u2019s too physical for God to care about'?",
+    bookId: "SNG",
+    chapterNum: 1,
+    acceptedAnswers: ["Song of Solomon", "Song of Songs", "Canticles", "Song"],
+    displayAnswer: "Song of Solomon (Song of Songs)",
+    explanation: "Song of Solomon celebrates the purity, passion, beauty, and emotional delight of marital love as God's good design.",
+    scope: "OT",
+    genre: "Poetry/Wisdom"
+  },
+  {
+    id: "gfc_chr_1",
+    type: "facts",
+    prompt: "Which of the following biblical events happened FIRST chronologically: (A) Judges rule over Israel, (B) Saul is anointed king, (C) God's promise to Abraham, or (D) Pentecost?",
+    bookId: "GEN",
+    chapterNum: 12,
+    acceptedAnswers: ["God's promise to Abraham", "Gods promise to Abraham", "promise to Abraham", "Abraham", "C"],
+    displayAnswer: "God's promise to Abraham (~2000 BC)",
+    explanation: "Abraham (~2000 BC) preceded the Judges (~1375\u20131050 BC), Saul (~1050 BC), and Pentecost (AD 33).",
+    scope: "ALL",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_chr_2",
+    type: "facts",
+    prompt: "Which of the following events happened FIRST chronologically: (A) Paul is shipwrecked, (B) Timothy is circumcised, (C) Jesus is crucified, or (D) Peter denies Jesus?",
+    bookId: "MAT",
+    chapterNum: 26,
+    acceptedAnswers: ["Peter denies Jesus", "Peter's denial", "Peter denies Christ", "D"],
+    displayAnswer: "Peter denies Jesus (night before the crucifixion)",
+    explanation: "Peter's denial occurred early Friday morning before Jesus' crucifixion later that day, followed years later by Timothy's circumcision (Acts 16) and Paul's shipwreck (Acts 27).",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_chr_3",
+    type: "facts",
+    prompt: "Which of the following events happened FIRST chronologically: (A) The Great Flood, (B) The New Jerusalem descends, (C) The Fall of man, or (D) Christ is born?",
+    bookId: "GEN",
+    chapterNum: 3,
+    acceptedAnswers: ["The fall of man", "Fall of man", "The Fall", "Fall", "C"],
+    displayAnswer: "The Fall of man (Genesis 3)",
+    explanation: "The Fall (Gen 3) preceded the Flood (Gen 6\u20139), the Nativity (Matt 1), and the New Jerusalem (Rev 21).",
+    scope: "ALL",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_chr_4",
+    type: "facts",
+    prompt: "Which of the following events happened FIRST chronologically: (A) Jesus washes the disciples' feet, (B) David is anointed king, (C) The crossing of the Red Sea, or (D) Naaman is cleansed of leprosy?",
+    bookId: "EXO",
+    chapterNum: 14,
+    acceptedAnswers: ["The crossing of the Red Sea", "Crossing of the Red Sea", "Red Sea", "C"],
+    displayAnswer: "The crossing of the Red Sea (Exodus 14, ~1446 BC)",
+    explanation: "The Red Sea crossing (~1446 BC) preceded David (~1000 BC), Naaman (~850 BC), and Jesus washing the disciples' feet (AD 33).",
+    scope: "ALL",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_chr_5",
+    type: "facts",
+    prompt: "Which of the following events happened FIRST chronologically: (A) The disciples filled with the Spirit at Pentecost, (B) Stephen is stoned, (C) Apollos instructed by Priscilla and Aquila, or (D) Two disciples meet Jesus on the road to Emmaus?",
+    bookId: "LUK",
+    chapterNum: 24,
+    acceptedAnswers: ["Two disciples encounter Jesus on the road to Emmaus", "Road to Emmaus", "Emmaus", "D"],
+    displayAnswer: "Two disciples encounter Jesus on the road to Emmaus (Resurrection Sunday, Luke 24)",
+    explanation: "Emmaus occurred on Resurrection Sunday (Luke 24), prior to Pentecost 50 days later (Acts 2), Stephen's martyrdom (Acts 7), and Apollos at Ephesus (Acts 18).",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_chr_6",
+    type: "facts",
+    prompt: "Which of the following events happened FIRST chronologically: (A) Rehoboam splits the kingdom, (B) Hannah prays for a son before Eli, (C) Nehemiah rebuilds Jerusalem's walls, or (D) The Babylonian Exile?",
+    bookId: "1SA",
+    chapterNum: 1,
+    acceptedAnswers: ["Hannah prays before Eli", "Hannah prays", "Hannah", "B"],
+    displayAnswer: "Hannah prays before Eli (~1100 BC, 1 Samuel 1)",
+    explanation: "Hannah praying (~1100 BC) preceded the divided kingdom (~930 BC), the Babylonian Exile (586 BC), and Nehemiah (445 BC).",
+    scope: "OT",
+    genre: "Historical"
+  },
+  {
+    id: "gfc_chr_7",
+    type: "facts",
+    prompt: "Which of the following divine callings happened FIRST chronologically: (A) God calls Abram out of Ur, (B) God calls Gideon a mighty man of valor, (C) God calls Moses out of the burning bush, or (D) God calls Ananias to lay hands on Saul?",
+    bookId: "GEN",
+    chapterNum: 12,
+    acceptedAnswers: ["God calls Abram out of Ur of the Chaldeans", "God calls Abram", "Abram out of Ur", "A"],
+    displayAnswer: "God calls Abram out of Ur (~2000 BC, Genesis 12)",
+    explanation: "Abram (~2000 BC) was called before Moses (~1446 BC), Gideon (~1160 BC), and Ananias in Damascus (AD 34).",
+    scope: "ALL",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_chr_8",
+    type: "facts",
+    prompt: "Which of the following events happened FIRST chronologically: (A) Malachi prophesies, (B) Joseph sold into slavery, (C) Sarah laughs at the promise of a son, or (D) The Ten Plagues on Egypt?",
+    bookId: "GEN",
+    chapterNum: 18,
+    acceptedAnswers: ["Sarah laughs", "Sarah laughs at the promise of a son", "Sarah", "C"],
+    displayAnswer: "Sarah laughs (Genesis 18, ~2067 BC)",
+    explanation: "Sarah laughing (~2067 BC) occurred before Joseph was sold (~1898 BC), the Ten Plagues (~1446 BC), and Malachi (~430 BC).",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_chr_9",
+    type: "facts",
+    prompt: "Which of the following events happened FIRST chronologically: (A) Herod beheads John the Baptist, (B) Herod the Great inquires where the Christ is to be born, (C) King Agrippa listens to Paul, or (D) Herod Agrippa I is struck by an angel for taking God's glory?",
+    bookId: "MAT",
+    chapterNum: 2,
+    acceptedAnswers: ["Herod discovers where the Christ was to be born", "Herod the Great inquires where the Christ was to be born", "Herod discovers", "B"],
+    displayAnswer: "Herod discovers where the Christ was to be born (~4 BC, Matthew 2)",
+    explanation: "Herod the Great (~4 BC, Matt 2) preceded Herod Antipas executing John (~AD 29, Matt 14), Herod Agrippa I struck down (AD 44, Acts 12), and King Agrippa II hearing Paul (AD 59, Acts 26).",
+    scope: "NT",
+    genre: "Gospels"
+  },
+  {
+    id: "gfc_chr_10",
+    type: "facts",
+    prompt: "Which of the following events happened FIRST chronologically: (A) Barnabas finds Saul in Tarsus, (B) Jesus is baptized, (C) Daniel prays despite King Darius's decree, or (D) Levi leaves his tax booth to follow Jesus?",
+    bookId: "DAN",
+    chapterNum: 6,
+    acceptedAnswers: ["Daniel ignores Darius's decree", "Daniel prays", "Daniel in the lions den", "Daniel", "C"],
+    displayAnswer: "Daniel ignores Darius's decree (~539 BC, Daniel 6)",
+    explanation: "Daniel (~539 BC) preceded Jesus' baptism (~AD 26), Matthew/Levi's calling (~AD 27), and Barnabas seeking Saul (~AD 43).",
+    scope: "ALL",
+    genre: "Major Prophets"
+  },
+  {
+    id: "gfc_mes_1",
+    type: "book_id",
+    prompt: "In which Old Testament book was it prophesied that the Messiah would be born in Bethlehem Ephrathah?",
+    bookId: "MIC",
+    chapterNum: 5,
+    acceptedAnswers: ["Micah", "Mic"],
+    displayAnswer: "Micah (Micah 5:2)",
+    explanation: "Micah 5:2 foretold that out of little Bethlehem Ephrathah would come the ruler whose origin is from of old, from ancient days.",
+    scope: "OT",
+    genre: "Minor Prophets"
+  },
+  {
+    id: "gfc_mes_2",
+    type: "book_id",
+    prompt: "In which book does the Protoevangelium promise that the seed of the woman will crush the head of the serpent?",
+    bookId: "GEN",
+    chapterNum: 3,
+    acceptedAnswers: ["Genesis", "Gen"],
+    displayAnswer: "Genesis (Genesis 3:15)",
+    explanation: "Genesis 3:15 is the earliest Gospel promise of Christ's victory over Satan.",
+    scope: "OT",
+    genre: "Pentateuch"
+  },
+  {
+    id: "gfc_mes_3",
+    type: "book_id",
+    prompt: "In which prophetic book was it foretold: 'Rejoice greatly, O daughter of Zion!... Behold, your king is coming to you; righteous and having salvation is he, humble and mounted on a donkey, on a colt, the foal of a donkey'?",
+    bookId: "ZEC",
+    chapterNum: 9,
+    acceptedAnswers: ["Zechariah", "Zec"],
+    displayAnswer: "Zechariah (Zechariah 9:9)",
+    explanation: "Zechariah 9:9 was fulfilled during Jesus' triumphal entry into Jerusalem on Palm Sunday (Matthew 21:5).",
+    scope: "OT",
+    genre: "Minor Prophets"
+  },
+  {
+    id: "gfc_mes_4",
+    type: "book_id",
+    prompt: "In which book is the virgin birth prophesied: 'Behold, the virgin shall conceive and bear a son, and shall call his name Immanuel'?",
+    bookId: "ISA",
+    chapterNum: 7,
+    acceptedAnswers: ["Isaiah", "Isa"],
+    displayAnswer: "Isaiah (Isaiah 7:14)",
+    explanation: "Isaiah 7:14 is quoted in Matthew 1:22\u201323 as fulfilled in the conception and virgin birth of Jesus.",
+    scope: "OT",
+    genre: "Major Prophets"
+  },
+  {
+    id: "gfc_mes_5",
+    type: "book_id",
+    prompt: "In which book does the Messiah proclaim: 'The Spirit of the Lord God is upon me, because the Lord has anointed me to bring good news to the poor; he has sent me to bind up the brokenhearted, to proclaim liberty to the captives...'?",
+    bookId: "ISA",
+    chapterNum: 61,
+    acceptedAnswers: ["Isaiah", "Isa"],
+    displayAnswer: "Isaiah (Isaiah 61:1\u20132)",
+    explanation: "Isaiah 61:1\u20132 was read by Jesus in the Nazareth synagogue in Luke 4:18\u201319: 'Today this Scripture has been fulfilled in your hearing.'",
+    scope: "OT",
+    genre: "Major Prophets"
+  },
+  {
+    id: "gfc_mes_6",
+    type: "book_id",
+    prompt: "In which book is the Messiah declared to be a royal priest forever: 'The Lord has sworn and will not change his mind, \"You are a priest forever after the order of Melchizedek\"'?",
+    bookId: "PSA",
+    chapterNum: 110,
+    acceptedAnswers: ["Psalms", "Psalm", "Psalm 110", "Psalms 110", "Ps 110"],
+    displayAnswer: "Psalms (Psalm 110:4)",
+    explanation: "Psalm 110:4 is expounded in Hebrews 5\u20137 as the basis for Christ's eternal, Melchizedekian priesthood.",
+    scope: "OT",
+    genre: "Poetry/Wisdom"
+  },
+  {
+    id: "gfc_mes_7",
+    type: "book_id",
+    prompt: "In which book does the prophetic declaration appear: 'The stone that the builders rejected has become the cornerstone'?",
+    bookId: "PSA",
+    chapterNum: 118,
+    acceptedAnswers: ["Psalms", "Psalm", "Psalm 118", "Psalms 118", "Ps 118"],
+    displayAnswer: "Psalms (Psalm 118:22)",
+    explanation: "Psalm 118:22 was cited by Jesus (Matthew 21:42) and Peter (1 Peter 2:7, Acts 4:11) regarding Christ's rejection and supreme exaltation.",
+    scope: "OT",
+    genre: "Poetry/Wisdom"
+  },
+  {
+    id: "gfc_mes_8",
+    type: "book_id",
+    prompt: "In which book was it foretold regarding the Messiah's crucifixion: 'they divide my garments among them, and for my clothing they cast lots'?",
+    bookId: "PSA",
+    chapterNum: 22,
+    acceptedAnswers: ["Psalms", "Psalm", "Psalm 22", "Psalms 22", "Ps 22"],
+    displayAnswer: "Psalms (Psalm 22:18)",
+    explanation: "Psalm 22:18 was literally fulfilled at the foot of the cross by the Roman soldiers in John 19:24.",
+    scope: "OT",
+    genre: "Poetry/Wisdom"
+  },
+  {
+    id: "gfc_mes_9",
+    type: "book_id",
+    prompt: "In which book was it prophesied regarding the Messiah's burial: 'And they made his grave with the wicked and with a rich man in his death, although he had done no violence...'?",
+    bookId: "ISA",
+    chapterNum: 53,
+    acceptedAnswers: ["Isaiah", "Isa"],
+    displayAnswer: "Isaiah (Isaiah 53:9)",
+    explanation: "Isaiah 53:9 was fulfilled when Joseph of Arimathea, a wealthy council member, buried Jesus in his own new tomb (Matthew 27:57\u201360).",
+    scope: "OT",
+    genre: "Major Prophets"
+  },
+  {
+    id: "gfc_mes_10",
+    type: "book_id",
+    prompt: "In which prophetic book was it foretold: 'Behold, I will send you Elijah the prophet before the great and awesome day of the Lord comes'?",
+    bookId: "MAL",
+    chapterNum: 4,
+    acceptedAnswers: ["Malachi", "Mal"],
+    displayAnswer: "Malachi (Malachi 4:5)",
+    explanation: "Malachi 4:5 was the final Old Testament prophecy, fulfilled in John the Baptist coming in the spirit and power of Elijah (Matthew 11:14, Luke 1:17).",
+    scope: "OT",
+    genre: "Minor Prophets"
+  },
 ];
+
+// --------------------------------------------------------------------------
+// DEDICATED GFC 100-QUESTION TEST PRESET BANK
+// --------------------------------------------------------------------------
+const GFC_TEST_100_BANK = CURATED_QUESTION_BANK.filter(q => q.id.startsWith("gfc_"));
+
 
 // --------------------------------------------------------------------------
 // DYNAMIC QUESTION GENERATOR (Specific Details & Concrete Narrative Focus)
 // --------------------------------------------------------------------------
 
 function generateDynamicQuestions({ scope = "ALL", count = 25, questionTypes = null, specificBookId = null }) {
+  if (scope === "GFC") {
+    const pool = CURATED_QUESTION_BANK.filter((q) => q.id.startsWith("gfc_"));
+    return count >= pool.length ? pool : pool.slice(0, count);
+  }
+
   // Filter curated pool according to scope and question types
   const pool = CURATED_QUESTION_BANK.filter((q) => {
     if (specificBookId && q.bookId !== specificBookId) return false;
@@ -5550,7 +6765,7 @@ function generateDynamicQuestions({ scope = "ALL", count = 25, questionTypes = n
     if (scope === "PENTATEUCH" && q.genre !== "Pentateuch") return false;
     if (scope === "HISTORICAL" && q.genre !== "Historical") return false;
     if (scope === "PROPHETS" && !["Major Prophets", "Minor Prophets"].includes(q.genre)) return false;
-    if (scope === "WISDOM" && q.genre !== "Wisdom & Poetry") return false;
+    if (scope === "WISDOM" && !["Poetry/Wisdom", "Wisdom & Poetry"].includes(q.genre)) return false;
     if (questionTypes && questionTypes.length > 0 && !questionTypes.includes(q.type)) return false;
     return true;
   });
@@ -6854,6 +8069,7 @@ function renderDiagnosticQuizView({
 function renderDiagnosticConfiguratorView({ selectedScope, selectedQuestionCount }) {
   const scopes = [
     { id: "ALL", label: "Whole Bible", desc: "All 66 Books (Old & New Testaments)", badge: "66 Books" },
+    { id: "GFC", label: "GFC Bible Knowledge", desc: "100-Question Standard Assessment", badge: "100 Questions" },
     { id: "OT", label: "Old Testament", desc: "Creation, Law, History & Prophets", badge: "39 Books" },
     { id: "NT", label: "New Testament", desc: "Gospels, Acts, Epistles & Revelation", badge: "27 Books" },
     { id: "GOSPELS", label: "The Gospels", desc: "Matthew, Mark, Luke, and John", badge: "4 Books" },
@@ -6867,7 +8083,8 @@ function renderDiagnosticConfiguratorView({ selectedScope, selectedQuestionCount
   const lengths = [
     { count: 10, label: "10 Questions", desc: "Quick 3-minute diagnostic check" },
     { count: 25, label: "25 Questions", desc: "Standard comprehensive diagnostic" },
-    { count: 50, label: "50 Questions", desc: "Deep full-length mastery exam" }
+    { count: 50, label: "50 Questions", desc: "Deep full-length mastery exam" },
+    { count: 100, label: "100 Questions", desc: "Full 100-question comprehensive exam" }
   ];
 
   return `
@@ -6921,7 +8138,7 @@ function renderDiagnosticConfiguratorView({ selectedScope, selectedQuestionCount
         <label class="text-xs font-mono uppercase tracking-wider text-[#8C8A84]">
           2. Select Number of Questions
         </label>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           ${lengths
             .map((l) => {
               const isSelected = selectedQuestionCount === l.count;

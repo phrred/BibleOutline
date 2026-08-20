@@ -105,7 +105,7 @@ class CDPClient:
         # Ensure page scripts are fully loaded
         wait_start = time.time()
         while time.time() - wait_start < timeout:
-            if self.evaluate("Boolean(window.BIBLE_BOOKS)") is True:
+            if self.evaluate("typeof BIBLE_BOOKS !== 'undefined'") is True:
                 break
             time.sleep(0.15)
 
@@ -141,8 +141,10 @@ class CDPClient:
         mask = bytes([1, 2, 3, 4])
         if len(m) < 126:
             h = bytes([0x81, 0x80 | len(m)]) + mask
-        else:
+        elif len(m) <= 65535:
             h = bytes([0x81, 0x80 | 126, (len(m) >> 8) & 0xff, len(m) & 0xff]) + mask
+        else:
+            h = bytes([0x81, 0x80 | 127]) + len(m).to_bytes(8, 'big') + mask
         masked = bytes([b ^ mask[i % 4] for i, b in enumerate(m)])
         self.sock.sendall(h + masked)
 
@@ -150,7 +152,7 @@ class CDPClient:
         while time.time() - start < timeout:
             msg = self.read_message()
             if msg and msg.get('id') == req_id:
-                res_obj = msg.get('result', {}).get('result', {})
+                res_obj = (msg.get('result') or {}).get('result') or {}
                 return res_obj.get('value')
         return None
 

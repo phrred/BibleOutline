@@ -184,6 +184,7 @@ export function renderDiagnosticQuizView({
 function renderDiagnosticConfiguratorView({ selectedScope, selectedQuestionCount }) {
   const scopes = [
     { id: "ALL", label: "Whole Bible", desc: "All 66 Books (Old & New Testaments)", badge: "66 Books" },
+    { id: "GFC", label: "GFC Bible Knowledge", desc: "100-Question Standard Assessment", badge: "100 Questions" },
     { id: "OT", label: "Old Testament", desc: "Creation, Law, History & Prophets", badge: "39 Books" },
     { id: "NT", label: "New Testament", desc: "Gospels, Acts, Epistles & Revelation", badge: "27 Books" },
     { id: "GOSPELS", label: "The Gospels", desc: "Matthew, Mark, Luke, and John", badge: "4 Books" },
@@ -197,7 +198,8 @@ function renderDiagnosticConfiguratorView({ selectedScope, selectedQuestionCount
   const lengths = [
     { count: 10, label: "10 Questions", desc: "Quick 3-minute diagnostic check" },
     { count: 25, label: "25 Questions", desc: "Standard comprehensive diagnostic" },
-    { count: 50, label: "50 Questions", desc: "Deep full-length mastery exam" }
+    { count: 50, label: "50 Questions", desc: "Deep full-length mastery exam" },
+    { count: 100, label: "100 Questions", desc: "Full 100-question comprehensive exam" }
   ];
 
   return `
@@ -251,7 +253,7 @@ function renderDiagnosticConfiguratorView({ selectedScope, selectedQuestionCount
         <label class="text-xs font-mono uppercase tracking-wider text-[#8C8A84]">
           2. Select Number of Questions
         </label>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           ${lengths
             .map((l) => {
               const isSelected = selectedQuestionCount === l.count;
