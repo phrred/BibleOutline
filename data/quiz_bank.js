@@ -70,17 +70,16 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_5",
     "type": "book_chapter",
-    "prompt": "In what book & chapter does the foundational creation ordinance appear: 'Therefore a man shall leave his father and his mother and hold fast to his wife, and they shall become one flesh'?",
+    "prompt": "In what book & chapter does the creation marriage ordinance appear: 'Therefore a man shall leave his father and his mother and hold fast to his wife, and they shall become one flesh'?",
     "bookId": "GEN",
     "chapterNum": 2,
     "acceptedAnswers": [
       "Genesis 2",
       "Gen 2",
-      "Genesis 2:24",
-      "Gen 2:24"
+      "Genesis Chapter 2"
     ],
     "displayAnswer": "Genesis 2 (Genesis 2:24)",
-    "explanation": "Genesis 2:24 establishes the divine pattern for marriage.",
+    "explanation": "Genesis 2:24 establishes the creation design and covenant of marriage.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -473,16 +472,18 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_31",
     "type": "book_id",
-    "prompt": "In what book of the Pentateuch is the foundational Shema given: 'Hear, O Israel: The Lord our God, the Lord is one. You shall love the Lord your God with all your heart and with all your soul and with all your might'?",
+    "prompt": "In what book of the Pentateuch is the Shema given: 'Hear, O Israel: The Lord our God, the Lord is one. You shall love the Lord your God with all your heart and with all your soul and with all your might'?",
     "bookId": "DEU",
     "chapterNum": 6,
     "acceptedAnswers": [
       "Deuteronomy",
       "Deut",
-      "Dt"
+      "Deu",
+      "Dt",
+      "Book of Deuteronomy"
     ],
     "displayAnswer": "Deuteronomy (Deuteronomy 6:4–5)",
-    "explanation": "Deuteronomy 6:4–5 is the cornerstone confession of monotheism and supreme devotion.",
+    "explanation": "Deuteronomy 6:4–5 contains the foundational Shema confession.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -1025,14 +1026,15 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_67",
     "type": "book_id",
-    "prompt": "In what book does the dramatic confession appear: 'The Lord gave, and the Lord has taken away; blessed be the name of the Lord'?",
+    "prompt": "In what book does Job declare in his suffering: 'The Lord gave, and the Lord has taken away; blessed be the name of the Lord'?",
     "bookId": "JOB",
     "chapterNum": 1,
     "acceptedAnswers": [
-      "Job"
+      "Job",
+      "Book of Job"
     ],
     "displayAnswer": "Job (Job 1:21)",
-    "explanation": "Job 1:21 is Job's worshipful response after losing all his possessions and children.",
+    "explanation": "Job 1:21 records Job's worshipful response after losing his children and possessions.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -2151,15 +2153,17 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_138",
     "type": "book_id",
-    "prompt": "Which Major Prophet experienced dramatic visions by the Chebar Canal in Babylon, warning of Jerusalem's fall (ch. 1–24) and concluding with future restoration, the dry bones vision, and the new temple (ch. 33–48)?",
+    "prompt": "Which Major Prophet received visions by the Chebar Canal in Babylon, prophesying the fall of Jerusalem, the valley of dry bones, and the vision of a new temple?",
     "bookId": "EZE",
     "chapterNum": 1,
     "acceptedAnswers": [
       "Ezekiel",
-      "Eze"
+      "Ezek",
+      "Eze",
+      "Book of Ezekiel"
     ],
     "displayAnswer": "Ezekiel",
-    "explanation": "Ezekiel transitions from judgments on Jerusalem to glorious visions of Israel's national and spiritual rebirth.",
+    "explanation": "Ezekiel ministered to the Jewish exiles in Babylon by the Chebar Canal (Ezekiel 1:1).",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -2394,16 +2398,19 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_154",
     "type": "book_id",
-    "prompt": "In which joyful prison epistle does Paul declare that the Christian life transcends adverse circumstances: 'Rejoice in the Lord always; again I will say, rejoice'?",
+    "prompt": "In which epistle does Paul urge believers: 'Rejoice in the Lord always; again I will say, rejoice'?",
     "bookId": "PHP",
     "chapterNum": 4,
     "acceptedAnswers": [
       "Philippians",
       "Phil",
-      "Php"
+      "Php",
+      "Book of Philippians",
+      "Letter to the Philippians",
+      "Epistle to the Philippians"
     ],
     "displayAnswer": "Philippians",
-    "explanation": "Philippians radiates Christ-centered joy despite Roman imprisonment.",
+    "explanation": "Philippians 4:4 emphasizes joy in the Lord despite difficult circumstances.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -2473,16 +2480,22 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_159",
     "type": "book_id",
-    "prompt": "Which moving final epistle was written by Paul from a cold Roman dungeon shortly before his execution, urging Timothy to 'fan into flame the gift of God' and 'preach the word'?",
+    "prompt": "In which epistle does Paul write from prison shortly before his death, urging Timothy to 'fan into flame the gift of God' and 'preach the word'?",
     "bookId": "2TI",
     "chapterNum": 1,
     "acceptedAnswers": [
       "2 Timothy",
       "2 Tim",
-      "Second Timothy"
+      "2Tim",
+      "Second Timothy",
+      "2nd Timothy",
+      "2nd Tim",
+      "Book of 2 Timothy",
+      "Letter to 2 Timothy",
+      "Second Letter to Timothy"
     ],
     "displayAnswer": "2 Timothy",
-    "explanation": "2 Timothy is Paul's last recorded apostolic testament and pastoral charge.",
+    "explanation": "2 Timothy 1:6 and 4:2 contain Paul's final solemn charges to Timothy.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -2520,16 +2533,20 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_162",
     "type": "book_id",
-    "prompt": "In which intensely personal epistle does Paul defend his apostolic integrity, explain the glory of the New Covenant ministry, plead for the Jerusalem collection, and boast in his weaknesses?",
+    "prompt": "In which epistle does Paul defend his apostolic authority, explain the New Covenant ministry, and boast in his weakness and 'thorn in the flesh'?",
     "bookId": "2CO",
     "chapterNum": 1,
     "acceptedAnswers": [
       "2 Corinthians",
       "2 Cor",
-      "Second Corinthians"
+      "2Cor",
+      "Second Corinthians",
+      "2nd Corinthians",
+      "Book of 2 Corinthians",
+      "Second Letter to the Corinthians"
     ],
     "displayAnswer": "2 Corinthians",
-    "explanation": "2 Corinthians reveals Paul's pastoral heart, vulnerability, and apostolic authority.",
+    "explanation": "2 Corinthians 12:7–10 records Paul's thorn in the flesh and Christ's sufficient grace.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -2600,30 +2617,36 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_167",
     "type": "book_id",
-    "prompt": "In which fiery polemical epistle does Paul vigorously defend justification by faith alone apart from the works of the Law against Judaizing legalism?",
+    "prompt": "In which epistle does Paul defend justification by faith alone apart from the works of the Law, warning against returning to a yoke of slavery?",
     "bookId": "GAL",
     "chapterNum": 1,
     "acceptedAnswers": [
       "Galatians",
-      "Gal"
+      "Gal",
+      "Book of Galatians",
+      "Letter to the Galatians",
+      "Epistle to the Galatians"
     ],
     "displayAnswer": "Galatians",
-    "explanation": "Galatians is the Magna Carta of Christian liberty and justification by faith.",
+    "explanation": "Galatians 2:16 and 5:1 emphasize freedom in Christ and justification by faith.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
   {
     "id": "bmpi_168",
     "type": "book_id",
-    "prompt": "Which majestic epistle expounds the eternal mystery of the church as Christ's body and temple, urging believers to 'walk in a manner worthy of the calling to which you have been called'?",
+    "prompt": "In which epistle does Paul explain the mystery of the church as Christ's body, urging believers to 'walk in a manner worthy of the calling to which you have been called'?",
     "bookId": "EPH",
     "chapterNum": 4,
     "acceptedAnswers": [
       "Ephesians",
-      "Eph"
+      "Eph",
+      "Book of Ephesians",
+      "Letter to the Ephesians",
+      "Epistle to the Ephesians"
     ],
     "displayAnswer": "Ephesians",
-    "explanation": "Ephesians connects cosmic theology with practical Christian walk in unity, purity, and warfare.",
+    "explanation": "Ephesians 4:1 calls believers to unity and holy living as the body of Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -2677,15 +2700,18 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_172",
     "type": "book_id",
-    "prompt": "Which masterpiece of Christian doctrine systematically unfolds the righteousness of God, universal condemnation, justification by grace, sanctification, election, and transformed living?",
+    "prompt": "In which epistle does Paul systematically unfold the righteousness of God, universal condemnation, justification by faith, and life in the Spirit?",
     "bookId": "ROM",
     "chapterNum": 1,
     "acceptedAnswers": [
       "Romans",
-      "Rom"
+      "Rom",
+      "Book of Romans",
+      "Letter to the Romans",
+      "Epistle to the Romans"
     ],
     "displayAnswer": "Romans",
-    "explanation": "Romans is Paul's comprehensive theological exposition of the Gospel of God.",
+    "explanation": "Romans presents the comprehensive exposition of the Gospel (Romans 1:16–17).",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -2758,16 +2784,21 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_177",
     "type": "book_id",
-    "prompt": "Which general epistle was written by Peter to 'elect exiles of the Dispersion' suffering persecution, calling them to steadfast hope, holy submission, and fiery trials?",
+    "prompt": "Which epistle is written by Peter to the 'elect exiles of the Dispersion', encouraging believers to remain steadfast in hope through suffering?",
     "bookId": "1PE",
     "chapterNum": 1,
     "acceptedAnswers": [
       "1 Peter",
       "1 Pet",
-      "First Peter"
+      "1Pet",
+      "First Peter",
+      "1st Peter",
+      "1st Pet",
+      "Book of 1 Peter",
+      "First Letter of Peter"
     ],
     "displayAnswer": "1 Peter",
-    "explanation": "1 Peter provides pastoral encouragement and theological grounding for Christian suffering.",
+    "explanation": "1 Peter 1:1–7 addresses suffering believers with the living hope of Christ.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -2871,17 +2902,19 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_184",
     "type": "book_id",
-    "prompt": "Which two Pauline epistles are most intensely focused on doctrinal teaching and pastoral encouragement regarding the Second Coming of Christ and the Day of the Lord?",
+    "prompt": "Which two Pauline epistles focus extensively on teaching and pastoral encouragement regarding the Second Coming of Christ and the Day of the Lord?",
     "bookId": "1TH",
     "chapterNum": 4,
     "acceptedAnswers": [
-      "1 Thessalonians and 2 Thessalonians",
+      "1 and 2 Thessalonians",
       "1 & 2 Thessalonians",
-      "1 Thessalonians",
-      "2 Thessalonians"
+      "1 Thessalonians and 2 Thessalonians",
+      "1 Thess and 2 Thess",
+      "Thessalonians",
+      "1-2 Thessalonians"
     ],
     "displayAnswer": "1 & 2 Thessalonians",
-    "explanation": "1 and 2 Thessalonians provide detailed eschatological teaching on Christ's return and the man of lawlessness.",
+    "explanation": "1 & 2 Thessalonians provide detailed eschatological teaching on Christ's return (1 Thess 4:13–18; 2 Thess 2:1–12).",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -2999,30 +3032,33 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_192",
     "type": "book_id",
-    "prompt": "In what New Testament book does Paul trace the universal doctrinal consequence of the Fall: 'just as sin came into the world through one man, and death through sin, and so death spread to all men'?",
+    "prompt": "In what book does Paul explain the universal consequence of Adam's Fall: 'just as sin came into the world through one man, and death through sin, and so death spread to all men'?",
     "bookId": "ROM",
     "chapterNum": 5,
     "acceptedAnswers": [
       "Romans",
-      "Rom"
+      "Rom",
+      "Book of Romans",
+      "Letter to the Romans"
     ],
     "displayAnswer": "Romans (Romans 5:12)",
-    "explanation": "Romans 5:12–21 contrasts the cosmic ruin in Adam with the abundant grace in Christ.",
+    "explanation": "Romans 5:12–21 contrasts the reign of sin and death in Adam with grace and life in Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
   {
     "id": "bmpi_193",
     "type": "book_chapter",
-    "prompt": "In what book & chapter is the foundational historical narrative of the Fall of mankind, the serpent's deception, and the original sin in Eden?",
+    "prompt": "In what book & chapter is the account of the Fall of mankind, the serpent's deception, and the first sin in the garden of Eden?",
     "bookId": "GEN",
     "chapterNum": 3,
     "acceptedAnswers": [
       "Genesis 3",
-      "Gen 3"
+      "Gen 3",
+      "Genesis Chapter 3"
     ],
     "displayAnswer": "Genesis 3",
-    "explanation": "Genesis 3 records the historical entrance of sin, curse, and the first Gospel promise.",
+    "explanation": "Genesis 3 records the temptation, the Fall, and God's promise of the seed (Genesis 3:15).",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -3108,17 +3144,18 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_199",
     "type": "book_id",
-    "prompt": "Which two apostolic epistles contain the classic foundational texts affirming the verbal inspiration and authority of Scripture ('All Scripture is breathed out by God' / 'men spoke from God as they were carried along by the Holy Spirit')?",
+    "prompt": "Which two epistles contain the classic passages affirming the inspiration of Scripture ('All Scripture is breathed out by God' / 'men spoke from God as they were carried along by the Holy Spirit')?",
     "bookId": "2TI",
     "chapterNum": 3,
     "acceptedAnswers": [
       "2 Timothy and 2 Peter",
+      "2 Tim and 2 Pet",
       "2 Timothy & 2 Peter",
-      "2 Timothy",
-      "2 Peter"
+      "2 Tim & 2 Pet",
+      "2 Timothy, 2 Peter"
     ],
     "displayAnswer": "2 Timothy & 2 Peter (2 Timothy 3:16, 2 Peter 1:21)",
-    "explanation": "2 Timothy 3:16 and 2 Peter 1:21 are the foundational pillars on the divine inspiration of Scripture.",
+    "explanation": "2 Timothy 3:16 and 2 Peter 1:20–21 affirm the divine inspiration of Scripture.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -3357,15 +3394,17 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_214",
     "type": "book_id",
-    "prompt": "Which Old Testament Major Prophet had dramatic visions of the valley of dry bones coming to life and the glory of the Lord departing and returning to the temple?",
+    "prompt": "Which Major Prophet saw visions of the valley of dry bones coming to life and the glory of the Lord departing and returning to the temple?",
     "bookId": "EZE",
     "chapterNum": 37,
     "acceptedAnswers": [
       "Ezekiel",
-      "Eze"
+      "Ezek",
+      "Eze",
+      "Book of Ezekiel"
     ],
     "displayAnswer": "Ezekiel (Ezekiel 37)",
-    "explanation": "Ezekiel 37 depicts the spiritual and national resurrection of Israel by the Spirit of God.",
+    "explanation": "Ezekiel 37 records the vision of the valley of dry bones.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -3479,23 +3518,22 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_222",
     "type": "facts",
-    "prompt": "Which king of Israel built the first magnificent temple in Jerusalem and was granted extraordinary wisdom by God, but had his heart led astray in old age by foreign wives?",
+    "prompt": "Which king of Israel built the first temple in Jerusalem and was granted great wisdom, but had his heart turned away in old age by foreign wives?",
     "bookId": "1KI",
     "chapterNum": 3,
     "acceptedAnswers": [
       "Solomon",
-      "King Solomon",
-      "Jedidiah"
+      "King Solomon"
     ],
     "displayAnswer": "Solomon",
-    "explanation": "1 Kings 3–11 records Solomon's unparalleled wisdom, temple construction, and tragic idolatry.",
+    "explanation": "1 Kings 3–11 records the reign, wisdom, temple construction, and apostasy of Solomon.",
     "scope": "OT",
     "genre": "Historical"
   },
   {
     "id": "bmpi_223",
     "type": "facts",
-    "prompt": "Which godly king of Judah reopened and cleansed the temple, celebrated a grand national Passover, and trusted God when the Assyrian army under Sennacherib besieged Jerusalem?",
+    "prompt": "Which king of Judah reopened and cleansed the temple, celebrated a nationwide Passover, and prayed to God when Sennacherib besieged Jerusalem?",
     "bookId": "2KI",
     "chapterNum": 18,
     "acceptedAnswers": [
@@ -3503,7 +3541,7 @@ export const CURATED_QUESTION_BANK = [
       "King Hezekiah"
     ],
     "displayAnswer": "Hezekiah (2 Kings 18–20)",
-    "explanation": "Hezekiah trusted in the Lord and was miraculously delivered when an angel struck 185,000 Assyrian soldiers.",
+    "explanation": "2 Kings 18–20 and 2 Chronicles 29–32 record the righteous reign of Hezekiah.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -3719,7 +3757,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_238",
     "type": "facts",
-    "prompt": "Which prophet called down fire from heaven on Mount Carmel in a dramatic power encounter with 450 prophets of Baal, and was later fed by ravens in the wilderness?",
+    "prompt": "Which prophet called down fire from heaven on Mount Carmel against the prophets of Baal and was fed by ravens in the wilderness?",
     "bookId": "1KI",
     "chapterNum": 18,
     "acceptedAnswers": [
@@ -3727,7 +3765,7 @@ export const CURATED_QUESTION_BANK = [
       "Elijah the Tishbite"
     ],
     "displayAnswer": "Elijah (1 Kings 17–19)",
-    "explanation": "1 Kings 18 records Elijah's supernatural vindication of Yahweh as the one true God.",
+    "explanation": "1 Kings 17–18 records Elijah's ministry at the brook Cherith and on Mount Carmel.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -4452,15 +4490,17 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_287",
     "type": "book_chapter",
-    "prompt": "In what book & chapter does the grand conclusion appear: 'The end of the matter; all has been heard. Fear God and keep his commandments, for this is the whole duty of man'?",
+    "prompt": "In what book & chapter does the conclusion appear: 'The end of the matter; all has been heard. Fear God and keep his commandments, for this is the whole duty of man'?",
     "bookId": "ECC",
     "chapterNum": 12,
     "acceptedAnswers": [
       "Ecclesiastes 12",
-      "Eccl 12"
+      "Eccl 12",
+      "Ecc 12",
+      "Ecclesiastes Chapter 12"
     ],
     "displayAnswer": "Ecclesiastes 12 (Ecclesiastes 12:13)",
-    "explanation": "Ecclesiastes 12:13 resolves the search for life's ultimate meaning in reverent obedience to God.",
+    "explanation": "Ecclesiastes 12:13–14 provides the final conclusion of the book.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -6774,7 +6814,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "det_q21",
     "type": "facts",
-    "prompt": "Which godly young king of Judah tore his robes and instituted sweeping national reforms after the Book of the Law was rediscovered in the temple?",
+    "prompt": "Which young king of Judah tore his robes and instituted religious reforms after the Book of the Law was found in the temple?",
     "bookId": "2KI",
     "chapterNum": 22,
     "acceptedAnswers": [
@@ -6782,7 +6822,7 @@ export const CURATED_QUESTION_BANK = [
       "King Josiah"
     ],
     "displayAnswer": "Josiah (King Josiah)",
-    "explanation": "2 Kings 22–23 recounts King Josiah hearing the words of the Law found by Hilkiah the high priest and purging idolatry.",
+    "explanation": "2 Kings 22–23 records the discovery of the Law and Josiah's reforms.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -7151,17 +7191,16 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "supp_pent_1",
     "type": "book_id",
-    "prompt": "Which book contains the foundational marriage principle: 'Therefore a man shall leave his father and his mother and hold fast to his wife, and they shall become one flesh'?",
+    "prompt": "Which book contains the creation marriage principle: 'Therefore a man shall leave his father and his mother and hold fast to his wife, and they shall become one flesh'?",
     "bookId": "GEN",
     "chapterNum": 2,
     "acceptedAnswers": [
       "Genesis",
       "Gen",
-      "Genesis 2",
-      "Gen 2"
+      "Book of Genesis"
     ],
     "displayAnswer": "Genesis (Genesis 2:24)",
-    "explanation": "Genesis 2:24 establishes the creation design for marriage, quoted by Jesus in Matthew 19 and Paul in Ephesians 5.",
+    "explanation": "Genesis 2:24 establishes the creation design for marriage.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -7200,17 +7239,16 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "supp_pent_4",
     "type": "book_id",
-    "prompt": "In which book is the foundational principle given: 'For the life of the flesh is in the blood, and I have given it for you on the altar to make atonement for your souls'?",
+    "prompt": "In which book is the sacrificial principle stated: 'For the life of the flesh is in the blood, and I have given it for you on the altar to make atonement for your souls'?",
     "bookId": "LEV",
     "chapterNum": 17,
     "acceptedAnswers": [
       "Leviticus",
       "Lev",
-      "Leviticus 17",
-      "Lev 17"
+      "Book of Leviticus"
     ],
     "displayAnswer": "Leviticus (Leviticus 17:11)",
-    "explanation": "Leviticus 17:11 establishes the theological foundation of substitutionary blood atonement.",
+    "explanation": "Leviticus 17:11 states the necessity of blood atonement.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -8443,16 +8481,16 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_loc_2",
     "type": "book_chapter",
-    "prompt": "In what book and chapter is the foundational Call of Abram: 'Go from your country and your kindred and your father's house to the land that I will show you. And I will make of you a great nation...'?",
+    "prompt": "In what book and chapter is the Call of Abram: 'Go from your country and your kindred and your father's house to the land that I will show you. And I will make of you a great nation...'?",
     "bookId": "GEN",
     "chapterNum": 12,
     "acceptedAnswers": [
       "Genesis 12",
       "Gen 12",
-      "Ge 12"
+      "Genesis Chapter 12"
     ],
     "displayAnswer": "Genesis 12",
-    "explanation": "Genesis 12:1–3 initiates the Abrahamic Covenant of land, seed, and global blessing.",
+    "explanation": "Genesis 12:1–3 records God's covenant call to Abram.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -8715,17 +8753,17 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_top_8",
     "type": "facts",
-    "prompt": "What grand climactic reality is revealed in Revelation 21 when the holy city descends out of heaven from God?",
+    "prompt": "What reality is revealed in Revelation 21 when the holy city, the new Jerusalem, comes down out of heaven from God?",
     "bookId": "REV",
     "chapterNum": 21,
     "acceptedAnswers": [
-      "New Heaven and New Earth",
       "New Jerusalem",
-      "The New Creation",
-      "New Heaven and Earth"
+      "The New Jerusalem",
+      "New Heavens and New Earth",
+      "The New Creation"
     ],
     "displayAnswer": "The New Heaven, New Earth, and New Jerusalem",
-    "explanation": "Revelation 21 depicts God dwelling with humanity in the new creation where death and pain are no more.",
+    "explanation": "Revelation 21:1–2 describes the new heaven, new earth, and the holy city, new Jerusalem.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
