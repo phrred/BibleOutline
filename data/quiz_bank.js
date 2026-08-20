@@ -6017,22 +6017,6 @@ export const CURATED_QUESTION_BANK = [
     "genre": "Gospels"
   },
   {
-    "id": "nt_q45",
-    "type": "facts",
-    "prompt": "Which angel was sent by God to announce the birth of Jesus to Mary?",
-    "bookId": "LUK",
-    "chapterNum": 1,
-    "acceptedAnswers": [
-      "Gabriel",
-      "Angel Gabriel",
-      "The angel Gabriel"
-    ],
-    "displayAnswer": "Gabriel",
-    "explanation": "In Luke 1:26-31, God sent the angel Gabriel to Nazareth to announce to Mary that she would conceive and give birth to Jesus.",
-    "scope": "NT",
-    "genre": "Gospels"
-  },
-  {
     "id": "nt_q46",
     "type": "facts",
     "prompt": "Who was the Roman Emperor who ordered the census at the time of Jesus' birth?",
