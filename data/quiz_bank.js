@@ -9001,7 +9001,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_book_13",
     "type": "book_id",
-    "prompt": "In what wisdom book does the passage appear: 'Wisdom has built her house; she has hewn her seven pillars. She has slaughtered her beasts; she has mixed her wine...'?",
+    "prompt": "In which biblical book does the passage appear: 'Wisdom has built her house; she has hewn her seven pillars. She has slaughtered her beasts; she has mixed her wine...'?",
     "bookId": "PRO",
     "chapterNum": 9,
     "acceptedAnswers": [
@@ -9012,7 +9012,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Proverbs"
     ],
     "displayAnswer": "Proverbs (Proverbs 9)",
-    "explanation": "Proverbs 9:1–6 contrasts Lady Wisdom's banquet invitation with the destructive feast of Lady Folly.",
+    "explanation": "Proverbs 9:1–6 describes Lady Wisdom building her house and inviting guests to her feast.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
