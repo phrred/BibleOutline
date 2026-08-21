@@ -23,6 +23,7 @@ class UnitTester:
             ("Diagnostic Quiz Engine & BMPI Matching", self.test_quiz_engine),
             ("GFC 100-Question Assessment & Bank Integrity", self.test_gfc_quiz_bank),
             ("BMPI 300-Question Assessment & Bank Integrity", self.test_bmpi_300_bank),
+            ("Comprehensive 66-Book Major Events & Chapter Quiz Bank", self.test_all_66_books_chapter_event_questions),
             ("Storage & Option A Subcollection Serialization", self.test_storage_serialization),
             ("Deep Merge & Local Storage Scaffolding", self.test_storage_scaffolding),
             ("Markdown Exporter Integrity", self.test_markdown_export),
@@ -193,6 +194,64 @@ class UnitTester:
         assert r.get("evalGen1") == True, "Expected 'Genesis 1' to be evaluated as correct for Q1"
         assert r.get("evalJoseph") == True, "Expected 'Joseph' to be evaluated as correct for Q30"
         assert r.get("evalEzra") == True, "Expected 'Ezra' to be evaluated as correct for Q300"
+
+    def test_all_66_books_chapter_event_questions(self):
+        js = """
+        (() => {
+            const allBooks = BIBLE_BOOKS;
+            const bookCoverage = {};
+            let missingBooks = [];
+            let totalQuestions = CURATED_QUESTION_BANK.length;
+
+            for (const b of allBooks) {
+                const bookQs = CURATED_QUESTION_BANK.filter(q => q.bookId === b.id);
+                bookCoverage[b.id] = bookQs.length;
+                if (bookQs.length < 3) {
+                    missingBooks.push({ id: b.id, name: b.name, count: bookQs.length });
+                }
+            }
+
+            // Test evaluating specific chapter questions across testaments
+            const qGen3 = CURATED_QUESTION_BANK.find(q => q.id === "ch_gen_3");
+            const evalGen3Num = qGen3 ? evaluateAnswer(qGen3, "3").isCorrect : false;
+            const evalGen3Full = qGen3 ? evaluateAnswer(qGen3, "Genesis 3").isCorrect : false;
+            const evalGen3Ch = qGen3 ? evaluateAnswer(qGen3, "Chapter 3").isCorrect : false;
+
+            const qActs2 = CURATED_QUESTION_BANK.find(q => q.id === "ch_act_2");
+            const evalActs2 = qActs2 ? evaluateAnswer(qActs2, "2").isCorrect : false;
+
+            const qRev21 = CURATED_QUESTION_BANK.find(q => q.id === "ch_rev_21");
+            const evalRev21 = qRev21 ? evaluateAnswer(qRev21, "Revelation 21").isCorrect : false;
+
+            // Test dynamic book quiz generation for single book
+            const genQuiz = generateDynamicQuestions({ specificBookId: "GEN", count: 10 });
+            const revQuiz = generateDynamicQuestions({ specificBookId: "REV", count: 10 });
+
+            return {
+                totalBooks: allBooks.length,
+                totalQuestions,
+                missingBooksCount: missingBooks.length,
+                evalGen3Num,
+                evalGen3Full,
+                evalGen3Ch,
+                evalActs2,
+                evalRev21,
+                genQuizLength: genQuiz.length,
+                revQuizLength: revQuiz.length
+            };
+        })()
+        """
+        r = self.eval_js(js)
+        assert r.get("totalBooks") == 66, f"Expected 66 books, got {r.get('totalBooks')}"
+        assert r.get("totalQuestions") >= 1000, f"Expected >= 1000 total questions, got {r.get('totalQuestions')}"
+        assert r.get("missingBooksCount") == 0, f"Expected 0 missing books with <3 questions, got {r.get('missingBooksCount')}"
+        assert r.get("evalGen3Num") == True, "Expected '3' to be evaluated as correct for Genesis 3"
+        assert r.get("evalGen3Full") == True, "Expected 'Genesis 3' to be evaluated as correct"
+        assert r.get("evalGen3Ch") == True, "Expected 'Chapter 3' to be evaluated as correct"
+        assert r.get("evalActs2") == True, "Expected '2' to be evaluated as correct for Acts 2"
+        assert r.get("evalRev21") == True, "Expected 'Revelation 21' to be evaluated as correct for Rev 21"
+        assert r.get("genQuizLength") == 10, f"Expected 10 questions for GEN quiz, got {r.get('genQuizLength')}"
+        assert r.get("revQuizLength") == 10, f"Expected 10 questions for REV quiz, got {r.get('revQuizLength')}"
 
     def test_storage_serialization(self):
         js = """

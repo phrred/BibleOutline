@@ -1036,7 +1036,8 @@ function getAllChaptersMetadata() {
 // --- FILE: data/quiz_bank.js ---
 // Comprehensive Diagnostic & Biblical Mastery Question Bank
 // Sourced from BMPI 300 Assessment + GFC 100 Knowledge Test + Diagnostic Repositories
-// Contains all 598 curated questions with full schema properties
+// + Comprehensive 66-Book Major Event Chapter Quizzes
+// Contains all 1108 curated questions with full schema properties
 
 const CURATED_QUESTION_BANK = [
   {
@@ -1138,8 +1139,8 @@ const CURATED_QUESTION_BANK = [
       "Jer",
       "Jeremiah the Prophet"
     ],
-    "displayAnswer": "Jeremiah (Lamentations 3:22–23)",
-    "explanation": "Jeremiah penned Lamentations 3:22–23 following the destruction of Jerusalem.",
+    "displayAnswer": "Jeremiah (Lamentations 3:22\u201323)",
+    "explanation": "Jeremiah penned Lamentations 3:22\u201323 following the destruction of Jerusalem.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -1188,7 +1189,7 @@ const CURATED_QUESTION_BANK = [
       "Letter to Philemon",
       "Epistle to Philemon"
     ],
-    "displayAnswer": "Philemon (Philemon 1:16–17)",
+    "displayAnswer": "Philemon (Philemon 1:16\u201317)",
     "explanation": "Paul wrote Philemon to reconcile Philemon and the runaway slave Onesimus.",
     "scope": "NT",
     "genre": "Pauline Epistles"
@@ -1220,8 +1221,8 @@ const CURATED_QUESTION_BANK = [
       "Hab",
       "Book of Habakkuk"
     ],
-    "displayAnswer": "Habakkuk (Habakkuk 3:17–18)",
-    "explanation": "Habakkuk 3:17–19 is one of Scripture's greatest confessions of triumphant faith.",
+    "displayAnswer": "Habakkuk (Habakkuk 3:17\u201318)",
+    "explanation": "Habakkuk 3:17\u201319 is one of Scripture's greatest confessions of triumphant faith.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -1254,7 +1255,7 @@ const CURATED_QUESTION_BANK = [
       "Act",
       "Book of Acts"
     ],
-    "displayAnswer": "Acts (Acts 1:1–2)",
+    "displayAnswer": "Acts (Acts 1:1\u20132)",
     "explanation": "Acts 1:1 opens Luke's second volume addressed to Theophilus.",
     "scope": "NT",
     "genre": "Acts (History)"
@@ -1273,8 +1274,8 @@ const CURATED_QUESTION_BANK = [
       "Letter to the Philippians",
       "Epistle to the Philippians"
     ],
-    "displayAnswer": "Philippians (Philippians 4:6–7)",
-    "explanation": "Philippians 4:6–7 provides God's prescription for overcoming anxiety.",
+    "displayAnswer": "Philippians (Philippians 4:6\u20137)",
+    "explanation": "Philippians 4:6\u20137 provides God's prescription for overcoming anxiety.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -1311,8 +1312,8 @@ const CURATED_QUESTION_BANK = [
       "Letter to the Ephesians",
       "Epistle to the Ephesians"
     ],
-    "displayAnswer": "Ephesians (Ephesians 6:10–11)",
-    "explanation": "Ephesians 6:10–18 describes spiritual warfare and the armor of God.",
+    "displayAnswer": "Ephesians (Ephesians 6:10\u201311)",
+    "explanation": "Ephesians 6:10\u201318 describes spiritual warfare and the armor of God.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -1330,7 +1331,7 @@ const CURATED_QUESTION_BANK = [
       "Epistle of James"
     ],
     "displayAnswer": "James (James 2:14)",
-    "explanation": "James 2:14–26 demonstrates that genuine saving faith always produces righteous works.",
+    "explanation": "James 2:14\u201326 demonstrates that genuine saving faith always produces righteous works.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -1388,8 +1389,8 @@ const CURATED_QUESTION_BANK = [
       "Genesis Chapter 12",
       "Gen Ch 12"
     ],
-    "displayAnswer": "Genesis 12 (Genesis 12:1–3)",
-    "explanation": "Genesis 12:1–3 is the foundational Abrahamic Covenant.",
+    "displayAnswer": "Genesis 12 (Genesis 12:1\u20133)",
+    "explanation": "Genesis 12:1\u20133 is the foundational Abrahamic Covenant.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -1405,7 +1406,7 @@ const CURATED_QUESTION_BANK = [
       "Nm",
       "Book of Numbers"
     ],
-    "displayAnswer": "Numbers (Numbers 20:8–12)",
+    "displayAnswer": "Numbers (Numbers 20:8\u201312)",
     "explanation": "Numbers 20 records Moses striking the rock at Meribah.",
     "scope": "OT",
     "genre": "Pentateuch"
@@ -1453,8 +1454,8 @@ const CURATED_QUESTION_BANK = [
       "Queen Esther",
       "Hadassah"
     ],
-    "displayAnswer": "Esther (Esther 4:14–16)",
-    "explanation": "Esther 4:14–16 records Queen Esther interceding for her people in Persia.",
+    "displayAnswer": "Esther (Esther 4:14\u201316)",
+    "explanation": "Esther 4:14\u201316 records Queen Esther interceding for her people in Persia.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -1474,8 +1475,8 @@ const CURATED_QUESTION_BANK = [
       "Letter to the 1 Corinthians",
       "First Letter to the Corinthians"
     ],
-    "displayAnswer": "1 Corinthians (1 Corinthians 15:54–57)",
-    "explanation": "1 Corinthians 15:54–57 celebrates Christ's victory over the grave.",
+    "displayAnswer": "1 Corinthians (1 Corinthians 15:54\u201357)",
+    "explanation": "1 Corinthians 15:54\u201357 celebrates Christ's victory over the grave.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -1509,7 +1510,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Amos"
     ],
     "displayAnswer": "Amos (Amos 2:4)",
-    "explanation": "Amos 1–2 pronounces divine judgment on the nations and Israel.",
+    "explanation": "Amos 1\u20132 pronounces divine judgment on the nations and Israel.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -1527,7 +1528,7 @@ const CURATED_QUESTION_BANK = [
       "Epistle to the Ephesians"
     ],
     "displayAnswer": "Ephesians (Ephesians 1:3)",
-    "explanation": "Ephesians 1:3–14 is a doxology of sovereign election, redemption, and sealing.",
+    "explanation": "Ephesians 1:3\u201314 is a doxology of sovereign election, redemption, and sealing.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -1548,7 +1549,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Psalms"
     ],
     "displayAnswer": "Psalms (Psalm 139:7)",
-    "explanation": "Psalm 139:7–12 proclaims God's inescapable presence and omniscience.",
+    "explanation": "Psalm 139:7\u201312 proclaims God's inescapable presence and omniscience.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -1579,8 +1580,8 @@ const CURATED_QUESTION_BANK = [
       "Dt",
       "Book of Deuteronomy"
     ],
-    "displayAnswer": "Deuteronomy (Deuteronomy 6:4–5)",
-    "explanation": "Deuteronomy 6:4–5 contains the foundational Shema confession.",
+    "displayAnswer": "Deuteronomy (Deuteronomy 6:4\u20135)",
+    "explanation": "Deuteronomy 6:4\u20135 contains the foundational Shema confession.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -1680,8 +1681,8 @@ const CURATED_QUESTION_BANK = [
       "Book of 1 Thessalonians",
       "First Letter to the Thessalonians"
     ],
-    "displayAnswer": "1 Thessalonians (1 Thessalonians 4:16–17)",
-    "explanation": "1 Thessalonians 4:16–17 gives Paul's classic teaching on the return of Christ.",
+    "displayAnswer": "1 Thessalonians (1 Thessalonians 4:16\u201317)",
+    "explanation": "1 Thessalonians 4:16\u201317 gives Paul's classic teaching on the return of Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -1697,8 +1698,8 @@ const CURATED_QUESTION_BANK = [
       "Act",
       "Book of Acts"
     ],
-    "displayAnswer": "Acts (Acts 15:19–20)",
-    "explanation": "Acts 15:19–20 records the decisive decree of the Jerusalem Council.",
+    "displayAnswer": "Acts (Acts 15:19\u201320)",
+    "explanation": "Acts 15:19\u201320 records the decisive decree of the Jerusalem Council.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -1747,8 +1748,8 @@ const CURATED_QUESTION_BANK = [
       "Deu",
       "Book of Deuteronomy"
     ],
-    "displayAnswer": "Deuteronomy (Deuteronomy 17:18–20)",
-    "explanation": "Deuteronomy 17:18–20 prescribes royal humility and daily saturation in God's Word.",
+    "displayAnswer": "Deuteronomy (Deuteronomy 17:18\u201320)",
+    "explanation": "Deuteronomy 17:18\u201320 prescribes royal humility and daily saturation in God's Word.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -1847,8 +1848,8 @@ const CURATED_QUESTION_BANK = [
       "Letter to Titus",
       "Epistle to Titus"
     ],
-    "displayAnswer": "Titus (Titus 2:11–12)",
-    "explanation": "Titus 2:11–14 explains the sanctifying power of sovereign grace.",
+    "displayAnswer": "Titus (Titus 2:11\u201312)",
+    "explanation": "Titus 2:11\u201314 explains the sanctifying power of sovereign grace.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -1865,7 +1866,7 @@ const CURATED_QUESTION_BANK = [
       "Letter to the Hebrews",
       "Epistle to the Hebrews"
     ],
-    "displayAnswer": "Hebrews (Hebrews 7:11–17)",
+    "displayAnswer": "Hebrews (Hebrews 7:11\u201317)",
     "explanation": "Hebrews 7 expounds the superior, indestructible priesthood of Melchizedek fulfilled in Jesus.",
     "scope": "NT",
     "genre": "General Epistles"
@@ -2039,8 +2040,8 @@ const CURATED_QUESTION_BANK = [
       "Ps",
       "Book of Psalms"
     ],
-    "displayAnswer": "Psalms (Psalm 105:17–19)",
-    "explanation": "Psalm 105:17–19 reflects on God's sovereign testing and elevation of Joseph.",
+    "displayAnswer": "Psalms (Psalm 105:17\u201319)",
+    "explanation": "Psalm 105:17\u201319 reflects on God's sovereign testing and elevation of Joseph.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -2175,7 +2176,7 @@ const CURATED_QUESTION_BANK = [
       "Hezekiah",
       "King Hezekiah"
     ],
-    "displayAnswer": "Hezekiah (2 Kings 20:1–6, Isaiah 38)",
+    "displayAnswer": "Hezekiah (2 Kings 20:1\u20136, Isaiah 38)",
     "explanation": "2 Kings 20 records Hezekiah's prayer, recovery, and the sign on the dial of Ahaz.",
     "scope": "OT",
     "genre": "Historical"
@@ -2206,8 +2207,8 @@ const CURATED_QUESTION_BANK = [
       "Isa",
       "Isaiah the Prophet"
     ],
-    "displayAnswer": "Isaiah (Isaiah 6:1–5)",
-    "explanation": "Isaiah 6:1–8 is Isaiah's heavenly commissioning vision.",
+    "displayAnswer": "Isaiah (Isaiah 6:1\u20135)",
+    "explanation": "Isaiah 6:1\u20138 is Isaiah's heavenly commissioning vision.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -2223,8 +2224,8 @@ const CURATED_QUESTION_BANK = [
       "Is",
       "Book of Isaiah"
     ],
-    "displayAnswer": "Isaiah (Isaiah 55:8–9)",
-    "explanation": "Isaiah 55:8–9 proclaims the infinite superiority of God's wisdom and counsel.",
+    "displayAnswer": "Isaiah (Isaiah 55:8\u20139)",
+    "explanation": "Isaiah 55:8\u20139 proclaims the infinite superiority of God's wisdom and counsel.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -2301,8 +2302,8 @@ const CURATED_QUESTION_BANK = [
       "Gospel According to Matthew",
       "Book of Matthew"
     ],
-    "displayAnswer": "Matthew (Matthew 9:37–38 / Luke 10:2)",
-    "explanation": "Matthew 9:37–38 reveals Christ's compassion for the unshepherded crowds.",
+    "displayAnswer": "Matthew (Matthew 9:37\u201338 / Luke 10:2)",
+    "explanation": "Matthew 9:37\u201338 reveals Christ's compassion for the unshepherded crowds.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -2340,8 +2341,8 @@ const CURATED_QUESTION_BANK = [
       "Letter to the Colossians",
       "Epistle to the Colossians"
     ],
-    "displayAnswer": "Colossians (Colossians 2:9–10)",
-    "explanation": "Colossians 2:9–10 asserts the absolute deity of Christ and the believer's completeness in Him.",
+    "displayAnswer": "Colossians (Colossians 2:9\u201310)",
+    "explanation": "Colossians 2:9\u201310 asserts the absolute deity of Christ and the believer's completeness in Him.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -2471,8 +2472,8 @@ const CURATED_QUESTION_BANK = [
       "Gospel According to Matthew",
       "Book of Matthew"
     ],
-    "displayAnswer": "Matthew (Matthew 20:26–28 / Mark 10:43–45)",
-    "explanation": "Matthew 20:26–28 redefines true kingdom leadership as humble servanthood modeled by Christ.",
+    "displayAnswer": "Matthew (Matthew 20:26\u201328 / Mark 10:43\u201345)",
+    "explanation": "Matthew 20:26\u201328 redefines true kingdom leadership as humble servanthood modeled by Christ.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -2510,7 +2511,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Mark"
     ],
     "displayAnswer": "Mark (Mark 9:24)",
-    "explanation": "Mark 9:23–24 records the father's honest prayer when Jesus heals his demonized son.",
+    "explanation": "Mark 9:23\u201324 records the father's honest prayer when Jesus heals his demonized son.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -2546,7 +2547,7 @@ const CURATED_QUESTION_BANK = [
       "Hos",
       "Book of Hosea"
     ],
-    "displayAnswer": "Hosea (Hosea 5:15–6:1)",
+    "displayAnswer": "Hosea (Hosea 5:15\u20136:1)",
     "explanation": "Hosea 6:1 calls backsliding Israel to genuine covenant repentance.",
     "scope": "OT",
     "genre": "Minor Prophets"
@@ -2589,7 +2590,7 @@ const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_89",
     "type": "book_id",
-    "prompt": "In what prophetic book does the prophecy appear: 'All we like sheep have gone astray; we have turned—every one—to his own way; and the Lord has laid on him the iniquity of us all'?",
+    "prompt": "In what prophetic book does the prophecy appear: 'All we like sheep have gone astray; we have turned\u2014every one\u2014to his own way; and the Lord has laid on him the iniquity of us all'?",
     "bookId": "ISA",
     "chapterNum": 53,
     "acceptedAnswers": [
@@ -2712,8 +2713,8 @@ const CURATED_QUESTION_BANK = [
       "Pro",
       "Book of Proverbs"
     ],
-    "displayAnswer": "Proverbs (Proverbs 3:5–6)",
-    "explanation": "Proverbs 3:5–6 gives the classic biblical pattern for divine guidance.",
+    "displayAnswer": "Proverbs (Proverbs 3:5\u20136)",
+    "explanation": "Proverbs 3:5\u20136 gives the classic biblical pattern for divine guidance.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -2903,8 +2904,8 @@ const CURATED_QUESTION_BANK = [
       "Letter to the Romans",
       "Epistle to the Romans"
     ],
-    "displayAnswer": "Romans (Romans 8:28–29)",
-    "explanation": "Romans 8:28–30 details God's sovereign providence conforming believers to Christ.",
+    "displayAnswer": "Romans (Romans 8:28\u201329)",
+    "explanation": "Romans 8:28\u201330 details God's sovereign providence conforming believers to Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -2945,7 +2946,7 @@ const CURATED_QUESTION_BANK = [
       "Second Letter to the Corinthians"
     ],
     "displayAnswer": "2 Corinthians (2 Corinthians 10:4)",
-    "explanation": "2 Corinthians 10:4–5 teaches demolishing arguments and taking every thought captive to obey Christ.",
+    "explanation": "2 Corinthians 10:4\u20135 teaches demolishing arguments and taking every thought captive to obey Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -3009,7 +3010,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Joel"
     ],
     "displayAnswer": "Joel",
-    "explanation": "Joel 1–3 focuses extensively on the themes of the Day of the Lord and the outpouring of the Spirit.",
+    "explanation": "Joel 1\u20133 focuses extensively on the themes of the Day of the Lord and the outpouring of the Spirit.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -3063,8 +3064,8 @@ const CURATED_QUESTION_BANK = [
       "Gen",
       "Book of Genesis"
     ],
-    "displayAnswer": "Genesis (Genesis 12–50)",
-    "explanation": "Genesis 12–50 records the foundational patriarchal history of the covenant family.",
+    "displayAnswer": "Genesis (Genesis 12\u201350)",
+    "explanation": "Genesis 12\u201350 records the foundational patriarchal history of the covenant family.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -3222,7 +3223,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Genesis"
     ],
     "displayAnswer": "Genesis",
-    "explanation": "Genesis spans primeval origins (1–11) to patriarchal history (12–50).",
+    "explanation": "Genesis spans primeval origins (1\u201311) to patriarchal history (12\u201350).",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -3255,7 +3256,7 @@ const CURATED_QUESTION_BANK = [
       "Ezr",
       "Book of Ezra"
     ],
-    "displayAnswer": "Ezra and Nehemiah (Ezra 7–10, Nehemiah 8)",
+    "displayAnswer": "Ezra and Nehemiah (Ezra 7\u201310, Nehemiah 8)",
     "explanation": "Ezra read and expounded the Law of Moses publicly to the assembled congregation in Nehemiah 8.",
     "scope": "OT",
     "genre": "Historical"
@@ -3365,7 +3366,7 @@ const CURATED_QUESTION_BANK = [
       "1st Samuel",
       "Book of 1 Samuel"
     ],
-    "displayAnswer": "1 Samuel (1 Samuel 9–31)",
+    "displayAnswer": "1 Samuel (1 Samuel 9\u201331)",
     "explanation": "1 Samuel records Saul's anointing, military victories, unlawful sacrifice, jealousy of David, and death on Mount Gilboa.",
     "scope": "OT",
     "genre": "Historical"
@@ -3531,7 +3532,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Joel"
     ],
     "displayAnswer": "Joel",
-    "explanation": "Joel 2:28–32 was famously quoted by Peter on the Day of Pentecost in Acts 2.",
+    "explanation": "Joel 2:28\u201332 was famously quoted by Peter on the Day of Pentecost in Acts 2.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -3563,7 +3564,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Daniel"
     ],
     "displayAnswer": "Daniel",
-    "explanation": "Daniel 1–6 records faithful living in exile while 7–12 foretells the rise and fall of world empires.",
+    "explanation": "Daniel 1\u20136 records faithful living in exile while 7\u201312 foretells the rise and fall of world empires.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -3842,7 +3843,7 @@ const CURATED_QUESTION_BANK = [
       "Book of John"
     ],
     "displayAnswer": "John",
-    "explanation": "John 20:30–31 states the evangelistic and theological purpose of the fourth Gospel.",
+    "explanation": "John 20:30\u201331 states the evangelistic and theological purpose of the fourth Gospel.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -3922,7 +3923,7 @@ const CURATED_QUESTION_BANK = [
       "Letter to the 2 Corinthians"
     ],
     "displayAnswer": "2 Corinthians",
-    "explanation": "2 Corinthians 12:7–10 records Paul's thorn in the flesh and Christ's sufficient grace.",
+    "explanation": "2 Corinthians 12:7\u201310 records Paul's thorn in the flesh and Christ's sufficient grace.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -3939,7 +3940,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Acts"
     ],
     "displayAnswer": "Acts",
-    "explanation": "Acts 13–28 records Paul's three missionary journeys and journey to Rome.",
+    "explanation": "Acts 13\u201328 records Paul's three missionary journeys and journey to Rome.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -4111,7 +4112,7 @@ const CURATED_QUESTION_BANK = [
       "Rm"
     ],
     "displayAnswer": "Romans",
-    "explanation": "Romans presents the comprehensive exposition of the Gospel (Romans 1:16–17).",
+    "explanation": "Romans presents the comprehensive exposition of the Gospel (Romans 1:16\u201317).",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -4210,7 +4211,7 @@ const CURATED_QUESTION_BANK = [
       "1Pe"
     ],
     "displayAnswer": "1 Peter",
-    "explanation": "1 Peter 1:1–7 addresses suffering believers with the living hope of Christ.",
+    "explanation": "1 Peter 1:1\u20137 addresses suffering believers with the living hope of Christ.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -4354,7 +4355,7 @@ const CURATED_QUESTION_BANK = [
       "First Letter to the Thessalonians"
     ],
     "displayAnswer": "1 & 2 Thessalonians",
-    "explanation": "1 & 2 Thessalonians provide detailed eschatological teaching on Christ's return (1 Thess 4:13–18; 2 Thess 2:1–12).",
+    "explanation": "1 & 2 Thessalonians provide detailed eschatological teaching on Christ's return (1 Thess 4:13\u201318; 2 Thess 2:1\u201312).",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -4403,7 +4404,7 @@ const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_187",
     "type": "book_id",
-    "prompt": "Which Gospel contains the most exhaustive recorded treatment of Christ's Olivet Discourse on the end of the age and the final judgment (chapters 24–25)?",
+    "prompt": "Which Gospel contains the most exhaustive recorded treatment of Christ's Olivet Discourse on the end of the age and the final judgment (chapters 24\u201325)?",
     "bookId": "MAT",
     "chapterNum": 24,
     "acceptedAnswers": [
@@ -4415,8 +4416,8 @@ const CURATED_QUESTION_BANK = [
       "Gospel According to Matthew",
       "Book of Matthew"
     ],
-    "displayAnswer": "Matthew (Matthew 24–25)",
-    "explanation": "Matthew 24–25 provides the longest account of the Olivet Discourse, parables of readiness, and the sheep/goats judgment.",
+    "displayAnswer": "Matthew (Matthew 24\u201325)",
+    "explanation": "Matthew 24\u201325 provides the longest account of the Olivet Discourse, parables of readiness, and the sheep/goats judgment.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -4509,7 +4510,7 @@ const CURATED_QUESTION_BANK = [
       "Epistle to the Romans"
     ],
     "displayAnswer": "Romans (Romans 5:12)",
-    "explanation": "Romans 5:12–21 contrasts the reign of sin and death in Adam with grace and life in Christ.",
+    "explanation": "Romans 5:12\u201321 contrasts the reign of sin and death in Adam with grace and life in Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -4533,7 +4534,7 @@ const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_194",
     "type": "book_chapter",
-    "prompt": "In what epistle does Paul write the most extensive two-chapter treatise on cheerful, sacrificial Christian stewardship and giving (chapters 8–9)?",
+    "prompt": "In what epistle does Paul write the most extensive two-chapter treatise on cheerful, sacrificial Christian stewardship and giving (chapters 8\u20139)?",
     "bookId": "2CO",
     "chapterNum": 8,
     "acceptedAnswers": [
@@ -4545,8 +4546,8 @@ const CURATED_QUESTION_BANK = [
       "2 Corinthians Chapter 8",
       "2 Cor Ch 8"
     ],
-    "displayAnswer": "2 Corinthians (2 Corinthians 8–9)",
-    "explanation": "2 Corinthians 8–9 presents the grace of giving modeled on Christ's self-giving love.",
+    "displayAnswer": "2 Corinthians (2 Corinthians 8\u20139)",
+    "explanation": "2 Corinthians 8\u20139 presents the grace of giving modeled on Christ's self-giving love.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -4562,7 +4563,7 @@ const CURATED_QUESTION_BANK = [
       "Ex",
       "Book of Exodus"
     ],
-    "displayAnswer": "Exodus (Exodus 25–31)",
+    "displayAnswer": "Exodus (Exodus 25\u201331)",
     "explanation": "Exodus 25:40 records God's precise command for constructing the Tabernacle and its sacred furnishings.",
     "scope": "OT",
     "genre": "Pentateuch"
@@ -4581,7 +4582,7 @@ const CURATED_QUESTION_BANK = [
       "Epistle to the Hebrews"
     ],
     "displayAnswer": "Hebrews",
-    "explanation": "Hebrews 8–10 demonstrates that the Levitical system was a shadow of the heavenly reality in Christ.",
+    "explanation": "Hebrews 8\u201310 demonstrates that the Levitical system was a shadow of the heavenly reality in Christ.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -4643,7 +4644,7 @@ const CURATED_QUESTION_BANK = [
       "Second Letter to Timothy"
     ],
     "displayAnswer": "2 Timothy & 2 Peter (2 Timothy 3:16, 2 Peter 1:21)",
-    "explanation": "2 Timothy 3:16 and 2 Peter 1:20–21 affirm the divine inspiration of Scripture.",
+    "explanation": "2 Timothy 3:16 and 2 Peter 1:20\u201321 affirm the divine inspiration of Scripture.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -4664,7 +4665,7 @@ const CURATED_QUESTION_BANK = [
       "Epistle to the Ephesians"
     ],
     "displayAnswer": "Ephesians & Colossians (Ephesians 6, Colossians 2)",
-    "explanation": "Ephesians 6:10–18 and Colossians 2:15 explain victory over cosmic spiritual powers through Christ.",
+    "explanation": "Ephesians 6:10\u201318 and Colossians 2:15 explain victory over cosmic spiritual powers through Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -4705,8 +4706,8 @@ const CURATED_QUESTION_BANK = [
       "Book of 1 Peter",
       "First Letter of Peter"
     ],
-    "displayAnswer": "1 Peter (1 Peter 1:6–7)",
-    "explanation": "1 Peter 1:6–7 teaches that temporary trials authenticate genuine faith resulting in praise at Christ's revelation.",
+    "displayAnswer": "1 Peter (1 Peter 1:6\u20137)",
+    "explanation": "1 Peter 1:6\u20137 teaches that temporary trials authenticate genuine faith resulting in praise at Christ's revelation.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -4724,8 +4725,8 @@ const CURATED_QUESTION_BANK = [
       "1 Corinthians Chapter 12",
       "1 Cor Ch 12"
     ],
-    "displayAnswer": "1 Corinthians 12–14",
-    "explanation": "1 Corinthians 12–14 regulates spiritual gifts for the edification of the local church.",
+    "displayAnswer": "1 Corinthians 12\u201314",
+    "explanation": "1 Corinthians 12\u201314 regulates spiritual gifts for the edification of the local church.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -4748,7 +4749,7 @@ const CURATED_QUESTION_BANK = [
       "First Letter to Timothy"
     ],
     "displayAnswer": "1 Timothy & Titus (1 Timothy 3, Titus 1)",
-    "explanation": "1 Timothy 3:1–13 and Titus 1:5–9 define the character qualifications for pastoral leadership.",
+    "explanation": "1 Timothy 3:1\u201313 and Titus 1:5\u20139 define the character qualifications for pastoral leadership.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -4790,7 +4791,7 @@ const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_207",
     "type": "book_chapter",
-    "prompt": "In what book and three consecutive chapters does Paul address God's sovereign election, the hardening of ethnic Israel, and the future salvation of 'all Israel' (chapters 9–11)?",
+    "prompt": "In what book and three consecutive chapters does Paul address God's sovereign election, the hardening of ethnic Israel, and the future salvation of 'all Israel' (chapters 9\u201311)?",
     "bookId": "ROM",
     "chapterNum": 9,
     "acceptedAnswers": [
@@ -4801,8 +4802,8 @@ const CURATED_QUESTION_BANK = [
       "Romans Chapter 9",
       "Rom Ch 9"
     ],
-    "displayAnswer": "Romans 9–11",
-    "explanation": "Romans 9–11 addresses sovereign grace, Israel's stumbling over Christ, and their future restoration.",
+    "displayAnswer": "Romans 9\u201311",
+    "explanation": "Romans 9\u201311 addresses sovereign grace, Israel's stumbling over Christ, and their future restoration.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -4841,8 +4842,8 @@ const CURATED_QUESTION_BANK = [
       "Matthew Chapter 5",
       "Matt Ch 5"
     ],
-    "displayAnswer": "Matthew 5–7",
-    "explanation": "Matthew 5–7 is Jesus' manifesto on the character, ethics, and righteousness of the Kingdom of God.",
+    "displayAnswer": "Matthew 5\u20137",
+    "explanation": "Matthew 5\u20137 is Jesus' manifesto on the character, ethics, and righteousness of the Kingdom of God.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -4860,8 +4861,8 @@ const CURATED_QUESTION_BANK = [
       "John Chapter 14",
       "Jhn Ch 14"
     ],
-    "displayAnswer": "John 14–17",
-    "explanation": "John 14–17 contains Jesus' intimate last discourse to the eleven and His prayer to the Father.",
+    "displayAnswer": "John 14\u201317",
+    "explanation": "John 14\u201317 contains Jesus' intimate last discourse to the eleven and His prayer to the Father.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -4878,8 +4879,8 @@ const CURATED_QUESTION_BANK = [
       "Daniel",
       "Book of Job"
     ],
-    "displayAnswer": "Job & Daniel (Job 19:25–27, Daniel 12:2)",
-    "explanation": "Job 19:25–27 and Daniel 12:2 provide clear Old Testament witnesses to bodily resurrection.",
+    "displayAnswer": "Job & Daniel (Job 19:25\u201327, Daniel 12:2)",
+    "explanation": "Job 19:25\u201327 and Daniel 12:2 provide clear Old Testament witnesses to bodily resurrection.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -4914,8 +4915,8 @@ const CURATED_QUESTION_BANK = [
       "Zechariah",
       "Book of Job"
     ],
-    "displayAnswer": "Job & Zechariah (Job 1–2, Zechariah 3:1)",
-    "explanation": "Job 1–2 and Zechariah 3:1 explicitly portray the adversary (ha-Satan) accusing God's servants.",
+    "displayAnswer": "Job & Zechariah (Job 1\u20132, Zechariah 3:1)",
+    "explanation": "Job 1\u20132 and Zechariah 3:1 explicitly portray the adversary (ha-Satan) accusing God's servants.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -4950,8 +4951,8 @@ const CURATED_QUESTION_BANK = [
       "Gospel According to Luke",
       "Book of Luke"
     ],
-    "displayAnswer": "Luke (Luke 22:31–32)",
-    "explanation": "Luke 22:31–32 records Jesus' pastoral intercession for Peter prior to his denial.",
+    "displayAnswer": "Luke (Luke 22:31\u201332)",
+    "explanation": "Luke 22:31\u201332 records Jesus' pastoral intercession for Peter prior to his denial.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -4965,7 +4966,7 @@ const CURATED_QUESTION_BANK = [
       "Josiah",
       "King Josiah"
     ],
-    "displayAnswer": "Josiah (2 Kings 22–23)",
+    "displayAnswer": "Josiah (2 Kings 22\u201323)",
     "explanation": "Josiah was the godly reformer king who turned to the Lord with all his heart, soul, and might.",
     "scope": "OT",
     "genre": "Historical"
@@ -5042,7 +5043,7 @@ const CURATED_QUESTION_BANK = [
       "Saint Luke"
     ],
     "displayAnswer": "Luke",
-    "explanation": "Luke's two-volume historical work (Luke–Acts) comprises over 25% of the New Testament.",
+    "explanation": "Luke's two-volume historical work (Luke\u2013Acts) comprises over 25% of the New Testament.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -5057,7 +5058,7 @@ const CURATED_QUESTION_BANK = [
       "King Solomon"
     ],
     "displayAnswer": "Solomon",
-    "explanation": "1 Kings 3–11 records the reign, wisdom, temple construction, and apostasy of Solomon.",
+    "explanation": "1 Kings 3\u201311 records the reign, wisdom, temple construction, and apostasy of Solomon.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -5071,8 +5072,8 @@ const CURATED_QUESTION_BANK = [
       "Hezekiah",
       "King Hezekiah"
     ],
-    "displayAnswer": "Hezekiah (2 Kings 18–20)",
-    "explanation": "2 Kings 18–20 and 2 Chronicles 29–32 record the righteous reign of Hezekiah.",
+    "displayAnswer": "Hezekiah (2 Kings 18\u201320)",
+    "explanation": "2 Kings 18\u201320 and 2 Chronicles 29\u201332 record the righteous reign of Hezekiah.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -5105,7 +5106,7 @@ const CURATED_QUESTION_BANK = [
       "Caleb son of Jephunneh"
     ],
     "displayAnswer": "Caleb (Joshua 14:12)",
-    "explanation": "Joshua 14:6–15 celebrates Caleb's lifelong faith and inheritance of Hebron.",
+    "explanation": "Joshua 14:6\u201315 celebrates Caleb's lifelong faith and inheritance of Hebron.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -5119,7 +5120,7 @@ const CURATED_QUESTION_BANK = [
       "Jehoiada",
       "Jehoiada the priest"
     ],
-    "displayAnswer": "Jehoiada (2 Kings 11–12)",
+    "displayAnswer": "Jehoiada (2 Kings 11\u201312)",
     "explanation": "Jehoiada guided young King Joash in righteousness throughout his lifetime.",
     "scope": "OT",
     "genre": "Historical"
@@ -5133,7 +5134,7 @@ const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Joseph"
     ],
-    "displayAnswer": "Joseph (Genesis 45:5–8)",
+    "displayAnswer": "Joseph (Genesis 45:5\u20138)",
     "explanation": "Genesis 45:5 records Joseph recognizing God's hand in preserving life in Egypt.",
     "scope": "OT",
     "genre": "Pentateuch"
@@ -5148,7 +5149,7 @@ const CURATED_QUESTION_BANK = [
       "Habakkuk",
       "Hab"
     ],
-    "displayAnswer": "Habakkuk (Habakkuk 2–3)",
+    "displayAnswer": "Habakkuk (Habakkuk 2\u20133)",
     "explanation": "Habakkuk's dialogue with God transitions from deep perplexity to triumphant worship.",
     "scope": "OT",
     "genre": "Minor Prophets"
@@ -5208,8 +5209,8 @@ const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Absalom"
     ],
-    "displayAnswer": "Absalom (2 Samuel 15–18)",
-    "explanation": "2 Samuel 15–18 records Absalom's tragic insurrection against King David.",
+    "displayAnswer": "Absalom (2 Samuel 15\u201318)",
+    "explanation": "2 Samuel 15\u201318 records Absalom's tragic insurrection against King David.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -5222,7 +5223,7 @@ const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Miriam"
     ],
-    "displayAnswer": "Miriam (Numbers 12:1–15)",
+    "displayAnswer": "Miriam (Numbers 12:1\u201315)",
     "explanation": "Numbers 12 records God defending Moses' meekness and chastening Miriam with leprosy.",
     "scope": "OT",
     "genre": "Pentateuch"
@@ -5238,7 +5239,7 @@ const CURATED_QUESTION_BANK = [
       "King Saul",
       "Saul of Kish"
     ],
-    "displayAnswer": "Saul (1 Samuel 13–15)",
+    "displayAnswer": "Saul (1 Samuel 13\u201315)",
     "explanation": "1 Samuel 13 and 15 record King Saul's disobedience resulting in God tearing the kingdom from him.",
     "scope": "OT",
     "genre": "Historical"
@@ -5253,8 +5254,8 @@ const CURATED_QUESTION_BANK = [
       "Asa",
       "King Asa"
     ],
-    "displayAnswer": "Asa (2 Chronicles 14–16)",
-    "explanation": "2 Chronicles 16:7–12 warns how King Asa failed to trust God in his later years.",
+    "displayAnswer": "Asa (2 Chronicles 14\u201316)",
+    "explanation": "2 Chronicles 16:7\u201312 warns how King Asa failed to trust God in his later years.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -5299,8 +5300,8 @@ const CURATED_QUESTION_BANK = [
       "Elijah the Tishbite",
       "Elijah the Prophet"
     ],
-    "displayAnswer": "Elijah (1 Kings 17–19)",
-    "explanation": "1 Kings 17–18 records Elijah's ministry at the brook Cherith and on Mount Carmel.",
+    "displayAnswer": "Elijah (1 Kings 17\u201319)",
+    "explanation": "1 Kings 17\u201318 records Elijah's ministry at the brook Cherith and on Mount Carmel.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -5315,7 +5316,7 @@ const CURATED_QUESTION_BANK = [
       "Abram"
     ],
     "displayAnswer": "Abraham (Genesis 12:3, 15:6)",
-    "explanation": "Genesis 12:1–3 and 15:6 establish Abraham as the father of all who believe.",
+    "explanation": "Genesis 12:1\u20133 and 15:6 establish Abraham as the father of all who believe.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -5363,7 +5364,7 @@ const CURATED_QUESTION_BANK = [
       "King Uzziah",
       "Azariah"
     ],
-    "displayAnswer": "Uzziah (2 Chronicles 26:16–21)",
+    "displayAnswer": "Uzziah (2 Chronicles 26:16\u201321)",
     "explanation": "2 Chronicles 26:16 warns that when Uzziah became strong, his heart was lifted up to his destruction.",
     "scope": "OT",
     "genre": "Historical"
@@ -5378,8 +5379,8 @@ const CURATED_QUESTION_BANK = [
       "Deborah",
       "Deborah the Prophetess"
     ],
-    "displayAnswer": "Deborah (Judges 4–5)",
-    "explanation": "Judges 4–5 celebrates Deborah as a mother in Israel and victorious judge.",
+    "displayAnswer": "Deborah (Judges 4\u20135)",
+    "explanation": "Judges 4\u20135 celebrates Deborah as a mother in Israel and victorious judge.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -5425,7 +5426,7 @@ const CURATED_QUESTION_BANK = [
       "Queen Esther",
       "Hadassah"
     ],
-    "displayAnswer": "Esther (Esther 4–7)",
+    "displayAnswer": "Esther (Esther 4\u20137)",
     "explanation": "Esther's heroic intervention led to the deliverance of the Jews and the feast of Purim.",
     "scope": "OT",
     "genre": "Historical"
@@ -5441,7 +5442,7 @@ const CURATED_QUESTION_BANK = [
       "Joseph of Cyprus",
       "Son of Encouragement"
     ],
-    "displayAnswer": "Barnabas (Acts 4:36, 11:22–26)",
+    "displayAnswer": "Barnabas (Acts 4:36, 11:22\u201326)",
     "explanation": "Acts 11:24 describes Barnabas as a good man full of the Holy Spirit and of faith.",
     "scope": "NT",
     "genre": "Acts (History)"
@@ -5472,7 +5473,7 @@ const CURATED_QUESTION_BANK = [
       "Haggai",
       "Hag"
     ],
-    "displayAnswer": "Haggai (Haggai 1:5–8)",
+    "displayAnswer": "Haggai (Haggai 1:5\u20138)",
     "explanation": "Haggai's prophetic ministry ignited the completion of the second temple.",
     "scope": "OT",
     "genre": "Minor Prophets"
@@ -5487,7 +5488,7 @@ const CURATED_QUESTION_BANK = [
       "Daniel",
       "Daniel the Prophet"
     ],
-    "displayAnswer": "Daniel (Daniel 9:1–3)",
+    "displayAnswer": "Daniel (Daniel 9:1\u20133)",
     "explanation": "Daniel 9:2 records Daniel studying Jeremiah's scrolls and interceding for Jerusalem's restoration.",
     "scope": "OT",
     "genre": "Major Prophets"
@@ -5502,7 +5503,7 @@ const CURATED_QUESTION_BANK = [
       "Nehemiah",
       "Nehemiah the Cupbearer"
     ],
-    "displayAnswer": "Nehemiah (Nehemiah 1–6)",
+    "displayAnswer": "Nehemiah (Nehemiah 1\u20136)",
     "explanation": "Nehemiah combined dependent prayer with brilliant organizational and defensive strategy.",
     "scope": "OT",
     "genre": "Historical"
@@ -5552,7 +5553,7 @@ const CURATED_QUESTION_BANK = [
       "Aquila and Priscilla",
       "Prisca and Aquila"
     ],
-    "displayAnswer": "Priscilla & Aquila (Acts 18:24–26)",
+    "displayAnswer": "Priscilla & Aquila (Acts 18:24\u201326)",
     "explanation": "Acts 18:26 shows Priscilla and Aquila mentoring Apollos in sound doctrine.",
     "scope": "NT",
     "genre": "Acts (History)"
@@ -5581,8 +5582,8 @@ const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Phoebe"
     ],
-    "displayAnswer": "Phoebe (Romans 16:1–2)",
-    "explanation": "Romans 16:1–2 commends Phoebe as a servant (diakonos) and patron (prostatis).",
+    "displayAnswer": "Phoebe (Romans 16:1\u20132)",
+    "explanation": "Romans 16:1\u20132 commends Phoebe as a servant (diakonos) and patron (prostatis).",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -5595,7 +5596,7 @@ const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Demetrius"
     ],
-    "displayAnswer": "Demetrius (Acts 19:24–29)",
+    "displayAnswer": "Demetrius (Acts 19:24\u201329)",
     "explanation": "Acts 19:24 records Demetrius inciting the silversmiths against Paul's preaching.",
     "scope": "NT",
     "genre": "Acts (History)"
@@ -5609,8 +5610,8 @@ const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Apollos"
     ],
-    "displayAnswer": "Apollos (Acts 18:24–28)",
-    "explanation": "Acts 18:24–28 highlights Apollos's powerful evangelistic and apologetic preaching.",
+    "displayAnswer": "Apollos (Acts 18:24\u201328)",
+    "explanation": "Acts 18:24\u201328 highlights Apollos's powerful evangelistic and apologetic preaching.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -5624,8 +5625,8 @@ const CURATED_QUESTION_BANK = [
       "Abraham",
       "Abram"
     ],
-    "displayAnswer": "Abraham (Genesis 22, Hebrews 11:17–19)",
-    "explanation": "Genesis 22:1–14 records the testing of Abraham and God providing the ram in the thicket.",
+    "displayAnswer": "Abraham (Genesis 22, Hebrews 11:17\u201319)",
+    "explanation": "Genesis 22:1\u201314 records the testing of Abraham and God providing the ram in the thicket.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -5652,8 +5653,8 @@ const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Eutychus"
     ],
-    "displayAnswer": "Eutychus (Acts 20:9–12)",
-    "explanation": "Acts 20:9–12 records Paul raising Eutychus from the dead.",
+    "displayAnswer": "Eutychus (Acts 20:9\u201312)",
+    "explanation": "Acts 20:9\u201312 records Paul raising Eutychus from the dead.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -5666,7 +5667,7 @@ const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Lydia"
     ],
-    "displayAnswer": "Lydia (Acts 16:14–15)",
+    "displayAnswer": "Lydia (Acts 16:14\u201315)",
     "explanation": "Acts 16:14 records the Lord opening Lydia's heart to heed Paul's message.",
     "scope": "NT",
     "genre": "Acts (History)"
@@ -5696,7 +5697,7 @@ const CURATED_QUESTION_BANK = [
       "Alexander the coppersmith"
     ],
     "displayAnswer": "Alexander the coppersmith (2 Timothy 4:14)",
-    "explanation": "2 Timothy 4:14–15 warns Timothy to beware of Alexander's fierce opposition to sound teaching.",
+    "explanation": "2 Timothy 4:14\u201315 warns Timothy to beware of Alexander's fierce opposition to sound teaching.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -5710,7 +5711,7 @@ const CURATED_QUESTION_BANK = [
       "Eleazar",
       "Eleazar the priest"
     ],
-    "displayAnswer": "Eleazar (Numbers 20:26–28, Joshua 14:1)",
+    "displayAnswer": "Eleazar (Numbers 20:26\u201328, Joshua 14:1)",
     "explanation": "Eleazar succeeded Aaron as High Priest throughout the conquest and settlement.",
     "scope": "OT",
     "genre": "Pentateuch"
@@ -5724,7 +5725,7 @@ const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Philemon"
     ],
-    "displayAnswer": "Philemon (Philemon 1:1–2)",
+    "displayAnswer": "Philemon (Philemon 1:1\u20132)",
     "explanation": "Philemon hosted the Colossian congregation in his household.",
     "scope": "NT",
     "genre": "Pauline Epistles"
@@ -5756,7 +5757,7 @@ const CURATED_QUESTION_BANK = [
       "Hymenaeus",
       "Alexander"
     ],
-    "displayAnswer": "Hymenaeus and Alexander (1 Timothy 1:19–20)",
+    "displayAnswer": "Hymenaeus and Alexander (1 Timothy 1:19\u201320)",
     "explanation": "1 Timothy 1:20 records apostolic discipline against Hymenaeus and Alexander.",
     "scope": "NT",
     "genre": "Pauline Epistles"
@@ -5771,7 +5772,7 @@ const CURATED_QUESTION_BANK = [
       "John Mark",
       "Mark"
     ],
-    "displayAnswer": "John Mark (Acts 15:37–39, 2 Timothy 4:11)",
+    "displayAnswer": "John Mark (Acts 15:37\u201339, 2 Timothy 4:11)",
     "explanation": "2 Timothy 4:11 marks the full restoration of Mark as Paul's valued coworker and author of the second Gospel.",
     "scope": "NT",
     "genre": "Pauline Epistles"
@@ -5802,7 +5803,7 @@ const CURATED_QUESTION_BANK = [
       "Elisha son of Shaphat",
       "Elisha the Prophet"
     ],
-    "displayAnswer": "Elisha (2 Kings 2:9–15)",
+    "displayAnswer": "Elisha (2 Kings 2:9\u201315)",
     "explanation": "Elisha succeeded Elijah with a miraculous ministry of pastoral compassion and prophetic power.",
     "scope": "OT",
     "genre": "Historical"
@@ -5833,8 +5834,8 @@ const CURATED_QUESTION_BANK = [
       "Apostle Paul",
       "Saul of Tarsus"
     ],
-    "displayAnswer": "Paul (2 Peter 3:15–16)",
-    "explanation": "2 Peter 3:15–16 equates Paul's letters with the rest of inspired Scripture.",
+    "displayAnswer": "Paul (2 Peter 3:15\u201316)",
+    "explanation": "2 Peter 3:15\u201316 equates Paul's letters with the rest of inspired Scripture.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -5849,7 +5850,7 @@ const CURATED_QUESTION_BANK = [
       "Dr. Luke",
       "Saint Luke"
     ],
-    "displayAnswer": "Luke (Luke 1:1–4)",
+    "displayAnswer": "Luke (Luke 1:1\u20134)",
     "explanation": "Luke's historical prologue establishes the rigorous historical basis of the Gospel.",
     "scope": "NT",
     "genre": "Gospels"
@@ -5864,7 +5865,7 @@ const CURATED_QUESTION_BANK = [
       "Eli",
       "Eli the priest"
     ],
-    "displayAnswer": "Eli (1 Samuel 2:27–36, 4:18)",
+    "displayAnswer": "Eli (1 Samuel 2:27\u201336, 4:18)",
     "explanation": "1 Samuel 4:18 records the tragic death of Eli upon hearing that the Ark of God was captured.",
     "scope": "OT",
     "genre": "Historical"
@@ -5879,7 +5880,7 @@ const CURATED_QUESTION_BANK = [
       "Jehoshaphat",
       "King Jehoshaphat"
     ],
-    "displayAnswer": "Jehoshaphat (2 Chronicles 19:1–3)",
+    "displayAnswer": "Jehoshaphat (2 Chronicles 19:1\u20133)",
     "explanation": "2 Chronicles 19:2: 'Should you help the wicked and love those who hate the Lord?'",
     "scope": "OT",
     "genre": "Historical"
@@ -5908,7 +5909,7 @@ const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Philemon"
     ],
-    "displayAnswer": "Philemon (Philemon 1:18–19)",
+    "displayAnswer": "Philemon (Philemon 1:18\u201319)",
     "explanation": "Paul beautifully models Christ's substitutionary imputation in his plea to Philemon.",
     "scope": "NT",
     "genre": "Pauline Epistles"
@@ -5939,7 +5940,7 @@ const CURATED_QUESTION_BANK = [
       "Malachi",
       "Mal"
     ],
-    "displayAnswer": "Malachi (Malachi 1–3)",
+    "displayAnswer": "Malachi (Malachi 1\u20133)",
     "explanation": "Malachi addressed the spiritual lethargy and nominalism of the post-exilic community.",
     "scope": "OT",
     "genre": "Minor Prophets"
@@ -5957,7 +5958,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Ruth"
     ],
     "displayAnswer": "Ruth (Ruth 4)",
-    "explanation": "Ruth 4:18–22 connects Boaz and Ruth to the messianic royal line of David and Jesus.",
+    "explanation": "Ruth 4:18\u201322 connects Boaz and Ruth to the messianic royal line of David and Jesus.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -6061,7 +6062,7 @@ const CURATED_QUESTION_BANK = [
       "Eccl Ch 12"
     ],
     "displayAnswer": "Ecclesiastes 12 (Ecclesiastes 12:13)",
-    "explanation": "Ecclesiastes 12:13–14 provides the final conclusion of the book.",
+    "explanation": "Ecclesiastes 12:13\u201314 provides the final conclusion of the book.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -6076,7 +6077,7 @@ const CURATED_QUESTION_BANK = [
       "Nah",
       "Book of Nahum"
     ],
-    "displayAnswer": "Nahum (Nahum 1:2–3)",
+    "displayAnswer": "Nahum (Nahum 1:2\u20133)",
     "explanation": "Nahum proclaims divine vengeance against oppressive, bloodthirsty Nineveh.",
     "scope": "OT",
     "genre": "Minor Prophets"
@@ -6115,7 +6116,7 @@ const CURATED_QUESTION_BANK = [
       "First Letter to the Thessalonians"
     ],
     "displayAnswer": "1 Thessalonians",
-    "explanation": "1 Thessalonians 1:10, 2:19, 3:13, 4:16–17, 5:23 all spotlight the return of Christ.",
+    "explanation": "1 Thessalonians 1:10, 2:19, 3:13, 4:16\u201317, 5:23 all spotlight the return of Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -6132,8 +6133,8 @@ const CURATED_QUESTION_BANK = [
       "1 Thessalonians Chapter 5",
       "1 Thess Ch 5"
     ],
-    "displayAnswer": "1 Thessalonians 5 (1 Thessalonians 5:19–21)",
-    "explanation": "1 Thessalonians 5:19–21 balances openness to the Spirit's work with rigorous discernment.",
+    "displayAnswer": "1 Thessalonians 5 (1 Thessalonians 5:19\u201321)",
+    "explanation": "1 Thessalonians 5:19\u201321 balances openness to the Spirit's work with rigorous discernment.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -6185,7 +6186,7 @@ const CURATED_QUESTION_BANK = [
       "Rev Ch 21"
     ],
     "displayAnswer": "Revelation 21 (Revelation 21:4)",
-    "explanation": "Revelation 21:1–4 depicts eternal glory in the new heaven and new earth.",
+    "explanation": "Revelation 21:1\u20134 depicts eternal glory in the new heaven and new earth.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
@@ -6204,8 +6205,8 @@ const CURATED_QUESTION_BANK = [
       "Book of 3 John",
       "Third Letter of John"
     ],
-    "displayAnswer": "3 John (3 John 1:9–10)",
-    "explanation": "3 John 1:9–10 exposes arrogant, authoritarian leadership in the church.",
+    "displayAnswer": "3 John (3 John 1:9\u201310)",
+    "explanation": "3 John 1:9\u201310 exposes arrogant, authoritarian leadership in the church.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -6242,8 +6243,8 @@ const CURATED_QUESTION_BANK = [
       "Letter of James",
       "Epistle of James"
     ],
-    "displayAnswer": "James (James 5:16–18)",
-    "explanation": "James 5:16–18 uses Elijah as an inspiring model of fervent, prevailing prayer.",
+    "displayAnswer": "James (James 5:16\u201318)",
+    "explanation": "James 5:16\u201318 uses Elijah as an inspiring model of fervent, prevailing prayer.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -6260,8 +6261,8 @@ const CURATED_QUESTION_BANK = [
       "Letter to Titus",
       "Epistle to Titus"
     ],
-    "displayAnswer": "Titus (Titus 2:3–5)",
-    "explanation": "Titus 2:3–5 establishes the biblical model of discipleship among Christian women.",
+    "displayAnswer": "Titus (Titus 2:3\u20135)",
+    "explanation": "Titus 2:3\u20135 establishes the biblical model of discipleship among Christian women.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -6279,8 +6280,8 @@ const CURATED_QUESTION_BANK = [
       "Gospel According to Mark",
       "Book of Mark"
     ],
-    "displayAnswer": "Mark (Mark 4:26–29)",
-    "explanation": "Mark 4:26–29 is a parable found exclusively in the Gospel of Mark illustrating the mysterious growth of the Kingdom.",
+    "displayAnswer": "Mark (Mark 4:26\u201329)",
+    "explanation": "Mark 4:26\u201329 is a parable found exclusively in the Gospel of Mark illustrating the mysterious growth of the Kingdom.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -6314,7 +6315,7 @@ const CURATED_QUESTION_BANK = [
       "John the baptizer"
     ],
     "displayAnswer": "John the Baptist",
-    "explanation": "John the Baptist preached in the wilderness of Judea: 'Prepare the way of the Lord' (Matt 3:1–3, Mark 1:3).",
+    "explanation": "John the Baptist preached in the wilderness of Judea: 'Prepare the way of the Lord' (Matt 3:1\u20133, Mark 1:3).",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -6332,7 +6333,7 @@ const CURATED_QUESTION_BANK = [
       "Luk 10"
     ],
     "displayAnswer": "Luke 10 (or Chapter 10)",
-    "explanation": "Jesus tells the Parable of the Good Samaritan to a lawyer in Luke 10:25–37.",
+    "explanation": "Jesus tells the Parable of the Good Samaritan to a lawyer in Luke 10:25\u201337.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -6366,7 +6367,7 @@ const CURATED_QUESTION_BANK = [
       "Didymus"
     ],
     "displayAnswer": "Thomas",
-    "explanation": "In John 20:24–29, Thomas confessed 'My Lord and my God!' after seeing and touching Jesus' wounds.",
+    "explanation": "In John 20:24\u201329, Thomas confessed 'My Lord and my God!' after seeing and touching Jesus' wounds.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -6423,7 +6424,7 @@ const CURATED_QUESTION_BANK = [
       "Mt 6"
     ],
     "displayAnswer": "Matthew 6 (or Chapter 6)",
-    "explanation": "The Lord's Prayer ('Our Father in heaven...') is recorded in Matthew 6:9–13 (and Luke 11).",
+    "explanation": "The Lord's Prayer ('Our Father in heaven...') is recorded in Matthew 6:9\u201313 (and Luke 11).",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -6546,7 +6547,7 @@ const CURATED_QUESTION_BANK = [
       "Acts of the Apostles Ch 20"
     ],
     "displayAnswer": "Acts 20",
-    "explanation": "In Acts 20:17–38 at Miletus, Paul delivers his emotional farewell address to the elders of the church of Ephesus.",
+    "explanation": "In Acts 20:17\u201338 at Miletus, Paul delivers his emotional farewell address to the elders of the church of Ephesus.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -6592,7 +6593,7 @@ const CURATED_QUESTION_BANK = [
       "Nicodemus"
     ],
     "displayAnswer": "Nicodemus",
-    "explanation": "In John 3:1–9, Nicodemus visited Jesus by night, where Jesus taught him: 'You must be born again.'",
+    "explanation": "In John 3:1\u20139, Nicodemus visited Jesus by night, where Jesus taught him: 'You must be born again.'",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -6640,7 +6641,7 @@ const CURATED_QUESTION_BANK = [
       "chapter 10"
     ],
     "displayAnswer": "Luke 15 (or Chapter 15)",
-    "explanation": "Luke 10:25–37 contains Jesus's Parable of the Good Samaritan.",
+    "explanation": "Luke 10:25\u201337 contains Jesus's Parable of the Good Samaritan.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -6674,7 +6675,7 @@ const CURATED_QUESTION_BANK = [
       "Acts of the Apostles Ch 4"
     ],
     "displayAnswer": "Acts 4",
-    "explanation": "Acts 4:32–37 describes the radical generosity and unity of the early Jerusalem church.",
+    "explanation": "Acts 4:32\u201337 describes the radical generosity and unity of the early Jerusalem church.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -6692,7 +6693,7 @@ const CURATED_QUESTION_BANK = [
       "Gal Ch 5"
     ],
     "displayAnswer": "Galatians 5",
-    "explanation": "Galatians 5:22–23 lists the 9 fruits of the Holy Spirit in contrast to the works of the flesh.",
+    "explanation": "Galatians 5:22\u201323 lists the 9 fruits of the Holy Spirit in contrast to the works of the flesh.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -6724,7 +6725,7 @@ const CURATED_QUESTION_BANK = [
       "Joseph Arimathea"
     ],
     "displayAnswer": "Joseph of Arimathea",
-    "explanation": "Joseph of Arimathea, a disciple of Jesus, boldly asked Pilate for the body and placed it in his own new tomb (Matt 27:57–60).",
+    "explanation": "Joseph of Arimathea, a disciple of Jesus, boldly asked Pilate for the body and placed it in his own new tomb (Matt 27:57\u201360).",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -6777,7 +6778,7 @@ const CURATED_QUESTION_BANK = [
       "chapter 12"
     ],
     "displayAnswer": "Romans 8 (or Chapter 8)",
-    "explanation": "Romans 12:1–2 is the classic exhortation to wholehearted spiritual consecration.",
+    "explanation": "Romans 12:1\u20132 is the classic exhortation to wholehearted spiritual consecration.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -6907,7 +6908,7 @@ const CURATED_QUESTION_BANK = [
       "Virgin Mary"
     ],
     "displayAnswer": "Mary",
-    "explanation": "Mary was chosen by God to conceive Jesus through the Holy Spirit (Luke 1:26–38).",
+    "explanation": "Mary was chosen by God to conceive Jesus through the Holy Spirit (Luke 1:26\u201338).",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -6987,7 +6988,7 @@ const CURATED_QUESTION_BANK = [
       "lepers"
     ],
     "displayAnswer": "Leprosy",
-    "explanation": "In Luke 17:11–19, Jesus cleansed ten lepers on the border of Samaria and Galilee, and a Samaritan returned to praise God.",
+    "explanation": "In Luke 17:11\u201319, Jesus cleansed ten lepers on the border of Samaria and Galilee, and a Samaritan returned to praise God.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -7005,7 +7006,7 @@ const CURATED_QUESTION_BANK = [
       "Luk 12"
     ],
     "displayAnswer": "Luke 12 (or Chapter 12)",
-    "explanation": "In Luke 12:16–21, Jesus warned against greed with the Parable of the Rich Fool.",
+    "explanation": "In Luke 12:16\u201321, Jesus warned against greed with the Parable of the Rich Fool.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -7048,7 +7049,7 @@ const CURATED_QUESTION_BANK = [
       "Zaccheus"
     ],
     "displayAnswer": "Zacchaeus",
-    "explanation": "Luke 19:1–10 tells how Zacchaeus climbed a sycamore-fig tree, and Jesus stayed at his house, bringing salvation.",
+    "explanation": "Luke 19:1\u201310 tells how Zacchaeus climbed a sycamore-fig tree, and Jesus stayed at his house, bringing salvation.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -7081,7 +7082,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Acts"
     ],
     "displayAnswer": "Acts (Acts 20)",
-    "explanation": "In Acts 20:9–12 in Troas, Eutychus fell asleep during Paul's preaching, fell out of a 3rd story window, and Paul raised him.",
+    "explanation": "In Acts 20:9\u201312 in Troas, Eutychus fell asleep during Paul's preaching, fell out of a 3rd story window, and Paul raised him.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -7288,7 +7289,7 @@ const CURATED_QUESTION_BANK = [
       "Ehud"
     ],
     "displayAnswer": "Ehud",
-    "explanation": "Judges 3:15–26 details how Ehud delivered Israel by striking down the corpulent King Eglon.",
+    "explanation": "Judges 3:15\u201326 details how Ehud delivered Israel by striking down the corpulent King Eglon.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -7303,7 +7304,7 @@ const CURATED_QUESTION_BANK = [
       "King Solomon"
     ],
     "displayAnswer": "Solomon (King Solomon)",
-    "explanation": "King Solomon built the First Temple over seven years (1 Kings 6; 2 Chron 3–7).",
+    "explanation": "King Solomon built the First Temple over seven years (1 Kings 6; 2 Chron 3\u20137).",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -7320,7 +7321,7 @@ const CURATED_QUESTION_BANK = [
       "Caleb & Joshua"
     ],
     "displayAnswer": "Joshua and Caleb (or Caleb and Joshua)",
-    "explanation": "In Numbers 14:6–9, Joshua and Caleb stood alone among the 12 spies urging Israel to trust the Lord.",
+    "explanation": "In Numbers 14:6\u20139, Joshua and Caleb stood alone among the 12 spies urging Israel to trust the Lord.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -7402,7 +7403,7 @@ const CURATED_QUESTION_BANK = [
       "Joshua son of Nun"
     ],
     "displayAnswer": "Joshua",
-    "explanation": "Joshua 1:1–9: The Lord commissioned Joshua: 'Moses my servant is dead. Now therefore arise, go over this Jordan.'",
+    "explanation": "Joshua 1:1\u20139: The Lord commissioned Joshua: 'Moses my servant is dead. Now therefore arise, go over this Jordan.'",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -7420,7 +7421,7 @@ const CURATED_QUESTION_BANK = [
       "Jer 31"
     ],
     "displayAnswer": "Jeremiah 31 (or Chapter 31)",
-    "explanation": "Jeremiah 31:31–34 foretells the New Covenant written upon the heart, quoted in Hebrews 8.",
+    "explanation": "Jeremiah 31:31\u201334 foretells the New Covenant written upon the heart, quoted in Hebrews 8.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -7434,7 +7435,7 @@ const CURATED_QUESTION_BANK = [
       "Samson"
     ],
     "displayAnswer": "Samson",
-    "explanation": "Judges 13–16 chronicles Samson's mighty deeds and downfall through Delilah.",
+    "explanation": "Judges 13\u201316 chronicles Samson's mighty deeds and downfall through Delilah.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -7465,7 +7466,7 @@ const CURATED_QUESTION_BANK = [
       "Nehemiah the Cupbearer"
     ],
     "displayAnswer": "Nehemiah",
-    "explanation": "Nehemiah mobilized the community to rebuild the walls of Jerusalem amidst intense opposition (Neh 1–6).",
+    "explanation": "Nehemiah mobilized the community to rebuild the walls of Jerusalem amidst intense opposition (Neh 1\u20136).",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -7611,7 +7612,7 @@ const CURATED_QUESTION_BANK = [
       "Queen Esther"
     ],
     "displayAnswer": "Esther",
-    "explanation": "Esther 4:14–16 details Queen Esther standing before the Persian King Xerxes to avert Haman's genocide.",
+    "explanation": "Esther 4:14\u201316 details Queen Esther standing before the Persian King Xerxes to avert Haman's genocide.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -7703,7 +7704,7 @@ const CURATED_QUESTION_BANK = [
       "Eli the priest"
     ],
     "displayAnswer": "Eli",
-    "explanation": "Eli was high priest and judge at Shiloh when young Samuel ministered before the Lord (1 Sam 1–4).",
+    "explanation": "Eli was high priest and judge at Shiloh when young Samuel ministered before the Lord (1 Sam 1\u20134).",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -7720,7 +7721,7 @@ const CURATED_QUESTION_BANK = [
       "Brass snake"
     ],
     "displayAnswer": "Bronze Serpent (Bronze Snake)",
-    "explanation": "Numbers 21:8–9 recounts Moses lifting the bronze serpent, which Jesus cited as a foreshadowing of the Cross in John 3:14.",
+    "explanation": "Numbers 21:8\u20139 recounts Moses lifting the bronze serpent, which Jesus cited as a foreshadowing of the Cross in John 3:14.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -7752,7 +7753,7 @@ const CURATED_QUESTION_BANK = [
       "Rachel"
     ],
     "displayAnswer": "Rachel",
-    "explanation": "Jacob loved Rachel and served Laban for 14 years to marry her (Genesis 29:18–30).",
+    "explanation": "Jacob loved Rachel and served Laban for 14 years to marry her (Genesis 29:18\u201330).",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -7851,7 +7852,7 @@ const CURATED_QUESTION_BANK = [
       "Amos"
     ],
     "displayAnswer": "Amos",
-    "explanation": "Amos 7:14: 'I was no prophet, nor a prophet’s son, but I was a herdsman and a dresser of sycamore figs.'",
+    "explanation": "Amos 7:14: 'I was no prophet, nor a prophet\u2019s son, but I was a herdsman and a dresser of sycamore figs.'",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -8078,7 +8079,7 @@ const CURATED_QUESTION_BANK = [
       "Rev Ch 21"
     ],
     "displayAnswer": "Revelation 21",
-    "explanation": "Revelation 21:1–4 portrays the descent of the New Jerusalem and eternal fellowship with God.",
+    "explanation": "Revelation 21:1\u20134 portrays the descent of the New Jerusalem and eternal fellowship with God.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
@@ -8269,7 +8270,7 @@ const CURATED_QUESTION_BANK = [
       "Josh 10"
     ],
     "displayAnswer": "Joshua 10 (or Chapter 10)",
-    "explanation": "Joshua 10:12–14 records Joshua commanding the sun to stand still over Gibeon and the moon over Aijalon.",
+    "explanation": "Joshua 10:12\u201314 records Joshua commanding the sun to stand still over Gibeon and the moon over Aijalon.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -8299,7 +8300,7 @@ const CURATED_QUESTION_BANK = [
       "Deborah the Prophetess"
     ],
     "displayAnswer": "Deborah",
-    "explanation": "Judges 4–5 chronicles Deborah judging Israel under the palm tree and composing her triumphal song.",
+    "explanation": "Judges 4\u20135 chronicles Deborah judging Israel under the palm tree and composing her triumphal song.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -8458,7 +8459,7 @@ const CURATED_QUESTION_BANK = [
       "King Josiah"
     ],
     "displayAnswer": "Josiah (King Josiah)",
-    "explanation": "2 Kings 22–23 records the discovery of the Law and Josiah's reforms.",
+    "explanation": "2 Kings 22\u201323 records the discovery of the Law and Josiah's reforms.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -8748,7 +8749,7 @@ const CURATED_QUESTION_BANK = [
       "Mars' Hill"
     ],
     "displayAnswer": "Mars Hill (The Areopagus)",
-    "explanation": "In Acts 17:22–31, Paul preached at the Areopagus (Mars Hill) in Athens regarding the Creator God and the resurrection.",
+    "explanation": "In Acts 17:22\u201331, Paul preached at the Areopagus (Mars Hill) in Athens regarding the Creator God and the resurrection.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -8780,7 +8781,7 @@ const CURATED_QUESTION_BANK = [
       "chapter 2"
     ],
     "displayAnswer": "Ephesians 6 (or Chapter 6)",
-    "explanation": "Ephesians 2:8–9 provides the core doctrine of salvation by grace through faith alone.",
+    "explanation": "Ephesians 2:8\u20139 provides the core doctrine of salvation by grace through faith alone.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -8827,7 +8828,7 @@ const CURATED_QUESTION_BANK = [
       "Rev Ch 2"
     ],
     "displayAnswer": "Revelation 2 (and 3)",
-    "explanation": "Revelation 2–3 contains Christ's specific messages to Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, and Laodicea.",
+    "explanation": "Revelation 2\u20133 contains Christ's specific messages to Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, and Laodicea.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
@@ -8985,8 +8986,8 @@ const CURATED_QUESTION_BANK = [
       "First Chronicles",
       "Book of 1 Chronicles"
     ],
-    "displayAnswer": "1 Chronicles (1 Chron 4:9–10)",
-    "explanation": "1 Chronicles 4:9–10 records Jabez praying for God's protection and blessing, and God granted his request.",
+    "displayAnswer": "1 Chronicles (1 Chron 4:9\u201310)",
+    "explanation": "1 Chronicles 4:9\u201310 records Jabez praying for God's protection and blessing, and God granted his request.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -9017,7 +9018,7 @@ const CURATED_QUESTION_BANK = [
       "King Uzziah"
     ],
     "displayAnswer": "Uzziah (Azariah)",
-    "explanation": "2 Chronicles 26:16–21 recounts King Uzziah's pride leading to his downfall when he usurped the priest's duty.",
+    "explanation": "2 Chronicles 26:16\u201321 recounts King Uzziah's pride leading to his downfall when he usurped the priest's duty.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -9046,7 +9047,7 @@ const CURATED_QUESTION_BANK = [
       "Absalom"
     ],
     "displayAnswer": "Absalom",
-    "explanation": "2 Samuel 15–18 chronicles Absalom's conspiracy, David's flight from Jerusalem, and David's grief over his death.",
+    "explanation": "2 Samuel 15\u201318 chronicles Absalom's conspiracy, David's flight from Jerusalem, and David's grief over his death.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -9286,7 +9287,7 @@ const CURATED_QUESTION_BANK = [
       "Demetrius"
     ],
     "displayAnswer": "Demetrius",
-    "explanation": "In Acts 19:24–29, Demetrius gathered fellow craftsmen shouting 'Great is Artemis of the Ephesians!'",
+    "explanation": "In Acts 19:24\u201329, Demetrius gathered fellow craftsmen shouting 'Great is Artemis of the Ephesians!'",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -9300,7 +9301,7 @@ const CURATED_QUESTION_BANK = [
       "Apollos"
     ],
     "displayAnswer": "Apollos",
-    "explanation": "Acts 18:24–28 describes Apollos powerfully refuting the Jews in public, proving from the Scriptures that Jesus was the Christ.",
+    "explanation": "Acts 18:24\u201328 describes Apollos powerfully refuting the Jews in public, proving from the Scriptures that Jesus was the Christ.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -9359,7 +9360,7 @@ const CURATED_QUESTION_BANK = [
       "strongholds"
     ],
     "displayAnswer": "strongholds",
-    "explanation": "2 Corinthians 10:4–5 emphasizes spiritual warfare and taking every thought captive to obey Christ.",
+    "explanation": "2 Corinthians 10:4\u20135 emphasizes spiritual warfare and taking every thought captive to obey Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -9401,7 +9402,7 @@ const CURATED_QUESTION_BANK = [
       "Epaphroditus"
     ],
     "displayAnswer": "Epaphroditus",
-    "explanation": "Philippians 2:25–30 praises Epaphroditus as 'my brother and fellow worker and fellow soldier, and your messenger.'",
+    "explanation": "Philippians 2:25\u201330 praises Epaphroditus as 'my brother and fellow worker and fellow soldier, and your messenger.'",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -9445,7 +9446,7 @@ const CURATED_QUESTION_BANK = [
       "Diotrephes"
     ],
     "displayAnswer": "Diotrephes",
-    "explanation": "3 John 9–10 warns against Diotrephes, who loved to have the preeminence and spoke malicious words against the apostles.",
+    "explanation": "3 John 9\u201310 warns against Diotrephes, who loved to have the preeminence and spoke malicious words against the apostles.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -9479,7 +9480,7 @@ const CURATED_QUESTION_BANK = [
       "Laodiceans"
     ],
     "displayAnswer": "Laodicea (Church in Laodicea)",
-    "explanation": "Revelation 3:14–22 was written to the lukewarm church in Laodicea.",
+    "explanation": "Revelation 3:14\u201322 was written to the lukewarm church in Laodicea.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
@@ -9497,7 +9498,7 @@ const CURATED_QUESTION_BANK = [
       "Doctor Luke"
     ],
     "displayAnswer": "Luke",
-    "explanation": "Luke, the physician and companion of Paul, wrote both the Gospel of Luke and the Acts of the Apostles (Acts 1:1, Luke 1:1–4).",
+    "explanation": "Luke, the physician and companion of Paul, wrote both the Gospel of Luke and the Acts of the Apostles (Acts 1:1, Luke 1:1\u20134).",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -9594,7 +9595,7 @@ const CURATED_QUESTION_BANK = [
       "Balaam son of Beor"
     ],
     "displayAnswer": "Balaam",
-    "explanation": "Numbers 22–24: Balaam could only speak what God commanded, prophesying a star and scepter out of Jacob (Numbers 24:17).",
+    "explanation": "Numbers 22\u201324: Balaam could only speak what God commanded, prophesying a star and scepter out of Jacob (Numbers 24:17).",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -9641,7 +9642,7 @@ const CURATED_QUESTION_BANK = [
       "Apostle Peter"
     ],
     "displayAnswer": "Peter (Cephas)",
-    "explanation": "Galatians 2:11–14: Paul opposed Peter to his face because his conduct was not in step with the truth of the gospel.",
+    "explanation": "Galatians 2:11\u201314: Paul opposed Peter to his face because his conduct was not in step with the truth of the gospel.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -9660,7 +9661,7 @@ const CURATED_QUESTION_BANK = [
       "Horeb"
     ],
     "displayAnswer": "Mount Sinai (Horeb)",
-    "explanation": "Exodus 19–20: God descended on Mount Sinai in fire and smoke and audibly proclaimed the Ten Commandments.",
+    "explanation": "Exodus 19\u201320: God descended on Mount Sinai in fire and smoke and audibly proclaimed the Ten Commandments.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -9674,7 +9675,7 @@ const CURATED_QUESTION_BANK = [
       "Ephesus"
     ],
     "displayAnswer": "Ephesus",
-    "explanation": "Acts 19:23–41: The theater riot in Ephesus where the mob shouted 'Great is Artemis of the Ephesians!' for two hours.",
+    "explanation": "Acts 19:23\u201341: The theater riot in Ephesus where the mob shouted 'Great is Artemis of the Ephesians!' for two hours.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -9766,7 +9767,7 @@ const CURATED_QUESTION_BANK = [
       "Damascus"
     ],
     "displayAnswer": "Damascus",
-    "explanation": "Acts 9:3–4: As Saul drew near to Damascus, suddenly a light from heaven shone around him and he fell to the ground.",
+    "explanation": "Acts 9:3\u20134: As Saul drew near to Damascus, suddenly a light from heaven shone around him and he fell to the ground.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -9868,8 +9869,8 @@ const CURATED_QUESTION_BANK = [
       "Ge",
       "Book of Genesis"
     ],
-    "displayAnswer": "Genesis (Genesis 37–50)",
-    "explanation": "Genesis 37–50 details Joseph's coat of many colors, Potiphar's house, prison, and rise to prime minister of Egypt.",
+    "displayAnswer": "Genesis (Genesis 37\u201350)",
+    "explanation": "Genesis 37\u201350 details Joseph's coat of many colors, Potiphar's house, prison, and rise to prime minister of Egypt.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -9886,8 +9887,8 @@ const CURATED_QUESTION_BANK = [
       "Nm",
       "Book of Numbers"
     ],
-    "displayAnswer": "Numbers (Numbers 13–14)",
-    "explanation": "Numbers 13–14 records the 10 fearful spies and the resulting 40-year wandering in the wilderness.",
+    "displayAnswer": "Numbers (Numbers 13\u201314)",
+    "explanation": "Numbers 13\u201314 records the 10 fearful spies and the resulting 40-year wandering in the wilderness.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -9902,8 +9903,8 @@ const CURATED_QUESTION_BANK = [
       "Jol",
       "Joe"
     ],
-    "displayAnswer": "Joel (Joel 1–2)",
-    "explanation": "Joel 1–2 uses the locust plague as a warning of the Day of the Lord, followed by the promise of the Spirit in Joel 2:28.",
+    "displayAnswer": "Joel (Joel 1\u20132)",
+    "explanation": "Joel 1\u20132 uses the locust plague as a warning of the Day of the Lord, followed by the promise of the Spirit in Joel 2:28.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -9921,7 +9922,7 @@ const CURATED_QUESTION_BANK = [
       "Epistle to the Ephesians"
     ],
     "displayAnswer": "Ephesians (Ephesians 6)",
-    "explanation": "Ephesians 6:10–20 describes the belt of truth, breastplate of righteousness, shield of faith, helmet of salvation, and sword of the Spirit.",
+    "explanation": "Ephesians 6:10\u201320 describes the belt of truth, breastplate of righteousness, shield of faith, helmet of salvation, and sword of the Spirit.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -9957,8 +9958,8 @@ const CURATED_QUESTION_BANK = [
       "Hos",
       "Book of Hosea"
     ],
-    "displayAnswer": "Hosea (Hosea 1–3)",
-    "explanation": "Hosea 1–3 portrays God's relentless, forgiving love for spiritual adulterers.",
+    "displayAnswer": "Hosea (Hosea 1\u20133)",
+    "explanation": "Hosea 1\u20133 portrays God's relentless, forgiving love for spiritual adulterers.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -9978,7 +9979,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Matthew"
     ],
     "displayAnswer": "Matthew (Matthew 2)",
-    "explanation": "Matthew 2:1–12 uniquely records the visit and worship of the wise men.",
+    "explanation": "Matthew 2:1\u201312 uniquely records the visit and worship of the wise men.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -9996,7 +9997,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Ecclesiastes"
     ],
     "displayAnswer": "Ecclesiastes (Ecclesiastes 3)",
-    "explanation": "Ecclesiastes 3:1–8 contains the famous poem on the appointed times and sovereign seasons of life.",
+    "explanation": "Ecclesiastes 3:1\u20138 contains the famous poem on the appointed times and sovereign seasons of life.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -10033,7 +10034,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Proverbs"
     ],
     "displayAnswer": "Proverbs (Proverbs 9)",
-    "explanation": "Proverbs 9:1–6 describes Lady Wisdom building her house and inviting guests to her feast.",
+    "explanation": "Proverbs 9:1\u20136 describes Lady Wisdom building her house and inviting guests to her feast.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -10067,7 +10068,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Deuteronomy"
     ],
     "displayAnswer": "Deuteronomy (Deuteronomy 6:5)",
-    "explanation": "Deuteronomy 6:4–5 is the centerpiece Shema, quoted by Jesus as the first and greatest commandment.",
+    "explanation": "Deuteronomy 6:4\u20135 is the centerpiece Shema, quoted by Jesus as the first and greatest commandment.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -10086,7 +10087,7 @@ const CURATED_QUESTION_BANK = [
       "Book of John"
     ],
     "displayAnswer": "John (John 4)",
-    "explanation": "John 4:1–42 records Jesus revealing Himself as the Messiah to the Samaritan woman.",
+    "explanation": "John 4:1\u201342 records Jesus revealing Himself as the Messiah to the Samaritan woman.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -10124,7 +10125,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Luke"
     ],
     "displayAnswer": "Luke (Luke 10)",
-    "explanation": "Luke 10:25–37 uniquely preserves Jesus' famous parable of the merciful Samaritan.",
+    "explanation": "Luke 10:25\u201337 uniquely preserves Jesus' famous parable of the merciful Samaritan.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -10143,7 +10144,7 @@ const CURATED_QUESTION_BANK = [
       "Book of 1 Timothy",
       "First Letter to Timothy"
     ],
-    "displayAnswer": "1 Timothy (1 Tim 5:1–2)",
+    "displayAnswer": "1 Timothy (1 Tim 5:1\u20132)",
     "explanation": "1 Timothy 5 gives pastoral guidelines for relationships within the household of God.",
     "scope": "NT",
     "genre": "Pauline Epistles"
@@ -10163,7 +10164,7 @@ const CURATED_QUESTION_BANK = [
       "Book of 2 Samuel"
     ],
     "displayAnswer": "2 Samuel (2 Samuel 7)",
-    "explanation": "2 Samuel 7:12–16 contains Nathan's prophecy of David's eternal royal dynasty, fulfilled in Christ.",
+    "explanation": "2 Samuel 7:12\u201316 contains Nathan's prophecy of David's eternal royal dynasty, fulfilled in Christ.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -10199,7 +10200,7 @@ const CURATED_QUESTION_BANK = [
       "Gen Ch 12"
     ],
     "displayAnswer": "Genesis 12",
-    "explanation": "Genesis 12:1–3 records God's covenant call to Abram.",
+    "explanation": "Genesis 12:1\u20133 records God's covenant call to Abram.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -10217,7 +10218,7 @@ const CURATED_QUESTION_BANK = [
       "Matthew 5 to 7",
       "5, 6, 7"
     ],
-    "displayAnswer": "Matthew 5–7",
+    "displayAnswer": "Matthew 5\u20137",
     "explanation": "Matthew chapters 5, 6, and 7 comprise the inaugural discourse of Jesus on Kingdom ethics and discipleship.",
     "scope": "NT",
     "genre": "Gospels"
@@ -10236,7 +10237,7 @@ const CURATED_QUESTION_BANK = [
       "Matt Ch 28"
     ],
     "displayAnswer": "Matthew 28",
-    "explanation": "Matthew 28:18–20 concludes Matthew's Gospel with Christ's universal commission to His church.",
+    "explanation": "Matthew 28:18\u201320 concludes Matthew's Gospel with Christ's universal commission to His church.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -10254,7 +10255,7 @@ const CURATED_QUESTION_BANK = [
       "Acts of the Apostles Ch 2"
     ],
     "displayAnswer": "Acts 2",
-    "explanation": "Acts 2:1–4 describes the birth of the New Testament church at Pentecost and Peter's sermon.",
+    "explanation": "Acts 2:1\u20134 describes the birth of the New Testament church at Pentecost and Peter's sermon.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -10273,7 +10274,7 @@ const CURATED_QUESTION_BANK = [
       "Rom Ch 5"
     ],
     "displayAnswer": "Romans 5",
-    "explanation": "Romans 5:12–21 develops the profound theological parallel and contrast between Adam and Christ.",
+    "explanation": "Romans 5:12\u201321 develops the profound theological parallel and contrast between Adam and Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -10311,7 +10312,7 @@ const CURATED_QUESTION_BANK = [
       "Jhn Ch 3"
     ],
     "displayAnswer": "John 3",
-    "explanation": "John 3:1–21 records Jesus' nighttime discourse on spiritual regeneration, including John 3:16.",
+    "explanation": "John 3:1\u201321 records Jesus' nighttime discourse on spiritual regeneration, including John 3:16.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -10329,7 +10330,7 @@ const CURATED_QUESTION_BANK = [
       "Rev Ch 20"
     ],
     "displayAnswer": "Revelation 20",
-    "explanation": "Revelation 20:1–3 describes the millennial binding of Satan followed by the Great White Throne Judgment.",
+    "explanation": "Revelation 20:1\u20133 describes the millennial binding of Satan followed by the Great White Throne Judgment.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
@@ -10488,7 +10489,7 @@ const CURATED_QUESTION_BANK = [
       "The New Creation"
     ],
     "displayAnswer": "The New Heaven, New Earth, and New Jerusalem",
-    "explanation": "Revelation 21:1–2 describes the new heaven, new earth, and the holy city, new Jerusalem.",
+    "explanation": "Revelation 21:1\u20132 describes the new heaven, new earth, and the holy city, new Jerusalem.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
@@ -10568,7 +10569,7 @@ const CURATED_QUESTION_BANK = [
       "Sarai"
     ],
     "displayAnswer": "Sarah",
-    "explanation": "Genesis 18:12–14: Sarah reacted in disbelief before giving birth to Isaac as God promised.",
+    "explanation": "Genesis 18:12\u201314: Sarah reacted in disbelief before giving birth to Isaac as God promised.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -10603,7 +10604,7 @@ const CURATED_QUESTION_BANK = [
       "Zebedee's wife"
     ],
     "displayAnswer": "The mother of James and John (Zebedee's sons / Salome)",
-    "explanation": "Matthew 20:20–21: Prompting Jesus to teach that greatness in the Kingdom is found in serving others.",
+    "explanation": "Matthew 20:20\u201321: Prompting Jesus to teach that greatness in the Kingdom is found in serving others.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -10663,7 +10664,7 @@ const CURATED_QUESTION_BANK = [
       "Job"
     ],
     "displayAnswer": "Job",
-    "explanation": "Job 19:25–26: Job's profound declaration of confidence in his living Redeemer and bodily resurrection.",
+    "explanation": "Job 19:25\u201326: Job's profound declaration of confidence in his living Redeemer and bodily resurrection.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -10685,7 +10686,7 @@ const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_err_1",
     "type": "book_id",
-    "prompt": "To which New Testament book would you turn to correct the error: 'As long as you believe the right things, it doesn’t matter how you live your life'?",
+    "prompt": "To which New Testament book would you turn to correct the error: 'As long as you believe the right things, it doesn\u2019t matter how you live your life'?",
     "bookId": "JAS",
     "chapterNum": 2,
     "acceptedAnswers": [
@@ -10703,7 +10704,7 @@ const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_err_2",
     "type": "book_id",
-    "prompt": "To which epistle would you turn to correct the error: 'I’m sure I don’t have any spiritual gifts; only special people do'?",
+    "prompt": "To which epistle would you turn to correct the error: 'I\u2019m sure I don\u2019t have any spiritual gifts; only special people do'?",
     "bookId": "1CO",
     "chapterNum": 12,
     "acceptedAnswers": [
@@ -10742,7 +10743,7 @@ const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_err_4",
     "type": "book_id",
-    "prompt": "To which Old Testament book would you turn to correct the retribution error: 'If you are sick or suffering, you must have secret sin; good people don’t suffer'?",
+    "prompt": "To which Old Testament book would you turn to correct the retribution error: 'If you are sick or suffering, you must have secret sin; good people don\u2019t suffer'?",
     "bookId": "JOB",
     "chapterNum": 1,
     "acceptedAnswers": [
@@ -10757,7 +10758,7 @@ const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_err_5",
     "type": "book_id",
-    "prompt": "To which prophetic book would you turn to correct the error: 'God only cares about religious rituals; He doesn’t care about the poor, vulnerable, and oppressed'?",
+    "prompt": "To which prophetic book would you turn to correct the error: 'God only cares about religious rituals; He doesn\u2019t care about the poor, vulnerable, and oppressed'?",
     "bookId": "AMO",
     "chapterNum": 5,
     "acceptedAnswers": [
@@ -10789,7 +10790,7 @@ const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_err_7",
     "type": "book_id",
-    "prompt": "To which book would you turn to correct the nihilistic error: 'In the end it won’t make any difference whom we followed or what we did; everybody gets treated the exact same when history ends'?",
+    "prompt": "To which book would you turn to correct the nihilistic error: 'In the end it won\u2019t make any difference whom we followed or what we did; everybody gets treated the exact same when history ends'?",
     "bookId": "REV",
     "chapterNum": 20,
     "acceptedAnswers": [
@@ -10800,14 +10801,14 @@ const CURATED_QUESTION_BANK = [
       "The Revelation"
     ],
     "displayAnswer": "Revelation",
-    "explanation": "Revelation 20–22 reveals final cosmic judgment, eternal life for the redeemed, and eternal separation for the wicked.",
+    "explanation": "Revelation 20\u201322 reveals final cosmic judgment, eternal life for the redeemed, and eternal separation for the wicked.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
   {
     "id": "gfc_err_8",
     "type": "book_id",
-    "prompt": "To which Gospel would you turn to correct the pluralistic error: 'There’s nothing unique about Jesus; He’s just one path among many, like any other prophet or good moral teacher'?",
+    "prompt": "To which Gospel would you turn to correct the pluralistic error: 'There\u2019s nothing unique about Jesus; He\u2019s just one path among many, like any other prophet or good moral teacher'?",
     "bookId": "JHN",
     "chapterNum": 14,
     "acceptedAnswers": [
@@ -10819,7 +10820,7 @@ const CURATED_QUESTION_BANK = [
       "Book of John"
     ],
     "displayAnswer": "John",
-    "explanation": "John 1:1–14 and John 14:6 present Christ as the eternal Word made flesh: 'I am the way, and the truth, and the life. No one comes to the Father except through me.'",
+    "explanation": "John 1:1\u201314 and John 14:6 present Christ as the eternal Word made flesh: 'I am the way, and the truth, and the life. No one comes to the Father except through me.'",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -10839,14 +10840,14 @@ const CURATED_QUESTION_BANK = [
       "First Letter to Timothy"
     ],
     "displayAnswer": "1 Timothy (1 Timothy 3)",
-    "explanation": "1 Timothy 3:1–7 sets forth the indispensable spiritual, moral, and character qualifications for overseers/elders.",
+    "explanation": "1 Timothy 3:1\u20137 sets forth the indispensable spiritual, moral, and character qualifications for overseers/elders.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
   {
     "id": "gfc_err_10",
     "type": "book_id",
-    "prompt": "To which book would you turn to correct the ascetic error: 'The Bible doesn’t say anything good about romantic love and marital intimacy; that’s too physical for God to care about'?",
+    "prompt": "To which book would you turn to correct the ascetic error: 'The Bible doesn\u2019t say anything good about romantic love and marital intimacy; that\u2019s too physical for God to care about'?",
     "bookId": "SNG",
     "chapterNum": 1,
     "acceptedAnswers": [
@@ -10876,7 +10877,7 @@ const CURATED_QUESTION_BANK = [
       "God's covenant to Abraham"
     ],
     "displayAnswer": "God's promise to Abraham (Genesis 12 c. 2090 BC)",
-    "explanation": "Abraham (~2000 BC) preceded the Judges (~1375–1050 BC), Saul (~1050 BC), and Pentecost (AD 33).",
+    "explanation": "Abraham (~2000 BC) preceded the Judges (~1375\u20131050 BC), Saul (~1050 BC), and Pentecost (AD 33).",
     "scope": "ALL",
     "genre": "Historical"
   },
@@ -10910,7 +10911,7 @@ const CURATED_QUESTION_BANK = [
       "Fall"
     ],
     "displayAnswer": "The Fall of man (Genesis 3)",
-    "explanation": "The Fall (Gen 3) preceded the Flood (Gen 6–9), the Nativity (Matt 1), and the New Jerusalem (Rev 21).",
+    "explanation": "The Fall (Gen 3) preceded the Flood (Gen 6\u20139), the Nativity (Matt 1), and the New Jerusalem (Rev 21).",
     "scope": "ALL",
     "genre": "Pentateuch"
   },
@@ -11095,7 +11096,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Isaiah"
     ],
     "displayAnswer": "Isaiah (Isaiah 7:14)",
-    "explanation": "Isaiah 7:14 is quoted in Matthew 1:22–23 as fulfilled in the conception and virgin birth of Jesus.",
+    "explanation": "Isaiah 7:14 is quoted in Matthew 1:22\u201323 as fulfilled in the conception and virgin birth of Jesus.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -11111,8 +11112,8 @@ const CURATED_QUESTION_BANK = [
       "Is",
       "Book of Isaiah"
     ],
-    "displayAnswer": "Isaiah (Isaiah 61:1–2)",
-    "explanation": "Isaiah 61:1–2 was read by Jesus in the Nazareth synagogue in Luke 4:18–19: 'Today this Scripture has been fulfilled in your hearing.'",
+    "displayAnswer": "Isaiah (Isaiah 61:1\u20132)",
+    "explanation": "Isaiah 61:1\u20132 was read by Jesus in the Nazareth synagogue in Luke 4:18\u201319: 'Today this Scripture has been fulfilled in your hearing.'",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -11133,7 +11134,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Psalms"
     ],
     "displayAnswer": "Psalms (Psalm 110:4)",
-    "explanation": "Psalm 110:4 is expounded in Hebrews 5–7 as the basis for Christ's eternal, Melchizedekian priesthood.",
+    "explanation": "Psalm 110:4 is expounded in Hebrews 5\u20137 as the basis for Christ's eternal, Melchizedekian priesthood.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -11192,7 +11193,7 @@ const CURATED_QUESTION_BANK = [
       "Book of Isaiah"
     ],
     "displayAnswer": "Isaiah (Isaiah 53:9)",
-    "explanation": "Isaiah 53:9 was fulfilled when Joseph of Arimathea, a wealthy council member, buried Jesus in his own new tomb (Matthew 27:57–60).",
+    "explanation": "Isaiah 53:9 was fulfilled when Joseph of Arimathea, a wealthy council member, buried Jesus in his own new tomb (Matthew 27:57\u201360).",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -11211,6 +11212,9715 @@ const CURATED_QUESTION_BANK = [
     "explanation": "Malachi 4:5 was the final Old Testament prophecy, fulfilled in John the Baptist coming in the spirit and power of Elijah (Matthew 11:14, Luke 1:17).",
     "scope": "OT",
     "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_gen_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does God create the heavens, earth, and living creatures in six days, crowning creation with man in His image?",
+    "bookId": "GEN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Genesis 1",
+      "GEN 1",
+      "Genesis Chapter 1"
+    ],
+    "displayAnswer": "Genesis 1 (or Chapter 1)",
+    "explanation": "Genesis 1 records the six days of creation and the creation of humanity.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis is man formed from the dust, the Garden of Eden planted, and marriage instituted between Adam and Eve?",
+    "bookId": "GEN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Genesis 2",
+      "GEN 2",
+      "Genesis Chapter 2"
+    ],
+    "displayAnswer": "Genesis 2 (or Chapter 2)",
+    "explanation": "Genesis 2 details the creation of Adam and Eve and the creation ordinance of marriage.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does the serpent tempt Eve, causing the Fall of Man and the Protoevangelium (Gen 3:15)?",
+    "bookId": "GEN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Genesis 3",
+      "GEN 3",
+      "Genesis Chapter 3"
+    ],
+    "displayAnswer": "Genesis 3 (or Chapter 3)",
+    "explanation": "Genesis 3 records the entrance of sin into the world and the first gospel promise.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Cain murder his brother Abel in the field?",
+    "bookId": "GEN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Genesis 4",
+      "GEN 4",
+      "Genesis Chapter 4"
+    ],
+    "displayAnswer": "Genesis 4 (or Chapter 4)",
+    "explanation": "Genesis 4 recounts the first murder when Cain kills Abel out of jealousy.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does God command Noah to build the Ark because of pervasive human wickedness on the earth?",
+    "bookId": "GEN",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Genesis 6",
+      "GEN 6",
+      "Genesis Chapter 6"
+    ],
+    "displayAnswer": "Genesis 6 (or Chapter 6)",
+    "explanation": "Genesis 6 details the corruption of the earth and the building of the Ark.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis do the fountains of the deep burst open and rain fall for forty days as the Great Flood begins?",
+    "bookId": "GEN",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Genesis 7",
+      "GEN 7",
+      "Genesis Chapter 7"
+    ],
+    "displayAnswer": "Genesis 7 (or Chapter 7)",
+    "explanation": "Genesis 7 describes the onset of the worldwide Flood.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis do the floodwaters recede, the Ark rests on Mount Ararat, and Noah sends out a raven and a dove?",
+    "bookId": "GEN",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Genesis 8",
+      "GEN 8",
+      "Genesis Chapter 8"
+    ],
+    "displayAnswer": "Genesis 8 (or Chapter 8)",
+    "explanation": "Genesis 8 recounts the receding waters and Noah exiting the ark.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does God establish His covenant with Noah and set the rainbow in the clouds as a perpetual sign?",
+    "bookId": "GEN",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Genesis 9",
+      "GEN 9",
+      "Genesis Chapter 9"
+    ],
+    "displayAnswer": "Genesis 9 (or Chapter 9)",
+    "explanation": "Genesis 9 records the covenant with Noah and the rainbow sign.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis is the Tower of Babel built, leading God to confuse human languages and scatter the nations?",
+    "bookId": "GEN",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Genesis 11",
+      "GEN 11",
+      "Genesis Chapter 11"
+    ],
+    "displayAnswer": "Genesis 11 (or Chapter 11)",
+    "explanation": "Genesis 11 recounts humanity's pride at Babel and the dispersion of languages.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does God call Abram to leave Haran for Canaan and inaugurate the Abrahamic Covenant?",
+    "bookId": "GEN",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Genesis 12",
+      "GEN 12",
+      "Genesis Chapter 12"
+    ],
+    "displayAnswer": "Genesis 12 (or Chapter 12)",
+    "explanation": "Genesis 12 marks God's foundational call of Abram.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_14",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Abram rescue Lot and receive a blessing from Melchizedek, king of Salem?",
+    "bookId": "GEN",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "14",
+      "Chapter 14",
+      "Ch 14",
+      "Genesis 14",
+      "GEN 14",
+      "Genesis Chapter 14"
+    ],
+    "displayAnswer": "Genesis 14 (or Chapter 14)",
+    "explanation": "Genesis 14 records the war of the kings and Melchizedek bringing bread and wine.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_15",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Abram believe God's promise of offspring ('counted to him as righteousness') and God ratifies the covenant with a smoking firepot?",
+    "bookId": "GEN",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "15",
+      "Chapter 15",
+      "Ch 15",
+      "Genesis 15",
+      "GEN 15",
+      "Genesis Chapter 15"
+    ],
+    "displayAnswer": "Genesis 15 (or Chapter 15)",
+    "explanation": "Genesis 15 contains the formal covenant ratification ceremony and Genesis 15:6.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_16",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Sarai give her Egyptian servant Hagar to Abram, resulting in the birth of Ishmael?",
+    "bookId": "GEN",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "16",
+      "Chapter 16",
+      "Ch 16",
+      "Genesis 16",
+      "GEN 16",
+      "Genesis Chapter 16"
+    ],
+    "displayAnswer": "Genesis 16 (or Chapter 16)",
+    "explanation": "Genesis 16 details the birth of Ishmael and God hearing Hagar by the spring.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_17",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis is circumcision instituted as the covenant sign and Abram renamed Abraham?",
+    "bookId": "GEN",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "Genesis 17",
+      "GEN 17",
+      "Genesis Chapter 17"
+    ],
+    "displayAnswer": "Genesis 17 (or Chapter 17)",
+    "explanation": "Genesis 17 establishes circumcision and renames Abraham and Sarah.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_18",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis do three heavenly visitors visit Abraham, and Abraham intercedes for the righteous in Sodom?",
+    "bookId": "GEN",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "Genesis 18",
+      "GEN 18",
+      "Genesis Chapter 18"
+    ],
+    "displayAnswer": "Genesis 18 (or Chapter 18)",
+    "explanation": "Genesis 18 details the Lord visiting Abraham by the oaks of Mamre and Abraham's intercession.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_19",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does God destroy Sodom and Gomorrah with sulfur and fire from heaven while Lot escapes?",
+    "bookId": "GEN",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "19",
+      "Chapter 19",
+      "Ch 19",
+      "Genesis 19",
+      "GEN 19",
+      "Genesis Chapter 19"
+    ],
+    "displayAnswer": "Genesis 19 (or Chapter 19)",
+    "explanation": "Genesis 19 recounts the destruction of Sodom and Gomorrah.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_21",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis is Isaac born to the elderly Sarah, and Hagar and Ishmael are sent into the wilderness of Beersheba?",
+    "bookId": "GEN",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "21",
+      "Chapter 21",
+      "Ch 21",
+      "Genesis 21",
+      "GEN 21",
+      "Genesis Chapter 21"
+    ],
+    "displayAnswer": "Genesis 21 (or Chapter 21)",
+    "explanation": "Genesis 21 details the birth of Isaac according to God's promise.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_22",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis is Abraham tested to sacrifice Isaac on Mount Moriah (the Akedah), and God provides a ram in the thicket?",
+    "bookId": "GEN",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "22",
+      "Chapter 22",
+      "Ch 22",
+      "Genesis 22",
+      "GEN 22",
+      "Genesis Chapter 22"
+    ],
+    "displayAnswer": "Genesis 22 (or Chapter 22)",
+    "explanation": "Genesis 22 records the supreme test of Abraham's faith.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_24",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Abraham's servant journey to Mesopotamia and find Rebekah at the well to be Isaac's bride?",
+    "bookId": "GEN",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "Genesis 24",
+      "GEN 24",
+      "Genesis Chapter 24"
+    ],
+    "displayAnswer": "Genesis 24 (or Chapter 24)",
+    "explanation": "Genesis 24 describes the seeking and securing of Rebekah as Isaac's wife.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_25",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis are Jacob and Esau born, and Esau sells his birthright for a bowl of red lentil stew?",
+    "bookId": "GEN",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "25",
+      "Chapter 25",
+      "Ch 25",
+      "Genesis 25",
+      "GEN 25",
+      "Genesis Chapter 25"
+    ],
+    "displayAnswer": "Genesis 25 (or Chapter 25)",
+    "explanation": "Genesis 25 recounts the birth of the twin brothers and Esau selling his birthright.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_27",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Jacob disguise himself with goatskins to steal his blind father Isaac's blessing from Esau?",
+    "bookId": "GEN",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "27",
+      "Chapter 27",
+      "Ch 27",
+      "Genesis 27",
+      "GEN 27",
+      "Genesis Chapter 27"
+    ],
+    "displayAnswer": "Genesis 27 (or Chapter 27)",
+    "explanation": "Genesis 27 details Rebekah and Jacob's deception to obtain the patriarchal blessing.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_28",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Jacob dream of a ladder reaching to heaven with angels at Bethel?",
+    "bookId": "GEN",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "28",
+      "Chapter 28",
+      "Ch 28",
+      "Genesis 28",
+      "GEN 28",
+      "Genesis Chapter 28"
+    ],
+    "displayAnswer": "Genesis 28 (or Chapter 28)",
+    "explanation": "Genesis 28 records Jacob's ladder vision at Bethel.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_29",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Jacob arrive in Haran, meet Rachel at the well, and get tricked by Laban into marrying Leah before Rachel?",
+    "bookId": "GEN",
+    "chapterNum": 29,
+    "acceptedAnswers": [
+      "29",
+      "Chapter 29",
+      "Ch 29",
+      "Genesis 29",
+      "GEN 29",
+      "Genesis Chapter 29"
+    ],
+    "displayAnswer": "Genesis 29 (or Chapter 29)",
+    "explanation": "Genesis 29 recounts Jacob's marriages to Leah and Rachel.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_32",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Jacob wrestle with a divine man at Peniel and receive the new name Israel?",
+    "bookId": "GEN",
+    "chapterNum": 32,
+    "acceptedAnswers": [
+      "32",
+      "Chapter 32",
+      "Ch 32",
+      "Genesis 32",
+      "GEN 32",
+      "Genesis Chapter 32"
+    ],
+    "displayAnswer": "Genesis 32 (or Chapter 32)",
+    "explanation": "Genesis 32 describes Jacob wrestling with God and receiving the name Israel.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_33",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis do estranged brothers Jacob and Esau weep and embrace in peace upon Jacob's return to Canaan?",
+    "bookId": "GEN",
+    "chapterNum": 33,
+    "acceptedAnswers": [
+      "33",
+      "Chapter 33",
+      "Ch 33",
+      "Genesis 33",
+      "GEN 33",
+      "Genesis Chapter 33"
+    ],
+    "displayAnswer": "Genesis 33 (or Chapter 33)",
+    "explanation": "Genesis 33 details the peaceful reconciliation between Jacob and Esau.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_37",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis is 17-year-old Joseph given a coat of many colors and sold into Egyptian slavery by his brothers for 20 silver pieces?",
+    "bookId": "GEN",
+    "chapterNum": 37,
+    "acceptedAnswers": [
+      "37",
+      "Chapter 37",
+      "Ch 37",
+      "Genesis 37",
+      "GEN 37",
+      "Genesis Chapter 37"
+    ],
+    "displayAnswer": "Genesis 37 (or Chapter 37)",
+    "explanation": "Genesis 37 begins the Joseph narrative.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_39",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Potiphar's wife falsely accuse Joseph of assault, causing him to be cast into prison?",
+    "bookId": "GEN",
+    "chapterNum": 39,
+    "acceptedAnswers": [
+      "39",
+      "Chapter 39",
+      "Ch 39",
+      "Genesis 39",
+      "GEN 39",
+      "Genesis Chapter 39"
+    ],
+    "displayAnswer": "Genesis 39 (or Chapter 39)",
+    "explanation": "Genesis 39 details Joseph's moral purity in Potiphar's house and his imprisonment.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_40",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Joseph accurately interpret the dreams of Pharaoh's cupbearer and baker while in prison?",
+    "bookId": "GEN",
+    "chapterNum": 40,
+    "acceptedAnswers": [
+      "40",
+      "Chapter 40",
+      "Ch 40",
+      "Genesis 40",
+      "GEN 40",
+      "Genesis Chapter 40"
+    ],
+    "displayAnswer": "Genesis 40 (or Chapter 40)",
+    "explanation": "Genesis 40 recounts Joseph interpreting the dreams in prison.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_41",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Joseph interpret Pharaoh's dreams of seven fat and lean cows, becoming second-in-command over Egypt?",
+    "bookId": "GEN",
+    "chapterNum": 41,
+    "acceptedAnswers": [
+      "41",
+      "Chapter 41",
+      "Ch 41",
+      "Genesis 41",
+      "GEN 41",
+      "Genesis Chapter 41"
+    ],
+    "displayAnswer": "Genesis 41 (or Chapter 41)",
+    "explanation": "Genesis 41 recounts Joseph interpreting Pharaoh's dreams and his exaltation.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_42",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis do Joseph's ten older brothers travel to Egypt to buy grain during the famine and bow before him without recognizing him?",
+    "bookId": "GEN",
+    "chapterNum": 42,
+    "acceptedAnswers": [
+      "42",
+      "Chapter 42",
+      "Ch 42",
+      "Genesis 42",
+      "GEN 42",
+      "Genesis Chapter 42"
+    ],
+    "displayAnswer": "Genesis 42 (or Chapter 42)",
+    "explanation": "Genesis 42 describes the first journey of the brothers to Egypt.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_44",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis is Joseph's silver cup found in Benjamin's sack, and Judah offers himself as a slave in place of Benjamin?",
+    "bookId": "GEN",
+    "chapterNum": 44,
+    "acceptedAnswers": [
+      "44",
+      "Chapter 44",
+      "Ch 44",
+      "Genesis 44",
+      "GEN 44",
+      "Genesis Chapter 44"
+    ],
+    "displayAnswer": "Genesis 44 (or Chapter 44)",
+    "explanation": "Genesis 44 shows Judah's sacrificial transformation to save his brother.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_45",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Joseph reveal his true identity to his weeping brothers in Egypt?",
+    "bookId": "GEN",
+    "chapterNum": 45,
+    "acceptedAnswers": [
+      "45",
+      "Chapter 45",
+      "Ch 45",
+      "Genesis 45",
+      "GEN 45",
+      "Genesis Chapter 45"
+    ],
+    "displayAnswer": "Genesis 45 (or Chapter 45)",
+    "explanation": "Genesis 45 records Joseph's emotional reconciliation with his brothers.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_49",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does the dying Jacob speak prophetic blessings over his twelve sons (including Judah's royal scepter)?",
+    "bookId": "GEN",
+    "chapterNum": 49,
+    "acceptedAnswers": [
+      "49",
+      "Chapter 49",
+      "Ch 49",
+      "Genesis 49",
+      "GEN 49",
+      "Genesis Chapter 49"
+    ],
+    "displayAnswer": "Genesis 49 (or Chapter 49)",
+    "explanation": "Genesis 49 contains Jacob's dying blessings over the twelve tribes.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_gen_50",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Genesis does Joseph declare: 'You meant evil against me, but God meant it for good'?",
+    "bookId": "GEN",
+    "chapterNum": 50,
+    "acceptedAnswers": [
+      "50",
+      "Chapter 50",
+      "Ch 50",
+      "Genesis 50",
+      "GEN 50",
+      "Genesis Chapter 50"
+    ],
+    "displayAnswer": "Genesis 50 (or Chapter 50)",
+    "explanation": "Genesis 50 concludes with Jacob's burial and Joseph's confession of divine providence (Gen 50:20).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus does a new Pharaoh enslave the Israelites and order Hebrew baby boys thrown into the Nile?",
+    "bookId": "EXO",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Exodus 1",
+      "EXO 1",
+      "Exodus Chapter 1"
+    ],
+    "displayAnswer": "Exodus 1 (or Chapter 1)",
+    "explanation": "Exodus 1 describes the severe oppression of Israel in Egypt.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus is baby Moses rescued from the Nile by Pharaoh's daughter and later flees to Midian after killing an Egyptian taskmaster?",
+    "bookId": "EXO",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Exodus 2",
+      "EXO 2",
+      "Exodus Chapter 2"
+    ],
+    "displayAnswer": "Exodus 2 (or Chapter 2)",
+    "explanation": "Exodus 2 details the birth, rescue, and early life of Moses.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus does Moses encounter the Burning Bush on Mount Horeb and hear God's name: 'I AM WHO I AM'?",
+    "bookId": "EXO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Exodus 3",
+      "EXO 3",
+      "Exodus Chapter 3"
+    ],
+    "displayAnswer": "Exodus 3 (or Chapter 3)",
+    "explanation": "Exodus 3 records the call of Moses at the burning bush.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus do the Ten Plagues begin with Aaron's staff turning into a serpent and the waters of the Nile turning to blood?",
+    "bookId": "EXO",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Exodus 7",
+      "EXO 7",
+      "Exodus Chapter 7"
+    ],
+    "displayAnswer": "Exodus 7 (or Chapter 7)",
+    "explanation": "Exodus 7 recounts the start of the plagues against Egypt.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus is the Passover instituted, blood painted on doorposts, and the firstborn of Egypt slain at midnight?",
+    "bookId": "EXO",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Exodus 12",
+      "EXO 12",
+      "Exodus Chapter 12"
+    ],
+    "displayAnswer": "Exodus 12 (or Chapter 12)",
+    "explanation": "Exodus 12 establishes the Passover feast and the exodus from Egypt.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_14",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus does God part the Red Sea for Israel to cross on dry ground and drown Pharaoh's army?",
+    "bookId": "EXO",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "14",
+      "Chapter 14",
+      "Ch 14",
+      "Exodus 14",
+      "EXO 14",
+      "Exodus Chapter 14"
+    ],
+    "displayAnswer": "Exodus 14 (or Chapter 14)",
+    "explanation": "Exodus 14 describes the miraculous deliverance at the Red Sea.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_15",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus do Moses and Miriam sing the Song of the Sea ('The Lord is my strength and my song') after the Red Sea crossing?",
+    "bookId": "EXO",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "15",
+      "Chapter 15",
+      "Ch 15",
+      "Exodus 15",
+      "EXO 15",
+      "Exodus Chapter 15"
+    ],
+    "displayAnswer": "Exodus 15 (or Chapter 15)",
+    "explanation": "Exodus 15 contains the victory song of Moses and Miriam.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_16",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus does God first rain down manna from heaven and send quail for meat in the wilderness of Sin?",
+    "bookId": "EXO",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "16",
+      "Chapter 16",
+      "Ch 16",
+      "Exodus 16",
+      "EXO 16",
+      "Exodus Chapter 16"
+    ],
+    "displayAnswer": "Exodus 16 (or Chapter 16)",
+    "explanation": "Exodus 16 details God's daily provision of manna.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_17",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus does Moses strike the rock at Horeb for water and Aaron and Hur hold up Moses' arms during battle with Amalek?",
+    "bookId": "EXO",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "Exodus 17",
+      "EXO 17",
+      "Exodus Chapter 17"
+    ],
+    "displayAnswer": "Exodus 17 (or Chapter 17)",
+    "explanation": "Exodus 17 recounts water from the rock and victory over Amalek.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_18",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus does Jethro counsel Moses to appoint capable judges over thousands, hundreds, fifties, and tens to share the judicial burden?",
+    "bookId": "EXO",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "Exodus 18",
+      "EXO 18",
+      "Exodus Chapter 18"
+    ],
+    "displayAnswer": "Exodus 18 (or Chapter 18)",
+    "explanation": "Exodus 18 details Jethro's administrative advice to Moses.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_20",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus does God speak the Ten Commandments (Decalogue) from Mount Sinai amidst thunder and lightning?",
+    "bookId": "EXO",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "20",
+      "Chapter 20",
+      "Ch 20",
+      "Exodus 20",
+      "EXO 20",
+      "Exodus Chapter 20"
+    ],
+    "displayAnswer": "Exodus 20 (or Chapter 20)",
+    "explanation": "Exodus 20 contains the giving of the Ten Commandments.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_24",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus is the Mosaic Covenant sealed with the blood of the covenant, and Moses enters the glory cloud on Sinai for 40 days?",
+    "bookId": "EXO",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "Exodus 24",
+      "EXO 24",
+      "Exodus Chapter 24"
+    ],
+    "displayAnswer": "Exodus 24 (or Chapter 24)",
+    "explanation": "Exodus 24 details the covenant ratification ceremony.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_32",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus do the Israelites worship the Golden Calf, causing Moses to break the stone tablets in anger?",
+    "bookId": "EXO",
+    "chapterNum": 32,
+    "acceptedAnswers": [
+      "32",
+      "Chapter 32",
+      "Ch 32",
+      "Exodus 32",
+      "EXO 32",
+      "Exodus Chapter 32"
+    ],
+    "displayAnswer": "Exodus 32 (or Chapter 32)",
+    "explanation": "Exodus 32 records the tragedy of the golden calf.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_33",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus does Moses ask to see God's glory, and God places him in the cleft of the rock while His goodness passes by?",
+    "bookId": "EXO",
+    "chapterNum": 33,
+    "acceptedAnswers": [
+      "33",
+      "Chapter 33",
+      "Ch 33",
+      "Exodus 33",
+      "EXO 33",
+      "Exodus Chapter 33"
+    ],
+    "displayAnswer": "Exodus 33 (or Chapter 33)",
+    "explanation": "Exodus 33 recounts Moses' prayer to behold God's glory.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_34",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus does God give new stone tablets, proclaim His name ('merciful and gracious'), and Moses' face shines with radiant glory?",
+    "bookId": "EXO",
+    "chapterNum": 34,
+    "acceptedAnswers": [
+      "34",
+      "Chapter 34",
+      "Ch 34",
+      "Exodus 34",
+      "EXO 34",
+      "Exodus Chapter 34"
+    ],
+    "displayAnswer": "Exodus 34 (or Chapter 34)",
+    "explanation": "Exodus 34 details the renewed covenant and Moses wearing a veil.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_exo_40",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Exodus is the Tabernacle fully erected, and the glory cloud of the Lord fills the tent?",
+    "bookId": "EXO",
+    "chapterNum": 40,
+    "acceptedAnswers": [
+      "40",
+      "Chapter 40",
+      "Ch 40",
+      "Exodus 40",
+      "EXO 40",
+      "Exodus Chapter 40"
+    ],
+    "displayAnswer": "Exodus 40 (or Chapter 40)",
+    "explanation": "Exodus 40 concludes the book with the completion and dedication of the Tabernacle.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_lev_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Leviticus are the detailed laws for the Burnt Offering (Olah) introduced?",
+    "bookId": "LEV",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Leviticus 1",
+      "LEV 1",
+      "Leviticus Chapter 1"
+    ],
+    "displayAnswer": "Leviticus 1 (or Chapter 1)",
+    "explanation": "Leviticus 1 describes the voluntary Burnt Offering for atonement.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_lev_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Leviticus are Aaron and his sons consecrated with holy garments and anointing oil as priests?",
+    "bookId": "LEV",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Leviticus 8",
+      "LEV 8",
+      "Leviticus Chapter 8"
+    ],
+    "displayAnswer": "Leviticus 8 (or Chapter 8)",
+    "explanation": "Leviticus 8 records the seven-day ordination of the Aaronic priesthood.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_lev_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Leviticus are Nadab and Abihu consumed by fire from God for offering unauthorized ('strange') fire before the Lord?",
+    "bookId": "LEV",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "Leviticus 10",
+      "LEV 10",
+      "Leviticus Chapter 10"
+    ],
+    "displayAnswer": "Leviticus 10 (or Chapter 10)",
+    "explanation": "Leviticus 10 recounts the divine judgment on Nadab and Abihu.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_lev_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Leviticus are the dietary laws specifying clean and unclean animals given ('You shall be holy, for I am holy')?",
+    "bookId": "LEV",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Leviticus 11",
+      "LEV 11",
+      "Leviticus Chapter 11"
+    ],
+    "displayAnswer": "Leviticus 11 (or Chapter 11)",
+    "explanation": "Leviticus 11 outlines kosher dietary laws.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_lev_16",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Leviticus is the annual Day of Atonement (Yom Kippur) and the scapegoat ritual established?",
+    "bookId": "LEV",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "16",
+      "Chapter 16",
+      "Ch 16",
+      "Leviticus 16",
+      "LEV 16",
+      "Leviticus Chapter 16"
+    ],
+    "displayAnswer": "Leviticus 16 (or Chapter 16)",
+    "explanation": "Leviticus 16 details the high priest entering the Holy of Holies for national atonement.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_lev_19",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Leviticus is the famous commandment 'You shall love your neighbor as yourself' (Lev 19:18) given?",
+    "bookId": "LEV",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "19",
+      "Chapter 19",
+      "Ch 19",
+      "Leviticus 19",
+      "LEV 19",
+      "Leviticus Chapter 19"
+    ],
+    "displayAnswer": "Leviticus 19 (or Chapter 19)",
+    "explanation": "Leviticus 19 contains the core of the Holiness Code.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_lev_23",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Leviticus are all the appointed feasts of the Lord (Passover, Firstfruits, Weeks, Trumpets, Atonement, Booths) outlined?",
+    "bookId": "LEV",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "23",
+      "Chapter 23",
+      "Ch 23",
+      "Leviticus 23",
+      "LEV 23",
+      "Leviticus Chapter 23"
+    ],
+    "displayAnswer": "Leviticus 23 (or Chapter 23)",
+    "explanation": "Leviticus 23 details the sacred calendar of Israel.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_lev_25",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Leviticus are the Sabbatical Year and the 50th Year of Jubilee (proclaiming liberty throughout the land) instituted?",
+    "bookId": "LEV",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "25",
+      "Chapter 25",
+      "Ch 25",
+      "Leviticus 25",
+      "LEV 25",
+      "Leviticus Chapter 25"
+    ],
+    "displayAnswer": "Leviticus 25 (or Chapter 25)",
+    "explanation": "Leviticus 25 establishes the Jubilee year for debt cancellation and land return.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_lev_26",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Leviticus are the covenant blessings for obedience and severe warnings of exile for disobedience set forth?",
+    "bookId": "LEV",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "26",
+      "Chapter 26",
+      "Ch 26",
+      "Leviticus 26",
+      "LEV 26",
+      "Leviticus Chapter 26"
+    ],
+    "displayAnswer": "Leviticus 26 (or Chapter 26)",
+    "explanation": "Leviticus 26 contains the blessings and curses of the Mosaic covenant.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers is the first military census taken of all Israeli men twenty years old and upward able to go to war?",
+    "bookId": "NUM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Numbers 1",
+      "NUM 1",
+      "Numbers Chapter 1"
+    ],
+    "displayAnswer": "Numbers 1 (or Chapter 1)",
+    "explanation": "Numbers 1 records the initial census at Mount Sinai.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers is the Aaronic Priestly Blessing given: 'The Lord bless you and keep you; the Lord make his face shine upon you'?",
+    "bookId": "NUM",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Numbers 6",
+      "NUM 6",
+      "Numbers Chapter 6"
+    ],
+    "displayAnswer": "Numbers 6 (or Chapter 6)",
+    "explanation": "Numbers 6:24\u201326 contains the Aaronic Blessing.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers do the Israelites celebrate the Second Passover and follow the Pillar of Cloud by day and Fire by night?",
+    "bookId": "NUM",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Numbers 9",
+      "NUM 9",
+      "Numbers Chapter 9"
+    ],
+    "displayAnswer": "Numbers 9 (or Chapter 9)",
+    "explanation": "Numbers 9 describes the Passover in Sinai and the guiding cloud of God's presence.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers do the people crave meat, prompting God to send swarms of quail and judge them with a plague at Kibroth-hattaavah?",
+    "bookId": "NUM",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Numbers 11",
+      "NUM 11",
+      "Numbers Chapter 11"
+    ],
+    "displayAnswer": "Numbers 11 (or Chapter 11)",
+    "explanation": "Numbers 11 recounts the grumbling over manna and the sending of the quail.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers do Miriam and Aaron criticize Moses, causing Miriam to be stricken temporarily with leprosy?",
+    "bookId": "NUM",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Numbers 12",
+      "NUM 12",
+      "Numbers Chapter 12"
+    ],
+    "displayAnswer": "Numbers 12 (or Chapter 12)",
+    "explanation": "Numbers 12 records Miriam and Aaron's challenge to Moses' unique authority.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_13",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers are twelve spies sent out from Kadesh-barnea into the Promised Land of Canaan?",
+    "bookId": "NUM",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Numbers 13",
+      "NUM 13",
+      "Numbers Chapter 13"
+    ],
+    "displayAnswer": "Numbers 13 (or Chapter 13)",
+    "explanation": "Numbers 13 describes the scouting of Canaan and the ten spies' fearful report.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_14",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers does Israel rebel in fear, causing God to sentence that entire generation to wander 40 years in the wilderness?",
+    "bookId": "NUM",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "14",
+      "Chapter 14",
+      "Ch 14",
+      "Numbers 14",
+      "NUM 14",
+      "Numbers Chapter 14"
+    ],
+    "displayAnswer": "Numbers 14 (or Chapter 14)",
+    "explanation": "Numbers 14 recounts the tragic rebellion and the 40-year wandering sentence.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_16",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers does the ground open and swallow Korah, Dathan, and Abiram for rebelling against Moses' leadership?",
+    "bookId": "NUM",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "16",
+      "Chapter 16",
+      "Ch 16",
+      "Numbers 16",
+      "NUM 16",
+      "Numbers Chapter 16"
+    ],
+    "displayAnswer": "Numbers 16 (or Chapter 16)",
+    "explanation": "Numbers 16 details Korah's rebellion and divine judgment.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_17",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers does Aaron's almond rod miraculously sprout, bud, blossom, and produce ripe almonds?",
+    "bookId": "NUM",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "Numbers 17",
+      "NUM 17",
+      "Numbers Chapter 17"
+    ],
+    "displayAnswer": "Numbers 17 (or Chapter 17)",
+    "explanation": "Numbers 17 confirms the Aaronic priesthood through the budding rod.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_20",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers does Moses angrily strike the rock twice at Meribah, forfeiting his entry into the Promised Land?",
+    "bookId": "NUM",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "20",
+      "Chapter 20",
+      "Ch 20",
+      "Numbers 20",
+      "NUM 20",
+      "Numbers Chapter 20"
+    ],
+    "displayAnswer": "Numbers 20 (or Chapter 20)",
+    "explanation": "Numbers 20 details the sin of Moses and Aaron at Meribah.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_21",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers do fiery serpents bite the grumbling Israelites, and Moses lifts up the Bronze Serpent on a pole for healing?",
+    "bookId": "NUM",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "21",
+      "Chapter 21",
+      "Ch 21",
+      "Numbers 21",
+      "NUM 21",
+      "Numbers Chapter 21"
+    ],
+    "displayAnswer": "Numbers 21 (or Chapter 21)",
+    "explanation": "Numbers 21 contains the bronze serpent incident, foreshadowing Christ on the cross.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_22",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers does the pagan diviner Balaam's donkey speak after seeing the angel of the Lord with a drawn sword?",
+    "bookId": "NUM",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "22",
+      "Chapter 22",
+      "Ch 22",
+      "Numbers 22",
+      "NUM 22",
+      "Numbers Chapter 22"
+    ],
+    "displayAnswer": "Numbers 22 (or Chapter 22)",
+    "explanation": "Numbers 22 recounts Balaam and his talking donkey.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_25",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers does Phinehas execute zealous judgment against Israel's idolatry with the daughters of Moab at Baal-peor?",
+    "bookId": "NUM",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "25",
+      "Chapter 25",
+      "Ch 25",
+      "Numbers 25",
+      "NUM 25",
+      "Numbers Chapter 25"
+    ],
+    "displayAnswer": "Numbers 25 (or Chapter 25)",
+    "explanation": "Numbers 25 details the sin of Baal-peor and God's covenant of peace with Phinehas.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_27",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers do the daughters of Zelophehad receive an inheritance, and Joshua is commissioned to succeed Moses?",
+    "bookId": "NUM",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "27",
+      "Chapter 27",
+      "Ch 27",
+      "Numbers 27",
+      "NUM 27",
+      "Numbers Chapter 27"
+    ],
+    "displayAnswer": "Numbers 27 (or Chapter 27)",
+    "explanation": "Numbers 27 records female property rights and the commissioning of Joshua.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_num_35",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Numbers are 48 Levitical cities appointed, including the six designated Cities of Refuge for accidental manslaughter?",
+    "bookId": "NUM",
+    "chapterNum": 35,
+    "acceptedAnswers": [
+      "35",
+      "Chapter 35",
+      "Ch 35",
+      "Numbers 35",
+      "NUM 35",
+      "Numbers Chapter 35"
+    ],
+    "displayAnswer": "Numbers 35 (or Chapter 35)",
+    "explanation": "Numbers 35 establishes the Cities of Refuge.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_deu_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Deuteronomy does Moses warn Israel not to add or subtract from God's Law and declare that 'the Lord your God is a consuming fire'?",
+    "bookId": "DEU",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Deuteronomy 4",
+      "DEU 4",
+      "Deuteronomy Chapter 4"
+    ],
+    "displayAnswer": "Deuteronomy 4 (or Chapter 4)",
+    "explanation": "Deuteronomy 4 emphasizes the uniqueness and holiness of God.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_deu_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Deuteronomy does Moses restate the Ten Commandments to the new generation on the plains of Moab?",
+    "bookId": "DEU",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Deuteronomy 5",
+      "DEU 5",
+      "Deuteronomy Chapter 5"
+    ],
+    "displayAnswer": "Deuteronomy 5 (or Chapter 5)",
+    "explanation": "Deuteronomy 5 contains the second giving of the Ten Commandments.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_deu_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Deuteronomy is the Shema: 'Hear, O Israel: The Lord our God, the Lord is one. You shall love the Lord your God with all your heart'?",
+    "bookId": "DEU",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Deuteronomy 6",
+      "DEU 6",
+      "Deuteronomy Chapter 6"
+    ],
+    "displayAnswer": "Deuteronomy 6 (or Chapter 6)",
+    "explanation": "Deuteronomy 6 contains the foundational Shema.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_deu_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Deuteronomy does God command Israel to tear down pagan altars and worship only at the single central sanctuary chosen by the Lord?",
+    "bookId": "DEU",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Deuteronomy 12",
+      "DEU 12",
+      "Deuteronomy Chapter 12"
+    ],
+    "displayAnswer": "Deuteronomy 12 (or Chapter 12)",
+    "explanation": "Deuteronomy 12 establishes the principle of one central sanctuary.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_deu_18",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Deuteronomy does God promise to raise up a 'Prophet like Moses' whom the people must heed?",
+    "bookId": "DEU",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "Deuteronomy 18",
+      "DEU 18",
+      "Deuteronomy Chapter 18"
+    ],
+    "displayAnswer": "Deuteronomy 18 (or Chapter 18)",
+    "explanation": "Deuteronomy 18:15\u201318 prophesies the coming of the Messianic Prophet.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_deu_28",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Deuteronomy are the extensive Blessings for obedience and Curses for disobedience laid out in full?",
+    "bookId": "DEU",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "28",
+      "Chapter 28",
+      "Ch 28",
+      "Deuteronomy 28",
+      "DEU 28",
+      "Deuteronomy Chapter 28"
+    ],
+    "displayAnswer": "Deuteronomy 28 (or Chapter 28)",
+    "explanation": "Deuteronomy 28 sets forth the covenant blessings and curses.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_deu_30",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Deuteronomy does Moses urge: 'I have set before you life and death, blessing and curse. Therefore choose life'?",
+    "bookId": "DEU",
+    "chapterNum": 30,
+    "acceptedAnswers": [
+      "30",
+      "Chapter 30",
+      "Ch 30",
+      "Deuteronomy 30",
+      "DEU 30",
+      "Deuteronomy Chapter 30"
+    ],
+    "displayAnswer": "Deuteronomy 30 (or Chapter 30)",
+    "explanation": "Deuteronomy 30 contains the famous call to choose life.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_deu_31",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Deuteronomy is Joshua commissioned to lead Israel across the Jordan with the promise: 'The Lord goes before you; he will not leave you or forsake you'?",
+    "bookId": "DEU",
+    "chapterNum": 31,
+    "acceptedAnswers": [
+      "31",
+      "Chapter 31",
+      "Ch 31",
+      "Deuteronomy 31",
+      "DEU 31",
+      "Deuteronomy Chapter 31"
+    ],
+    "displayAnswer": "Deuteronomy 31 (or Chapter 31)",
+    "explanation": "Deuteronomy 31 details the commissioning of Joshua and the writing of the Law.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_deu_32",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Deuteronomy is the majestic prophetic Song of Moses ('The Rock, his work is perfect') proclaimed before Israel?",
+    "bookId": "DEU",
+    "chapterNum": 32,
+    "acceptedAnswers": [
+      "32",
+      "Chapter 32",
+      "Ch 32",
+      "Deuteronomy 32",
+      "DEU 32",
+      "Deuteronomy Chapter 32"
+    ],
+    "displayAnswer": "Deuteronomy 32 (or Chapter 32)",
+    "explanation": "Deuteronomy 32 contains the Song of Moses.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_deu_33",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Deuteronomy does Moses pronounce his final blessings upon each of the twelve tribes of Israel before ascending Mount Nebo?",
+    "bookId": "DEU",
+    "chapterNum": 33,
+    "acceptedAnswers": [
+      "33",
+      "Chapter 33",
+      "Ch 33",
+      "Deuteronomy 33",
+      "DEU 33",
+      "Deuteronomy Chapter 33"
+    ],
+    "displayAnswer": "Deuteronomy 33 (or Chapter 33)",
+    "explanation": "Deuteronomy 33 records the blessings of Moses over the tribes.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_deu_34",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Deuteronomy does Moses climb Mount Nebo, view the Promised Land, and die at age 120?",
+    "bookId": "DEU",
+    "chapterNum": 34,
+    "acceptedAnswers": [
+      "34",
+      "Chapter 34",
+      "Ch 34",
+      "Deuteronomy 34",
+      "DEU 34",
+      "Deuteronomy Chapter 34"
+    ],
+    "displayAnswer": "Deuteronomy 34 (or Chapter 34)",
+    "explanation": "Deuteronomy 34 records the death and burial of Moses.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "ch_jos_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joshua does God command Joshua: 'Be strong and courageous... for the Lord your God is with you wherever you go'?",
+    "bookId": "JOS",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Joshua 1",
+      "JOS 1",
+      "Joshua Chapter 1"
+    ],
+    "displayAnswer": "Joshua 1 (or Chapter 1)",
+    "explanation": "Joshua 1 records the divine commission of Joshua.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jos_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joshua does Rahab hide two Hebrew spies on her roof in Jericho and hang a scarlet cord in her window?",
+    "bookId": "JOS",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Joshua 2",
+      "JOS 2",
+      "Joshua Chapter 2"
+    ],
+    "displayAnswer": "Joshua 2 (or Chapter 2)",
+    "explanation": "Joshua 2 details Rahab's faith and the rescue covenant with the spies.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jos_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joshua do the waters of the Jordan River part at flood stage as the priests carry the Ark into the river?",
+    "bookId": "JOS",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Joshua 3",
+      "JOS 3",
+      "Joshua Chapter 3"
+    ],
+    "displayAnswer": "Joshua 3 (or Chapter 3)",
+    "explanation": "Joshua 3 recounts the miraculous crossing of the Jordan River.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jos_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joshua is the new generation circumcised at Gilgal, the manna ceases, and the Commander of the Lord's Army appears to Joshua?",
+    "bookId": "JOS",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Joshua 5",
+      "JOS 5",
+      "Joshua Chapter 5"
+    ],
+    "displayAnswer": "Joshua 5 (or Chapter 5)",
+    "explanation": "Joshua 5 records circumcision at Gilgal, the first Passover in Canaan, and the divine commander.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jos_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joshua do the walls of Jericho collapse after Israel marches around the city for seven days and shouts at the trumpet blast?",
+    "bookId": "JOS",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Joshua 6",
+      "JOS 6",
+      "Joshua Chapter 6"
+    ],
+    "displayAnswer": "Joshua 6 (or Chapter 6)",
+    "explanation": "Joshua 6 describes the fall and conquest of Jericho.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jos_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joshua does Achan sin by stealing devoted plunder from Jericho, causing Israel's defeat at Ai?",
+    "bookId": "JOS",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Joshua 7",
+      "JOS 7",
+      "Joshua Chapter 7"
+    ],
+    "displayAnswer": "Joshua 7 (or Chapter 7)",
+    "explanation": "Joshua 7 details the sin of Achan and the disaster at Ai.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jos_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joshua is the city of Ai captured by ambush, and Joshua reads all the words of the Law at Mount Ebal and Gerizim?",
+    "bookId": "JOS",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Joshua 8",
+      "JOS 8",
+      "Joshua Chapter 8"
+    ],
+    "displayAnswer": "Joshua 8 (or Chapter 8)",
+    "explanation": "Joshua 8 details the capture of Ai and the covenant reading between the mountains.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jos_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joshua do the Gibeonites deceive Joshua with dry, moldy bread and worn clothes into making a peace treaty?",
+    "bookId": "JOS",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Joshua 9",
+      "JOS 9",
+      "Joshua Chapter 9"
+    ],
+    "displayAnswer": "Joshua 9 (or Chapter 9)",
+    "explanation": "Joshua 9 recounts the deception of the Gibeonites.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jos_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joshua does the sun stand still over Gibeon and the moon stop in the valley of Aijalon during battle?",
+    "bookId": "JOS",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "Joshua 10",
+      "JOS 10",
+      "Joshua Chapter 10"
+    ],
+    "displayAnswer": "Joshua 10 (or Chapter 10)",
+    "explanation": "Joshua 10 records the miracle of the sun standing still in battle.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jos_20",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joshua are the six Cities of Refuge designated for those who commit accidental manslaughter?",
+    "bookId": "JOS",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "20",
+      "Chapter 20",
+      "Ch 20",
+      "Joshua 20",
+      "JOS 20",
+      "Joshua Chapter 20"
+    ],
+    "displayAnswer": "Joshua 20 (or Chapter 20)",
+    "explanation": "Joshua 20 outlines the appointment of the six Cities of Refuge.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jos_22",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joshua do the eastern tribes build the memorial altar of witness (Ed) by the Jordan River?",
+    "bookId": "JOS",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "22",
+      "Chapter 22",
+      "Ch 22",
+      "Joshua 22",
+      "JOS 22",
+      "Joshua Chapter 22"
+    ],
+    "displayAnswer": "Joshua 22 (or Chapter 22)",
+    "explanation": "Joshua 22 details the altar of witness built by the trans-Jordan tribes.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jos_24",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joshua does Joshua challenge Israel: 'Choose this day whom you will serve... But as for me and my house, we will serve the Lord' at Shechem?",
+    "bookId": "JOS",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "Joshua 24",
+      "JOS 24",
+      "Joshua Chapter 24"
+    ],
+    "displayAnswer": "Joshua 24 (or Chapter 24)",
+    "explanation": "Joshua 24 records the covenant renewal ceremony at Shechem.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jdg_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Judges do Othniel, the left-handed judge Ehud (who slays fat King Eglon of Moab), and Shamgar deliver Israel?",
+    "bookId": "JDG",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Judges 3",
+      "JDG 3",
+      "Judges Chapter 3"
+    ],
+    "displayAnswer": "Judges 3 (or Chapter 3)",
+    "explanation": "Judges 3 records the deliverances by Othniel, Ehud, and Shamgar.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jdg_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Judges do Deborah the prophetess and Barak defeat Sisera, who is slain with a tent peg by Jael?",
+    "bookId": "JDG",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Judges 4",
+      "JDG 4",
+      "Judges Chapter 4"
+    ],
+    "displayAnswer": "Judges 4 (or Chapter 4)",
+    "explanation": "Judges 4 recounts the victory of Deborah, Barak, and Jael.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jdg_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Judges is the triumphant poetic Song of Deborah and Barak sung to celebrate God's deliverance?",
+    "bookId": "JDG",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Judges 5",
+      "JDG 5",
+      "Judges Chapter 5"
+    ],
+    "displayAnswer": "Judges 5 (or Chapter 5)",
+    "explanation": "Judges 5 contains the poetic victory song of Deborah.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jdg_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Judges is Gideon called while threshing wheat in a winepress and tests God with the wet and dry fleece of wool?",
+    "bookId": "JDG",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Judges 6",
+      "JDG 6",
+      "Judges Chapter 6"
+    ],
+    "displayAnswer": "Judges 6 (or Chapter 6)",
+    "explanation": "Judges 6 records the call of Gideon and the fleece sign.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jdg_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Judges does Gideon's army of 300 men with trumpets, torches, and clay jars route the vast Midianite host?",
+    "bookId": "JDG",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Judges 7",
+      "JDG 7",
+      "Judges Chapter 7"
+    ],
+    "displayAnswer": "Judges 7 (or Chapter 7)",
+    "explanation": "Judges 7 describes the defeat of Midian by Gideon's 300 warriors.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jdg_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Judges does Gideon's son Abimelech murder his 70 brothers to become king, and is killed when a woman drops a millstone on his head?",
+    "bookId": "JDG",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Judges 9",
+      "JDG 9",
+      "Judges Chapter 9"
+    ],
+    "displayAnswer": "Judges 9 (or Chapter 9)",
+    "explanation": "Judges 9 details the bloody tyranny and demise of Abimelech.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jdg_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Judges does Jephthah make a tragic rash vow before defeating the Ammonites?",
+    "bookId": "JDG",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Judges 11",
+      "JDG 11",
+      "Judges Chapter 11"
+    ],
+    "displayAnswer": "Judges 11 (or Chapter 11)",
+    "explanation": "Judges 11 recounts Jephthah's victory and his rash vow.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jdg_13",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Judges does the Angel of the Lord appear to Manoah and his barren wife to announce the birth of Samson as a Nazirite?",
+    "bookId": "JDG",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Judges 13",
+      "JDG 13",
+      "Judges Chapter 13"
+    ],
+    "displayAnswer": "Judges 13 (or Chapter 13)",
+    "explanation": "Judges 13 records the birth announcement and Nazirite calling of Samson.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jdg_14",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Judges does Samson kill a lion with his bare hands and pose his riddle ('Out of the eater came something to eat') at his wedding?",
+    "bookId": "JDG",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "14",
+      "Chapter 14",
+      "Ch 14",
+      "Judges 14",
+      "JDG 14",
+      "Judges Chapter 14"
+    ],
+    "displayAnswer": "Judges 14 (or Chapter 14)",
+    "explanation": "Judges 14 details Samson's wedding riddle in Timnah.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jdg_15",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Judges does Samson strike down 1,000 Philistines with the fresh jawbone of a donkey at Lehi?",
+    "bookId": "JDG",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "15",
+      "Chapter 15",
+      "Ch 15",
+      "Judges 15",
+      "JDG 15",
+      "Judges Chapter 15"
+    ],
+    "displayAnswer": "Judges 15 (or Chapter 15)",
+    "explanation": "Judges 15 records Samson's victory with the donkey's jawbone.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jdg_16",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Judges does Delilah betray Samson, leading to his blinding and his death as he pushes down the pillars of Dagon's temple?",
+    "bookId": "JDG",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "16",
+      "Chapter 16",
+      "Ch 16",
+      "Judges 16",
+      "JDG 16",
+      "Judges Chapter 16"
+    ],
+    "displayAnswer": "Judges 16 (or Chapter 16)",
+    "explanation": "Judges 16 details Samson's downfall, Delilah, and his final victory in death.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_jdg_21",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Judges does the book conclude with the refrain: 'In those days there was no king in Israel. Everyone did what was right in his own eyes'?",
+    "bookId": "JDG",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "21",
+      "Chapter 21",
+      "Ch 21",
+      "Judges 21",
+      "JDG 21",
+      "Judges Chapter 21"
+    ],
+    "displayAnswer": "Judges 21 (or Chapter 21)",
+    "explanation": "Judges 21:25 summarizes the spiritual anarchy of the judges era.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_rut_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ruth does Ruth declare to Naomi: 'Where you go I will go... Your people shall be my people, and your God my God'?",
+    "bookId": "RUT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Ruth 1",
+      "RUT 1",
+      "Ruth Chapter 1"
+    ],
+    "displayAnswer": "Ruth 1 (or Chapter 1)",
+    "explanation": "Ruth 1 contains Ruth's famous confession of faith and loyalty to Naomi.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_rut_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ruth does Ruth glean leftover barley in the fields of Boaz, who shows her generous favor?",
+    "bookId": "RUT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Ruth 2",
+      "RUT 2",
+      "Ruth Chapter 2"
+    ],
+    "displayAnswer": "Ruth 2 (or Chapter 2)",
+    "explanation": "Ruth 2 details Ruth's first encounter with Boaz in the barley fields.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_rut_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ruth does Ruth go to the threshing floor at night and ask Boaz to spread his garment over her as a kinsman-redeemer?",
+    "bookId": "RUT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Ruth 3",
+      "RUT 3",
+      "Ruth Chapter 3"
+    ],
+    "displayAnswer": "Ruth 3 (or Chapter 3)",
+    "explanation": "Ruth 3 records the threshing floor encounter between Ruth and Boaz.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_rut_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ruth does Boaz redeem Naomi's land at the city gate, marry Ruth, and father Obed, the grandfather of King David?",
+    "bookId": "RUT",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Ruth 4",
+      "RUT 4",
+      "Ruth Chapter 4"
+    ],
+    "displayAnswer": "Ruth 4 (or Chapter 4)",
+    "explanation": "Ruth 4 concludes with the redemption ceremony and the genealogy of David.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel does the barren Hannah pray weeping at Shiloh and dedicate her newborn son Samuel to the Lord?",
+    "bookId": "1SA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "1 Samuel 1",
+      "1SA 1",
+      "1 Samuel Chapter 1"
+    ],
+    "displayAnswer": "1 Samuel 1 (or Chapter 1)",
+    "explanation": "1 Samuel 1 records Hannah's prayer and the birth of Samuel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel is Hannah's Song of Praise ('The Lord makes poor and makes rich') alongside the sin of Eli's sons?",
+    "bookId": "1SA",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "1 Samuel 2",
+      "1SA 2",
+      "1 Samuel Chapter 2"
+    ],
+    "displayAnswer": "1 Samuel 2 (or Chapter 2)",
+    "explanation": "1 Samuel 2 contains Hannah's prophetic prayer and the condemnation of Eli's house.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel does God call young Samuel at night: 'Samuel! Samuel!' and Samuel replies: 'Speak, for your servant hears'?",
+    "bookId": "1SA",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "1 Samuel 3",
+      "1SA 3",
+      "1 Samuel Chapter 3"
+    ],
+    "displayAnswer": "1 Samuel 3 (or Chapter 3)",
+    "explanation": "1 Samuel 3 details the prophetic calling of Samuel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel is the Ark captured by Philistines, Eli dies falling backward, and baby Ichabod ('the glory has departed') is born?",
+    "bookId": "1SA",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "1 Samuel 4",
+      "1SA 4",
+      "1 Samuel Chapter 4"
+    ],
+    "displayAnswer": "1 Samuel 4 (or Chapter 4)",
+    "explanation": "1 Samuel 4 recounts the capture of the Ark and Eli's death.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel does the Philistine idol Dagon fall face down broken before the Ark in Ashdod?",
+    "bookId": "1SA",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "1 Samuel 5",
+      "1SA 5",
+      "1 Samuel Chapter 5"
+    ],
+    "displayAnswer": "1 Samuel 5 (or Chapter 5)",
+    "explanation": "1 Samuel 5 recounts God humiliating Dagon and afflicting the Philistines.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel do the Philistines return the Ark to Beth-shemesh on a cart pulled by two milk cows?",
+    "bookId": "1SA",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "1 Samuel 6",
+      "1SA 6",
+      "1 Samuel Chapter 6"
+    ],
+    "displayAnswer": "1 Samuel 6 (or Chapter 6)",
+    "explanation": "1 Samuel 6 records the return of the Ark to Israel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel do the elders of Israel reject God as king and demand: 'Appoint for us a king to judge us like all the nations'?",
+    "bookId": "1SA",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "1 Samuel 8",
+      "1SA 8",
+      "1 Samuel Chapter 8"
+    ],
+    "displayAnswer": "1 Samuel 8 (or Chapter 8)",
+    "explanation": "1 Samuel 8 records Israel's demand for a human king.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel is Saul publicly chosen as king by lot at Mizpah after hiding among the baggage?",
+    "bookId": "1SA",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "1 Samuel 10",
+      "1SA 10",
+      "1 Samuel Chapter 10"
+    ],
+    "displayAnswer": "1 Samuel 10 (or Chapter 10)",
+    "explanation": "1 Samuel 10 details Saul being acclaimed king before all Israel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_13",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel does King Saul offer an unlawful sacrifice at Gilgal instead of waiting for Samuel, costing him his perpetual dynasty?",
+    "bookId": "1SA",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "1 Samuel 13",
+      "1SA 13",
+      "1 Samuel Chapter 13"
+    ],
+    "displayAnswer": "1 Samuel 13 (or Chapter 13)",
+    "explanation": "1 Samuel 13 details Saul's impatience and first major rejection.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_14",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel do Jonathan and his armor-bearer attack the Philistine outpost at Michmash ('Nothing can hinder the Lord from saving by many or by few')?",
+    "bookId": "1SA",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "14",
+      "Chapter 14",
+      "Ch 14",
+      "1 Samuel 14",
+      "1SA 14",
+      "1 Samuel Chapter 14"
+    ],
+    "displayAnswer": "1 Samuel 14 (or Chapter 14)",
+    "explanation": "1 Samuel 14 records Jonathan's heroic faith and victory at Michmash.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_15",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel does Saul spare King Agag and the best sheep, causing Samuel to pronounce: 'To obey is better than sacrifice'?",
+    "bookId": "1SA",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "15",
+      "Chapter 15",
+      "Ch 15",
+      "1 Samuel 15",
+      "1SA 15",
+      "1 Samuel Chapter 15"
+    ],
+    "displayAnswer": "1 Samuel 15 (or Chapter 15)",
+    "explanation": "1 Samuel 15 records Saul's total rejection as king for sparing the Amalekites.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_16",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel does Samuel anoint young David at Bethlehem ('Man looks on the outward appearance, but the Lord looks on the heart')?",
+    "bookId": "1SA",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "16",
+      "Chapter 16",
+      "Ch 16",
+      "1 Samuel 16",
+      "1SA 16",
+      "1 Samuel Chapter 16"
+    ],
+    "displayAnswer": "1 Samuel 16 (or Chapter 16)",
+    "explanation": "1 Samuel 16 details the secret anointing of David by Samuel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_17",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel does David defeat Goliath of Gath with a sling and a single stone in the Valley of Elah?",
+    "bookId": "1SA",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "1 Samuel 17",
+      "1SA 17",
+      "1 Samuel Chapter 17"
+    ],
+    "displayAnswer": "1 Samuel 17 (or Chapter 17)",
+    "explanation": "1 Samuel 17 recounts the famous battle between David and Goliath.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_18",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel do Jonathan and David make a covenant of friendship, while Saul becomes jealous as women sing: 'Saul has struck down his thousands, and David his ten thousands'?",
+    "bookId": "1SA",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "1 Samuel 18",
+      "1SA 18",
+      "1 Samuel Chapter 18"
+    ],
+    "displayAnswer": "1 Samuel 18 (or Chapter 18)",
+    "explanation": "1 Samuel 18 details the friendship of David and Jonathan and Saul's growing jealousy.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_24",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel does David spare Saul's life in the cave of En-gedi, cutting off only the corner of Saul's robe?",
+    "bookId": "1SA",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "1 Samuel 24",
+      "1SA 24",
+      "1 Samuel Chapter 24"
+    ],
+    "displayAnswer": "1 Samuel 24 (or Chapter 24)",
+    "explanation": "1 Samuel 24 records David's mercy in sparing Saul in the cave.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_25",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel does the wise Abigail intervene to prevent David from slaughtering foolish Nabal and his household?",
+    "bookId": "1SA",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "25",
+      "Chapter 25",
+      "Ch 25",
+      "1 Samuel 25",
+      "1SA 25",
+      "1 Samuel Chapter 25"
+    ],
+    "displayAnswer": "1 Samuel 25 (or Chapter 25)",
+    "explanation": "1 Samuel 25 recounts Abigail's peacemaking wisdom and marriage to David.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_28",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel does a desperate King Saul consult the medium of En-dor to conjure the spirit of Samuel before his final battle?",
+    "bookId": "1SA",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "28",
+      "Chapter 28",
+      "Ch 28",
+      "1 Samuel 28",
+      "1SA 28",
+      "1 Samuel Chapter 28"
+    ],
+    "displayAnswer": "1 Samuel 28 (or Chapter 28)",
+    "explanation": "1 Samuel 28 details Saul and the witch of En-dor.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1sa_31",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Samuel are Saul and Jonathan killed on Mount Gilboa, and the Philistines fasten Saul's body to the wall of Beth-shan?",
+    "bookId": "1SA",
+    "chapterNum": 31,
+    "acceptedAnswers": [
+      "31",
+      "Chapter 31",
+      "Ch 31",
+      "1 Samuel 31",
+      "1SA 31",
+      "1 Samuel Chapter 31"
+    ],
+    "displayAnswer": "1 Samuel 31 (or Chapter 31)",
+    "explanation": "1 Samuel 31 concludes the book with the deaths of Saul and Jonathan in battle.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel does David lament: 'How the mighty have fallen!' over the deaths of Saul and Jonathan in the Song of the Bow?",
+    "bookId": "2SA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "2 Samuel 1",
+      "2SA 1",
+      "2 Samuel Chapter 1"
+    ],
+    "displayAnswer": "2 Samuel 1 (or Chapter 1)",
+    "explanation": "2 Samuel 1 records David's eulogy and lament for Saul and Jonathan.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel is David anointed king over Judah in Hebron while Ish-bosheth rules northern Israel?",
+    "bookId": "2SA",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "2 Samuel 2",
+      "2SA 2",
+      "2 Samuel Chapter 2"
+    ],
+    "displayAnswer": "2 Samuel 2 (or Chapter 2)",
+    "explanation": "2 Samuel 2 describes the civil conflict between David and the house of Saul.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel does general Abner defect to David and is assassinated by Joab at the gate of Hebron?",
+    "bookId": "2SA",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "2 Samuel 3",
+      "2SA 3",
+      "2 Samuel Chapter 3"
+    ],
+    "displayAnswer": "2 Samuel 3 (or Chapter 3)",
+    "explanation": "2 Samuel 3 details Abner's defection and murder by Joab.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel is David anointed king over all Israel and captures the stronghold of Zion (Jerusalem)?",
+    "bookId": "2SA",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "2 Samuel 5",
+      "2SA 5",
+      "2 Samuel Chapter 5"
+    ],
+    "displayAnswer": "2 Samuel 5 (or Chapter 5)",
+    "explanation": "2 Samuel 5 recounts David becoming king over all 12 tribes and conquering Jerusalem.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel is the Ark brought into Jerusalem, with David dancing before the Lord with all his might?",
+    "bookId": "2SA",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "2 Samuel 6",
+      "2SA 6",
+      "2 Samuel Chapter 6"
+    ],
+    "displayAnswer": "2 Samuel 6 (or Chapter 6)",
+    "explanation": "2 Samuel 6 describes Uzzah's death and David's joyful dancing as the Ark enters Jerusalem.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel does God establish the unconditional Davidic Covenant, promising an everlasting throne and kingdom to David's offspring?",
+    "bookId": "2SA",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "2 Samuel 7",
+      "2SA 7",
+      "2 Samuel Chapter 7"
+    ],
+    "displayAnswer": "2 Samuel 7 (or Chapter 7)",
+    "explanation": "2 Samuel 7 contains the foundational Davidic Covenant through the prophet Nathan.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel does David show covenant kindness to Jonathan's crippled son Mephibosheth, giving him a seat at the royal table?",
+    "bookId": "2SA",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "2 Samuel 9",
+      "2SA 9",
+      "2 Samuel Chapter 9"
+    ],
+    "displayAnswer": "2 Samuel 9 (or Chapter 9)",
+    "explanation": "2 Samuel 9 recounts David's covenant faithfulness to Mephibosheth.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel does David commit adultery with Bathsheba and arrange the death of Uriah the Hittite on the frontline?",
+    "bookId": "2SA",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "2 Samuel 11",
+      "2SA 11",
+      "2 Samuel Chapter 11"
+    ],
+    "displayAnswer": "2 Samuel 11 (or Chapter 11)",
+    "explanation": "2 Samuel 11 details David's grievous sin with Bathsheba and Uriah's death.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel does Nathan confront David ('You are the man!'), leading to David's repentance and the birth of Solomon?",
+    "bookId": "2SA",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "2 Samuel 12",
+      "2SA 12",
+      "2 Samuel Chapter 12"
+    ],
+    "displayAnswer": "2 Samuel 12 (or Chapter 12)",
+    "explanation": "2 Samuel 12 recounts Nathan's rebuke, David's confession, and the birth of Solomon.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_15",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel does Absalom conspire at Hebron, forcing David to flee Jerusalem weeping over the Mount of Olives?",
+    "bookId": "2SA",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "15",
+      "Chapter 15",
+      "Ch 15",
+      "2 Samuel 15",
+      "2SA 15",
+      "2 Samuel Chapter 15"
+    ],
+    "displayAnswer": "2 Samuel 15 (or Chapter 15)",
+    "explanation": "2 Samuel 15 details Absalom's rebellion and David's flight from Jerusalem.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_18",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel is Absalom killed in an oak tree, and David weeps: 'O my son Absalom, my son, my son Absalom!'?",
+    "bookId": "2SA",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "2 Samuel 18",
+      "2SA 18",
+      "2 Samuel Chapter 18"
+    ],
+    "displayAnswer": "2 Samuel 18 (or Chapter 18)",
+    "explanation": "2 Samuel 18 recounts the death of Absalom and David's heartbreaking grief.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_22",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel does David sing his great Psalm of Deliverance: 'The Lord is my rock and my fortress and my deliverer'?",
+    "bookId": "2SA",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "22",
+      "Chapter 22",
+      "Ch 22",
+      "2 Samuel 22",
+      "2SA 22",
+      "2 Samuel Chapter 22"
+    ],
+    "displayAnswer": "2 Samuel 22 (or Chapter 22)",
+    "explanation": "2 Samuel 22 contains David's song of praise (parallel to Psalm 18).",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2sa_24",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Samuel does David take an unlawful military census and buy Araunah's threshing floor to build an altar that halts the plague?",
+    "bookId": "2SA",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "2 Samuel 24",
+      "2SA 24",
+      "2 Samuel Chapter 24"
+    ],
+    "displayAnswer": "2 Samuel 24 (or Chapter 24)",
+    "explanation": "2 Samuel 24 concludes the book with the census, the plague, and the purchase of the future Temple site.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings is Solomon anointed king at Gihon Spring, thwarting the royal conspiracy of Adonijah?",
+    "bookId": "1KI",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "1 Kings 1",
+      "1KI 1",
+      "1 Kings Chapter 1"
+    ],
+    "displayAnswer": "1 Kings 1 (or Chapter 1)",
+    "explanation": "1 Kings 1 details Solomon's coronation as David's successor.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings does David give his dying charge to Solomon ('Be strong, and show yourself a man') before dying in Jerusalem?",
+    "bookId": "1KI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "1 Kings 2",
+      "1KI 2",
+      "1 Kings Chapter 2"
+    ],
+    "displayAnswer": "1 Kings 2 (or Chapter 2)",
+    "explanation": "1 Kings 2 records David's final words, death, and Solomon establishing his kingdom.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings does Solomon ask God for wisdom at Gibeon and resolve the dispute between two mothers over one baby?",
+    "bookId": "1KI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "1 Kings 3",
+      "1KI 3",
+      "1 Kings Chapter 3"
+    ],
+    "displayAnswer": "1 Kings 3 (or Chapter 3)",
+    "explanation": "1 Kings 3 recounts Solomon receiving divine wisdom and his famous ruling.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings are Solomon's vast kingdom, peace, wealth, 3,000 proverbs, 1,005 songs, and administration described?",
+    "bookId": "1KI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "1 Kings 4",
+      "1KI 4",
+      "1 Kings Chapter 4"
+    ],
+    "displayAnswer": "1 Kings 4 (or Chapter 4)",
+    "explanation": "1 Kings 4 details the golden administration and wisdom of King Solomon.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings does Solomon construct the First Temple in Jerusalem, taking seven years to complete?",
+    "bookId": "1KI",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "1 Kings 6",
+      "1KI 6",
+      "1 Kings Chapter 6"
+    ],
+    "displayAnswer": "1 Kings 6 (or Chapter 6)",
+    "explanation": "1 Kings 6 details the architecture and building of Solomon's Temple.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings is the Ark brought into the Temple, God's glory cloud fills the house, and Solomon offers his great prayer of dedication?",
+    "bookId": "1KI",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "1 Kings 8",
+      "1KI 8",
+      "1 Kings Chapter 8"
+    ],
+    "displayAnswer": "1 Kings 8 (or Chapter 8)",
+    "explanation": "1 Kings 8 describes the magnificent dedication of the First Temple.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings does the Queen of Sheba visit Solomon with gold, spices, and hard questions, marveling at his wisdom and wealth?",
+    "bookId": "1KI",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "1 Kings 10",
+      "1KI 10",
+      "1 Kings Chapter 10"
+    ],
+    "displayAnswer": "1 Kings 10 (or Chapter 10)",
+    "explanation": "1 Kings 10 recounts the visit of the Queen of Sheba and Solomon's peak glory.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings do Solomon's foreign wives turn his heart after false gods, causing God to declare the tearing of the kingdom?",
+    "bookId": "1KI",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "1 Kings 11",
+      "1KI 11",
+      "1 Kings Chapter 11"
+    ],
+    "displayAnswer": "1 Kings 11 (or Chapter 11)",
+    "explanation": "1 Kings 11 details Solomon's apostasy and the judgment on his kingdom.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings does Rehoboam's foolishness cause the 10 northern tribes under Jeroboam to break away and set up golden calves at Bethel and Dan?",
+    "bookId": "1KI",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "1 Kings 12",
+      "1KI 12",
+      "1 Kings Chapter 12"
+    ],
+    "displayAnswer": "1 Kings 12 (or Chapter 12)",
+    "explanation": "1 Kings 12 records the tragic split into the Northern and Southern kingdoms.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_13",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings does an unnamed man of God prophesy against Jeroboam's altar at Bethel, foretelling a future king named Josiah?",
+    "bookId": "1KI",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "1 Kings 13",
+      "1KI 13",
+      "1 Kings Chapter 13"
+    ],
+    "displayAnswer": "1 Kings 13 (or Chapter 13)",
+    "explanation": "1 Kings 13 prophesies the coming of Josiah 300 years in advance.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_17",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings does Elijah proclaim a drought to Ahab, be fed by ravens at Cherith, and raise the widow's son at Zarephath?",
+    "bookId": "1KI",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "1 Kings 17",
+      "1KI 17",
+      "1 Kings Chapter 17"
+    ],
+    "displayAnswer": "1 Kings 17 (or Chapter 17)",
+    "explanation": "1 Kings 17 introduces Elijah, the drought, and his miracles at Zarephath.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_18",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings does Elijah defeat the 450 prophets of Baal on Mount Carmel with fire from heaven falling on the soaked altar?",
+    "bookId": "1KI",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "1 Kings 18",
+      "1KI 18",
+      "1 Kings Chapter 18"
+    ],
+    "displayAnswer": "1 Kings 18 (or Chapter 18)",
+    "explanation": "1 Kings 18 describes the great showdown on Mount Carmel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_19",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings does Elijah flee from Jezebel to Mount Horeb and hear the gentle whisper ('still small voice') of God?",
+    "bookId": "1KI",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "19",
+      "Chapter 19",
+      "Ch 19",
+      "1 Kings 19",
+      "1KI 19",
+      "1 Kings Chapter 19"
+    ],
+    "displayAnswer": "1 Kings 19 (or Chapter 19)",
+    "explanation": "1 Kings 19 recounts Elijah at Horeb and the call of Elisha.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_21",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings does Queen Jezebel murder righteous Naboth to seize his ancestral vineyard for King Ahab?",
+    "bookId": "1KI",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "21",
+      "Chapter 21",
+      "Ch 21",
+      "1 Kings 21",
+      "1KI 21",
+      "1 Kings Chapter 21"
+    ],
+    "displayAnswer": "1 Kings 21 (or Chapter 21)",
+    "explanation": "1 Kings 21 details the murder of Naboth and Elijah's prophecy of doom for Ahab and Jezebel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ki_22",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Kings does the faithful prophet Micaiah prophesy Ahab's doom, and Ahab is struck down by a random arrow at Ramoth-gilead?",
+    "bookId": "1KI",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "22",
+      "Chapter 22",
+      "Ch 22",
+      "1 Kings 22",
+      "1KI 22",
+      "1 Kings Chapter 22"
+    ],
+    "displayAnswer": "1 Kings 22 (or Chapter 22)",
+    "explanation": "1 Kings 22 concludes with Micaiah's prophecy and Ahab's death in battle.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings does Elijah call down fire from heaven twice to consume two captains of fifty sent by King Ahaziah of Israel?",
+    "bookId": "2KI",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "2 Kings 1",
+      "2KI 1",
+      "2 Kings Chapter 1"
+    ],
+    "displayAnswer": "2 Kings 1 (or Chapter 1)",
+    "explanation": "2 Kings 1 details Elijah and the captains of fifty.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings is Elijah taken up to heaven in a chariot of fire and whirlwind, leaving his mantle with Elisha?",
+    "bookId": "2KI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "2 Kings 2",
+      "2KI 2",
+      "2 Kings Chapter 2"
+    ],
+    "displayAnswer": "2 Kings 2 (or Chapter 2)",
+    "explanation": "2 Kings 2 records the translation of Elijah and Elisha receiving a double portion.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings does Elisha multiply the widow's oil, raise the Shunammite's son, and purify the poisoned pot of stew?",
+    "bookId": "2KI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "2 Kings 4",
+      "2KI 4",
+      "2 Kings Chapter 4"
+    ],
+    "displayAnswer": "2 Kings 4 (or Chapter 4)",
+    "explanation": "2 Kings 4 details multiple major miracles performed through Elisha.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings is the Syrian general Naaman healed of leprosy after washing seven times in the Jordan River?",
+    "bookId": "2KI",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "2 Kings 5",
+      "2KI 5",
+      "2 Kings Chapter 5"
+    ],
+    "displayAnswer": "2 Kings 5 (or Chapter 5)",
+    "explanation": "2 Kings 5 recounts the healing of Naaman and the greed of Gehazi.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings does Elisha make an iron axe head float, and open his servant's eyes to see angelic chariots of fire on the hills of Dothan?",
+    "bookId": "2KI",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "2 Kings 6",
+      "2KI 6",
+      "2 Kings Chapter 6"
+    ],
+    "displayAnswer": "2 Kings 6 (or Chapter 6)",
+    "explanation": "2 Kings 6 details Elisha's supernatural protection at Dothan.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings do four lepers discover the deserted Syrian camp and share the good news with starving Samaria?",
+    "bookId": "2KI",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "2 Kings 7",
+      "2KI 7",
+      "2 Kings Chapter 7"
+    ],
+    "displayAnswer": "2 Kings 7 (or Chapter 7)",
+    "explanation": "2 Kings 7 recounts the miraculous end of the siege of Samaria.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings is Jehu anointed king to wipe out the house of Ahab, and Jezebel is thrown from a window and eaten by dogs?",
+    "bookId": "2KI",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "2 Kings 9",
+      "2KI 9",
+      "2 Kings Chapter 9"
+    ],
+    "displayAnswer": "2 Kings 9 (or Chapter 9)",
+    "explanation": "2 Kings 9 recounts Jehu's raid and the violent death of Jezebel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_13",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings does Elisha prophesy with arrows on his deathbed, and a dead man revives upon touching Elisha's bones in the tomb?",
+    "bookId": "2KI",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "2 Kings 13",
+      "2KI 13",
+      "2 Kings Chapter 13"
+    ],
+    "displayAnswer": "2 Kings 13 (or Chapter 13)",
+    "explanation": "2 Kings 13 records the death of Elisha and the resurrection miracle in his tomb.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_17",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings does Samaria fall to Assyria, and the ten northern tribes of Israel are deported and scattered in 722 BC?",
+    "bookId": "2KI",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "2 Kings 17",
+      "2KI 17",
+      "2 Kings Chapter 17"
+    ],
+    "displayAnswer": "2 Kings 17 (or Chapter 17)",
+    "explanation": "2 Kings 17 records the tragic fall of the Northern Kingdom of Israel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_18",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings does godly King Hezekiah destroy the bronze serpent Nehushtan, and Sennacherib of Assyria besieges Jerusalem?",
+    "bookId": "2KI",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "2 Kings 18",
+      "2KI 18",
+      "2 Kings Chapter 18"
+    ],
+    "displayAnswer": "2 Kings 18 (or Chapter 18)",
+    "explanation": "2 Kings 18 begins the narrative of Hezekiah's reign and the Assyrian siege.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_19",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings does Hezekiah pray in the Temple, and the angel of the Lord strikes down 185,000 Assyrian soldiers in a single night?",
+    "bookId": "2KI",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "19",
+      "Chapter 19",
+      "Ch 19",
+      "2 Kings 19",
+      "2KI 19",
+      "2 Kings Chapter 19"
+    ],
+    "displayAnswer": "2 Kings 19 (or Chapter 19)",
+    "explanation": "2 Kings 19 recounts God's miraculous deliverance of Jerusalem from Sennacherib.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_20",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings is Hezekiah healed of a fatal illness, God adds 15 years to his life, and the shadow moves back ten steps on the sundial?",
+    "bookId": "2KI",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "20",
+      "Chapter 20",
+      "Ch 20",
+      "2 Kings 20",
+      "2KI 20",
+      "2 Kings Chapter 20"
+    ],
+    "displayAnswer": "2 Kings 20 (or Chapter 20)",
+    "explanation": "2 Kings 20 details Hezekiah's recovery and the Babylonian envoys.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_22",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings does young King Josiah discover the lost Book of the Law during Temple repairs and tear his robes in repentance?",
+    "bookId": "2KI",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "22",
+      "Chapter 22",
+      "Ch 22",
+      "2 Kings 22",
+      "2KI 22",
+      "2 Kings Chapter 22"
+    ],
+    "displayAnswer": "2 Kings 22 (or Chapter 22)",
+    "explanation": "2 Kings 22 details the recovery of God's Word and the start of Josiah's reformation.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_23",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings does Josiah purge the land of all idolatry and hold the greatest Passover since the days of the Judges?",
+    "bookId": "2KI",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "23",
+      "Chapter 23",
+      "Ch 23",
+      "2 Kings 23",
+      "2KI 23",
+      "2 Kings Chapter 23"
+    ],
+    "displayAnswer": "2 Kings 23 (or Chapter 23)",
+    "explanation": "2 Kings 23 recounts Josiah's nationwide religious reformation.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ki_25",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Kings does King Nebuchadnezzar destroy Jerusalem, burn the Temple to the ground, and carry Judah into Babylonian exile in 586 BC?",
+    "bookId": "2KI",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "25",
+      "Chapter 25",
+      "Ch 25",
+      "2 Kings 25",
+      "2KI 25",
+      "2 Kings Chapter 25"
+    ],
+    "displayAnswer": "2 Kings 25 (or Chapter 25)",
+    "explanation": "2 Kings 25 concludes the history of the monarchy with the fall of Jerusalem.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ch_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Chronicles is the Prayer of Jabez recorded: 'Oh that you would bless me and enlarge my border, and that your hand might be with me'?",
+    "bookId": "1CH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "1 Chronicles 4",
+      "1CH 4",
+      "1 Chronicles Chapter 4"
+    ],
+    "displayAnswer": "1 Chronicles 4 (or Chapter 4)",
+    "explanation": "1 Chronicles 4:9\u201310 contains the famous Prayer of Jabez.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ch_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Chronicles is King Saul's tragic death on Mount Gilboa recounted, explaining that he died for his unfaithfulness to the Lord?",
+    "bookId": "1CH",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "1 Chronicles 10",
+      "1CH 10",
+      "1 Chronicles Chapter 10"
+    ],
+    "displayAnswer": "1 Chronicles 10 (or Chapter 10)",
+    "explanation": "1 Chronicles 10 records the death of Saul and the transition to David's reign.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ch_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Chronicles is David anointed king over all Israel at Hebron, captures Zion, and lists his Three Mighty Men and Thirty Chiefs?",
+    "bookId": "1CH",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "1 Chronicles 11",
+      "1CH 11",
+      "1 Chronicles Chapter 11"
+    ],
+    "displayAnswer": "1 Chronicles 11 (or Chapter 11)",
+    "explanation": "1 Chronicles 11 details David's mighty men and the capture of Jerusalem.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ch_16",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Chronicles does David deliver his first Psalm of Thanksgiving ('Give thanks to the Lord, call upon his name') when the Ark is placed in the tent in Jerusalem?",
+    "bookId": "1CH",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "16",
+      "Chapter 16",
+      "Ch 16",
+      "1 Chronicles 16",
+      "1CH 16",
+      "1 Chronicles Chapter 16"
+    ],
+    "displayAnswer": "1 Chronicles 16 (or Chapter 16)",
+    "explanation": "1 Chronicles 16 contains David's great hymn of praise for the Ark.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ch_17",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Chronicles does the prophet Nathan proclaim the Davidic Covenant to David, promising an everlasting house and throne?",
+    "bookId": "1CH",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "1 Chronicles 17",
+      "1CH 17",
+      "1 Chronicles Chapter 17"
+    ],
+    "displayAnswer": "1 Chronicles 17 (or Chapter 17)",
+    "explanation": "1 Chronicles 17 details the Davidic Covenant in the Chronicles account.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ch_21",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Chronicles is David incited by Satan to count Israel's military forces, leading to the purchase of Ornan's threshing floor?",
+    "bookId": "1CH",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "21",
+      "Chapter 21",
+      "Ch 21",
+      "1 Chronicles 21",
+      "1CH 21",
+      "1 Chronicles Chapter 21"
+    ],
+    "displayAnswer": "1 Chronicles 21 (or Chapter 21)",
+    "explanation": "1 Chronicles 21 records the census and the purchase of the future temple site.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ch_22",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Chronicles does David charge young Solomon to build the house of the Lord and prepare vast supplies of gold, silver, and cedar?",
+    "bookId": "1CH",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "22",
+      "Chapter 22",
+      "Ch 22",
+      "1 Chronicles 22",
+      "1CH 22",
+      "1 Chronicles Chapter 22"
+    ],
+    "displayAnswer": "1 Chronicles 22 (or Chapter 22)",
+    "explanation": "1 Chronicles 22 describes David's massive preparations for the Temple.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ch_28",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Chronicles does David assemble all the officials in Jerusalem and publicly present Solomon with the Spirit-inspired blueprints for the Temple?",
+    "bookId": "1CH",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "28",
+      "Chapter 28",
+      "Ch 28",
+      "1 Chronicles 28",
+      "1CH 28",
+      "1 Chronicles Chapter 28"
+    ],
+    "displayAnswer": "1 Chronicles 28 (or Chapter 28)",
+    "explanation": "1 Chronicles 28 records David delivering the Temple plans to Solomon.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_1ch_29",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Chronicles does David lead Israel in freewill offerings for the Temple and pray his final prayer: 'Yours, O Lord, is the greatness and the power and the glory'?",
+    "bookId": "1CH",
+    "chapterNum": 29,
+    "acceptedAnswers": [
+      "29",
+      "Chapter 29",
+      "Ch 29",
+      "1 Chronicles 29",
+      "1CH 29",
+      "1 Chronicles Chapter 29"
+    ],
+    "displayAnswer": "1 Chronicles 29 (or Chapter 29)",
+    "explanation": "1 Chronicles 29 concludes with David's final praise, coronation of Solomon, and death.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ch_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Chronicles does God appear to Solomon at Gibeon and grant him unprecedented wisdom, knowledge, and wealth?",
+    "bookId": "2CH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "2 Chronicles 1",
+      "2CH 1",
+      "2 Chronicles Chapter 1"
+    ],
+    "displayAnswer": "2 Chronicles 1 (or Chapter 1)",
+    "explanation": "2 Chronicles 1 details Solomon's prayer for wisdom at the beginning of his reign.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ch_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Chronicles does fire come down from heaven at the Temple dedication, and God gives the promise: 'If my people who are called by my name humble themselves and pray...' (2 Chron 7:14)?",
+    "bookId": "2CH",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "2 Chronicles 7",
+      "2CH 7",
+      "2 Chronicles Chapter 7"
+    ],
+    "displayAnswer": "2 Chronicles 7 (or Chapter 7)",
+    "explanation": "2 Chronicles 7 records the glory of God at the Temple dedication and the promise of national revival.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ch_20",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Chronicles does King Jehoshaphat pray 'we do not know what to do, but our eyes are on you' and lead the army with singers praising God into the Valley of Beracah?",
+    "bookId": "2CH",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "20",
+      "Chapter 20",
+      "Ch 20",
+      "2 Chronicles 20",
+      "2CH 20",
+      "2 Chronicles Chapter 20"
+    ],
+    "displayAnswer": "2 Chronicles 20 (or Chapter 20)",
+    "explanation": "2 Chronicles 20 recounts the miraculous victory through praise.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ch_24",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Chronicles does young King Joash repair the Temple using a collection chest at the gate, but later falls into idolatry and murders Zechariah the priest?",
+    "bookId": "2CH",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "2 Chronicles 24",
+      "2CH 24",
+      "2 Chronicles Chapter 24"
+    ],
+    "displayAnswer": "2 Chronicles 24 (or Chapter 24)",
+    "explanation": "2 Chronicles 24 details the reign of Joash, the Temple chest, and his tragic apostasy.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ch_26",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Chronicles is powerful King Uzziah stricken with leprosy in the Temple when he proudly attempts to burn incense on the altar?",
+    "bookId": "2CH",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "26",
+      "Chapter 26",
+      "Ch 26",
+      "2 Chronicles 26",
+      "2CH 26",
+      "2 Chronicles Chapter 26"
+    ],
+    "displayAnswer": "2 Chronicles 26 (or Chapter 26)",
+    "explanation": "2 Chronicles 26 details Uzziah's pride and subsequent leprosy.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ch_30",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Chronicles does King Hezekiah invite all Israel and Judah to celebrate the Great Passover in Jerusalem with unprecedented joy?",
+    "bookId": "2CH",
+    "chapterNum": 30,
+    "acceptedAnswers": [
+      "30",
+      "Chapter 30",
+      "Ch 30",
+      "2 Chronicles 30",
+      "2CH 30",
+      "2 Chronicles Chapter 30"
+    ],
+    "displayAnswer": "2 Chronicles 30 (or Chapter 30)",
+    "explanation": "2 Chronicles 30 describes Hezekiah's historic revival and nationwide Passover.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ch_34",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Chronicles does 8-year-old King Josiah seek the God of David, purge idols, and repair the Temple where the Book of the Law is found?",
+    "bookId": "2CH",
+    "chapterNum": 34,
+    "acceptedAnswers": [
+      "34",
+      "Chapter 34",
+      "Ch 34",
+      "2 Chronicles 34",
+      "2CH 34",
+      "2 Chronicles Chapter 34"
+    ],
+    "displayAnswer": "2 Chronicles 34 (or Chapter 34)",
+    "explanation": "2 Chronicles 34 details Josiah's zeal and the discovery of God's Word.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ch_35",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Chronicles does King Josiah celebrate the most glorious Passover in Judah's history and tragically die in battle at Megiddo against Pharaoh Neco?",
+    "bookId": "2CH",
+    "chapterNum": 35,
+    "acceptedAnswers": [
+      "35",
+      "Chapter 35",
+      "Ch 35",
+      "2 Chronicles 35",
+      "2CH 35",
+      "2 Chronicles Chapter 35"
+    ],
+    "displayAnswer": "2 Chronicles 35 (or Chapter 35)",
+    "explanation": "2 Chronicles 35 describes Josiah's Passover and his death in the valley of Megiddo.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_2ch_36",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Chronicles does the book conclude with the fall of Jerusalem and the decree of King Cyrus of Persia permitting the exiles to return and rebuild the Temple?",
+    "bookId": "2CH",
+    "chapterNum": 36,
+    "acceptedAnswers": [
+      "36",
+      "Chapter 36",
+      "Ch 36",
+      "2 Chronicles 36",
+      "2CH 36",
+      "2 Chronicles Chapter 36"
+    ],
+    "displayAnswer": "2 Chronicles 36 (or Chapter 36)",
+    "explanation": "2 Chronicles 36 ends with the 70-year exile and Cyrus's proclamation.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_ezr_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezra does King Cyrus of Persia issue an imperial proclamation allowing the Jewish exiles to return to Jerusalem and rebuild the Temple?",
+    "bookId": "EZR",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Ezra 1",
+      "EZR 1",
+      "Ezra Chapter 1"
+    ],
+    "displayAnswer": "Ezra 1 (or Chapter 1)",
+    "explanation": "Ezra 1 records Cyrus's decree fulfilling Jeremiah's prophecy.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_ezr_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezra do Zerubbabel and the returned exiles rebuild the altar and lay the foundation of the Second Temple amidst weeping and shouts of joy?",
+    "bookId": "EZR",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Ezra 3",
+      "EZR 3",
+      "Ezra Chapter 3"
+    ],
+    "displayAnswer": "Ezra 3 (or Chapter 3)",
+    "explanation": "Ezra 3 details the laying of the Second Temple foundation.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_ezr_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezra do adversaries of Judah write letters of accusation to King Artaxerxes, causing the rebuilding of the Temple to cease for years?",
+    "bookId": "EZR",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Ezra 4",
+      "EZR 4",
+      "Ezra Chapter 4"
+    ],
+    "displayAnswer": "Ezra 4 (or Chapter 4)",
+    "explanation": "Ezra 4 details the opposition and cessation of the Temple construction.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_ezr_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezra is the Second Temple completed under the encouragement of prophets Haggai and Zechariah and joyfully dedicated?",
+    "bookId": "EZR",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Ezra 6",
+      "EZR 6",
+      "Ezra Chapter 6"
+    ],
+    "displayAnswer": "Ezra 6 (or Chapter 6)",
+    "explanation": "Ezra 6 recounts the dedication of the Second Temple and the celebration of the Passover.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_ezr_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezra does Ezra the priest and scribe arrive in Jerusalem, having 'set his heart to study the Law of the Lord, and to do it and to teach his statutes' (Ezra 7:10)?",
+    "bookId": "EZR",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Ezra 7",
+      "EZR 7",
+      "Ezra Chapter 7"
+    ],
+    "displayAnswer": "Ezra 7 (or Chapter 7)",
+    "explanation": "Ezra 7 introduces the second return of exiles led by Ezra.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_ezr_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezra does Ezra tear his tunic and fall on his knees in tearful confession over the people's intermarriage with idolatrous neighbors?",
+    "bookId": "EZR",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Ezra 9",
+      "EZR 9",
+      "Ezra Chapter 9"
+    ],
+    "displayAnswer": "Ezra 9 (or Chapter 9)",
+    "explanation": "Ezra 9 contains Ezra's profound prayer of national repentance.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_ezr_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezra do the people weep in a heavy rainstorm at the Temple plaza and enter a covenant to separate from foreign idolatrous wives?",
+    "bookId": "EZR",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "Ezra 10",
+      "EZR 10",
+      "Ezra Chapter 10"
+    ],
+    "displayAnswer": "Ezra 10 (or Chapter 10)",
+    "explanation": "Ezra 10 concludes the book with the community's repentance and reform.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_neh_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Nehemiah does Nehemiah weep, fast, and pray in Susa upon hearing that Jerusalem's walls are broken down and its gates burned with fire?",
+    "bookId": "NEH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Nehemiah 1",
+      "NEH 1",
+      "Nehemiah Chapter 1"
+    ],
+    "displayAnswer": "Nehemiah 1 (or Chapter 1)",
+    "explanation": "Nehemiah 1 records Nehemiah's intercessory prayer for Jerusalem.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_neh_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Nehemiah does King Artaxerxes grant Nehemiah permission to rebuild Jerusalem, and Nehemiah inspects the ruined walls by night?",
+    "bookId": "NEH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Nehemiah 2",
+      "NEH 2",
+      "Nehemiah Chapter 2"
+    ],
+    "displayAnswer": "Nehemiah 2 (or Chapter 2)",
+    "explanation": "Nehemiah 2 details Nehemiah's arrival in Jerusalem and nighttime inspection.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_neh_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Nehemiah is the section-by-section record of priests, rulers, goldsmiths, and families repairing the gates and walls of Jerusalem recorded?",
+    "bookId": "NEH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Nehemiah 3",
+      "NEH 3",
+      "Nehemiah Chapter 3"
+    ],
+    "displayAnswer": "Nehemiah 3 (or Chapter 3)",
+    "explanation": "Nehemiah 3 lists the faithful builders of Jerusalem's broken walls.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_neh_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Nehemiah do the builders face threats from Sanballat and Tobiah, working with a building tool in one hand and a weapon in the other?",
+    "bookId": "NEH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Nehemiah 4",
+      "NEH 4",
+      "Nehemiah Chapter 4"
+    ],
+    "displayAnswer": "Nehemiah 4 (or Chapter 4)",
+    "explanation": "Nehemiah 4 recounts the defense of the wall construction against enemies.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_neh_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Nehemiah is the wall of Jerusalem successfully finished in just 52 days despite enemy plots?",
+    "bookId": "NEH",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Nehemiah 6",
+      "NEH 6",
+      "Nehemiah Chapter 6"
+    ],
+    "displayAnswer": "Nehemiah 6 (or Chapter 6)",
+    "explanation": "Nehemiah 6 records the completion of the wall in 52 days.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_neh_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Nehemiah does Ezra read the Book of the Law publicly, leading the people to weep, celebrate Booths, and hear: 'The joy of the Lord is your strength'?",
+    "bookId": "NEH",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Nehemiah 8",
+      "NEH 8",
+      "Nehemiah Chapter 8"
+    ],
+    "displayAnswer": "Nehemiah 8 (or Chapter 8)",
+    "explanation": "Nehemiah 8 details the public reading of Scripture and national revival.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_neh_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Nehemiah do the Levites lead the people in an extensive prayer of praise and confession recounting God's faithfulness throughout redemptive history?",
+    "bookId": "NEH",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Nehemiah 9",
+      "NEH 9",
+      "Nehemiah Chapter 9"
+    ],
+    "displayAnswer": "Nehemiah 9 (or Chapter 9)",
+    "explanation": "Nehemiah 9 contains one of the longest and most comprehensive prayers in Scripture.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_neh_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Nehemiah are the rebuilt walls of Jerusalem joyfully dedicated with two large thanksgiving choirs walking on top of the walls?",
+    "bookId": "NEH",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Nehemiah 12",
+      "NEH 12",
+      "Nehemiah Chapter 12"
+    ],
+    "displayAnswer": "Nehemiah 12 (or Chapter 12)",
+    "explanation": "Nehemiah 12 describes the joyous dedication of the city walls.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_est_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Esther is the young Jewish orphan Esther chosen and crowned Queen of Persia in place of Vashti by King Ahasuerus (Xerxes)?",
+    "bookId": "EST",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Esther 2",
+      "EST 2",
+      "Esther Chapter 2"
+    ],
+    "displayAnswer": "Esther 2 (or Chapter 2)",
+    "explanation": "Esther 2 records Esther becoming queen of Persia.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_est_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Esther does the wicked Haman cast the lot (Pur) and plot the total extermination of all Jews throughout the Persian Empire?",
+    "bookId": "EST",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Esther 3",
+      "EST 3",
+      "Esther Chapter 3"
+    ],
+    "displayAnswer": "Esther 3 (or Chapter 3)",
+    "explanation": "Esther 3 details Haman's genocidal plot against the Jewish people.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_est_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Esther does Mordecai challenge Esther: 'Who knows whether you have not come to the kingdom for such a time as this?' and Esther resolves: 'If I perish, I perish'?",
+    "bookId": "EST",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Esther 4",
+      "EST 4",
+      "Esther Chapter 4"
+    ],
+    "displayAnswer": "Esther 4 (or Chapter 4)",
+    "explanation": "Esther 4 contains the pivotal turning point of the book.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_est_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Esther does the sleepless king read the royal chronicles, realize Mordecai saved his life, and command Haman to lead Mordecai on the royal horse?",
+    "bookId": "EST",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Esther 6",
+      "EST 6",
+      "Esther Chapter 6"
+    ],
+    "displayAnswer": "Esther 6 (or Chapter 6)",
+    "explanation": "Esther 6 records the dramatic reversal when the king honors Mordecai.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_est_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Esther does Queen Esther expose Haman at her banquet, and Haman is hanged on the 75-foot gallows he built for Mordecai?",
+    "bookId": "EST",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Esther 7",
+      "EST 7",
+      "Esther Chapter 7"
+    ],
+    "displayAnswer": "Esther 7 (or Chapter 7)",
+    "explanation": "Esther 7 recounts the downfall and execution of Haman.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_est_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Esther do the Jews triumph over their enemies and establish the annual two-day Feast of Purim in joyful celebration?",
+    "bookId": "EST",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Esther 9",
+      "EST 9",
+      "Esther Chapter 9"
+    ],
+    "displayAnswer": "Esther 9 (or Chapter 9)",
+    "explanation": "Esther 9 records the institution of the Feast of Purim.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "ch_job_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Job does Satan challenge Job's integrity, and Job loses his children and wealth yet declares: 'The Lord gave, and the Lord has taken away; blessed be the name of the Lord'?",
+    "bookId": "JOB",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Job 1",
+      "JOB 1",
+      "Job Chapter 1"
+    ],
+    "displayAnswer": "Job 1 (or Chapter 1)",
+    "explanation": "Job 1 describes Job's initial trials and steadfast worship.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_job_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Job is Job struck with severe loathsome sores and his three friends Eliphaz, Bildad, and Zophar sit in silence with him for seven days?",
+    "bookId": "JOB",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Job 2",
+      "JOB 2",
+      "Job Chapter 2"
+    ],
+    "displayAnswer": "Job 2 (or Chapter 2)",
+    "explanation": "Job 2 details Job's physical affliction and the arrival of his friends.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_job_19",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Job does Job utter his triumphant confession of faith: 'For I know that my Redeemer lives, and at the last he will stand upon the earth' (Job 19:25)?",
+    "bookId": "JOB",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "19",
+      "Chapter 19",
+      "Ch 19",
+      "Job 19",
+      "JOB 19",
+      "Job Chapter 19"
+    ],
+    "displayAnswer": "Job 19 (or Chapter 19)",
+    "explanation": "Job 19 contains the glorious prophecy of the living Redeemer.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_job_28",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Job is the magnificent Poem on Wisdom ('Where shall wisdom be found?... Behold, the fear of the Lord, that is wisdom')?",
+    "bookId": "JOB",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "28",
+      "Chapter 28",
+      "Ch 28",
+      "Job 28",
+      "JOB 28",
+      "Job Chapter 28"
+    ],
+    "displayAnswer": "Job 28 (or Chapter 28)",
+    "explanation": "Job 28 explores the unsearchable value and divine source of wisdom.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_job_38",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Job does the Lord answer Job out of the whirlwind: 'Where were you when I laid the foundation of the earth?'?",
+    "bookId": "JOB",
+    "chapterNum": 38,
+    "acceptedAnswers": [
+      "38",
+      "Chapter 38",
+      "Ch 38",
+      "Job 38",
+      "JOB 38",
+      "Job Chapter 38"
+    ],
+    "displayAnswer": "Job 38 (or Chapter 38)",
+    "explanation": "Job 38 begins God's powerful speech out of the whirlwind.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_job_42",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Job does Job repent in dust and ashes ('now my eye sees you') and God restores double all his fortunes?",
+    "bookId": "JOB",
+    "chapterNum": 42,
+    "acceptedAnswers": [
+      "42",
+      "Chapter 42",
+      "Ch 42",
+      "Job 42",
+      "JOB 42",
+      "Job Chapter 42"
+    ],
+    "displayAnswer": "Job 42 (or Chapter 42)",
+    "explanation": "Job 42 concludes with Job's repentance, restoration, and long life.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_1",
+    "type": "chapter_in_book",
+    "prompt": "In which Psalm is the righteous person described as a tree planted by streams of water whose leaf does not wither, in contrast to the wicked who are like chaff?",
+    "bookId": "PSA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Psalms 1",
+      "PSA 1",
+      "Psalms Chapter 1"
+    ],
+    "displayAnswer": "Psalms 1 (or Chapter 1)",
+    "explanation": "Psalm 1 opens the Psalter contrasting the two paths of life.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_2",
+    "type": "chapter_in_book",
+    "prompt": "In which royal messianic Psalm do the nations rage while God declares: 'I have set my King on Zion... You are my Son; today I have begotten you'?",
+    "bookId": "PSA",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Psalms 2",
+      "PSA 2",
+      "Psalms Chapter 2"
+    ],
+    "displayAnswer": "Psalms 2 (or Chapter 2)",
+    "explanation": "Psalm 2 is the great coronation Psalm of God's Anointed Son.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_8",
+    "type": "chapter_in_book",
+    "prompt": "In which Psalm does David marvel at God's glory: 'O Lord, our Lord, how majestic is your name in all the earth!... What is man that you are mindful of him?'?",
+    "bookId": "PSA",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Psalms 8",
+      "PSA 8",
+      "Psalms Chapter 8"
+    ],
+    "displayAnswer": "Psalms 8 (or Chapter 8)",
+    "explanation": "Psalm 8 praises the majesty of God and the dignity granted to humanity in creation.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_19",
+    "type": "chapter_in_book",
+    "prompt": "In which Psalm is God's twofold revelation celebrated: General Revelation in the skies ('The heavens declare the glory of God') and Special Revelation in Scripture ('The law of the Lord is perfect')?",
+    "bookId": "PSA",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "19",
+      "Chapter 19",
+      "Ch 19",
+      "Psalms 19",
+      "PSA 19",
+      "Psalms Chapter 19"
+    ],
+    "displayAnswer": "Psalms 19 (or Chapter 19)",
+    "explanation": "Psalm 19 explores God's glory in the cosmos and in the written Word.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_22",
+    "type": "chapter_in_book",
+    "prompt": "In which prophetic Psalm does David foretell the crucifixion with the words: 'My God, my God, why have you forsaken me?' and 'they have pierced my hands and feet'?",
+    "bookId": "PSA",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "22",
+      "Chapter 22",
+      "Ch 22",
+      "Psalms 22",
+      "PSA 22",
+      "Psalms Chapter 22"
+    ],
+    "displayAnswer": "Psalms 22 (or Chapter 22)",
+    "explanation": "Psalm 22 vividly describes the suffering and triumph of the Messiah.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_23",
+    "type": "chapter_in_book",
+    "prompt": "In which beloved Psalm does David declare: 'The Lord is my shepherd; I shall not want. He makes me lie down in green pastures... Even though I walk through the valley of the shadow of death'?",
+    "bookId": "PSA",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "23",
+      "Chapter 23",
+      "Ch 23",
+      "Psalms 23",
+      "PSA 23",
+      "Psalms Chapter 23"
+    ],
+    "displayAnswer": "Psalms 23 (or Chapter 23)",
+    "explanation": "Psalm 23 is the Shepherd Psalm of God's personal care.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_24",
+    "type": "chapter_in_book",
+    "prompt": "In which Psalm of ascent is the declaration: 'The earth is the Lord's and the fullness thereof... Who shall ascend the hill of the Lord? He who has clean hands and a pure heart'?",
+    "bookId": "PSA",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "Psalms 24",
+      "PSA 24",
+      "Psalms Chapter 24"
+    ],
+    "displayAnswer": "Psalms 24 (or Chapter 24)",
+    "explanation": "Psalm 24 celebrates the King of Glory entering Zion.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_27",
+    "type": "chapter_in_book",
+    "prompt": "In which Psalm does David declare: 'The Lord is my light and my salvation; whom shall I fear?... One thing have I asked of the Lord: that I may dwell in the house of the Lord all the days of my life'?",
+    "bookId": "PSA",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "27",
+      "Chapter 27",
+      "Ch 27",
+      "Psalms 27",
+      "PSA 27",
+      "Psalms Chapter 27"
+    ],
+    "displayAnswer": "Psalms 27 (or Chapter 27)",
+    "explanation": "Psalm 27 is an inspiring hymn of fearless trust and longing for God's presence.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_32",
+    "type": "chapter_in_book",
+    "prompt": "In which Psalm of forgiveness does David rejoice: 'Blessed is the one whose transgression is forgiven, whose sin is covered... When I kept silent, my bones wasted away'?",
+    "bookId": "PSA",
+    "chapterNum": 32,
+    "acceptedAnswers": [
+      "32",
+      "Chapter 32",
+      "Ch 32",
+      "Psalms 32",
+      "PSA 32",
+      "Psalms Chapter 32"
+    ],
+    "displayAnswer": "Psalms 32 (or Chapter 32)",
+    "explanation": "Psalm 32 is a celebrated beatitude of forgiven sin and confession.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_46",
+    "type": "chapter_in_book",
+    "prompt": "In which Psalm of refuge is the promise: 'God is our refuge and strength, a very present help in trouble... Be still, and know that I am God'?",
+    "bookId": "PSA",
+    "chapterNum": 46,
+    "acceptedAnswers": [
+      "46",
+      "Chapter 46",
+      "Ch 46",
+      "Psalms 46",
+      "PSA 46",
+      "Psalms Chapter 46"
+    ],
+    "displayAnswer": "Psalms 46 (or Chapter 46)",
+    "explanation": "Psalm 46 expresses unshakeable confidence in God amidst cosmic upheaval.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_51",
+    "type": "chapter_in_book",
+    "prompt": "In which penitential Psalm does David confess his sin with Bathsheba, pleading: 'Create in me a clean heart, O God, and renew a right spirit within me'?",
+    "bookId": "PSA",
+    "chapterNum": 51,
+    "acceptedAnswers": [
+      "51",
+      "Chapter 51",
+      "Ch 51",
+      "Psalms 51",
+      "PSA 51",
+      "Psalms Chapter 51"
+    ],
+    "displayAnswer": "Psalms 51 (or Chapter 51)",
+    "explanation": "Psalm 51 is David's great prayer of confession and repentance.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_90",
+    "type": "chapter_in_book",
+    "prompt": "In which Psalm, written by Moses, does the prayer appear: 'So teach us to number our days that we may get a heart of wisdom'?",
+    "bookId": "PSA",
+    "chapterNum": 90,
+    "acceptedAnswers": [
+      "90",
+      "Chapter 90",
+      "Ch 90",
+      "Psalms 90",
+      "PSA 90",
+      "Psalms Chapter 90"
+    ],
+    "displayAnswer": "Psalms 90 (or Chapter 90)",
+    "explanation": "Psalm 90 is the oldest Psalm, composed by Moses on the eternity of God.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_91",
+    "type": "chapter_in_book",
+    "prompt": "In which Psalm of protection is the promise: 'He who dwells in the shelter of the Most High will abide in the shadow of the Almighty... He will cover you with his pinions'?",
+    "bookId": "PSA",
+    "chapterNum": 91,
+    "acceptedAnswers": [
+      "91",
+      "Chapter 91",
+      "Ch 91",
+      "Psalms 91",
+      "PSA 91",
+      "Psalms Chapter 91"
+    ],
+    "displayAnswer": "Psalms 91 (or Chapter 91)",
+    "explanation": "Psalm 91 is the classic Psalm of divine refuge and protection.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_100",
+    "type": "chapter_in_book",
+    "prompt": "In which Thanksgiving Psalm is all the earth summoned: 'Make a joyful noise to the Lord, all the earth! Enter his gates with thanksgiving, and his courts with praise!'?",
+    "bookId": "PSA",
+    "chapterNum": 100,
+    "acceptedAnswers": [
+      "100",
+      "Chapter 100",
+      "Ch 100",
+      "Psalms 100",
+      "PSA 100",
+      "Psalms Chapter 100"
+    ],
+    "displayAnswer": "Psalms 100 (or Chapter 100)",
+    "explanation": "Psalm 100 is the classic psalm of thanksgiving and praise.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_103",
+    "type": "chapter_in_book",
+    "prompt": "In which Psalm of praise does David urge: 'Bless the Lord, O my soul, and forget not all his benefits, who forgives all your iniquity, who heals all your diseases'?",
+    "bookId": "PSA",
+    "chapterNum": 103,
+    "acceptedAnswers": [
+      "103",
+      "Chapter 103",
+      "Ch 103",
+      "Psalms 103",
+      "PSA 103",
+      "Psalms Chapter 103"
+    ],
+    "displayAnswer": "Psalms 103 (or Chapter 103)",
+    "explanation": "Psalm 103 is a magnificent hymn celebrating God's boundless steadfast love.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_119",
+    "type": "chapter_in_book",
+    "prompt": "Which Psalm is the longest chapter in the entire Bible, structured as an acrostic praising the perfection and power of God's Word in all 176 verses?",
+    "bookId": "PSA",
+    "chapterNum": 119,
+    "acceptedAnswers": [
+      "119",
+      "Chapter 119",
+      "Ch 119",
+      "Psalms 119",
+      "PSA 119",
+      "Psalms Chapter 119"
+    ],
+    "displayAnswer": "Psalms 119 (or Chapter 119)",
+    "explanation": "Psalm 119 is the 176-verse acrostic masterpiece honoring God's Law.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_121",
+    "type": "chapter_in_book",
+    "prompt": "In which Song of Ascents does the traveler declare: 'I lift up my eyes to the hills. From where does my help come? My help comes from the Lord, who made heaven and earth'?",
+    "bookId": "PSA",
+    "chapterNum": 121,
+    "acceptedAnswers": [
+      "121",
+      "Chapter 121",
+      "Ch 121",
+      "Psalms 121",
+      "PSA 121",
+      "Psalms Chapter 121"
+    ],
+    "displayAnswer": "Psalms 121 (or Chapter 121)",
+    "explanation": "Psalm 121 is the pilgrim's song of divine preservation.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_127",
+    "type": "chapter_in_book",
+    "prompt": "In which Psalm of Solomon is the wisdom given: 'Unless the Lord builds the house, those who build it labor in vain... Behold, children are a heritage from the Lord'?",
+    "bookId": "PSA",
+    "chapterNum": 127,
+    "acceptedAnswers": [
+      "127",
+      "Chapter 127",
+      "Ch 127",
+      "Psalms 127",
+      "PSA 127",
+      "Psalms Chapter 127"
+    ],
+    "displayAnswer": "Psalms 127 (or Chapter 127)",
+    "explanation": "Psalm 127 highlights total dependence on God's blessing for work and family.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_139",
+    "type": "chapter_in_book",
+    "prompt": "In which Psalm does David praise God's omniscience and omnipresence: 'For you formed my inward parts; you knitted me together in my mother's womb. I praise you, for I am fearfully and wonderfully made'?",
+    "bookId": "PSA",
+    "chapterNum": 139,
+    "acceptedAnswers": [
+      "139",
+      "Chapter 139",
+      "Ch 139",
+      "Psalms 139",
+      "PSA 139",
+      "Psalms Chapter 139"
+    ],
+    "displayAnswer": "Psalms 139 (or Chapter 139)",
+    "explanation": "Psalm 139 celebrates God's intimate knowledge of human life.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_psa_150",
+    "type": "chapter_in_book",
+    "prompt": "In which final Psalm of the Psalter is every living thing summoned to praise God with trumpets, harps, strings, and crashing cymbals: 'Let everything that has breath praise the Lord!'?",
+    "bookId": "PSA",
+    "chapterNum": 150,
+    "acceptedAnswers": [
+      "150",
+      "Chapter 150",
+      "Ch 150",
+      "Psalms 150",
+      "PSA 150",
+      "Psalms Chapter 150"
+    ],
+    "displayAnswer": "Psalms 150 (or Chapter 150)",
+    "explanation": "Psalm 150 is the grand doxological climax of the Book of Psalms.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_pro_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Proverbs is the core motto of wisdom literature stated: 'The fear of the Lord is the beginning of knowledge; fools despise wisdom and instruction'?",
+    "bookId": "PRO",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Proverbs 1",
+      "PRO 1",
+      "Proverbs Chapter 1"
+    ],
+    "displayAnswer": "Proverbs 1 (or Chapter 1)",
+    "explanation": "Proverbs 1 establishes the foundational theme of the book.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_pro_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Proverbs is the famous exhortation: 'Trust in the Lord with all your heart, and do not lean on your own understanding. In all your ways acknowledge him, and he will make straight your paths'?",
+    "bookId": "PRO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Proverbs 3",
+      "PRO 3",
+      "Proverbs Chapter 3"
+    ],
+    "displayAnswer": "Proverbs 3 (or Chapter 3)",
+    "explanation": "Proverbs 3:5\u20136 is one of Scripture's most treasured passages on guidance.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_pro_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Proverbs is the fatherly counsel: 'Keep your heart with all vigilance, for from it flow the springs of life'?",
+    "bookId": "PRO",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Proverbs 4",
+      "PRO 4",
+      "Proverbs Chapter 4"
+    ],
+    "displayAnswer": "Proverbs 4 (or Chapter 4)",
+    "explanation": "Proverbs 4:23 urges guarding the heart above all else.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_pro_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Proverbs are the lazy warned to 'Go to the ant, O sluggard' and the seven things that are an abomination to the Lord listed?",
+    "bookId": "PRO",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Proverbs 6",
+      "PRO 6",
+      "Proverbs Chapter 6"
+    ],
+    "displayAnswer": "Proverbs 6 (or Chapter 6)",
+    "explanation": "Proverbs 6 outlines warnings against laziness and lists seven abominations.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_pro_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Proverbs is Wisdom personified as crying aloud at the crossroads and rejoicing before God at the creation of the world?",
+    "bookId": "PRO",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Proverbs 8",
+      "PRO 8",
+      "Proverbs Chapter 8"
+    ],
+    "displayAnswer": "Proverbs 8 (or Chapter 8)",
+    "explanation": "Proverbs 8 contains the great discourse on personified Wisdom.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_pro_31",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Proverbs is the acrostic poem honoring the 'Woman Who Fears the Lord' (the Excellent Wife / Eshet Chayil) found?",
+    "bookId": "PRO",
+    "chapterNum": 31,
+    "acceptedAnswers": [
+      "31",
+      "Chapter 31",
+      "Ch 31",
+      "Proverbs 31",
+      "PRO 31",
+      "Proverbs Chapter 31"
+    ],
+    "displayAnswer": "Proverbs 31 (or Chapter 31)",
+    "explanation": "Proverbs 31:10\u201331 celebrates the noble, industrious, God-fearing woman.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_ecc_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ecclesiastes does the Preacher declare: 'Vanity of vanities, says the Preacher, vanity of vanities! All is vanity. What does man gain by all the toil at which he toils under the sun?'?",
+    "bookId": "ECC",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Ecclesiastes 1",
+      "ECC 1",
+      "Ecclesiastes Chapter 1"
+    ],
+    "displayAnswer": "Ecclesiastes 1 (or Chapter 1)",
+    "explanation": "Ecclesiastes 1 introduces the theme of life's fleeting vapor apart from God.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_ecc_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ecclesiastes is the famous poem: 'For everything there is a season, and a time for every matter under heaven: a time to be born, and a time to die'?",
+    "bookId": "ECC",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Ecclesiastes 3",
+      "ECC 3",
+      "Ecclesiastes Chapter 3"
+    ],
+    "displayAnswer": "Ecclesiastes 3 (or Chapter 3)",
+    "explanation": "Ecclesiastes 3:1\u20138 outlines the seasons of life ordained by God.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_ecc_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ecclesiastes is the proverb: 'Two are better than one... a threefold cord is not quickly broken'?",
+    "bookId": "ECC",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Ecclesiastes 4",
+      "ECC 4",
+      "Ecclesiastes Chapter 4"
+    ],
+    "displayAnswer": "Ecclesiastes 4 (or Chapter 4)",
+    "explanation": "Ecclesiastes 4:9\u201312 highlights the value of companionship and unity.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_ecc_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ecclesiastes is the conclusion of the whole matter given: 'Remember also your Creator in the days of your youth... Fear God and keep his commandments, for this is the whole duty of man'?",
+    "bookId": "ECC",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Ecclesiastes 12",
+      "ECC 12",
+      "Ecclesiastes Chapter 12"
+    ],
+    "displayAnswer": "Ecclesiastes 12 (or Chapter 12)",
+    "explanation": "Ecclesiastes 12 concludes the book with the ultimate duty of humanity.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_sng_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Song of Solomon does the bride rejoice: 'My beloved is mine, and I am his; he grazes among the lilies' and describe his voice calling 'Arise, my love, my beautiful one, and come away'?",
+    "bookId": "SNG",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Song of Solomon 2",
+      "SNG 2",
+      "Song of Solomon Chapter 2"
+    ],
+    "displayAnswer": "Song of Solomon 2 (or Chapter 2)",
+    "explanation": "Song of Solomon 2 celebrates springtime romance and mutual love.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_sng_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Song of Solomon is the climax of love declared: 'Set me as a seal upon your heart... for love is strong as death, jealousy is fierce as the grave. Many waters cannot quench love'?",
+    "bookId": "SNG",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Song of Solomon 8",
+      "SNG 8",
+      "Song of Solomon Chapter 8"
+    ],
+    "displayAnswer": "Song of Solomon 8 (or Chapter 8)",
+    "explanation": "Song of Solomon 8 contains the supreme ode to the endurance of covenant love.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "ch_isa_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah does God invite rebellious Judah: 'Come now, let us reason together, says the Lord: though your sins are like scarlet, they shall be as white as snow'?",
+    "bookId": "ISA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Isaiah 1",
+      "ISA 1",
+      "Isaiah Chapter 1"
+    ],
+    "displayAnswer": "Isaiah 1 (or Chapter 1)",
+    "explanation": "Isaiah 1 contains God's indictment of hypocrisy and offer of cleansing.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah is the vision of the nations streaming to Mount Zion and beating swords into plowshares?",
+    "bookId": "ISA",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Isaiah 2",
+      "ISA 2",
+      "Isaiah Chapter 2"
+    ],
+    "displayAnswer": "Isaiah 2 (or Chapter 2)",
+    "explanation": "Isaiah 2 foretells the millennial reign of the Lord on Mount Zion.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah does the prophet see the Lord high and lifted up in the Temple, seraphim crying 'Holy, holy, holy', and volunteer: 'Here I am! Send me'?",
+    "bookId": "ISA",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Isaiah 6",
+      "ISA 6",
+      "Isaiah Chapter 6"
+    ],
+    "displayAnswer": "Isaiah 6 (or Chapter 6)",
+    "explanation": "Isaiah 6 records Isaiah's vision of God's holiness and prophetic commission.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah is the famous sign given to King Ahaz: 'Behold, the virgin shall conceive and bear a son, and shall call his name Immanuel' (Isa 7:14)?",
+    "bookId": "ISA",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Isaiah 7",
+      "ISA 7",
+      "Isaiah Chapter 7"
+    ],
+    "displayAnswer": "Isaiah 7 (or Chapter 7)",
+    "explanation": "Isaiah 7 contains the prophecy of the Virgin Birth of Immanuel.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah is the messianic prophecy: 'For to us a child is born, to us a son is given... and his name shall be called Wonderful Counselor, Mighty God, Everlasting Father, Prince of Peace'?",
+    "bookId": "ISA",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Isaiah 9",
+      "ISA 9",
+      "Isaiah Chapter 9"
+    ],
+    "displayAnswer": "Isaiah 9 (or Chapter 9)",
+    "explanation": "Isaiah 9:6\u20137 foretells the divine titles of the Davidic King.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah does the prophet describe the Branch from the stump of Jesse and the kingdom where 'the wolf shall dwell with the lamb'?",
+    "bookId": "ISA",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Isaiah 11",
+      "ISA 11",
+      "Isaiah Chapter 11"
+    ],
+    "displayAnswer": "Isaiah 11 (or Chapter 11)",
+    "explanation": "Isaiah 11 depicts the Messianic Branch and the kingdom of peace.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_14",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah is the taunt against Babylon describing Lucifer's fall: 'How you are fallen from heaven, O Day Star, son of Dawn!'?",
+    "bookId": "ISA",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "14",
+      "Chapter 14",
+      "Ch 14",
+      "Isaiah 14",
+      "ISA 14",
+      "Isaiah Chapter 14"
+    ],
+    "displayAnswer": "Isaiah 14 (or Chapter 14)",
+    "explanation": "Isaiah 14 records the fall of Lucifer / the king of Babylon.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_25",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah does the prophet praise God for the feast of rich food and wine, declaring: 'He will swallow up death forever; and the Lord God will wipe away tears from all faces'?",
+    "bookId": "ISA",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "25",
+      "Chapter 25",
+      "Ch 25",
+      "Isaiah 25",
+      "ISA 25",
+      "Isaiah Chapter 25"
+    ],
+    "displayAnswer": "Isaiah 25 (or Chapter 25)",
+    "explanation": "Isaiah 25 contains the glorious prophecy of the defeat of death.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_26",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah is the timeless promise of peace: 'You keep him in perfect peace whose mind is stayed on you, because he trusts in you' (Isa 26:3)?",
+    "bookId": "ISA",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "26",
+      "Chapter 26",
+      "Ch 26",
+      "Isaiah 26",
+      "ISA 26",
+      "Isaiah Chapter 26"
+    ],
+    "displayAnswer": "Isaiah 26 (or Chapter 26)",
+    "explanation": "Isaiah 26 is a song of trust and the resurrection of God's people.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_35",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah does the desert blossom as the rose, the blind see, the lame leap, and the redeemed walk on the Way of Holiness to Zion?",
+    "bookId": "ISA",
+    "chapterNum": 35,
+    "acceptedAnswers": [
+      "35",
+      "Chapter 35",
+      "Ch 35",
+      "Isaiah 35",
+      "ISA 35",
+      "Isaiah Chapter 35"
+    ],
+    "displayAnswer": "Isaiah 35 (or Chapter 35)",
+    "explanation": "Isaiah 35 depicts the joyful transformation of creation in the Messianic era.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_40",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah does the message of comfort begin: 'Comfort, comfort my people... they who wait for the Lord shall renew their strength; they shall mount up with wings like eagles'?",
+    "bookId": "ISA",
+    "chapterNum": 40,
+    "acceptedAnswers": [
+      "40",
+      "Chapter 40",
+      "Ch 40",
+      "Isaiah 40",
+      "ISA 40",
+      "Isaiah Chapter 40"
+    ],
+    "displayAnswer": "Isaiah 40 (or Chapter 40)",
+    "explanation": "Isaiah 40 begins the second major division of Isaiah with divine comfort and majesty.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_43",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah does God declare: 'Fear not, for I have redeemed you; I have called you by name, you are mine. When you pass through the waters, I will be with you'?",
+    "bookId": "ISA",
+    "chapterNum": 43,
+    "acceptedAnswers": [
+      "43",
+      "Chapter 43",
+      "Ch 43",
+      "Isaiah 43",
+      "ISA 43",
+      "Isaiah Chapter 43"
+    ],
+    "displayAnswer": "Isaiah 43 (or Chapter 43)",
+    "explanation": "Isaiah 43 proclaims God's covenant love and redemption of Israel.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_52",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah does the watchman proclaim: 'How beautiful upon the mountains are the feet of him who brings good news, who publishes peace' and 'Your God reigns!'?",
+    "bookId": "ISA",
+    "chapterNum": 52,
+    "acceptedAnswers": [
+      "52",
+      "Chapter 52",
+      "Ch 52",
+      "Isaiah 52",
+      "ISA 52",
+      "Isaiah Chapter 52"
+    ],
+    "displayAnswer": "Isaiah 52 (or Chapter 52)",
+    "explanation": "Isaiah 52 heralds the publication of peace and the beginning of the Fourth Servant Song.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_53",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah is the Fourth Servant Song, describing the Suffering Servant who 'was pierced for our transgressions' and 'the Lord has laid on him the iniquity of us all'?",
+    "bookId": "ISA",
+    "chapterNum": 53,
+    "acceptedAnswers": [
+      "53",
+      "Chapter 53",
+      "Ch 53",
+      "Isaiah 53",
+      "ISA 53",
+      "Isaiah Chapter 53"
+    ],
+    "displayAnswer": "Isaiah 53 (or Chapter 53)",
+    "explanation": "Isaiah 53 is the supreme Old Testament prophecy of the substitutionary atonement of Christ.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_55",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah is the universal gospel invitation: 'Come, everyone who thirsts, come to the waters; and he who has no money, come, buy and eat!'?",
+    "bookId": "ISA",
+    "chapterNum": 55,
+    "acceptedAnswers": [
+      "55",
+      "Chapter 55",
+      "Ch 55",
+      "Isaiah 55",
+      "ISA 55",
+      "Isaiah Chapter 55"
+    ],
+    "displayAnswer": "Isaiah 55 (or Chapter 55)",
+    "explanation": "Isaiah 55 contains the great invitation of grace and God's thoughts higher than human thoughts.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_61",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah is the prophecy: 'The Spirit of the Lord God is upon me, because the Lord has anointed me to bring good news to the poor' (quoted by Jesus in Luke 4)?",
+    "bookId": "ISA",
+    "chapterNum": 61,
+    "acceptedAnswers": [
+      "61",
+      "Chapter 61",
+      "Ch 61",
+      "Isaiah 61",
+      "ISA 61",
+      "Isaiah Chapter 61"
+    ],
+    "displayAnswer": "Isaiah 61 (or Chapter 61)",
+    "explanation": "Isaiah 61 outlines the mission of the Anointed Messiah.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_isa_65",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Isaiah does God declare: 'For behold, I create new heavens and a new earth, and the former things shall not be remembered or come into mind'?",
+    "bookId": "ISA",
+    "chapterNum": 65,
+    "acceptedAnswers": [
+      "65",
+      "Chapter 65",
+      "Ch 65",
+      "Isaiah 65",
+      "ISA 65",
+      "Isaiah Chapter 65"
+    ],
+    "displayAnswer": "Isaiah 65 (or Chapter 65)",
+    "explanation": "Isaiah 65 describes the New Creation and the glorious future of Zion.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_jer_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jeremiah is young Jeremiah called before his birth ('Before I formed you in the womb I knew you') and sees an almond rod and a boiling pot?",
+    "bookId": "JER",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Jeremiah 1",
+      "JER 1",
+      "Jeremiah Chapter 1"
+    ],
+    "displayAnswer": "Jeremiah 1 (or Chapter 1)",
+    "explanation": "Jeremiah 1 records the call and commission of the weeping prophet.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_jer_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jeremiah does God accuse His people of two great evils: 'They have forsaken me, the fountain of living waters, and hewed out cisterns for themselves, broken cisterns that can hold no water'?",
+    "bookId": "JER",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Jeremiah 2",
+      "JER 2",
+      "Jeremiah Chapter 2"
+    ],
+    "displayAnswer": "Jeremiah 2 (or Chapter 2)",
+    "explanation": "Jeremiah 2 contains God's initial indictment of Judah's idolatry.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_jer_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jeremiah does the prophet deliver the Temple Sermon, warning the people not to trust deceptive words: 'This is the temple of the Lord, the temple of the Lord!'?",
+    "bookId": "JER",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Jeremiah 7",
+      "JER 7",
+      "Jeremiah Chapter 7"
+    ],
+    "displayAnswer": "Jeremiah 7 (or Chapter 7)",
+    "explanation": "Jeremiah 7 exposes false religious security at the Temple.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_jer_18",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jeremiah does God send Jeremiah to the Potter's House to watch clay reshaped into another vessel as a sign of God's sovereignty over nations?",
+    "bookId": "JER",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "Jeremiah 18",
+      "JER 18",
+      "Jeremiah Chapter 18"
+    ],
+    "displayAnswer": "Jeremiah 18 (or Chapter 18)",
+    "explanation": "Jeremiah 18 describes the parable of the potter and the clay.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_jer_20",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jeremiah is Jeremiah put in stocks by Pashhur the priest, lamenting that God's word in his heart is 'like a burning fire shut up in my bones'?",
+    "bookId": "JER",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "20",
+      "Chapter 20",
+      "Ch 20",
+      "Jeremiah 20",
+      "JER 20",
+      "Jeremiah Chapter 20"
+    ],
+    "displayAnswer": "Jeremiah 20 (or Chapter 20)",
+    "explanation": "Jeremiah 20 records the persecution of Jeremiah and his agonizing inner complaint.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_jer_23",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jeremiah does God condemn the false shepherds and promise the Righteous Branch named 'The Lord Is Our Righteousness' (Yahweh Tsidkenu)?",
+    "bookId": "JER",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "23",
+      "Chapter 23",
+      "Ch 23",
+      "Jeremiah 23",
+      "JER 23",
+      "Jeremiah Chapter 23"
+    ],
+    "displayAnswer": "Jeremiah 23 (or Chapter 23)",
+    "explanation": "Jeremiah 23 foretells the Messianic King and denounces lying prophets.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_jer_29",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jeremiah is the letter to the Babylonian exiles containing the promise: 'For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope' (Jer 29:11)?",
+    "bookId": "JER",
+    "chapterNum": 29,
+    "acceptedAnswers": [
+      "29",
+      "Chapter 29",
+      "Ch 29",
+      "Jeremiah 29",
+      "JER 29",
+      "Jeremiah Chapter 29"
+    ],
+    "displayAnswer": "Jeremiah 29 (or Chapter 29)",
+    "explanation": "Jeremiah 29 contains Jeremiah's letter to the exiles in Babylon.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_jer_31",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jeremiah does God announce the New Covenant: 'I will put my law within them, and I will write it on their hearts... for I will forgive their iniquity, and I will remember their sin no more'?",
+    "bookId": "JER",
+    "chapterNum": 31,
+    "acceptedAnswers": [
+      "31",
+      "Chapter 31",
+      "Ch 31",
+      "Jeremiah 31",
+      "JER 31",
+      "Jeremiah Chapter 31"
+    ],
+    "displayAnswer": "Jeremiah 31 (or Chapter 31)",
+    "explanation": "Jeremiah 31:31\u201334 is the landmark prophecy of the New Covenant.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_jer_32",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jeremiah does Jeremiah buy a field in Anathoth from his cousin Hanamel as a pledge that houses and fields will again be bought in Judah?",
+    "bookId": "JER",
+    "chapterNum": 32,
+    "acceptedAnswers": [
+      "32",
+      "Chapter 32",
+      "Ch 32",
+      "Jeremiah 32",
+      "JER 32",
+      "Jeremiah Chapter 32"
+    ],
+    "displayAnswer": "Jeremiah 32 (or Chapter 32)",
+    "explanation": "Jeremiah 32 recounts Jeremiah buying the field during the siege of Jerusalem.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_jer_36",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jeremiah does King Jehoiakim cut Jeremiah's scroll with a scribe's knife and burn it column by column in his winter fire pot?",
+    "bookId": "JER",
+    "chapterNum": 36,
+    "acceptedAnswers": [
+      "36",
+      "Chapter 36",
+      "Ch 36",
+      "Jeremiah 36",
+      "JER 36",
+      "Jeremiah Chapter 36"
+    ],
+    "displayAnswer": "Jeremiah 36 (or Chapter 36)",
+    "explanation": "Jeremiah 36 records Jehoiakim burning the scroll and God commanding Baruch to rewrite it.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_jer_38",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jeremiah is Jeremiah thrown into a muddy cistern and rescued by Ebed-melech the Ethiopian using old rags?",
+    "bookId": "JER",
+    "chapterNum": 38,
+    "acceptedAnswers": [
+      "38",
+      "Chapter 38",
+      "Ch 38",
+      "Jeremiah 38",
+      "JER 38",
+      "Jeremiah Chapter 38"
+    ],
+    "displayAnswer": "Jeremiah 38 (or Chapter 38)",
+    "explanation": "Jeremiah 38 details Jeremiah's rescue from the muddy dungeon.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_lam_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Lamentations does the weeping prophet proclaim amidst the ashes of Jerusalem: 'The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness'?",
+    "bookId": "LAM",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Lamentations 3",
+      "LAM 3",
+      "Lamentations Chapter 3"
+    ],
+    "displayAnswer": "Lamentations 3 (or Chapter 3)",
+    "explanation": "Lamentations 3:22\u201324 is the central confession of hope in the book.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_eze_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezekiel does the prophet see the chariot-throne of God with four living creatures and wheels full of eyes by the Chebar canal?",
+    "bookId": "EZE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Ezekiel 1",
+      "EZE 1",
+      "Ezekiel Chapter 1"
+    ],
+    "displayAnswer": "Ezekiel 1 (or Chapter 1)",
+    "explanation": "Ezekiel 1 records Ezekiel's opening vision of the glory of God.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_eze_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezekiel does God make Ezekiel eat a scroll sweet as honey and appoint him as a 'watchman for the house of Israel'?",
+    "bookId": "EZE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Ezekiel 3",
+      "EZE 3",
+      "Ezekiel Chapter 3"
+    ],
+    "displayAnswer": "Ezekiel 3 (or Chapter 3)",
+    "explanation": "Ezekiel 3 records the prophet eating the scroll and receiving the watchman commission.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_eze_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezekiel does the glory of the Lord depart from the threshold of the Temple in Jerusalem due to abominable idolatry?",
+    "bookId": "EZE",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "Ezekiel 10",
+      "EZE 10",
+      "Ezekiel Chapter 10"
+    ],
+    "displayAnswer": "Ezekiel 10 (or Chapter 10)",
+    "explanation": "Ezekiel 10 details the departure of the Shekinah glory from Solomon's Temple.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_eze_18",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezekiel does God declare individual moral accountability: 'The soul who sins shall die'?",
+    "bookId": "EZE",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "Ezekiel 18",
+      "EZE 18",
+      "Ezekiel Chapter 18"
+    ],
+    "displayAnswer": "Ezekiel 18 (or Chapter 18)",
+    "explanation": "Ezekiel 18 teaches individual responsibility and God's desire for the wicked to repent.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_eze_28",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezekiel is the lamentation over the King of Tyre, depicting his fall from Eden and his beauty corrupted by pride ('You were an anointed guardian cherub')?",
+    "bookId": "EZE",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "28",
+      "Chapter 28",
+      "Ch 28",
+      "Ezekiel 28",
+      "EZE 28",
+      "Ezekiel Chapter 28"
+    ],
+    "displayAnswer": "Ezekiel 28 (or Chapter 28)",
+    "explanation": "Ezekiel 28 contains the prophecy against Tyre, traditionally linked to the fall of Satan.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_eze_34",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezekiel does God condemn the selfish shepherds of Israel and promise: 'I myself will be the shepherd of my sheep... and I will set up over them one shepherd, my servant David'?",
+    "bookId": "EZE",
+    "chapterNum": 34,
+    "acceptedAnswers": [
+      "34",
+      "Chapter 34",
+      "Ch 34",
+      "Ezekiel 34",
+      "EZE 34",
+      "Ezekiel Chapter 34"
+    ],
+    "displayAnswer": "Ezekiel 34 (or Chapter 34)",
+    "explanation": "Ezekiel 34 contrasts false shepherds with the True Shepherd.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_eze_36",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezekiel does God promise the New Covenant blessing: 'I will sprinkle clean water on you... and I will give you a new heart, and a new spirit I will put within you. And I will remove the heart of stone'?",
+    "bookId": "EZE",
+    "chapterNum": 36,
+    "acceptedAnswers": [
+      "36",
+      "Chapter 36",
+      "Ch 36",
+      "Ezekiel 36",
+      "EZE 36",
+      "Ezekiel Chapter 36"
+    ],
+    "displayAnswer": "Ezekiel 36 (or Chapter 36)",
+    "explanation": "Ezekiel 36 describes the internal regeneration of the New Covenant.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_eze_37",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezekiel does God bring the prophet to the Valley of Dry Bones, commanding him to prophesy to the breath so the bones come together as a vast army?",
+    "bookId": "EZE",
+    "chapterNum": 37,
+    "acceptedAnswers": [
+      "37",
+      "Chapter 37",
+      "Ch 37",
+      "Ezekiel 37",
+      "EZE 37",
+      "Ezekiel Chapter 37"
+    ],
+    "displayAnswer": "Ezekiel 37 (or Chapter 37)",
+    "explanation": "Ezekiel 37 records the famous vision of the Valley of Dry Bones.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_eze_38",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezekiel is the grand prophecy of the invasion of Gog of the land of Magog against the restored mountains of Israel?",
+    "bookId": "EZE",
+    "chapterNum": 38,
+    "acceptedAnswers": [
+      "38",
+      "Chapter 38",
+      "Ch 38",
+      "Ezekiel 38",
+      "EZE 38",
+      "Ezekiel Chapter 38"
+    ],
+    "displayAnswer": "Ezekiel 38 (or Chapter 38)",
+    "explanation": "Ezekiel 38 begins the Gog and Magog end-time invasion prophecy.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_eze_47",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ezekiel does water flow out from under the threshold of the millennial Temple, becoming a deep river that heals the Dead Sea?",
+    "bookId": "EZE",
+    "chapterNum": 47,
+    "acceptedAnswers": [
+      "47",
+      "Chapter 47",
+      "Ch 47",
+      "Ezekiel 47",
+      "EZE 47",
+      "Ezekiel Chapter 47"
+    ],
+    "displayAnswer": "Ezekiel 47 (or Chapter 47)",
+    "explanation": "Ezekiel 47 details the healing River of Life flowing from the Temple.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_dan_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Daniel do Daniel and his three friends resolve not to defile themselves with the king's rich food and wine in Babylon?",
+    "bookId": "DAN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Daniel 1",
+      "DAN 1",
+      "Daniel Chapter 1"
+    ],
+    "displayAnswer": "Daniel 1 (or Chapter 1)",
+    "explanation": "Daniel 1 records the faith and testing of the four Hebrew youths.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_dan_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Daniel does Daniel interpret King Nebuchadnezzar's dream of the great metallic statue crushed by a supernatural stone cut without hands?",
+    "bookId": "DAN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Daniel 2",
+      "DAN 2",
+      "Daniel Chapter 2"
+    ],
+    "displayAnswer": "Daniel 2 (or Chapter 2)",
+    "explanation": "Daniel 2 reveals the succession of world empires and the eternal Kingdom of God.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_dan_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Daniel are Shadrach, Meshach, and Abednego thrown into the superheated fiery furnace, and a Fourth Man walks with them in the flames?",
+    "bookId": "DAN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Daniel 3",
+      "DAN 3",
+      "Daniel Chapter 3"
+    ],
+    "displayAnswer": "Daniel 3 (or Chapter 3)",
+    "explanation": "Daniel 3 details the miraculous deliverance from the burning fiery furnace.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_dan_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Daniel is Nebuchadnezzar humbled by God, driven to eat grass like an ox for seven periods of time until he acknowledges the Most High?",
+    "bookId": "DAN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Daniel 4",
+      "DAN 4",
+      "Daniel Chapter 4"
+    ],
+    "displayAnswer": "Daniel 4 (or Chapter 4)",
+    "explanation": "Daniel 4 records Nebuchadnezzar's pride, madness, and restoration.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_dan_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Daniel does a mysterious human hand write 'MENE, MENE, TEKEL, and PARSIN' on the plaster wall during King Belshazzar's feast?",
+    "bookId": "DAN",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Daniel 5",
+      "DAN 5",
+      "Daniel Chapter 5"
+    ],
+    "displayAnswer": "Daniel 5 (or Chapter 5)",
+    "explanation": "Daniel 5 recounts the handwriting on the wall and the fall of Babylon that very night.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_dan_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Daniel is Daniel thrown into the den of lions for praying three times a day toward Jerusalem, and God shuts the lions' mouths?",
+    "bookId": "DAN",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Daniel 6",
+      "DAN 6",
+      "Daniel Chapter 6"
+    ],
+    "displayAnswer": "Daniel 6 (or Chapter 6)",
+    "explanation": "Daniel 6 records Daniel's deliverance from the lions' den under King Darius.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_dan_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Daniel does Daniel see a vision of four great beasts and the Ancient of Days seated on His fiery throne, presenting the Son of Man with an everlasting dominion?",
+    "bookId": "DAN",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Daniel 7",
+      "DAN 7",
+      "Daniel Chapter 7"
+    ],
+    "displayAnswer": "Daniel 7 (or Chapter 7)",
+    "explanation": "Daniel 7 contains the vision of the Son of Man receiving universal rule.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_dan_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Daniel does Daniel see a vision of a two-horned Ram (Medo-Persia) defeated by a one-horned male Goat (Greece under Alexander the Great)?",
+    "bookId": "DAN",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Daniel 8",
+      "DAN 8",
+      "Daniel Chapter 8"
+    ],
+    "displayAnswer": "Daniel 8 (or Chapter 8)",
+    "explanation": "Daniel 8 details the prophecy of Medo-Persia, Greece, and the defilement of the sanctuary.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_dan_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Daniel does Daniel pray in sackcloth for Jerusalem, and Gabriel reveals the Prophecy of the Seventy Weeks (70 heptads)?",
+    "bookId": "DAN",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Daniel 9",
+      "DAN 9",
+      "Daniel Chapter 9"
+    ],
+    "displayAnswer": "Daniel 9 (or Chapter 9)",
+    "explanation": "Daniel 9 contains Daniel's intercession and the timeline of the Messiah's coming.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_dan_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Daniel is the bodily resurrection prophesied ('Many of those who sleep in the dust of the earth shall awake, some to everlasting life, and some to shame')?",
+    "bookId": "DAN",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Daniel 12",
+      "DAN 12",
+      "Daniel Chapter 12"
+    ],
+    "displayAnswer": "Daniel 12 (or Chapter 12)",
+    "explanation": "Daniel 12 concludes with the resurrection of the dead and the sealing of the prophecy.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_hos_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hosea is the prophet commanded to marry Gomer to illustrate God's faithful love to unfaithful Israel?",
+    "bookId": "HOS",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Hosea 1",
+      "HOS 1",
+      "Hosea Chapter 1"
+    ],
+    "displayAnswer": "Hosea 1 (or Chapter 1)",
+    "explanation": "Hosea 1 introduces Hosea's marriage as a living parable of covenant unfaithfulness.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_hos_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hosea does God lament: 'My people are destroyed for lack of knowledge'?",
+    "bookId": "HOS",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Hosea 4",
+      "HOS 4",
+      "Hosea Chapter 4"
+    ],
+    "displayAnswer": "Hosea 4 (or Chapter 4)",
+    "explanation": "Hosea 4 contains God's lawsuit against Israel for forsaking the knowledge of God.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_hos_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hosea does the prophet declare: 'For I desire steadfast love and not sacrifice, the knowledge of God rather than burnt offerings' (Hosea 6:6)?",
+    "bookId": "HOS",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Hosea 6",
+      "HOS 6",
+      "Hosea Chapter 6"
+    ],
+    "displayAnswer": "Hosea 6 (or Chapter 6)",
+    "explanation": "Hosea 6 contains Hosea 6:6, quoted twice by Jesus in Matthew.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_hos_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hosea does God express His fatherly tenderness toward Israel: 'When Israel was a child, I loved him, and out of Egypt I called my son'?",
+    "bookId": "HOS",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Hosea 11",
+      "HOS 11",
+      "Hosea Chapter 11"
+    ],
+    "displayAnswer": "Hosea 11 (or Chapter 11)",
+    "explanation": "Hosea 11 expresses the heartbroken, redeeming love of God for His people.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_hos_14",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hosea is the compassionate closing plea: 'Return, O Israel, to the Lord your God... I will heal their apostasy; I will love them freely'?",
+    "bookId": "HOS",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "14",
+      "Chapter 14",
+      "Ch 14",
+      "Hosea 14",
+      "HOS 14",
+      "Hosea Chapter 14"
+    ],
+    "displayAnswer": "Hosea 14 (or Chapter 14)",
+    "explanation": "Hosea 14 concludes with the promise of divine healing and restoration.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_joe_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joel does the prophet describe four successive waves of locusts stripping the land bare, calling priests to wail in sackcloth?",
+    "bookId": "JOE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Joel 1",
+      "JOE 1",
+      "Joel Chapter 1"
+    ],
+    "displayAnswer": "Joel 1 (or Chapter 1)",
+    "explanation": "Joel 1 recounts the devastating locust plague as a wake-up call to repentance.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_joe_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joel does God command 'Rend your hearts and not your garments' and promise 'I will pour out my Spirit on all flesh' (fulfilled at Pentecost)?",
+    "bookId": "JOE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Joel 2",
+      "JOE 2",
+      "Joel Chapter 2"
+    ],
+    "displayAnswer": "Joel 2 (or Chapter 2)",
+    "explanation": "Joel 2 contains the famous prophecy of the outpouring of the Holy Spirit (Joel 2:28\u201332).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_joe_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Joel does God summon all nations to the Valley of Jehoshaphat (Valley of Decision) for final judgment?",
+    "bookId": "JOE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Joel 3",
+      "JOE 3",
+      "Joel Chapter 3"
+    ],
+    "displayAnswer": "Joel 3 (or Chapter 3)",
+    "explanation": "Joel 3 describes the final harvest of the nations in the Valley of Decision.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_amo_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Amos does God recount sending plagues without repentance, concluding: 'Therefore thus I will do to you, O Israel... prepare to meet your God, O Israel!'?",
+    "bookId": "AMO",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Amos 4",
+      "AMO 4",
+      "Amos Chapter 4"
+    ],
+    "displayAnswer": "Amos 4 (or Chapter 4)",
+    "explanation": "Amos 4 contains God's solemn warning to prepare to meet the Holy God.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_amo_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Amos does the prophet declare: 'Let justice roll down like waters, and righteousness like an ever-flowing stream' (Amos 5:24)?",
+    "bookId": "AMO",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Amos 5",
+      "AMO 5",
+      "Amos Chapter 5"
+    ],
+    "displayAnswer": "Amos 5 (or Chapter 5)",
+    "explanation": "Amos 5 contains the famous cry for true biblical justice.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_amo_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Amos does God show the prophet three visions: a swarm of locusts, a consuming fire, and a Plumb Line set in the midst of Israel?",
+    "bookId": "AMO",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Amos 7",
+      "AMO 7",
+      "Amos Chapter 7"
+    ],
+    "displayAnswer": "Amos 7 (or Chapter 7)",
+    "explanation": "Amos 7 details the plumb line of divine justice and Amos's confrontation with Amaziah.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_amo_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Amos does God promise: 'In that day I will raise up the booth of David that is fallen' (quoted by James in Acts 15)?",
+    "bookId": "AMO",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Amos 9",
+      "AMO 9",
+      "Amos Chapter 9"
+    ],
+    "displayAnswer": "Amos 9 (or Chapter 9)",
+    "explanation": "Amos 9:11\u201312 foretells the restoration of David's line to include the Gentiles.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_oba_1",
+    "type": "chapter_in_book",
+    "prompt": "In what single chapter of Obadiah is the judgment against proud Edom pronounced for rejoicing over the calamity of Jerusalem?",
+    "bookId": "OBA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Obadiah 1",
+      "OBA 1",
+      "Obadiah Chapter 1"
+    ],
+    "displayAnswer": "Obadiah 1 (or Chapter 1)",
+    "explanation": "Obadiah contains 1 chapter prophesying the downfall of Edom.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_jon_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jonah does Jonah flee to Tarshish on a ship from Joppa, encounter a storm, and get swallowed by a great fish?",
+    "bookId": "JON",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Jonah 1",
+      "JON 1",
+      "Jonah Chapter 1"
+    ],
+    "displayAnswer": "Jonah 1 (or Chapter 1)",
+    "explanation": "Jonah 1 describes Jonah's flight and the great fish.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_jon_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jonah does Jonah pray from the belly of the fish: 'Salvation belongs to the Lord!' and the fish vomits him onto dry land?",
+    "bookId": "JON",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Jonah 2",
+      "JON 2",
+      "Jonah Chapter 2"
+    ],
+    "displayAnswer": "Jonah 2 (or Chapter 2)",
+    "explanation": "Jonah 2 records Jonah's prayer of thanksgiving from the deep.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_jon_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jonah does Jonah preach across Nineveh, causing the entire city to repent in sackcloth and ashes?",
+    "bookId": "JON",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Jonah 3",
+      "JON 3",
+      "Jonah Chapter 3"
+    ],
+    "displayAnswer": "Jonah 3 (or Chapter 3)",
+    "explanation": "Jonah 3 recounts the miraculous revival and repentance of Nineveh.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_jon_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Jonah is Jonah angry over God's mercy to Nineveh, and God uses a plant and a worm to teach him compassion?",
+    "bookId": "JON",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Jonah 4",
+      "JON 4",
+      "Jonah Chapter 4"
+    ],
+    "displayAnswer": "Jonah 4 (or Chapter 4)",
+    "explanation": "Jonah 4 details Jonah's resentment and God's heart for lost souls.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_mic_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Micah does the prophet foretell that the mountain of the house of the Lord will be exalted, and nations will beat swords into plowshares?",
+    "bookId": "MIC",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Micah 4",
+      "MIC 4",
+      "Micah Chapter 4"
+    ],
+    "displayAnswer": "Micah 4 (or Chapter 4)",
+    "explanation": "Micah 4 describes the future global peace of the Messianic kingdom.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_mic_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Micah is the exact birthplace of the Messiah prophesied: 'But you, O Bethlehem Ephrathah... from you shall come forth for me one who is to be ruler in Israel' (Micah 5:2)?",
+    "bookId": "MIC",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Micah 5",
+      "MIC 5",
+      "Micah Chapter 5"
+    ],
+    "displayAnswer": "Micah 5 (or Chapter 5)",
+    "explanation": "Micah 5:2 explicitly names Bethlehem as the birthplace of the eternal King.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_mic_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Micah is the summary of God's requirement: 'He has told you, O man, what is good; and what does the Lord require of you but to do justice, and to love kindness, and to walk humbly with your God'?",
+    "bookId": "MIC",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Micah 6",
+      "MIC 6",
+      "Micah Chapter 6"
+    ],
+    "displayAnswer": "Micah 6 (or Chapter 6)",
+    "explanation": "Micah 6:8 summarizes true biblical obedience.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_mic_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Micah does the book close with the praise: 'Who is a God like you, pardoning iniquity... You will cast all our sins into the depths of the sea'?",
+    "bookId": "MIC",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Micah 7",
+      "MIC 7",
+      "Micah Chapter 7"
+    ],
+    "displayAnswer": "Micah 7 (or Chapter 7)",
+    "explanation": "Micah 7:18\u201320 concludes with God's incomparable mercy in pardoning sin.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_nah_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Nahum is God proclaimed as an avenging God who is also 'a stronghold in the day of trouble; he knows those who take refuge in him'?",
+    "bookId": "NAH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Nahum 1",
+      "NAH 1",
+      "Nahum Chapter 1"
+    ],
+    "displayAnswer": "Nahum 1 (or Chapter 1)",
+    "explanation": "Nahum 1 describes the majesty and wrath of God against Nineveh.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_nah_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Nahum does the prophet describe the violent assault, chariots flashing like torches, and flooding of the gates of Nineveh?",
+    "bookId": "NAH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Nahum 2",
+      "NAH 2",
+      "Nahum Chapter 2"
+    ],
+    "displayAnswer": "Nahum 2 (or Chapter 2)",
+    "explanation": "Nahum 2 depicts the battlefield siege and fall of Nineveh.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_nah_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Nahum is the woe pronounced against the bloody city of Nineveh: 'Woe to the bloody city, all full of lies and plunder... there is no easing your hurt'?",
+    "bookId": "NAH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Nahum 3",
+      "NAH 3",
+      "Nahum Chapter 3"
+    ],
+    "displayAnswer": "Nahum 3 (or Chapter 3)",
+    "explanation": "Nahum 3 concludes with the irreversible downfall of the Assyrian capital.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_hab_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Habakkuk does the perplexed prophet cry out 'O Lord, how long shall I cry for help?' and God reveals He is raising up the ruthless Chaldeans (Babylonians)?",
+    "bookId": "HAB",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Habakkuk 1",
+      "HAB 1",
+      "Habakkuk Chapter 1"
+    ],
+    "displayAnswer": "Habakkuk 1 (or Chapter 1)",
+    "explanation": "Habakkuk 1 records the prophet's honest complaint and God's sovereign answer.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_hab_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Habakkuk is the monumental doctrine of faith proclaimed: 'The righteous shall live by his faith' (Hab 2:4) along with the five woes on the wicked?",
+    "bookId": "HAB",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Habakkuk 2",
+      "HAB 2",
+      "Habakkuk Chapter 2"
+    ],
+    "displayAnswer": "Habakkuk 2 (or Chapter 2)",
+    "explanation": "Habakkuk 2 contains the central truth that inspired Paul and the Reformation.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_hab_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Habakkuk does the prophet sing his triumphant prayer of faith: 'Though the fig tree should not blossom... yet I will rejoice in the Lord'?",
+    "bookId": "HAB",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Habakkuk 3",
+      "HAB 3",
+      "Habakkuk Chapter 3"
+    ],
+    "displayAnswer": "Habakkuk 3 (or Chapter 3)",
+    "explanation": "Habakkuk 3 concludes with one of Scripture's greatest statements of trust in God.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_zep_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Zephaniah is the Great Day of the Lord announced as 'a day of wrath... a day of distress and anguish, a day of darkness and gloom'?",
+    "bookId": "ZEP",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Zephaniah 1",
+      "ZEP 1",
+      "Zephaniah Chapter 1"
+    ],
+    "displayAnswer": "Zephaniah 1 (or Chapter 1)",
+    "explanation": "Zephaniah 1 describes the impending judgment on the Day of the Lord.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_zep_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Zephaniah is the tender promise: 'The Lord your God is in your midst, a mighty one who will save; he will rejoice over you with gladness; he will quiet you by his love; he will exult over you with loud singing'?",
+    "bookId": "ZEP",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Zephaniah 3",
+      "ZEP 3",
+      "Zephaniah Chapter 3"
+    ],
+    "displayAnswer": "Zephaniah 3 (or Chapter 3)",
+    "explanation": "Zephaniah 3:17 portrays God rejoicing over His redeemed people with singing.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_hag_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Haggai does God rebuke the returned exiles for living in paneled houses while the Lord's house lies in ruins, urging: 'Consider your ways!'?",
+    "bookId": "HAG",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Haggai 1",
+      "HAG 1",
+      "Haggai Chapter 1"
+    ],
+    "displayAnswer": "Haggai 1 (or Chapter 1)",
+    "explanation": "Haggai 1 challenges the people to prioritize rebuilding the Temple.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_hag_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Haggai does God promise: 'The latter glory of this house shall be greater than the former'?",
+    "bookId": "HAG",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Haggai 2",
+      "HAG 2",
+      "Haggai Chapter 2"
+    ],
+    "displayAnswer": "Haggai 2 (or Chapter 2)",
+    "explanation": "Haggai 2 promises that the glory of the Second Temple will surpass the first.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_zec_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Zechariah does the prophet see the night vision of a man riding a red horse among the myrtle trees, followed by four horns and four craftsmen?",
+    "bookId": "ZEC",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Zechariah 1",
+      "ZEC 1",
+      "Zechariah Chapter 1"
+    ],
+    "displayAnswer": "Zechariah 1 (or Chapter 1)",
+    "explanation": "Zechariah 1 begins the eight apocalyptic night visions.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_zec_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Zechariah does Satan accuse Joshua the high priest, and the Lord removes Joshua's filthy garments and clothes him in pure vestments?",
+    "bookId": "ZEC",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Zechariah 3",
+      "ZEC 3",
+      "Zechariah Chapter 3"
+    ],
+    "displayAnswer": "Zechariah 3 (or Chapter 3)",
+    "explanation": "Zechariah 3 is a vivid picture of divine justification and cleansing.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_zec_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Zechariah does God encourage Zerubbabel regarding the Temple construction: 'Not by might, nor by power, but by my Spirit, says the Lord of hosts'?",
+    "bookId": "ZEC",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Zechariah 4",
+      "ZEC 4",
+      "Zechariah Chapter 4"
+    ],
+    "displayAnswer": "Zechariah 4 (or Chapter 4)",
+    "explanation": "Zechariah 4:6 declares that spiritual work is accomplished by the Holy Spirit.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_zec_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Zechariah are crowns of silver and gold placed upon Joshua the high priest, prophesying the Messiah as the Branch who will sit as Priest on His royal throne?",
+    "bookId": "ZEC",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Zechariah 6",
+      "ZEC 6",
+      "Zechariah Chapter 6"
+    ],
+    "displayAnswer": "Zechariah 6 (or Chapter 6)",
+    "explanation": "Zechariah 6 unites the offices of King and Priest in the Messianic Branch.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_zec_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Zechariah is the Palm Sunday Triumphal Entry prophesied: 'Rejoice greatly, O daughter of Zion!... Behold, your king is coming to you; righteous and having salvation is he, humble and mounted on a donkey'?",
+    "bookId": "ZEC",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Zechariah 9",
+      "ZEC 9",
+      "Zechariah Chapter 9"
+    ],
+    "displayAnswer": "Zechariah 9 (or Chapter 9)",
+    "explanation": "Zechariah 9:9 foretells the Messianic King riding on a colt.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_zec_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Zechariah is the Good Shepherd's wage weighed out as thirty pieces of silver, and the Lord commands: 'Throw it to the potter' in the house of the Lord?",
+    "bookId": "ZEC",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Zechariah 11",
+      "ZEC 11",
+      "Zechariah Chapter 11"
+    ],
+    "displayAnswer": "Zechariah 11 (or Chapter 11)",
+    "explanation": "Zechariah 11 contains the precise prophecy of the thirty pieces of silver for Judas's betrayal.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_zec_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Zechariah does God declare of Jerusalem: 'And they will look on me, on him whom they have pierced, and mourn for him as one mourns for an only child'?",
+    "bookId": "ZEC",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Zechariah 12",
+      "ZEC 12",
+      "Zechariah Chapter 12"
+    ],
+    "displayAnswer": "Zechariah 12 (or Chapter 12)",
+    "explanation": "Zechariah 12:10 is a major prophecy of the crucified Messiah.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_zec_14",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Zechariah does the Lord stand on the Mount of Olives at His second coming, splitting the mountain from east to west?",
+    "bookId": "ZEC",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "14",
+      "Chapter 14",
+      "Ch 14",
+      "Zechariah 14",
+      "ZEC 14",
+      "Zechariah Chapter 14"
+    ],
+    "displayAnswer": "Zechariah 14 (or Chapter 14)",
+    "explanation": "Zechariah 14 describes the final battle and the Lord ruling as King over all the earth.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_mal_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Malachi does God declare His sovereign love: 'I have loved Jacob but Esau I have hated' and rebuke priests for offering blind and lame animals on the altar?",
+    "bookId": "MAL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Malachi 1",
+      "MAL 1",
+      "Malachi Chapter 1"
+    ],
+    "displayAnswer": "Malachi 1 (or Chapter 1)",
+    "explanation": "Malachi 1 addresses God's sovereign electing love and corrupted worship.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_mal_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Malachi does God rebuke priests who violate the covenant and men who deal treacherously against the wife of their youth ('For I hate divorce')?",
+    "bookId": "MAL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Malachi 2",
+      "MAL 2",
+      "Malachi Chapter 2"
+    ],
+    "displayAnswer": "Malachi 2 (or Chapter 2)",
+    "explanation": "Malachi 2 emphasizes faithfulness to the marriage covenant.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_mal_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Malachi does God challenge His people: 'Bring the full tithe into the storehouse... and thereby put me to the test... if I will not open the windows of heaven for you'?",
+    "bookId": "MAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Malachi 3",
+      "MAL 3",
+      "Malachi Chapter 3"
+    ],
+    "displayAnswer": "Malachi 3 (or Chapter 3)",
+    "explanation": "Malachi 3 addresses robbing God of tithes and promises the Messenger of the Covenant.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_mal_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Malachi (the final chapter of the Old Testament) is the Sun of Righteousness promised to rise with healing in its wings and Elijah sent before the great Day of the Lord?",
+    "bookId": "MAL",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Malachi 4",
+      "MAL 4",
+      "Malachi Chapter 4"
+    ],
+    "displayAnswer": "Malachi 4 (or Chapter 4)",
+    "explanation": "Malachi 4 closes the Old Testament pointing toward John the Baptist and Christ.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_mat_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew is the genealogy of Jesus from Abraham and the angel telling Joseph that Mary will bear a son conceived by the Holy Spirit?",
+    "bookId": "MAT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Matthew 1",
+      "MAT 1",
+      "Matthew Chapter 1"
+    ],
+    "displayAnswer": "Matthew 1 (or Chapter 1)",
+    "explanation": "Matthew 1 details Christ's royal lineage and the Virgin Birth.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew do the Magi from the East follow the star to Bethlehem with gold, frankincense, and myrrh, prompting the flight to Egypt?",
+    "bookId": "MAT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Matthew 2",
+      "MAT 2",
+      "Matthew Chapter 2"
+    ],
+    "displayAnswer": "Matthew 2 (or Chapter 2)",
+    "explanation": "Matthew 2 recounts the visit of the wise men and Herod's slaughter of the infants.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does John the Baptist preach in the wilderness of Judea and baptize Jesus in the Jordan River as the Spirit descends like a dove?",
+    "bookId": "MAT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Matthew 3",
+      "MAT 3",
+      "Matthew Chapter 3"
+    ],
+    "displayAnswer": "Matthew 3 (or Chapter 3)",
+    "explanation": "Matthew 3 records the ministry of John the Baptist and the baptism of Jesus.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew is Jesus led into the wilderness to be tempted by the Devil for 40 days and calls Peter, Andrew, James, and John?",
+    "bookId": "MAT",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Matthew 4",
+      "MAT 4",
+      "Matthew Chapter 4"
+    ],
+    "displayAnswer": "Matthew 4 (or Chapter 4)",
+    "explanation": "Matthew 4 details the temptation of Christ and the calling of the first disciples.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus begin the Sermon on the Mount with the Beatitudes ('Blessed are the poor in spirit') and teach that believers are the Salt of the Earth and Light of the World?",
+    "bookId": "MAT",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Matthew 5",
+      "MAT 5",
+      "Matthew Chapter 5"
+    ],
+    "displayAnswer": "Matthew 5 (or Chapter 5)",
+    "explanation": "Matthew 5 opens the Sermon on the Mount.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus teach the Lord's Prayer ('Our Father in heaven'), warn against storing up treasures on earth, and command 'Seek first the kingdom of God'?",
+    "bookId": "MAT",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Matthew 6",
+      "MAT 6",
+      "Matthew Chapter 6"
+    ],
+    "displayAnswer": "Matthew 6 (or Chapter 6)",
+    "explanation": "Matthew 6 contains the Model Prayer and teachings on anxiety.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus teach 'Judge not, that you be not judged', the Golden Rule, the Narrow Gate, and the parable of the Wise and Foolish Builders?",
+    "bookId": "MAT",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Matthew 7",
+      "MAT 7",
+      "Matthew Chapter 7"
+    ],
+    "displayAnswer": "Matthew 7 (or Chapter 7)",
+    "explanation": "Matthew 7 concludes the Sermon on the Mount.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_13",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus teach seven Parables of the Kingdom, including the Parable of the Sower, the Weeds, the Mustard Seed, and the Pearl of Great Price?",
+    "bookId": "MAT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Matthew 13",
+      "MAT 13",
+      "Matthew Chapter 13"
+    ],
+    "displayAnswer": "Matthew 13 (or Chapter 13)",
+    "explanation": "Matthew 13 is the great Kingdom Parables discourse.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_14",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew is John the Baptist beheaded by Herod, Jesus feeds the 5,000, and Peter walks on water toward Jesus?",
+    "bookId": "MAT",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "14",
+      "Chapter 14",
+      "Ch 14",
+      "Matthew 14",
+      "MAT 14",
+      "Matthew Chapter 14"
+    ],
+    "displayAnswer": "Matthew 14 (or Chapter 14)",
+    "explanation": "Matthew 14 records John's martyrdom, the feeding of the 5,000, and walking on water.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_16",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Peter make his great confession: 'You are the Christ, the Son of the living God' at Caesarea Philippi?",
+    "bookId": "MAT",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "16",
+      "Chapter 16",
+      "Ch 16",
+      "Matthew 16",
+      "MAT 16",
+      "Matthew Chapter 16"
+    ],
+    "displayAnswer": "Matthew 16 (or Chapter 16)",
+    "explanation": "Matthew 16 records Peter's confession and Jesus' promise to build His Church.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_17",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew is Jesus transfigured in radiant glory on a high mountain before Peter, James, and John alongside Moses and Elijah?",
+    "bookId": "MAT",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "Matthew 17",
+      "MAT 17",
+      "Matthew Chapter 17"
+    ],
+    "displayAnswer": "Matthew 17 (or Chapter 17)",
+    "explanation": "Matthew 17 recounts the Transfiguration of Christ.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_18",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus outline church discipline ('If your brother sins against you...') and tell the Parable of the Unforgiving Servant?",
+    "bookId": "MAT",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "Matthew 18",
+      "MAT 18",
+      "Matthew Chapter 18"
+    ],
+    "displayAnswer": "Matthew 18 (or Chapter 18)",
+    "explanation": "Matthew 18 focuses on greatness in the kingdom, reconciliation, and forgiveness.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_21",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus enter Jerusalem on a donkey amidst shouts of 'Hosanna!' (Triumphal Entry) and cleanse the Temple of money-changers?",
+    "bookId": "MAT",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "21",
+      "Chapter 21",
+      "Ch 21",
+      "Matthew 21",
+      "MAT 21",
+      "Matthew Chapter 21"
+    ],
+    "displayAnswer": "Matthew 21 (or Chapter 21)",
+    "explanation": "Matthew 21 recounts the Triumphal Entry and the cleansing of the Temple.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_24",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus deliver the Olivet Discourse, answering the disciples about the destruction of the Temple and the signs of His Coming?",
+    "bookId": "MAT",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "Matthew 24",
+      "MAT 24",
+      "Matthew Chapter 24"
+    ],
+    "displayAnswer": "Matthew 24 (or Chapter 24)",
+    "explanation": "Matthew 24 details the Olivet Discourse on end-time signs.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_25",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew are the Parable of the Ten Virgins, the Parable of the Talents, and the Judgment of the Sheep and the Goats?",
+    "bookId": "MAT",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "25",
+      "Chapter 25",
+      "Ch 25",
+      "Matthew 25",
+      "MAT 25",
+      "Matthew Chapter 25"
+    ],
+    "displayAnswer": "Matthew 25 (or Chapter 25)",
+    "explanation": "Matthew 25 contains parables of readiness for Christ's return.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_26",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus institute the Lord's Supper, agonize in prayer in the Garden of Gethsemane, and get betrayed by Judas with a kiss?",
+    "bookId": "MAT",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "26",
+      "Chapter 26",
+      "Ch 26",
+      "Matthew 26",
+      "MAT 26",
+      "Matthew Chapter 26"
+    ],
+    "displayAnswer": "Matthew 26 (or Chapter 26)",
+    "explanation": "Matthew 26 details the Last Supper, Gethsemane, and the arrest of Jesus.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_27",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew is Jesus tried before Pontius Pilate, mocked with a crown of thorns, crucified on Golgotha, and buried in Joseph of Arimathea's tomb?",
+    "bookId": "MAT",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "27",
+      "Chapter 27",
+      "Ch 27",
+      "Matthew 27",
+      "MAT 27",
+      "Matthew Chapter 27"
+    ],
+    "displayAnswer": "Matthew 27 (or Chapter 27)",
+    "explanation": "Matthew 27 recounts the trial, crucifixion, death, and burial of Jesus.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mat_28",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does the angel roll back the stone at the empty tomb, Jesus appears resurrected to the women, and issues the Great Commission ('Go therefore and make disciples of all nations')?",
+    "bookId": "MAT",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "28",
+      "Chapter 28",
+      "Ch 28",
+      "Matthew 28",
+      "MAT 28",
+      "Matthew Chapter 28"
+    ],
+    "displayAnswer": "Matthew 28 (or Chapter 28)",
+    "explanation": "Matthew 28 concludes with the Resurrection and the Great Commission (Matt 28:18\u201320).",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mrk_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Mark does Jesus begin His public ministry preaching: 'The time is fulfilled, and the kingdom of God is at hand; repent and believe in the gospel'?",
+    "bookId": "MRK",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Mark 1",
+      "MRK 1",
+      "Mark Chapter 1"
+    ],
+    "displayAnswer": "Mark 1 (or Chapter 1)",
+    "explanation": "Mark 1 opens with John the Baptist, Jesus' baptism, and the start of ministry.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mrk_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Mark do four men dig through the roof of a house in Capernaum to lower a paralyzed man to Jesus, who declares: 'Son, your sins are forgiven'?",
+    "bookId": "MRK",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Mark 2",
+      "MRK 2",
+      "Mark Chapter 2"
+    ],
+    "displayAnswer": "Mark 2 (or Chapter 2)",
+    "explanation": "Mark 2 recounts the healing of the paralytic lowered through the roof.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mrk_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Mark does Jesus calm a raging tempest on the Sea of Galilee with the command: 'Peace! Be still!'?",
+    "bookId": "MRK",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Mark 4",
+      "MRK 4",
+      "Mark Chapter 4"
+    ],
+    "displayAnswer": "Mark 4 (or Chapter 4)",
+    "explanation": "Mark 4 includes parables of the kingdom and the calming of the sea.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mrk_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Mark does Jesus cast the Legion of demons out of the Gerasene demoniac into a herd of pigs, and raise Jairus's 12-year-old daughter from the dead?",
+    "bookId": "MRK",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Mark 5",
+      "MRK 5",
+      "Mark Chapter 5"
+    ],
+    "displayAnswer": "Mark 5 (or Chapter 5)",
+    "explanation": "Mark 5 records the healing of the demoniac, the woman with the flow of blood, and Jairus's daughter.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mrk_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Mark does Jesus proclaim the core motto of His servant ministry: 'For even the Son of Man came not to be served but to serve, and to give his life as a ransom for many' (Mark 10:45)?",
+    "bookId": "MRK",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "Mark 10",
+      "MRK 10",
+      "Mark Chapter 10"
+    ],
+    "displayAnswer": "Mark 10 (or Chapter 10)",
+    "explanation": "Mark 10 addresses marriage, the Rich Young Ruler, and the ransom purpose of Christ.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mrk_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Mark does Jesus commend the poor widow who puts two small copper coins (her last mite) into the temple treasury?",
+    "bookId": "MRK",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Mark 12",
+      "MRK 12",
+      "Mark Chapter 12"
+    ],
+    "displayAnswer": "Mark 12 (or Chapter 12)",
+    "explanation": "Mark 12 recounts the Widow's Mite and the Greatest Commandment.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_mrk_15",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Mark is Jesus crucified at the third hour, darkness covers the land for three hours, the temple veil tears in two, and the Roman centurion declares: 'Truly this man was the Son of God!'?",
+    "bookId": "MRK",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "15",
+      "Chapter 15",
+      "Ch 15",
+      "Mark 15",
+      "MRK 15",
+      "Mark Chapter 15"
+    ],
+    "displayAnswer": "Mark 15 (or Chapter 15)",
+    "explanation": "Mark 15 records the crucifixion and death of Jesus.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_luk_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Luke does the Angel Gabriel announce the births of John the Baptist and Jesus, and Mary sings her Magnificat ('My soul magnifies the Lord')?",
+    "bookId": "LUK",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Luke 1",
+      "LUK 1",
+      "Luke Chapter 1"
+    ],
+    "displayAnswer": "Luke 1 (or Chapter 1)",
+    "explanation": "Luke 1 contains the Annunciation and Mary's Magnificat.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_luk_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Luke is Jesus born in Bethlehem and laid in a manger, while angels announce His birth to shepherds in the field?",
+    "bookId": "LUK",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Luke 2",
+      "LUK 2",
+      "Luke Chapter 2"
+    ],
+    "displayAnswer": "Luke 2 (or Chapter 2)",
+    "explanation": "Luke 2 is the classic Christmas narrative of the Nativity.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_luk_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Luke does Jesus read Isaiah 61 in the synagogue of Nazareth ('The Spirit of the Lord is upon me') and proclaim: 'Today this Scripture has been fulfilled in your hearing'?",
+    "bookId": "LUK",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Luke 4",
+      "LUK 4",
+      "Luke Chapter 4"
+    ],
+    "displayAnswer": "Luke 4 (or Chapter 4)",
+    "explanation": "Luke 4 recounts the temptation in the wilderness and the Nazareth manifesto.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_luk_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Luke does Jesus tell the Parable of the Good Samaritan and visit the home of Mary and Martha in Bethany?",
+    "bookId": "LUK",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "Luke 10",
+      "LUK 10",
+      "Luke Chapter 10"
+    ],
+    "displayAnswer": "Luke 10 (or Chapter 10)",
+    "explanation": "Luke 10 contains the Good Samaritan and Mary sitting at Jesus' feet.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_luk_15",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Luke are the three famous Parables of the Lost: the Lost Sheep, the Lost Coin, and the Prodigal Son (Lost Son)?",
+    "bookId": "LUK",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "15",
+      "Chapter 15",
+      "Ch 15",
+      "Luke 15",
+      "LUK 15",
+      "Luke Chapter 15"
+    ],
+    "displayAnswer": "Luke 15 (or Chapter 15)",
+    "explanation": "Luke 15 is the great chapter of God's joy over repentant sinners.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_luk_16",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Luke does Jesus tell the story of the Rich Man and Lazarus, describing the great chasm in Hades?",
+    "bookId": "LUK",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "16",
+      "Chapter 16",
+      "Ch 16",
+      "Luke 16",
+      "LUK 16",
+      "Luke Chapter 16"
+    ],
+    "displayAnswer": "Luke 16 (or Chapter 16)",
+    "explanation": "Luke 16 contains the parable of the Dishonest Manager and the account of the Rich Man and Lazarus.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_luk_17",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Luke does Jesus cleanse ten lepers, and only one Samaritan returns to fall at Jesus' feet and give thanks?",
+    "bookId": "LUK",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "Luke 17",
+      "LUK 17",
+      "Luke Chapter 17"
+    ],
+    "displayAnswer": "Luke 17 (or Chapter 17)",
+    "explanation": "Luke 17 recounts the healing of the ten lepers.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_luk_19",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Luke does the wealthy chief tax collector Zacchaeus climb a sycamore tree in Jericho to see Jesus, and Jesus declares: 'For the Son of Man came to seek and to save the lost' (Luke 19:10)?",
+    "bookId": "LUK",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "19",
+      "Chapter 19",
+      "Ch 19",
+      "Luke 19",
+      "LUK 19",
+      "Luke Chapter 19"
+    ],
+    "displayAnswer": "Luke 19 (or Chapter 19)",
+    "explanation": "Luke 19 records the salvation of Zacchaeus and the Triumphal Entry.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_luk_23",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Luke is Jesus crucified between two criminals, praying: 'Father, forgive them, for they know not what they do' and promising the penitent thief: 'Today you will be with me in paradise'?",
+    "bookId": "LUK",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "23",
+      "Chapter 23",
+      "Ch 23",
+      "Luke 23",
+      "LUK 23",
+      "Luke Chapter 23"
+    ],
+    "displayAnswer": "Luke 23 (or Chapter 23)",
+    "explanation": "Luke 23 details Jesus' trials, crucifixion, and words from the cross.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_luk_24",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Luke does the resurrected Jesus walk unrecognized with two disciples on the Road to Emmaus, opening the Scriptures to explain Christ throughout the Old Testament?",
+    "bookId": "LUK",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "Luke 24",
+      "LUK 24",
+      "Luke Chapter 24"
+    ],
+    "displayAnswer": "Luke 24 (or Chapter 24)",
+    "explanation": "Luke 24 records the empty tomb, the Walk to Emmaus, and Jesus' Ascension.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John is the Logos Prologue: 'In the beginning was the Word, and the Word was with God, and the Word was God... And the Word became flesh and dwelt among us'?",
+    "bookId": "JHN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "John 1",
+      "JHN 1",
+      "John Chapter 1"
+    ],
+    "displayAnswer": "John 1 (or Chapter 1)",
+    "explanation": "John 1 opens with the profound prologue on the deity and incarnation of Christ.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus perform His first miraculous sign by turning water into wine at the wedding in Cana of Galilee?",
+    "bookId": "JHN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "John 2",
+      "JHN 2",
+      "John Chapter 2"
+    ],
+    "displayAnswer": "John 2 (or Chapter 2)",
+    "explanation": "John 2 recounts the wedding in Cana and the first cleansing of the Temple.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus explain being 'born again' to the Pharisee Nicodemus and declare: 'For God so loved the world, that he gave his only Son' (John 3:16)?",
+    "bookId": "JHN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "John 3",
+      "JHN 3",
+      "John Chapter 3"
+    ],
+    "displayAnswer": "John 3 (or Chapter 3)",
+    "explanation": "John 3 contains Jesus' nighttime discourse on the new birth with Nicodemus.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus speak with the Samaritan woman at Jacob's Well in Sychar, offering her 'living water' and revealing Himself as the Messiah?",
+    "bookId": "JHN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "John 4",
+      "JHN 4",
+      "John Chapter 4"
+    ],
+    "displayAnswer": "John 4 (or Chapter 4)",
+    "explanation": "John 4 details the ministry to the Samaritan woman at the well.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus heal an invalid of 38 years on the Sabbath at the Pool of Bethesda, declaring His equality with the Father?",
+    "bookId": "JHN",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "John 5",
+      "JHN 5",
+      "John Chapter 5"
+    ],
+    "displayAnswer": "John 5 (or Chapter 5)",
+    "explanation": "John 5 recounts the healing at Bethesda and Jesus' discourse on His divine authority.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus feed the 5,000, walk on water, and declare: 'I am the Bread of Life; whoever comes to me shall not hunger'?",
+    "bookId": "JHN",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "John 6",
+      "JHN 6",
+      "John Chapter 6"
+    ],
+    "displayAnswer": "John 6 (or Chapter 6)",
+    "explanation": "John 6 contains the Bread of Life discourse in Capernaum.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus forgive the woman caught in adultery, declare 'I am the Light of the World', and proclaim: 'Before Abraham was, I am'?",
+    "bookId": "JHN",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "John 8",
+      "JHN 8",
+      "John Chapter 8"
+    ],
+    "displayAnswer": "John 8 (or Chapter 8)",
+    "explanation": "John 8 records the Light of the World discourse and Christ's claim to the divine 'I AM'.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus heal a man born blind by spitting on the ground and making mud, causing the healed man to declare: 'One thing I do know, that though I was blind, now I see'?",
+    "bookId": "JHN",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "John 9",
+      "JHN 9",
+      "John Chapter 9"
+    ],
+    "displayAnswer": "John 9 (or Chapter 9)",
+    "explanation": "John 9 details the healing of the man born blind and the Pharisees' spiritual blindness.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus proclaim: 'I am the Good Shepherd. The good shepherd lays down his life for the sheep' and 'I and the Father are one'?",
+    "bookId": "JHN",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "John 10",
+      "JHN 10",
+      "John Chapter 10"
+    ],
+    "displayAnswer": "John 10 (or Chapter 10)",
+    "explanation": "John 10 contains the Good Shepherd discourse.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus raise Lazarus from the dead after four days in the tomb, declaring: 'I am the resurrection and the life'?",
+    "bookId": "JHN",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "John 11",
+      "JHN 11",
+      "John Chapter 11"
+    ],
+    "displayAnswer": "John 11 (or Chapter 11)",
+    "explanation": "John 11 records the raising of Lazarus in Bethany.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_13",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus wash His disciples' feet in the Upper Room and give the new commandment: 'Love one another: just as I have loved you'?",
+    "bookId": "JHN",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "John 13",
+      "JHN 13",
+      "John Chapter 13"
+    ],
+    "displayAnswer": "John 13 (or Chapter 13)",
+    "explanation": "John 13 opens the Upper Room Discourse with foot washing.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_14",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus comfort His disciples: 'Let not your hearts be troubled... I am the way, and the truth, and the life' and promise the Holy Spirit (the Helper/Paraclete)?",
+    "bookId": "JHN",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "14",
+      "Chapter 14",
+      "Ch 14",
+      "John 14",
+      "JHN 14",
+      "John Chapter 14"
+    ],
+    "displayAnswer": "John 14 (or Chapter 14)",
+    "explanation": "John 14 contains Christ's comfort and promise of the Holy Spirit.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_15",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus teach the allegory of the Vine and the Branches: 'I am the vine; you are the branches. Whoever abides in me and I in him, he it is that bears much fruit'?",
+    "bookId": "JHN",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "15",
+      "Chapter 15",
+      "Ch 15",
+      "John 15",
+      "JHN 15",
+      "John Chapter 15"
+    ],
+    "displayAnswer": "John 15 (or Chapter 15)",
+    "explanation": "John 15 emphasizes abiding in Christ and mutual love.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_17",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John is Jesus' Great High Priestly Prayer, praying for His disciples and all future believers to be one as He and the Father are one?",
+    "bookId": "JHN",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "John 17",
+      "JHN 17",
+      "John Chapter 17"
+    ],
+    "displayAnswer": "John 17 (or Chapter 17)",
+    "explanation": "John 17 is Christ's longest recorded prayer in Scripture.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_19",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John is Jesus crowned with thorns, crucified at Golgotha, utters 'It is finished' (Tetelestai), and has His side pierced with a spear?",
+    "bookId": "JHN",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "19",
+      "Chapter 19",
+      "Ch 19",
+      "John 19",
+      "JHN 19",
+      "John Chapter 19"
+    ],
+    "displayAnswer": "John 19 (or Chapter 19)",
+    "explanation": "John 19 details the crucifixion and burial of Jesus.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_20",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Mary Magdalene discover the empty tomb, Jesus appears to the disciples behind locked doors, and Thomas exclaims: 'My Lord and my God!'?",
+    "bookId": "JHN",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "20",
+      "Chapter 20",
+      "Ch 20",
+      "John 20",
+      "JHN 20",
+      "John Chapter 20"
+    ],
+    "displayAnswer": "John 20 (or Chapter 20)",
+    "explanation": "John 20 records the Resurrection appearances and Thomas's confession.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_jhn_21",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of John does Jesus appear by the Sea of Tiberias, provide a miraculous catch of 153 fish, and restore Peter three times ('Feed my sheep')?",
+    "bookId": "JHN",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "21",
+      "Chapter 21",
+      "Ch 21",
+      "John 21",
+      "JHN 21",
+      "John Chapter 21"
+    ],
+    "displayAnswer": "John 21 (or Chapter 21)",
+    "explanation": "John 21 concludes the Gospel with the breakfast on the beach and Peter's restoration.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "ch_act_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts does the resurrected Jesus promise the Holy Spirit ('You will be my witnesses... to the end of the earth'), ascend into heaven, and Matthias is chosen to replace Judas?",
+    "bookId": "ACT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Acts 1",
+      "ACT 1",
+      "Acts Chapter 1"
+    ],
+    "displayAnswer": "Acts 1 (or Chapter 1)",
+    "explanation": "Acts 1 records the Ascension of Jesus and the waiting in the Upper Room.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts does the Holy Spirit fall at Pentecost with the sound of a rushing wind and tongues of fire, Peter preaches, and 3,000 souls are baptized?",
+    "bookId": "ACT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Acts 2",
+      "ACT 2",
+      "Acts Chapter 2"
+    ],
+    "displayAnswer": "Acts 2 (or Chapter 2)",
+    "explanation": "Acts 2 describes the Day of Pentecost and the birth of the Church.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts do Peter and John heal a man lame from birth at the Beautiful Gate of the Temple ('Silver and gold have I none, but what I do have I give to you')?",
+    "bookId": "ACT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Acts 3",
+      "ACT 3",
+      "Acts Chapter 3"
+    ],
+    "displayAnswer": "Acts 3 (or Chapter 3)",
+    "explanation": "Acts 3 details the healing of the lame beggar and Peter's Solomon's Portico sermon.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts are Peter and John arrested by the Sanhedrin, boldly declare 'There is salvation in no one else', and the church prays until the place is shaken?",
+    "bookId": "ACT",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Acts 4",
+      "ACT 4",
+      "Acts Chapter 4"
+    ],
+    "displayAnswer": "Acts 4 (or Chapter 4)",
+    "explanation": "Acts 4 recounts the first apostolic arrest and the believers sharing all things.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts do Ananias and Sapphira drop dead for lying to the Holy Spirit about their land sale, and the apostles are freed from jail by an angel?",
+    "bookId": "ACT",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Acts 5",
+      "ACT 5",
+      "Acts Chapter 5"
+    ],
+    "displayAnswer": "Acts 5 (or Chapter 5)",
+    "explanation": "Acts 5 details the judgment of Ananias and Sapphira and Gamaliel's advice.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts are seven godly men (including Stephen and Philip) appointed to oversee the daily distribution of food to widows?",
+    "bookId": "ACT",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Acts 6",
+      "ACT 6",
+      "Acts Chapter 6"
+    ],
+    "displayAnswer": "Acts 6 (or Chapter 6)",
+    "explanation": "Acts 6 recounts the choosing of the first deacons/servants in Jerusalem.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts does Stephen deliver his sweeping defense of biblical history before the Sanhedrin and become the first Christian martyr by stoning?",
+    "bookId": "ACT",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Acts 7",
+      "ACT 7",
+      "Acts Chapter 7"
+    ],
+    "displayAnswer": "Acts 7 (or Chapter 7)",
+    "explanation": "Acts 7 records Stephen's speech and martyrdom.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts does Philip preach Christ in Samaria and explain the prophecy of Isaiah 53 to the Ethiopian Eunuch in his chariot on the road to Gaza?",
+    "bookId": "ACT",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Acts 8",
+      "ACT 8",
+      "Acts Chapter 8"
+    ],
+    "displayAnswer": "Acts 8 (or Chapter 8)",
+    "explanation": "Acts 8 details the gospel expanding to Samaria and the baptism of the Ethiopian eunuch.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts is Saul of Tarsus blinded by a light from heaven and converted on the Damascus Road ('Saul, Saul, why are you persecuting me?')?",
+    "bookId": "ACT",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Acts 9",
+      "ACT 9",
+      "Acts Chapter 9"
+    ],
+    "displayAnswer": "Acts 9 (or Chapter 9)",
+    "explanation": "Acts 9 records the dramatic conversion of Saul and Peter raising Dorcas.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts does Peter receive the vision of clean and unclean animals on a sheet and preach the gospel to the Roman centurion Cornelius in Caesarea?",
+    "bookId": "ACT",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "Acts 10",
+      "ACT 10",
+      "Acts Chapter 10"
+    ],
+    "displayAnswer": "Acts 10 (or Chapter 10)",
+    "explanation": "Acts 10 recounts the conversion of Cornelius and the Gentile Pentecost.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts are the disciples in Antioch first called 'Christians' as Barnabas and Saul teach there for a full year?",
+    "bookId": "ACT",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Acts 11",
+      "ACT 11",
+      "Acts Chapter 11"
+    ],
+    "displayAnswer": "Acts 11 (or Chapter 11)",
+    "explanation": "Acts 11 details the thriving multicultural church at Antioch.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts is James the brother of John martyred, Peter miraculously released from prison by an angel, and proud King Herod struck down by worms?",
+    "bookId": "ACT",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Acts 12",
+      "ACT 12",
+      "Acts Chapter 12"
+    ],
+    "displayAnswer": "Acts 12 (or Chapter 12)",
+    "explanation": "Acts 12 recounts Peter's jailbreak and the judgment on Herod Agrippa I.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_13",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts are Barnabas and Saul set apart by the Holy Spirit at Antioch and sent out on Paul's First Missionary Journey to Cyprus and Galatia?",
+    "bookId": "ACT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Acts 13",
+      "ACT 13",
+      "Acts Chapter 13"
+    ],
+    "displayAnswer": "Acts 13 (or Chapter 13)",
+    "explanation": "Acts 13 begins the formal missionary journeys of Paul.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_15",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts does the Jerusalem Council meet to resolve whether Gentile converts must be circumcised to be saved, ruling salvation is by grace through faith alone?",
+    "bookId": "ACT",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "15",
+      "Chapter 15",
+      "Ch 15",
+      "Acts 15",
+      "ACT 15",
+      "Acts Chapter 15"
+    ],
+    "displayAnswer": "Acts 15 (or Chapter 15)",
+    "explanation": "Acts 15 records the landmark Jerusalem Council.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_16",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts does Paul receive the Macedonian Call vision ('Come over to Macedonia and help us'), cast out a spirit of divination in Philippi, and lead the Philippian jailer to Christ?",
+    "bookId": "ACT",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "16",
+      "Chapter 16",
+      "Ch 16",
+      "Acts 16",
+      "ACT 16",
+      "Acts Chapter 16"
+    ],
+    "displayAnswer": "Acts 16 (or Chapter 16)",
+    "explanation": "Acts 16 details the planting of the church in Philippi.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_17",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts does Paul preach to the noble Bereans who examine the Scriptures daily, and address Greek philosophers on the Areopagus (Mars Hill) in Athens about the 'Unknown God'?",
+    "bookId": "ACT",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "Acts 17",
+      "ACT 17",
+      "Acts Chapter 17"
+    ],
+    "displayAnswer": "Acts 17 (or Chapter 17)",
+    "explanation": "Acts 17 contains Paul's famous sermon on Mars Hill.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_18",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts does Paul stay 18 months in Corinth making tents with Aquila and Priscilla, and the eloquent Alexandrian scholar Apollos is taught the way of God more accurately?",
+    "bookId": "ACT",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "Acts 18",
+      "ACT 18",
+      "Acts Chapter 18"
+    ],
+    "displayAnswer": "Acts 18 (or Chapter 18)",
+    "explanation": "Acts 18 records the ministry in Corinth and the arrival of Apollos.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_19",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts does Paul minister for three years in Ephesus in the hall of Tyrannus, leading to a riot by the silversmiths of Artemis?",
+    "bookId": "ACT",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "19",
+      "Chapter 19",
+      "Ch 19",
+      "Acts 19",
+      "ACT 19",
+      "Acts Chapter 19"
+    ],
+    "displayAnswer": "Acts 19 (or Chapter 19)",
+    "explanation": "Acts 19 describes the great spiritual awakening and riot in Ephesus.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_20",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts does Eutychus fall out of a window asleep in Troas, and Paul delivers his tearful farewell charge to the Ephesian elders at Miletus?",
+    "bookId": "ACT",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "20",
+      "Chapter 20",
+      "Ch 20",
+      "Acts 20",
+      "ACT 20",
+      "Acts Chapter 20"
+    ],
+    "displayAnswer": "Acts 20 (or Chapter 20)",
+    "explanation": "Acts 20 records Paul's emotional farewell to the Ephesian overseers.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_27",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts is Paul shipwrecked in a catastrophic two-week storm on his voyage to Rome, with all 276 passengers surviving safely on the island of Malta?",
+    "bookId": "ACT",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "27",
+      "Chapter 27",
+      "Ch 27",
+      "Acts 27",
+      "ACT 27",
+      "Acts Chapter 27"
+    ],
+    "displayAnswer": "Acts 27 (or Chapter 27)",
+    "explanation": "Acts 27 details the harrowing shipwreck voyage to Rome.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_act_28",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Acts is Paul bitten by a viper on Malta without harm and finishes his journey under house arrest in Rome, proclaiming the Kingdom of God unhindered?",
+    "bookId": "ACT",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "28",
+      "Chapter 28",
+      "Ch 28",
+      "Acts 28",
+      "ACT 28",
+      "Acts Chapter 28"
+    ],
+    "displayAnswer": "Acts 28 (or Chapter 28)",
+    "explanation": "Acts 28 concludes the Book of Acts with the gospel reaching Rome.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "ch_rom_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Romans does Paul proclaim 'I am not ashamed of the gospel, for it is the power of God for salvation' and describe humanity suppressing the truth in unrighteousness?",
+    "bookId": "ROM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Romans 1",
+      "ROM 1",
+      "Romans Chapter 1"
+    ],
+    "displayAnswer": "Romans 1 (or Chapter 1)",
+    "explanation": "Romans 1 outlines the power of the gospel and universal human depravity.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_rom_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Romans is the universal diagnosis of sin: 'For all have sinned and fall short of the glory of God' (Rom 3:23) and justified by His grace as a gift through redemption in Christ?",
+    "bookId": "ROM",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Romans 3",
+      "ROM 3",
+      "Romans Chapter 3"
+    ],
+    "displayAnswer": "Romans 3 (or Chapter 3)",
+    "explanation": "Romans 3 establishes universal guilt and justification by faith alone.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_rom_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Romans does Paul demonstrate justification by faith using Abraham ('Abraham believed God, and it was counted to him as righteousness') before circumcision?",
+    "bookId": "ROM",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Romans 4",
+      "ROM 4",
+      "Romans Chapter 4"
+    ],
+    "displayAnswer": "Romans 4 (or Chapter 4)",
+    "explanation": "Romans 4 uses Abraham as the chief Old Testament pattern of justification by faith.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_rom_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Romans is the declaration: 'Therefore, since we have been justified by faith, we have peace with God' and 'God shows his love for us in that while we were still sinners, Christ died for us'?",
+    "bookId": "ROM",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Romans 5",
+      "ROM 5",
+      "Romans Chapter 5"
+    ],
+    "displayAnswer": "Romans 5 (or Chapter 5)",
+    "explanation": "Romans 5 explains the blessings of justification and the contrast between Adam and Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_rom_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Romans does Paul ask 'Shall we continue in sin that grace may abound? By no means!' and declare: 'For the wages of sin is death, but the free gift of God is eternal life' (Rom 6:23)?",
+    "bookId": "ROM",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Romans 6",
+      "ROM 6",
+      "Romans Chapter 6"
+    ],
+    "displayAnswer": "Romans 6 (or Chapter 6)",
+    "explanation": "Romans 6 teaches on dying to sin, baptism, and being enslaved to righteousness.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_rom_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Romans does Paul describe the believer's struggle with indwelling sin: 'For I do not do the good I want, but the evil I do not want is what I keep on doing... Wretched man that I am!'?",
+    "bookId": "ROM",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Romans 7",
+      "ROM 7",
+      "Romans Chapter 7"
+    ],
+    "displayAnswer": "Romans 7 (or Chapter 7)",
+    "explanation": "Romans 7 explores the law and the ongoing inner conflict with the flesh.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_rom_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Romans does Paul celebrate: 'There is therefore now no condemnation for those who are in Christ Jesus', the ministry of the Holy Spirit, and 'If God is for us, who can be against us?'?",
+    "bookId": "ROM",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Romans 8",
+      "ROM 8",
+      "Romans Chapter 8"
+    ],
+    "displayAnswer": "Romans 8 (or Chapter 8)",
+    "explanation": "Romans 8 is the triumphant chapter on life in the Spirit and eternal security.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_rom_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Romans does Paul express his great sorrow for ethnic Israel and explain God's sovereign unconditional election (Jacob I loved, but Esau I hated)?",
+    "bookId": "ROM",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Romans 9",
+      "ROM 9",
+      "Romans Chapter 9"
+    ],
+    "displayAnswer": "Romans 9 (or Chapter 9)",
+    "explanation": "Romans 9 addresses God's sovereign electing grace and Israel.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_rom_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Romans is the salvation promise: 'If you confess with your mouth that Jesus is Lord and believe in your heart that God raised him from the dead, you will be saved' (Rom 10:9)?",
+    "bookId": "ROM",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "Romans 10",
+      "ROM 10",
+      "Romans Chapter 10"
+    ],
+    "displayAnswer": "Romans 10 (or Chapter 10)",
+    "explanation": "Romans 10 emphasizes the necessity of faith, preaching, and calling on the name of the Lord.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_rom_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Romans does Paul describe the remnant of Israel, the grafting of Gentile wild olive branches into the cultivated tree, and 'All Israel will be saved'?",
+    "bookId": "ROM",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Romans 11",
+      "ROM 11",
+      "Romans Chapter 11"
+    ],
+    "displayAnswer": "Romans 11 (or Chapter 11)",
+    "explanation": "Romans 11 explains the mystery of Israel's future restoration.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_rom_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Romans does Paul urge: 'Present your bodies as a living sacrifice, holy and acceptable to God... Do not be conformed to this world, but be transformed by the renewal of your mind'?",
+    "bookId": "ROM",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Romans 12",
+      "ROM 12",
+      "Romans Chapter 12"
+    ],
+    "displayAnswer": "Romans 12 (or Chapter 12)",
+    "explanation": "Romans 12 marks the practical application section of Romans on transformed Christian living.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_rom_13",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Romans does Paul command submission to governing authorities ('There is no authority except from God') and explain that 'love is the fulfilling of the law'?",
+    "bookId": "ROM",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Romans 13",
+      "ROM 13",
+      "Romans Chapter 13"
+    ],
+    "displayAnswer": "Romans 13 (or Chapter 13)",
+    "explanation": "Romans 13 outlines the Christian's relationship to civil government and neighborly love.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_1co_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Corinthians does Paul address church factions and declare: 'The word of the cross is folly to those who are perishing, but to us who are being saved it is the power of God'?",
+    "bookId": "1CO",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "1 Corinthians 1",
+      "1CO 1",
+      "1 Corinthians Chapter 1"
+    ],
+    "displayAnswer": "1 Corinthians 1 (or Chapter 1)",
+    "explanation": "1 Corinthians 1 addresses divisions and the wisdom of the cross.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_1co_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Corinthians does Paul forbid lawsuits between believers and command sexual purity: 'Flee from sexual immorality... your body is a temple of the Holy Spirit'?",
+    "bookId": "1CO",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "1 Corinthians 6",
+      "1CO 6",
+      "1 Corinthians Chapter 6"
+    ],
+    "displayAnswer": "1 Corinthians 6 (or Chapter 6)",
+    "explanation": "1 Corinthians 6 addresses lawsuits and the sanctity of the body.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_1co_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Corinthians does Paul provide comprehensive principles regarding marriage, singleness, divorce, and celibacy?",
+    "bookId": "1CO",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "1 Corinthians 7",
+      "1CO 7",
+      "1 Corinthians Chapter 7"
+    ],
+    "displayAnswer": "1 Corinthians 7 (or Chapter 7)",
+    "explanation": "1 Corinthians 7 answers questions on marriage and singleness.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_1co_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Corinthians does Paul deliver the definitive instructions on the Lord's Supper: 'For I received from the Lord what I also delivered to you, that the Lord Jesus on the night when he was betrayed took bread'?",
+    "bookId": "1CO",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "1 Corinthians 11",
+      "1CO 11",
+      "1 Corinthians Chapter 11"
+    ],
+    "displayAnswer": "1 Corinthians 11 (or Chapter 11)",
+    "explanation": "1 Corinthians 11 contains the words of institution for communion.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_1co_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Corinthians does Paul discuss the diversity of Spiritual Gifts and compare the church to the unified human body with many members?",
+    "bookId": "1CO",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "1 Corinthians 12",
+      "1CO 12",
+      "1 Corinthians Chapter 12"
+    ],
+    "displayAnswer": "1 Corinthians 12 (or Chapter 12)",
+    "explanation": "1 Corinthians 12 details spiritual gifts and the Body of Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_1co_13",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Corinthians is the famous Love Chapter ('Love is patient and kind; love does not envy or boast... So now faith, hope, and love abide, these three; but the greatest of these is love')?",
+    "bookId": "1CO",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "1 Corinthians 13",
+      "1CO 13",
+      "1 Corinthians Chapter 13"
+    ],
+    "displayAnswer": "1 Corinthians 13 (or Chapter 13)",
+    "explanation": "1 Corinthians 13 is the supreme biblical description of Christian love.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_1co_15",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Corinthians does Paul deliver the monumental defense of the Bodily Resurrection of Christ and believers: 'O death, where is your victory? O death, where is your sting?'?",
+    "bookId": "1CO",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "15",
+      "Chapter 15",
+      "Ch 15",
+      "1 Corinthians 15",
+      "1CO 15",
+      "1 Corinthians Chapter 15"
+    ],
+    "displayAnswer": "1 Corinthians 15 (or Chapter 15)",
+    "explanation": "1 Corinthians 15 is the great Resurrection Chapter of the New Testament.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_2co_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Corinthians does Paul describe ministry as 'treasure in jars of clay' and declare: 'This light momentary affliction is preparing for us an eternal weight of glory'?",
+    "bookId": "2CO",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "2 Corinthians 4",
+      "2CO 4",
+      "2 Corinthians Chapter 4"
+    ],
+    "displayAnswer": "2 Corinthians 4 (or Chapter 4)",
+    "explanation": "2 Corinthians 4 highlights endurance in ministry and eternal perspective.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_2co_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Corinthians is the ministry of reconciliation declared: 'Therefore, if anyone is in Christ, he is a new creation. The old has passed away; behold, the new has come' (2 Cor 5:17)?",
+    "bookId": "2CO",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "2 Corinthians 5",
+      "2CO 5",
+      "2 Corinthians Chapter 5"
+    ],
+    "displayAnswer": "2 Corinthians 5 (or Chapter 5)",
+    "explanation": "2 Corinthians 5 describes the new creation and ambassadors for Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_2co_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Corinthians does Paul teach on Christian generosity: 'Each one must give as he has decided in his heart, not reluctantly or under compulsion, for God loves a cheerful giver'?",
+    "bookId": "2CO",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "2 Corinthians 9",
+      "2CO 9",
+      "2 Corinthians Chapter 9"
+    ],
+    "displayAnswer": "2 Corinthians 9 (or Chapter 9)",
+    "explanation": "2 Corinthians 9 encourages cheerful and sacrificial giving.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_2co_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Corinthians does Paul describe being caught up to the Third Heaven and receiving a 'thorn in the flesh' with the divine promise: 'My grace is sufficient for you, for my power is made perfect in weakness'?",
+    "bookId": "2CO",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "2 Corinthians 12",
+      "2CO 12",
+      "2 Corinthians Chapter 12"
+    ],
+    "displayAnswer": "2 Corinthians 12 (or Chapter 12)",
+    "explanation": "2 Corinthians 12 recounts Paul's heavenly vision and thorn in the flesh.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_gal_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Galatians does Paul recount confronting Peter at Antioch over hypocrisy, declaring: 'I have been crucified with Christ. It is no longer I who live, but Christ who lives in me' (Gal 2:20)?",
+    "bookId": "GAL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Galatians 2",
+      "GAL 2",
+      "Galatians Chapter 2"
+    ],
+    "displayAnswer": "Galatians 2 (or Chapter 2)",
+    "explanation": "Galatians 2 describes justification by faith over against legalism.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_gal_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Galatians does Paul rebuke the 'foolish Galatians', explaining that 'Christ redeemed us from the curse of the law by becoming a curse for us'?",
+    "bookId": "GAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Galatians 3",
+      "GAL 3",
+      "Galatians Chapter 3"
+    ],
+    "displayAnswer": "Galatians 3 (or Chapter 3)",
+    "explanation": "Galatians 3 contrasts the works of the law with the promise to Abraham.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_gal_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Galatians does Paul contrast the works of the flesh with the Fruit of the Spirit ('love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control')?",
+    "bookId": "GAL",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Galatians 5",
+      "GAL 5",
+      "Galatians Chapter 5"
+    ],
+    "displayAnswer": "Galatians 5 (or Chapter 5)",
+    "explanation": "Galatians 5:22\u201323 outlines the ninefold Fruit of the Spirit.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_gal_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Galatians does Paul command: 'Bear one another's burdens' and warn: 'Do not be deceived: God is not mocked, for whatever one sows, that will he also reap'?",
+    "bookId": "GAL",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Galatians 6",
+      "GAL 6",
+      "Galatians Chapter 6"
+    ],
+    "displayAnswer": "Galatians 6 (or Chapter 6)",
+    "explanation": "Galatians 6 details practical community care and boasting only in the cross.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_eph_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ephesians does Paul praise God for 'every spiritual blessing in the heavenly places in Christ', including election, predestination, and the sealing of the Holy Spirit?",
+    "bookId": "EPH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Ephesians 1",
+      "EPH 1",
+      "Ephesians Chapter 1"
+    ],
+    "displayAnswer": "Ephesians 1 (or Chapter 1)",
+    "explanation": "Ephesians 1 is a magnificent doxology on the sovereign blessings of salvation.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_eph_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ephesians is the foundational gospel statement: 'For by grace you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works, so that no one may boast' (Eph 2:8\u20139)?",
+    "bookId": "EPH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Ephesians 2",
+      "EPH 2",
+      "Ephesians Chapter 2"
+    ],
+    "displayAnswer": "Ephesians 2 (or Chapter 2)",
+    "explanation": "Ephesians 2 explains regeneration from spiritual death to life by grace.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_eph_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ephesians does Paul describe the unity of the church ('one Lord, one faith, one baptism') and the equipping gifts of apostles, prophets, evangelists, shepherds and teachers?",
+    "bookId": "EPH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Ephesians 4",
+      "EPH 4",
+      "Ephesians Chapter 4"
+    ],
+    "displayAnswer": "Ephesians 4 (or Chapter 4)",
+    "explanation": "Ephesians 4 focuses on Christian unity and maturing the body of Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_eph_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ephesians does Paul use Christian Marriage (husbands loving wives as Christ loved the church) as a profound mystery pointing to Christ and the Church?",
+    "bookId": "EPH",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Ephesians 5",
+      "EPH 5",
+      "Ephesians Chapter 5"
+    ],
+    "displayAnswer": "Ephesians 5 (or Chapter 5)",
+    "explanation": "Ephesians 5 outlines Spirit-filled walking and biblical marriage.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_eph_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Ephesians does Paul urge believers to put on the Whole Armor of God (belt of truth, breastplate of righteousness, shoes of peace, shield of faith, helmet of salvation, sword of the Spirit)?",
+    "bookId": "EPH",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Ephesians 6",
+      "EPH 6",
+      "Ephesians Chapter 6"
+    ],
+    "displayAnswer": "Ephesians 6 (or Chapter 6)",
+    "explanation": "Ephesians 6 describes spiritual warfare and the Armor of God.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_php_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Philippians does Paul declare from prison: 'For to me to live is Christ, and to die is gain' (Phil 1:21)?",
+    "bookId": "PHP",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Philippians 1",
+      "PHP 1",
+      "Philippians Chapter 1"
+    ],
+    "displayAnswer": "Philippians 1 (or Chapter 1)",
+    "explanation": "Philippians 1 expresses Paul's joy and unwavering gospel focus.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_php_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Philippians is the famous Christ Hymn (Kenosis passage) describing Christ emptying Himself, taking the form of a servant, and being exalted above every name?",
+    "bookId": "PHP",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Philippians 2",
+      "PHP 2",
+      "Philippians Chapter 2"
+    ],
+    "displayAnswer": "Philippians 2 (or Chapter 2)",
+    "explanation": "Philippians 2:5\u201311 is the profound Christological hymn on the humility and exaltation of Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_php_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Philippians does Paul count all his religious credentials as loss compared to the surpassing worth of knowing Christ, and resolve to 'press on toward the goal for the prize'?",
+    "bookId": "PHP",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Philippians 3",
+      "PHP 3",
+      "Philippians Chapter 3"
+    ],
+    "displayAnswer": "Philippians 3 (or Chapter 3)",
+    "explanation": "Philippians 3 contrasts legalistic confidence in the flesh with knowing Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_php_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Philippians is the command: 'Rejoice in the Lord always... Do not be anxious about anything, but in everything by prayer... and the peace of God will guard your hearts' and 'I can do all things through him who strengthens me'?",
+    "bookId": "PHP",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Philippians 4",
+      "PHP 4",
+      "Philippians Chapter 4"
+    ],
+    "displayAnswer": "Philippians 4 (or Chapter 4)",
+    "explanation": "Philippians 4 contains beloved promises on joy, anxiety, and contentment.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_col_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Colossians is the supreme hymn on the Preeminence of Christ: 'He is the image of the invisible God, the firstborn of all creation. For by him all things were created'?",
+    "bookId": "COL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Colossians 1",
+      "COL 1",
+      "Colossians Chapter 1"
+    ],
+    "displayAnswer": "Colossians 1 (or Chapter 1)",
+    "explanation": "Colossians 1:15\u201320 establishes the absolute supremacy of Christ in creation and redemption.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_col_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Colossians does Paul warn against deceptive philosophy and legalism, declaring: 'For in him the whole fullness of deity dwells bodily' and the record of debt was nailed to the cross?",
+    "bookId": "COL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Colossians 2",
+      "COL 2",
+      "Colossians Chapter 2"
+    ],
+    "displayAnswer": "Colossians 2 (or Chapter 2)",
+    "explanation": "Colossians 2 combats the Colossian heresy and proclaims Christ's victory on the cross.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_col_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Colossians does Paul command: 'Set your minds on things that are above, not on things that are on earth... Put on then, as God's chosen ones, holy and beloved, compassionate hearts'?",
+    "bookId": "COL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Colossians 3",
+      "COL 3",
+      "Colossians Chapter 3"
+    ],
+    "displayAnswer": "Colossians 3 (or Chapter 3)",
+    "explanation": "Colossians 3 describes putting off the old self and putting on the new self in Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_1th_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Thessalonians does Paul comfort believers regarding deceased Christians with the promise of the Rapture / Return of the Lord ('The dead in Christ will rise first. Then we who are alive... will be caught up together with them in the clouds')?",
+    "bookId": "1TH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "1 Thessalonians 4",
+      "1TH 4",
+      "1 Thessalonians Chapter 4"
+    ],
+    "displayAnswer": "1 Thessalonians 4 (or Chapter 4)",
+    "explanation": "1 Thessalonians 4:13\u201318 explains the resurrection of the dead and the catching up of believers.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_1th_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Thessalonians does Paul explain that the Day of the Lord comes like a thief in the night and urge: 'Rejoice always, pray without ceasing, give thanks in all circumstances'?",
+    "bookId": "1TH",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "1 Thessalonians 5",
+      "1TH 5",
+      "1 Thessalonians Chapter 5"
+    ],
+    "displayAnswer": "1 Thessalonians 5 (or Chapter 5)",
+    "explanation": "1 Thessalonians 5 outlines readiness for the Day of the Lord and closing exhortations.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_2th_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Thessalonians does Paul explain that the Day of the Lord will not come until the rebellion occurs and the 'Man of Lawlessness' (Son of Destruction) is revealed?",
+    "bookId": "2TH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "2 Thessalonians 2",
+      "2TH 2",
+      "2 Thessalonians Chapter 2"
+    ],
+    "displayAnswer": "2 Thessalonians 2 (or Chapter 2)",
+    "explanation": "2 Thessalonians 2 details the rise and defeat of the Man of Lawlessness by Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_1ti_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Timothy does Paul teach: 'For there is one God, and there is one mediator between God and men, the man Christ Jesus' (1 Tim 2:5) alongside instructions for prayer and church order?",
+    "bookId": "1TI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "1 Timothy 2",
+      "1TI 2",
+      "1 Timothy Chapter 2"
+    ],
+    "displayAnswer": "1 Timothy 2 (or Chapter 2)",
+    "explanation": "1 Timothy 2 emphasizes prayer for all people and the uniqueness of Christ as Mediator.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_1ti_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Timothy does Paul lay out the biblical qualifications for Overseers (Elders/Pastors) and Deacons in the local church?",
+    "bookId": "1TI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "1 Timothy 3",
+      "1TI 3",
+      "1 Timothy Chapter 3"
+    ],
+    "displayAnswer": "1 Timothy 3 (or Chapter 3)",
+    "explanation": "1 Timothy 3 details the spiritual qualifications for church leadership.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_1ti_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Timothy does Paul state that 'godliness with contentment is great gain' and warn that 'the love of money is a root of all kinds of evils'?",
+    "bookId": "1TI",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "1 Timothy 6",
+      "1TI 6",
+      "1 Timothy Chapter 6"
+    ],
+    "displayAnswer": "1 Timothy 6 (or Chapter 6)",
+    "explanation": "1 Timothy 6 contains pastoral warnings regarding wealth and the fight of faith.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_2ti_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Timothy does Paul encourage Timothy: 'For God gave us a spirit not of fear but of power and love and self-control'?",
+    "bookId": "2TI",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "2 Timothy 1",
+      "2TI 1",
+      "2 Timothy Chapter 1"
+    ],
+    "displayAnswer": "2 Timothy 1 (or Chapter 1)",
+    "explanation": "2 Timothy 1 urges Timothy not to be ashamed of the gospel.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_2ti_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Timothy does Paul describe the faithful Christian as a Soldier, an Athlete, and a hardworking Farmer, urging him to 'rightly handle the word of truth'?",
+    "bookId": "2TI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "2 Timothy 2",
+      "2TI 2",
+      "2 Timothy Chapter 2"
+    ],
+    "displayAnswer": "2 Timothy 2 (or Chapter 2)",
+    "explanation": "2 Timothy 2 outlines multi-generational discipleship (2 Tim 2:2) and endurance.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_2ti_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Timothy is the landmark doctrine of the Inspiration of Scripture: 'All Scripture is breathed out by God and profitable for teaching, for reproof, for correction, and for training in righteousness' (2 Tim 3:16)?",
+    "bookId": "2TI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "2 Timothy 3",
+      "2TI 3",
+      "2 Timothy Chapter 3"
+    ],
+    "displayAnswer": "2 Timothy 3 (or Chapter 3)",
+    "explanation": "2 Timothy 3 establishes the divine inspiration and sufficiency of Scripture.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_2ti_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Timothy does Paul deliver his solemn charge ('Preach the word; be ready in season and out of season') and utter his farewell: 'I have fought the good fight, I have finished the race, I have kept the faith'?",
+    "bookId": "2TI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "2 Timothy 4",
+      "2TI 4",
+      "2 Timothy Chapter 4"
+    ],
+    "displayAnswer": "2 Timothy 4 (or Chapter 4)",
+    "explanation": "2 Timothy 4 contains Paul's dying charge and anticipation of the crown of righteousness.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_tit_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Titus does Paul instruct Titus to appoint elders in every town in Crete and silence rebellious false teachers?",
+    "bookId": "TIT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Titus 1",
+      "TIT 1",
+      "Titus Chapter 1"
+    ],
+    "displayAnswer": "Titus 1 (or Chapter 1)",
+    "explanation": "Titus 1 details elder qualifications and rebuking deceitful teachers.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_tit_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Titus does Paul provide sound doctrine for older men, older women, young women, and young men, declaring that 'the grace of God has appeared, bringing salvation for all people'?",
+    "bookId": "TIT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Titus 2",
+      "TIT 2",
+      "Titus Chapter 2"
+    ],
+    "displayAnswer": "Titus 2 (or Chapter 2)",
+    "explanation": "Titus 2 outlines discipleship across age groups and the transforming power of grace.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_tit_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Titus is the glorious summary of salvation: 'He saved us, not because of works done by us in righteousness, but according to his own mercy, by the washing of regeneration and renewal of the Holy Spirit' (Titus 3:5)?",
+    "bookId": "TIT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Titus 3",
+      "TIT 3",
+      "Titus Chapter 3"
+    ],
+    "displayAnswer": "Titus 3 (or Chapter 3)",
+    "explanation": "Titus 3 highlights regeneration by the Holy Spirit and maintaining good works.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_phm_1",
+    "type": "chapter_in_book",
+    "prompt": "In what single chapter of Philemon does Paul appeal on behalf of the runaway slave Onesimus, asking Philemon to receive him no longer as a bondservant but as a beloved brother in the Lord?",
+    "bookId": "PHM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Philemon 1",
+      "PHM 1",
+      "Philemon Chapter 1"
+    ],
+    "displayAnswer": "Philemon 1 (or Chapter 1)",
+    "explanation": "Philemon contains 1 chapter demonstrating gospel reconciliation in relationships.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_heb_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hebrews does the author proclaim that God, having spoken in many ways by the prophets, 'has in these last days spoken to us by his Son' who is far superior to angels?",
+    "bookId": "HEB",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Hebrews 1",
+      "HEB 1",
+      "Hebrews Chapter 1"
+    ],
+    "displayAnswer": "Hebrews 1 (or Chapter 1)",
+    "explanation": "Hebrews 1 establishes the supreme deity and authority of Jesus over angels.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_heb_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hebrews is the Word of God described as 'living and active, sharper than any two-edged sword' and Jesus proclaimed as our sympathetic Great High Priest?",
+    "bookId": "HEB",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Hebrews 4",
+      "HEB 4",
+      "Hebrews Chapter 4"
+    ],
+    "displayAnswer": "Hebrews 4 (or Chapter 4)",
+    "explanation": "Hebrews 4 emphasizes Sabbath rest, the power of Scripture, and the throne of grace.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_heb_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hebrews is the eternal priesthood of Jesus after the order of Melchizedek explained as superior to the temporary Levitical priesthood?",
+    "bookId": "HEB",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Hebrews 7",
+      "HEB 7",
+      "Hebrews Chapter 7"
+    ],
+    "displayAnswer": "Hebrews 7 (or Chapter 7)",
+    "explanation": "Hebrews 7 expounds the Melchizedekian priesthood of Christ.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_heb_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hebrews does the author quote Jeremiah 31 to prove that Jesus is the Mediator of a Better Covenant enacted on better promises?",
+    "bookId": "HEB",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Hebrews 8",
+      "HEB 8",
+      "Hebrews Chapter 8"
+    ],
+    "displayAnswer": "Hebrews 8 (or Chapter 8)",
+    "explanation": "Hebrews 8 contrasts the Old Covenant with the New Covenant.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_heb_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hebrews is Christ's Once-for-All sacrifice on the cross contrasted with repeated animal sacrifices, urging believers to draw near with confidence?",
+    "bookId": "HEB",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "Hebrews 10",
+      "HEB 10",
+      "Hebrews Chapter 10"
+    ],
+    "displayAnswer": "Hebrews 10 (or Chapter 10)",
+    "explanation": "Hebrews 10 emphasizes the finality of Christ's sacrifice.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_heb_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hebrews is the famous 'Hall of Faith' ('Now faith is the assurance of things hoped for, the conviction of things not seen') recounting the faith of Abel, Enoch, Noah, Abraham, Moses, and Rahab?",
+    "bookId": "HEB",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Hebrews 11",
+      "HEB 11",
+      "Hebrews Chapter 11"
+    ],
+    "displayAnswer": "Hebrews 11 (or Chapter 11)",
+    "explanation": "Hebrews 11 is the classic Faith Chapter of the Bible.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_heb_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hebrews are believers exhorted to run the race with endurance, 'looking to Jesus, the founder and perfecter of our faith', and contrast Mount Sinai with Mount Zion?",
+    "bookId": "HEB",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Hebrews 12",
+      "HEB 12",
+      "Hebrews Chapter 12"
+    ],
+    "displayAnswer": "Hebrews 12 (or Chapter 12)",
+    "explanation": "Hebrews 12 details fixing eyes on Jesus, divine discipline, and the unshakeable Kingdom.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_heb_13",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Hebrews is the declaration: 'Jesus Christ is the same yesterday and today and forever' (Heb 13:8) alongside charges to honor marriage and show hospitality?",
+    "bookId": "HEB",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Hebrews 13",
+      "HEB 13",
+      "Hebrews Chapter 13"
+    ],
+    "displayAnswer": "Hebrews 13 (or Chapter 13)",
+    "explanation": "Hebrews 13 concludes with practical ethical duties and the immutable character of Christ.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_jas_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of James are believers told to 'Count it all joy... when you meet trials of various kinds', ask for wisdom in faith, and 'be doers of the word, and not hearers only'?",
+    "bookId": "JAS",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "James 1",
+      "JAS 1",
+      "James Chapter 1"
+    ],
+    "displayAnswer": "James 1 (or Chapter 1)",
+    "explanation": "James 1 addresses trials, wisdom, and active obedience to God's Word.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_jas_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of James does the author warn against partiality/favoritism toward the rich and declare: 'Faith without works is dead'?",
+    "bookId": "JAS",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "James 2",
+      "JAS 2",
+      "James Chapter 2"
+    ],
+    "displayAnswer": "James 2 (or Chapter 2)",
+    "explanation": "James 2 explains that authentic saving faith produces demonstrable righteous works.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_jas_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of James is the Tongue described as a small rudder, a restless evil, and a world of unrighteousness that can set a forest on fire?",
+    "bookId": "JAS",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "James 3",
+      "JAS 3",
+      "James Chapter 3"
+    ],
+    "displayAnswer": "James 3 (or Chapter 3)",
+    "explanation": "James 3 focuses on taming the tongue and heavenly versus earthly wisdom.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_jas_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of James is the warning that 'friendship with the world is enmity with God' alongside the command: 'Submit yourselves therefore to God. Resist the devil, and he will flee from you'?",
+    "bookId": "JAS",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "James 4",
+      "JAS 4",
+      "James Chapter 4"
+    ],
+    "displayAnswer": "James 4 (or Chapter 4)",
+    "explanation": "James 4 addresses worldliness, humility, and boasting about tomorrow.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_jas_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of James does the author urge patience in suffering, call for the elders to pray over the sick, and cite Elijah as an example of fervent prayer?",
+    "bookId": "JAS",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "James 5",
+      "JAS 5",
+      "James Chapter 5"
+    ],
+    "displayAnswer": "James 5 (or Chapter 5)",
+    "explanation": "James 5 concludes with warnings to the rich, patience, and the power of prayer.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_1pe_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Peter does the apostle praise God for 'a living hope through the resurrection of Jesus Christ... an inheritance that is imperishable, undefiled, and unfading' and command 'Be holy, for I am holy'?",
+    "bookId": "1PE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "1 Peter 1",
+      "1PE 1",
+      "1 Peter Chapter 1"
+    ],
+    "displayAnswer": "1 Peter 1 (or Chapter 1)",
+    "explanation": "1 Peter 1 describes the believer's living hope and call to personal holiness.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_1pe_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Peter are believers described as 'living stones' built into a spiritual house and 'a chosen race, a royal priesthood, a holy nation' (1 Pet 2:9)?",
+    "bookId": "1PE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "1 Peter 2",
+      "1PE 2",
+      "1 Peter Chapter 2"
+    ],
+    "displayAnswer": "1 Peter 2 (or Chapter 2)",
+    "explanation": "1 Peter 2 details the identity of the Church as God's royal priesthood.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_1pe_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Peter is the apologetics mandate: 'Always being prepared to make a defense to anyone who asks you for a reason for the hope that is in you; yet do it with gentleness and respect' (1 Pet 3:15)?",
+    "bookId": "1PE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "1 Peter 3",
+      "1PE 3",
+      "1 Peter Chapter 3"
+    ],
+    "displayAnswer": "1 Peter 3 (or Chapter 3)",
+    "explanation": "1 Peter 3 contains instructions for spouses, suffering for righteousness, and defending the faith.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_1pe_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 Peter are elders exhorted to shepherd the flock willingly, and believers urged: 'Cast all your anxieties on him, because he cares for you. Be sober-minded; be watchful. Your adversary the devil prowls around like a roaring lion'?",
+    "bookId": "1PE",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "1 Peter 5",
+      "1PE 5",
+      "1 Peter Chapter 5"
+    ],
+    "displayAnswer": "1 Peter 5 (or Chapter 5)",
+    "explanation": "1 Peter 5 provides pastoral encouragement, humility, and vigilance against Satan.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_2pe_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Peter does the apostle explain that God's divine power has granted us all things pertaining to life and godliness, and that Scripture came as men spoke from God 'as they were carried along by the Holy Spirit'?",
+    "bookId": "2PE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "2 Peter 1",
+      "2PE 1",
+      "2 Peter Chapter 1"
+    ],
+    "displayAnswer": "2 Peter 1 (or Chapter 1)",
+    "explanation": "2 Peter 1 outlines the ladder of Christian virtues and the divine origin of Scripture.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_2pe_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Peter does the apostle warn against false teachers and their destructive heresies, using historical judgments (fallen angels, Noah's flood, Sodom) as warnings?",
+    "bookId": "2PE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "2 Peter 2",
+      "2PE 2",
+      "2 Peter Chapter 2"
+    ],
+    "displayAnswer": "2 Peter 2 (or Chapter 2)",
+    "explanation": "2 Peter 2 is a strong polemic against deceitful false teachers.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_2pe_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Peter does Peter address scoffers in the last days, declare that 'with the Lord one day is as a thousand years', and describe the destruction of the present heavens and earth by fire before the New Creation?",
+    "bookId": "2PE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "2 Peter 3",
+      "2PE 3",
+      "2 Peter Chapter 3"
+    ],
+    "displayAnswer": "2 Peter 3 (or Chapter 3)",
+    "explanation": "2 Peter 3 teaches on the Day of the Lord and looking for new heavens and a new earth.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_1jn_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 John does the apostle declare that 'God is light, and in him is no darkness at all' and 'If we confess our sins, he is faithful and just to forgive us our sins and to cleanse us from all unrighteousness' (1 John 1:9)?",
+    "bookId": "1JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "1 John 1",
+      "1JN 1",
+      "1 John Chapter 1"
+    ],
+    "displayAnswer": "1 John 1 (or Chapter 1)",
+    "explanation": "1 John 1 establishes fellowship with God in the light and confession of sin.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_1jn_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 John does John write: 'My little children, I am writing these things to you so that you may not sin. But if anyone does sin, we have an advocate with the Father, Jesus Christ the righteous' and warn: 'Do not love the world'?",
+    "bookId": "1JN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "1 John 2",
+      "1JN 2",
+      "1 John Chapter 2"
+    ],
+    "displayAnswer": "1 John 2 (or Chapter 2)",
+    "explanation": "1 John 2 describes Christ as our Advocate and propitiation.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_1jn_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 John does the apostle marvel: 'See what kind of love the Father has given to us, that we should be called children of God' and define love: 'By this we know love, that he laid down his life for us'?",
+    "bookId": "1JN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "1 John 3",
+      "1JN 3",
+      "1 John Chapter 3"
+    ],
+    "displayAnswer": "1 John 3 (or Chapter 3)",
+    "explanation": "1 John 3 emphasizes the love of the Father and loving in deed and truth.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_1jn_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 John are believers told to 'test the spirits' and repeatedly taught that 'God is love... In this is love, not that we have loved God but that he loved us and sent his Son to be the propitiation for our sins' (1 John 4:10)?",
+    "bookId": "1JN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "1 John 4",
+      "1JN 4",
+      "1 John Chapter 4"
+    ],
+    "displayAnswer": "1 John 4 (or Chapter 4)",
+    "explanation": "1 John 4 is the great discourse on the love of God and testing the spirits.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_1jn_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 1 John is the stated purpose of the epistle: 'I write these things to you who believe in the name of the Son of God, that you may know that you have eternal life' (1 John 5:13)?",
+    "bookId": "1JN",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "1 John 5",
+      "1JN 5",
+      "1 John Chapter 5"
+    ],
+    "displayAnswer": "1 John 5 (or Chapter 5)",
+    "explanation": "1 John 5 provides believers with full assurance of eternal life.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_2jn_1",
+    "type": "chapter_in_book",
+    "prompt": "In what single chapter of 2 John does the elder warn the 'elect lady' against receiving deceivers into her house who do not confess the coming of Jesus Christ in the flesh?",
+    "bookId": "2JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "2 John 1",
+      "2JN 1",
+      "2 John Chapter 1"
+    ],
+    "displayAnswer": "2 John 1 (or Chapter 1)",
+    "explanation": "2 John contains 1 chapter on walking in truth and guarding against false teachers.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_3jn_1",
+    "type": "chapter_in_book",
+    "prompt": "In what single chapter of 3 John does the apostle commend Gaius for his hospitality to traveling missionaries, while rebuking prideful Diotrephes who loves to put himself first?",
+    "bookId": "3JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "3 John 1",
+      "3JN 1",
+      "3 John Chapter 1"
+    ],
+    "displayAnswer": "3 John 1 (or Chapter 1)",
+    "explanation": "3 John contains 1 chapter contrasting Gaius and Demetrius with Diotrephes.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_jud_1",
+    "type": "chapter_in_book",
+    "prompt": "In what single chapter of Jude are believers exhorted to 'contend earnestly for the faith once delivered to the saints' and given the famous Doxology: 'Now to him who is able to keep you from stumbling'?",
+    "bookId": "JUD",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Jude 1",
+      "JUD 1",
+      "Jude Chapter 1"
+    ],
+    "displayAnswer": "Jude 1 (or Chapter 1)",
+    "explanation": "Jude contains 1 chapter warning against apostates and closing with magnificent praise.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_rev_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation does the apostle John on the island of Patmos see the vision of the Glorious Risen Christ standing among seven golden lampstands?",
+    "bookId": "REV",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Revelation 1",
+      "REV 1",
+      "Revelation Chapter 1"
+    ],
+    "displayAnswer": "Revelation 1 (or Chapter 1)",
+    "explanation": "Revelation 1 opens the apocalyptic vision with the majesty of the glorified Christ.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation are the letters to the churches of Ephesus ('abandoned the love you had at first'), Smyrna, Pergamum, and Thyatira?",
+    "bookId": "REV",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Revelation 2",
+      "REV 2",
+      "Revelation Chapter 2"
+    ],
+    "displayAnswer": "Revelation 2 (or Chapter 2)",
+    "explanation": "Revelation 2 contains four of the seven letters to the churches in Asia Minor.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation are the letters to the churches of Sardis, Philadelphia ('an open door'), and lukewarm Laodicea ('Behold, I stand at the door and knock')?",
+    "bookId": "REV",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Revelation 3",
+      "REV 3",
+      "Revelation Chapter 3"
+    ],
+    "displayAnswer": "Revelation 3 (or Chapter 3)",
+    "explanation": "Revelation 3 contains the letters to Sardis, Philadelphia, and Laodicea.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation is John caught up to heaven to see the Throne of God, the rainbow, 24 elders, and four living creatures chanting: 'Holy, holy, holy, is the Lord God Almighty'?",
+    "bookId": "REV",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Revelation 4",
+      "REV 4",
+      "Revelation Chapter 4"
+    ],
+    "displayAnswer": "Revelation 4 (or Chapter 4)",
+    "explanation": "Revelation 4 details the heavenly throne room of the Creator.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_5",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation is the seven-sealed scroll presented, and the Lion of the tribe of Judah, the Lamb slain, is declared worthy to open the seals?",
+    "bookId": "REV",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Revelation 5",
+      "REV 5",
+      "Revelation Chapter 5"
+    ],
+    "displayAnswer": "Revelation 5 (or Chapter 5)",
+    "explanation": "Revelation 5 focuses on the worship of the Lamb who alone is worthy to break the seals.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_6",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation are the first six seals opened, releasing the Four Horsemen of the Apocalypse (white, red, black, and pale horses)?",
+    "bookId": "REV",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Revelation 6",
+      "REV 6",
+      "Revelation Chapter 6"
+    ],
+    "displayAnswer": "Revelation 6 (or Chapter 6)",
+    "explanation": "Revelation 6 records the opening of the seals and the Four Horsemen.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_7",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation are the 144,000 servants of God sealed from the twelve tribes of Israel, and a great multitude that no one could number from every tribe and nation praises the Lamb?",
+    "bookId": "REV",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Revelation 7",
+      "REV 7",
+      "Revelation Chapter 7"
+    ],
+    "displayAnswer": "Revelation 7 (or Chapter 7)",
+    "explanation": "Revelation 7 details the sealing of the 144,000 and the redeemed multitude.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation do the Two Witnesses prophesy for 1,260 days, die, and resurrect, followed by the Seventh Trumpet: 'The kingdom of the world has become the kingdom of our Lord and of his Christ'?",
+    "bookId": "REV",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Revelation 11",
+      "REV 11",
+      "Revelation Chapter 11"
+    ],
+    "displayAnswer": "Revelation 11 (or Chapter 11)",
+    "explanation": "Revelation 11 describes the Two Witnesses and the triumph of the Seventh Trumpet.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation does the Woman clothed with the sun give birth to the male Child, and Michael and his angels defeat the Dragon (Satan), casting him down to earth?",
+    "bookId": "REV",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Revelation 12",
+      "REV 12",
+      "Revelation Chapter 12"
+    ],
+    "displayAnswer": "Revelation 12 (or Chapter 12)",
+    "explanation": "Revelation 12 details the cosmic warfare between the woman, the Child, and the dragon.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_13",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation do the Beast from the Sea (Antichrist) and the Beast from the Earth (False Prophet) arise, enforcing the Mark of the Beast (666)?",
+    "bookId": "REV",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Revelation 13",
+      "REV 13",
+      "Revelation Chapter 13"
+    ],
+    "displayAnswer": "Revelation 13 (or Chapter 13)",
+    "explanation": "Revelation 13 describes the rise of the Beast, False Prophet, and the mark of the beast.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_19",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation is the Marriage Supper of the Lamb celebrated and Christ returns on a white horse as 'King of Kings and Lord of Lords' to defeat the beast?",
+    "bookId": "REV",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "19",
+      "Chapter 19",
+      "Ch 19",
+      "Revelation 19",
+      "REV 19",
+      "Revelation Chapter 19"
+    ],
+    "displayAnswer": "Revelation 19 (or Chapter 19)",
+    "explanation": "Revelation 19 describes the Second Coming of Christ in power and glory.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_20",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation is Satan bound for 1,000 years (the Millennium) and the Great White Throne Judgment takes place where the dead are judged according to their deeds?",
+    "bookId": "REV",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "20",
+      "Chapter 20",
+      "Ch 20",
+      "Revelation 20",
+      "REV 20",
+      "Revelation Chapter 20"
+    ],
+    "displayAnswer": "Revelation 20 (or Chapter 20)",
+    "explanation": "Revelation 20 details the Millennial Reign, the final defeat of Satan, and the Great White Throne Judgment.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_21",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation does John see the New Heaven and New Earth, the New Jerusalem descending from God, and God wiping away every tear ('death shall be no more')?",
+    "bookId": "REV",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "21",
+      "Chapter 21",
+      "Ch 21",
+      "Revelation 21",
+      "REV 21",
+      "Revelation Chapter 21"
+    ],
+    "displayAnswer": "Revelation 21 (or Chapter 21)",
+    "explanation": "Revelation 21 describes the glorious New Jerusalem and eternal state.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_rev_22",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Revelation (the final chapter of the Bible) is the River of the Water of Life and the Tree of Life described, closing with Jesus' promise: 'Surely I am coming soon'?",
+    "bookId": "REV",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "22",
+      "Chapter 22",
+      "Ch 22",
+      "Revelation 22",
+      "REV 22",
+      "Revelation Chapter 22"
+    ],
+    "displayAnswer": "Revelation 22 (or Chapter 22)",
+    "explanation": "Revelation 22 concludes the Holy Scriptures with the River of Life and the promise of Christ's return.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
   }
 ];
 
