@@ -13052,6 +13052,7 @@ function renderChapterEditorView({
   selectedBook,
   chapterNum,
   splitViewMode = "split", // 'split' | 'outline' | 'scripture'
+  splitRatio = 50,
   isLoadingESV = false,
   esvErrorMessage = null,
   data
@@ -13242,11 +13243,15 @@ function renderChapterEditorView({
 
       <!-- MAIN SPLIT WORKSPACE -->
       <div
-        class="flex-1 grid grid-cols-2 divide-x divide-[#242422] overflow-hidden"
-        style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));"
+        id="chapter-split-container"
+        class="flex-1 flex overflow-hidden relative"
       >
         <!-- COLUMN 1 / PANEL A: UNIFIED OUTLINE CANVAS WITH BULLETED LIST EDITOR -->
-        <div class="h-full overflow-hidden flex flex-col bg-[#161614] p-6 space-y-3">
+        <div
+          id="chapter-outline-panel"
+          class="h-full overflow-hidden flex flex-col bg-[#161614] p-6 space-y-3 shrink-0"
+          style="width: ${splitRatio}%; min-width: 260px; max-width: calc(100% - 260px);"
+        >
                   <!-- Top Bar & One-Click Chapter Selector for Current Book -->
                   <div class="space-y-2 border-b border-[#262624] pb-2.5 shrink-0">
                     <div class="flex items-center justify-between gap-2">
@@ -13448,8 +13453,20 @@ function renderChapterEditorView({
                   </div>
                 </div>
 
+        <!-- RESIZABLE SPLIT DIVIDER -->
+        <div
+          id="chapter-split-divider"
+          class="w-2 bg-[#1C1C1A] hover:bg-[#C4B79C] active:bg-[#DBCFB3] border-l border-r border-[#262624] cursor-col-resize shrink-0 transition-colors relative z-20 flex items-center justify-center select-none group"
+          title="Drag to resize panels (Double-click to reset 50/50)"
+        >
+          <div class="w-0.5 h-7 bg-[#484844] group-hover:bg-[#141413] group-active:bg-[#141413] rounded-full transition-colors pointer-events-none"></div>
+        </div>
+
         <!-- COLUMN 2 / PANEL B: BIBLE SCRIPTURE READER -->
-        <div class="h-full overflow-y-auto p-8 bg-[#151513] flex flex-col">
+        <div
+          id="chapter-scripture-panel"
+          class="flex-1 h-full overflow-y-auto p-8 bg-[#151513] flex flex-col min-w-[260px]"
+        >
           <!-- Quiet Bible Reader Header -->
           <div class="flex items-center justify-between border-b border-[#242422] pb-2 shrink-0">
             <span class="text-xs font-mono uppercase tracking-wider text-[#A19E97]">
@@ -15134,6 +15151,8 @@ class BibleOutlineStudio {
     this.selectedChapterNum = 1;
     this.activeView = "chapter-outliner"; // 'chapter-outliner' (side-by-side) | 'book-rollup' | 'quiz-diagnostic'
     this.splitViewMode = "split"; // 'split' | 'outline' | 'scripture'
+    const savedRatio = parseFloat(localStorage.getItem("bibleOutline_splitRatio"));
+    this.splitRatio = !isNaN(savedRatio) && savedRatio >= 15 && savedRatio <= 85 ? savedRatio : 50;
     this.isCollapsed = false;
 
     // Quiz & Diagnostic state
@@ -15754,6 +15773,7 @@ class BibleOutlineStudio {
                       selectedBook: book,
                       chapterNum: this.selectedChapterNum,
                       splitViewMode: this.splitViewMode,
+                      splitRatio: this.splitRatio,
                       isLoadingESV: this.isLoadingESV,
                       esvErrorMessage: this.esvErrorMessage,
                       data: this.data
@@ -16306,6 +16326,68 @@ class BibleOutlineStudio {
           this.syncHeadingBlocksForChapter(chKey, text, book.name, this.selectedChapterNum);
         }
         this.render();
+      });
+    }
+
+    // Resizable Split Divider between Outline Panel and Scripture Panel
+    const splitContainer = document.getElementById("chapter-split-container");
+    const splitDivider = document.getElementById("chapter-split-divider");
+    const outlinePanel = document.getElementById("chapter-outline-panel");
+
+    if (splitContainer && splitDivider && outlinePanel) {
+      let isDragging = false;
+
+      const onPointerDown = (e) => {
+        isDragging = true;
+        try {
+          splitDivider.setPointerCapture(e.pointerId);
+        } catch (_) {}
+        document.body.style.userSelect = "none";
+        document.body.style.cursor = "col-resize";
+      };
+
+      const onPointerMove = (e) => {
+        if (!isDragging) return;
+        const rect = splitContainer.getBoundingClientRect();
+        if (rect.width <= 0) return;
+
+        const offsetX = e.clientX - rect.left;
+        let pct = (offsetX / rect.width) * 100;
+
+        // Dynamic boundaries: min 260px for outline and min 260px for scripture
+        const minPct = Math.max(15, (260 / rect.width) * 100);
+        const maxPct = Math.min(85, ((rect.width - 260) / rect.width) * 100);
+
+        pct = Math.min(Math.max(pct, minPct), maxPct);
+        this.splitRatio = pct;
+        outlinePanel.style.width = `${pct}%`;
+      };
+
+      const onPointerUp = (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        try {
+          splitDivider.releasePointerCapture(e.pointerId);
+        } catch (_) {}
+        document.body.style.userSelect = "";
+        document.body.style.cursor = "";
+        try {
+          localStorage.setItem("bibleOutline_splitRatio", this.splitRatio.toString());
+        } catch (_) {}
+      };
+
+      splitDivider.addEventListener("pointerdown", onPointerDown);
+      splitDivider.addEventListener("pointermove", onPointerMove);
+      splitDivider.addEventListener("pointerup", onPointerUp);
+      splitDivider.addEventListener("pointercancel", onPointerUp);
+
+      // Double-click divider to reset to 50/50
+      splitDivider.addEventListener("dblclick", () => {
+        this.splitRatio = 50;
+        outlinePanel.style.width = "50%";
+        try {
+          localStorage.setItem("bibleOutline_splitRatio", "50");
+        } catch (_) {}
       });
     }
 

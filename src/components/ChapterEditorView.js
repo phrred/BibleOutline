@@ -5,6 +5,7 @@ export function renderChapterEditorView({
   selectedBook,
   chapterNum,
   splitViewMode = "split", // 'split' | 'outline' | 'scripture'
+  splitRatio = 50,
   isLoadingESV = false,
   esvErrorMessage = null,
   data
@@ -195,11 +196,15 @@ export function renderChapterEditorView({
 
       <!-- MAIN SPLIT WORKSPACE -->
       <div
-        class="flex-1 grid grid-cols-2 divide-x divide-[#242422] overflow-hidden"
-        style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));"
+        id="chapter-split-container"
+        class="flex-1 flex overflow-hidden relative"
       >
         <!-- COLUMN 1 / PANEL A: UNIFIED OUTLINE CANVAS WITH BULLETED LIST EDITOR -->
-        <div class="h-full overflow-hidden flex flex-col bg-[#161614] p-6 space-y-3">
+        <div
+          id="chapter-outline-panel"
+          class="h-full overflow-hidden flex flex-col bg-[#161614] p-6 space-y-3 shrink-0"
+          style="width: ${splitRatio}%; min-width: 260px; max-width: calc(100% - 260px);"
+        >
                   <!-- Top Bar & One-Click Chapter Selector for Current Book -->
                   <div class="space-y-2 border-b border-[#262624] pb-2.5 shrink-0">
                     <div class="flex items-center justify-between gap-2">
@@ -401,8 +406,20 @@ export function renderChapterEditorView({
                   </div>
                 </div>
 
+        <!-- RESIZABLE SPLIT DIVIDER -->
+        <div
+          id="chapter-split-divider"
+          class="w-2 bg-[#1C1C1A] hover:bg-[#C4B79C] active:bg-[#DBCFB3] border-l border-r border-[#262624] cursor-col-resize shrink-0 transition-colors relative z-20 flex items-center justify-center select-none group"
+          title="Drag to resize panels (Double-click to reset 50/50)"
+        >
+          <div class="w-0.5 h-7 bg-[#484844] group-hover:bg-[#141413] group-active:bg-[#141413] rounded-full transition-colors pointer-events-none"></div>
+        </div>
+
         <!-- COLUMN 2 / PANEL B: BIBLE SCRIPTURE READER -->
-        <div class="h-full overflow-y-auto p-8 bg-[#151513] flex flex-col">
+        <div
+          id="chapter-scripture-panel"
+          class="flex-1 h-full overflow-y-auto p-8 bg-[#151513] flex flex-col min-w-[260px]"
+        >
           <!-- Quiet Bible Reader Header -->
           <div class="flex items-center justify-between border-b border-[#242422] pb-2 shrink-0">
             <span class="text-xs font-mono uppercase tracking-wider text-[#A19E97]">

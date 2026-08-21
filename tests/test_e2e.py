@@ -130,11 +130,25 @@ class E2ETester:
                 targetedSectionIdx = document.activeElement?.closest('.section-bullet-canvas')?.getAttribute('data-section-editor');
             }
 
+            // Test Resizable Split Divider
+            const divider = document.getElementById('chapter-split-divider');
+            const outlinePanel = document.getElementById('chapter-outline-panel');
+            let initialWidth = outlinePanel ? outlinePanel.style.width : null;
+
+            if (divider && outlinePanel) {
+                // Test double-click reset
+                divider.dispatchEvent(new MouseEvent('dblclick', { bubbles: true }));
+            }
+            let widthAfterDblClick = outlinePanel ? outlinePanel.style.width : null;
+
             return {
                 hasCanvas: canvases.length > 0,
                 hasSummaryArea: Boolean(summaryArea),
                 savedSummary: app.data.books['GEN']?.bookSummary,
-                targetedSectionIdx
+                targetedSectionIdx,
+                hasDivider: Boolean(divider),
+                hasOutlinePanel: Boolean(outlinePanel),
+                widthAfterDblClick
             };
         })()
         """)
@@ -142,6 +156,8 @@ class E2ETester:
         assert r.get("hasSummaryArea") == True, "Quick summary textarea missing"
         assert r.get("savedSummary") == "Automated Quick Summary Test", "Quick summary input did not update storage state"
         assert r.get("targetedSectionIdx") == "1", f"Expected toolbar to target Section 2 (index 1), got {r.get('targetedSectionIdx')}"
+        assert r.get("hasDivider") == True, "Resizable split divider missing"
+        assert r.get("widthAfterDblClick") == "50%", f"Expected 50% width after double click, got {r.get('widthAfterDblClick')}"
 
     def test_book_rollup_and_plot(self):
         # 1. Book Rollup View
