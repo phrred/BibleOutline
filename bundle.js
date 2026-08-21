@@ -12008,9 +12008,9 @@ function formatESVTextToHTML(rawText) {
         return `<h4 class="font-serif font-bold text-[#DBCFB3] text-base pt-4 pb-1 tracking-tight">${t}</h4>`;
       }
 
-      // Quiet verse numbers [1], [2], [14]
+      // Clean verse numbers [1], [2], [14]
       const withFormattedVerses = t.replace(/\[(\d+)\]/g, (match, vNum) => {
-        return `<span class="esv-verse-num inline-block font-mono text-xs text-[#C4B79C] mr-1.5 select-none cursor-pointer hover:underline" data-verse="${vNum}" title="Click to insert v${vNum} quote into outline"><sup>${vNum}</sup></span>`;
+        return `<span class="inline-block font-mono text-xs text-[#C4B79C] mr-1.5 select-none font-medium"><sup>${vNum}</sup></span>`;
       });
 
       return `<p class="font-reader text-[15.5px] leading-[1.85] text-[#ECE9E0] mb-3">${withFormattedVerses}</p>`;
@@ -13454,9 +13454,6 @@ function renderChapterEditorView({
           <div class="flex items-center justify-between border-b border-[#242422] pb-2 shrink-0">
             <span class="text-xs font-mono uppercase tracking-wider text-[#A19E97]">
               ESV Scripture • ${selectedBook.name} ${chapterNum}
-            </span>
-            <span class="text-[11px] font-mono text-[#7B7974]">
-              Click any verse number badge to quote
             </span>
           </div>
 
@@ -16101,6 +16098,14 @@ class BibleOutlineStudio {
       });
     }
 
+    // Track active section canvas so toolbar operations target the currently edited section
+    let lastActiveSectionCanvas = null;
+    const updateActiveSectionCanvas = (canvas) => {
+      if (canvas && canvas.classList.contains("section-bullet-canvas")) {
+        lastActiveSectionCanvas = canvas;
+      }
+    };
+
     // Helper to guarantee a bulleted list (<ul><li>...</li></ul>) in a section canvas
     const ensureSectionBulletedList = (canvas) => {
       if (!canvas) return;
@@ -16111,13 +16116,23 @@ class BibleOutlineStudio {
           text || "<br>"
         }</li></ul>`;
       }
-      // Place cursor inside the list item
-      const li = canvas.querySelector("li");
-      if (li) {
+      
+      // If cursor/selection is already inside this canvas, preserve position
+      const sel = window.getSelection();
+      if (sel && sel.rangeCount > 0) {
+        const anchorNode = sel.anchorNode;
+        if (anchorNode && canvas.contains(anchorNode)) {
+          return;
+        }
+      }
+
+      // Otherwise place cursor inside the target list item
+      const lis = canvas.querySelectorAll("li");
+      const targetLi = lis.length > 0 ? lis[lis.length - 1] : null;
+      if (targetLi) {
         canvas.focus();
-        const sel = window.getSelection();
         const range = document.createRange();
-        range.selectNodeContents(li);
+        range.selectNodeContents(targetLi);
         range.collapse(false);
         if (sel) {
           sel.removeAllRanges();
@@ -16129,8 +16144,14 @@ class BibleOutlineStudio {
     // Dedicated Bulleted List Canvases under Indestructible Section Headers
     const sectionCanvases = document.querySelectorAll(".section-bullet-canvas");
     sectionCanvases.forEach((canvas) => {
+      canvas.addEventListener("focus", () => updateActiveSectionCanvas(canvas));
+      canvas.addEventListener("click", () => updateActiveSectionCanvas(canvas));
+      canvas.addEventListener("keyup", () => updateActiveSectionCanvas(canvas));
+      canvas.addEventListener("pointerdown", () => updateActiveSectionCanvas(canvas));
+
       // Sub-bullet Tab / Shift+Tab keyboard shortcuts like Google Docs
       canvas.addEventListener("keydown", (e) => {
+        updateActiveSectionCanvas(canvas);
         if (e.key === "Tab") {
           e.preventDefault();
           if (e.shiftKey) {
@@ -16138,12 +16159,13 @@ class BibleOutlineStudio {
           } else {
             document.execCommand("indent", false, null);
           }
-          canvas.dispatchEvent(new Event("input"));
+          canvas.dispatchEvent(new Event("input", { bubbles: true }));
         }
       });
 
       // Auto-save on input & auto-convert start of line asterisk (*) or dash (-) to bullet list
       canvas.addEventListener("input", () => {
+        updateActiveSectionCanvas(canvas);
         if (!canvas.querySelector("ul, ol")) {
           const text = canvas.textContent;
           if (/^[-*]\s/.test(text)) {
@@ -16188,15 +16210,9 @@ class BibleOutlineStudio {
         const idx = btn.getAttribute("data-ensure-bullet");
         const canvas = document.querySelector(`.section-bullet-canvas[data-section-editor="${idx}"]`);
         if (canvas) {
+          updateActiveSectionCanvas(canvas);
           ensureSectionBulletedList(canvas);
-          const editor = document.getElementById("chapter-rich-outline-editor");
-          if (editor) {
-            if (!this.data.chapters[chKey]) {
-              this.data.chapters[chKey] = { headingBlocks: [] };
-            }
-            this.data.chapters[chKey].chapterOutlineRichHTML = editor.innerHTML;
-            this.notifyDataChanged();
-          }
+          canvas.dispatchEvent(new Event("input", { bubbles: true }));
         }
       });
     });
@@ -16217,31 +16233,43 @@ class BibleOutlineStudio {
     });
 
     // Google Docs Rich Toolbar formatting buttons
-    const richToolbarBtns = document.querySelectorAll("button[data-rich-command]");
+    const richToolbarBtns = document.querySelectorAll("button[data-rich-command], .rich-toolbar-btn");
     richToolbarBtns.forEach((btn) => {
+      // Prevent clicking toolbar buttons from stealing focus away from active section canvas
+      btn.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+      });
+    });
+
+    const richCommandBtns = document.querySelectorAll("button[data-rich-command]");
+    richCommandBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         const cmd = btn.getAttribute("data-rich-command");
+        const currentActive = document.activeElement;
         const activeCanvas =
-          document.activeElement?.matches(".section-bullet-canvas")
-            ? document.activeElement
-            : document.querySelector(".section-bullet-canvas");
+          (currentActive && currentActive.closest(".section-bullet-canvas")) ||
+          lastActiveSectionCanvas ||
+          document.querySelector(".section-bullet-canvas");
 
         if (activeCanvas) {
-          activeCanvas.focus();
+          updateActiveSectionCanvas(activeCanvas);
+          if (!activeCanvas.contains(document.activeElement)) {
+            activeCanvas.focus();
+          }
+
           if (cmd === "insertUnorderedList") {
-            // Guarantee a bulleted list is created/active
+            // Guarantee a bulleted list is created/active in the targeted section
             ensureSectionBulletedList(activeCanvas);
+          } else if (cmd === "insertOrderedList") {
+            document.execCommand("insertOrderedList", false, null);
+          } else if (cmd === "indent") {
+            document.execCommand("indent", false, null);
+          } else if (cmd === "outdent") {
+            document.execCommand("outdent", false, null);
           } else {
             document.execCommand(cmd, false, null);
           }
-          const editor = document.getElementById("chapter-rich-outline-editor");
-          if (editor) {
-            if (!this.data.chapters[chKey]) {
-              this.data.chapters[chKey] = { headingBlocks: [] };
-            }
-            this.data.chapters[chKey].chapterOutlineRichHTML = editor.innerHTML;
-            this.notifyDataChanged();
-          }
+          activeCanvas.dispatchEvent(new Event("input", { bubbles: true }));
         }
       });
     });
@@ -16272,82 +16300,14 @@ class BibleOutlineStudio {
     const reinsertHeadingsBtn = document.getElementById("reinsert-esv-headings-btn");
     if (reinsertHeadingsBtn) {
       reinsertHeadingsBtn.addEventListener("click", () => {
+        const text = this.data.chapters[chKey]?.chapterScripture;
         const book = this.getSelectedBook();
-        const blocks = this.data.chapters[chKey]?.headingBlocks || [];
-        if (blocks.length === 0) return;
-
-        const newHTML = blocks
-          .map(
-            (block, idx) => `
-              <div class="esv-rich-heading-wrap my-3 first:mt-0" data-heading-index="${idx}">
-                <div
-                  contenteditable="false"
-                  class="esv-rich-heading-banner flex items-center justify-between px-3.5 py-2 bg-[#20201D] border border-[#2F2F2B] rounded cursor-pointer select-none hover:bg-[#272723] transition"
-                >
-                  <div class="flex items-center gap-2">
-                    <span class="rich-heading-toggle-icon font-mono text-xs text-[#8C8A84]">▼</span>
-                    <h4 class="font-serif font-bold text-[#DBCFB3] text-sm md:text-base">
-                      ${block.heading}
-                    </h4>
-                    ${
-                      block.verses
-                        ? `<span class="text-xs font-mono text-[#7B7974] font-normal">(${block.verses})</span>`
-                        : ""
-                    }
-                  </div>
-                  <span class="text-[10px] font-mono text-[#6D6B66] uppercase tracking-wider">
-                    Section Heading
-                  </span>
-                </div>
-                <div class="esv-rich-heading-body pt-2.5 pb-1">
-                  <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                    <li><br></li>
-                  </ul>
-                </div>
-              </div>
-            `
-          )
-          .join("");
-
-        if (richEditor) {
-          richEditor.innerHTML = newHTML;
-          if (!this.data.chapters[chKey]) {
-            this.data.chapters[chKey] = { headingBlocks: [] };
-          }
-          this.data.chapters[chKey].chapterOutlineRichHTML = newHTML;
-          this.notifyDataChanged();
+        if (text) {
+          this.syncHeadingBlocksForChapter(chKey, text, book.name, this.selectedChapterNum);
         }
+        this.render();
       });
     }
-
-    // Interactive Verse badges click handler
-    const verseBadges = document.querySelectorAll(".esv-verse-num");
-    verseBadges.forEach((badge) => {
-      badge.addEventListener("click", () => {
-        const vNum = badge.getAttribute("data-verse");
-        if (!richEditor) return;
-
-        richEditor.focus();
-        const sel = window.getSelection();
-        if (sel && sel.getRangeAt && sel.rangeCount > 0) {
-          const range = sel.getRangeAt(0);
-          const textNode = document.createTextNode(` (v${vNum}) `);
-          range.insertNode(textNode);
-          range.setStartAfter(textNode);
-          range.setEndAfter(textNode);
-          sel.removeAllRanges();
-          sel.addRange(range);
-        } else {
-          richEditor.innerHTML += ` (v${vNum}) `;
-        }
-
-        if (!this.data.chapters[chKey]) {
-          this.data.chapters[chKey] = { headingBlocks: [] };
-        }
-        this.data.chapters[chKey].chapterOutlineRichHTML = richEditor.innerHTML;
-        this.notifyDataChanged();
-      });
-    });
 
     // Chapter Takeaway
     const chapterTakeawayInput = document.getElementById("chapter-takeaway-input");

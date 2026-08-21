@@ -408,9 +408,6 @@ export function renderChapterEditorView({
             <span class="text-xs font-mono uppercase tracking-wider text-[#A19E97]">
               ESV Scripture • ${selectedBook.name} ${chapterNum}
             </span>
-            <span class="text-[11px] font-mono text-[#7B7974]">
-              Click any verse number badge to quote
-            </span>
           </div>
 
           <!-- Scripture Reader Display -->

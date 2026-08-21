@@ -94,13 +94,19 @@ class E2ETester:
         (() => {
             const app = window.bibleOutlineApp;
             app.selectedBookId = 'GEN';
-            app.selectedChapterNum = 1;
+            app.selectedChapterNum = 2;
             app.activeView = 'chapter-outliner';
+            if (!app.data.chapters['GEN-2']) {
+                app.data.chapters['GEN-2'] = { headingBlocks: [], status: 'empty' };
+            }
+            app.data.chapters['GEN-2'].headingBlocks = [
+                { heading: 'The Seventh Day, God Rests', verses: 'v1–3', points: [''], notes: '' },
+                { heading: 'The Creation of Man and Woman', verses: 'v4–25', points: [''], notes: '' }
+            ];
             app.render();
 
-            const canvases = document.querySelectorAll('.section-bullet-canvas, .outline-rich-editor, [contenteditable="true"]');
+            const canvases = document.querySelectorAll('.section-bullet-canvas');
             const summaryArea = document.querySelector('#quick-book-summary-textarea, #book-summary-textarea');
-            const hasBanners = document.querySelectorAll('.esv-section-heading-banner, [data-heading-idx]').length >= 0;
 
             // Test summary save
             if (summaryArea) {
@@ -108,16 +114,34 @@ class E2ETester:
                 summaryArea.dispatchEvent(new Event('input', { bubbles: true }));
             }
 
+            // Test toolbar targeting on Section 2 (canvas index 1)
+            let targetedSectionIdx = null;
+            if (canvases.length >= 2) {
+                const sec2 = canvases[1];
+                sec2.focus();
+                sec2.dispatchEvent(new Event('focus', { bubbles: true }));
+
+                const bulletBtn = document.querySelector('button[data-rich-command="insertUnorderedList"]');
+                if (bulletBtn) {
+                    bulletBtn.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true }));
+                    bulletBtn.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+                }
+
+                targetedSectionIdx = document.activeElement?.closest('.section-bullet-canvas')?.getAttribute('data-section-editor');
+            }
+
             return {
                 hasCanvas: canvases.length > 0,
                 hasSummaryArea: Boolean(summaryArea),
-                savedSummary: app.data.books['GEN']?.bookSummary
+                savedSummary: app.data.books['GEN']?.bookSummary,
+                targetedSectionIdx
             };
         })()
         """)
         assert r.get("hasCanvas") == True, "Chapter outline contenteditable canvas missing"
         assert r.get("hasSummaryArea") == True, "Quick summary textarea missing"
         assert r.get("savedSummary") == "Automated Quick Summary Test", "Quick summary input did not update storage state"
+        assert r.get("targetedSectionIdx") == "1", f"Expected toolbar to target Section 2 (index 1), got {r.get('targetedSectionIdx')}"
 
     def test_book_rollup_and_plot(self):
         # 1. Book Rollup View

@@ -44,9 +44,9 @@ export function formatESVTextToHTML(rawText) {
         return `<h4 class="font-serif font-bold text-[#DBCFB3] text-base pt-4 pb-1 tracking-tight">${t}</h4>`;
       }
 
-      // Quiet verse numbers [1], [2], [14]
+      // Clean verse numbers [1], [2], [14]
       const withFormattedVerses = t.replace(/\[(\d+)\]/g, (match, vNum) => {
-        return `<span class="esv-verse-num inline-block font-mono text-xs text-[#C4B79C] mr-1.5 select-none cursor-pointer hover:underline" data-verse="${vNum}" title="Click to insert v${vNum} quote into outline"><sup>${vNum}</sup></span>`;
+        return `<span class="inline-block font-mono text-xs text-[#C4B79C] mr-1.5 select-none font-medium"><sup>${vNum}</sup></span>`;
       });
 
       return `<p class="font-reader text-[15.5px] leading-[1.85] text-[#ECE9E0] mb-3">${withFormattedVerses}</p>`;
