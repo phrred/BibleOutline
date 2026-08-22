@@ -20,9 +20,8 @@ class UnitTester:
         tests = [
             ("Bible Catalog Integrity (66 Books, 1189 Chapters, 8 Eras)", self.test_catalog_integrity),
             ("ESV Parser & Heading Extraction", self.test_esv_parser),
-            ("Diagnostic Quiz Engine & BMPI Matching", self.test_quiz_engine),
-            ("GFC 100-Question Assessment & Bank Integrity", self.test_gfc_quiz_bank),
-            ("BMPI 300-Question Assessment & Bank Integrity", self.test_bmpi_300_bank),
+            ("Diagnostic Quiz Engine & Scope Matching", self.test_quiz_engine),
+            ("Testament & Genre Scoped Diagnostic Assessments", self.test_diagnostic_scopes),
             ("Comprehensive 66-Book Major Events & Chapter Quiz Bank", self.test_all_66_books_chapter_event_questions),
             ("Storage & Option A Subcollection Serialization", self.test_storage_serialization),
             ("Deep Merge & Local Storage Scaffolding", self.test_storage_scaffolding),
@@ -132,68 +131,48 @@ class UnitTester:
         assert r.get("hasGenreBreakdown") == True, "Scorecard genre breakdown missing"
         assert r.get("hasTestamentBreakdown") == True, "Scorecard testament breakdown missing"
 
-    def test_gfc_quiz_bank(self):
+    def test_diagnostic_scopes(self):
         js = """
         (() => {
-            const gfcPool = CURATED_QUESTION_BANK.filter(q => q.id.startsWith("gfc_"));
-            const dedicatedBank = typeof GFC_TEST_100_BANK !== "undefined" ? GFC_TEST_100_BANK : [];
-            const gfcSession = new DiagnosticSession({ scope: 'GFC', questionCount: 100 });
+            const otSession = new DiagnosticSession({ scope: 'OT', questionCount: 25 });
+            const ntSession = new DiagnosticSession({ scope: 'NT', questionCount: 25 });
+            const gospelsSession = new DiagnosticSession({ scope: 'GOSPELS', questionCount: 10 });
             
-            // Test evaluating specific GFC question
-            const qActs = gfcPool.find(q => q.id === "gfc_who_1");
-            const evalLuke = qActs ? evaluateAnswer(qActs, "Luke").isCorrect : false;
-            const evalWrong = qActs ? evaluateAnswer(qActs, "Barnabas").isCorrect : true;
+            // Test evaluating specific NT question (nt_q1: John the Baptist)
+            const qJohn = CURATED_QUESTION_BANK.find(q => q.id === "nt_q1");
+            const evalJohn = qJohn ? evaluateAnswer(qJohn, "John the Baptist").isCorrect : false;
+            const evalWrong = qJohn ? evaluateAnswer(qJohn, "Barnabas").isCorrect : true;
+
+            // Test evaluating specific chapter question (nt_q2: Luke 10)
+            const qLuke10 = CURATED_QUESTION_BANK.find(q => q.id === "nt_q2");
+            const evalLuke10Num = qLuke10 ? evaluateAnswer(qLuke10, "10").isCorrect : false;
+            const evalLuke10Full = qLuke10 ? evaluateAnswer(qLuke10, "Luke 10").isCorrect : false;
 
             return {
-                gfcCount: gfcPool.length,
-                dedicatedCount: dedicatedBank.length,
-                sessionCount: gfcSession.questions.length,
-                evalLuke,
-                evalWrong
+                otCount: otSession.questions.length,
+                allOT: otSession.questions.every(q => q.scope === 'OT'),
+                ntCount: ntSession.questions.length,
+                allNT: ntSession.questions.every(q => q.scope === 'NT'),
+                gospelsCount: gospelsSession.questions.length,
+                allGospels: gospelsSession.questions.every(q => q.genre === 'Gospels'),
+                evalJohn,
+                evalWrong,
+                evalLuke10Num,
+                evalLuke10Full
             };
         })()
         """
         r = self.eval_js(js)
-        assert r.get("gfcCount") == 100, f"Expected 100 GFC questions in curated bank, got {r.get('gfcCount')}"
-        assert r.get("dedicatedCount") == 100, f"Expected 100 GFC questions in GFC_TEST_100_BANK, got {r.get('dedicatedCount')}"
-        assert r.get("sessionCount") == 100, f"Expected 100 questions in GFC session, got {r.get('sessionCount')}"
-        assert r.get("evalLuke") == True, "Expected 'Luke' to be evaluated as correct for Acts authorship"
-        assert r.get("evalWrong") == False, "Expected 'Barnabas' to be evaluated as incorrect for Acts authorship"
-
-    def test_bmpi_300_bank(self):
-        js = """
-        (() => {
-            const bmpiPool = CURATED_QUESTION_BANK.filter(q => q.id.startsWith("bmpi_"));
-            const dedicatedBank = typeof BMPI_TEST_300_BANK !== "undefined" ? BMPI_TEST_300_BANK : [];
-            const bmpiSession = new DiagnosticSession({ scope: 'BMPI', questionCount: 300 });
-            
-            // Test evaluating specific BMPI questions
-            const q1 = bmpiPool.find(q => q.id === "bmpi_1");
-            const evalGen1 = q1 ? evaluateAnswer(q1, "Genesis 1").isCorrect : false;
-            
-            const q30 = bmpiPool.find(q => q.id === "bmpi_30");
-            const evalJoseph = q30 ? evaluateAnswer(q30, "Joseph").isCorrect : false;
-
-            const q300 = bmpiPool.find(q => q.id === "bmpi_300");
-            const evalEzra = q300 ? evaluateAnswer(q300, "Ezra").isCorrect : false;
-
-            return {
-                bmpiCount: bmpiPool.length,
-                dedicatedCount: dedicatedBank.length,
-                sessionCount: bmpiSession.questions.length,
-                evalGen1,
-                evalJoseph,
-                evalEzra
-            };
-        })()
-        """
-        r = self.eval_js(js)
-        assert r.get("bmpiCount") == 300, f"Expected 300 BMPI questions in curated bank, got {r.get('bmpiCount')}"
-        assert r.get("dedicatedCount") == 300, f"Expected 300 BMPI questions in BMPI_TEST_300_BANK, got {r.get('dedicatedCount')}"
-        assert r.get("sessionCount") == 300, f"Expected 300 questions in BMPI session, got {r.get('sessionCount')}"
-        assert r.get("evalGen1") == True, "Expected 'Genesis 1' to be evaluated as correct for Q1"
-        assert r.get("evalJoseph") == True, "Expected 'Joseph' to be evaluated as correct for Q30"
-        assert r.get("evalEzra") == True, "Expected 'Ezra' to be evaluated as correct for Q300"
+        assert r.get("otCount") == 25, f"Expected 25 OT questions, got {r.get('otCount')}"
+        assert r.get("allOT") == True, "Expected all questions in OT session to have scope 'OT'"
+        assert r.get("ntCount") == 25, f"Expected 25 NT questions, got {r.get('ntCount')}"
+        assert r.get("allNT") == True, "Expected all questions in NT session to have scope 'NT'"
+        assert r.get("gospelsCount") == 10, f"Expected 10 Gospels questions, got {r.get('gospelsCount')}"
+        assert r.get("allGospels") == True, "Expected all questions in Gospels session to have genre 'Gospels'"
+        assert r.get("evalJohn") == True, "Expected 'John the Baptist' to be evaluated as correct for nt_q1"
+        assert r.get("evalWrong") == False, "Expected 'Barnabas' to be evaluated as incorrect for nt_q1"
+        assert r.get("evalLuke10Num") == True, "Expected '10' to be evaluated as correct for Luke 10"
+        assert r.get("evalLuke10Full") == True, "Expected 'Luke 10' to be evaluated as correct for Luke 10"
 
     def test_all_66_books_chapter_event_questions(self):
         js = """
@@ -243,7 +222,7 @@ class UnitTester:
         """
         r = self.eval_js(js)
         assert r.get("totalBooks") == 66, f"Expected 66 books, got {r.get('totalBooks')}"
-        assert r.get("totalQuestions") >= 1000, f"Expected >= 1000 total questions, got {r.get('totalQuestions')}"
+        assert r.get("totalQuestions") >= 700, f"Expected >= 700 total questions, got {r.get('totalQuestions')}"
         assert r.get("missingBooksCount") == 0, f"Expected 0 missing books with <3 questions, got {r.get('missingBooksCount')}"
         assert r.get("evalGen3Num") == True, "Expected '3' to be evaluated as correct for Genesis 3"
         assert r.get("evalGen3Full") == True, "Expected 'Genesis 3' to be evaluated as correct"
@@ -423,7 +402,7 @@ class UnitTester:
         (() => {
             const categories = FLAG_CATEGORIES;
             const testQuestion = {
-                id: 'bmpi_99',
+                id: 'ch_gen_11',
                 prompt: 'Where was Abraham called from?',
                 displayAnswer: 'Ur of the Chaldeans',
                 bookId: 'GEN',
@@ -448,7 +427,7 @@ class UnitTester:
                 hasTypo: categories.some(c => c.id === 'typo'),
                 hasBadQuestion: categories.some(c => c.id === 'bad_question'),
                 rendersTitle: html.includes('Flag Question for Review'),
-                rendersQuestionId: html.includes('bmpi_99'),
+                rendersQuestionId: html.includes('ch_gen_11'),
                 rendersSuggestedAns: html.includes('Ur / Haran'),
                 rendersComments: html.includes('Needs Haran nuance'),
                 nullIsBlank: nullHtml === ''

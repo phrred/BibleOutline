@@ -189,8 +189,6 @@ export function renderDiagnosticQuizView({
 function renderDiagnosticConfiguratorView({ selectedScope, selectedQuestionCount }) {
   const scopes = [
     { id: "ALL", label: "Whole Bible", desc: "All 66 Books (Old & New Testaments)", badge: "66 Books" },
-    { id: "BMPI", label: "BMPI Assessment", desc: "300-Question Mastery & Proficiency Instrument", badge: "300 Questions" },
-    { id: "GFC", label: "GFC Bible Knowledge", desc: "100-Question Standard Assessment", badge: "100 Questions" },
     { id: "OT", label: "Old Testament", desc: "Creation, Law, History & Prophets", badge: "39 Books" },
     { id: "NT", label: "New Testament", desc: "Gospels, Acts, Epistles & Revelation", badge: "27 Books" },
     { id: "GOSPELS", label: "The Gospels", desc: "Matthew, Mark, Luke, and John", badge: "4 Books" },

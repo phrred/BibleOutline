@@ -7,7 +7,7 @@ patches data/quiz_bank.js, runs test suite, and opens a GitHub Pull Request.
 Usage:
   python3 scripts/process_question_flag.py --issue-number 42 --issue-body issue.md
   python3 scripts/process_question_flag.py --event-path $GITHUB_EVENT_PATH
-  python3 scripts/process_question_flag.py --dry-run --question-id bmpi_1 --comments "Prompt is unclear"
+  python3 scripts/process_question_flag.py --dry-run --question-id ch_gen_1 --comments "Prompt is unclear"
 """
 
 import os
@@ -140,7 +140,7 @@ Style & Prompt Design Principles:
 4. Grounded Explanation: Provide a concise ESV verse reference (e.g. Philemon 1:16) and direct explanation of why the answer is correct.
 
 Question Schema:
-- "id": string (unique ID e.g. "bmpi_42")
+- "id": string (unique ID e.g. "ch_gen_12")
 - "type": string ("book_chapter" | "chapter_in_book" | "verse_completion" | "facts" | "book_id")
 - "prompt": string (the question prompt text)
 - "bookId": string (3-letter uppercase book code e.g. "GEN", "MAT", "ROM")

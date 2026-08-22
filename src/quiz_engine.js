@@ -1,5 +1,5 @@
 import { BIBLE_BOOKS, BIBLE_ERAS, getBookById } from "../data/bible_catalog.js";
-import { CURATED_QUESTION_BANK, BMPI_TEST_300_BANK, GFC_TEST_100_BANK } from "../data/quiz_bank.js";
+import { CURATED_QUESTION_BANK } from "../data/quiz_bank.js";
 
 // Canonical Book Alias Map for Smart Normalization
 export const BOOK_ALIASES = {
@@ -235,18 +235,9 @@ export function evaluateAnswer(question, userInput) {
 // CURATED QUESTION BANK RE-EXPORTS
 // Sourced from data/quiz_bank.js with compact schema & auto-hydration
 // --------------------------------------------------------------------------
-export { CURATED_QUESTION_BANK, BMPI_TEST_300_BANK, GFC_TEST_100_BANK };
+export { CURATED_QUESTION_BANK };
 
 export function generateDynamicQuestions({ scope = "ALL", count = 25, questionTypes = null, specificBookId = null }) {
-  if (scope === "BMPI") {
-    const pool = CURATED_QUESTION_BANK.filter((q) => q.id.startsWith("bmpi_"));
-    return count >= pool.length ? pool : pool.slice(0, count);
-  }
-  if (scope === "GFC") {
-    const pool = CURATED_QUESTION_BANK.filter((q) => q.id.startsWith("gfc_"));
-    return count >= pool.length ? pool : pool.slice(0, count);
-  }
-
   // Filter curated pool according to scope and question types
   const pool = CURATED_QUESTION_BANK.filter((q) => {
     if (specificBookId && q.bookId !== specificBookId) return false;

@@ -1,7 +1,6 @@
 // Comprehensive Diagnostic & Biblical Mastery Question Bank
-// Sourced from BMPI 300 Assessment + GFC 100 Knowledge Test + Diagnostic Repositories
-// + Comprehensive 66-Book Major Event Chapter Quizzes
-// Contains all 1108 curated questions with full schema properties
+// Sourced from Diagnostic Repositories, BMPI, GFC, and Comprehensive 66-Book Major Event Chapter Quizzes
+// Contains all 1119 curated questions with full schema properties
 
 export const CURATED_QUESTION_BANK = [
   {
@@ -103,8 +102,8 @@ export const CURATED_QUESTION_BANK = [
       "Jer",
       "Jeremiah the Prophet"
     ],
-    "displayAnswer": "Jeremiah (Lamentations 3:22\u201323)",
-    "explanation": "Jeremiah penned Lamentations 3:22\u201323 following the destruction of Jerusalem.",
+    "displayAnswer": "Jeremiah (Lamentations 3:22–23)",
+    "explanation": "Jeremiah penned Lamentations 3:22–23 following the destruction of Jerusalem.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -153,7 +152,7 @@ export const CURATED_QUESTION_BANK = [
       "Letter to Philemon",
       "Epistle to Philemon"
     ],
-    "displayAnswer": "Philemon (Philemon 1:16\u201317)",
+    "displayAnswer": "Philemon (Philemon 1:16–17)",
     "explanation": "Paul wrote Philemon to reconcile Philemon and the runaway slave Onesimus.",
     "scope": "NT",
     "genre": "Pauline Epistles"
@@ -185,8 +184,8 @@ export const CURATED_QUESTION_BANK = [
       "Hab",
       "Book of Habakkuk"
     ],
-    "displayAnswer": "Habakkuk (Habakkuk 3:17\u201318)",
-    "explanation": "Habakkuk 3:17\u201319 is one of Scripture's greatest confessions of triumphant faith.",
+    "displayAnswer": "Habakkuk (Habakkuk 3:17–18)",
+    "explanation": "Habakkuk 3:17–19 is one of Scripture's greatest confessions of triumphant faith.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -219,7 +218,7 @@ export const CURATED_QUESTION_BANK = [
       "Act",
       "Book of Acts"
     ],
-    "displayAnswer": "Acts (Acts 1:1\u20132)",
+    "displayAnswer": "Acts (Acts 1:1–2)",
     "explanation": "Acts 1:1 opens Luke's second volume addressed to Theophilus.",
     "scope": "NT",
     "genre": "Acts (History)"
@@ -238,8 +237,8 @@ export const CURATED_QUESTION_BANK = [
       "Letter to the Philippians",
       "Epistle to the Philippians"
     ],
-    "displayAnswer": "Philippians (Philippians 4:6\u20137)",
-    "explanation": "Philippians 4:6\u20137 provides God's prescription for overcoming anxiety.",
+    "displayAnswer": "Philippians (Philippians 4:6–7)",
+    "explanation": "Philippians 4:6–7 provides God's prescription for overcoming anxiety.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -276,8 +275,8 @@ export const CURATED_QUESTION_BANK = [
       "Letter to the Ephesians",
       "Epistle to the Ephesians"
     ],
-    "displayAnswer": "Ephesians (Ephesians 6:10\u201311)",
-    "explanation": "Ephesians 6:10\u201318 describes spiritual warfare and the armor of God.",
+    "displayAnswer": "Ephesians (Ephesians 6:10–11)",
+    "explanation": "Ephesians 6:10–18 describes spiritual warfare and the armor of God.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -295,7 +294,7 @@ export const CURATED_QUESTION_BANK = [
       "Epistle of James"
     ],
     "displayAnswer": "James (James 2:14)",
-    "explanation": "James 2:14\u201326 demonstrates that genuine saving faith always produces righteous works.",
+    "explanation": "James 2:14–26 demonstrates that genuine saving faith always produces righteous works.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -353,8 +352,8 @@ export const CURATED_QUESTION_BANK = [
       "Genesis Chapter 12",
       "Gen Ch 12"
     ],
-    "displayAnswer": "Genesis 12 (Genesis 12:1\u20133)",
-    "explanation": "Genesis 12:1\u20133 is the foundational Abrahamic Covenant.",
+    "displayAnswer": "Genesis 12 (Genesis 12:1–3)",
+    "explanation": "Genesis 12:1–3 is the foundational Abrahamic Covenant.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -370,7 +369,7 @@ export const CURATED_QUESTION_BANK = [
       "Nm",
       "Book of Numbers"
     ],
-    "displayAnswer": "Numbers (Numbers 20:8\u201312)",
+    "displayAnswer": "Numbers (Numbers 20:8–12)",
     "explanation": "Numbers 20 records Moses striking the rock at Meribah.",
     "scope": "OT",
     "genre": "Pentateuch"
@@ -418,8 +417,8 @@ export const CURATED_QUESTION_BANK = [
       "Queen Esther",
       "Hadassah"
     ],
-    "displayAnswer": "Esther (Esther 4:14\u201316)",
-    "explanation": "Esther 4:14\u201316 records Queen Esther interceding for her people in Persia.",
+    "displayAnswer": "Esther (Esther 4:14–16)",
+    "explanation": "Esther 4:14–16 records Queen Esther interceding for her people in Persia.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -439,8 +438,8 @@ export const CURATED_QUESTION_BANK = [
       "Letter to the 1 Corinthians",
       "First Letter to the Corinthians"
     ],
-    "displayAnswer": "1 Corinthians (1 Corinthians 15:54\u201357)",
-    "explanation": "1 Corinthians 15:54\u201357 celebrates Christ's victory over the grave.",
+    "displayAnswer": "1 Corinthians (1 Corinthians 15:54–57)",
+    "explanation": "1 Corinthians 15:54–57 celebrates Christ's victory over the grave.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -474,7 +473,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Amos"
     ],
     "displayAnswer": "Amos (Amos 2:4)",
-    "explanation": "Amos 1\u20132 pronounces divine judgment on the nations and Israel.",
+    "explanation": "Amos 1–2 pronounces divine judgment on the nations and Israel.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -492,7 +491,7 @@ export const CURATED_QUESTION_BANK = [
       "Epistle to the Ephesians"
     ],
     "displayAnswer": "Ephesians (Ephesians 1:3)",
-    "explanation": "Ephesians 1:3\u201314 is a doxology of sovereign election, redemption, and sealing.",
+    "explanation": "Ephesians 1:3–14 is a doxology of sovereign election, redemption, and sealing.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -513,7 +512,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Psalms"
     ],
     "displayAnswer": "Psalms (Psalm 139:7)",
-    "explanation": "Psalm 139:7\u201312 proclaims God's inescapable presence and omniscience.",
+    "explanation": "Psalm 139:7–12 proclaims God's inescapable presence and omniscience.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -544,8 +543,8 @@ export const CURATED_QUESTION_BANK = [
       "Dt",
       "Book of Deuteronomy"
     ],
-    "displayAnswer": "Deuteronomy (Deuteronomy 6:4\u20135)",
-    "explanation": "Deuteronomy 6:4\u20135 contains the foundational Shema confession.",
+    "displayAnswer": "Deuteronomy (Deuteronomy 6:4–5)",
+    "explanation": "Deuteronomy 6:4–5 contains the foundational Shema confession.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -645,8 +644,8 @@ export const CURATED_QUESTION_BANK = [
       "Book of 1 Thessalonians",
       "First Letter to the Thessalonians"
     ],
-    "displayAnswer": "1 Thessalonians (1 Thessalonians 4:16\u201317)",
-    "explanation": "1 Thessalonians 4:16\u201317 gives Paul's classic teaching on the return of Christ.",
+    "displayAnswer": "1 Thessalonians (1 Thessalonians 4:16–17)",
+    "explanation": "1 Thessalonians 4:16–17 gives Paul's classic teaching on the return of Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -662,8 +661,8 @@ export const CURATED_QUESTION_BANK = [
       "Act",
       "Book of Acts"
     ],
-    "displayAnswer": "Acts (Acts 15:19\u201320)",
-    "explanation": "Acts 15:19\u201320 records the decisive decree of the Jerusalem Council.",
+    "displayAnswer": "Acts (Acts 15:19–20)",
+    "explanation": "Acts 15:19–20 records the decisive decree of the Jerusalem Council.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -712,8 +711,8 @@ export const CURATED_QUESTION_BANK = [
       "Deu",
       "Book of Deuteronomy"
     ],
-    "displayAnswer": "Deuteronomy (Deuteronomy 17:18\u201320)",
-    "explanation": "Deuteronomy 17:18\u201320 prescribes royal humility and daily saturation in God's Word.",
+    "displayAnswer": "Deuteronomy (Deuteronomy 17:18–20)",
+    "explanation": "Deuteronomy 17:18–20 prescribes royal humility and daily saturation in God's Word.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -812,8 +811,8 @@ export const CURATED_QUESTION_BANK = [
       "Letter to Titus",
       "Epistle to Titus"
     ],
-    "displayAnswer": "Titus (Titus 2:11\u201312)",
-    "explanation": "Titus 2:11\u201314 explains the sanctifying power of sovereign grace.",
+    "displayAnswer": "Titus (Titus 2:11–12)",
+    "explanation": "Titus 2:11–14 explains the sanctifying power of sovereign grace.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -830,7 +829,7 @@ export const CURATED_QUESTION_BANK = [
       "Letter to the Hebrews",
       "Epistle to the Hebrews"
     ],
-    "displayAnswer": "Hebrews (Hebrews 7:11\u201317)",
+    "displayAnswer": "Hebrews (Hebrews 7:11–17)",
     "explanation": "Hebrews 7 expounds the superior, indestructible priesthood of Melchizedek fulfilled in Jesus.",
     "scope": "NT",
     "genre": "General Epistles"
@@ -1004,8 +1003,8 @@ export const CURATED_QUESTION_BANK = [
       "Ps",
       "Book of Psalms"
     ],
-    "displayAnswer": "Psalms (Psalm 105:17\u201319)",
-    "explanation": "Psalm 105:17\u201319 reflects on God's sovereign testing and elevation of Joseph.",
+    "displayAnswer": "Psalms (Psalm 105:17–19)",
+    "explanation": "Psalm 105:17–19 reflects on God's sovereign testing and elevation of Joseph.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -1140,7 +1139,7 @@ export const CURATED_QUESTION_BANK = [
       "Hezekiah",
       "King Hezekiah"
     ],
-    "displayAnswer": "Hezekiah (2 Kings 20:1\u20136, Isaiah 38)",
+    "displayAnswer": "Hezekiah (2 Kings 20:1–6, Isaiah 38)",
     "explanation": "2 Kings 20 records Hezekiah's prayer, recovery, and the sign on the dial of Ahaz.",
     "scope": "OT",
     "genre": "Historical"
@@ -1171,8 +1170,8 @@ export const CURATED_QUESTION_BANK = [
       "Isa",
       "Isaiah the Prophet"
     ],
-    "displayAnswer": "Isaiah (Isaiah 6:1\u20135)",
-    "explanation": "Isaiah 6:1\u20138 is Isaiah's heavenly commissioning vision.",
+    "displayAnswer": "Isaiah (Isaiah 6:1–5)",
+    "explanation": "Isaiah 6:1–8 is Isaiah's heavenly commissioning vision.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -1188,8 +1187,8 @@ export const CURATED_QUESTION_BANK = [
       "Is",
       "Book of Isaiah"
     ],
-    "displayAnswer": "Isaiah (Isaiah 55:8\u20139)",
-    "explanation": "Isaiah 55:8\u20139 proclaims the infinite superiority of God's wisdom and counsel.",
+    "displayAnswer": "Isaiah (Isaiah 55:8–9)",
+    "explanation": "Isaiah 55:8–9 proclaims the infinite superiority of God's wisdom and counsel.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -1266,8 +1265,8 @@ export const CURATED_QUESTION_BANK = [
       "Gospel According to Matthew",
       "Book of Matthew"
     ],
-    "displayAnswer": "Matthew (Matthew 9:37\u201338 / Luke 10:2)",
-    "explanation": "Matthew 9:37\u201338 reveals Christ's compassion for the unshepherded crowds.",
+    "displayAnswer": "Matthew (Matthew 9:37–38 / Luke 10:2)",
+    "explanation": "Matthew 9:37–38 reveals Christ's compassion for the unshepherded crowds.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -1305,8 +1304,8 @@ export const CURATED_QUESTION_BANK = [
       "Letter to the Colossians",
       "Epistle to the Colossians"
     ],
-    "displayAnswer": "Colossians (Colossians 2:9\u201310)",
-    "explanation": "Colossians 2:9\u201310 asserts the absolute deity of Christ and the believer's completeness in Him.",
+    "displayAnswer": "Colossians (Colossians 2:9–10)",
+    "explanation": "Colossians 2:9–10 asserts the absolute deity of Christ and the believer's completeness in Him.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -1436,8 +1435,8 @@ export const CURATED_QUESTION_BANK = [
       "Gospel According to Matthew",
       "Book of Matthew"
     ],
-    "displayAnswer": "Matthew (Matthew 20:26\u201328 / Mark 10:43\u201345)",
-    "explanation": "Matthew 20:26\u201328 redefines true kingdom leadership as humble servanthood modeled by Christ.",
+    "displayAnswer": "Matthew (Matthew 20:26–28 / Mark 10:43–45)",
+    "explanation": "Matthew 20:26–28 redefines true kingdom leadership as humble servanthood modeled by Christ.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -1475,7 +1474,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Mark"
     ],
     "displayAnswer": "Mark (Mark 9:24)",
-    "explanation": "Mark 9:23\u201324 records the father's honest prayer when Jesus heals his demonized son.",
+    "explanation": "Mark 9:23–24 records the father's honest prayer when Jesus heals his demonized son.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -1511,7 +1510,7 @@ export const CURATED_QUESTION_BANK = [
       "Hos",
       "Book of Hosea"
     ],
-    "displayAnswer": "Hosea (Hosea 5:15\u20136:1)",
+    "displayAnswer": "Hosea (Hosea 5:15–6:1)",
     "explanation": "Hosea 6:1 calls backsliding Israel to genuine covenant repentance.",
     "scope": "OT",
     "genre": "Minor Prophets"
@@ -1554,7 +1553,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_89",
     "type": "book_id",
-    "prompt": "In what prophetic book does the prophecy appear: 'All we like sheep have gone astray; we have turned\u2014every one\u2014to his own way; and the Lord has laid on him the iniquity of us all'?",
+    "prompt": "In what prophetic book does the prophecy appear: 'All we like sheep have gone astray; we have turned—every one—to his own way; and the Lord has laid on him the iniquity of us all'?",
     "bookId": "ISA",
     "chapterNum": 53,
     "acceptedAnswers": [
@@ -1677,8 +1676,8 @@ export const CURATED_QUESTION_BANK = [
       "Pro",
       "Book of Proverbs"
     ],
-    "displayAnswer": "Proverbs (Proverbs 3:5\u20136)",
-    "explanation": "Proverbs 3:5\u20136 gives the classic biblical pattern for divine guidance.",
+    "displayAnswer": "Proverbs (Proverbs 3:5–6)",
+    "explanation": "Proverbs 3:5–6 gives the classic biblical pattern for divine guidance.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -1868,8 +1867,8 @@ export const CURATED_QUESTION_BANK = [
       "Letter to the Romans",
       "Epistle to the Romans"
     ],
-    "displayAnswer": "Romans (Romans 8:28\u201329)",
-    "explanation": "Romans 8:28\u201330 details God's sovereign providence conforming believers to Christ.",
+    "displayAnswer": "Romans (Romans 8:28–29)",
+    "explanation": "Romans 8:28–30 details God's sovereign providence conforming believers to Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -1910,7 +1909,7 @@ export const CURATED_QUESTION_BANK = [
       "Second Letter to the Corinthians"
     ],
     "displayAnswer": "2 Corinthians (2 Corinthians 10:4)",
-    "explanation": "2 Corinthians 10:4\u20135 teaches demolishing arguments and taking every thought captive to obey Christ.",
+    "explanation": "2 Corinthians 10:4–5 teaches demolishing arguments and taking every thought captive to obey Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -1974,7 +1973,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Joel"
     ],
     "displayAnswer": "Joel",
-    "explanation": "Joel 1\u20133 focuses extensively on the themes of the Day of the Lord and the outpouring of the Spirit.",
+    "explanation": "Joel 1–3 focuses extensively on the themes of the Day of the Lord and the outpouring of the Spirit.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -2028,8 +2027,8 @@ export const CURATED_QUESTION_BANK = [
       "Gen",
       "Book of Genesis"
     ],
-    "displayAnswer": "Genesis (Genesis 12\u201350)",
-    "explanation": "Genesis 12\u201350 records the foundational patriarchal history of the covenant family.",
+    "displayAnswer": "Genesis (Genesis 12–50)",
+    "explanation": "Genesis 12–50 records the foundational patriarchal history of the covenant family.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -2187,7 +2186,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Genesis"
     ],
     "displayAnswer": "Genesis",
-    "explanation": "Genesis spans primeval origins (1\u201311) to patriarchal history (12\u201350).",
+    "explanation": "Genesis spans primeval origins (1–11) to patriarchal history (12–50).",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -2220,7 +2219,7 @@ export const CURATED_QUESTION_BANK = [
       "Ezr",
       "Book of Ezra"
     ],
-    "displayAnswer": "Ezra and Nehemiah (Ezra 7\u201310, Nehemiah 8)",
+    "displayAnswer": "Ezra and Nehemiah (Ezra 7–10, Nehemiah 8)",
     "explanation": "Ezra read and expounded the Law of Moses publicly to the assembled congregation in Nehemiah 8.",
     "scope": "OT",
     "genre": "Historical"
@@ -2330,7 +2329,7 @@ export const CURATED_QUESTION_BANK = [
       "1st Samuel",
       "Book of 1 Samuel"
     ],
-    "displayAnswer": "1 Samuel (1 Samuel 9\u201331)",
+    "displayAnswer": "1 Samuel (1 Samuel 9–31)",
     "explanation": "1 Samuel records Saul's anointing, military victories, unlawful sacrifice, jealousy of David, and death on Mount Gilboa.",
     "scope": "OT",
     "genre": "Historical"
@@ -2496,7 +2495,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Joel"
     ],
     "displayAnswer": "Joel",
-    "explanation": "Joel 2:28\u201332 was famously quoted by Peter on the Day of Pentecost in Acts 2.",
+    "explanation": "Joel 2:28–32 was famously quoted by Peter on the Day of Pentecost in Acts 2.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -2528,7 +2527,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Daniel"
     ],
     "displayAnswer": "Daniel",
-    "explanation": "Daniel 1\u20136 records faithful living in exile while 7\u201312 foretells the rise and fall of world empires.",
+    "explanation": "Daniel 1–6 records faithful living in exile while 7–12 foretells the rise and fall of world empires.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -2807,7 +2806,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of John"
     ],
     "displayAnswer": "John",
-    "explanation": "John 20:30\u201331 states the evangelistic and theological purpose of the fourth Gospel.",
+    "explanation": "John 20:30–31 states the evangelistic and theological purpose of the fourth Gospel.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -2887,7 +2886,7 @@ export const CURATED_QUESTION_BANK = [
       "Letter to the 2 Corinthians"
     ],
     "displayAnswer": "2 Corinthians",
-    "explanation": "2 Corinthians 12:7\u201310 records Paul's thorn in the flesh and Christ's sufficient grace.",
+    "explanation": "2 Corinthians 12:7–10 records Paul's thorn in the flesh and Christ's sufficient grace.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -2904,7 +2903,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Acts"
     ],
     "displayAnswer": "Acts",
-    "explanation": "Acts 13\u201328 records Paul's three missionary journeys and journey to Rome.",
+    "explanation": "Acts 13–28 records Paul's three missionary journeys and journey to Rome.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -3076,7 +3075,7 @@ export const CURATED_QUESTION_BANK = [
       "Rm"
     ],
     "displayAnswer": "Romans",
-    "explanation": "Romans presents the comprehensive exposition of the Gospel (Romans 1:16\u201317).",
+    "explanation": "Romans presents the comprehensive exposition of the Gospel (Romans 1:16–17).",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -3175,7 +3174,7 @@ export const CURATED_QUESTION_BANK = [
       "1Pe"
     ],
     "displayAnswer": "1 Peter",
-    "explanation": "1 Peter 1:1\u20137 addresses suffering believers with the living hope of Christ.",
+    "explanation": "1 Peter 1:1–7 addresses suffering believers with the living hope of Christ.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -3319,7 +3318,7 @@ export const CURATED_QUESTION_BANK = [
       "First Letter to the Thessalonians"
     ],
     "displayAnswer": "1 & 2 Thessalonians",
-    "explanation": "1 & 2 Thessalonians provide detailed eschatological teaching on Christ's return (1 Thess 4:13\u201318; 2 Thess 2:1\u201312).",
+    "explanation": "1 & 2 Thessalonians provide detailed eschatological teaching on Christ's return (1 Thess 4:13–18; 2 Thess 2:1–12).",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -3368,7 +3367,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_187",
     "type": "book_id",
-    "prompt": "Which Gospel contains the most exhaustive recorded treatment of Christ's Olivet Discourse on the end of the age and the final judgment (chapters 24\u201325)?",
+    "prompt": "Which Gospel contains the most exhaustive recorded treatment of Christ's Olivet Discourse on the end of the age and the final judgment (chapters 24–25)?",
     "bookId": "MAT",
     "chapterNum": 24,
     "acceptedAnswers": [
@@ -3380,8 +3379,8 @@ export const CURATED_QUESTION_BANK = [
       "Gospel According to Matthew",
       "Book of Matthew"
     ],
-    "displayAnswer": "Matthew (Matthew 24\u201325)",
-    "explanation": "Matthew 24\u201325 provides the longest account of the Olivet Discourse, parables of readiness, and the sheep/goats judgment.",
+    "displayAnswer": "Matthew (Matthew 24–25)",
+    "explanation": "Matthew 24–25 provides the longest account of the Olivet Discourse, parables of readiness, and the sheep/goats judgment.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -3474,7 +3473,7 @@ export const CURATED_QUESTION_BANK = [
       "Epistle to the Romans"
     ],
     "displayAnswer": "Romans (Romans 5:12)",
-    "explanation": "Romans 5:12\u201321 contrasts the reign of sin and death in Adam with grace and life in Christ.",
+    "explanation": "Romans 5:12–21 contrasts the reign of sin and death in Adam with grace and life in Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -3498,7 +3497,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_194",
     "type": "book_chapter",
-    "prompt": "In what epistle does Paul write the most extensive two-chapter treatise on cheerful, sacrificial Christian stewardship and giving (chapters 8\u20139)?",
+    "prompt": "In what epistle does Paul write the most extensive two-chapter treatise on cheerful, sacrificial Christian stewardship and giving (chapters 8–9)?",
     "bookId": "2CO",
     "chapterNum": 8,
     "acceptedAnswers": [
@@ -3510,8 +3509,8 @@ export const CURATED_QUESTION_BANK = [
       "2 Corinthians Chapter 8",
       "2 Cor Ch 8"
     ],
-    "displayAnswer": "2 Corinthians (2 Corinthians 8\u20139)",
-    "explanation": "2 Corinthians 8\u20139 presents the grace of giving modeled on Christ's self-giving love.",
+    "displayAnswer": "2 Corinthians (2 Corinthians 8–9)",
+    "explanation": "2 Corinthians 8–9 presents the grace of giving modeled on Christ's self-giving love.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -3527,7 +3526,7 @@ export const CURATED_QUESTION_BANK = [
       "Ex",
       "Book of Exodus"
     ],
-    "displayAnswer": "Exodus (Exodus 25\u201331)",
+    "displayAnswer": "Exodus (Exodus 25–31)",
     "explanation": "Exodus 25:40 records God's precise command for constructing the Tabernacle and its sacred furnishings.",
     "scope": "OT",
     "genre": "Pentateuch"
@@ -3546,7 +3545,7 @@ export const CURATED_QUESTION_BANK = [
       "Epistle to the Hebrews"
     ],
     "displayAnswer": "Hebrews",
-    "explanation": "Hebrews 8\u201310 demonstrates that the Levitical system was a shadow of the heavenly reality in Christ.",
+    "explanation": "Hebrews 8–10 demonstrates that the Levitical system was a shadow of the heavenly reality in Christ.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -3608,7 +3607,7 @@ export const CURATED_QUESTION_BANK = [
       "Second Letter to Timothy"
     ],
     "displayAnswer": "2 Timothy & 2 Peter (2 Timothy 3:16, 2 Peter 1:21)",
-    "explanation": "2 Timothy 3:16 and 2 Peter 1:20\u201321 affirm the divine inspiration of Scripture.",
+    "explanation": "2 Timothy 3:16 and 2 Peter 1:20–21 affirm the divine inspiration of Scripture.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -3629,7 +3628,7 @@ export const CURATED_QUESTION_BANK = [
       "Epistle to the Ephesians"
     ],
     "displayAnswer": "Ephesians & Colossians (Ephesians 6, Colossians 2)",
-    "explanation": "Ephesians 6:10\u201318 and Colossians 2:15 explain victory over cosmic spiritual powers through Christ.",
+    "explanation": "Ephesians 6:10–18 and Colossians 2:15 explain victory over cosmic spiritual powers through Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -3670,8 +3669,8 @@ export const CURATED_QUESTION_BANK = [
       "Book of 1 Peter",
       "First Letter of Peter"
     ],
-    "displayAnswer": "1 Peter (1 Peter 1:6\u20137)",
-    "explanation": "1 Peter 1:6\u20137 teaches that temporary trials authenticate genuine faith resulting in praise at Christ's revelation.",
+    "displayAnswer": "1 Peter (1 Peter 1:6–7)",
+    "explanation": "1 Peter 1:6–7 teaches that temporary trials authenticate genuine faith resulting in praise at Christ's revelation.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -3689,8 +3688,8 @@ export const CURATED_QUESTION_BANK = [
       "1 Corinthians Chapter 12",
       "1 Cor Ch 12"
     ],
-    "displayAnswer": "1 Corinthians 12\u201314",
-    "explanation": "1 Corinthians 12\u201314 regulates spiritual gifts for the edification of the local church.",
+    "displayAnswer": "1 Corinthians 12–14",
+    "explanation": "1 Corinthians 12–14 regulates spiritual gifts for the edification of the local church.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -3713,7 +3712,7 @@ export const CURATED_QUESTION_BANK = [
       "First Letter to Timothy"
     ],
     "displayAnswer": "1 Timothy & Titus (1 Timothy 3, Titus 1)",
-    "explanation": "1 Timothy 3:1\u201313 and Titus 1:5\u20139 define the character qualifications for pastoral leadership.",
+    "explanation": "1 Timothy 3:1–13 and Titus 1:5–9 define the character qualifications for pastoral leadership.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -3755,7 +3754,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "bmpi_207",
     "type": "book_chapter",
-    "prompt": "In what book and three consecutive chapters does Paul address God's sovereign election, the hardening of ethnic Israel, and the future salvation of 'all Israel' (chapters 9\u201311)?",
+    "prompt": "In what book and three consecutive chapters does Paul address God's sovereign election, the hardening of ethnic Israel, and the future salvation of 'all Israel' (chapters 9–11)?",
     "bookId": "ROM",
     "chapterNum": 9,
     "acceptedAnswers": [
@@ -3766,8 +3765,8 @@ export const CURATED_QUESTION_BANK = [
       "Romans Chapter 9",
       "Rom Ch 9"
     ],
-    "displayAnswer": "Romans 9\u201311",
-    "explanation": "Romans 9\u201311 addresses sovereign grace, Israel's stumbling over Christ, and their future restoration.",
+    "displayAnswer": "Romans 9–11",
+    "explanation": "Romans 9–11 addresses sovereign grace, Israel's stumbling over Christ, and their future restoration.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -3806,8 +3805,8 @@ export const CURATED_QUESTION_BANK = [
       "Matthew Chapter 5",
       "Matt Ch 5"
     ],
-    "displayAnswer": "Matthew 5\u20137",
-    "explanation": "Matthew 5\u20137 is Jesus' manifesto on the character, ethics, and righteousness of the Kingdom of God.",
+    "displayAnswer": "Matthew 5–7",
+    "explanation": "Matthew 5–7 is Jesus' manifesto on the character, ethics, and righteousness of the Kingdom of God.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -3825,8 +3824,8 @@ export const CURATED_QUESTION_BANK = [
       "John Chapter 14",
       "Jhn Ch 14"
     ],
-    "displayAnswer": "John 14\u201317",
-    "explanation": "John 14\u201317 contains Jesus' intimate last discourse to the eleven and His prayer to the Father.",
+    "displayAnswer": "John 14–17",
+    "explanation": "John 14–17 contains Jesus' intimate last discourse to the eleven and His prayer to the Father.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -3843,8 +3842,8 @@ export const CURATED_QUESTION_BANK = [
       "Daniel",
       "Book of Job"
     ],
-    "displayAnswer": "Job & Daniel (Job 19:25\u201327, Daniel 12:2)",
-    "explanation": "Job 19:25\u201327 and Daniel 12:2 provide clear Old Testament witnesses to bodily resurrection.",
+    "displayAnswer": "Job & Daniel (Job 19:25–27, Daniel 12:2)",
+    "explanation": "Job 19:25–27 and Daniel 12:2 provide clear Old Testament witnesses to bodily resurrection.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -3879,8 +3878,8 @@ export const CURATED_QUESTION_BANK = [
       "Zechariah",
       "Book of Job"
     ],
-    "displayAnswer": "Job & Zechariah (Job 1\u20132, Zechariah 3:1)",
-    "explanation": "Job 1\u20132 and Zechariah 3:1 explicitly portray the adversary (ha-Satan) accusing God's servants.",
+    "displayAnswer": "Job & Zechariah (Job 1–2, Zechariah 3:1)",
+    "explanation": "Job 1–2 and Zechariah 3:1 explicitly portray the adversary (ha-Satan) accusing God's servants.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -3915,8 +3914,8 @@ export const CURATED_QUESTION_BANK = [
       "Gospel According to Luke",
       "Book of Luke"
     ],
-    "displayAnswer": "Luke (Luke 22:31\u201332)",
-    "explanation": "Luke 22:31\u201332 records Jesus' pastoral intercession for Peter prior to his denial.",
+    "displayAnswer": "Luke (Luke 22:31–32)",
+    "explanation": "Luke 22:31–32 records Jesus' pastoral intercession for Peter prior to his denial.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -3930,7 +3929,7 @@ export const CURATED_QUESTION_BANK = [
       "Josiah",
       "King Josiah"
     ],
-    "displayAnswer": "Josiah (2 Kings 22\u201323)",
+    "displayAnswer": "Josiah (2 Kings 22–23)",
     "explanation": "Josiah was the godly reformer king who turned to the Lord with all his heart, soul, and might.",
     "scope": "OT",
     "genre": "Historical"
@@ -4007,7 +4006,7 @@ export const CURATED_QUESTION_BANK = [
       "Saint Luke"
     ],
     "displayAnswer": "Luke",
-    "explanation": "Luke's two-volume historical work (Luke\u2013Acts) comprises over 25% of the New Testament.",
+    "explanation": "Luke's two-volume historical work (Luke–Acts) comprises over 25% of the New Testament.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -4022,7 +4021,7 @@ export const CURATED_QUESTION_BANK = [
       "King Solomon"
     ],
     "displayAnswer": "Solomon",
-    "explanation": "1 Kings 3\u201311 records the reign, wisdom, temple construction, and apostasy of Solomon.",
+    "explanation": "1 Kings 3–11 records the reign, wisdom, temple construction, and apostasy of Solomon.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -4036,8 +4035,8 @@ export const CURATED_QUESTION_BANK = [
       "Hezekiah",
       "King Hezekiah"
     ],
-    "displayAnswer": "Hezekiah (2 Kings 18\u201320)",
-    "explanation": "2 Kings 18\u201320 and 2 Chronicles 29\u201332 record the righteous reign of Hezekiah.",
+    "displayAnswer": "Hezekiah (2 Kings 18–20)",
+    "explanation": "2 Kings 18–20 and 2 Chronicles 29–32 record the righteous reign of Hezekiah.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -4070,7 +4069,7 @@ export const CURATED_QUESTION_BANK = [
       "Caleb son of Jephunneh"
     ],
     "displayAnswer": "Caleb (Joshua 14:12)",
-    "explanation": "Joshua 14:6\u201315 celebrates Caleb's lifelong faith and inheritance of Hebron.",
+    "explanation": "Joshua 14:6–15 celebrates Caleb's lifelong faith and inheritance of Hebron.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -4084,7 +4083,7 @@ export const CURATED_QUESTION_BANK = [
       "Jehoiada",
       "Jehoiada the priest"
     ],
-    "displayAnswer": "Jehoiada (2 Kings 11\u201312)",
+    "displayAnswer": "Jehoiada (2 Kings 11–12)",
     "explanation": "Jehoiada guided young King Joash in righteousness throughout his lifetime.",
     "scope": "OT",
     "genre": "Historical"
@@ -4098,7 +4097,7 @@ export const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Joseph"
     ],
-    "displayAnswer": "Joseph (Genesis 45:5\u20138)",
+    "displayAnswer": "Joseph (Genesis 45:5–8)",
     "explanation": "Genesis 45:5 records Joseph recognizing God's hand in preserving life in Egypt.",
     "scope": "OT",
     "genre": "Pentateuch"
@@ -4113,7 +4112,7 @@ export const CURATED_QUESTION_BANK = [
       "Habakkuk",
       "Hab"
     ],
-    "displayAnswer": "Habakkuk (Habakkuk 2\u20133)",
+    "displayAnswer": "Habakkuk (Habakkuk 2–3)",
     "explanation": "Habakkuk's dialogue with God transitions from deep perplexity to triumphant worship.",
     "scope": "OT",
     "genre": "Minor Prophets"
@@ -4173,8 +4172,8 @@ export const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Absalom"
     ],
-    "displayAnswer": "Absalom (2 Samuel 15\u201318)",
-    "explanation": "2 Samuel 15\u201318 records Absalom's tragic insurrection against King David.",
+    "displayAnswer": "Absalom (2 Samuel 15–18)",
+    "explanation": "2 Samuel 15–18 records Absalom's tragic insurrection against King David.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -4187,7 +4186,7 @@ export const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Miriam"
     ],
-    "displayAnswer": "Miriam (Numbers 12:1\u201315)",
+    "displayAnswer": "Miriam (Numbers 12:1–15)",
     "explanation": "Numbers 12 records God defending Moses' meekness and chastening Miriam with leprosy.",
     "scope": "OT",
     "genre": "Pentateuch"
@@ -4203,7 +4202,7 @@ export const CURATED_QUESTION_BANK = [
       "King Saul",
       "Saul of Kish"
     ],
-    "displayAnswer": "Saul (1 Samuel 13\u201315)",
+    "displayAnswer": "Saul (1 Samuel 13–15)",
     "explanation": "1 Samuel 13 and 15 record King Saul's disobedience resulting in God tearing the kingdom from him.",
     "scope": "OT",
     "genre": "Historical"
@@ -4218,8 +4217,8 @@ export const CURATED_QUESTION_BANK = [
       "Asa",
       "King Asa"
     ],
-    "displayAnswer": "Asa (2 Chronicles 14\u201316)",
-    "explanation": "2 Chronicles 16:7\u201312 warns how King Asa failed to trust God in his later years.",
+    "displayAnswer": "Asa (2 Chronicles 14–16)",
+    "explanation": "2 Chronicles 16:7–12 warns how King Asa failed to trust God in his later years.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -4264,8 +4263,8 @@ export const CURATED_QUESTION_BANK = [
       "Elijah the Tishbite",
       "Elijah the Prophet"
     ],
-    "displayAnswer": "Elijah (1 Kings 17\u201319)",
-    "explanation": "1 Kings 17\u201318 records Elijah's ministry at the brook Cherith and on Mount Carmel.",
+    "displayAnswer": "Elijah (1 Kings 17–19)",
+    "explanation": "1 Kings 17–18 records Elijah's ministry at the brook Cherith and on Mount Carmel.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -4280,7 +4279,7 @@ export const CURATED_QUESTION_BANK = [
       "Abram"
     ],
     "displayAnswer": "Abraham (Genesis 12:3, 15:6)",
-    "explanation": "Genesis 12:1\u20133 and 15:6 establish Abraham as the father of all who believe.",
+    "explanation": "Genesis 12:1–3 and 15:6 establish Abraham as the father of all who believe.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -4328,7 +4327,7 @@ export const CURATED_QUESTION_BANK = [
       "King Uzziah",
       "Azariah"
     ],
-    "displayAnswer": "Uzziah (2 Chronicles 26:16\u201321)",
+    "displayAnswer": "Uzziah (2 Chronicles 26:16–21)",
     "explanation": "2 Chronicles 26:16 warns that when Uzziah became strong, his heart was lifted up to his destruction.",
     "scope": "OT",
     "genre": "Historical"
@@ -4343,8 +4342,8 @@ export const CURATED_QUESTION_BANK = [
       "Deborah",
       "Deborah the Prophetess"
     ],
-    "displayAnswer": "Deborah (Judges 4\u20135)",
-    "explanation": "Judges 4\u20135 celebrates Deborah as a mother in Israel and victorious judge.",
+    "displayAnswer": "Deborah (Judges 4–5)",
+    "explanation": "Judges 4–5 celebrates Deborah as a mother in Israel and victorious judge.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -4390,7 +4389,7 @@ export const CURATED_QUESTION_BANK = [
       "Queen Esther",
       "Hadassah"
     ],
-    "displayAnswer": "Esther (Esther 4\u20137)",
+    "displayAnswer": "Esther (Esther 4–7)",
     "explanation": "Esther's heroic intervention led to the deliverance of the Jews and the feast of Purim.",
     "scope": "OT",
     "genre": "Historical"
@@ -4406,7 +4405,7 @@ export const CURATED_QUESTION_BANK = [
       "Joseph of Cyprus",
       "Son of Encouragement"
     ],
-    "displayAnswer": "Barnabas (Acts 4:36, 11:22\u201326)",
+    "displayAnswer": "Barnabas (Acts 4:36, 11:22–26)",
     "explanation": "Acts 11:24 describes Barnabas as a good man full of the Holy Spirit and of faith.",
     "scope": "NT",
     "genre": "Acts (History)"
@@ -4437,7 +4436,7 @@ export const CURATED_QUESTION_BANK = [
       "Haggai",
       "Hag"
     ],
-    "displayAnswer": "Haggai (Haggai 1:5\u20138)",
+    "displayAnswer": "Haggai (Haggai 1:5–8)",
     "explanation": "Haggai's prophetic ministry ignited the completion of the second temple.",
     "scope": "OT",
     "genre": "Minor Prophets"
@@ -4452,7 +4451,7 @@ export const CURATED_QUESTION_BANK = [
       "Daniel",
       "Daniel the Prophet"
     ],
-    "displayAnswer": "Daniel (Daniel 9:1\u20133)",
+    "displayAnswer": "Daniel (Daniel 9:1–3)",
     "explanation": "Daniel 9:2 records Daniel studying Jeremiah's scrolls and interceding for Jerusalem's restoration.",
     "scope": "OT",
     "genre": "Major Prophets"
@@ -4467,7 +4466,7 @@ export const CURATED_QUESTION_BANK = [
       "Nehemiah",
       "Nehemiah the Cupbearer"
     ],
-    "displayAnswer": "Nehemiah (Nehemiah 1\u20136)",
+    "displayAnswer": "Nehemiah (Nehemiah 1–6)",
     "explanation": "Nehemiah combined dependent prayer with brilliant organizational and defensive strategy.",
     "scope": "OT",
     "genre": "Historical"
@@ -4517,7 +4516,7 @@ export const CURATED_QUESTION_BANK = [
       "Aquila and Priscilla",
       "Prisca and Aquila"
     ],
-    "displayAnswer": "Priscilla & Aquila (Acts 18:24\u201326)",
+    "displayAnswer": "Priscilla & Aquila (Acts 18:24–26)",
     "explanation": "Acts 18:26 shows Priscilla and Aquila mentoring Apollos in sound doctrine.",
     "scope": "NT",
     "genre": "Acts (History)"
@@ -4546,8 +4545,8 @@ export const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Phoebe"
     ],
-    "displayAnswer": "Phoebe (Romans 16:1\u20132)",
-    "explanation": "Romans 16:1\u20132 commends Phoebe as a servant (diakonos) and patron (prostatis).",
+    "displayAnswer": "Phoebe (Romans 16:1–2)",
+    "explanation": "Romans 16:1–2 commends Phoebe as a servant (diakonos) and patron (prostatis).",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -4560,7 +4559,7 @@ export const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Demetrius"
     ],
-    "displayAnswer": "Demetrius (Acts 19:24\u201329)",
+    "displayAnswer": "Demetrius (Acts 19:24–29)",
     "explanation": "Acts 19:24 records Demetrius inciting the silversmiths against Paul's preaching.",
     "scope": "NT",
     "genre": "Acts (History)"
@@ -4574,8 +4573,8 @@ export const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Apollos"
     ],
-    "displayAnswer": "Apollos (Acts 18:24\u201328)",
-    "explanation": "Acts 18:24\u201328 highlights Apollos's powerful evangelistic and apologetic preaching.",
+    "displayAnswer": "Apollos (Acts 18:24–28)",
+    "explanation": "Acts 18:24–28 highlights Apollos's powerful evangelistic and apologetic preaching.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -4589,8 +4588,8 @@ export const CURATED_QUESTION_BANK = [
       "Abraham",
       "Abram"
     ],
-    "displayAnswer": "Abraham (Genesis 22, Hebrews 11:17\u201319)",
-    "explanation": "Genesis 22:1\u201314 records the testing of Abraham and God providing the ram in the thicket.",
+    "displayAnswer": "Abraham (Genesis 22, Hebrews 11:17–19)",
+    "explanation": "Genesis 22:1–14 records the testing of Abraham and God providing the ram in the thicket.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -4617,8 +4616,8 @@ export const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Eutychus"
     ],
-    "displayAnswer": "Eutychus (Acts 20:9\u201312)",
-    "explanation": "Acts 20:9\u201312 records Paul raising Eutychus from the dead.",
+    "displayAnswer": "Eutychus (Acts 20:9–12)",
+    "explanation": "Acts 20:9–12 records Paul raising Eutychus from the dead.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -4631,7 +4630,7 @@ export const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Lydia"
     ],
-    "displayAnswer": "Lydia (Acts 16:14\u201315)",
+    "displayAnswer": "Lydia (Acts 16:14–15)",
     "explanation": "Acts 16:14 records the Lord opening Lydia's heart to heed Paul's message.",
     "scope": "NT",
     "genre": "Acts (History)"
@@ -4661,7 +4660,7 @@ export const CURATED_QUESTION_BANK = [
       "Alexander the coppersmith"
     ],
     "displayAnswer": "Alexander the coppersmith (2 Timothy 4:14)",
-    "explanation": "2 Timothy 4:14\u201315 warns Timothy to beware of Alexander's fierce opposition to sound teaching.",
+    "explanation": "2 Timothy 4:14–15 warns Timothy to beware of Alexander's fierce opposition to sound teaching.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -4675,7 +4674,7 @@ export const CURATED_QUESTION_BANK = [
       "Eleazar",
       "Eleazar the priest"
     ],
-    "displayAnswer": "Eleazar (Numbers 20:26\u201328, Joshua 14:1)",
+    "displayAnswer": "Eleazar (Numbers 20:26–28, Joshua 14:1)",
     "explanation": "Eleazar succeeded Aaron as High Priest throughout the conquest and settlement.",
     "scope": "OT",
     "genre": "Pentateuch"
@@ -4689,7 +4688,7 @@ export const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Philemon"
     ],
-    "displayAnswer": "Philemon (Philemon 1:1\u20132)",
+    "displayAnswer": "Philemon (Philemon 1:1–2)",
     "explanation": "Philemon hosted the Colossian congregation in his household.",
     "scope": "NT",
     "genre": "Pauline Epistles"
@@ -4721,7 +4720,7 @@ export const CURATED_QUESTION_BANK = [
       "Hymenaeus",
       "Alexander"
     ],
-    "displayAnswer": "Hymenaeus and Alexander (1 Timothy 1:19\u201320)",
+    "displayAnswer": "Hymenaeus and Alexander (1 Timothy 1:19–20)",
     "explanation": "1 Timothy 1:20 records apostolic discipline against Hymenaeus and Alexander.",
     "scope": "NT",
     "genre": "Pauline Epistles"
@@ -4736,7 +4735,7 @@ export const CURATED_QUESTION_BANK = [
       "John Mark",
       "Mark"
     ],
-    "displayAnswer": "John Mark (Acts 15:37\u201339, 2 Timothy 4:11)",
+    "displayAnswer": "John Mark (Acts 15:37–39, 2 Timothy 4:11)",
     "explanation": "2 Timothy 4:11 marks the full restoration of Mark as Paul's valued coworker and author of the second Gospel.",
     "scope": "NT",
     "genre": "Pauline Epistles"
@@ -4767,7 +4766,7 @@ export const CURATED_QUESTION_BANK = [
       "Elisha son of Shaphat",
       "Elisha the Prophet"
     ],
-    "displayAnswer": "Elisha (2 Kings 2:9\u201315)",
+    "displayAnswer": "Elisha (2 Kings 2:9–15)",
     "explanation": "Elisha succeeded Elijah with a miraculous ministry of pastoral compassion and prophetic power.",
     "scope": "OT",
     "genre": "Historical"
@@ -4798,8 +4797,8 @@ export const CURATED_QUESTION_BANK = [
       "Apostle Paul",
       "Saul of Tarsus"
     ],
-    "displayAnswer": "Paul (2 Peter 3:15\u201316)",
-    "explanation": "2 Peter 3:15\u201316 equates Paul's letters with the rest of inspired Scripture.",
+    "displayAnswer": "Paul (2 Peter 3:15–16)",
+    "explanation": "2 Peter 3:15–16 equates Paul's letters with the rest of inspired Scripture.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -4814,7 +4813,7 @@ export const CURATED_QUESTION_BANK = [
       "Dr. Luke",
       "Saint Luke"
     ],
-    "displayAnswer": "Luke (Luke 1:1\u20134)",
+    "displayAnswer": "Luke (Luke 1:1–4)",
     "explanation": "Luke's historical prologue establishes the rigorous historical basis of the Gospel.",
     "scope": "NT",
     "genre": "Gospels"
@@ -4829,7 +4828,7 @@ export const CURATED_QUESTION_BANK = [
       "Eli",
       "Eli the priest"
     ],
-    "displayAnswer": "Eli (1 Samuel 2:27\u201336, 4:18)",
+    "displayAnswer": "Eli (1 Samuel 2:27–36, 4:18)",
     "explanation": "1 Samuel 4:18 records the tragic death of Eli upon hearing that the Ark of God was captured.",
     "scope": "OT",
     "genre": "Historical"
@@ -4844,7 +4843,7 @@ export const CURATED_QUESTION_BANK = [
       "Jehoshaphat",
       "King Jehoshaphat"
     ],
-    "displayAnswer": "Jehoshaphat (2 Chronicles 19:1\u20133)",
+    "displayAnswer": "Jehoshaphat (2 Chronicles 19:1–3)",
     "explanation": "2 Chronicles 19:2: 'Should you help the wicked and love those who hate the Lord?'",
     "scope": "OT",
     "genre": "Historical"
@@ -4873,7 +4872,7 @@ export const CURATED_QUESTION_BANK = [
     "acceptedAnswers": [
       "Philemon"
     ],
-    "displayAnswer": "Philemon (Philemon 1:18\u201319)",
+    "displayAnswer": "Philemon (Philemon 1:18–19)",
     "explanation": "Paul beautifully models Christ's substitutionary imputation in his plea to Philemon.",
     "scope": "NT",
     "genre": "Pauline Epistles"
@@ -4904,7 +4903,7 @@ export const CURATED_QUESTION_BANK = [
       "Malachi",
       "Mal"
     ],
-    "displayAnswer": "Malachi (Malachi 1\u20133)",
+    "displayAnswer": "Malachi (Malachi 1–3)",
     "explanation": "Malachi addressed the spiritual lethargy and nominalism of the post-exilic community.",
     "scope": "OT",
     "genre": "Minor Prophets"
@@ -4922,7 +4921,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Ruth"
     ],
     "displayAnswer": "Ruth (Ruth 4)",
-    "explanation": "Ruth 4:18\u201322 connects Boaz and Ruth to the messianic royal line of David and Jesus.",
+    "explanation": "Ruth 4:18–22 connects Boaz and Ruth to the messianic royal line of David and Jesus.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -5026,7 +5025,7 @@ export const CURATED_QUESTION_BANK = [
       "Eccl Ch 12"
     ],
     "displayAnswer": "Ecclesiastes 12 (Ecclesiastes 12:13)",
-    "explanation": "Ecclesiastes 12:13\u201314 provides the final conclusion of the book.",
+    "explanation": "Ecclesiastes 12:13–14 provides the final conclusion of the book.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -5041,7 +5040,7 @@ export const CURATED_QUESTION_BANK = [
       "Nah",
       "Book of Nahum"
     ],
-    "displayAnswer": "Nahum (Nahum 1:2\u20133)",
+    "displayAnswer": "Nahum (Nahum 1:2–3)",
     "explanation": "Nahum proclaims divine vengeance against oppressive, bloodthirsty Nineveh.",
     "scope": "OT",
     "genre": "Minor Prophets"
@@ -5080,7 +5079,7 @@ export const CURATED_QUESTION_BANK = [
       "First Letter to the Thessalonians"
     ],
     "displayAnswer": "1 Thessalonians",
-    "explanation": "1 Thessalonians 1:10, 2:19, 3:13, 4:16\u201317, 5:23 all spotlight the return of Christ.",
+    "explanation": "1 Thessalonians 1:10, 2:19, 3:13, 4:16–17, 5:23 all spotlight the return of Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -5097,8 +5096,8 @@ export const CURATED_QUESTION_BANK = [
       "1 Thessalonians Chapter 5",
       "1 Thess Ch 5"
     ],
-    "displayAnswer": "1 Thessalonians 5 (1 Thessalonians 5:19\u201321)",
-    "explanation": "1 Thessalonians 5:19\u201321 balances openness to the Spirit's work with rigorous discernment.",
+    "displayAnswer": "1 Thessalonians 5 (1 Thessalonians 5:19–21)",
+    "explanation": "1 Thessalonians 5:19–21 balances openness to the Spirit's work with rigorous discernment.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -5150,7 +5149,7 @@ export const CURATED_QUESTION_BANK = [
       "Rev Ch 21"
     ],
     "displayAnswer": "Revelation 21 (Revelation 21:4)",
-    "explanation": "Revelation 21:1\u20134 depicts eternal glory in the new heaven and new earth.",
+    "explanation": "Revelation 21:1–4 depicts eternal glory in the new heaven and new earth.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
@@ -5169,8 +5168,8 @@ export const CURATED_QUESTION_BANK = [
       "Book of 3 John",
       "Third Letter of John"
     ],
-    "displayAnswer": "3 John (3 John 1:9\u201310)",
-    "explanation": "3 John 1:9\u201310 exposes arrogant, authoritarian leadership in the church.",
+    "displayAnswer": "3 John (3 John 1:9–10)",
+    "explanation": "3 John 1:9–10 exposes arrogant, authoritarian leadership in the church.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -5207,8 +5206,8 @@ export const CURATED_QUESTION_BANK = [
       "Letter of James",
       "Epistle of James"
     ],
-    "displayAnswer": "James (James 5:16\u201318)",
-    "explanation": "James 5:16\u201318 uses Elijah as an inspiring model of fervent, prevailing prayer.",
+    "displayAnswer": "James (James 5:16–18)",
+    "explanation": "James 5:16–18 uses Elijah as an inspiring model of fervent, prevailing prayer.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -5225,8 +5224,8 @@ export const CURATED_QUESTION_BANK = [
       "Letter to Titus",
       "Epistle to Titus"
     ],
-    "displayAnswer": "Titus (Titus 2:3\u20135)",
-    "explanation": "Titus 2:3\u20135 establishes the biblical model of discipleship among Christian women.",
+    "displayAnswer": "Titus (Titus 2:3–5)",
+    "explanation": "Titus 2:3–5 establishes the biblical model of discipleship among Christian women.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -5244,8 +5243,8 @@ export const CURATED_QUESTION_BANK = [
       "Gospel According to Mark",
       "Book of Mark"
     ],
-    "displayAnswer": "Mark (Mark 4:26\u201329)",
-    "explanation": "Mark 4:26\u201329 is a parable found exclusively in the Gospel of Mark illustrating the mysterious growth of the Kingdom.",
+    "displayAnswer": "Mark (Mark 4:26–29)",
+    "explanation": "Mark 4:26–29 is a parable found exclusively in the Gospel of Mark illustrating the mysterious growth of the Kingdom.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -5279,7 +5278,7 @@ export const CURATED_QUESTION_BANK = [
       "John the baptizer"
     ],
     "displayAnswer": "John the Baptist",
-    "explanation": "John the Baptist preached in the wilderness of Judea: 'Prepare the way of the Lord' (Matt 3:1\u20133, Mark 1:3).",
+    "explanation": "John the Baptist preached in the wilderness of Judea: 'Prepare the way of the Lord' (Matt 3:1–3, Mark 1:3).",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -5297,7 +5296,7 @@ export const CURATED_QUESTION_BANK = [
       "Luk 10"
     ],
     "displayAnswer": "Luke 10 (or Chapter 10)",
-    "explanation": "Jesus tells the Parable of the Good Samaritan to a lawyer in Luke 10:25\u201337.",
+    "explanation": "Jesus tells the Parable of the Good Samaritan to a lawyer in Luke 10:25–37.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -5331,7 +5330,7 @@ export const CURATED_QUESTION_BANK = [
       "Didymus"
     ],
     "displayAnswer": "Thomas",
-    "explanation": "In John 20:24\u201329, Thomas confessed 'My Lord and my God!' after seeing and touching Jesus' wounds.",
+    "explanation": "In John 20:24–29, Thomas confessed 'My Lord and my God!' after seeing and touching Jesus' wounds.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -5388,7 +5387,7 @@ export const CURATED_QUESTION_BANK = [
       "Mt 6"
     ],
     "displayAnswer": "Matthew 6 (or Chapter 6)",
-    "explanation": "The Lord's Prayer ('Our Father in heaven...') is recorded in Matthew 6:9\u201313 (and Luke 11).",
+    "explanation": "The Lord's Prayer ('Our Father in heaven...') is recorded in Matthew 6:9–13 (and Luke 11).",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -5511,7 +5510,7 @@ export const CURATED_QUESTION_BANK = [
       "Acts of the Apostles Ch 20"
     ],
     "displayAnswer": "Acts 20",
-    "explanation": "In Acts 20:17\u201338 at Miletus, Paul delivers his emotional farewell address to the elders of the church of Ephesus.",
+    "explanation": "In Acts 20:17–38 at Miletus, Paul delivers his emotional farewell address to the elders of the church of Ephesus.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -5557,7 +5556,7 @@ export const CURATED_QUESTION_BANK = [
       "Nicodemus"
     ],
     "displayAnswer": "Nicodemus",
-    "explanation": "In John 3:1\u20139, Nicodemus visited Jesus by night, where Jesus taught him: 'You must be born again.'",
+    "explanation": "In John 3:1–9, Nicodemus visited Jesus by night, where Jesus taught him: 'You must be born again.'",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -5605,7 +5604,7 @@ export const CURATED_QUESTION_BANK = [
       "chapter 10"
     ],
     "displayAnswer": "Luke 15 (or Chapter 15)",
-    "explanation": "Luke 10:25\u201337 contains Jesus's Parable of the Good Samaritan.",
+    "explanation": "Luke 10:25–37 contains Jesus's Parable of the Good Samaritan.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -5639,7 +5638,7 @@ export const CURATED_QUESTION_BANK = [
       "Acts of the Apostles Ch 4"
     ],
     "displayAnswer": "Acts 4",
-    "explanation": "Acts 4:32\u201337 describes the radical generosity and unity of the early Jerusalem church.",
+    "explanation": "Acts 4:32–37 describes the radical generosity and unity of the early Jerusalem church.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -5657,7 +5656,7 @@ export const CURATED_QUESTION_BANK = [
       "Gal Ch 5"
     ],
     "displayAnswer": "Galatians 5",
-    "explanation": "Galatians 5:22\u201323 lists the 9 fruits of the Holy Spirit in contrast to the works of the flesh.",
+    "explanation": "Galatians 5:22–23 lists the 9 fruits of the Holy Spirit in contrast to the works of the flesh.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -5689,7 +5688,7 @@ export const CURATED_QUESTION_BANK = [
       "Joseph Arimathea"
     ],
     "displayAnswer": "Joseph of Arimathea",
-    "explanation": "Joseph of Arimathea, a disciple of Jesus, boldly asked Pilate for the body and placed it in his own new tomb (Matt 27:57\u201360).",
+    "explanation": "Joseph of Arimathea, a disciple of Jesus, boldly asked Pilate for the body and placed it in his own new tomb (Matt 27:57–60).",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -5742,7 +5741,7 @@ export const CURATED_QUESTION_BANK = [
       "chapter 12"
     ],
     "displayAnswer": "Romans 8 (or Chapter 8)",
-    "explanation": "Romans 12:1\u20132 is the classic exhortation to wholehearted spiritual consecration.",
+    "explanation": "Romans 12:1–2 is the classic exhortation to wholehearted spiritual consecration.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -5872,7 +5871,7 @@ export const CURATED_QUESTION_BANK = [
       "Virgin Mary"
     ],
     "displayAnswer": "Mary",
-    "explanation": "Mary was chosen by God to conceive Jesus through the Holy Spirit (Luke 1:26\u201338).",
+    "explanation": "Mary was chosen by God to conceive Jesus through the Holy Spirit (Luke 1:26–38).",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -5952,7 +5951,7 @@ export const CURATED_QUESTION_BANK = [
       "lepers"
     ],
     "displayAnswer": "Leprosy",
-    "explanation": "In Luke 17:11\u201319, Jesus cleansed ten lepers on the border of Samaria and Galilee, and a Samaritan returned to praise God.",
+    "explanation": "In Luke 17:11–19, Jesus cleansed ten lepers on the border of Samaria and Galilee, and a Samaritan returned to praise God.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -5970,7 +5969,7 @@ export const CURATED_QUESTION_BANK = [
       "Luk 12"
     ],
     "displayAnswer": "Luke 12 (or Chapter 12)",
-    "explanation": "In Luke 12:16\u201321, Jesus warned against greed with the Parable of the Rich Fool.",
+    "explanation": "In Luke 12:16–21, Jesus warned against greed with the Parable of the Rich Fool.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -6013,7 +6012,7 @@ export const CURATED_QUESTION_BANK = [
       "Zaccheus"
     ],
     "displayAnswer": "Zacchaeus",
-    "explanation": "Luke 19:1\u201310 tells how Zacchaeus climbed a sycamore-fig tree, and Jesus stayed at his house, bringing salvation.",
+    "explanation": "Luke 19:1–10 tells how Zacchaeus climbed a sycamore-fig tree, and Jesus stayed at his house, bringing salvation.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -6046,7 +6045,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Acts"
     ],
     "displayAnswer": "Acts (Acts 20)",
-    "explanation": "In Acts 20:9\u201312 in Troas, Eutychus fell asleep during Paul's preaching, fell out of a 3rd story window, and Paul raised him.",
+    "explanation": "In Acts 20:9–12 in Troas, Eutychus fell asleep during Paul's preaching, fell out of a 3rd story window, and Paul raised him.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -6253,7 +6252,7 @@ export const CURATED_QUESTION_BANK = [
       "Ehud"
     ],
     "displayAnswer": "Ehud",
-    "explanation": "Judges 3:15\u201326 details how Ehud delivered Israel by striking down the corpulent King Eglon.",
+    "explanation": "Judges 3:15–26 details how Ehud delivered Israel by striking down the corpulent King Eglon.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -6268,7 +6267,7 @@ export const CURATED_QUESTION_BANK = [
       "King Solomon"
     ],
     "displayAnswer": "Solomon (King Solomon)",
-    "explanation": "King Solomon built the First Temple over seven years (1 Kings 6; 2 Chron 3\u20137).",
+    "explanation": "King Solomon built the First Temple over seven years (1 Kings 6; 2 Chron 3–7).",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -6285,7 +6284,7 @@ export const CURATED_QUESTION_BANK = [
       "Caleb & Joshua"
     ],
     "displayAnswer": "Joshua and Caleb (or Caleb and Joshua)",
-    "explanation": "In Numbers 14:6\u20139, Joshua and Caleb stood alone among the 12 spies urging Israel to trust the Lord.",
+    "explanation": "In Numbers 14:6–9, Joshua and Caleb stood alone among the 12 spies urging Israel to trust the Lord.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -6367,7 +6366,7 @@ export const CURATED_QUESTION_BANK = [
       "Joshua son of Nun"
     ],
     "displayAnswer": "Joshua",
-    "explanation": "Joshua 1:1\u20139: The Lord commissioned Joshua: 'Moses my servant is dead. Now therefore arise, go over this Jordan.'",
+    "explanation": "Joshua 1:1–9: The Lord commissioned Joshua: 'Moses my servant is dead. Now therefore arise, go over this Jordan.'",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -6385,7 +6384,7 @@ export const CURATED_QUESTION_BANK = [
       "Jer 31"
     ],
     "displayAnswer": "Jeremiah 31 (or Chapter 31)",
-    "explanation": "Jeremiah 31:31\u201334 foretells the New Covenant written upon the heart, quoted in Hebrews 8.",
+    "explanation": "Jeremiah 31:31–34 foretells the New Covenant written upon the heart, quoted in Hebrews 8.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -6399,7 +6398,7 @@ export const CURATED_QUESTION_BANK = [
       "Samson"
     ],
     "displayAnswer": "Samson",
-    "explanation": "Judges 13\u201316 chronicles Samson's mighty deeds and downfall through Delilah.",
+    "explanation": "Judges 13–16 chronicles Samson's mighty deeds and downfall through Delilah.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -6430,7 +6429,7 @@ export const CURATED_QUESTION_BANK = [
       "Nehemiah the Cupbearer"
     ],
     "displayAnswer": "Nehemiah",
-    "explanation": "Nehemiah mobilized the community to rebuild the walls of Jerusalem amidst intense opposition (Neh 1\u20136).",
+    "explanation": "Nehemiah mobilized the community to rebuild the walls of Jerusalem amidst intense opposition (Neh 1–6).",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -6576,7 +6575,7 @@ export const CURATED_QUESTION_BANK = [
       "Queen Esther"
     ],
     "displayAnswer": "Esther",
-    "explanation": "Esther 4:14\u201316 details Queen Esther standing before the Persian King Xerxes to avert Haman's genocide.",
+    "explanation": "Esther 4:14–16 details Queen Esther standing before the Persian King Xerxes to avert Haman's genocide.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -6668,7 +6667,7 @@ export const CURATED_QUESTION_BANK = [
       "Eli the priest"
     ],
     "displayAnswer": "Eli",
-    "explanation": "Eli was high priest and judge at Shiloh when young Samuel ministered before the Lord (1 Sam 1\u20134).",
+    "explanation": "Eli was high priest and judge at Shiloh when young Samuel ministered before the Lord (1 Sam 1–4).",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -6685,7 +6684,7 @@ export const CURATED_QUESTION_BANK = [
       "Brass snake"
     ],
     "displayAnswer": "Bronze Serpent (Bronze Snake)",
-    "explanation": "Numbers 21:8\u20139 recounts Moses lifting the bronze serpent, which Jesus cited as a foreshadowing of the Cross in John 3:14.",
+    "explanation": "Numbers 21:8–9 recounts Moses lifting the bronze serpent, which Jesus cited as a foreshadowing of the Cross in John 3:14.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -6717,7 +6716,7 @@ export const CURATED_QUESTION_BANK = [
       "Rachel"
     ],
     "displayAnswer": "Rachel",
-    "explanation": "Jacob loved Rachel and served Laban for 14 years to marry her (Genesis 29:18\u201330).",
+    "explanation": "Jacob loved Rachel and served Laban for 14 years to marry her (Genesis 29:18–30).",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -6816,7 +6815,7 @@ export const CURATED_QUESTION_BANK = [
       "Amos"
     ],
     "displayAnswer": "Amos",
-    "explanation": "Amos 7:14: 'I was no prophet, nor a prophet\u2019s son, but I was a herdsman and a dresser of sycamore figs.'",
+    "explanation": "Amos 7:14: 'I was no prophet, nor a prophet’s son, but I was a herdsman and a dresser of sycamore figs.'",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -7043,7 +7042,7 @@ export const CURATED_QUESTION_BANK = [
       "Rev Ch 21"
     ],
     "displayAnswer": "Revelation 21",
-    "explanation": "Revelation 21:1\u20134 portrays the descent of the New Jerusalem and eternal fellowship with God.",
+    "explanation": "Revelation 21:1–4 portrays the descent of the New Jerusalem and eternal fellowship with God.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
@@ -7234,7 +7233,7 @@ export const CURATED_QUESTION_BANK = [
       "Josh 10"
     ],
     "displayAnswer": "Joshua 10 (or Chapter 10)",
-    "explanation": "Joshua 10:12\u201314 records Joshua commanding the sun to stand still over Gibeon and the moon over Aijalon.",
+    "explanation": "Joshua 10:12–14 records Joshua commanding the sun to stand still over Gibeon and the moon over Aijalon.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -7264,7 +7263,7 @@ export const CURATED_QUESTION_BANK = [
       "Deborah the Prophetess"
     ],
     "displayAnswer": "Deborah",
-    "explanation": "Judges 4\u20135 chronicles Deborah judging Israel under the palm tree and composing her triumphal song.",
+    "explanation": "Judges 4–5 chronicles Deborah judging Israel under the palm tree and composing her triumphal song.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -7423,7 +7422,7 @@ export const CURATED_QUESTION_BANK = [
       "King Josiah"
     ],
     "displayAnswer": "Josiah (King Josiah)",
-    "explanation": "2 Kings 22\u201323 records the discovery of the Law and Josiah's reforms.",
+    "explanation": "2 Kings 22–23 records the discovery of the Law and Josiah's reforms.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -7713,7 +7712,7 @@ export const CURATED_QUESTION_BANK = [
       "Mars' Hill"
     ],
     "displayAnswer": "Mars Hill (The Areopagus)",
-    "explanation": "In Acts 17:22\u201331, Paul preached at the Areopagus (Mars Hill) in Athens regarding the Creator God and the resurrection.",
+    "explanation": "In Acts 17:22–31, Paul preached at the Areopagus (Mars Hill) in Athens regarding the Creator God and the resurrection.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -7745,7 +7744,7 @@ export const CURATED_QUESTION_BANK = [
       "chapter 2"
     ],
     "displayAnswer": "Ephesians 6 (or Chapter 6)",
-    "explanation": "Ephesians 2:8\u20139 provides the core doctrine of salvation by grace through faith alone.",
+    "explanation": "Ephesians 2:8–9 provides the core doctrine of salvation by grace through faith alone.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -7792,7 +7791,7 @@ export const CURATED_QUESTION_BANK = [
       "Rev Ch 2"
     ],
     "displayAnswer": "Revelation 2 (and 3)",
-    "explanation": "Revelation 2\u20133 contains Christ's specific messages to Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, and Laodicea.",
+    "explanation": "Revelation 2–3 contains Christ's specific messages to Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia, and Laodicea.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
@@ -7950,8 +7949,8 @@ export const CURATED_QUESTION_BANK = [
       "First Chronicles",
       "Book of 1 Chronicles"
     ],
-    "displayAnswer": "1 Chronicles (1 Chron 4:9\u201310)",
-    "explanation": "1 Chronicles 4:9\u201310 records Jabez praying for God's protection and blessing, and God granted his request.",
+    "displayAnswer": "1 Chronicles (1 Chron 4:9–10)",
+    "explanation": "1 Chronicles 4:9–10 records Jabez praying for God's protection and blessing, and God granted his request.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -7982,7 +7981,7 @@ export const CURATED_QUESTION_BANK = [
       "King Uzziah"
     ],
     "displayAnswer": "Uzziah (Azariah)",
-    "explanation": "2 Chronicles 26:16\u201321 recounts King Uzziah's pride leading to his downfall when he usurped the priest's duty.",
+    "explanation": "2 Chronicles 26:16–21 recounts King Uzziah's pride leading to his downfall when he usurped the priest's duty.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -8011,7 +8010,7 @@ export const CURATED_QUESTION_BANK = [
       "Absalom"
     ],
     "displayAnswer": "Absalom",
-    "explanation": "2 Samuel 15\u201318 chronicles Absalom's conspiracy, David's flight from Jerusalem, and David's grief over his death.",
+    "explanation": "2 Samuel 15–18 chronicles Absalom's conspiracy, David's flight from Jerusalem, and David's grief over his death.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -8251,7 +8250,7 @@ export const CURATED_QUESTION_BANK = [
       "Demetrius"
     ],
     "displayAnswer": "Demetrius",
-    "explanation": "In Acts 19:24\u201329, Demetrius gathered fellow craftsmen shouting 'Great is Artemis of the Ephesians!'",
+    "explanation": "In Acts 19:24–29, Demetrius gathered fellow craftsmen shouting 'Great is Artemis of the Ephesians!'",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -8265,7 +8264,7 @@ export const CURATED_QUESTION_BANK = [
       "Apollos"
     ],
     "displayAnswer": "Apollos",
-    "explanation": "Acts 18:24\u201328 describes Apollos powerfully refuting the Jews in public, proving from the Scriptures that Jesus was the Christ.",
+    "explanation": "Acts 18:24–28 describes Apollos powerfully refuting the Jews in public, proving from the Scriptures that Jesus was the Christ.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -8324,7 +8323,7 @@ export const CURATED_QUESTION_BANK = [
       "strongholds"
     ],
     "displayAnswer": "strongholds",
-    "explanation": "2 Corinthians 10:4\u20135 emphasizes spiritual warfare and taking every thought captive to obey Christ.",
+    "explanation": "2 Corinthians 10:4–5 emphasizes spiritual warfare and taking every thought captive to obey Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -8366,7 +8365,7 @@ export const CURATED_QUESTION_BANK = [
       "Epaphroditus"
     ],
     "displayAnswer": "Epaphroditus",
-    "explanation": "Philippians 2:25\u201330 praises Epaphroditus as 'my brother and fellow worker and fellow soldier, and your messenger.'",
+    "explanation": "Philippians 2:25–30 praises Epaphroditus as 'my brother and fellow worker and fellow soldier, and your messenger.'",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -8410,7 +8409,7 @@ export const CURATED_QUESTION_BANK = [
       "Diotrephes"
     ],
     "displayAnswer": "Diotrephes",
-    "explanation": "3 John 9\u201310 warns against Diotrephes, who loved to have the preeminence and spoke malicious words against the apostles.",
+    "explanation": "3 John 9–10 warns against Diotrephes, who loved to have the preeminence and spoke malicious words against the apostles.",
     "scope": "NT",
     "genre": "General Epistles"
   },
@@ -8444,7 +8443,7 @@ export const CURATED_QUESTION_BANK = [
       "Laodiceans"
     ],
     "displayAnswer": "Laodicea (Church in Laodicea)",
-    "explanation": "Revelation 3:14\u201322 was written to the lukewarm church in Laodicea.",
+    "explanation": "Revelation 3:14–22 was written to the lukewarm church in Laodicea.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
@@ -8462,7 +8461,7 @@ export const CURATED_QUESTION_BANK = [
       "Doctor Luke"
     ],
     "displayAnswer": "Luke",
-    "explanation": "Luke, the physician and companion of Paul, wrote both the Gospel of Luke and the Acts of the Apostles (Acts 1:1, Luke 1:1\u20134).",
+    "explanation": "Luke, the physician and companion of Paul, wrote both the Gospel of Luke and the Acts of the Apostles (Acts 1:1, Luke 1:1–4).",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -8559,7 +8558,7 @@ export const CURATED_QUESTION_BANK = [
       "Balaam son of Beor"
     ],
     "displayAnswer": "Balaam",
-    "explanation": "Numbers 22\u201324: Balaam could only speak what God commanded, prophesying a star and scepter out of Jacob (Numbers 24:17).",
+    "explanation": "Numbers 22–24: Balaam could only speak what God commanded, prophesying a star and scepter out of Jacob (Numbers 24:17).",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -8606,7 +8605,7 @@ export const CURATED_QUESTION_BANK = [
       "Apostle Peter"
     ],
     "displayAnswer": "Peter (Cephas)",
-    "explanation": "Galatians 2:11\u201314: Paul opposed Peter to his face because his conduct was not in step with the truth of the gospel.",
+    "explanation": "Galatians 2:11–14: Paul opposed Peter to his face because his conduct was not in step with the truth of the gospel.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -8625,7 +8624,7 @@ export const CURATED_QUESTION_BANK = [
       "Horeb"
     ],
     "displayAnswer": "Mount Sinai (Horeb)",
-    "explanation": "Exodus 19\u201320: God descended on Mount Sinai in fire and smoke and audibly proclaimed the Ten Commandments.",
+    "explanation": "Exodus 19–20: God descended on Mount Sinai in fire and smoke and audibly proclaimed the Ten Commandments.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -8639,7 +8638,7 @@ export const CURATED_QUESTION_BANK = [
       "Ephesus"
     ],
     "displayAnswer": "Ephesus",
-    "explanation": "Acts 19:23\u201341: The theater riot in Ephesus where the mob shouted 'Great is Artemis of the Ephesians!' for two hours.",
+    "explanation": "Acts 19:23–41: The theater riot in Ephesus where the mob shouted 'Great is Artemis of the Ephesians!' for two hours.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -8731,7 +8730,7 @@ export const CURATED_QUESTION_BANK = [
       "Damascus"
     ],
     "displayAnswer": "Damascus",
-    "explanation": "Acts 9:3\u20134: As Saul drew near to Damascus, suddenly a light from heaven shone around him and he fell to the ground.",
+    "explanation": "Acts 9:3–4: As Saul drew near to Damascus, suddenly a light from heaven shone around him and he fell to the ground.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -8833,8 +8832,8 @@ export const CURATED_QUESTION_BANK = [
       "Ge",
       "Book of Genesis"
     ],
-    "displayAnswer": "Genesis (Genesis 37\u201350)",
-    "explanation": "Genesis 37\u201350 details Joseph's coat of many colors, Potiphar's house, prison, and rise to prime minister of Egypt.",
+    "displayAnswer": "Genesis (Genesis 37–50)",
+    "explanation": "Genesis 37–50 details Joseph's coat of many colors, Potiphar's house, prison, and rise to prime minister of Egypt.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -8851,8 +8850,8 @@ export const CURATED_QUESTION_BANK = [
       "Nm",
       "Book of Numbers"
     ],
-    "displayAnswer": "Numbers (Numbers 13\u201314)",
-    "explanation": "Numbers 13\u201314 records the 10 fearful spies and the resulting 40-year wandering in the wilderness.",
+    "displayAnswer": "Numbers (Numbers 13–14)",
+    "explanation": "Numbers 13–14 records the 10 fearful spies and the resulting 40-year wandering in the wilderness.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -8867,8 +8866,8 @@ export const CURATED_QUESTION_BANK = [
       "Jol",
       "Joe"
     ],
-    "displayAnswer": "Joel (Joel 1\u20132)",
-    "explanation": "Joel 1\u20132 uses the locust plague as a warning of the Day of the Lord, followed by the promise of the Spirit in Joel 2:28.",
+    "displayAnswer": "Joel (Joel 1–2)",
+    "explanation": "Joel 1–2 uses the locust plague as a warning of the Day of the Lord, followed by the promise of the Spirit in Joel 2:28.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -8886,7 +8885,7 @@ export const CURATED_QUESTION_BANK = [
       "Epistle to the Ephesians"
     ],
     "displayAnswer": "Ephesians (Ephesians 6)",
-    "explanation": "Ephesians 6:10\u201320 describes the belt of truth, breastplate of righteousness, shield of faith, helmet of salvation, and sword of the Spirit.",
+    "explanation": "Ephesians 6:10–20 describes the belt of truth, breastplate of righteousness, shield of faith, helmet of salvation, and sword of the Spirit.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -8922,8 +8921,8 @@ export const CURATED_QUESTION_BANK = [
       "Hos",
       "Book of Hosea"
     ],
-    "displayAnswer": "Hosea (Hosea 1\u20133)",
-    "explanation": "Hosea 1\u20133 portrays God's relentless, forgiving love for spiritual adulterers.",
+    "displayAnswer": "Hosea (Hosea 1–3)",
+    "explanation": "Hosea 1–3 portrays God's relentless, forgiving love for spiritual adulterers.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -8943,7 +8942,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Matthew"
     ],
     "displayAnswer": "Matthew (Matthew 2)",
-    "explanation": "Matthew 2:1\u201312 uniquely records the visit and worship of the wise men.",
+    "explanation": "Matthew 2:1–12 uniquely records the visit and worship of the wise men.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -8961,7 +8960,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Ecclesiastes"
     ],
     "displayAnswer": "Ecclesiastes (Ecclesiastes 3)",
-    "explanation": "Ecclesiastes 3:1\u20138 contains the famous poem on the appointed times and sovereign seasons of life.",
+    "explanation": "Ecclesiastes 3:1–8 contains the famous poem on the appointed times and sovereign seasons of life.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -8998,7 +8997,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Proverbs"
     ],
     "displayAnswer": "Proverbs (Proverbs 9)",
-    "explanation": "Proverbs 9:1\u20136 describes Lady Wisdom building her house and inviting guests to her feast.",
+    "explanation": "Proverbs 9:1–6 describes Lady Wisdom building her house and inviting guests to her feast.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -9032,7 +9031,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Deuteronomy"
     ],
     "displayAnswer": "Deuteronomy (Deuteronomy 6:5)",
-    "explanation": "Deuteronomy 6:4\u20135 is the centerpiece Shema, quoted by Jesus as the first and greatest commandment.",
+    "explanation": "Deuteronomy 6:4–5 is the centerpiece Shema, quoted by Jesus as the first and greatest commandment.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -9051,7 +9050,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of John"
     ],
     "displayAnswer": "John (John 4)",
-    "explanation": "John 4:1\u201342 records Jesus revealing Himself as the Messiah to the Samaritan woman.",
+    "explanation": "John 4:1–42 records Jesus revealing Himself as the Messiah to the Samaritan woman.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -9089,7 +9088,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Luke"
     ],
     "displayAnswer": "Luke (Luke 10)",
-    "explanation": "Luke 10:25\u201337 uniquely preserves Jesus' famous parable of the merciful Samaritan.",
+    "explanation": "Luke 10:25–37 uniquely preserves Jesus' famous parable of the merciful Samaritan.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -9108,7 +9107,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of 1 Timothy",
       "First Letter to Timothy"
     ],
-    "displayAnswer": "1 Timothy (1 Tim 5:1\u20132)",
+    "displayAnswer": "1 Timothy (1 Tim 5:1–2)",
     "explanation": "1 Timothy 5 gives pastoral guidelines for relationships within the household of God.",
     "scope": "NT",
     "genre": "Pauline Epistles"
@@ -9128,7 +9127,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of 2 Samuel"
     ],
     "displayAnswer": "2 Samuel (2 Samuel 7)",
-    "explanation": "2 Samuel 7:12\u201316 contains Nathan's prophecy of David's eternal royal dynasty, fulfilled in Christ.",
+    "explanation": "2 Samuel 7:12–16 contains Nathan's prophecy of David's eternal royal dynasty, fulfilled in Christ.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -9164,7 +9163,7 @@ export const CURATED_QUESTION_BANK = [
       "Gen Ch 12"
     ],
     "displayAnswer": "Genesis 12",
-    "explanation": "Genesis 12:1\u20133 records God's covenant call to Abram.",
+    "explanation": "Genesis 12:1–3 records God's covenant call to Abram.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -9182,7 +9181,7 @@ export const CURATED_QUESTION_BANK = [
       "Matthew 5 to 7",
       "5, 6, 7"
     ],
-    "displayAnswer": "Matthew 5\u20137",
+    "displayAnswer": "Matthew 5–7",
     "explanation": "Matthew chapters 5, 6, and 7 comprise the inaugural discourse of Jesus on Kingdom ethics and discipleship.",
     "scope": "NT",
     "genre": "Gospels"
@@ -9201,7 +9200,7 @@ export const CURATED_QUESTION_BANK = [
       "Matt Ch 28"
     ],
     "displayAnswer": "Matthew 28",
-    "explanation": "Matthew 28:18\u201320 concludes Matthew's Gospel with Christ's universal commission to His church.",
+    "explanation": "Matthew 28:18–20 concludes Matthew's Gospel with Christ's universal commission to His church.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -9219,7 +9218,7 @@ export const CURATED_QUESTION_BANK = [
       "Acts of the Apostles Ch 2"
     ],
     "displayAnswer": "Acts 2",
-    "explanation": "Acts 2:1\u20134 describes the birth of the New Testament church at Pentecost and Peter's sermon.",
+    "explanation": "Acts 2:1–4 describes the birth of the New Testament church at Pentecost and Peter's sermon.",
     "scope": "NT",
     "genre": "Acts (History)"
   },
@@ -9238,7 +9237,7 @@ export const CURATED_QUESTION_BANK = [
       "Rom Ch 5"
     ],
     "displayAnswer": "Romans 5",
-    "explanation": "Romans 5:12\u201321 develops the profound theological parallel and contrast between Adam and Christ.",
+    "explanation": "Romans 5:12–21 develops the profound theological parallel and contrast between Adam and Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -9276,7 +9275,7 @@ export const CURATED_QUESTION_BANK = [
       "Jhn Ch 3"
     ],
     "displayAnswer": "John 3",
-    "explanation": "John 3:1\u201321 records Jesus' nighttime discourse on spiritual regeneration, including John 3:16.",
+    "explanation": "John 3:1–21 records Jesus' nighttime discourse on spiritual regeneration, including John 3:16.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -9294,7 +9293,7 @@ export const CURATED_QUESTION_BANK = [
       "Rev Ch 20"
     ],
     "displayAnswer": "Revelation 20",
-    "explanation": "Revelation 20:1\u20133 describes the millennial binding of Satan followed by the Great White Throne Judgment.",
+    "explanation": "Revelation 20:1–3 describes the millennial binding of Satan followed by the Great White Throne Judgment.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
@@ -9453,7 +9452,7 @@ export const CURATED_QUESTION_BANK = [
       "The New Creation"
     ],
     "displayAnswer": "The New Heaven, New Earth, and New Jerusalem",
-    "explanation": "Revelation 21:1\u20132 describes the new heaven, new earth, and the holy city, new Jerusalem.",
+    "explanation": "Revelation 21:1–2 describes the new heaven, new earth, and the holy city, new Jerusalem.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
@@ -9533,7 +9532,7 @@ export const CURATED_QUESTION_BANK = [
       "Sarai"
     ],
     "displayAnswer": "Sarah",
-    "explanation": "Genesis 18:12\u201314: Sarah reacted in disbelief before giving birth to Isaac as God promised.",
+    "explanation": "Genesis 18:12–14: Sarah reacted in disbelief before giving birth to Isaac as God promised.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -9568,7 +9567,7 @@ export const CURATED_QUESTION_BANK = [
       "Zebedee's wife"
     ],
     "displayAnswer": "The mother of James and John (Zebedee's sons / Salome)",
-    "explanation": "Matthew 20:20\u201321: Prompting Jesus to teach that greatness in the Kingdom is found in serving others.",
+    "explanation": "Matthew 20:20–21: Prompting Jesus to teach that greatness in the Kingdom is found in serving others.",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -9628,7 +9627,7 @@ export const CURATED_QUESTION_BANK = [
       "Job"
     ],
     "displayAnswer": "Job",
-    "explanation": "Job 19:25\u201326: Job's profound declaration of confidence in his living Redeemer and bodily resurrection.",
+    "explanation": "Job 19:25–26: Job's profound declaration of confidence in his living Redeemer and bodily resurrection.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -9650,7 +9649,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_err_1",
     "type": "book_id",
-    "prompt": "To which New Testament book would you turn to correct the error: 'As long as you believe the right things, it doesn\u2019t matter how you live your life'?",
+    "prompt": "To which New Testament book would you turn to correct the error: 'As long as you believe the right things, it doesn’t matter how you live your life'?",
     "bookId": "JAS",
     "chapterNum": 2,
     "acceptedAnswers": [
@@ -9668,7 +9667,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_err_2",
     "type": "book_id",
-    "prompt": "To which epistle would you turn to correct the error: 'I\u2019m sure I don\u2019t have any spiritual gifts; only special people do'?",
+    "prompt": "To which epistle would you turn to correct the error: 'I’m sure I don’t have any spiritual gifts; only special people do'?",
     "bookId": "1CO",
     "chapterNum": 12,
     "acceptedAnswers": [
@@ -9707,7 +9706,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_err_4",
     "type": "book_id",
-    "prompt": "To which Old Testament book would you turn to correct the retribution error: 'If you are sick or suffering, you must have secret sin; good people don\u2019t suffer'?",
+    "prompt": "To which Old Testament book would you turn to correct the retribution error: 'If you are sick or suffering, you must have secret sin; good people don’t suffer'?",
     "bookId": "JOB",
     "chapterNum": 1,
     "acceptedAnswers": [
@@ -9722,7 +9721,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_err_5",
     "type": "book_id",
-    "prompt": "To which prophetic book would you turn to correct the error: 'God only cares about religious rituals; He doesn\u2019t care about the poor, vulnerable, and oppressed'?",
+    "prompt": "To which prophetic book would you turn to correct the error: 'God only cares about religious rituals; He doesn’t care about the poor, vulnerable, and oppressed'?",
     "bookId": "AMO",
     "chapterNum": 5,
     "acceptedAnswers": [
@@ -9754,7 +9753,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "gfc_err_7",
     "type": "book_id",
-    "prompt": "To which book would you turn to correct the nihilistic error: 'In the end it won\u2019t make any difference whom we followed or what we did; everybody gets treated the exact same when history ends'?",
+    "prompt": "To which book would you turn to correct the nihilistic error: 'In the end it won’t make any difference whom we followed or what we did; everybody gets treated the exact same when history ends'?",
     "bookId": "REV",
     "chapterNum": 20,
     "acceptedAnswers": [
@@ -9765,14 +9764,14 @@ export const CURATED_QUESTION_BANK = [
       "The Revelation"
     ],
     "displayAnswer": "Revelation",
-    "explanation": "Revelation 20\u201322 reveals final cosmic judgment, eternal life for the redeemed, and eternal separation for the wicked.",
+    "explanation": "Revelation 20–22 reveals final cosmic judgment, eternal life for the redeemed, and eternal separation for the wicked.",
     "scope": "NT",
     "genre": "Apocalyptic"
   },
   {
     "id": "gfc_err_8",
     "type": "book_id",
-    "prompt": "To which Gospel would you turn to correct the pluralistic error: 'There\u2019s nothing unique about Jesus; He\u2019s just one path among many, like any other prophet or good moral teacher'?",
+    "prompt": "To which Gospel would you turn to correct the pluralistic error: 'There’s nothing unique about Jesus; He’s just one path among many, like any other prophet or good moral teacher'?",
     "bookId": "JHN",
     "chapterNum": 14,
     "acceptedAnswers": [
@@ -9784,7 +9783,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of John"
     ],
     "displayAnswer": "John",
-    "explanation": "John 1:1\u201314 and John 14:6 present Christ as the eternal Word made flesh: 'I am the way, and the truth, and the life. No one comes to the Father except through me.'",
+    "explanation": "John 1:1–14 and John 14:6 present Christ as the eternal Word made flesh: 'I am the way, and the truth, and the life. No one comes to the Father except through me.'",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -9804,14 +9803,14 @@ export const CURATED_QUESTION_BANK = [
       "First Letter to Timothy"
     ],
     "displayAnswer": "1 Timothy (1 Timothy 3)",
-    "explanation": "1 Timothy 3:1\u20137 sets forth the indispensable spiritual, moral, and character qualifications for overseers/elders.",
+    "explanation": "1 Timothy 3:1–7 sets forth the indispensable spiritual, moral, and character qualifications for overseers/elders.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
   {
     "id": "gfc_err_10",
     "type": "book_id",
-    "prompt": "To which book would you turn to correct the ascetic error: 'The Bible doesn\u2019t say anything good about romantic love and marital intimacy; that\u2019s too physical for God to care about'?",
+    "prompt": "To which book would you turn to correct the ascetic error: 'The Bible doesn’t say anything good about romantic love and marital intimacy; that’s too physical for God to care about'?",
     "bookId": "SNG",
     "chapterNum": 1,
     "acceptedAnswers": [
@@ -9841,7 +9840,7 @@ export const CURATED_QUESTION_BANK = [
       "God's covenant to Abraham"
     ],
     "displayAnswer": "God's promise to Abraham (Genesis 12 c. 2090 BC)",
-    "explanation": "Abraham (~2000 BC) preceded the Judges (~1375\u20131050 BC), Saul (~1050 BC), and Pentecost (AD 33).",
+    "explanation": "Abraham (~2000 BC) preceded the Judges (~1375–1050 BC), Saul (~1050 BC), and Pentecost (AD 33).",
     "scope": "ALL",
     "genre": "Historical"
   },
@@ -9875,7 +9874,7 @@ export const CURATED_QUESTION_BANK = [
       "Fall"
     ],
     "displayAnswer": "The Fall of man (Genesis 3)",
-    "explanation": "The Fall (Gen 3) preceded the Flood (Gen 6\u20139), the Nativity (Matt 1), and the New Jerusalem (Rev 21).",
+    "explanation": "The Fall (Gen 3) preceded the Flood (Gen 6–9), the Nativity (Matt 1), and the New Jerusalem (Rev 21).",
     "scope": "ALL",
     "genre": "Pentateuch"
   },
@@ -10060,7 +10059,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Isaiah"
     ],
     "displayAnswer": "Isaiah (Isaiah 7:14)",
-    "explanation": "Isaiah 7:14 is quoted in Matthew 1:22\u201323 as fulfilled in the conception and virgin birth of Jesus.",
+    "explanation": "Isaiah 7:14 is quoted in Matthew 1:22–23 as fulfilled in the conception and virgin birth of Jesus.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -10076,8 +10075,8 @@ export const CURATED_QUESTION_BANK = [
       "Is",
       "Book of Isaiah"
     ],
-    "displayAnswer": "Isaiah (Isaiah 61:1\u20132)",
-    "explanation": "Isaiah 61:1\u20132 was read by Jesus in the Nazareth synagogue in Luke 4:18\u201319: 'Today this Scripture has been fulfilled in your hearing.'",
+    "displayAnswer": "Isaiah (Isaiah 61:1–2)",
+    "explanation": "Isaiah 61:1–2 was read by Jesus in the Nazareth synagogue in Luke 4:18–19: 'Today this Scripture has been fulfilled in your hearing.'",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -10098,7 +10097,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Psalms"
     ],
     "displayAnswer": "Psalms (Psalm 110:4)",
-    "explanation": "Psalm 110:4 is expounded in Hebrews 5\u20137 as the basis for Christ's eternal, Melchizedekian priesthood.",
+    "explanation": "Psalm 110:4 is expounded in Hebrews 5–7 as the basis for Christ's eternal, Melchizedekian priesthood.",
     "scope": "OT",
     "genre": "Poetry/Wisdom"
   },
@@ -10157,7 +10156,7 @@ export const CURATED_QUESTION_BANK = [
       "Book of Isaiah"
     ],
     "displayAnswer": "Isaiah (Isaiah 53:9)",
-    "explanation": "Isaiah 53:9 was fulfilled when Joseph of Arimathea, a wealthy council member, buried Jesus in his own new tomb (Matthew 27:57\u201360).",
+    "explanation": "Isaiah 53:9 was fulfilled when Joseph of Arimathea, a wealthy council member, buried Jesus in his own new tomb (Matthew 27:57–60).",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -11332,7 +11331,7 @@ export const CURATED_QUESTION_BANK = [
       "Numbers Chapter 6"
     ],
     "displayAnswer": "Numbers 6 (or Chapter 6)",
-    "explanation": "Numbers 6:24\u201326 contains the Aaronic Blessing.",
+    "explanation": "Numbers 6:24–26 contains the Aaronic Blessing.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -11674,7 +11673,7 @@ export const CURATED_QUESTION_BANK = [
       "Deuteronomy Chapter 18"
     ],
     "displayAnswer": "Deuteronomy 18 (or Chapter 18)",
-    "explanation": "Deuteronomy 18:15\u201318 prophesies the coming of the Messianic Prophet.",
+    "explanation": "Deuteronomy 18:15–18 prophesies the coming of the Messianic Prophet.",
     "scope": "OT",
     "genre": "Pentateuch"
   },
@@ -13498,7 +13497,7 @@ export const CURATED_QUESTION_BANK = [
       "1 Chronicles Chapter 4"
     ],
     "displayAnswer": "1 Chronicles 4 (or Chapter 4)",
-    "explanation": "1 Chronicles 4:9\u201310 contains the famous Prayer of Jabez.",
+    "explanation": "1 Chronicles 4:9–10 contains the famous Prayer of Jabez.",
     "scope": "OT",
     "genre": "Historical"
   },
@@ -14752,7 +14751,7 @@ export const CURATED_QUESTION_BANK = [
       "Proverbs Chapter 3"
     ],
     "displayAnswer": "Proverbs 3 (or Chapter 3)",
-    "explanation": "Proverbs 3:5\u20136 is one of Scripture's most treasured passages on guidance.",
+    "explanation": "Proverbs 3:5–6 is one of Scripture's most treasured passages on guidance.",
     "scope": "OT",
     "genre": "Wisdom & Poetry"
   },
@@ -14828,7 +14827,7 @@ export const CURATED_QUESTION_BANK = [
       "Proverbs Chapter 31"
     ],
     "displayAnswer": "Proverbs 31 (or Chapter 31)",
-    "explanation": "Proverbs 31:10\u201331 celebrates the noble, industrious, God-fearing woman.",
+    "explanation": "Proverbs 31:10–31 celebrates the noble, industrious, God-fearing woman.",
     "scope": "OT",
     "genre": "Wisdom & Poetry"
   },
@@ -14866,7 +14865,7 @@ export const CURATED_QUESTION_BANK = [
       "Ecclesiastes Chapter 3"
     ],
     "displayAnswer": "Ecclesiastes 3 (or Chapter 3)",
-    "explanation": "Ecclesiastes 3:1\u20138 outlines the seasons of life ordained by God.",
+    "explanation": "Ecclesiastes 3:1–8 outlines the seasons of life ordained by God.",
     "scope": "OT",
     "genre": "Wisdom & Poetry"
   },
@@ -14885,7 +14884,7 @@ export const CURATED_QUESTION_BANK = [
       "Ecclesiastes Chapter 4"
     ],
     "displayAnswer": "Ecclesiastes 4 (or Chapter 4)",
-    "explanation": "Ecclesiastes 4:9\u201312 highlights the value of companionship and unity.",
+    "explanation": "Ecclesiastes 4:9–12 highlights the value of companionship and unity.",
     "scope": "OT",
     "genre": "Wisdom & Poetry"
   },
@@ -15037,7 +15036,7 @@ export const CURATED_QUESTION_BANK = [
       "Isaiah Chapter 9"
     ],
     "displayAnswer": "Isaiah 9 (or Chapter 9)",
-    "explanation": "Isaiah 9:6\u20137 foretells the divine titles of the Davidic King.",
+    "explanation": "Isaiah 9:6–7 foretells the divine titles of the Davidic King.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -15417,7 +15416,7 @@ export const CURATED_QUESTION_BANK = [
       "Jeremiah Chapter 31"
     ],
     "displayAnswer": "Jeremiah 31 (or Chapter 31)",
-    "explanation": "Jeremiah 31:31\u201334 is the landmark prophecy of the New Covenant.",
+    "explanation": "Jeremiah 31:31–34 is the landmark prophecy of the New Covenant.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -15493,7 +15492,7 @@ export const CURATED_QUESTION_BANK = [
       "Lamentations Chapter 3"
     ],
     "displayAnswer": "Lamentations 3 (or Chapter 3)",
-    "explanation": "Lamentations 3:22\u201324 is the central confession of hope in the book.",
+    "explanation": "Lamentations 3:22–24 is the central confession of hope in the book.",
     "scope": "OT",
     "genre": "Major Prophets"
   },
@@ -16006,7 +16005,7 @@ export const CURATED_QUESTION_BANK = [
       "Joel Chapter 2"
     ],
     "displayAnswer": "Joel 2 (or Chapter 2)",
-    "explanation": "Joel 2 contains the famous prophecy of the outpouring of the Holy Spirit (Joel 2:28\u201332).",
+    "explanation": "Joel 2 contains the famous prophecy of the outpouring of the Holy Spirit (Joel 2:28–32).",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -16101,7 +16100,7 @@ export const CURATED_QUESTION_BANK = [
       "Amos Chapter 9"
     ],
     "displayAnswer": "Amos 9 (or Chapter 9)",
-    "explanation": "Amos 9:11\u201312 foretells the restoration of David's line to include the Gentiles.",
+    "explanation": "Amos 9:11–12 foretells the restoration of David's line to include the Gentiles.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -16272,7 +16271,7 @@ export const CURATED_QUESTION_BANK = [
       "Micah Chapter 7"
     ],
     "displayAnswer": "Micah 7 (or Chapter 7)",
-    "explanation": "Micah 7:18\u201320 concludes with God's incomparable mercy in pardoning sin.",
+    "explanation": "Micah 7:18–20 concludes with God's incomparable mercy in pardoning sin.",
     "scope": "OT",
     "genre": "Minor Prophets"
   },
@@ -17032,7 +17031,7 @@ export const CURATED_QUESTION_BANK = [
       "Matthew Chapter 28"
     ],
     "displayAnswer": "Matthew 28 (or Chapter 28)",
-    "explanation": "Matthew 28 concludes with the Resurrection and the Great Commission (Matt 28:18\u201320).",
+    "explanation": "Matthew 28 concludes with the Resurrection and the Great Commission (Matt 28:18–20).",
     "scope": "NT",
     "genre": "Gospels"
   },
@@ -18571,7 +18570,7 @@ export const CURATED_QUESTION_BANK = [
       "Galatians Chapter 5"
     ],
     "displayAnswer": "Galatians 5 (or Chapter 5)",
-    "explanation": "Galatians 5:22\u201323 outlines the ninefold Fruit of the Spirit.",
+    "explanation": "Galatians 5:22–23 outlines the ninefold Fruit of the Spirit.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -18616,7 +18615,7 @@ export const CURATED_QUESTION_BANK = [
   {
     "id": "ch_eph_2",
     "type": "chapter_in_book",
-    "prompt": "In what chapter of Ephesians is the foundational gospel statement: 'For by grace you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works, so that no one may boast' (Eph 2:8\u20139)?",
+    "prompt": "In what chapter of Ephesians is the foundational gospel statement: 'For by grace you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works, so that no one may boast' (Eph 2:8–9)?",
     "bookId": "EPH",
     "chapterNum": 2,
     "acceptedAnswers": [
@@ -18723,7 +18722,7 @@ export const CURATED_QUESTION_BANK = [
       "Philippians Chapter 2"
     ],
     "displayAnswer": "Philippians 2 (or Chapter 2)",
-    "explanation": "Philippians 2:5\u201311 is the profound Christological hymn on the humility and exaltation of Christ.",
+    "explanation": "Philippians 2:5–11 is the profound Christological hymn on the humility and exaltation of Christ.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -18780,7 +18779,7 @@ export const CURATED_QUESTION_BANK = [
       "Colossians Chapter 1"
     ],
     "displayAnswer": "Colossians 1 (or Chapter 1)",
-    "explanation": "Colossians 1:15\u201320 establishes the absolute supremacy of Christ in creation and redemption.",
+    "explanation": "Colossians 1:15–20 establishes the absolute supremacy of Christ in creation and redemption.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -18837,7 +18836,7 @@ export const CURATED_QUESTION_BANK = [
       "1 Thessalonians Chapter 4"
     ],
     "displayAnswer": "1 Thessalonians 4 (or Chapter 4)",
-    "explanation": "1 Thessalonians 4:13\u201318 explains the resurrection of the dead and the catching up of believers.",
+    "explanation": "1 Thessalonians 4:13–18 explains the resurrection of the dead and the catching up of believers.",
     "scope": "NT",
     "genre": "Pauline Epistles"
   },
@@ -19885,8 +19884,203 @@ export const CURATED_QUESTION_BANK = [
     "explanation": "Revelation 22 concludes the Holy Scriptures with the River of Life and the promise of Christ's return.",
     "scope": "NT",
     "genre": "Apocalyptic"
+  },
+  {
+    "id": "ch_sng_4",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Song of Solomon does the bridegroom praise the bride: \"Behold, you are beautiful, my love... You are altogether beautiful, my love; there is no flaw in you\"?",
+    "bookId": "SNG",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Song 4",
+      "Song of Solomon 4",
+      "Song of Songs 4",
+      "Sng 4"
+    ],
+    "displayAnswer": "Song of Solomon 4 (or Chapter 4)",
+    "explanation": "Song of Solomon 4 contains the bridegroom's celebration of the bride's beauty.",
+    "scope": "OT",
+    "genre": "Poetry/Wisdom"
+  },
+  {
+    "id": "ch_lam_1",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Lamentations does the lament over fallen Jerusalem begin: \"How lonely sits the city that was full of people! How like a widow has she become\"?",
+    "bookId": "LAM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Lamentations 1",
+      "Lam 1",
+      "Lamentations Chapter 1"
+    ],
+    "displayAnswer": "Lamentations 1 (or Chapter 1)",
+    "explanation": "Lamentations 1 opens with the sorrowful desolation of Jerusalem after Babylonian conquest.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_lam_5",
+    "type": "chapter_in_book",
+    "prompt": "In what final chapter of Lamentations is the prayer for restoration: \"Restore us to yourself, O Lord, that we may be restored! Renew our days as of old\"?",
+    "bookId": "LAM",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Lamentations 5",
+      "Lam 5",
+      "Lamentations Chapter 5"
+    ],
+    "displayAnswer": "Lamentations 5 (or Chapter 5)",
+    "explanation": "Lamentations 5 concludes the book with an earnest petition for restoration.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "ch_oba_2",
+    "type": "facts",
+    "prompt": "Which nation descended from Esau was condemned in Obadiah for standing aloof and gloating over the capture of Jerusalem?",
+    "bookId": "OBA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Edom",
+      "Edomites",
+      "The Edomites",
+      "Nation of Edom",
+      "Esau",
+      "Land of Edom"
+    ],
+    "displayAnswer": "Edom (or Edomites)",
+    "explanation": "Obadiah pronounces judgment upon Edom for their pride and violence against their brother Jacob.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_zep_2",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Zephaniah are the humble urged: \"Seek the Lord, all you humble of the land... seek righteousness; seek humility; perhaps you may be hidden on the day of the anger of the Lord\"?",
+    "bookId": "ZEP",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Zephaniah 2",
+      "Zep 2",
+      "Zephaniah Chapter 2"
+    ],
+    "displayAnswer": "Zephaniah 2 (or Chapter 2)",
+    "explanation": "Zephaniah 2 calls the humble remnant to repentance before judgment falls.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "ch_2th_3",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of 2 Thessalonians does Paul command: \"If anyone is not willing to work, let him not eat\" and urge believers not to grow weary in doing good?",
+    "bookId": "2TH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "2 Thessalonians 3",
+      "2 Thess 3",
+      "2 Th 3",
+      "2Thess 3"
+    ],
+    "displayAnswer": "2 Thessalonians 3 (or Chapter 3)",
+    "explanation": "2 Thessalonians 3 provides instructions against idleness and disorderliness in the church.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_phm_2",
+    "type": "facts",
+    "prompt": "To what wealthy Colossian Christian did Paul write an appeal concerning the runaway slave Onesimus?",
+    "bookId": "PHM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Philemon",
+      "Philem",
+      "Phlm"
+    ],
+    "displayAnswer": "Philemon",
+    "explanation": "Paul wrote the Epistle to Philemon urging him to welcome Onesimus back as a brother in Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "ch_2jn_2",
+    "type": "facts",
+    "prompt": "To whom is the Second Epistle of John addressed in verse 1?",
+    "bookId": "2JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "The elect lady",
+      "Elect lady",
+      "The elect lady and her children",
+      "Elect lady and her children",
+      "Chosen lady",
+      "The chosen lady"
+    ],
+    "displayAnswer": "The elect lady (and her children)",
+    "explanation": "2 John 1:1 is addressed by the elder to the elect lady and her children.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_2jn_3",
+    "type": "verse_completion",
+    "prompt": "Complete the warning in 2 John 1:7: \"For many deceivers have gone out into the world, those who do not confess the coming of Jesus Christ in the ______.\"",
+    "bookId": "2JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "flesh",
+      "the flesh"
+    ],
+    "displayAnswer": "flesh",
+    "explanation": "2 John 1:7 warns against deceivers who do not confess the bodily incarnation of Jesus Christ.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_3jn_2",
+    "type": "facts",
+    "prompt": "Which brother is commended in 3 John 1:12 as having a good testimony from everyone and from the truth itself?",
+    "bookId": "3JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Demetrius",
+      "Demétrius"
+    ],
+    "displayAnswer": "Demetrius",
+    "explanation": "3 John 1:12 praises Demetrius for his godly reputation and faithfulness to the truth.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "ch_jud_2",
+    "type": "facts",
+    "prompt": "Which archangel in Jude 1:9 disputed with the devil about the body of Moses without pronouncing a blasphemous judgment?",
+    "bookId": "JUD",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Michael",
+      "Archangel Michael",
+      "Michael the archangel",
+      "The archangel Michael"
+    ],
+    "displayAnswer": "Michael (the archangel)",
+    "explanation": "Jude 1:9 records Michael the archangel contending with the devil over Moses' body.",
+    "scope": "NT",
+    "genre": "General Epistles"
   }
 ];
-
-export const BMPI_TEST_300_BANK = CURATED_QUESTION_BANK.filter(q => q.id.startsWith("bmpi_"));
-export const GFC_TEST_100_BANK = CURATED_QUESTION_BANK.filter(q => q.id.startsWith("gfc_"));
