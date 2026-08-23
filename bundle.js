@@ -18435,7 +18435,7 @@ const CURATED_QUESTION_BANK = [
   {
     "id": "ch_jhn_3",
     "type": "chapter_in_book",
-    "prompt": "In what chapter of John does Jesus explain being 'born again' to the Pharisee Nicodemus and declare: 'For God so loved the world, that he gave his only Son' (John 3:16)?",
+    "prompt": "In what chapter of John does Jesus explain being born again to Nicodemus and state, 'For God so loved the world, that he gave his only Son'?",
     "bookId": "JHN",
     "chapterNum": 3,
     "acceptedAnswers": [
@@ -18446,8 +18446,8 @@ const CURATED_QUESTION_BANK = [
       "JHN 3",
       "John Chapter 3"
     ],
-    "displayAnswer": "John 3 (or Chapter 3)",
-    "explanation": "John 3 contains Jesus' nighttime discourse on the new birth with Nicodemus.",
+    "displayAnswer": "John 3 (John 3:1-21)",
+    "explanation": "John 3 details Jesus' nighttime conversation with Nicodemus about being born again and includes the declaration of God's love in sending His Son (John 3:16).",
     "scope": "NT",
     "genre": "Gospels"
   },
