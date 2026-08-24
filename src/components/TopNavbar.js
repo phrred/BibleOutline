@@ -89,6 +89,7 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
               type="button"
               data-export-type="md"
               data-export-scope="current"
+              data-export-layout="document"
               class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#DBCFB3]"
             >
               <span>📄</span>
@@ -98,10 +99,21 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
               type="button"
               data-export-type="pdf"
               data-export-scope="current"
+              data-export-layout="document"
               class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#C4B79C]"
             >
               <span>📑</span>
               <span>Export PDF (.pdf)</span>
+            </button>
+            <button
+              type="button"
+              data-export-type="pdf"
+              data-export-scope="current"
+              data-export-layout="grid"
+              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#C4B79C]"
+            >
+              <span>▦</span>
+              <span>Export Grid Table (PDF)</span>
             </button>
 
             <div class="px-3 py-1 mt-1 text-[10px] font-mono uppercase tracking-wider text-[#8C8A84] border-t border-b border-[#262624]">
@@ -111,6 +123,7 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
               type="button"
               data-export-type="md"
               data-export-scope="all"
+              data-export-layout="document"
               class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#A19E97] hover:text-[#EAE8E2]"
             >
               <span>🌐</span>
@@ -120,6 +133,7 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
               type="button"
               data-export-type="pdf"
               data-export-scope="all"
+              data-export-layout="document"
               class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#A19E97] hover:text-[#EAE8E2]"
             >
               <span>📑</span>
@@ -133,7 +147,7 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
                 class="w-full text-left px-3 py-1.5 hover:bg-[#2A2A27] flex items-center gap-1.5 transition cursor-pointer text-[11px] text-[#7B7974] hover:text-[#C4B79C]"
               >
                 <span>⚙️</span>
-                <span>More Export Options...</span>
+                <span>More Export Options (Grid / Layout)...</span>
               </button>
             </div>
           </div>
@@ -192,6 +206,27 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
               <div class="flex-1">
                 <div class="font-semibold text-[#DBCFB3]">Complete Bible Outline</div>
                 <div class="text-[11px] text-[#7B7974]">All 66 canonical books (1,189 chapters)</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 3: Select Layout Style -->
+        <div class="space-y-2 text-xs">
+          <label class="block font-mono uppercase tracking-wider text-[#A19E97]">3. Select Layout Style</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
+              <input type="radio" name="export-modal-layout" value="document" checked class="text-[#C4B79C] focus:ring-0" />
+              <div>
+                <div class="font-semibold text-[#DBCFB3]">📄 Document Outline</div>
+                <div class="text-[11px] text-[#7B7974]">Vertical list & headings</div>
+              </div>
+            </label>
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
+              <input type="radio" name="export-modal-layout" value="grid" class="text-[#C4B79C] focus:ring-0" />
+              <div>
+                <div class="font-semibold text-[#DBCFB3]">▦ Two-Column Grid</div>
+                <div class="text-[11px] text-[#7B7974]">Headings + Bullets table</div>
               </div>
             </label>
           </div>

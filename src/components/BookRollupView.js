@@ -3,13 +3,14 @@ import { extractESVHeadings } from "../esv_api.js";
 
 export function renderBookRollupView({
   selectedBook,
-  data
+  data,
+  rollupLayout = "document"
 }) {
   const bookData = data.books[selectedBook.id] || { bookSummary: "" };
 
   return `
     <div class="h-full w-full overflow-y-auto bg-[#141413] text-[#EAE8E2]">
-      <div class="max-w-3xl mx-auto p-6 md:p-10 space-y-10">
+      <div class="${rollupLayout === "grid" ? "max-w-5xl" : "max-w-3xl"} mx-auto p-6 md:p-10 space-y-10">
       <!-- Quiet Book Header -->
       <div class="border-b border-[#242422] pb-6 space-y-3">
         <div class="flex items-center justify-between text-xs text-[#8C8A84]">
@@ -17,23 +18,53 @@ export function renderBookRollupView({
           <span>${selectedBook.author} • ${selectedBook.date}</span>
         </div>
 
-        <div class="flex items-center justify-between">
+        <div class="flex flex-wrap items-center justify-between gap-3">
           <h1 class="font-serif text-3xl font-bold text-[#EAE8E2] tracking-tight">
             ${selectedBook.name}
           </h1>
 
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <!-- Layout Switcher (Document List vs Two-Column Grid) -->
+            <div class="flex items-center bg-[#1D1D1B] p-0.5 rounded-lg border border-[#2B2B28] text-xs mr-1">
+              <button
+                data-set-rollup-layout="document"
+                class="set-rollup-layout-btn px-2.5 py-1 rounded text-xs transition flex items-center gap-1 cursor-pointer ${
+                  rollupLayout === "document"
+                    ? "bg-[#2D2D2A] text-[#EAE8E2] font-semibold shadow-xs"
+                    : "text-[#8C8A84] hover:text-[#EAE8E2]"
+                }"
+                title="Vertical Document List Outline"
+              >
+                <span>📄</span>
+                <span>List</span>
+              </button>
+              <button
+                data-set-rollup-layout="grid"
+                class="set-rollup-layout-btn px-2.5 py-1 rounded text-xs transition flex items-center gap-1 cursor-pointer ${
+                  rollupLayout === "grid"
+                    ? "bg-[#2D2D2A] text-[#EAE8E2] font-semibold shadow-xs"
+                    : "text-[#8C8A84] hover:text-[#EAE8E2]"
+                }"
+                title="Two-Column Grid View (Headings Column + Bullets Row/Column)"
+              >
+                <span>▦</span>
+                <span>Grid</span>
+              </button>
+            </div>
+
             <button
               data-export-book-md="${selectedBook.id}"
+              data-export-layout="${rollupLayout}"
               class="export-book-md-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1 cursor-pointer"
-              title="Export ${selectedBook.name} as Markdown (.md)"
+              title="Export ${selectedBook.name} as Markdown (.md) in ${rollupLayout === 'grid' ? 'Grid Table' : 'Document'} layout"
             >
               <span>📄 .md</span>
             </button>
             <button
               data-export-book-pdf="${selectedBook.id}"
+              data-export-layout="${rollupLayout}"
               class="export-book-pdf-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#C4B79C] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1 cursor-pointer"
-              title="Export ${selectedBook.name} as printable PDF (.pdf)"
+              title="Export ${selectedBook.name} as printable PDF (.pdf) in ${rollupLayout === 'grid' ? 'Grid Table' : 'Document'} layout"
             >
               <span>📑 PDF</span>
             </button>
@@ -76,9 +107,14 @@ export function renderBookRollupView({
       <!-- Complete Book Chapter Rollup -->
       <div class="space-y-6 pt-4">
         <div class="flex items-center justify-between border-b border-[#242422] pb-2">
-          <h2 class="font-serif text-xl font-bold text-[#EAE8E2]">
-            Complete Book Outline (${selectedBook.chapterCount} ch)
-          </h2>
+          <div class="flex items-center gap-2">
+            <h2 class="font-serif text-xl font-bold text-[#EAE8E2]">
+              Complete Book Outline (${selectedBook.chapterCount} ch)
+            </h2>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#1D1D1B] border border-[#2A2A27] text-[#8C8A84]">
+              ${rollupLayout === "grid" ? "Two-Column Grid View" : "Document List View"}
+            </span>
+          </div>
         </div>
 
         <div class="space-y-8">
@@ -103,82 +139,183 @@ export function renderBookRollupView({
                 );
               }
 
-              rows.push(`
-                <div class="border-b border-[#222220] pb-6 space-y-4">
-                  <div class="flex items-center justify-between">
-                    <h3 class="font-serif text-lg font-bold text-[#DBCFB3]">
-                      Chapter ${ch}
-                    </h3>
-                    <button
-                      data-chapter-num="${ch}"
-                      class="open-chapter-editor-btn text-xs text-[#8C8A84] hover:text-[#EAE8E2] transition"
-                    >
-                      Outline Side-by-Side →
-                    </button>
-                  </div>
+              if (rollupLayout === "grid") {
+                rows.push(`
+                  <div class="border border-[#262624] bg-[#171715] rounded-xl overflow-hidden shadow-md space-y-0">
+                    <!-- Chapter Header Bar -->
+                    <div class="flex items-center justify-between px-4 py-3 bg-[#1F1F1D] border-b border-[#2B2B28]">
+                      <div class="flex items-center gap-2.5">
+                        <span class="font-serif text-base font-bold text-[#EAE8E2]">Chapter ${ch}</span>
+                        <span class="text-xs font-mono text-[#8C8A84]">(${selectedBook.shortName} ${ch})</span>
+                      </div>
+                      <button
+                        data-chapter-num="${ch}"
+                        class="open-chapter-editor-btn text-xs text-[#C4B79C] hover:text-[#EAE8E2] transition flex items-center gap-1 font-medium cursor-pointer"
+                      >
+                        <span>Outline Side-by-Side</span>
+                        <span>→</span>
+                      </button>
+                    </div>
 
-                  <div class="space-y-4">
-                    ${blocks
-                      .map((block) => `
-                        <div class="space-y-1">
-                          <div class="flex items-center gap-2">
-                            <span class="font-serif font-semibold text-sm text-[#EAE8E2]">
-                              ${block.heading}
-                            </span>
-                            ${
-                              block.verses
-                                ? `<span class="text-xs font-mono text-[#7B7974]">(${block.verses})</span>`
-                                : ""
-                            }
-                          </div>
-                          ${(() => {
-                            const pts = Array.isArray(block.points)
-                              ? block.points.filter((p) => p && p.trim().length > 0)
-                              : block.notes
-                              ? block.notes
-                                  .split("\n")
-                                  .map((p) => p.replace(/^[•\-\*]\s*/, "").trim())
-                                  .filter(Boolean)
-                              : [];
+                    <!-- 2-Column Table for Headings & Bullets -->
+                    <div class="overflow-x-auto">
+                      <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                          <tr class="bg-[#141413] text-[#8C8A84] font-mono uppercase tracking-wider text-[10px] border-b border-[#242422]">
+                            <th class="py-2.5 px-4 w-[38%] border-r border-[#242422]">Section Headings & Passage</th>
+                            <th class="py-2.5 px-4 w-[62%]">Outline Bullets & Notes</th>
+                          </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#222220]">
+                          ${blocks
+                            .map((block, hIdx) => {
+                              const pts = Array.isArray(block.points)
+                                ? block.points.filter((p) => p && p.trim().length > 0)
+                                : block.notes
+                                ? block.notes
+                                    .split("\n")
+                                    .map((p) => p.replace(/^[•\-\*]\s*/, "").trim())
+                                    .filter(Boolean)
+                                : [];
 
-                            if (pts.length > 0) {
                               return `
-                                <ul class="space-y-1 pl-3 text-sm text-[#EAE8E2]">
-                                  ${pts
-                                    .map(
-                                      (pt) => `
-                                    <li class="flex items-start gap-2">
-                                      <span class="text-[#C4B79C] select-none">•</span>
-                                      <span>${pt.replace(/</g, "&lt;")}</span>
-                                    </li>
-                                  `
-                                    )
-                                    .join("")}
-                                </ul>
-                              `;
-                            }
-                            return `
-                              <div class="text-xs text-[#6D6B66] italic">
-                                No outline points under "${block.heading}"
-                              </div>
-                            `;
-                          })()}
-                        </div>
-                      `)
-                      .join("")}
-                  </div>
+                                <tr class="hover:bg-[#1A1A18]/60 transition">
+                                  <!-- Column 1: Headings & Passage -->
+                                  <td class="py-3 px-4 align-top border-r border-[#222220] space-y-1">
+                                    <div class="flex items-start gap-2">
+                                      <span class="inline-flex items-center justify-center w-4 h-4 rounded bg-[#242422] text-[#8C8A84] text-[10px] font-mono shrink-0 mt-0.5 font-bold">${hIdx + 1}</span>
+                                      <div class="space-y-0.5">
+                                        <div class="font-serif font-semibold text-sm text-[#EAE8E2] leading-snug">
+                                          ${block.heading}
+                                        </div>
+                                        ${block.verses ? `<div class="text-[11px] font-mono text-[#C4B79C]">(${block.verses})</div>` : ""}
+                                      </div>
+                                    </div>
+                                  </td>
 
-                  ${
-                    chData.takeaway && chData.takeaway.trim()
-                      ? `
-                          <div class="text-xs text-[#C4B79C] pt-1">
-                            Takeaway: ${chData.takeaway}
+                                  <!-- Column 2: Bullets & Notes -->
+                                  <td class="py-3 px-4 align-top text-sm text-[#EAE8E2]">
+                                    ${
+                                      pts.length > 0
+                                        ? `
+                                          <ul class="space-y-1 pl-1">
+                                            ${pts
+                                              .map(
+                                                (pt) => `
+                                              <li class="flex items-start gap-2 text-xs leading-relaxed text-[#D6D4CE]">
+                                                <span class="text-[#C4B79C] select-none shrink-0 mt-0.5">•</span>
+                                                <span>${pt.replace(/</g, "&lt;")}</span>
+                                              </li>
+                                            `
+                                              )
+                                              .join("")}
+                                          </ul>
+                                        `
+                                        : `
+                                          <div class="text-xs text-[#6D6B66] italic">
+                                            No outline notes under "${block.heading}"
+                                          </div>
+                                        `
+                                    }
+                                  </td>
+                                </tr>
+                              `;
+                            })
+                            .join("")}
+                        </tbody>
+                      </table>
+                    </div>
+
+                    ${
+                      chData.takeaway && chData.takeaway.trim()
+                        ? `
+                          <div class="px-4 py-2.5 bg-[#1B1A17] border-t border-[#2B2B28] text-xs text-[#C4B79C] flex items-start gap-2">
+                            <span class="font-bold text-[#EAE8E2] uppercase font-mono text-[10px] tracking-wider shrink-0 mt-0.5">Takeaway:</span>
+                            <span class="italic text-[#DBCFB3]">${chData.takeaway.replace(/</g, "&lt;")}</span>
                           </div>
                         `
-                      : ""
-                  }
-                </div>
-              `);
+                        : ""
+                    }
+                  </div>
+                `);
+              } else {
+                rows.push(`
+                  <div class="border-b border-[#222220] pb-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                      <h3 class="font-serif text-lg font-bold text-[#DBCFB3]">
+                        Chapter ${ch}
+                      </h3>
+                      <button
+                        data-chapter-num="${ch}"
+                        class="open-chapter-editor-btn text-xs text-[#8C8A84] hover:text-[#EAE8E2] transition"
+                      >
+                        Outline Side-by-Side →
+                      </button>
+                    </div>
+
+                    <div class="space-y-4">
+                      ${blocks
+                        .map((block) => `
+                          <div class="space-y-1">
+                            <div class="flex items-center gap-2">
+                              <span class="font-serif font-semibold text-sm text-[#EAE8E2]">
+                                ${block.heading}
+                              </span>
+                              ${
+                                block.verses
+                                  ? `<span class="text-xs font-mono text-[#7B7974]">(${block.verses})</span>`
+                                  : ""
+                              }
+                            </div>
+                            ${(() => {
+                              const pts = Array.isArray(block.points)
+                                ? block.points.filter((p) => p && p.trim().length > 0)
+                                : block.notes
+                                ? block.notes
+                                    .split("\n")
+                                    .map((p) => p.replace(/^[•\-\*]\s*/, "").trim())
+                                    .filter(Boolean)
+                                : [];
+
+                              if (pts.length > 0) {
+                                return `
+                                  <ul class="space-y-1 pl-3 text-sm text-[#EAE8E2]">
+                                    ${pts
+                                      .map(
+                                        (pt) => `
+                                      <li class="flex items-start gap-2">
+                                        <span class="text-[#C4B79C] select-none">•</span>
+                                        <span>${pt.replace(/</g, "&lt;")}</span>
+                                      </li>
+                                    `
+                                      )
+                                      .join("")}
+                                  </ul>
+                                `;
+                              }
+                              return `
+                                <div class="text-xs text-[#6D6B66] italic">
+                                  No outline points under "${block.heading}"
+                                </div>
+                              `;
+                            })()}
+                          </div>
+                        `)
+                        .join("")}
+                    </div>
+
+                    ${
+                      chData.takeaway && chData.takeaway.trim()
+                        ? `
+                            <div class="text-xs text-[#C4B79C] pt-1">
+                              Takeaway: ${chData.takeaway}
+                            </div>
+                          `
+                        : ""
+                    }
+                  </div>
+                `);
+              }
             }
             return rows.join("");
           })()}

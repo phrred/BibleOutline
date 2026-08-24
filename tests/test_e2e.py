@@ -191,7 +191,7 @@ class E2ETester:
         assert r.get("widthAfterDblClick") == "50%", f"Expected 50% width after double click, got {r.get('widthAfterDblClick')}"
 
     def test_book_rollup_and_plot(self):
-        # 1. Book Rollup View
+        # 1. Book Rollup View & Grid View Toggle
         r1 = self.eval_js("""
         (() => {
             const app = window.bibleOutlineApp;
@@ -205,15 +205,39 @@ class E2ETester:
                 summaryArea.dispatchEvent(new Event('input', { bubbles: true }));
             }
 
+            // Test toggling to Grid View
+            const gridToggleBtn = document.querySelector('[data-set-rollup-layout="grid"]');
+            let hasGridTable = false;
+            let layoutAfterGridClick = null;
+            if (gridToggleBtn) {
+                gridToggleBtn.click();
+                layoutAfterGridClick = app.bookRollupLayout;
+                hasGridTable = Boolean(document.querySelector('table th'));
+            }
+
+            // Test toggling back to Document List View
+            const docToggleBtn = document.querySelector('[data-set-rollup-layout="document"]');
+            let layoutAfterDocClick = null;
+            if (docToggleBtn) {
+                docToggleBtn.click();
+                layoutAfterDocClick = app.bookRollupLayout;
+            }
+
             return {
                 view: app.activeView,
                 hasSummaryArea: Boolean(summaryArea),
-                savedSummary: app.data.books['GEN']?.bookSummary
+                savedSummary: app.data.books['GEN']?.bookSummary,
+                layoutAfterGridClick,
+                hasGridTable,
+                layoutAfterDocClick
             };
         })()
         """)
         assert r1.get("hasSummaryArea") == True, "Book summary textarea missing in BookRollupView"
         assert r1.get("savedSummary") == "E2E Genesis Overall Book Summary", "Book summary did not update storage state"
+        assert r1.get("layoutAfterGridClick") == "grid", "Clicking grid layout button did not set bookRollupLayout to grid"
+        assert r1.get("hasGridTable") == True, "Two-column grid table missing when in grid rollup layout"
+        assert r1.get("layoutAfterDocClick") == "document", "Clicking document layout button did not set bookRollupLayout to document"
 
         # 2. Bible Plot View
         r2 = self.eval_js("""
@@ -443,9 +467,10 @@ class E2ETester:
                 modalOpened = !modal.classList.contains('hidden');
             }
 
-            // 3. Verify format & scope radio options
+            // 3. Verify format, scope & layout radio options
             const formatRadios = Array.from(document.querySelectorAll('input[name="export-modal-format"]')).map(r => r.value);
             const scopeRadios = Array.from(document.querySelectorAll('input[name="export-modal-scope"]')).map(r => r.value);
+            const layoutRadios = Array.from(document.querySelectorAll('input[name="export-modal-layout"]')).map(r => r.value);
 
             // 4. Close modal
             const closeBtn = document.getElementById('close-export-modal-btn');
@@ -456,12 +481,17 @@ class E2ETester:
 
             // 5. Test performExport without throwing
             let exportMdSuccess = false;
+            let exportGridMdSuccess = false;
             let exportPdfSuccess = false;
             try {
                 // Mock downloadFile and printOrSaveToPDF for testing
                 const origDownload = app.downloadFile;
-                app.downloadFile = (fn, content, type) => { exportMdSuccess = Boolean(fn && content); };
-                app.performExport('md', 'current');
+                app.downloadFile = (fn, content, type) => {
+                    if (fn.includes('_Grid')) exportGridMdSuccess = true;
+                    else exportMdSuccess = true;
+                };
+                app.performExport('md', 'current', 'document');
+                app.performExport('md', 'current', 'grid');
                 app.downloadFile = origDownload;
 
                 exportPdfSuccess = typeof app.performExport === 'function';
@@ -475,8 +505,10 @@ class E2ETester:
                 modalOpened,
                 formatRadios,
                 scopeRadios,
+                layoutRadios,
                 modalClosed,
                 exportMdSuccess,
+                exportGridMdSuccess,
                 exportPdfSuccess
             };
         })()
@@ -486,6 +518,8 @@ class E2ETester:
         assert r.get("modalOpened") == True, "Export options modal failed to open"
         assert "md" in r.get("formatRadios", []) and "pdf" in r.get("formatRadios", []), "Missing MD or PDF format radio options"
         assert "current" in r.get("scopeRadios", []) and "all" in r.get("scopeRadios", []), "Missing Current or All scope radio options"
+        assert "document" in r.get("layoutRadios", []) and "grid" in r.get("layoutRadios", []), "Missing Document or Grid layout radio options in export modal"
         assert r.get("modalClosed") == True, "Export modal failed to close"
-        assert r.get("exportMdSuccess") == True, "performExport('md') failed to produce download payload"
+        assert r.get("exportMdSuccess") == True, "performExport('md', 'current', 'document') failed"
+        assert r.get("exportGridMdSuccess") == True, "performExport('md', 'current', 'grid') failed"
         assert r.get("exportPdfSuccess") == True, "performExport('pdf') handler failed"

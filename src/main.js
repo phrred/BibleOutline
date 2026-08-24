@@ -44,6 +44,7 @@ class BibleOutlineStudio {
     this.splitViewMode = "split"; // 'split' | 'outline' | 'scripture'
     const savedRatio = parseFloat(localStorage.getItem("bibleOutline_splitRatio"));
     this.splitRatio = !isNaN(savedRatio) && savedRatio >= 15 && savedRatio <= 85 ? savedRatio : 50;
+    this.bookRollupLayout = localStorage.getItem("bibleOutline_bookRollupLayout") || "document"; // 'document' | 'grid'
     this.isCollapsed = false;
 
     // Quiz & Diagnostic state
@@ -678,7 +679,8 @@ class BibleOutlineStudio {
                   : this.activeView === "book-rollup"
                   ? renderBookRollupView({
                       selectedBook: book,
-                      data: this.data
+                      data: this.data,
+                      rollupLayout: this.bookRollupLayout || "document"
                     })
                   : renderChapterEditorView({
                       selectedBook: book,
@@ -799,8 +801,9 @@ class BibleOutlineStudio {
       btn.addEventListener("click", () => {
         const type = btn.getAttribute("data-export-type") || "md";
         const scope = btn.getAttribute("data-export-scope") || "current";
+        const layout = btn.getAttribute("data-export-layout") || "document";
         if (exportDropdownMenu) exportDropdownMenu.classList.add("hidden");
-        this.performExport(type, scope);
+        this.performExport(type, scope, layout);
       });
     });
 
@@ -827,22 +830,37 @@ class BibleOutlineStudio {
       confirmExportModalBtn.addEventListener("click", () => {
         const formatRadio = document.querySelector('input[name="export-modal-format"]:checked');
         const scopeRadio = document.querySelector('input[name="export-modal-scope"]:checked');
+        const layoutRadio = document.querySelector('input[name="export-modal-layout"]:checked');
         const format = formatRadio ? formatRadio.value : "md";
         const scope = scopeRadio ? scopeRadio.value : "current";
+        const layout = layoutRadio ? layoutRadio.value : "document";
         exportModal.classList.add("hidden");
-        this.performExport(format, scope);
+        this.performExport(format, scope, layout);
       });
     }
+
+    // Book Rollup View layout switcher (Document vs Grid)
+    const setRollupLayoutBtns = document.querySelectorAll(".set-rollup-layout-btn");
+    setRollupLayoutBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const layout = btn.getAttribute("data-set-rollup-layout") || "document";
+        this.bookRollupLayout = layout;
+        localStorage.setItem("bibleOutline_bookRollupLayout", layout);
+        this.render();
+      });
+    });
 
     // Book Rollup View export buttons
     const exportBookMdBtns = document.querySelectorAll(".export-book-md-btn");
     exportBookMdBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         const bId = btn.getAttribute("data-export-book-md");
+        const layout = btn.getAttribute("data-export-layout") || this.bookRollupLayout || "document";
         this.saveActiveChapterEditorBeforeSwitch();
         const targetBook = getBookById(bId) || book;
-        const md = exportToMarkdown(this.data, bId);
-        this.downloadFile(`${targetBook.shortName}_Outline.md`, md, "text/markdown");
+        const md = exportToMarkdown(this.data, bId, layout);
+        const layoutSuffix = layout === "grid" ? "_Grid" : "";
+        this.downloadFile(`${targetBook.shortName}_Outline${layoutSuffix}.md`, md, "text/markdown");
       });
     });
 
@@ -850,8 +868,9 @@ class BibleOutlineStudio {
     exportBookPdfBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         const bId = btn.getAttribute("data-export-book-pdf");
+        const layout = btn.getAttribute("data-export-layout") || this.bookRollupLayout || "document";
         this.saveActiveChapterEditorBeforeSwitch();
-        printOrSaveToPDF(this.data, bId);
+        printOrSaveToPDF(this.data, bId, layout);
       });
     });
 
@@ -859,7 +878,7 @@ class BibleOutlineStudio {
     const exportCurMd = document.getElementById("export-current-book-btn");
     if (exportCurMd) {
       exportCurMd.addEventListener("click", () => {
-        this.performExport("md", "current");
+        this.performExport("md", "current", "document");
       });
     }
 
@@ -2406,17 +2425,18 @@ class BibleOutlineStudio {
     }
   }
 
-  performExport(format = "md", scope = "current") {
+  performExport(format = "md", scope = "current", layout = "document") {
     this.saveActiveChapterEditorBeforeSwitch();
     const book = this.getSelectedBook();
     const bookId = scope === "current" ? book.id : null;
     const baseName = scope === "current" ? `${book.shortName}_Outline` : "Complete_Bible_Outline";
+    const layoutSuffix = layout === "grid" ? "_Grid" : "";
 
     if (format === "pdf") {
-      printOrSaveToPDF(this.data, bookId);
+      printOrSaveToPDF(this.data, bookId, layout);
     } else {
-      const md = exportToMarkdown(this.data, bookId);
-      this.downloadFile(`${baseName}.md`, md, "text/markdown");
+      const md = exportToMarkdown(this.data, bookId, layout);
+      this.downloadFile(`${baseName}${layoutSuffix}.md`, md, "text/markdown");
     }
   }
 

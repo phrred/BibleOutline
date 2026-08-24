@@ -431,7 +431,9 @@ class UnitTester:
 
             const fullExport = exportToMarkdown(storage);
             const singleBookExport = exportToMarkdown(storage, 'GEN');
+            const gridMarkdownExport = exportToMarkdown(storage, 'GEN', 'grid');
             const pdfHtml = exportToPrintableHTML(storage, 'GEN');
+            const gridPdfHtml = exportToPrintableHTML(storage, 'GEN', 'grid');
             const fullPdfHtml = exportToPrintableHTML(storage);
 
             return {
@@ -440,7 +442,10 @@ class UnitTester:
                 fullHasTakeaway: fullExport.includes('God is Creator'),
                 singleHasGenesis: singleBookExport.includes('# Genesis'),
                 singleOmitsFullHeader: !singleBookExport.includes('# COMPLETE BIBLE OUTLINE'),
+                gridMdHasTable: gridMarkdownExport.includes('| Section Heading & Passage | Outline Points & Notes |'),
+                gridMdHasHeadingRow: gridMarkdownExport.includes('| **Creation** *(v1-31)* | • Point 1 |'),
                 pdfHasGenesis: pdfHtml.includes('Genesis') && pdfHtml.includes('Creation') && pdfHtml.includes('Point 1'),
+                gridPdfHasTable: gridPdfHtml.includes('grid-export-table') && gridPdfHtml.includes('Section Heading & Reference'),
                 fullPdfHasHeader: fullPdfHtml.includes('Complete Bible Outline')
             };
         })()
@@ -451,7 +456,10 @@ class UnitTester:
         assert r.get("fullHasTakeaway") == True, "Markdown export missing chapter takeaway"
         assert r.get("singleHasGenesis") == True, "Single book export missing Genesis"
         assert r.get("singleOmitsFullHeader") == True, "Single book export should omit full Bible header"
+        assert r.get("gridMdHasTable") == True, "Grid markdown export missing table header"
+        assert r.get("gridMdHasHeadingRow") == True, "Grid markdown export missing table heading row"
         assert r.get("pdfHasGenesis") == True, "PDF HTML export missing Genesis content"
+        assert r.get("gridPdfHasTable") == True, "Grid PDF HTML export missing grid-export-table class"
         assert r.get("fullPdfHasHeader") == True, "Full PDF HTML export missing header"
 
     def test_flag_question_modal(self):

@@ -177,14 +177,17 @@ export function injectExampleOutlines(data) {
   return data;
 }
 
-// Helper to export Book or full Bible Outline to clean Markdown format
-export function exportToMarkdown(data, bookId = null) {
+// Helper to export Book or full Bible Outline to clean Markdown format (Document or Grid Table layout)
+export function exportToMarkdown(data, bookId = null, layout = "document") {
   const booksToExport = bookId ? [BIBLE_BOOKS.find((b) => b.id === bookId)].filter(Boolean) : BIBLE_BOOKS;
 
   let md = "";
   if (!bookId) {
     md += "# COMPLETE BIBLE OUTLINE & CHAPTER STUDY\n\n";
     md += `Generated from Bible Outline & Storyline Studio (${new Date().toLocaleDateString()})\n\n`;
+    if (layout === "grid") {
+      md += `*Layout: Two-Column Grid Table*\n\n`;
+    }
     md += "---\n\n";
   }
 
@@ -231,25 +234,55 @@ export function exportToMarkdown(data, bookId = null) {
 
       md += `### Chapter ${ch}\n\n`;
 
-      blocks.forEach((block) => {
-        md += `#### ${block.heading}${block.verses ? ` (${block.verses})` : ""}\n\n`;
-        const pts = Array.isArray(block.points) && block.points.length > 0
-          ? block.points.filter((p) => p && p.trim().length > 0)
-          : block.notes
-          ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
-          : [];
+      if (layout === "grid") {
+        md += `| Section Heading & Passage | Outline Points & Notes |\n`;
+        md += `| :--- | :--- |\n`;
 
-        if (pts.length > 0) {
-          pts.forEach((p) => {
-            md += `- ${p}\n`;
-          });
-          md += `\n`;
-        } else if (block.notes && block.notes.trim()) {
-          md += `${block.notes}\n\n`;
+        if (blocks.length === 0) {
+          md += `| *Chapter ${ch}* | *No notes recorded under this chapter.* |\n`;
         } else {
-          md += `*No notes recorded under this heading.*\n\n`;
+          blocks.forEach((block) => {
+            const headingText = `**${(block.heading || "Section").replace(/\|/g, "\\|")}**${block.verses ? ` *(${block.verses.replace(/\|/g, "\\|")})*` : ""}`;
+            const pts = Array.isArray(block.points) && block.points.length > 0
+              ? block.points.filter((p) => p && p.trim().length > 0)
+              : block.notes
+              ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+              : [];
+
+            let notesText = "";
+            if (pts.length > 0) {
+              notesText = pts.map((p) => `• ${p.replace(/\|/g, "\\|").replace(/\n/g, " ")}`).join("<br>");
+            } else if (block.notes && block.notes.trim()) {
+              notesText = block.notes.replace(/\|/g, "\\|").replace(/\n/g, "<br>");
+            } else {
+              notesText = "*No notes recorded under this heading.*";
+            }
+
+            md += `| ${headingText} | ${notesText} |\n`;
+          });
         }
-      });
+        md += `\n`;
+      } else {
+        blocks.forEach((block) => {
+          md += `#### ${block.heading}${block.verses ? ` (${block.verses})` : ""}\n\n`;
+          const pts = Array.isArray(block.points) && block.points.length > 0
+            ? block.points.filter((p) => p && p.trim().length > 0)
+            : block.notes
+            ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+            : [];
+
+          if (pts.length > 0) {
+            pts.forEach((p) => {
+              md += `- ${p}\n`;
+            });
+            md += `\n`;
+          } else if (block.notes && block.notes.trim()) {
+            md += `${block.notes}\n\n`;
+          } else {
+            md += `*No notes recorded under this heading.*\n\n`;
+          }
+        });
+      }
 
       if (chData.takeaway && chData.takeaway.trim()) {
         md += `**Key Takeaway:** *${chData.takeaway}*\n\n`;
@@ -262,8 +295,8 @@ export function exportToMarkdown(data, bookId = null) {
   return md;
 }
 
-// Generates high-quality print-ready HTML for PDF export
-export function exportToPrintableHTML(data, bookId = null) {
+// Generates high-quality print-ready HTML for PDF export (Document or Grid Table layout)
+export function exportToPrintableHTML(data, bookId = null, layout = "document") {
   const booksToExport = bookId ? [BIBLE_BOOKS.find((b) => b.id === bookId)].filter(Boolean) : BIBLE_BOOKS;
   const docTitle = bookId && booksToExport[0] ? `${booksToExport[0].name} Outline` : "Complete Bible Outline";
 
@@ -344,7 +377,87 @@ export function exportToPrintableHTML(data, bookId = null) {
                 continue;
               }
 
-              chHtml += `
+              if (layout === "grid") {
+                chHtml += `
+                <div class="chapter-card no-break">
+                  <div class="chapter-bar">
+                    <span class="chapter-number">Chapter ${ch}</span>
+                    <span class="chapter-ref">${book.shortName} ${ch}</span>
+                  </div>
+
+                  <table class="grid-export-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 38%;">Section Heading & Reference</th>
+                        <th style="width: 62%;">Outline Bullets & Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${
+                        blocks.length === 0
+                          ? `
+                            <tr>
+                              <td colspan="2" class="empty-notes-hint" style="margin: 0; padding: 10px;">
+                                No notes recorded for this chapter.
+                              </td>
+                            </tr>
+                          `
+                          : blocks
+                              .map((block, hIdx) => {
+                                const pts = Array.isArray(block.points) && block.points.length > 0
+                                  ? block.points.filter((p) => p && p.trim().length > 0)
+                                  : block.notes
+                                  ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+                                  : [];
+
+                                return `
+                                  <tr>
+                                    <td class="grid-export-heading-cell">
+                                      <div class="section-title-line">
+                                        <span class="section-num">${hIdx + 1}</span>
+                                        <span class="section-heading">${(block.heading || "Section").replace(/</g, "&lt;")}</span>
+                                      </div>
+                                      ${block.verses ? `<div class="grid-verses-tag">(${block.verses.replace(/</g, "&lt;")})</div>` : ""}
+                                    </td>
+                                    <td class="grid-export-points-cell">
+                                      ${
+                                        pts.length > 0
+                                          ? `
+                                            <ul class="points-list" style="margin-left: 16px;">
+                                              ${pts
+                                                .map(
+                                                  (p) =>
+                                                    `<li>${(p || "")
+                                                      .replace(/</g, "&lt;")
+                                                      .replace(/>/g, "&gt;")}</li>`
+                                                )
+                                                .join("")}
+                                            </ul>
+                                          `
+                                          : `<div class="no-points-hint" style="margin-left: 0;">No outline notes under this heading.</div>`
+                                      }
+                                    </td>
+                                  </tr>
+                                `;
+                              })
+                              .join("")
+                      }
+                    </tbody>
+                  </table>
+
+                  ${
+                    chData.takeaway && chData.takeaway.trim()
+                      ? `
+                        <div class="takeaway-box" style="margin-top: 10px;">
+                          <strong>Key Takeaway:</strong> <em>${chData.takeaway.replace(/</g, "&lt;")}</em>
+                        </div>
+                      `
+                      : ""
+                  }
+                </div>
+                `;
+              } else {
+                chHtml += `
                 <div class="chapter-card no-break">
                   <div class="chapter-bar">
                     <span class="chapter-number">Chapter ${ch}</span>
@@ -404,6 +517,7 @@ export function exportToPrintableHTML(data, bookId = null) {
                   }
                 </div>
               `;
+              }
             }
             return chHtml;
           })()}
@@ -681,6 +795,41 @@ export function exportToPrintableHTML(data, bookId = null) {
       color: #1e40af;
       border-radius: 0 4px 4px 0;
     }
+    .grid-export-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4px;
+      font-size: 12.5px;
+    }
+    .grid-export-table th {
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 10.5px;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 6px 10px;
+      border: 1px solid #cbd5e1;
+      text-align: left;
+    }
+    .grid-export-table td {
+      border: 1px solid #e2e8f0;
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+    .grid-export-heading-cell {
+      background: #fafafa;
+    }
+    .grid-verses-tag {
+      font-size: 11px;
+      font-family: monospace;
+      color: #64748b;
+      margin-top: 2px;
+      margin-left: 23px;
+    }
+    .grid-export-points-cell {
+      background: #ffffff;
+    }
   </style>
 </head>
 <body>
@@ -697,8 +846,8 @@ export function exportToPrintableHTML(data, bookId = null) {
 }
 
 // Opens the formatted printable document in a new window and triggers print
-export function printOrSaveToPDF(data, bookId = null) {
-  const html = exportToPrintableHTML(data, bookId);
+export function printOrSaveToPDF(data, bookId = null, layout = "document") {
+  const html = exportToPrintableHTML(data, bookId, layout);
   const printWindow = window.open("", "_blank");
   if (!printWindow) {
     const iframe = document.createElement("iframe");

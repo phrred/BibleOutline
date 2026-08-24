@@ -32261,14 +32261,17 @@ function injectExampleOutlines(data) {
   return data;
 }
 
-// Helper to export Book or full Bible Outline to clean Markdown format
-function exportToMarkdown(data, bookId = null) {
+// Helper to export Book or full Bible Outline to clean Markdown format (Document or Grid Table layout)
+function exportToMarkdown(data, bookId = null, layout = "document") {
   const booksToExport = bookId ? [BIBLE_BOOKS.find((b) => b.id === bookId)].filter(Boolean) : BIBLE_BOOKS;
 
   let md = "";
   if (!bookId) {
     md += "# COMPLETE BIBLE OUTLINE & CHAPTER STUDY\n\n";
     md += `Generated from Bible Outline & Storyline Studio (${new Date().toLocaleDateString()})\n\n`;
+    if (layout === "grid") {
+      md += `*Layout: Two-Column Grid Table*\n\n`;
+    }
     md += "---\n\n";
   }
 
@@ -32315,25 +32318,55 @@ function exportToMarkdown(data, bookId = null) {
 
       md += `### Chapter ${ch}\n\n`;
 
-      blocks.forEach((block) => {
-        md += `#### ${block.heading}${block.verses ? ` (${block.verses})` : ""}\n\n`;
-        const pts = Array.isArray(block.points) && block.points.length > 0
-          ? block.points.filter((p) => p && p.trim().length > 0)
-          : block.notes
-          ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
-          : [];
+      if (layout === "grid") {
+        md += `| Section Heading & Passage | Outline Points & Notes |\n`;
+        md += `| :--- | :--- |\n`;
 
-        if (pts.length > 0) {
-          pts.forEach((p) => {
-            md += `- ${p}\n`;
-          });
-          md += `\n`;
-        } else if (block.notes && block.notes.trim()) {
-          md += `${block.notes}\n\n`;
+        if (blocks.length === 0) {
+          md += `| *Chapter ${ch}* | *No notes recorded under this chapter.* |\n`;
         } else {
-          md += `*No notes recorded under this heading.*\n\n`;
+          blocks.forEach((block) => {
+            const headingText = `**${(block.heading || "Section").replace(/\|/g, "\\|")}**${block.verses ? ` *(${block.verses.replace(/\|/g, "\\|")})*` : ""}`;
+            const pts = Array.isArray(block.points) && block.points.length > 0
+              ? block.points.filter((p) => p && p.trim().length > 0)
+              : block.notes
+              ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+              : [];
+
+            let notesText = "";
+            if (pts.length > 0) {
+              notesText = pts.map((p) => `• ${p.replace(/\|/g, "\\|").replace(/\n/g, " ")}`).join("<br>");
+            } else if (block.notes && block.notes.trim()) {
+              notesText = block.notes.replace(/\|/g, "\\|").replace(/\n/g, "<br>");
+            } else {
+              notesText = "*No notes recorded under this heading.*";
+            }
+
+            md += `| ${headingText} | ${notesText} |\n`;
+          });
         }
-      });
+        md += `\n`;
+      } else {
+        blocks.forEach((block) => {
+          md += `#### ${block.heading}${block.verses ? ` (${block.verses})` : ""}\n\n`;
+          const pts = Array.isArray(block.points) && block.points.length > 0
+            ? block.points.filter((p) => p && p.trim().length > 0)
+            : block.notes
+            ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+            : [];
+
+          if (pts.length > 0) {
+            pts.forEach((p) => {
+              md += `- ${p}\n`;
+            });
+            md += `\n`;
+          } else if (block.notes && block.notes.trim()) {
+            md += `${block.notes}\n\n`;
+          } else {
+            md += `*No notes recorded under this heading.*\n\n`;
+          }
+        });
+      }
 
       if (chData.takeaway && chData.takeaway.trim()) {
         md += `**Key Takeaway:** *${chData.takeaway}*\n\n`;
@@ -32346,8 +32379,8 @@ function exportToMarkdown(data, bookId = null) {
   return md;
 }
 
-// Generates high-quality print-ready HTML for PDF export
-function exportToPrintableHTML(data, bookId = null) {
+// Generates high-quality print-ready HTML for PDF export (Document or Grid Table layout)
+function exportToPrintableHTML(data, bookId = null, layout = "document") {
   const booksToExport = bookId ? [BIBLE_BOOKS.find((b) => b.id === bookId)].filter(Boolean) : BIBLE_BOOKS;
   const docTitle = bookId && booksToExport[0] ? `${booksToExport[0].name} Outline` : "Complete Bible Outline";
 
@@ -32428,7 +32461,87 @@ function exportToPrintableHTML(data, bookId = null) {
                 continue;
               }
 
-              chHtml += `
+              if (layout === "grid") {
+                chHtml += `
+                <div class="chapter-card no-break">
+                  <div class="chapter-bar">
+                    <span class="chapter-number">Chapter ${ch}</span>
+                    <span class="chapter-ref">${book.shortName} ${ch}</span>
+                  </div>
+
+                  <table class="grid-export-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 38%;">Section Heading & Reference</th>
+                        <th style="width: 62%;">Outline Bullets & Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${
+                        blocks.length === 0
+                          ? `
+                            <tr>
+                              <td colspan="2" class="empty-notes-hint" style="margin: 0; padding: 10px;">
+                                No notes recorded for this chapter.
+                              </td>
+                            </tr>
+                          `
+                          : blocks
+                              .map((block, hIdx) => {
+                                const pts = Array.isArray(block.points) && block.points.length > 0
+                                  ? block.points.filter((p) => p && p.trim().length > 0)
+                                  : block.notes
+                                  ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+                                  : [];
+
+                                return `
+                                  <tr>
+                                    <td class="grid-export-heading-cell">
+                                      <div class="section-title-line">
+                                        <span class="section-num">${hIdx + 1}</span>
+                                        <span class="section-heading">${(block.heading || "Section").replace(/</g, "&lt;")}</span>
+                                      </div>
+                                      ${block.verses ? `<div class="grid-verses-tag">(${block.verses.replace(/</g, "&lt;")})</div>` : ""}
+                                    </td>
+                                    <td class="grid-export-points-cell">
+                                      ${
+                                        pts.length > 0
+                                          ? `
+                                            <ul class="points-list" style="margin-left: 16px;">
+                                              ${pts
+                                                .map(
+                                                  (p) =>
+                                                    `<li>${(p || "")
+                                                      .replace(/</g, "&lt;")
+                                                      .replace(/>/g, "&gt;")}</li>`
+                                                )
+                                                .join("")}
+                                            </ul>
+                                          `
+                                          : `<div class="no-points-hint" style="margin-left: 0;">No outline notes under this heading.</div>`
+                                      }
+                                    </td>
+                                  </tr>
+                                `;
+                              })
+                              .join("")
+                      }
+                    </tbody>
+                  </table>
+
+                  ${
+                    chData.takeaway && chData.takeaway.trim()
+                      ? `
+                        <div class="takeaway-box" style="margin-top: 10px;">
+                          <strong>Key Takeaway:</strong> <em>${chData.takeaway.replace(/</g, "&lt;")}</em>
+                        </div>
+                      `
+                      : ""
+                  }
+                </div>
+                `;
+              } else {
+                chHtml += `
                 <div class="chapter-card no-break">
                   <div class="chapter-bar">
                     <span class="chapter-number">Chapter ${ch}</span>
@@ -32488,6 +32601,7 @@ function exportToPrintableHTML(data, bookId = null) {
                   }
                 </div>
               `;
+              }
             }
             return chHtml;
           })()}
@@ -32765,6 +32879,41 @@ function exportToPrintableHTML(data, bookId = null) {
       color: #1e40af;
       border-radius: 0 4px 4px 0;
     }
+    .grid-export-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4px;
+      font-size: 12.5px;
+    }
+    .grid-export-table th {
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 10.5px;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 6px 10px;
+      border: 1px solid #cbd5e1;
+      text-align: left;
+    }
+    .grid-export-table td {
+      border: 1px solid #e2e8f0;
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+    .grid-export-heading-cell {
+      background: #fafafa;
+    }
+    .grid-verses-tag {
+      font-size: 11px;
+      font-family: monospace;
+      color: #64748b;
+      margin-top: 2px;
+      margin-left: 23px;
+    }
+    .grid-export-points-cell {
+      background: #ffffff;
+    }
   </style>
 </head>
 <body>
@@ -32781,8 +32930,8 @@ function exportToPrintableHTML(data, bookId = null) {
 }
 
 // Opens the formatted printable document in a new window and triggers print
-function printOrSaveToPDF(data, bookId = null) {
-  const html = exportToPrintableHTML(data, bookId);
+function printOrSaveToPDF(data, bookId = null, layout = "document") {
+  const html = exportToPrintableHTML(data, bookId, layout);
   const printWindow = window.open("", "_blank");
   if (!printWindow) {
     const iframe = document.createElement("iframe");
@@ -34143,6 +34292,7 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
               type="button"
               data-export-type="md"
               data-export-scope="current"
+              data-export-layout="document"
               class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#DBCFB3]"
             >
               <span>📄</span>
@@ -34152,10 +34302,21 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
               type="button"
               data-export-type="pdf"
               data-export-scope="current"
+              data-export-layout="document"
               class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#C4B79C]"
             >
               <span>📑</span>
               <span>Export PDF (.pdf)</span>
+            </button>
+            <button
+              type="button"
+              data-export-type="pdf"
+              data-export-scope="current"
+              data-export-layout="grid"
+              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#C4B79C]"
+            >
+              <span>▦</span>
+              <span>Export Grid Table (PDF)</span>
             </button>
 
             <div class="px-3 py-1 mt-1 text-[10px] font-mono uppercase tracking-wider text-[#8C8A84] border-t border-b border-[#262624]">
@@ -34165,6 +34326,7 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
               type="button"
               data-export-type="md"
               data-export-scope="all"
+              data-export-layout="document"
               class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#A19E97] hover:text-[#EAE8E2]"
             >
               <span>🌐</span>
@@ -34174,6 +34336,7 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
               type="button"
               data-export-type="pdf"
               data-export-scope="all"
+              data-export-layout="document"
               class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#A19E97] hover:text-[#EAE8E2]"
             >
               <span>📑</span>
@@ -34187,7 +34350,7 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
                 class="w-full text-left px-3 py-1.5 hover:bg-[#2A2A27] flex items-center gap-1.5 transition cursor-pointer text-[11px] text-[#7B7974] hover:text-[#C4B79C]"
               >
                 <span>⚙️</span>
-                <span>More Export Options...</span>
+                <span>More Export Options (Grid / Layout)...</span>
               </button>
             </div>
           </div>
@@ -34246,6 +34409,27 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
               <div class="flex-1">
                 <div class="font-semibold text-[#DBCFB3]">Complete Bible Outline</div>
                 <div class="text-[11px] text-[#7B7974]">All 66 canonical books (1,189 chapters)</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 3: Select Layout Style -->
+        <div class="space-y-2 text-xs">
+          <label class="block font-mono uppercase tracking-wider text-[#A19E97]">3. Select Layout Style</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
+              <input type="radio" name="export-modal-layout" value="document" checked class="text-[#C4B79C] focus:ring-0" />
+              <div>
+                <div class="font-semibold text-[#DBCFB3]">📄 Document Outline</div>
+                <div class="text-[11px] text-[#7B7974]">Vertical list & headings</div>
+              </div>
+            </label>
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
+              <input type="radio" name="export-modal-layout" value="grid" class="text-[#C4B79C] focus:ring-0" />
+              <div>
+                <div class="font-semibold text-[#DBCFB3]">▦ Two-Column Grid</div>
+                <div class="text-[11px] text-[#7B7974]">Headings + Bullets table</div>
               </div>
             </label>
           </div>
@@ -34358,13 +34542,14 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
 // --- FILE: src/components/BookRollupView.js ---
 function renderBookRollupView({
   selectedBook,
-  data
+  data,
+  rollupLayout = "document"
 }) {
   const bookData = data.books[selectedBook.id] || { bookSummary: "" };
 
   return `
     <div class="h-full w-full overflow-y-auto bg-[#141413] text-[#EAE8E2]">
-      <div class="max-w-3xl mx-auto p-6 md:p-10 space-y-10">
+      <div class="${rollupLayout === "grid" ? "max-w-5xl" : "max-w-3xl"} mx-auto p-6 md:p-10 space-y-10">
       <!-- Quiet Book Header -->
       <div class="border-b border-[#242422] pb-6 space-y-3">
         <div class="flex items-center justify-between text-xs text-[#8C8A84]">
@@ -34372,23 +34557,53 @@ function renderBookRollupView({
           <span>${selectedBook.author} • ${selectedBook.date}</span>
         </div>
 
-        <div class="flex items-center justify-between">
+        <div class="flex flex-wrap items-center justify-between gap-3">
           <h1 class="font-serif text-3xl font-bold text-[#EAE8E2] tracking-tight">
             ${selectedBook.name}
           </h1>
 
-          <div class="flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <!-- Layout Switcher (Document List vs Two-Column Grid) -->
+            <div class="flex items-center bg-[#1D1D1B] p-0.5 rounded-lg border border-[#2B2B28] text-xs mr-1">
+              <button
+                data-set-rollup-layout="document"
+                class="set-rollup-layout-btn px-2.5 py-1 rounded text-xs transition flex items-center gap-1 cursor-pointer ${
+                  rollupLayout === "document"
+                    ? "bg-[#2D2D2A] text-[#EAE8E2] font-semibold shadow-xs"
+                    : "text-[#8C8A84] hover:text-[#EAE8E2]"
+                }"
+                title="Vertical Document List Outline"
+              >
+                <span>📄</span>
+                <span>List</span>
+              </button>
+              <button
+                data-set-rollup-layout="grid"
+                class="set-rollup-layout-btn px-2.5 py-1 rounded text-xs transition flex items-center gap-1 cursor-pointer ${
+                  rollupLayout === "grid"
+                    ? "bg-[#2D2D2A] text-[#EAE8E2] font-semibold shadow-xs"
+                    : "text-[#8C8A84] hover:text-[#EAE8E2]"
+                }"
+                title="Two-Column Grid View (Headings Column + Bullets Row/Column)"
+              >
+                <span>▦</span>
+                <span>Grid</span>
+              </button>
+            </div>
+
             <button
               data-export-book-md="${selectedBook.id}"
+              data-export-layout="${rollupLayout}"
               class="export-book-md-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1 cursor-pointer"
-              title="Export ${selectedBook.name} as Markdown (.md)"
+              title="Export ${selectedBook.name} as Markdown (.md) in ${rollupLayout === 'grid' ? 'Grid Table' : 'Document'} layout"
             >
               <span>📄 .md</span>
             </button>
             <button
               data-export-book-pdf="${selectedBook.id}"
+              data-export-layout="${rollupLayout}"
               class="export-book-pdf-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#C4B79C] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1 cursor-pointer"
-              title="Export ${selectedBook.name} as printable PDF (.pdf)"
+              title="Export ${selectedBook.name} as printable PDF (.pdf) in ${rollupLayout === 'grid' ? 'Grid Table' : 'Document'} layout"
             >
               <span>📑 PDF</span>
             </button>
@@ -34431,9 +34646,14 @@ function renderBookRollupView({
       <!-- Complete Book Chapter Rollup -->
       <div class="space-y-6 pt-4">
         <div class="flex items-center justify-between border-b border-[#242422] pb-2">
-          <h2 class="font-serif text-xl font-bold text-[#EAE8E2]">
-            Complete Book Outline (${selectedBook.chapterCount} ch)
-          </h2>
+          <div class="flex items-center gap-2">
+            <h2 class="font-serif text-xl font-bold text-[#EAE8E2]">
+              Complete Book Outline (${selectedBook.chapterCount} ch)
+            </h2>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#1D1D1B] border border-[#2A2A27] text-[#8C8A84]">
+              ${rollupLayout === "grid" ? "Two-Column Grid View" : "Document List View"}
+            </span>
+          </div>
         </div>
 
         <div class="space-y-8">
@@ -34458,82 +34678,183 @@ function renderBookRollupView({
                 );
               }
 
-              rows.push(`
-                <div class="border-b border-[#222220] pb-6 space-y-4">
-                  <div class="flex items-center justify-between">
-                    <h3 class="font-serif text-lg font-bold text-[#DBCFB3]">
-                      Chapter ${ch}
-                    </h3>
-                    <button
-                      data-chapter-num="${ch}"
-                      class="open-chapter-editor-btn text-xs text-[#8C8A84] hover:text-[#EAE8E2] transition"
-                    >
-                      Outline Side-by-Side →
-                    </button>
-                  </div>
+              if (rollupLayout === "grid") {
+                rows.push(`
+                  <div class="border border-[#262624] bg-[#171715] rounded-xl overflow-hidden shadow-md space-y-0">
+                    <!-- Chapter Header Bar -->
+                    <div class="flex items-center justify-between px-4 py-3 bg-[#1F1F1D] border-b border-[#2B2B28]">
+                      <div class="flex items-center gap-2.5">
+                        <span class="font-serif text-base font-bold text-[#EAE8E2]">Chapter ${ch}</span>
+                        <span class="text-xs font-mono text-[#8C8A84]">(${selectedBook.shortName} ${ch})</span>
+                      </div>
+                      <button
+                        data-chapter-num="${ch}"
+                        class="open-chapter-editor-btn text-xs text-[#C4B79C] hover:text-[#EAE8E2] transition flex items-center gap-1 font-medium cursor-pointer"
+                      >
+                        <span>Outline Side-by-Side</span>
+                        <span>→</span>
+                      </button>
+                    </div>
 
-                  <div class="space-y-4">
-                    ${blocks
-                      .map((block) => `
-                        <div class="space-y-1">
-                          <div class="flex items-center gap-2">
-                            <span class="font-serif font-semibold text-sm text-[#EAE8E2]">
-                              ${block.heading}
-                            </span>
-                            ${
-                              block.verses
-                                ? `<span class="text-xs font-mono text-[#7B7974]">(${block.verses})</span>`
-                                : ""
-                            }
-                          </div>
-                          ${(() => {
-                            const pts = Array.isArray(block.points)
-                              ? block.points.filter((p) => p && p.trim().length > 0)
-                              : block.notes
-                              ? block.notes
-                                  .split("\n")
-                                  .map((p) => p.replace(/^[•\-\*]\s*/, "").trim())
-                                  .filter(Boolean)
-                              : [];
+                    <!-- 2-Column Table for Headings & Bullets -->
+                    <div class="overflow-x-auto">
+                      <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                          <tr class="bg-[#141413] text-[#8C8A84] font-mono uppercase tracking-wider text-[10px] border-b border-[#242422]">
+                            <th class="py-2.5 px-4 w-[38%] border-r border-[#242422]">Section Headings & Passage</th>
+                            <th class="py-2.5 px-4 w-[62%]">Outline Bullets & Notes</th>
+                          </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#222220]">
+                          ${blocks
+                            .map((block, hIdx) => {
+                              const pts = Array.isArray(block.points)
+                                ? block.points.filter((p) => p && p.trim().length > 0)
+                                : block.notes
+                                ? block.notes
+                                    .split("\n")
+                                    .map((p) => p.replace(/^[•\-\*]\s*/, "").trim())
+                                    .filter(Boolean)
+                                : [];
 
-                            if (pts.length > 0) {
                               return `
-                                <ul class="space-y-1 pl-3 text-sm text-[#EAE8E2]">
-                                  ${pts
-                                    .map(
-                                      (pt) => `
-                                    <li class="flex items-start gap-2">
-                                      <span class="text-[#C4B79C] select-none">•</span>
-                                      <span>${pt.replace(/</g, "&lt;")}</span>
-                                    </li>
-                                  `
-                                    )
-                                    .join("")}
-                                </ul>
-                              `;
-                            }
-                            return `
-                              <div class="text-xs text-[#6D6B66] italic">
-                                No outline points under "${block.heading}"
-                              </div>
-                            `;
-                          })()}
-                        </div>
-                      `)
-                      .join("")}
-                  </div>
+                                <tr class="hover:bg-[#1A1A18]/60 transition">
+                                  <!-- Column 1: Headings & Passage -->
+                                  <td class="py-3 px-4 align-top border-r border-[#222220] space-y-1">
+                                    <div class="flex items-start gap-2">
+                                      <span class="inline-flex items-center justify-center w-4 h-4 rounded bg-[#242422] text-[#8C8A84] text-[10px] font-mono shrink-0 mt-0.5 font-bold">${hIdx + 1}</span>
+                                      <div class="space-y-0.5">
+                                        <div class="font-serif font-semibold text-sm text-[#EAE8E2] leading-snug">
+                                          ${block.heading}
+                                        </div>
+                                        ${block.verses ? `<div class="text-[11px] font-mono text-[#C4B79C]">(${block.verses})</div>` : ""}
+                                      </div>
+                                    </div>
+                                  </td>
 
-                  ${
-                    chData.takeaway && chData.takeaway.trim()
-                      ? `
-                          <div class="text-xs text-[#C4B79C] pt-1">
-                            Takeaway: ${chData.takeaway}
+                                  <!-- Column 2: Bullets & Notes -->
+                                  <td class="py-3 px-4 align-top text-sm text-[#EAE8E2]">
+                                    ${
+                                      pts.length > 0
+                                        ? `
+                                          <ul class="space-y-1 pl-1">
+                                            ${pts
+                                              .map(
+                                                (pt) => `
+                                              <li class="flex items-start gap-2 text-xs leading-relaxed text-[#D6D4CE]">
+                                                <span class="text-[#C4B79C] select-none shrink-0 mt-0.5">•</span>
+                                                <span>${pt.replace(/</g, "&lt;")}</span>
+                                              </li>
+                                            `
+                                              )
+                                              .join("")}
+                                          </ul>
+                                        `
+                                        : `
+                                          <div class="text-xs text-[#6D6B66] italic">
+                                            No outline notes under "${block.heading}"
+                                          </div>
+                                        `
+                                    }
+                                  </td>
+                                </tr>
+                              `;
+                            })
+                            .join("")}
+                        </tbody>
+                      </table>
+                    </div>
+
+                    ${
+                      chData.takeaway && chData.takeaway.trim()
+                        ? `
+                          <div class="px-4 py-2.5 bg-[#1B1A17] border-t border-[#2B2B28] text-xs text-[#C4B79C] flex items-start gap-2">
+                            <span class="font-bold text-[#EAE8E2] uppercase font-mono text-[10px] tracking-wider shrink-0 mt-0.5">Takeaway:</span>
+                            <span class="italic text-[#DBCFB3]">${chData.takeaway.replace(/</g, "&lt;")}</span>
                           </div>
                         `
-                      : ""
-                  }
-                </div>
-              `);
+                        : ""
+                    }
+                  </div>
+                `);
+              } else {
+                rows.push(`
+                  <div class="border-b border-[#222220] pb-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                      <h3 class="font-serif text-lg font-bold text-[#DBCFB3]">
+                        Chapter ${ch}
+                      </h3>
+                      <button
+                        data-chapter-num="${ch}"
+                        class="open-chapter-editor-btn text-xs text-[#8C8A84] hover:text-[#EAE8E2] transition"
+                      >
+                        Outline Side-by-Side →
+                      </button>
+                    </div>
+
+                    <div class="space-y-4">
+                      ${blocks
+                        .map((block) => `
+                          <div class="space-y-1">
+                            <div class="flex items-center gap-2">
+                              <span class="font-serif font-semibold text-sm text-[#EAE8E2]">
+                                ${block.heading}
+                              </span>
+                              ${
+                                block.verses
+                                  ? `<span class="text-xs font-mono text-[#7B7974]">(${block.verses})</span>`
+                                  : ""
+                              }
+                            </div>
+                            ${(() => {
+                              const pts = Array.isArray(block.points)
+                                ? block.points.filter((p) => p && p.trim().length > 0)
+                                : block.notes
+                                ? block.notes
+                                    .split("\n")
+                                    .map((p) => p.replace(/^[•\-\*]\s*/, "").trim())
+                                    .filter(Boolean)
+                                : [];
+
+                              if (pts.length > 0) {
+                                return `
+                                  <ul class="space-y-1 pl-3 text-sm text-[#EAE8E2]">
+                                    ${pts
+                                      .map(
+                                        (pt) => `
+                                      <li class="flex items-start gap-2">
+                                        <span class="text-[#C4B79C] select-none">•</span>
+                                        <span>${pt.replace(/</g, "&lt;")}</span>
+                                      </li>
+                                    `
+                                      )
+                                      .join("")}
+                                  </ul>
+                                `;
+                              }
+                              return `
+                                <div class="text-xs text-[#6D6B66] italic">
+                                  No outline points under "${block.heading}"
+                                </div>
+                              `;
+                            })()}
+                          </div>
+                        `)
+                        .join("")}
+                    </div>
+
+                    ${
+                      chData.takeaway && chData.takeaway.trim()
+                        ? `
+                            <div class="text-xs text-[#C4B79C] pt-1">
+                              Takeaway: ${chData.takeaway}
+                            </div>
+                          `
+                        : ""
+                    }
+                  </div>
+                `);
+              }
             }
             return rows.join("");
           })()}
@@ -36765,6 +37086,7 @@ class BibleOutlineStudio {
     this.splitViewMode = "split"; // 'split' | 'outline' | 'scripture'
     const savedRatio = parseFloat(localStorage.getItem("bibleOutline_splitRatio"));
     this.splitRatio = !isNaN(savedRatio) && savedRatio >= 15 && savedRatio <= 85 ? savedRatio : 50;
+    this.bookRollupLayout = localStorage.getItem("bibleOutline_bookRollupLayout") || "document"; // 'document' | 'grid'
     this.isCollapsed = false;
 
     // Quiz & Diagnostic state
@@ -37399,7 +37721,8 @@ class BibleOutlineStudio {
                   : this.activeView === "book-rollup"
                   ? renderBookRollupView({
                       selectedBook: book,
-                      data: this.data
+                      data: this.data,
+                      rollupLayout: this.bookRollupLayout || "document"
                     })
                   : renderChapterEditorView({
                       selectedBook: book,
@@ -37520,8 +37843,9 @@ class BibleOutlineStudio {
       btn.addEventListener("click", () => {
         const type = btn.getAttribute("data-export-type") || "md";
         const scope = btn.getAttribute("data-export-scope") || "current";
+        const layout = btn.getAttribute("data-export-layout") || "document";
         if (exportDropdownMenu) exportDropdownMenu.classList.add("hidden");
-        this.performExport(type, scope);
+        this.performExport(type, scope, layout);
       });
     });
 
@@ -37548,22 +37872,37 @@ class BibleOutlineStudio {
       confirmExportModalBtn.addEventListener("click", () => {
         const formatRadio = document.querySelector('input[name="export-modal-format"]:checked');
         const scopeRadio = document.querySelector('input[name="export-modal-scope"]:checked');
+        const layoutRadio = document.querySelector('input[name="export-modal-layout"]:checked');
         const format = formatRadio ? formatRadio.value : "md";
         const scope = scopeRadio ? scopeRadio.value : "current";
+        const layout = layoutRadio ? layoutRadio.value : "document";
         exportModal.classList.add("hidden");
-        this.performExport(format, scope);
+        this.performExport(format, scope, layout);
       });
     }
+
+    // Book Rollup View layout switcher (Document vs Grid)
+    const setRollupLayoutBtns = document.querySelectorAll(".set-rollup-layout-btn");
+    setRollupLayoutBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const layout = btn.getAttribute("data-set-rollup-layout") || "document";
+        this.bookRollupLayout = layout;
+        localStorage.setItem("bibleOutline_bookRollupLayout", layout);
+        this.render();
+      });
+    });
 
     // Book Rollup View export buttons
     const exportBookMdBtns = document.querySelectorAll(".export-book-md-btn");
     exportBookMdBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         const bId = btn.getAttribute("data-export-book-md");
+        const layout = btn.getAttribute("data-export-layout") || this.bookRollupLayout || "document";
         this.saveActiveChapterEditorBeforeSwitch();
         const targetBook = getBookById(bId) || book;
-        const md = exportToMarkdown(this.data, bId);
-        this.downloadFile(`${targetBook.shortName}_Outline.md`, md, "text/markdown");
+        const md = exportToMarkdown(this.data, bId, layout);
+        const layoutSuffix = layout === "grid" ? "_Grid" : "";
+        this.downloadFile(`${targetBook.shortName}_Outline${layoutSuffix}.md`, md, "text/markdown");
       });
     });
 
@@ -37571,8 +37910,9 @@ class BibleOutlineStudio {
     exportBookPdfBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         const bId = btn.getAttribute("data-export-book-pdf");
+        const layout = btn.getAttribute("data-export-layout") || this.bookRollupLayout || "document";
         this.saveActiveChapterEditorBeforeSwitch();
-        printOrSaveToPDF(this.data, bId);
+        printOrSaveToPDF(this.data, bId, layout);
       });
     });
 
@@ -37580,7 +37920,7 @@ class BibleOutlineStudio {
     const exportCurMd = document.getElementById("export-current-book-btn");
     if (exportCurMd) {
       exportCurMd.addEventListener("click", () => {
-        this.performExport("md", "current");
+        this.performExport("md", "current", "document");
       });
     }
 
@@ -39127,17 +39467,18 @@ class BibleOutlineStudio {
     }
   }
 
-  performExport(format = "md", scope = "current") {
+  performExport(format = "md", scope = "current", layout = "document") {
     this.saveActiveChapterEditorBeforeSwitch();
     const book = this.getSelectedBook();
     const bookId = scope === "current" ? book.id : null;
     const baseName = scope === "current" ? `${book.shortName}_Outline` : "Complete_Bible_Outline";
+    const layoutSuffix = layout === "grid" ? "_Grid" : "";
 
     if (format === "pdf") {
-      printOrSaveToPDF(this.data, bookId);
+      printOrSaveToPDF(this.data, bookId, layout);
     } else {
-      const md = exportToMarkdown(this.data, bookId);
-      this.downloadFile(`${baseName}.md`, md, "text/markdown");
+      const md = exportToMarkdown(this.data, bookId, layout);
+      this.downloadFile(`${baseName}${layoutSuffix}.md`, md, "text/markdown");
     }
   }
 
