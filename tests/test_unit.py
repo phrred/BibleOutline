@@ -202,9 +202,38 @@ class UnitTester:
             const qRev21 = CURATED_QUESTION_BANK.find(q => q.id === "ch_rev_21");
             const evalRev21 = qRev21 ? evaluateAnswer(qRev21, "Revelation 21").isCorrect : false;
 
+            // Test evaluating major chapter heading questions
+            const qHdgGen12 = CURATED_QUESTION_BANK.find(q => q.id === "hdg_gen_12");
+            const evalHdgGen12Num = qHdgGen12 ? evaluateAnswer(qHdgGen12, "12").isCorrect : false;
+            const evalHdgGen12Full = qHdgGen12 ? evaluateAnswer(qHdgGen12, "Genesis 12").isCorrect : false;
+
+            const qHdg1Co13 = CURATED_QUESTION_BANK.find(q => q.id === "hdg_1co_13");
+            const evalHdg1Co13 = qHdg1Co13 ? evaluateAnswer(qHdg1Co13, "13").isCorrect : false;
+
+            const qHdgHeb11 = CURATED_QUESTION_BANK.find(q => q.id === "hdg_heb_11");
+            const evalHdgHeb11 = qHdgHeb11 ? evaluateAnswer(qHdgHeb11, "Hebrews 11").isCorrect : false;
+
             // Test dynamic book quiz generation for single book
             const genQuiz = generateDynamicQuestions({ specificBookId: "GEN", count: 10 });
             const revQuiz = generateDynamicQuestions({ specificBookId: "REV", count: 10 });
+
+            // Test headingOnly quizzes
+            const genHeadingQuiz = generateDynamicQuestions({ specificBookId: "GEN", count: 10, headingOnly: true });
+            const ntHeadingQuiz = generateDynamicQuestions({ scope: "NT", count: 15, headingOnly: true });
+            const romHeadingSession = new DiagnosticSession({ specificBookId: "ROM", headingOnly: true, questionCount: 8 });
+
+            // Verify that for all 66 books, single-book quizzes never include book_id questions
+            let bookIdQuestionsFoundInBookTests = 0;
+            let booksWithChapterHeadingQuestions = 0;
+            for (const b of allBooks) {
+                const bQuiz = generateDynamicQuestions({ specificBookId: b.id, count: 20 });
+                const hasBookId = bQuiz.some(q => q.type === "book_id");
+                if (hasBookId) bookIdQuestionsFoundInBookTests++;
+
+                const allBookQs = CURATED_QUESTION_BANK.filter(q => q.bookId === b.id);
+                const hasHeadingQs = allBookQs.some(q => q.id.startsWith("hdg_"));
+                if (hasHeadingQs) booksWithChapterHeadingQuestions++;
+            }
 
             return {
                 totalBooks: allBooks.length,
@@ -215,22 +244,44 @@ class UnitTester:
                 evalGen3Ch,
                 evalActs2,
                 evalRev21,
+                evalHdgGen12Num,
+                evalHdgGen12Full,
+                evalHdg1Co13,
+                evalHdgHeb11,
                 genQuizLength: genQuiz.length,
-                revQuizLength: revQuiz.length
+                revQuizLength: revQuiz.length,
+                genQuizHasNoBookId: genQuiz.every(q => q.type !== "book_id"),
+                revQuizHasNoBookId: revQuiz.every(q => q.type !== "book_id"),
+                bookIdQuestionsFoundInBookTests,
+                booksWithChapterHeadingQuestions,
+                genHeadingQuizAllHeadings: genHeadingQuiz.every(q => q.id.startsWith("hdg_") && q.bookId === "GEN"),
+                ntHeadingQuizAllHeadings: ntHeadingQuiz.every(q => q.id.startsWith("hdg_") && q.scope === "NT"),
+                romSessionIsHeadingOnly: romHeadingSession.headingOnly && romHeadingSession.questions.every(q => q.id.startsWith("hdg_") && q.bookId === "ROM")
             };
         })()
         """
         r = self.eval_js(js)
         assert r.get("totalBooks") == 66, f"Expected 66 books, got {r.get('totalBooks')}"
-        assert r.get("totalQuestions") >= 700, f"Expected >= 700 total questions, got {r.get('totalQuestions')}"
+        assert r.get("totalQuestions") >= 1500, f"Expected >= 1500 total questions, got {r.get('totalQuestions')}"
         assert r.get("missingBooksCount") == 0, f"Expected 0 missing books with <3 questions, got {r.get('missingBooksCount')}"
         assert r.get("evalGen3Num") == True, "Expected '3' to be evaluated as correct for Genesis 3"
         assert r.get("evalGen3Full") == True, "Expected 'Genesis 3' to be evaluated as correct"
         assert r.get("evalGen3Ch") == True, "Expected 'Chapter 3' to be evaluated as correct"
         assert r.get("evalActs2") == True, "Expected '2' to be evaluated as correct for Acts 2"
         assert r.get("evalRev21") == True, "Expected 'Revelation 21' to be evaluated as correct for Rev 21"
+        assert r.get("evalHdgGen12Num") == True, "Expected '12' to be evaluated as correct for Call of Abram heading"
+        assert r.get("evalHdgGen12Full") == True, "Expected 'Genesis 12' to be evaluated as correct for Call of Abram heading"
+        assert r.get("evalHdg1Co13") == True, "Expected '13' to be evaluated as correct for 1 Cor 13 Love Chapter heading"
+        assert r.get("evalHdgHeb11") == True, "Expected 'Hebrews 11' to be evaluated as correct for Hall of Faith heading"
         assert r.get("genQuizLength") == 10, f"Expected 10 questions for GEN quiz, got {r.get('genQuizLength')}"
         assert r.get("revQuizLength") == 10, f"Expected 10 questions for REV quiz, got {r.get('revQuizLength')}"
+        assert r.get("genQuizHasNoBookId") == True, "Expected Genesis single-book quiz to have no book_id questions"
+        assert r.get("revQuizHasNoBookId") == True, "Expected Revelation single-book quiz to have no book_id questions"
+        assert r.get("bookIdQuestionsFoundInBookTests") == 0, f"Expected 0 books with book_id questions in book tests, got {r.get('bookIdQuestionsFoundInBookTests')}"
+        assert r.get("booksWithChapterHeadingQuestions") == 66, f"Expected all 66 books to have chapter heading questions, got {r.get('booksWithChapterHeadingQuestions')}"
+        assert r.get("genHeadingQuizAllHeadings") == True, "Expected Genesis headings quiz to contain only Genesis heading questions"
+        assert r.get("ntHeadingQuizAllHeadings") == True, "Expected NT headings quiz to contain only NT heading questions"
+        assert r.get("romSessionIsHeadingOnly") == True, "Expected Romans heading session to be headingOnly and only contain Romans headings"
 
     def test_storage_serialization(self):
         js = """

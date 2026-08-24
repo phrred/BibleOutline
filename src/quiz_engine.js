@@ -237,10 +237,14 @@ export function evaluateAnswer(question, userInput) {
 // --------------------------------------------------------------------------
 export { CURATED_QUESTION_BANK };
 
-export function generateDynamicQuestions({ scope = "ALL", count = 25, questionTypes = null, specificBookId = null }) {
-  // Filter curated pool according to scope and question types
+export function generateDynamicQuestions({ scope = "ALL", count = 25, questionTypes = null, specificBookId = null, headingOnly = false }) {
+  // Filter curated pool according to scope, question types, and heading focus
   const pool = CURATED_QUESTION_BANK.filter((q) => {
     if (specificBookId && q.bookId !== specificBookId) return false;
+    // For single-book tests, do not include questions that have the book as the answer
+    if (specificBookId && q.type === "book_id") return false;
+    // When headingOnly is selected, filter strictly for major chapter heading questions
+    if (headingOnly && !q.id.startsWith("hdg_")) return false;
     if (scope === "OT" && q.scope !== "OT") return false;
     if (scope === "NT" && q.scope !== "NT") return false;
     if (scope === "GOSPELS" && q.genre !== "Gospels") return false;
@@ -275,24 +279,26 @@ export function generateDynamicQuestions({ scope = "ALL", count = 25, questionTy
 // --------------------------------------------------------------------------
 
 export class DiagnosticSession {
-  constructor({ scope = "ALL", questionCount = 25, questionTypes = null, specificBookId = null, customQuestions = null }) {
+  constructor({ scope = "ALL", questionCount = 25, questionTypes = null, specificBookId = null, customQuestions = null, headingOnly = false }) {
     this.id = `diag_${Date.now()}`;
     this.scope = scope;
     this.questionCount = customQuestions && customQuestions.length > 0 ? customQuestions.length : questionCount;
     this.questionTypes = questionTypes;
     this.specificBookId = specificBookId;
+    this.headingOnly = headingOnly;
     this.startTime = Date.now();
     this.endTime = null;
     this.currentIndex = 0;
     this.answers = {}; // qId -> { userInput, isCorrect, answeredAt }
     this.questions =
       customQuestions && customQuestions.length > 0
-        ? [...customQuestions]
+        ? (specificBookId ? customQuestions.filter((q) => q.type !== "book_id" && (!headingOnly || q.id.startsWith("hdg_"))) : (headingOnly ? customQuestions.filter((q) => q.id.startsWith("hdg_")) : [...customQuestions]))
         : generateDynamicQuestions({
             scope,
             count: questionCount,
             questionTypes,
-            specificBookId
+            specificBookId,
+            headingOnly
           });
     this.status = "in-progress"; // "in-progress" | "completed"
   }

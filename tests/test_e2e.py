@@ -204,43 +204,89 @@ class E2ETester:
             const app = window.bibleOutlineApp;
             app.activeView = 'quiz-diagnostic';
             app.activeQuizTab = 'diagnostic';
-            app.quizSession = new DiagnosticSession({ scope: 'NT', questionCount: 3 });
+            app.quizSession = null;
             app.quizScorecard = null;
             app.render();
 
-            const hasSession = Boolean(app.quizSession);
+            // 1. Test clicking Question Focus: Major Chapter Headings Only
+            const headingFocusBtn = document.querySelector('[data-select-quiz-focus="headings"]');
+            if (headingFocusBtn) headingFocusBtn.click();
+            const focusAfterClick = app.selectedQuizFocus;
+
+            // 2. Start diagnostic exam with headings focus
+            const startBtn = document.getElementById('start-diagnostic-btn');
+            if (startBtn) startBtn.click();
+            const sessionIsHeadingOnly = app.quizSession ? Boolean(app.quizSession.headingOnly) : false;
+
             const examInput = document.getElementById('exam-answer-input');
 
             // Answer question 1
             if (examInput) {
-                examInput.value = "A";
+                examInput.value = "1";
             }
-            app.quizSession.submitCurrentAnswer("A");
-            app.quizSession.nextQuestion();
+            if (app.quizSession) {
+                app.quizSession.submitCurrentAnswer("1");
+                app.quizSession.nextQuestion();
+            }
             app.render();
 
             const inputAfterNext = document.getElementById('exam-answer-input');
             const hasInputAfterNext = Boolean(inputAfterNext);
 
             // Finish
-            const scorecard = app.quizSession.finishExam();
-            app.quizScorecard = scorecard;
+            let scorecard = null;
+            if (app.quizSession) {
+                scorecard = app.quizSession.finishExam();
+                app.quizScorecard = scorecard;
+            }
             app.render();
 
-            const scorecardTotal = scorecard.totalQuestions;
+            // 3. Test Book Quizzes tab mode switcher
+            app.activeQuizTab = 'book-quizzes';
+            app.quizSession = null;
+            app.quizScorecard = null;
+            app.render();
+
+            const setHeadingModeBtn = document.querySelector('[data-set-book-quiz-mode="headings"]');
+            if (setHeadingModeBtn) setHeadingModeBtn.click();
+            const bookModeAfterClick = app.selectedBookQuizMode;
+
+            // Click Genesis book quiz
+            const genCard = document.querySelector('[data-launch-book-quiz="GEN"]');
+            if (genCard) genCard.click();
+            const genSessionHeadingOnly = app.quizSession ? Boolean(app.quizSession.headingOnly) : false;
+            const genSessionBookId = app.quizSession ? app.quizSession.specificBookId : null;
+
+            // 4. Test BookRollupView Quiz Headings button
+            app.activeView = 'book-rollup';
+            app.selectedBookId = 'EXO';
+            app.render();
+            const exoHeadingsBtn = document.querySelector('[data-launch-book-headings-quiz="EXO"]');
+            if (exoHeadingsBtn) exoHeadingsBtn.click();
+            const exoSessionHeadingOnly = app.quizSession ? Boolean(app.quizSession.headingOnly) : false;
+            const exoSessionBookId = app.quizSession ? app.quizSession.specificBookId : null;
 
             return {
-                hasSession,
+                focusAfterClick,
+                sessionIsHeadingOnly,
                 hasInputAfterNext,
-                scorecardTotal,
-                hasScorecard: Boolean(app.quizScorecard)
+                hasScorecard: Boolean(app.quizScorecard || scorecard),
+                bookModeAfterClick,
+                genSessionHeadingOnly,
+                genSessionBookId,
+                exoSessionHeadingOnly,
+                exoSessionBookId
             };
         })()
         """)
-        assert r.get("hasSession") == True, "Quiz diagnostic session failed to start"
+        assert r.get("focusAfterClick") == "headings", f"Expected selectedQuizFocus to be 'headings', got {r.get('focusAfterClick')}"
+        assert r.get("sessionIsHeadingOnly") == True, "Diagnostic session should be headingOnly"
         assert r.get("hasInputAfterNext") == True, "Exam answer input missing after advancing question"
-        assert r.get("scorecardTotal") == 3, f"Expected 3 questions in scorecard, got {r.get('scorecardTotal')}"
-        assert r.get("hasScorecard") == True, "Scorecard failed to render"
+        assert r.get("bookModeAfterClick") == "headings", f"Expected selectedBookQuizMode to be 'headings', got {r.get('bookModeAfterClick')}"
+        assert r.get("genSessionHeadingOnly") == True, "Genesis book session should be headingOnly"
+        assert r.get("genSessionBookId") == "GEN", f"Expected book ID GEN, got {r.get('genSessionBookId')}"
+        assert r.get("exoSessionHeadingOnly") == True, "Exodus BookRollup session should be headingOnly"
+        assert r.get("exoSessionBookId") == "EXO", f"Expected book ID EXO, got {r.get('exoSessionBookId')}"
 
     def test_cloud_sync_lifecycle(self):
         r = self.eval_js("""

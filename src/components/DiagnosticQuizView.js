@@ -26,10 +26,11 @@ function formatTimestamp(ts) {
 }
 
 // Get clean label for test scope or specific book
-function getTestScopeLabel(scope, specificBookId) {
+function getTestScopeLabel(scope, specificBookId, headingOnly = false) {
   if (specificBookId) {
     const book = getBookById(specificBookId);
-    return `${book?.name || specificBookId} Chapter Quiz`;
+    const bName = book?.name || specificBookId;
+    return headingOnly ? `${bName} Chapter Headings Quiz` : `${bName} Chapter Quiz`;
   }
   const scopeMap = {
     ALL: "Whole Bible (66 Books)",
@@ -42,7 +43,8 @@ function getTestScopeLabel(scope, specificBookId) {
     PROPHETS: "The Prophets (17 Books)",
     WISDOM: "Wisdom & Poetry (5 Books)"
   };
-  return scopeMap[scope] || scope || "Whole Bible Diagnostic";
+  const base = scopeMap[scope] || scope || "Whole Bible Diagnostic";
+  return headingOnly ? `${base} (Headings Only)` : base;
 }
 
 export function renderDiagnosticQuizView({
@@ -52,8 +54,10 @@ export function renderDiagnosticQuizView({
   viewingPastTest = null,
   questionReviewFilter = "all", // "all" | "missed"
   selectedScope = "ALL",
+  selectedQuizFocus = "all", // "all" | "headings"
   selectedQuestionCount = 25,
   selectedBookId = "GEN",
+  selectedBookQuizMode = "all", // "all" | "headings"
   historySearchQuery = "",
   historyScopeFilter = "ALL",
   retakeModalTest = null,
@@ -165,11 +169,11 @@ export function renderDiagnosticQuizView({
 
           // 5. Tab: Book Quizzes
           if (activeQuizTab === "book-quizzes") {
-            return renderBookQuizzesListView({ selectedBookId, data });
+            return renderBookQuizzesListView({ selectedBookId, selectedBookQuizMode, data });
           }
 
           // 6. Tab: Diagnostic Configurator (Default)
-          return renderDiagnosticConfiguratorView({ selectedScope, selectedQuestionCount });
+          return renderDiagnosticConfiguratorView({ selectedScope, selectedQuizFocus, selectedQuestionCount });
         })()}
 
       </div>
@@ -186,7 +190,7 @@ export function renderDiagnosticQuizView({
 // --------------------------------------------------------------------------
 // 1. DIAGNOSTIC CONFIGURATOR VIEW
 // --------------------------------------------------------------------------
-function renderDiagnosticConfiguratorView({ selectedScope, selectedQuestionCount }) {
+function renderDiagnosticConfiguratorView({ selectedScope, selectedQuizFocus = "all", selectedQuestionCount = 25 }) {
   const scopes = [
     { id: "ALL", label: "Whole Bible", desc: "All 66 Books (Old & New Testaments)", badge: "66 Books" },
     { id: "OT", label: "Old Testament", desc: "Creation, Law, History & Prophets", badge: "39 Books" },
@@ -215,7 +219,7 @@ function renderDiagnosticConfiguratorView({ selectedScope, selectedQuestionCount
           <span>How the Diagnostic Assessment Works</span>
         </div>
         <p class="text-xs text-[#A19E97] leading-relaxed">
-          Questions are dynamically pulled from a rich library covering <strong class="text-[#EAE8E2]">Book & Chapter locations</strong> (e.g. <em>Genesis 12</em>, <em>Matthew 28</em>), <strong class="text-[#EAE8E2]">Chapter recall</strong> (e.g. <em>1 Samuel 17</em>), <strong class="text-[#EAE8E2]">Key verse fill-ins</strong> (e.g. <em>Ephesians 2:8</em>), and <strong class="text-[#EAE8E2]">Biblical characters & events</strong>. Answers are fill-in-the-blank with typo tolerance and abbreviation support.
+          Questions are dynamically pulled from a rich library covering <strong class="text-[#EAE8E2]">Major Chapter Headings & Outlines</strong>, <strong class="text-[#EAE8E2]">Book & Chapter locations</strong> (e.g. <em>Genesis 12</em>, <em>Matthew 28</em>), <strong class="text-[#EAE8E2]">Chapter recall</strong>, <strong class="text-[#EAE8E2]">Key verse fill-ins</strong>, and <strong class="text-[#EAE8E2]">Biblical characters & events</strong>.
         </p>
       </div>
 
@@ -252,10 +256,53 @@ function renderDiagnosticConfiguratorView({ selectedScope, selectedQuestionCount
         </div>
       </div>
 
-      <!-- Step 2: Choose Test Size -->
+      <!-- Step 2: Choose Question Focus -->
+      <div class="space-y-3 pt-2">
+        <label class="text-xs font-mono uppercase tracking-wider text-[#8C8A84] flex items-center justify-between">
+          <span>2. Select Question Focus</span>
+          <span class="text-[#C4B79C]">${selectedQuizFocus === "headings" ? "📑 Chapter Headings Only" : "🌟 All Content Types"}</span>
+        </label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <button
+            data-select-quiz-focus="all"
+            class="select-quiz-focus-btn text-left p-3.5 rounded-xl border transition flex flex-col justify-between space-y-1.5 ${
+              selectedQuizFocus !== "headings"
+                ? "bg-[#252522] border-[#C4B79C] text-[#EAE8E2] ring-1 ring-[#C4B79C]"
+                : "bg-[#1A1A18] border-[#262623] hover:border-[#383834] text-[#8C8A84] hover:text-[#EAE8E2]"
+            }"
+          >
+            <div class="flex items-center justify-between">
+              <span class="font-serif font-bold text-sm text-[#EAE8E2]">🌟 Comprehensive All-Content</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#141413] border border-[#2B2B28] text-[#C4B79C]">All Types</span>
+            </div>
+            <p class="text-[11px] text-[#A19E97]">
+              Mix of chapter locations, key verse fill-ins, biblical characters, places & events across the Bible.
+            </p>
+          </button>
+
+          <button
+            data-select-quiz-focus="headings"
+            class="select-quiz-focus-btn text-left p-3.5 rounded-xl border transition flex flex-col justify-between space-y-1.5 ${
+              selectedQuizFocus === "headings"
+                ? "bg-[#252522] border-[#C4B79C] text-[#EAE8E2] ring-1 ring-[#C4B79C]"
+                : "bg-[#1A1A18] border-[#262623] hover:border-[#383834] text-[#8C8A84] hover:text-[#EAE8E2]"
+            }"
+          >
+            <div class="flex items-center justify-between">
+              <span class="font-serif font-bold text-sm text-[#EAE8E2]">📑 Major Chapter Headings Only</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#141413] border border-[#2B2B28] text-[#C4B79C]">Headings Focus</span>
+            </div>
+            <p class="text-[11px] text-[#A19E97]">
+              Focus exclusively on testing which chapter contains each major canonical section title & chapter heading.
+            </p>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Choose Test Size -->
       <div class="space-y-3 pt-2">
         <label class="text-xs font-mono uppercase tracking-wider text-[#8C8A84]">
-          2. Select Number of Questions
+          3. Select Number of Questions
         </label>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           ${lengths
@@ -971,7 +1018,7 @@ function renderTestHistoryAndProgressView({ data, historySearchQuery = "", histo
     // Search query
     if (historySearchQuery && historySearchQuery.trim()) {
       const q = historySearchQuery.toLowerCase().trim();
-      const scopeLabel = getTestScopeLabel(t.scope, t.specificBookId).toLowerCase();
+      const scopeLabel = getTestScopeLabel(t.scope, t.specificBookId, t.headingOnly).toLowerCase();
       return scopeLabel.includes(q);
     }
     return true;
@@ -1208,7 +1255,7 @@ function renderTestHistoryAndProgressView({ data, historySearchQuery = "", histo
                     const scorePct = t.pct !== undefined ? t.pct : (t.scorecard?.overallPct || 0);
                     const correctCount = t.correct !== undefined ? t.correct : (t.scorecard?.totalCorrect || 0);
                     const totalCount = t.total || t.questionCount || (t.scorecard?.totalQuestions) || 0;
-                    const scopeLabel = getTestScopeLabel(t.scope, t.specificBookId);
+                    const scopeLabel = getTestScopeLabel(t.scope, t.specificBookId, t.headingOnly);
                     const durationText = formatDuration(t.durationMs || t.scorecard?.durationMs);
                     const dateText = formatTimestamp(t.date);
 
@@ -1299,7 +1346,7 @@ function renderTestHistoryAndProgressView({ data, historySearchQuery = "", histo
 // 6. RETAKE MODAL OVERLAY
 // --------------------------------------------------------------------------
 function renderRetakeModal(test) {
-  const scopeLabel = getTestScopeLabel(test.scope, test.specificBookId);
+  const scopeLabel = getTestScopeLabel(test.scope, test.specificBookId, test.headingOnly);
   const totalQ = test.total || test.questionCount || (test.scorecard?.totalQuestions) || (test.questions?.length) || 25;
   const missedCount = test.scorecard?.missedQuestions?.length || test.missedQuestions?.length || (test.total && test.correct !== undefined ? test.total - test.correct : 0);
   const testId = test.id || `hist_${test.date || ""}`;
@@ -1395,17 +1442,47 @@ function renderRetakeModal(test) {
 // --------------------------------------------------------------------------
 // 7. BOOK QUIZZES LIST VIEW (All 66 Books)
 // --------------------------------------------------------------------------
-function renderBookQuizzesListView({ selectedBookId, data }) {
+function renderBookQuizzesListView({ selectedBookId, selectedBookQuizMode = "all", data }) {
+  const isHeadingsMode = selectedBookQuizMode === "headings";
+
   return `
     <div class="space-y-6">
-      <div class="bg-[#1C1C1A] border border-[#2B2B28] rounded-xl p-5 space-y-2">
-        <h3 class="font-serif text-base font-bold text-[#EAE8E2] flex items-center gap-2">
-          <span>📖</span>
-          <span>Individual Book Chapter Mastery Quizzes</span>
-        </h3>
-        <p class="text-xs text-[#A19E97] leading-relaxed">
-          Select any of the 66 books to take a targeted chapter-recall quiz. Questions will test your mastery of what happened in each specific chapter of that book.
-        </p>
+      <div class="bg-[#1C1C1A] border border-[#2B2B28] rounded-xl p-5 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h3 class="font-serif text-base font-bold text-[#EAE8E2] flex items-center gap-2">
+              <span>📖</span>
+              <span>Individual Book Chapter Mastery Quizzes</span>
+            </h3>
+            <p class="text-xs text-[#A19E97] mt-1 leading-relaxed">
+              Select any of the 66 books to take a targeted chapter-level quiz. Choose between full chapter mastery or drilling specifically on major chapter headings.
+            </p>
+          </div>
+
+          <!-- Mode Toggle -->
+          <div class="flex items-center gap-1 bg-[#141413] p-1 rounded-lg border border-[#2B2B28] text-xs self-start shrink-0">
+            <button
+              data-set-book-quiz-mode="all"
+              class="set-book-quiz-mode-btn px-3 py-1.5 rounded transition cursor-pointer ${
+                !isHeadingsMode
+                  ? "bg-[#2E2E2A] text-[#EAE8E2] font-semibold shadow-xs"
+                  : "text-[#8C8A84] hover:text-[#EAE8E2]"
+              }"
+            >
+              <span>🌟 Full Content</span>
+            </button>
+            <button
+              data-set-book-quiz-mode="headings"
+              class="set-book-quiz-mode-btn px-3 py-1.5 rounded transition cursor-pointer ${
+                isHeadingsMode
+                  ? "bg-[#2E2E2A] text-[#C4B79C] font-semibold shadow-xs"
+                  : "text-[#8C8A84] hover:text-[#EAE8E2]"
+              }"
+            >
+              <span>📑 Chapter Headings Only</span>
+            </button>
+          </div>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -1413,7 +1490,8 @@ function renderBookQuizzesListView({ selectedBookId, data }) {
           return `
             <button
               data-launch-book-quiz="${b.id}"
-              class="launch-book-quiz-btn text-left p-3.5 rounded-xl bg-[#1C1C1A] hover:bg-[#262623] border border-[#2B2B28] hover:border-[#C4B79C]/60 transition flex flex-col justify-between space-y-2 group"
+              data-quiz-mode="${selectedBookQuizMode}"
+              class="launch-book-quiz-btn text-left p-3.5 rounded-xl bg-[#1C1C1A] hover:bg-[#262623] border border-[#2B2B28] hover:border-[#C4B79C]/60 transition flex flex-col justify-between space-y-2 group cursor-pointer"
             >
               <div class="flex items-start justify-between">
                 <div>
@@ -1428,7 +1506,7 @@ function renderBookQuizzesListView({ selectedBookId, data }) {
               </div>
               <p class="text-[11px] text-[#8C8A84] line-clamp-2">${b.keyTheme}</p>
               <div class="pt-1.5 border-t border-[#262624] flex items-center justify-between text-[11px] text-[#C4B79C] font-semibold">
-                <span>Start Quiz</span>
+                <span>${isHeadingsMode ? "📑 Quiz Chapter Headings" : "Start Chapter Quiz"}</span>
                 <span>→</span>
               </div>
             </button>

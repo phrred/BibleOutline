@@ -22,14 +22,23 @@ export function renderBookRollupView({
             ${selectedBook.name}
           </h1>
 
-          <button
-            data-launch-book-quiz="${selectedBook.id}"
-            class="launch-book-quiz-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#C4B79C] text-[#C4B79C] hover:text-[#141413] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5"
-            title="Launch a chapter mastery quiz for ${selectedBook.name}"
-          >
-            <span>📝 Quiz This Book</span>
-            <span>→</span>
-          </button>
+          <div class="flex items-center gap-2">
+            <button
+              data-launch-book-headings-quiz="${selectedBook.id}"
+              class="launch-book-headings-quiz-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+              title="Test major chapter headings for ${selectedBook.name}"
+            >
+              <span>📑 Quiz Headings</span>
+            </button>
+            <button
+              data-launch-book-quiz="${selectedBook.id}"
+              class="launch-book-quiz-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#C4B79C] text-[#C4B79C] hover:text-[#141413] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+              title="Launch a full chapter mastery quiz for ${selectedBook.name}"
+            >
+              <span>📝 Quiz Book</span>
+              <span>→</span>
+            </button>
+          </div>
         </div>
 
         <p class="text-xs leading-relaxed text-[#A19E97]">

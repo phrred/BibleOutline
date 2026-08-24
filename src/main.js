@@ -54,7 +54,9 @@ class BibleOutlineStudio {
     this.historyScopeFilter = "ALL";
     this.retakeModalTest = null;
     this.selectedQuizScope = "ALL";
-    this.selectedQuizQuestionCount = 25;
+    this.selectedQuizFocus = "all"; // 'all' | 'headings'
+    this.selectedQuestionCount = 25;
+    this.selectedBookQuizMode = "all"; // 'all' | 'headings'
     this.flagModalData = null;
 
     // SSO & Cloud Sync state
@@ -645,8 +647,10 @@ class BibleOutlineStudio {
                       viewingPastTest: this.viewingPastTest,
                       questionReviewFilter: this.questionReviewFilter,
                       selectedScope: this.selectedQuizScope,
+                      selectedQuizFocus: this.selectedQuizFocus,
                       selectedQuestionCount: this.selectedQuizQuestionCount,
                       selectedBookId: this.selectedBookId,
+                      selectedBookQuizMode: this.selectedBookQuizMode,
                       historySearchQuery: this.historySearchQuery,
                       historyScopeFilter: this.historyScopeFilter,
                       retakeModalTest: this.retakeModalTest,
@@ -1336,6 +1340,22 @@ class BibleOutlineStudio {
       });
     });
 
+    const selectFocusBtns = document.querySelectorAll(".select-quiz-focus-btn");
+    selectFocusBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.selectedQuizFocus = btn.getAttribute("data-select-quiz-focus") || "all";
+        this.render();
+      });
+    });
+
+    const setBookQuizModeBtns = document.querySelectorAll(".set-book-quiz-mode-btn");
+    setBookQuizModeBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.selectedBookQuizMode = btn.getAttribute("data-set-book-quiz-mode") || "all";
+        this.render();
+      });
+    });
+
     const selectCountBtns = document.querySelectorAll(".select-count-btn");
     selectCountBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -1349,7 +1369,8 @@ class BibleOutlineStudio {
       startDiagnosticBtn.addEventListener("click", () => {
         this.quizSession = new DiagnosticSession({
           scope: this.selectedQuizScope,
-          questionCount: this.selectedQuizQuestionCount
+          questionCount: this.selectedQuizQuestionCount,
+          headingOnly: this.selectedQuizFocus === "headings"
         });
         this.quizScorecard = null;
         this.viewingPastTest = null;
@@ -1362,6 +1383,7 @@ class BibleOutlineStudio {
     launchBookQuizBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         const bId = btn.getAttribute("data-launch-book-quiz");
+        const mode = btn.getAttribute("data-quiz-mode") || this.selectedBookQuizMode || "all";
         const bObj = getBookById(bId);
         if (!bObj) return;
         this.selectedBookId = bId;
@@ -1370,7 +1392,30 @@ class BibleOutlineStudio {
         this.quizSession = new DiagnosticSession({
           scope: "ALL",
           questionCount: Math.min(bObj.chapterCount, 15),
-          specificBookId: bId
+          specificBookId: bId,
+          headingOnly: mode === "headings"
+        });
+        this.quizScorecard = null;
+        this.viewingPastTest = null;
+        this.retakeModalTest = null;
+        this.render();
+      });
+    });
+
+    const launchBookHeadingsQuizBtns = document.querySelectorAll(".launch-book-headings-quiz-btn");
+    launchBookHeadingsQuizBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const bId = btn.getAttribute("data-launch-book-headings-quiz");
+        const bObj = getBookById(bId);
+        if (!bObj) return;
+        this.selectedBookId = bId;
+        this.activeView = "quiz-diagnostic";
+        this.activeQuizTab = "diagnostic";
+        this.quizSession = new DiagnosticSession({
+          scope: "ALL",
+          questionCount: Math.min(bObj.chapterCount, 15),
+          specificBookId: bId,
+          headingOnly: true
         });
         this.quizScorecard = null;
         this.viewingPastTest = null;
@@ -1406,6 +1451,7 @@ class BibleOutlineStudio {
         date: Date.now(),
         scope: this.quizSession.scope,
         specificBookId: this.quizSession.specificBookId,
+        headingOnly: Boolean(this.quizSession.headingOnly),
         questionCount: this.quizScorecard.totalQuestions,
         durationMs: this.quizScorecard.durationMs,
         questions: this.quizSession.questions,
@@ -1595,57 +1641,55 @@ class BibleOutlineStudio {
     });
 
     // Retake Options in Retake Modal
-    const retakeFullBtn = document.getElementById("retake-full-test-btn");
-    if (retakeFullBtn) {
-      retakeFullBtn.addEventListener("click", () => {
+    const retakeOptionBtns = document.querySelectorAll(".retake-option-btn");
+    retakeOptionBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
         const test = this.retakeModalTest;
         if (!test) return;
+        const action = btn.getAttribute("data-action-retake");
         this.retakeModalTest = null;
+
         let newSession = null;
-        if (Array.isArray(test.questions) && test.questions.length > 0) {
-          newSession = new DiagnosticSession({
-            scope: test.scope || "ALL",
-            customQuestions: test.questions,
-            specificBookId: test.specificBookId
-          });
-        } else {
+        if (action === "exact") {
+          if (Array.isArray(test.questions) && test.questions.length > 0) {
+            newSession = new DiagnosticSession({
+              scope: test.scope || "ALL",
+              customQuestions: test.questions,
+              specificBookId: test.specificBookId,
+              headingOnly: Boolean(test.headingOnly)
+            });
+          } else {
+            newSession = new DiagnosticSession({
+              scope: test.scope || "ALL",
+              questionCount: test.questionCount || test.total || 25,
+              specificBookId: test.specificBookId,
+              headingOnly: Boolean(test.headingOnly)
+            });
+          }
+        } else if (action === "missed") {
+          const missedPool = test.scorecard?.missedQuestions || test.missedQuestions || [];
+          const missedQuestions = missedPool.map((m) => m.question || m).filter(Boolean);
+          if (missedQuestions.length > 0) {
+            newSession = new DiagnosticSession({
+              scope: test.scope || "ALL",
+              customQuestions: missedQuestions,
+              specificBookId: test.specificBookId,
+              headingOnly: Boolean(test.headingOnly)
+            });
+          } else {
+            newSession = new DiagnosticSession({
+              scope: test.scope || "ALL",
+              questionCount: test.questionCount || test.total || 25,
+              specificBookId: test.specificBookId,
+              headingOnly: Boolean(test.headingOnly)
+            });
+          }
+        } else if (action === "new") {
           newSession = new DiagnosticSession({
             scope: test.scope || "ALL",
             questionCount: test.questionCount || test.total || 25,
-            specificBookId: test.specificBookId
-          });
-        }
-        if (newSession) {
-          this.quizSession = newSession;
-          this.quizScorecard = null;
-          this.viewingPastTest = null;
-          this.activeView = "quiz-diagnostic";
-          this.activeQuizTab = "diagnostic";
-          this.render();
-        }
-      });
-    }
-
-    const retakeMissedBtn = document.getElementById("retake-missed-only-btn");
-    if (retakeMissedBtn) {
-      retakeMissedBtn.addEventListener("click", () => {
-        const test = this.retakeModalTest;
-        if (!test) return;
-        this.retakeModalTest = null;
-        const missedPool = test.scorecard?.missedQuestions || [];
-        const missedQuestions = missedPool.map((m) => m.question || m).filter(Boolean);
-        let newSession = null;
-        if (missedQuestions.length > 0) {
-          newSession = new DiagnosticSession({
-            scope: test.scope || "ALL",
-            customQuestions: missedQuestions,
-            specificBookId: test.specificBookId
-          });
-        } else {
-          newSession = new DiagnosticSession({
-            scope: test.scope || "ALL",
-            questionCount: test.questionCount || 25,
-            specificBookId: test.specificBookId
+            specificBookId: test.specificBookId,
+            headingOnly: Boolean(test.headingOnly)
           });
         }
 
@@ -1658,7 +1702,7 @@ class BibleOutlineStudio {
           this.render();
         }
       });
-    }
+    });
 
     // Close Retake Modal
     const closeRetakeModalBtn = document.getElementById("close-retake-modal-btn");
