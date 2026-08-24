@@ -65,14 +65,147 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
 
         <span class="text-[#333330]">|</span>
 
-        <button
-          id="export-current-book-btn"
-          class="px-2.5 py-1 rounded bg-[#20201E] hover:bg-[#2A2A27] border border-[#2B2B28] text-[#EAE8E2] transition flex items-center gap-1.5"
-        >
-          <span>Export .md</span>
-        </button>
+        <!-- Export Dropdown & Modal Trigger -->
+        <div class="relative inline-block text-left" id="export-dropdown-wrapper">
+          <button
+            type="button"
+            id="export-menu-btn"
+            class="px-2.5 py-1 rounded bg-[#20201E] hover:bg-[#2A2A27] border border-[#2B2B28] text-[#EAE8E2] transition flex items-center gap-1.5 cursor-pointer text-xs font-medium"
+            title="Export outline as Markdown (.md) or PDF (.pdf)"
+          >
+            <span>📤 Export</span>
+            <span class="text-[10px] text-[#8C8A84]">▼</span>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div
+            id="export-dropdown-menu"
+            class="hidden absolute right-0 mt-1.5 w-56 rounded-lg bg-[#1C1C1A] border border-[#2B2B28] shadow-2xl z-50 py-1.5 text-xs text-[#EAE8E2]"
+          >
+            <div class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[#8C8A84] border-b border-[#262624]">
+              Current Book (${selectedBook.name})
+            </div>
+            <button
+              type="button"
+              data-export-type="md"
+              data-export-scope="current"
+              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#DBCFB3]"
+            >
+              <span>📄</span>
+              <span>Export Markdown (.md)</span>
+            </button>
+            <button
+              type="button"
+              data-export-type="pdf"
+              data-export-scope="current"
+              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#C4B79C]"
+            >
+              <span>📑</span>
+              <span>Export PDF (.pdf)</span>
+            </button>
+
+            <div class="px-3 py-1 mt-1 text-[10px] font-mono uppercase tracking-wider text-[#8C8A84] border-t border-b border-[#262624]">
+              Complete Bible Outline
+            </div>
+            <button
+              type="button"
+              data-export-type="md"
+              data-export-scope="all"
+              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#A19E97] hover:text-[#EAE8E2]"
+            >
+              <span>🌐</span>
+              <span>All 66 Books (.md)</span>
+            </button>
+            <button
+              type="button"
+              data-export-type="pdf"
+              data-export-scope="all"
+              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#A19E97] hover:text-[#EAE8E2]"
+            >
+              <span>📑</span>
+              <span>All 66 Books (PDF)</span>
+            </button>
+
+            <div class="border-t border-[#262624] pt-1 mt-1">
+              <button
+                type="button"
+                id="open-export-modal-btn"
+                class="w-full text-left px-3 py-1.5 hover:bg-[#2A2A27] flex items-center gap-1.5 transition cursor-pointer text-[11px] text-[#7B7974] hover:text-[#C4B79C]"
+              >
+                <span>⚙️</span>
+                <span>More Export Options...</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
+
+    <!-- Export Options Modal -->
+    <div
+      id="export-options-modal"
+      class="hidden fixed inset-0 bg-black/75 backdrop-blur-2xs z-50 flex items-center justify-center p-4 text-[#EAE8E2]"
+    >
+      <div class="bg-[#171715] border border-[#2A2A27] rounded-xl max-w-md w-full p-6 space-y-5 shadow-2xl">
+        <div class="flex items-center justify-between border-b border-[#242422] pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded bg-[#2A2A27] flex items-center justify-center text-xs">📤</span>
+            <h3 class="font-serif text-lg font-bold text-[#EAE8E2]">Export Study Outlines</h3>
+          </div>
+          <button id="close-export-modal-btn" class="text-[#8C8A84] hover:text-[#EAE8E2] text-sm cursor-pointer">✕</button>
+        </div>
+
+        <!-- Step 1: Select Format -->
+        <div class="space-y-2 text-xs">
+          <label class="block font-mono uppercase tracking-wider text-[#A19E97]">1. Select File Format</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
+              <input type="radio" name="export-modal-format" value="md" checked class="text-[#C4B79C] focus:ring-0" />
+              <div>
+                <div class="font-semibold text-[#DBCFB3]">📄 Markdown (.md)</div>
+                <div class="text-[11px] text-[#7B7974]">Obsidian / Notion / Text</div>
+              </div>
+            </label>
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
+              <input type="radio" name="export-modal-format" value="pdf" class="text-[#C4B79C] focus:ring-0" />
+              <div>
+                <div class="font-semibold text-[#DBCFB3]">📑 PDF Document</div>
+                <div class="text-[11px] text-[#7B7974]">Formatted print / PDF</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 2: Select Scope -->
+        <div class="space-y-2 text-xs">
+          <label class="block font-mono uppercase tracking-wider text-[#A19E97]">2. Select Export Scope</label>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
+              <input type="radio" name="export-modal-scope" value="current" checked class="text-[#C4B79C] focus:ring-0" />
+              <div class="flex-1">
+                <div class="font-semibold text-[#DBCFB3]">Current Book (${selectedBook.name})</div>
+                <div class="text-[11px] text-[#7B7974]">${selectedBook.chapterCount} chapters with notes & summary</div>
+              </div>
+            </label>
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
+              <input type="radio" name="export-modal-scope" value="all" class="text-[#C4B79C] focus:ring-0" />
+              <div class="flex-1">
+                <div class="font-semibold text-[#DBCFB3]">Complete Bible Outline</div>
+                <div class="text-[11px] text-[#7B7974]">All 66 canonical books (1,189 chapters)</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="flex items-center justify-end gap-2.5 pt-2 border-t border-[#242422]">
+          <button id="cancel-export-modal-btn" class="px-3 py-1.5 rounded text-xs text-[#8C8A84] hover:text-[#EAE8E2] transition cursor-pointer">Cancel</button>
+          <button id="confirm-export-modal-btn" class="px-4 py-1.5 rounded bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] font-semibold text-xs transition cursor-pointer shadow flex items-center gap-1.5">
+            <span>📥 Export</span>
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Google SSO & Production Publishing Modal -->
     <div

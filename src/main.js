@@ -2,7 +2,9 @@ import {
   loadOutlineStorage,
   saveOutlineStorage,
   debouncedSaveOutlineStorage,
-  exportToMarkdown
+  exportToMarkdown,
+  exportToPrintableHTML,
+  printOrSaveToPDF
 } from "./storage.js";
 import { BIBLE_BOOKS, getBookById } from "../data/bible_catalog.js";
 import { fetchESVChapter, extractESVHeadings, formatESVTextToHTML } from "./esv_api.js";
@@ -256,8 +258,22 @@ class BibleOutlineStudio {
   }
 
   // Synchronize headingBlocks with ESV Scripture text
-  syncHeadingBlocksForChapter(chKey, text, bookName, chNum) {
+  syncHeadingBlocksForChapter(chKey, text, bookName, chNum, force = false) {
     if (!text) return;
+    if (!this.data.chapters[chKey]) {
+      this.data.chapters[chKey] = {
+        headingBlocks: [],
+        chapterScripture: text,
+        status: "empty"
+      };
+    }
+
+    // If not forced and headingBlocks is already initialized, keep existing blocks
+    if (!force && Array.isArray(this.data.chapters[chKey].headingBlocks) && this.data.chapters[chKey].headingBlocks.length > 0) {
+      this.data.chapters[chKey].chapterScripture = text;
+      return;
+    }
+
     const extracted = extractESVHeadings(text, `${bookName} ${chNum}`);
     const existing = Array.isArray(this.data.chapters[chKey]?.headingBlocks)
       ? this.data.chapters[chKey].headingBlocks
@@ -278,31 +294,13 @@ class BibleOutlineStudio {
       };
     });
 
-    // Preserve custom headings not in ESV text
-    if (existing.length > extracted.length) {
-      for (let i = extracted.length; i < existing.length; i++) {
-        const extra = existing[i];
-        if (extra && extra.heading && !extracted.some((h) => h && h.heading.toLowerCase() === extra.heading.toLowerCase())) {
-          synced.push(extra);
-        }
-      }
-    }
-
     const currentRichHTML = this.data.chapters[chKey]?.chapterOutlineRichHTML;
     const currentStatus = this.data.chapters[chKey]?.status || "empty";
 
-    if (!this.data.chapters[chKey]) {
-      this.data.chapters[chKey] = {
-        headingBlocks: synced,
-        chapterScripture: text,
-        status: currentStatus,
-        chapterOutlineRichHTML: currentRichHTML
-      };
-    } else {
-      this.data.chapters[chKey].headingBlocks = synced;
-      if (currentRichHTML) {
-        this.data.chapters[chKey].chapterOutlineRichHTML = currentRichHTML;
-      }
+    this.data.chapters[chKey].headingBlocks = synced;
+    this.data.chapters[chKey].chapterScripture = text;
+    if (currentRichHTML) {
+      this.data.chapters[chKey].chapterOutlineRichHTML = currentRichHTML;
     }
   }
 
@@ -313,7 +311,7 @@ class BibleOutlineStudio {
     const chData = this.data.chapters[chKey] || {};
 
     if (!forceRefresh && chData.chapterScripture && chData.chapterScripture.trim().length > 0) {
-      this.syncHeadingBlocksForChapter(chKey, chData.chapterScripture, book.name, this.selectedChapterNum);
+      this.syncHeadingBlocksForChapter(chKey, chData.chapterScripture, book.name, this.selectedChapterNum, false);
       return;
     }
 
@@ -332,7 +330,7 @@ class BibleOutlineStudio {
         };
       }
       this.data.chapters[chKey].chapterScripture = text;
-      this.syncHeadingBlocksForChapter(chKey, text, book.name, this.selectedChapterNum);
+      this.syncHeadingBlocksForChapter(chKey, text, book.name, this.selectedChapterNum, forceRefresh);
       saveOutlineStorage(this.data);
     } catch (err) {
       console.warn("Failed to auto-load ESV chapter:", err);
@@ -352,6 +350,26 @@ class BibleOutlineStudio {
     if (!this.data.chapters[chKey]) {
       this.data.chapters[chKey] = { headingBlocks: [], status: "empty" };
     }
+
+    if (!Array.isArray(this.data.chapters[chKey].headingBlocks)) {
+      this.data.chapters[chKey].headingBlocks = [];
+    }
+
+    const titleInputs = richEditor.querySelectorAll(".heading-title-input");
+    titleInputs.forEach((input) => {
+      const hIdx = parseInt(input.getAttribute("data-heading-title-input"), 10);
+      if (this.data.chapters[chKey].headingBlocks[hIdx]) {
+        this.data.chapters[chKey].headingBlocks[hIdx].heading = input.value;
+      }
+    });
+
+    const versesInputs = richEditor.querySelectorAll(".heading-verses-input");
+    versesInputs.forEach((input) => {
+      const hIdx = parseInt(input.getAttribute("data-heading-verses-input"), 10);
+      if (this.data.chapters[chKey].headingBlocks[hIdx]) {
+        this.data.chapters[chKey].headingBlocks[hIdx].verses = input.value;
+      }
+    });
 
     const canvases = richEditor.querySelectorAll(".section-bullet-canvas");
     canvases.forEach((canvas) => {
@@ -754,13 +772,94 @@ class BibleOutlineStudio {
       });
     });
 
-    // Export button
+    // Export Dropdown & Modal Logic
+    const exportMenuBtn = document.getElementById("export-menu-btn");
+    const exportDropdownMenu = document.getElementById("export-dropdown-menu");
+    const exportModal = document.getElementById("export-options-modal");
+    const openExportModalBtn = document.getElementById("open-export-modal-btn");
+    const closeExportModalBtn = document.getElementById("close-export-modal-btn");
+    const cancelExportModalBtn = document.getElementById("cancel-export-modal-btn");
+    const confirmExportModalBtn = document.getElementById("confirm-export-modal-btn");
+
+    if (exportMenuBtn && exportDropdownMenu) {
+      exportMenuBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        exportDropdownMenu.classList.toggle("hidden");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest("#export-dropdown-wrapper")) {
+          exportDropdownMenu.classList.add("hidden");
+        }
+      });
+    }
+
+    const exportActionBtns = document.querySelectorAll(".export-action-btn");
+    exportActionBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const type = btn.getAttribute("data-export-type") || "md";
+        const scope = btn.getAttribute("data-export-scope") || "current";
+        if (exportDropdownMenu) exportDropdownMenu.classList.add("hidden");
+        this.performExport(type, scope);
+      });
+    });
+
+    if (openExportModalBtn && exportModal) {
+      openExportModalBtn.addEventListener("click", () => {
+        if (exportDropdownMenu) exportDropdownMenu.classList.add("hidden");
+        exportModal.classList.remove("hidden");
+      });
+    }
+
+    if (closeExportModalBtn && exportModal) {
+      closeExportModalBtn.addEventListener("click", () => {
+        exportModal.classList.add("hidden");
+      });
+    }
+
+    if (cancelExportModalBtn && exportModal) {
+      cancelExportModalBtn.addEventListener("click", () => {
+        exportModal.classList.add("hidden");
+      });
+    }
+
+    if (confirmExportModalBtn && exportModal) {
+      confirmExportModalBtn.addEventListener("click", () => {
+        const formatRadio = document.querySelector('input[name="export-modal-format"]:checked');
+        const scopeRadio = document.querySelector('input[name="export-modal-scope"]:checked');
+        const format = formatRadio ? formatRadio.value : "md";
+        const scope = scopeRadio ? scopeRadio.value : "current";
+        exportModal.classList.add("hidden");
+        this.performExport(format, scope);
+      });
+    }
+
+    // Book Rollup View export buttons
+    const exportBookMdBtns = document.querySelectorAll(".export-book-md-btn");
+    exportBookMdBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const bId = btn.getAttribute("data-export-book-md");
+        this.saveActiveChapterEditorBeforeSwitch();
+        const targetBook = getBookById(bId) || book;
+        const md = exportToMarkdown(this.data, bId);
+        this.downloadFile(`${targetBook.shortName}_Outline.md`, md, "text/markdown");
+      });
+    });
+
+    const exportBookPdfBtns = document.querySelectorAll(".export-book-pdf-btn");
+    exportBookPdfBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const bId = btn.getAttribute("data-export-book-pdf");
+        this.saveActiveChapterEditorBeforeSwitch();
+        printOrSaveToPDF(this.data, bId);
+      });
+    });
+
+    // Legacy Export button handler if present
     const exportCurMd = document.getElementById("export-current-book-btn");
     if (exportCurMd) {
       exportCurMd.addEventListener("click", () => {
-        this.saveActiveChapterEditorBeforeSwitch();
-        const md = exportToMarkdown(this.data, this.selectedBookId);
-        this.downloadFile(`${book.shortName}_Outline.md`, md, "text/markdown");
+        this.performExport("md", "current");
       });
     }
 
@@ -981,29 +1080,149 @@ class BibleOutlineStudio {
       });
     }
 
-    // Add Custom Heading button
-    const addCustomHeadingBtn = document.getElementById("add-custom-heading-btn");
-    if (addCustomHeadingBtn) {
-      addCustomHeadingBtn.addEventListener("click", () => {
-        const title = prompt("Enter new section heading:");
-        if (!title || !title.trim()) return;
-        if (!this.data.chapters[chKey]) {
-          this.data.chapters[chKey] = { headingBlocks: [] };
+    // Add Header Functionality
+    const handleAddHeader = (insertIdx = null) => {
+      this.saveActiveChapterEditorBeforeSwitch();
+
+      if (!this.data.chapters[chKey]) {
+        this.data.chapters[chKey] = { headingBlocks: [], status: "in-progress" };
+      }
+      if (!Array.isArray(this.data.chapters[chKey].headingBlocks)) {
+        this.data.chapters[chKey].headingBlocks = [];
+      }
+
+      const newBlock = {
+        heading: "New Section",
+        verses: "",
+        notes: "",
+        points: [""]
+      };
+
+      if (typeof insertIdx === "number" && insertIdx >= 0) {
+        this.data.chapters[chKey].headingBlocks.splice(insertIdx + 1, 0, newBlock);
+      } else {
+        this.data.chapters[chKey].headingBlocks.push(newBlock);
+      }
+
+      if (this.data.chapters[chKey].status === "empty") {
+        this.data.chapters[chKey].status = "in-progress";
+      }
+
+      this.notifyDataChanged();
+      this.render();
+
+      // Automatically focus and select the title input of the new header
+      const targetIdx =
+        typeof insertIdx === "number" && insertIdx >= 0
+          ? insertIdx + 1
+          : this.data.chapters[chKey].headingBlocks.length - 1;
+      setTimeout(() => {
+        const titleInput = document.querySelector(
+          `.heading-title-input[data-heading-title-input="${targetIdx}"]`
+        );
+        if (titleInput) {
+          titleInput.focus();
+          titleInput.select();
         }
-        if (!Array.isArray(this.data.chapters[chKey].headingBlocks)) {
-          this.data.chapters[chKey].headingBlocks = [];
+      }, 50);
+    };
+
+    const addHeadingBtns = document.querySelectorAll(
+      "#add-heading-btn, #bottom-add-heading-btn, #empty-add-heading-btn, #add-custom-heading-btn"
+    );
+    addHeadingBtns.forEach((btn) => {
+      btn.addEventListener("click", () => handleAddHeader());
+    });
+
+    const insertAfterBtns = document.querySelectorAll(".insert-heading-after-btn");
+    insertAfterBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute("data-insert-heading-after"), 10);
+        handleAddHeader(idx);
+      });
+    });
+
+    // Delete Header Functionality
+    const deleteHeadingBtns = document.querySelectorAll(".delete-heading-btn");
+    deleteHeadingBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute("data-delete-heading"), 10);
+        const block = this.data.chapters[chKey]?.headingBlocks?.[idx];
+        if (!block) return;
+
+        this.saveActiveChapterEditorBeforeSwitch();
+
+        const hasContent = Array.isArray(block.points)
+          ? block.points.some((p) => p && p.trim().length > 0)
+          : Boolean(block.notes && block.notes.trim().length > 0);
+
+        if (hasContent) {
+          const ok = confirm(`Delete header "${block.heading || "Section"}" and its notes?`);
+          if (!ok) return;
         }
-        this.data.chapters[chKey].headingBlocks.push({
-          heading: title.trim(),
-          verses: "custom",
-          notes: ""
-        });
+
+        this.data.chapters[chKey].headingBlocks.splice(idx, 1);
+        if (window.collapsedHeadingsMap?.[chKey]) {
+          delete window.collapsedHeadingsMap[chKey][idx];
+        }
         this.notifyDataChanged();
         this.render();
       });
-    }
+    });
 
-    // Refresh ESV button
+    // Inline Header Title & Verses Input Handlers
+    const headingTitleInputs = document.querySelectorAll(".heading-title-input");
+    headingTitleInputs.forEach((input) => {
+      input.addEventListener("click", (e) => e.stopPropagation());
+      input.addEventListener("input", () => {
+        const idx = parseInt(input.getAttribute("data-heading-title-input"), 10);
+        if (this.data.chapters[chKey]?.headingBlocks?.[idx]) {
+          this.data.chapters[chKey].headingBlocks[idx].heading = input.value;
+          if (this.data.chapters[chKey].status === "empty") {
+            this.data.chapters[chKey].status = "in-progress";
+          }
+          this.notifyDataChanged();
+        }
+      });
+    });
+
+    const headingVersesInputs = document.querySelectorAll(".heading-verses-input");
+    headingVersesInputs.forEach((input) => {
+      input.addEventListener("click", (e) => e.stopPropagation());
+      input.addEventListener("input", () => {
+        const idx = parseInt(input.getAttribute("data-heading-verses-input"), 10);
+        if (this.data.chapters[chKey]?.headingBlocks?.[idx]) {
+          this.data.chapters[chKey].headingBlocks[idx].verses = input.value;
+          this.notifyDataChanged();
+        }
+      });
+    });
+
+    // Refresh / Reset ESV headings buttons
+    const handleRestoreESVHeadings = () => {
+      const ok = confirm("Reset outline headers to the official ESV section headings for this chapter?");
+      if (!ok) return;
+
+      const text = this.data.chapters[chKey]?.chapterScripture;
+      const book = this.getSelectedBook();
+      if (text) {
+        this.syncHeadingBlocksForChapter(chKey, text, book.name, this.selectedChapterNum, true);
+        this.notifyDataChanged();
+      } else {
+        this.autoLoadESVForCurrentChapter(true);
+      }
+      this.render();
+    };
+
+    const reinsertHeadingsBtns = document.querySelectorAll(
+      "#reinsert-esv-headings-btn, #empty-restore-esv-btn"
+    );
+    reinsertHeadingsBtns.forEach((btn) => {
+      btn.addEventListener("click", handleRestoreESVHeadings);
+    });
+
     const refreshESVBtn = document.getElementById("refresh-esv-btn");
     if (refreshESVBtn) {
       refreshESVBtn.addEventListener("click", () => {
@@ -1054,7 +1273,7 @@ class BibleOutlineStudio {
       }
     };
 
-    // Dedicated Bulleted List Canvases under Indestructible Section Headers
+    // Dedicated Bulleted List Canvases under Section Headers
     const sectionCanvases = document.querySelectorAll(".section-bullet-canvas");
     sectionCanvases.forEach((canvas) => {
       canvas.addEventListener("focus", () => updateActiveSectionCanvas(canvas));
@@ -1133,14 +1352,27 @@ class BibleOutlineStudio {
     // Collapse/Expand Section Headings by clicking banner
     const headingBanners = document.querySelectorAll(".esv-rich-heading-banner");
     headingBanners.forEach((banner) => {
-      banner.addEventListener("click", () => {
-        const body = banner.nextElementSibling;
+      banner.addEventListener("click", (e) => {
+        if (
+          e.target.closest(
+            "input, button, .delete-heading-btn, .insert-heading-after-btn, .heading-title-input, .heading-verses-input"
+          )
+        ) {
+          return;
+        }
+        const idx = banner.getAttribute("data-toggle-heading");
+        const body = document.querySelector(`.esv-rich-heading-body[data-section-body="${idx}"]`);
         const icon = banner.querySelector(".rich-heading-toggle-icon");
-        if (body && body.classList.contains("esv-rich-heading-body")) {
+        if (body) {
           body.classList.toggle("hidden");
+          const isHidden = body.classList.contains("hidden");
           if (icon) {
-            icon.textContent = body.classList.contains("hidden") ? "▶" : "▼";
+            icon.textContent = isHidden ? "▶" : "▼";
           }
+          if (!window.collapsedHeadingsMap[chKey]) {
+            window.collapsedHeadingsMap[chKey] = {};
+          }
+          window.collapsedHeadingsMap[chKey][idx] = isHidden;
         }
       });
     });
@@ -1171,7 +1403,6 @@ class BibleOutlineStudio {
           }
 
           if (cmd === "insertUnorderedList") {
-            // Guarantee a bulleted list is created/active in the targeted section
             ensureSectionBulletedList(activeCanvas);
           } else if (cmd === "insertOrderedList") {
             document.execCommand("insertOrderedList", false, null);
@@ -1187,7 +1418,7 @@ class BibleOutlineStudio {
       });
     });
 
-    // Toggle all ESV section headings inside the rich textbox
+    // Toggle all section headings inside the rich textbox
     const toggleRichHeadingsBtn = document.getElementById("toggle-rich-headings-btn");
     if (toggleRichHeadingsBtn) {
       toggleRichHeadingsBtn.addEventListener("click", () => {
@@ -1206,19 +1437,6 @@ class BibleOutlineStudio {
         icons.forEach((icon) => {
           icon.textContent = isCurrentlyHidden ? "▼" : "▶";
         });
-      });
-    }
-
-    // Insert / reset ESV headings inside the rich textbox
-    const reinsertHeadingsBtn = document.getElementById("reinsert-esv-headings-btn");
-    if (reinsertHeadingsBtn) {
-      reinsertHeadingsBtn.addEventListener("click", () => {
-        const text = this.data.chapters[chKey]?.chapterScripture;
-        const book = this.getSelectedBook();
-        if (text) {
-          this.syncHeadingBlocksForChapter(chKey, text, book.name, this.selectedChapterNum);
-        }
-        this.render();
       });
     }
 
@@ -2185,6 +2403,20 @@ class BibleOutlineStudio {
         "info",
         6000
       );
+    }
+  }
+
+  performExport(format = "md", scope = "current") {
+    this.saveActiveChapterEditorBeforeSwitch();
+    const book = this.getSelectedBook();
+    const bookId = scope === "current" ? book.id : null;
+    const baseName = scope === "current" ? `${book.shortName}_Outline` : "Complete_Bible_Outline";
+
+    if (format === "pdf") {
+      printOrSaveToPDF(this.data, bookId);
+    } else {
+      const md = exportToMarkdown(this.data, bookId);
+      this.downloadFile(`${baseName}.md`, md, "text/markdown");
     }
   }
 

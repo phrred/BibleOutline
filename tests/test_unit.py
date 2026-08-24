@@ -25,7 +25,7 @@ class UnitTester:
             ("Comprehensive 66-Book Major Events & Chapter Quiz Bank", self.test_all_66_books_chapter_event_questions),
             ("Storage & Option A Subcollection Serialization", self.test_storage_serialization),
             ("Deep Merge & Local Storage Scaffolding", self.test_storage_scaffolding),
-            ("Markdown Exporter Integrity", self.test_markdown_export),
+            ("Markdown & PDF Exporter Integrity", self.test_markdown_and_pdf_export),
             ("Question Flag Modal & Categories Integrity", self.test_flag_question_modal)
         ]
 
@@ -419,7 +419,7 @@ class UnitTester:
         assert r.get("mergedQuizCount") == 1, "Merged quiz history count mismatch"
         assert r.get("mergedGenMastery") == 3, "Merged book mastery mismatch"
 
-    def test_markdown_export(self):
+    def test_markdown_and_pdf_export(self):
         js = """
         (() => {
             const storage = createInitialStorage();
@@ -431,13 +431,17 @@ class UnitTester:
 
             const fullExport = exportToMarkdown(storage);
             const singleBookExport = exportToMarkdown(storage, 'GEN');
+            const pdfHtml = exportToPrintableHTML(storage, 'GEN');
+            const fullPdfHtml = exportToPrintableHTML(storage);
 
             return {
                 fullHasTitle: fullExport.includes('# COMPLETE BIBLE OUTLINE'),
                 fullHasGenesis: fullExport.includes('# Genesis'),
                 fullHasTakeaway: fullExport.includes('God is Creator'),
                 singleHasGenesis: singleBookExport.includes('# Genesis'),
-                singleOmitsFullHeader: !singleBookExport.includes('# COMPLETE BIBLE OUTLINE')
+                singleOmitsFullHeader: !singleBookExport.includes('# COMPLETE BIBLE OUTLINE'),
+                pdfHasGenesis: pdfHtml.includes('Genesis') && pdfHtml.includes('Creation') && pdfHtml.includes('Point 1'),
+                fullPdfHasHeader: fullPdfHtml.includes('Complete Bible Outline')
             };
         })()
         """
@@ -447,6 +451,8 @@ class UnitTester:
         assert r.get("fullHasTakeaway") == True, "Markdown export missing chapter takeaway"
         assert r.get("singleHasGenesis") == True, "Single book export missing Genesis"
         assert r.get("singleOmitsFullHeader") == True, "Single book export should omit full Bible header"
+        assert r.get("pdfHasGenesis") == True, "PDF HTML export missing Genesis content"
+        assert r.get("fullPdfHasHeader") == True, "Full PDF HTML export missing header"
 
     def test_flag_question_modal(self):
         js = """

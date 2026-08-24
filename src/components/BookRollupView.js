@@ -24,6 +24,20 @@ export function renderBookRollupView({
 
           <div class="flex items-center gap-2">
             <button
+              data-export-book-md="${selectedBook.id}"
+              class="export-book-md-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1 cursor-pointer"
+              title="Export ${selectedBook.name} as Markdown (.md)"
+            >
+              <span>📄 .md</span>
+            </button>
+            <button
+              data-export-book-pdf="${selectedBook.id}"
+              class="export-book-pdf-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#C4B79C] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1 cursor-pointer"
+              title="Export ${selectedBook.name} as printable PDF (.pdf)"
+            >
+              <span>📑 PDF</span>
+            </button>
+            <button
               data-launch-book-headings-quiz="${selectedBook.id}"
               class="launch-book-headings-quiz-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
               title="Test major chapter headings for ${selectedBook.name}"

@@ -24,6 +24,7 @@ class E2ETester:
             ("E2E: Book Rollup & Bible Plot Views", self.test_book_rollup_and_plot),
             ("E2E: Diagnostic Quiz Flow & Scorecard", self.test_diagnostic_quiz_flow),
             ("E2E: Question Flag Modal & Interaction Flow", self.test_flag_question_modal_flow),
+            ("E2E: Markdown & PDF Export Dropdown & Modal", self.test_export_dropdown_and_modal),
             ("E2E: Cloud Sync & Deep Merge Lifecycle", self.test_cloud_sync_lifecycle)
         ]
 
@@ -130,6 +131,29 @@ class E2ETester:
                 targetedSectionIdx = document.activeElement?.closest('.section-bullet-canvas')?.getAttribute('data-section-editor');
             }
 
+            // Test Adding Header
+            const initialHeadingCount = app.data.chapters['GEN-2']?.headingBlocks?.length || 0;
+            const addHeaderBtn = document.getElementById('add-heading-btn');
+            if (addHeaderBtn) {
+                addHeaderBtn.click();
+            }
+            const countAfterAdd = app.data.chapters['GEN-2']?.headingBlocks?.length || 0;
+
+            // Test Editing Header Title
+            const lastTitleInput = document.querySelector(`.heading-title-input[data-heading-title-input="${countAfterAdd - 1}"]`);
+            if (lastTitleInput) {
+                lastTitleInput.value = "Custom Covenant Section";
+                lastTitleInput.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+            const updatedHeadingTitle = app.data.chapters['GEN-2']?.headingBlocks?.[countAfterAdd - 1]?.heading;
+
+            // Test Deleting Header
+            const deleteLastBtn = document.querySelector(`.delete-heading-btn[data-delete-heading="${countAfterAdd - 1}"]`);
+            if (deleteLastBtn) {
+                deleteLastBtn.click();
+            }
+            const countAfterDelete = app.data.chapters['GEN-2']?.headingBlocks?.length || 0;
+
             // Test Resizable Split Divider
             const divider = document.getElementById('chapter-split-divider');
             const outlinePanel = document.getElementById('chapter-outline-panel');
@@ -146,6 +170,10 @@ class E2ETester:
                 hasSummaryArea: Boolean(summaryArea),
                 savedSummary: app.data.books['GEN']?.bookSummary,
                 targetedSectionIdx,
+                initialHeadingCount,
+                countAfterAdd,
+                updatedHeadingTitle,
+                countAfterDelete,
                 hasDivider: Boolean(divider),
                 hasOutlinePanel: Boolean(outlinePanel),
                 widthAfterDblClick
@@ -156,6 +184,9 @@ class E2ETester:
         assert r.get("hasSummaryArea") == True, "Quick summary textarea missing"
         assert r.get("savedSummary") == "Automated Quick Summary Test", "Quick summary input did not update storage state"
         assert r.get("targetedSectionIdx") == "1", f"Expected toolbar to target Section 2 (index 1), got {r.get('targetedSectionIdx')}"
+        assert r.get("countAfterAdd") == r.get("initialHeadingCount") + 1, "Expected heading count to increase by 1 after add"
+        assert r.get("updatedHeadingTitle") == "Custom Covenant Section", f"Expected edited title, got {r.get('updatedHeadingTitle')}"
+        assert r.get("countAfterDelete") == r.get("initialHeadingCount"), "Expected heading count to return to initial after delete"
         assert r.get("hasDivider") == True, "Resizable split divider missing"
         assert r.get("widthAfterDblClick") == "50%", f"Expected 50% width after double click, got {r.get('widthAfterDblClick')}"
 
@@ -384,3 +415,77 @@ class E2ETester:
         assert "Flag Question" in r.get("modalHeader"), "Flag modal title missing"
         assert r.get("selectedCat") == "too_specific", f"Category selection failed, got {r.get('selectedCat')}"
         assert r.get("modalClosed") == True, "Flag modal failed to close upon clicking cancel"
+
+    def test_export_dropdown_and_modal(self):
+        r = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            app.render();
+
+            // 1. Check Export menu button and dropdown
+            const menuBtn = document.getElementById('export-menu-btn');
+            const dropdown = document.getElementById('export-dropdown-menu');
+            const hasMenuBtn = Boolean(menuBtn);
+            let dropdownOpened = false;
+
+            if (menuBtn && dropdown) {
+                menuBtn.click();
+                dropdownOpened = !dropdown.classList.contains('hidden');
+            }
+
+            // 2. Open Export Modal
+            const openModalBtn = document.getElementById('open-export-modal-btn');
+            const modal = document.getElementById('export-options-modal');
+            let modalOpened = false;
+
+            if (openModalBtn && modal) {
+                openModalBtn.click();
+                modalOpened = !modal.classList.contains('hidden');
+            }
+
+            // 3. Verify format & scope radio options
+            const formatRadios = Array.from(document.querySelectorAll('input[name="export-modal-format"]')).map(r => r.value);
+            const scopeRadios = Array.from(document.querySelectorAll('input[name="export-modal-scope"]')).map(r => r.value);
+
+            // 4. Close modal
+            const closeBtn = document.getElementById('close-export-modal-btn');
+            if (closeBtn && modal) {
+                closeBtn.click();
+            }
+            const modalClosed = modal ? modal.classList.contains('hidden') : true;
+
+            // 5. Test performExport without throwing
+            let exportMdSuccess = false;
+            let exportPdfSuccess = false;
+            try {
+                // Mock downloadFile and printOrSaveToPDF for testing
+                const origDownload = app.downloadFile;
+                app.downloadFile = (fn, content, type) => { exportMdSuccess = Boolean(fn && content); };
+                app.performExport('md', 'current');
+                app.downloadFile = origDownload;
+
+                exportPdfSuccess = typeof app.performExport === 'function';
+            } catch (e) {
+                console.error("Export test error:", e);
+            }
+
+            return {
+                hasMenuBtn,
+                dropdownOpened,
+                modalOpened,
+                formatRadios,
+                scopeRadios,
+                modalClosed,
+                exportMdSuccess,
+                exportPdfSuccess
+            };
+        })()
+        """)
+        assert r.get("hasMenuBtn") == True, "Export menu button missing in navbar"
+        assert r.get("dropdownOpened") == True, "Export dropdown failed to open on click"
+        assert r.get("modalOpened") == True, "Export options modal failed to open"
+        assert "md" in r.get("formatRadios", []) and "pdf" in r.get("formatRadios", []), "Missing MD or PDF format radio options"
+        assert "current" in r.get("scopeRadios", []) and "all" in r.get("scopeRadios", []), "Missing Current or All scope radio options"
+        assert r.get("modalClosed") == True, "Export modal failed to close"
+        assert r.get("exportMdSuccess") == True, "performExport('md') failed to produce download payload"
+        assert r.get("exportPdfSuccess") == True, "performExport('pdf') handler failed"

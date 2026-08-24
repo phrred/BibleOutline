@@ -32263,7 +32263,7 @@ function injectExampleOutlines(data) {
 
 // Helper to export Book or full Bible Outline to clean Markdown format
 function exportToMarkdown(data, bookId = null) {
-  const booksToExport = bookId ? [BIBLE_BOOKS.find((b) => b.id === bookId)] : BIBLE_BOOKS;
+  const booksToExport = bookId ? [BIBLE_BOOKS.find((b) => b.id === bookId)].filter(Boolean) : BIBLE_BOOKS;
 
   let md = "";
   if (!bookId) {
@@ -32274,14 +32274,14 @@ function exportToMarkdown(data, bookId = null) {
 
   booksToExport.forEach((book) => {
     const bookData = data.books[book.id];
-    const hasSummary = bookData && bookData.bookSummary.trim().length > 0;
+    const hasSummary = bookData && bookData.bookSummary && bookData.bookSummary.trim().length > 0;
 
     // Check if book has any outlined chapters
     let outlinedCount = 0;
     for (let ch = 1; ch <= book.chapterCount; ch++) {
       const chKey = `${book.id}-${ch}`;
       const chData = data.chapters[chKey];
-      const hasHeadingNotes = Array.isArray(chData?.headingBlocks) && chData.headingBlocks.some((b) => (b.notes && b.notes.trim()) || (Array.isArray(b.points) && b.points.length > 0));
+      const hasHeadingNotes = Array.isArray(chData?.headingBlocks) && chData.headingBlocks.some((b) => (b.notes && b.notes.trim()) || (Array.isArray(b.points) && b.points.some((p) => p && p.trim())));
       const hasLegacyNotes = Boolean((chData?.chapterTitle || "").trim() || (chData?.notes || "").trim() || (chData?.sections || []).length > 0);
       if (chData && (hasHeadingNotes || hasLegacyNotes || (chData.takeaway && chData.takeaway.trim()))) {
         outlinedCount++;
@@ -32308,7 +32308,7 @@ function exportToMarkdown(data, bookId = null) {
       const chData = data.chapters[chKey] || {};
       const blocks = Array.isArray(chData.headingBlocks) ? chData.headingBlocks : [];
 
-      const hasAnyNotes = blocks.some((b) => b.notes && b.notes.trim().length > 0);
+      const hasAnyNotes = blocks.some((b) => (b.notes && b.notes.trim().length > 0) || (Array.isArray(b.points) && b.points.some((p) => p && p.trim().length > 0)));
       if (!hasAnyNotes && !bookId) {
         continue;
       }
@@ -32317,7 +32317,18 @@ function exportToMarkdown(data, bookId = null) {
 
       blocks.forEach((block) => {
         md += `#### ${block.heading}${block.verses ? ` (${block.verses})` : ""}\n\n`;
-        if (block.notes && block.notes.trim()) {
+        const pts = Array.isArray(block.points) && block.points.length > 0
+          ? block.points.filter((p) => p && p.trim().length > 0)
+          : block.notes
+          ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+          : [];
+
+        if (pts.length > 0) {
+          pts.forEach((p) => {
+            md += `- ${p}\n`;
+          });
+          md += `\n`;
+        } else if (block.notes && block.notes.trim()) {
           md += `${block.notes}\n\n`;
         } else {
           md += `*No notes recorded under this heading.*\n\n`;
@@ -32333,6 +32344,473 @@ function exportToMarkdown(data, bookId = null) {
   });
 
   return md;
+}
+
+// Generates high-quality print-ready HTML for PDF export
+function exportToPrintableHTML(data, bookId = null) {
+  const booksToExport = bookId ? [BIBLE_BOOKS.find((b) => b.id === bookId)].filter(Boolean) : BIBLE_BOOKS;
+  const docTitle = bookId && booksToExport[0] ? `${booksToExport[0].name} Outline` : "Complete Bible Outline";
+
+  let bodyContent = "";
+
+  if (!bookId) {
+    bodyContent += `
+      <div class="doc-header">
+        <h1>Complete Bible Outline & Study Notes</h1>
+        <div class="doc-subtitle">66-Book Canonical Study Notes • Bible Outline Studio</div>
+        <div class="doc-date">Generated on ${new Date().toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}</div>
+      </div>
+      <hr class="doc-divider" />
+    `;
+  }
+
+  booksToExport.forEach((book, bIdx) => {
+    const bookData = data.books[book.id] || { bookSummary: "" };
+    const hasSummary = bookData && bookData.bookSummary && bookData.bookSummary.trim().length > 0;
+
+    let outlinedCount = 0;
+    for (let ch = 1; ch <= book.chapterCount; ch++) {
+      const chKey = `${book.id}-${ch}`;
+      const chData = data.chapters[chKey];
+      const hasHeadingNotes = Array.isArray(chData?.headingBlocks) && chData.headingBlocks.some((b) => (b.notes && b.notes.trim()) || (Array.isArray(b.points) && b.points.some((p) => p && p.trim())));
+      if (chData && (hasHeadingNotes || (chData.takeaway && chData.takeaway.trim()))) {
+        outlinedCount++;
+      }
+    }
+
+    if (!bookId && !hasSummary && outlinedCount === 0) {
+      return;
+    }
+
+    bodyContent += `
+      <div class="book-container ${bIdx > 0 ? "page-break" : ""}">
+        <div class="book-header">
+          <div class="book-title-row">
+            <h1 class="book-title">${book.name}</h1>
+            <span class="book-badge">${book.testament} • ${book.category}</span>
+          </div>
+          <div class="book-meta">
+            <span><strong>Author:</strong> ${book.author}</span>
+            <span><strong>Date:</strong> ${book.date}</span>
+            <span><strong>Key Theme:</strong> ${book.keyTheme}</span>
+          </div>
+          <div class="book-context">
+            <strong>Historical & Narrative Context:</strong> ${book.context}
+          </div>
+        </div>
+
+        ${
+          hasSummary
+            ? `
+              <div class="book-summary-box">
+                <div class="section-badge">Overall Book Summary</div>
+                <div class="summary-text">${(bookData.bookSummary || "").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>")}</div>
+              </div>
+            `
+            : ""
+        }
+
+        <div class="chapter-outlines-wrapper">
+          <div class="chapters-header-row">
+            <h2 class="chapters-title">Chapter Outlines</h2>
+            <span class="chapters-count">${outlinedCount} of ${book.chapterCount} Chapters Outlined</span>
+          </div>
+
+          ${(() => {
+            let chHtml = "";
+            for (let ch = 1; ch <= book.chapterCount; ch++) {
+              const chKey = `${book.id}-${ch}`;
+              const chData = data.chapters[chKey] || {};
+              const blocks = Array.isArray(chData.headingBlocks) ? chData.headingBlocks : [];
+              const hasNotes = blocks.some((b) => (b.notes && b.notes.trim()) || (Array.isArray(b.points) && b.points.some((p) => p && p.trim())));
+
+              if (!hasNotes && !bookId) {
+                continue;
+              }
+
+              chHtml += `
+                <div class="chapter-card no-break">
+                  <div class="chapter-bar">
+                    <span class="chapter-number">Chapter ${ch}</span>
+                    <span class="chapter-ref">${book.shortName} ${ch}</span>
+                  </div>
+
+                  <div class="chapter-sections-list">
+                    ${
+                      blocks.length === 0
+                        ? `<div class="empty-notes-hint">No notes recorded for this chapter.</div>`
+                        : blocks
+                            .map((block, hIdx) => {
+                              const pts = Array.isArray(block.points) && block.points.length > 0
+                                ? block.points.filter((p) => p && p.trim().length > 0)
+                                : block.notes
+                                ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+                                : [];
+
+                              return `
+                                <div class="section-item">
+                                  <div class="section-title-line">
+                                    <span class="section-num">${hIdx + 1}</span>
+                                    <span class="section-heading">${block.heading || "Section"}</span>
+                                    ${block.verses ? `<span class="section-verses">(${block.verses})</span>` : ""}
+                                  </div>
+                                  ${
+                                    pts.length > 0
+                                      ? `
+                                        <ul class="points-list">
+                                          ${pts
+                                            .map(
+                                              (p) =>
+                                                `<li>${(p || "")
+                                                  .replace(/</g, "&lt;")
+                                                  .replace(/>/g, "&gt;")}</li>`
+                                            )
+                                            .join("")}
+                                        </ul>
+                                      `
+                                      : `<div class="no-points-hint">No outline notes under this heading.</div>`
+                                  }
+                                </div>
+                              `;
+                            })
+                            .join("")
+                    }
+                  </div>
+
+                  ${
+                    chData.takeaway && chData.takeaway.trim()
+                      ? `
+                        <div class="takeaway-box">
+                          <strong>Key Takeaway:</strong> <em>${chData.takeaway.replace(/</g, "&lt;")}</em>
+                        </div>
+                      `
+                      : ""
+                  }
+                </div>
+              `;
+            }
+            return chHtml;
+          })()}
+        </div>
+      </div>
+    `;
+  });
+
+  return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>${docTitle}</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 15mm 15mm 15mm 15mm;
+    }
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: #fff !important;
+        color: #111 !important;
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+      }
+      .no-break {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1f2937;
+      background: #ffffff;
+      line-height: 1.5;
+      font-size: 13px;
+      margin: 0;
+      padding: 24px;
+    }
+    .print-banner {
+      background: #f3f4f6;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .print-btn {
+      background: #1e3a8a;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .print-btn:hover {
+      background: #1e40af;
+    }
+    .doc-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .doc-header h1 {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #111827;
+      margin: 0 0 4px 0;
+    }
+    .doc-subtitle {
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 4px;
+    }
+    .doc-date {
+      font-size: 11px;
+      color: #6b7280;
+      font-family: monospace;
+    }
+    .doc-divider {
+      border: none;
+      border-top: 2px solid #e5e7eb;
+      margin: 20px 0 28px 0;
+    }
+    .book-container {
+      margin-bottom: 36px;
+    }
+    .book-header {
+      border-bottom: 2px solid #111827;
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+    .book-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .book-title {
+      font-family: Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #111827;
+      margin: 0;
+    }
+    .book-badge {
+      font-size: 11px;
+      font-family: monospace;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: #4b5563;
+      font-weight: 600;
+    }
+    .book-meta {
+      font-size: 12px;
+      color: #4b5563;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .book-context {
+      font-size: 12px;
+      color: #374151;
+      background: #f9fafb;
+      border-left: 3px solid #9ca3af;
+      padding: 6px 10px;
+      border-radius: 0 4px 4px 0;
+    }
+    .book-summary-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+    }
+    .section-badge {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #0f766e;
+      margin-bottom: 4px;
+    }
+    .summary-text {
+      font-size: 12.5px;
+      color: #334155;
+      line-height: 1.55;
+    }
+    .chapters-header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 6px;
+      margin-bottom: 14px;
+    }
+    .chapters-title {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+      margin: 0;
+    }
+    .chapters-count {
+      font-size: 11.5px;
+      color: #6b7280;
+      font-family: monospace;
+    }
+    .chapter-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      background: #ffffff;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+    .chapter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      margin: -12px -14px 10px -14px;
+      padding: 8px 14px;
+      border-radius: 5px 5px 0 0;
+    }
+    .chapter-number {
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: #1e293b;
+    }
+    .chapter-ref {
+      font-family: monospace;
+      font-size: 11px;
+      color: #64748b;
+    }
+    .section-item {
+      margin-bottom: 10px;
+    }
+    .section-item:last-child {
+      margin-bottom: 0;
+    }
+    .section-title-line {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      margin-bottom: 3px;
+    }
+    .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 17px;
+      height: 17px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 3px;
+      font-size: 10px;
+      font-family: monospace;
+      color: #475569;
+      font-weight: bold;
+    }
+    .section-heading {
+      font-family: Georgia, serif;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .section-verses {
+      font-size: 11px;
+      font-family: monospace;
+      color: #64748b;
+    }
+    .points-list {
+      margin: 2px 0 6px 26px;
+      padding: 0;
+      list-style-type: disc;
+    }
+    .points-list li {
+      font-size: 12.5px;
+      color: #334155;
+      margin-bottom: 2px;
+      line-height: 1.45;
+    }
+    .no-points-hint, .empty-notes-hint {
+      font-size: 11px;
+      font-style: italic;
+      color: #94a3b8;
+      margin-left: 26px;
+      margin-bottom: 4px;
+    }
+    .takeaway-box {
+      margin-top: 8px;
+      font-size: 11.5px;
+      background: #eff6ff;
+      border-left: 3px solid #3b82f6;
+      padding: 6px 10px;
+      color: #1e40af;
+      border-radius: 0 4px 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="print-banner no-print">
+    <div>
+      <strong>Print & PDF Export:</strong> Use your browser's Print dialog to <strong>Save as PDF</strong> or print physical notes.
+    </div>
+    <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+  </div>
+  ${bodyContent}
+</body>
+</html>
+  `;
+}
+
+// Opens the formatted printable document in a new window and triggers print
+function printOrSaveToPDF(data, bookId = null) {
+  const html = exportToPrintableHTML(data, bookId);
+  const printWindow = window.open("", "_blank");
+  if (!printWindow) {
+    const iframe = document.createElement("iframe");
+    iframe.style.position = "fixed";
+    iframe.style.right = "0";
+    iframe.style.bottom = "0";
+    iframe.style.width = "0";
+    iframe.style.height = "0";
+    iframe.style.border = "0";
+    document.body.appendChild(iframe);
+    const doc = iframe.contentWindow.document;
+    doc.open();
+    doc.write(html);
+    doc.close();
+    iframe.contentWindow.focus();
+    setTimeout(() => {
+      iframe.contentWindow.print();
+      setTimeout(() => document.body.removeChild(iframe), 1500);
+    }, 300);
+    return;
+  }
+  printWindow.document.open();
+  printWindow.document.write(html);
+  printWindow.document.close();
+  printWindow.focus();
+  setTimeout(() => {
+    printWindow.print();
+  }, 300);
 }
 
 // --- FILE: src/firebase_config.js ---
@@ -33641,14 +34119,147 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
 
         <span class="text-[#333330]">|</span>
 
-        <button
-          id="export-current-book-btn"
-          class="px-2.5 py-1 rounded bg-[#20201E] hover:bg-[#2A2A27] border border-[#2B2B28] text-[#EAE8E2] transition flex items-center gap-1.5"
-        >
-          <span>Export .md</span>
-        </button>
+        <!-- Export Dropdown & Modal Trigger -->
+        <div class="relative inline-block text-left" id="export-dropdown-wrapper">
+          <button
+            type="button"
+            id="export-menu-btn"
+            class="px-2.5 py-1 rounded bg-[#20201E] hover:bg-[#2A2A27] border border-[#2B2B28] text-[#EAE8E2] transition flex items-center gap-1.5 cursor-pointer text-xs font-medium"
+            title="Export outline as Markdown (.md) or PDF (.pdf)"
+          >
+            <span>📤 Export</span>
+            <span class="text-[10px] text-[#8C8A84]">▼</span>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div
+            id="export-dropdown-menu"
+            class="hidden absolute right-0 mt-1.5 w-56 rounded-lg bg-[#1C1C1A] border border-[#2B2B28] shadow-2xl z-50 py-1.5 text-xs text-[#EAE8E2]"
+          >
+            <div class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[#8C8A84] border-b border-[#262624]">
+              Current Book (${selectedBook.name})
+            </div>
+            <button
+              type="button"
+              data-export-type="md"
+              data-export-scope="current"
+              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#DBCFB3]"
+            >
+              <span>📄</span>
+              <span>Export Markdown (.md)</span>
+            </button>
+            <button
+              type="button"
+              data-export-type="pdf"
+              data-export-scope="current"
+              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#C4B79C]"
+            >
+              <span>📑</span>
+              <span>Export PDF (.pdf)</span>
+            </button>
+
+            <div class="px-3 py-1 mt-1 text-[10px] font-mono uppercase tracking-wider text-[#8C8A84] border-t border-b border-[#262624]">
+              Complete Bible Outline
+            </div>
+            <button
+              type="button"
+              data-export-type="md"
+              data-export-scope="all"
+              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#A19E97] hover:text-[#EAE8E2]"
+            >
+              <span>🌐</span>
+              <span>All 66 Books (.md)</span>
+            </button>
+            <button
+              type="button"
+              data-export-type="pdf"
+              data-export-scope="all"
+              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#A19E97] hover:text-[#EAE8E2]"
+            >
+              <span>📑</span>
+              <span>All 66 Books (PDF)</span>
+            </button>
+
+            <div class="border-t border-[#262624] pt-1 mt-1">
+              <button
+                type="button"
+                id="open-export-modal-btn"
+                class="w-full text-left px-3 py-1.5 hover:bg-[#2A2A27] flex items-center gap-1.5 transition cursor-pointer text-[11px] text-[#7B7974] hover:text-[#C4B79C]"
+              >
+                <span>⚙️</span>
+                <span>More Export Options...</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
+
+    <!-- Export Options Modal -->
+    <div
+      id="export-options-modal"
+      class="hidden fixed inset-0 bg-black/75 backdrop-blur-2xs z-50 flex items-center justify-center p-4 text-[#EAE8E2]"
+    >
+      <div class="bg-[#171715] border border-[#2A2A27] rounded-xl max-w-md w-full p-6 space-y-5 shadow-2xl">
+        <div class="flex items-center justify-between border-b border-[#242422] pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-6 h-6 rounded bg-[#2A2A27] flex items-center justify-center text-xs">📤</span>
+            <h3 class="font-serif text-lg font-bold text-[#EAE8E2]">Export Study Outlines</h3>
+          </div>
+          <button id="close-export-modal-btn" class="text-[#8C8A84] hover:text-[#EAE8E2] text-sm cursor-pointer">✕</button>
+        </div>
+
+        <!-- Step 1: Select Format -->
+        <div class="space-y-2 text-xs">
+          <label class="block font-mono uppercase tracking-wider text-[#A19E97]">1. Select File Format</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
+              <input type="radio" name="export-modal-format" value="md" checked class="text-[#C4B79C] focus:ring-0" />
+              <div>
+                <div class="font-semibold text-[#DBCFB3]">📄 Markdown (.md)</div>
+                <div class="text-[11px] text-[#7B7974]">Obsidian / Notion / Text</div>
+              </div>
+            </label>
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
+              <input type="radio" name="export-modal-format" value="pdf" class="text-[#C4B79C] focus:ring-0" />
+              <div>
+                <div class="font-semibold text-[#DBCFB3]">📑 PDF Document</div>
+                <div class="text-[11px] text-[#7B7974]">Formatted print / PDF</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 2: Select Scope -->
+        <div class="space-y-2 text-xs">
+          <label class="block font-mono uppercase tracking-wider text-[#A19E97]">2. Select Export Scope</label>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
+              <input type="radio" name="export-modal-scope" value="current" checked class="text-[#C4B79C] focus:ring-0" />
+              <div class="flex-1">
+                <div class="font-semibold text-[#DBCFB3]">Current Book (${selectedBook.name})</div>
+                <div class="text-[11px] text-[#7B7974]">${selectedBook.chapterCount} chapters with notes & summary</div>
+              </div>
+            </label>
+            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
+              <input type="radio" name="export-modal-scope" value="all" class="text-[#C4B79C] focus:ring-0" />
+              <div class="flex-1">
+                <div class="font-semibold text-[#DBCFB3]">Complete Bible Outline</div>
+                <div class="text-[11px] text-[#7B7974]">All 66 canonical books (1,189 chapters)</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="flex items-center justify-end gap-2.5 pt-2 border-t border-[#242422]">
+          <button id="cancel-export-modal-btn" class="px-3 py-1.5 rounded text-xs text-[#8C8A84] hover:text-[#EAE8E2] transition cursor-pointer">Cancel</button>
+          <button id="confirm-export-modal-btn" class="px-4 py-1.5 rounded bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] font-semibold text-xs transition cursor-pointer shadow flex items-center gap-1.5">
+            <span>📥 Export</span>
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Google SSO & Production Publishing Modal -->
     <div
@@ -33767,6 +34378,20 @@ function renderBookRollupView({
           </h1>
 
           <div class="flex items-center gap-2">
+            <button
+              data-export-book-md="${selectedBook.id}"
+              class="export-book-md-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1 cursor-pointer"
+              title="Export ${selectedBook.name} as Markdown (.md)"
+            >
+              <span>📄 .md</span>
+            </button>
+            <button
+              data-export-book-pdf="${selectedBook.id}"
+              class="export-book-pdf-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#C4B79C] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1 cursor-pointer"
+              title="Export ${selectedBook.name} as printable PDF (.pdf)"
+            >
+              <span>📑 PDF</span>
+            </button>
             <button
               data-launch-book-headings-quiz="${selectedBook.id}"
               class="launch-book-headings-quiz-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
@@ -33939,79 +34564,34 @@ function renderChapterEditorView({
 
   const bookData = data.books[selectedBook.id] || { bookSummary: "" };
 
-  // Always compute exact ESV section headings from the scripture text
-  const extractedHeadings = extractESVHeadings(
-    chData.chapterScripture,
-    `${selectedBook.name} ${chapterNum}`
-  );
-
-  // Sync headingBlocks with extractedHeadings while preserving user notes/points
-  const existingBlocks = Array.isArray(chData.headingBlocks) ? chData.headingBlocks : [];
-  let blocks = extractedHeadings.map((esvH, idx) => {
-    const matchByTitle = existingBlocks.find(
-      (eb) =>
-        eb &&
-        eb.heading &&
-        esvH &&
-        esvH.heading &&
-        eb.heading.toLowerCase() === esvH.heading.toLowerCase() &&
-        eb.heading !== "Chapter Overview"
+  // Use existing headingBlocks if initialized, otherwise populate from ESV scripture or default
+  let blocks = chData.headingBlocks;
+  if (!Array.isArray(blocks)) {
+    const extractedHeadings = extractESVHeadings(
+      chData.chapterScripture,
+      `${selectedBook.name} ${chapterNum}`
     );
-    const matchPos = existingBlocks[idx];
-    let notesToKeep = "";
-    let pointsToKeep = [""];
-
-    if (matchByTitle) {
-      notesToKeep = matchByTitle.notes || "";
-      if (Array.isArray(matchByTitle.points) && matchByTitle.points.length > 0) {
-        pointsToKeep = matchByTitle.points;
-      } else if (notesToKeep) {
-        pointsToKeep = notesToKeep
-          .split("\n")
-          .map((l) => l.replace(/^[•\-\*]\s*/, "").trim())
-          .filter((l) => l.length > 0);
-        if (pointsToKeep.length === 0) pointsToKeep = [""];
-      }
-    } else if (matchPos) {
-      notesToKeep = matchPos.notes || "";
-      if (Array.isArray(matchPos.points) && matchPos.points.length > 0) {
-        pointsToKeep = matchPos.points;
-      } else if (notesToKeep) {
-        pointsToKeep = notesToKeep
-          .split("\n")
-          .map((l) => l.replace(/^[•\-\*]\s*/, "").trim())
-          .filter((l) => l.length > 0);
-        if (pointsToKeep.length === 0) pointsToKeep = [""];
-      }
-    }
-
-    return {
+    blocks = extractedHeadings.map((esvH) => ({
       heading: esvH.heading,
       verses: esvH.verses,
-      notes: notesToKeep,
-      points: pointsToKeep
-    };
-  });
-
-  if (existingBlocks.length > extractedHeadings.length) {
-    for (let i = extractedHeadings.length; i < existingBlocks.length; i++) {
-      const extra = existingBlocks[i];
-      if (extra && extra.heading && !extractedHeadings.some((h) => h && h.heading === extra.heading)) {
-        if (!Array.isArray(extra.points) || extra.points.length === 0) {
-          extra.points = extra.notes
-            ? extra.notes
-                .split("\n")
-                .map((l) => l.replace(/^[•\-\*]\s*/, "").trim())
-                .filter(Boolean)
-            : [""];
-          if (extra.points.length === 0) extra.points = [""];
-        }
-        blocks.push(extra);
+      notes: "",
+      points: [""]
+    }));
+    chData.headingBlocks = blocks;
+  } else {
+    // Ensure all blocks have well-formed points arrays
+    blocks.forEach((b) => {
+      if (!Array.isArray(b.points) || b.points.length === 0) {
+        b.points = b.notes
+          ? b.notes
+              .split("\n")
+              .map((l) => l.replace(/^[•\-\*]\s*/, "").trim())
+              .filter(Boolean)
+          : [""];
+        if (b.points.length === 0) b.points = [""];
       }
-    }
+    });
   }
-
-  chData.headingBlocks = blocks;
 
   // Initialize collapse state for this chapter on global window.collapsedHeadingsMap
   window.collapsedHeadingsMap = window.collapsedHeadingsMap || {};
@@ -34232,16 +34812,25 @@ function renderChapterEditorView({
                         type="button"
                         id="toggle-rich-headings-btn"
                         class="px-2 py-1 rounded hover:bg-[#2A2A27] text-[#A19E97] transition flex items-center gap-1"
-                        title="Collapse or Expand all ESV Section Headings inside this box"
+                        title="Collapse or Expand all Section Headings in this outline"
                       >
                         <span>▼</span>
                         <span>Toggle Headings</span>
                       </button>
                       <button
                         type="button"
+                        id="add-heading-btn"
+                        class="px-2.5 py-1 rounded bg-[#20201D] hover:bg-[#2A2A27] text-[#C4B79C] hover:text-[#DBCFB3] border border-[#2B2B28] transition flex items-center gap-1 font-mono text-xs font-medium"
+                        title="Add a new section header to this chapter outline"
+                      >
+                        <span>+</span>
+                        <span>Add Header</span>
+                      </button>
+                      <button
+                        type="button"
                         id="reinsert-esv-headings-btn"
                         class="px-2 py-1 rounded hover:bg-[#2A2A27] text-[#8C8A84] hover:text-[#C4B79C] transition"
-                        title="Reset/Insert ESV Section Headings into this document box"
+                        title="Reset/Insert official ESV Section Headings into this outline"
                       >
                         📑 Insert ESV Headings
                       </button>
@@ -34249,79 +34838,154 @@ function renderChapterEditorView({
                   </div>
                 </div>
 
-                <!-- ONE UNIFIED CHAPTER OUTLINE DOCUMENT (INDESTRUCTIBLE HEADERS) -->
+                <!-- ONE UNIFIED CHAPTER OUTLINE DOCUMENT WITH EDITABLE & MANAGEABLE HEADERS -->
                   <div
                     id="chapter-rich-outline-editor"
                     class="flex-1 bg-[#1A1A18] border border-[#2B2B28] rounded-lg p-5 space-y-4 overflow-y-auto shadow-inner"
-                  >${blocks
-                    .map((block, idx) => {
-                      const isCol = Boolean(chCollapsedState[idx]);
-                      const pts =
-                        Array.isArray(block.points) && block.points.length > 0
-                          ? block.points.filter((p) => p !== null && p !== undefined)
-                          : [""];
-
-                      return `
-                        <div
-                          class="esv-rich-section-wrap border border-[#2B2B28] rounded-md bg-[#181816] overflow-hidden transition"
-                          data-heading-index="${idx}"
-                        >
-                          <!-- INDESTRUCTIBLE HEADING BAR (CAN NEVER BE DELETED BY BACKSPACE) -->
-                          <div
-                            data-toggle-heading="${idx}"
-                            class="esv-rich-heading-banner flex items-center justify-between px-4 py-2.5 bg-[#20201D] border-b border-[#2A2A27] cursor-pointer select-none hover:bg-[#262623] transition"
-                          >
-                            <div class="flex items-center gap-2.5">
-                              <span class="rich-heading-toggle-icon font-mono text-xs text-[#8C8A84] w-4 text-center">
-                                ${isCol ? "▶" : "▼"}
-                              </span>
-                              <span class="w-5 h-5 rounded bg-[#272724] text-[#A19E97] font-mono text-[11px] flex items-center justify-center">
-                                ${idx + 1}
-                              </span>
-                              <h4 class="font-serif font-semibold text-sm md:text-base text-[#DBCFB3]">
-                                ${block.heading}
-                              </h4>
-                              ${
-                                block.verses
-                                  ? `<span class="text-xs font-mono text-[#7B7974] font-normal">(${block.verses})</span>`
-                                  : ""
-                              }
+                  >
+                    ${
+                      blocks.length === 0
+                        ? `
+                          <div class="py-12 px-4 text-center text-xs text-[#7B7974] space-y-3">
+                            <div class="text-sm text-[#A19E97] font-medium">No section headers in this chapter outline.</div>
+                            <p class="text-xs text-[#6D6B66]">Add custom headers to structure your notes or insert default ESV chapter headings.</p>
+                            <div class="flex items-center justify-center gap-3 pt-2">
+                              <button
+                                type="button"
+                                id="empty-add-heading-btn"
+                                class="px-3 py-1.5 rounded bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] font-semibold text-xs transition flex items-center gap-1 cursor-pointer"
+                              >
+                                <span>+</span>
+                                <span>Add Header</span>
+                              </button>
+                              <button
+                                type="button"
+                                id="empty-restore-esv-btn"
+                                class="px-3 py-1.5 rounded bg-[#20201D] hover:bg-[#2A2A27] border border-[#2B2B28] text-[#DBCFB3] text-xs transition flex items-center gap-1 cursor-pointer"
+                              >
+                                <span>📑</span>
+                                <span>Insert ESV Headings</span>
+                              </button>
                             </div>
                           </div>
+                        `
+                        : blocks
+                            .map((block, idx) => {
+                              const isCol = Boolean(chCollapsedState[idx]);
+                              const pts =
+                                Array.isArray(block.points) && block.points.length > 0
+                                  ? block.points.filter((p) => p !== null && p !== undefined)
+                                  : [""];
 
-                          <!-- PROTECTED BULLETED LIST EDITOR CANVAS FOR THIS SECTION -->
-                          <div
-                            data-section-body="${idx}"
-                            class="esv-rich-heading-body ${isCol ? "hidden" : ""}"
-                          >
-                            <div
-                              contenteditable="true"
-                              spellcheck="false"
-                              data-section-editor="${idx}"
-                              placeholder="Outline what happened under '${
-                                block.heading
-                              }'... Click '• Bulleted List' above or press Tab to indent sub-bullets."
-                              class="section-bullet-canvas p-4 text-[#EAE8E2] font-sans text-sm md:text-base leading-[1.8] outline-none min-h-[70px] focus:bg-[#1C1C1A] transition"
+                              return `
+                                <div
+                                  class="esv-rich-section-wrap border border-[#2B2B28] rounded-md bg-[#181816] overflow-hidden transition"
+                                  data-heading-index="${idx}"
+                                >
+                                  <!-- SECTION HEADING BANNER -->
+                                  <div
+                                    data-toggle-heading="${idx}"
+                                    class="esv-rich-heading-banner flex items-center justify-between px-3 py-2 bg-[#20201D] border-b border-[#2A2A27] cursor-pointer select-none hover:bg-[#262623] transition gap-2"
+                                  >
+                                    <!-- Left: Toggle Icon, Number, Editable Title & Verses -->
+                                    <div class="flex items-center gap-2 flex-1 min-w-0">
+                                      <span class="rich-heading-toggle-icon font-mono text-xs text-[#8C8A84] w-4 text-center shrink-0">
+                                        ${isCol ? "▶" : "▼"}
+                                      </span>
+                                      <span class="w-5 h-5 rounded bg-[#272724] text-[#A19E97] font-mono text-[11px] flex items-center justify-center shrink-0">
+                                        ${idx + 1}
+                                      </span>
+                                      <input
+                                        type="text"
+                                        data-heading-title-input="${idx}"
+                                        value="${(block.heading || "").replace(/"/g, "&quot;")}"
+                                        placeholder="Section Title"
+                                        class="heading-title-input bg-transparent border border-transparent hover:border-[#3A3A36] focus:border-[#C4B79C] focus:bg-[#141413] rounded px-1.5 py-0.5 font-serif font-semibold text-sm md:text-base text-[#DBCFB3] focus:text-white outline-none transition flex-1 min-w-[120px]"
+                                        title="Click to edit section header title"
+                                      />
+                                      <input
+                                        type="text"
+                                        data-heading-verses-input="${idx}"
+                                        value="${(block.verses || "").replace(/"/g, "&quot;")}"
+                                        placeholder="v. range"
+                                        class="heading-verses-input bg-transparent border border-transparent hover:border-[#3A3A36] focus:border-[#C4B79C] focus:bg-[#141413] rounded px-1.5 py-0.5 text-xs font-mono text-[#7B7974] focus:text-[#DBCFB3] outline-none transition w-20 shrink-0"
+                                        title="Optional verse range (e.g. 1-12)"
+                                      />
+                                    </div>
+
+                                    <!-- Right: Action Buttons (+ Below & Delete) -->
+                                    <div class="flex items-center gap-1 shrink-0">
+                                      <button
+                                        type="button"
+                                        data-insert-heading-after="${idx}"
+                                        class="insert-heading-after-btn px-2 py-1 rounded text-xs font-mono text-[#8C8A84] hover:text-[#C4B79C] hover:bg-[#2A2A27] transition flex items-center gap-1 cursor-pointer"
+                                        title="Insert a new section header below this one"
+                                      >
+                                        <span>+ Below</span>
+                                      </button>
+                                      <button
+                                        type="button"
+                                        data-delete-heading="${idx}"
+                                        class="delete-heading-btn p-1.5 rounded text-xs text-[#8C8A84] hover:text-[#E57373] hover:bg-[#2A2A27] transition flex items-center justify-center cursor-pointer"
+                                        title="Delete this section header and its notes"
+                                      >
+                                        <span class="text-sm">🗑</span>
+                                      </button>
+                                    </div>
+                                  </div>
+
+                                  <!-- PROTECTED BULLETED LIST EDITOR CANVAS FOR THIS SECTION -->
+                                  <div
+                                    data-section-body="${idx}"
+                                    class="esv-rich-heading-body ${isCol ? "hidden" : ""}"
+                                  >
+                                    <div
+                                      contenteditable="true"
+                                      spellcheck="false"
+                                      data-section-editor="${idx}"
+                                      placeholder="Outline what happened under '${
+                                        block.heading
+                                      }'... Click '• Bulleted List' above or press Tab to indent sub-bullets."
+                                      class="section-bullet-canvas p-4 text-[#EAE8E2] font-sans text-sm md:text-base leading-[1.8] outline-none min-h-[70px] focus:bg-[#1C1C1A] transition"
+                                    >
+                                      <ul style="list-style-type: disc; margin-left: 1.5rem;">
+                                        ${pts
+                                          .map(
+                                            (p) =>
+                                              `<li>${
+                                                (p || "")
+                                                  .replace(/^•\s*/, "")
+                                                  .replace(/</g, "&lt;")
+                                                  .replace(/>/g, "&gt;") || "<br>"
+                                              }</li>`
+                                          )
+                                          .join("")}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              `;
+                            })
+                            .join("")
+                    }
+
+                    ${
+                      blocks.length > 0
+                        ? `
+                          <div class="pt-2">
+                            <button
+                              type="button"
+                              id="bottom-add-heading-btn"
+                              class="w-full py-2.5 px-4 border border-dashed border-[#3A3A36] hover:border-[#C4B79C] hover:bg-[#20201D] text-[#A19E97] hover:text-[#DBCFB3] rounded-md transition text-xs font-mono flex items-center justify-center gap-1.5 cursor-pointer"
+                              title="Add a new section header to the end of this outline"
                             >
-                              <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                                ${pts
-                                  .map(
-                                    (p) =>
-                                      `<li>${
-                                        (p || "")
-                                          .replace(/^•\s*/, "")
-                                          .replace(/</g, "&lt;")
-                                          .replace(/>/g, "&gt;") || "<br>"
-                                      }</li>`
-                                  )
-                                  .join("")}
-                              </ul>
-                            </div>
+                              <span>+</span>
+                              <span>Add Section Header</span>
+                            </button>
                           </div>
-                        </div>
-                      `;
-                    })
-                    .join("")}
+                        `
+                        : ""
+                    }
                   </div>
                 </div>
 
@@ -36315,8 +36979,22 @@ class BibleOutlineStudio {
   }
 
   // Synchronize headingBlocks with ESV Scripture text
-  syncHeadingBlocksForChapter(chKey, text, bookName, chNum) {
+  syncHeadingBlocksForChapter(chKey, text, bookName, chNum, force = false) {
     if (!text) return;
+    if (!this.data.chapters[chKey]) {
+      this.data.chapters[chKey] = {
+        headingBlocks: [],
+        chapterScripture: text,
+        status: "empty"
+      };
+    }
+
+    // If not forced and headingBlocks is already initialized, keep existing blocks
+    if (!force && Array.isArray(this.data.chapters[chKey].headingBlocks) && this.data.chapters[chKey].headingBlocks.length > 0) {
+      this.data.chapters[chKey].chapterScripture = text;
+      return;
+    }
+
     const extracted = extractESVHeadings(text, `${bookName} ${chNum}`);
     const existing = Array.isArray(this.data.chapters[chKey]?.headingBlocks)
       ? this.data.chapters[chKey].headingBlocks
@@ -36337,31 +37015,13 @@ class BibleOutlineStudio {
       };
     });
 
-    // Preserve custom headings not in ESV text
-    if (existing.length > extracted.length) {
-      for (let i = extracted.length; i < existing.length; i++) {
-        const extra = existing[i];
-        if (extra && extra.heading && !extracted.some((h) => h && h.heading.toLowerCase() === extra.heading.toLowerCase())) {
-          synced.push(extra);
-        }
-      }
-    }
-
     const currentRichHTML = this.data.chapters[chKey]?.chapterOutlineRichHTML;
     const currentStatus = this.data.chapters[chKey]?.status || "empty";
 
-    if (!this.data.chapters[chKey]) {
-      this.data.chapters[chKey] = {
-        headingBlocks: synced,
-        chapterScripture: text,
-        status: currentStatus,
-        chapterOutlineRichHTML: currentRichHTML
-      };
-    } else {
-      this.data.chapters[chKey].headingBlocks = synced;
-      if (currentRichHTML) {
-        this.data.chapters[chKey].chapterOutlineRichHTML = currentRichHTML;
-      }
+    this.data.chapters[chKey].headingBlocks = synced;
+    this.data.chapters[chKey].chapterScripture = text;
+    if (currentRichHTML) {
+      this.data.chapters[chKey].chapterOutlineRichHTML = currentRichHTML;
     }
   }
 
@@ -36372,7 +37032,7 @@ class BibleOutlineStudio {
     const chData = this.data.chapters[chKey] || {};
 
     if (!forceRefresh && chData.chapterScripture && chData.chapterScripture.trim().length > 0) {
-      this.syncHeadingBlocksForChapter(chKey, chData.chapterScripture, book.name, this.selectedChapterNum);
+      this.syncHeadingBlocksForChapter(chKey, chData.chapterScripture, book.name, this.selectedChapterNum, false);
       return;
     }
 
@@ -36391,7 +37051,7 @@ class BibleOutlineStudio {
         };
       }
       this.data.chapters[chKey].chapterScripture = text;
-      this.syncHeadingBlocksForChapter(chKey, text, book.name, this.selectedChapterNum);
+      this.syncHeadingBlocksForChapter(chKey, text, book.name, this.selectedChapterNum, forceRefresh);
       saveOutlineStorage(this.data);
     } catch (err) {
       console.warn("Failed to auto-load ESV chapter:", err);
@@ -36411,6 +37071,26 @@ class BibleOutlineStudio {
     if (!this.data.chapters[chKey]) {
       this.data.chapters[chKey] = { headingBlocks: [], status: "empty" };
     }
+
+    if (!Array.isArray(this.data.chapters[chKey].headingBlocks)) {
+      this.data.chapters[chKey].headingBlocks = [];
+    }
+
+    const titleInputs = richEditor.querySelectorAll(".heading-title-input");
+    titleInputs.forEach((input) => {
+      const hIdx = parseInt(input.getAttribute("data-heading-title-input"), 10);
+      if (this.data.chapters[chKey].headingBlocks[hIdx]) {
+        this.data.chapters[chKey].headingBlocks[hIdx].heading = input.value;
+      }
+    });
+
+    const versesInputs = richEditor.querySelectorAll(".heading-verses-input");
+    versesInputs.forEach((input) => {
+      const hIdx = parseInt(input.getAttribute("data-heading-verses-input"), 10);
+      if (this.data.chapters[chKey].headingBlocks[hIdx]) {
+        this.data.chapters[chKey].headingBlocks[hIdx].verses = input.value;
+      }
+    });
 
     const canvases = richEditor.querySelectorAll(".section-bullet-canvas");
     canvases.forEach((canvas) => {
@@ -36813,13 +37493,94 @@ class BibleOutlineStudio {
       });
     });
 
-    // Export button
+    // Export Dropdown & Modal Logic
+    const exportMenuBtn = document.getElementById("export-menu-btn");
+    const exportDropdownMenu = document.getElementById("export-dropdown-menu");
+    const exportModal = document.getElementById("export-options-modal");
+    const openExportModalBtn = document.getElementById("open-export-modal-btn");
+    const closeExportModalBtn = document.getElementById("close-export-modal-btn");
+    const cancelExportModalBtn = document.getElementById("cancel-export-modal-btn");
+    const confirmExportModalBtn = document.getElementById("confirm-export-modal-btn");
+
+    if (exportMenuBtn && exportDropdownMenu) {
+      exportMenuBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        exportDropdownMenu.classList.toggle("hidden");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest("#export-dropdown-wrapper")) {
+          exportDropdownMenu.classList.add("hidden");
+        }
+      });
+    }
+
+    const exportActionBtns = document.querySelectorAll(".export-action-btn");
+    exportActionBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const type = btn.getAttribute("data-export-type") || "md";
+        const scope = btn.getAttribute("data-export-scope") || "current";
+        if (exportDropdownMenu) exportDropdownMenu.classList.add("hidden");
+        this.performExport(type, scope);
+      });
+    });
+
+    if (openExportModalBtn && exportModal) {
+      openExportModalBtn.addEventListener("click", () => {
+        if (exportDropdownMenu) exportDropdownMenu.classList.add("hidden");
+        exportModal.classList.remove("hidden");
+      });
+    }
+
+    if (closeExportModalBtn && exportModal) {
+      closeExportModalBtn.addEventListener("click", () => {
+        exportModal.classList.add("hidden");
+      });
+    }
+
+    if (cancelExportModalBtn && exportModal) {
+      cancelExportModalBtn.addEventListener("click", () => {
+        exportModal.classList.add("hidden");
+      });
+    }
+
+    if (confirmExportModalBtn && exportModal) {
+      confirmExportModalBtn.addEventListener("click", () => {
+        const formatRadio = document.querySelector('input[name="export-modal-format"]:checked');
+        const scopeRadio = document.querySelector('input[name="export-modal-scope"]:checked');
+        const format = formatRadio ? formatRadio.value : "md";
+        const scope = scopeRadio ? scopeRadio.value : "current";
+        exportModal.classList.add("hidden");
+        this.performExport(format, scope);
+      });
+    }
+
+    // Book Rollup View export buttons
+    const exportBookMdBtns = document.querySelectorAll(".export-book-md-btn");
+    exportBookMdBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const bId = btn.getAttribute("data-export-book-md");
+        this.saveActiveChapterEditorBeforeSwitch();
+        const targetBook = getBookById(bId) || book;
+        const md = exportToMarkdown(this.data, bId);
+        this.downloadFile(`${targetBook.shortName}_Outline.md`, md, "text/markdown");
+      });
+    });
+
+    const exportBookPdfBtns = document.querySelectorAll(".export-book-pdf-btn");
+    exportBookPdfBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const bId = btn.getAttribute("data-export-book-pdf");
+        this.saveActiveChapterEditorBeforeSwitch();
+        printOrSaveToPDF(this.data, bId);
+      });
+    });
+
+    // Legacy Export button handler if present
     const exportCurMd = document.getElementById("export-current-book-btn");
     if (exportCurMd) {
       exportCurMd.addEventListener("click", () => {
-        this.saveActiveChapterEditorBeforeSwitch();
-        const md = exportToMarkdown(this.data, this.selectedBookId);
-        this.downloadFile(`${book.shortName}_Outline.md`, md, "text/markdown");
+        this.performExport("md", "current");
       });
     }
 
@@ -37040,29 +37801,149 @@ class BibleOutlineStudio {
       });
     }
 
-    // Add Custom Heading button
-    const addCustomHeadingBtn = document.getElementById("add-custom-heading-btn");
-    if (addCustomHeadingBtn) {
-      addCustomHeadingBtn.addEventListener("click", () => {
-        const title = prompt("Enter new section heading:");
-        if (!title || !title.trim()) return;
-        if (!this.data.chapters[chKey]) {
-          this.data.chapters[chKey] = { headingBlocks: [] };
+    // Add Header Functionality
+    const handleAddHeader = (insertIdx = null) => {
+      this.saveActiveChapterEditorBeforeSwitch();
+
+      if (!this.data.chapters[chKey]) {
+        this.data.chapters[chKey] = { headingBlocks: [], status: "in-progress" };
+      }
+      if (!Array.isArray(this.data.chapters[chKey].headingBlocks)) {
+        this.data.chapters[chKey].headingBlocks = [];
+      }
+
+      const newBlock = {
+        heading: "New Section",
+        verses: "",
+        notes: "",
+        points: [""]
+      };
+
+      if (typeof insertIdx === "number" && insertIdx >= 0) {
+        this.data.chapters[chKey].headingBlocks.splice(insertIdx + 1, 0, newBlock);
+      } else {
+        this.data.chapters[chKey].headingBlocks.push(newBlock);
+      }
+
+      if (this.data.chapters[chKey].status === "empty") {
+        this.data.chapters[chKey].status = "in-progress";
+      }
+
+      this.notifyDataChanged();
+      this.render();
+
+      // Automatically focus and select the title input of the new header
+      const targetIdx =
+        typeof insertIdx === "number" && insertIdx >= 0
+          ? insertIdx + 1
+          : this.data.chapters[chKey].headingBlocks.length - 1;
+      setTimeout(() => {
+        const titleInput = document.querySelector(
+          `.heading-title-input[data-heading-title-input="${targetIdx}"]`
+        );
+        if (titleInput) {
+          titleInput.focus();
+          titleInput.select();
         }
-        if (!Array.isArray(this.data.chapters[chKey].headingBlocks)) {
-          this.data.chapters[chKey].headingBlocks = [];
+      }, 50);
+    };
+
+    const addHeadingBtns = document.querySelectorAll(
+      "#add-heading-btn, #bottom-add-heading-btn, #empty-add-heading-btn, #add-custom-heading-btn"
+    );
+    addHeadingBtns.forEach((btn) => {
+      btn.addEventListener("click", () => handleAddHeader());
+    });
+
+    const insertAfterBtns = document.querySelectorAll(".insert-heading-after-btn");
+    insertAfterBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute("data-insert-heading-after"), 10);
+        handleAddHeader(idx);
+      });
+    });
+
+    // Delete Header Functionality
+    const deleteHeadingBtns = document.querySelectorAll(".delete-heading-btn");
+    deleteHeadingBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute("data-delete-heading"), 10);
+        const block = this.data.chapters[chKey]?.headingBlocks?.[idx];
+        if (!block) return;
+
+        this.saveActiveChapterEditorBeforeSwitch();
+
+        const hasContent = Array.isArray(block.points)
+          ? block.points.some((p) => p && p.trim().length > 0)
+          : Boolean(block.notes && block.notes.trim().length > 0);
+
+        if (hasContent) {
+          const ok = confirm(`Delete header "${block.heading || "Section"}" and its notes?`);
+          if (!ok) return;
         }
-        this.data.chapters[chKey].headingBlocks.push({
-          heading: title.trim(),
-          verses: "custom",
-          notes: ""
-        });
+
+        this.data.chapters[chKey].headingBlocks.splice(idx, 1);
+        if (window.collapsedHeadingsMap?.[chKey]) {
+          delete window.collapsedHeadingsMap[chKey][idx];
+        }
         this.notifyDataChanged();
         this.render();
       });
-    }
+    });
 
-    // Refresh ESV button
+    // Inline Header Title & Verses Input Handlers
+    const headingTitleInputs = document.querySelectorAll(".heading-title-input");
+    headingTitleInputs.forEach((input) => {
+      input.addEventListener("click", (e) => e.stopPropagation());
+      input.addEventListener("input", () => {
+        const idx = parseInt(input.getAttribute("data-heading-title-input"), 10);
+        if (this.data.chapters[chKey]?.headingBlocks?.[idx]) {
+          this.data.chapters[chKey].headingBlocks[idx].heading = input.value;
+          if (this.data.chapters[chKey].status === "empty") {
+            this.data.chapters[chKey].status = "in-progress";
+          }
+          this.notifyDataChanged();
+        }
+      });
+    });
+
+    const headingVersesInputs = document.querySelectorAll(".heading-verses-input");
+    headingVersesInputs.forEach((input) => {
+      input.addEventListener("click", (e) => e.stopPropagation());
+      input.addEventListener("input", () => {
+        const idx = parseInt(input.getAttribute("data-heading-verses-input"), 10);
+        if (this.data.chapters[chKey]?.headingBlocks?.[idx]) {
+          this.data.chapters[chKey].headingBlocks[idx].verses = input.value;
+          this.notifyDataChanged();
+        }
+      });
+    });
+
+    // Refresh / Reset ESV headings buttons
+    const handleRestoreESVHeadings = () => {
+      const ok = confirm("Reset outline headers to the official ESV section headings for this chapter?");
+      if (!ok) return;
+
+      const text = this.data.chapters[chKey]?.chapterScripture;
+      const book = this.getSelectedBook();
+      if (text) {
+        this.syncHeadingBlocksForChapter(chKey, text, book.name, this.selectedChapterNum, true);
+        this.notifyDataChanged();
+      } else {
+        this.autoLoadESVForCurrentChapter(true);
+      }
+      this.render();
+    };
+
+    const reinsertHeadingsBtns = document.querySelectorAll(
+      "#reinsert-esv-headings-btn, #empty-restore-esv-btn"
+    );
+    reinsertHeadingsBtns.forEach((btn) => {
+      btn.addEventListener("click", handleRestoreESVHeadings);
+    });
+
     const refreshESVBtn = document.getElementById("refresh-esv-btn");
     if (refreshESVBtn) {
       refreshESVBtn.addEventListener("click", () => {
@@ -37113,7 +37994,7 @@ class BibleOutlineStudio {
       }
     };
 
-    // Dedicated Bulleted List Canvases under Indestructible Section Headers
+    // Dedicated Bulleted List Canvases under Section Headers
     const sectionCanvases = document.querySelectorAll(".section-bullet-canvas");
     sectionCanvases.forEach((canvas) => {
       canvas.addEventListener("focus", () => updateActiveSectionCanvas(canvas));
@@ -37192,14 +38073,27 @@ class BibleOutlineStudio {
     // Collapse/Expand Section Headings by clicking banner
     const headingBanners = document.querySelectorAll(".esv-rich-heading-banner");
     headingBanners.forEach((banner) => {
-      banner.addEventListener("click", () => {
-        const body = banner.nextElementSibling;
+      banner.addEventListener("click", (e) => {
+        if (
+          e.target.closest(
+            "input, button, .delete-heading-btn, .insert-heading-after-btn, .heading-title-input, .heading-verses-input"
+          )
+        ) {
+          return;
+        }
+        const idx = banner.getAttribute("data-toggle-heading");
+        const body = document.querySelector(`.esv-rich-heading-body[data-section-body="${idx}"]`);
         const icon = banner.querySelector(".rich-heading-toggle-icon");
-        if (body && body.classList.contains("esv-rich-heading-body")) {
+        if (body) {
           body.classList.toggle("hidden");
+          const isHidden = body.classList.contains("hidden");
           if (icon) {
-            icon.textContent = body.classList.contains("hidden") ? "▶" : "▼";
+            icon.textContent = isHidden ? "▶" : "▼";
           }
+          if (!window.collapsedHeadingsMap[chKey]) {
+            window.collapsedHeadingsMap[chKey] = {};
+          }
+          window.collapsedHeadingsMap[chKey][idx] = isHidden;
         }
       });
     });
@@ -37230,7 +38124,6 @@ class BibleOutlineStudio {
           }
 
           if (cmd === "insertUnorderedList") {
-            // Guarantee a bulleted list is created/active in the targeted section
             ensureSectionBulletedList(activeCanvas);
           } else if (cmd === "insertOrderedList") {
             document.execCommand("insertOrderedList", false, null);
@@ -37246,7 +38139,7 @@ class BibleOutlineStudio {
       });
     });
 
-    // Toggle all ESV section headings inside the rich textbox
+    // Toggle all section headings inside the rich textbox
     const toggleRichHeadingsBtn = document.getElementById("toggle-rich-headings-btn");
     if (toggleRichHeadingsBtn) {
       toggleRichHeadingsBtn.addEventListener("click", () => {
@@ -37265,19 +38158,6 @@ class BibleOutlineStudio {
         icons.forEach((icon) => {
           icon.textContent = isCurrentlyHidden ? "▼" : "▶";
         });
-      });
-    }
-
-    // Insert / reset ESV headings inside the rich textbox
-    const reinsertHeadingsBtn = document.getElementById("reinsert-esv-headings-btn");
-    if (reinsertHeadingsBtn) {
-      reinsertHeadingsBtn.addEventListener("click", () => {
-        const text = this.data.chapters[chKey]?.chapterScripture;
-        const book = this.getSelectedBook();
-        if (text) {
-          this.syncHeadingBlocksForChapter(chKey, text, book.name, this.selectedChapterNum);
-        }
-        this.render();
       });
     }
 
@@ -38244,6 +39124,20 @@ class BibleOutlineStudio {
         "info",
         6000
       );
+    }
+  }
+
+  performExport(format = "md", scope = "current") {
+    this.saveActiveChapterEditorBeforeSwitch();
+    const book = this.getSelectedBook();
+    const bookId = scope === "current" ? book.id : null;
+    const baseName = scope === "current" ? `${book.shortName}_Outline` : "Complete_Bible_Outline";
+
+    if (format === "pdf") {
+      printOrSaveToPDF(this.data, bookId);
+    } else {
+      const md = exportToMarkdown(this.data, bookId);
+      this.downloadFile(`${baseName}.md`, md, "text/markdown");
     }
   }
 

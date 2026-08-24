@@ -20,79 +20,34 @@ export function renderChapterEditorView({
 
   const bookData = data.books[selectedBook.id] || { bookSummary: "" };
 
-  // Always compute exact ESV section headings from the scripture text
-  const extractedHeadings = extractESVHeadings(
-    chData.chapterScripture,
-    `${selectedBook.name} ${chapterNum}`
-  );
-
-  // Sync headingBlocks with extractedHeadings while preserving user notes/points
-  const existingBlocks = Array.isArray(chData.headingBlocks) ? chData.headingBlocks : [];
-  let blocks = extractedHeadings.map((esvH, idx) => {
-    const matchByTitle = existingBlocks.find(
-      (eb) =>
-        eb &&
-        eb.heading &&
-        esvH &&
-        esvH.heading &&
-        eb.heading.toLowerCase() === esvH.heading.toLowerCase() &&
-        eb.heading !== "Chapter Overview"
+  // Use existing headingBlocks if initialized, otherwise populate from ESV scripture or default
+  let blocks = chData.headingBlocks;
+  if (!Array.isArray(blocks)) {
+    const extractedHeadings = extractESVHeadings(
+      chData.chapterScripture,
+      `${selectedBook.name} ${chapterNum}`
     );
-    const matchPos = existingBlocks[idx];
-    let notesToKeep = "";
-    let pointsToKeep = [""];
-
-    if (matchByTitle) {
-      notesToKeep = matchByTitle.notes || "";
-      if (Array.isArray(matchByTitle.points) && matchByTitle.points.length > 0) {
-        pointsToKeep = matchByTitle.points;
-      } else if (notesToKeep) {
-        pointsToKeep = notesToKeep
-          .split("\n")
-          .map((l) => l.replace(/^[•\-\*]\s*/, "").trim())
-          .filter((l) => l.length > 0);
-        if (pointsToKeep.length === 0) pointsToKeep = [""];
-      }
-    } else if (matchPos) {
-      notesToKeep = matchPos.notes || "";
-      if (Array.isArray(matchPos.points) && matchPos.points.length > 0) {
-        pointsToKeep = matchPos.points;
-      } else if (notesToKeep) {
-        pointsToKeep = notesToKeep
-          .split("\n")
-          .map((l) => l.replace(/^[•\-\*]\s*/, "").trim())
-          .filter((l) => l.length > 0);
-        if (pointsToKeep.length === 0) pointsToKeep = [""];
-      }
-    }
-
-    return {
+    blocks = extractedHeadings.map((esvH) => ({
       heading: esvH.heading,
       verses: esvH.verses,
-      notes: notesToKeep,
-      points: pointsToKeep
-    };
-  });
-
-  if (existingBlocks.length > extractedHeadings.length) {
-    for (let i = extractedHeadings.length; i < existingBlocks.length; i++) {
-      const extra = existingBlocks[i];
-      if (extra && extra.heading && !extractedHeadings.some((h) => h && h.heading === extra.heading)) {
-        if (!Array.isArray(extra.points) || extra.points.length === 0) {
-          extra.points = extra.notes
-            ? extra.notes
-                .split("\n")
-                .map((l) => l.replace(/^[•\-\*]\s*/, "").trim())
-                .filter(Boolean)
-            : [""];
-          if (extra.points.length === 0) extra.points = [""];
-        }
-        blocks.push(extra);
+      notes: "",
+      points: [""]
+    }));
+    chData.headingBlocks = blocks;
+  } else {
+    // Ensure all blocks have well-formed points arrays
+    blocks.forEach((b) => {
+      if (!Array.isArray(b.points) || b.points.length === 0) {
+        b.points = b.notes
+          ? b.notes
+              .split("\n")
+              .map((l) => l.replace(/^[•\-\*]\s*/, "").trim())
+              .filter(Boolean)
+          : [""];
+        if (b.points.length === 0) b.points = [""];
       }
-    }
+    });
   }
-
-  chData.headingBlocks = blocks;
 
   // Initialize collapse state for this chapter on global window.collapsedHeadingsMap
   window.collapsedHeadingsMap = window.collapsedHeadingsMap || {};
@@ -313,16 +268,25 @@ export function renderChapterEditorView({
                         type="button"
                         id="toggle-rich-headings-btn"
                         class="px-2 py-1 rounded hover:bg-[#2A2A27] text-[#A19E97] transition flex items-center gap-1"
-                        title="Collapse or Expand all ESV Section Headings inside this box"
+                        title="Collapse or Expand all Section Headings in this outline"
                       >
                         <span>▼</span>
                         <span>Toggle Headings</span>
                       </button>
                       <button
                         type="button"
+                        id="add-heading-btn"
+                        class="px-2.5 py-1 rounded bg-[#20201D] hover:bg-[#2A2A27] text-[#C4B79C] hover:text-[#DBCFB3] border border-[#2B2B28] transition flex items-center gap-1 font-mono text-xs font-medium"
+                        title="Add a new section header to this chapter outline"
+                      >
+                        <span>+</span>
+                        <span>Add Header</span>
+                      </button>
+                      <button
+                        type="button"
                         id="reinsert-esv-headings-btn"
                         class="px-2 py-1 rounded hover:bg-[#2A2A27] text-[#8C8A84] hover:text-[#C4B79C] transition"
-                        title="Reset/Insert ESV Section Headings into this document box"
+                        title="Reset/Insert official ESV Section Headings into this outline"
                       >
                         📑 Insert ESV Headings
                       </button>
@@ -330,79 +294,154 @@ export function renderChapterEditorView({
                   </div>
                 </div>
 
-                <!-- ONE UNIFIED CHAPTER OUTLINE DOCUMENT (INDESTRUCTIBLE HEADERS) -->
+                <!-- ONE UNIFIED CHAPTER OUTLINE DOCUMENT WITH EDITABLE & MANAGEABLE HEADERS -->
                   <div
                     id="chapter-rich-outline-editor"
                     class="flex-1 bg-[#1A1A18] border border-[#2B2B28] rounded-lg p-5 space-y-4 overflow-y-auto shadow-inner"
-                  >${blocks
-                    .map((block, idx) => {
-                      const isCol = Boolean(chCollapsedState[idx]);
-                      const pts =
-                        Array.isArray(block.points) && block.points.length > 0
-                          ? block.points.filter((p) => p !== null && p !== undefined)
-                          : [""];
-
-                      return `
-                        <div
-                          class="esv-rich-section-wrap border border-[#2B2B28] rounded-md bg-[#181816] overflow-hidden transition"
-                          data-heading-index="${idx}"
-                        >
-                          <!-- INDESTRUCTIBLE HEADING BAR (CAN NEVER BE DELETED BY BACKSPACE) -->
-                          <div
-                            data-toggle-heading="${idx}"
-                            class="esv-rich-heading-banner flex items-center justify-between px-4 py-2.5 bg-[#20201D] border-b border-[#2A2A27] cursor-pointer select-none hover:bg-[#262623] transition"
-                          >
-                            <div class="flex items-center gap-2.5">
-                              <span class="rich-heading-toggle-icon font-mono text-xs text-[#8C8A84] w-4 text-center">
-                                ${isCol ? "▶" : "▼"}
-                              </span>
-                              <span class="w-5 h-5 rounded bg-[#272724] text-[#A19E97] font-mono text-[11px] flex items-center justify-center">
-                                ${idx + 1}
-                              </span>
-                              <h4 class="font-serif font-semibold text-sm md:text-base text-[#DBCFB3]">
-                                ${block.heading}
-                              </h4>
-                              ${
-                                block.verses
-                                  ? `<span class="text-xs font-mono text-[#7B7974] font-normal">(${block.verses})</span>`
-                                  : ""
-                              }
+                  >
+                    ${
+                      blocks.length === 0
+                        ? `
+                          <div class="py-12 px-4 text-center text-xs text-[#7B7974] space-y-3">
+                            <div class="text-sm text-[#A19E97] font-medium">No section headers in this chapter outline.</div>
+                            <p class="text-xs text-[#6D6B66]">Add custom headers to structure your notes or insert default ESV chapter headings.</p>
+                            <div class="flex items-center justify-center gap-3 pt-2">
+                              <button
+                                type="button"
+                                id="empty-add-heading-btn"
+                                class="px-3 py-1.5 rounded bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] font-semibold text-xs transition flex items-center gap-1 cursor-pointer"
+                              >
+                                <span>+</span>
+                                <span>Add Header</span>
+                              </button>
+                              <button
+                                type="button"
+                                id="empty-restore-esv-btn"
+                                class="px-3 py-1.5 rounded bg-[#20201D] hover:bg-[#2A2A27] border border-[#2B2B28] text-[#DBCFB3] text-xs transition flex items-center gap-1 cursor-pointer"
+                              >
+                                <span>📑</span>
+                                <span>Insert ESV Headings</span>
+                              </button>
                             </div>
                           </div>
+                        `
+                        : blocks
+                            .map((block, idx) => {
+                              const isCol = Boolean(chCollapsedState[idx]);
+                              const pts =
+                                Array.isArray(block.points) && block.points.length > 0
+                                  ? block.points.filter((p) => p !== null && p !== undefined)
+                                  : [""];
 
-                          <!-- PROTECTED BULLETED LIST EDITOR CANVAS FOR THIS SECTION -->
-                          <div
-                            data-section-body="${idx}"
-                            class="esv-rich-heading-body ${isCol ? "hidden" : ""}"
-                          >
-                            <div
-                              contenteditable="true"
-                              spellcheck="false"
-                              data-section-editor="${idx}"
-                              placeholder="Outline what happened under '${
-                                block.heading
-                              }'... Click '• Bulleted List' above or press Tab to indent sub-bullets."
-                              class="section-bullet-canvas p-4 text-[#EAE8E2] font-sans text-sm md:text-base leading-[1.8] outline-none min-h-[70px] focus:bg-[#1C1C1A] transition"
+                              return `
+                                <div
+                                  class="esv-rich-section-wrap border border-[#2B2B28] rounded-md bg-[#181816] overflow-hidden transition"
+                                  data-heading-index="${idx}"
+                                >
+                                  <!-- SECTION HEADING BANNER -->
+                                  <div
+                                    data-toggle-heading="${idx}"
+                                    class="esv-rich-heading-banner flex items-center justify-between px-3 py-2 bg-[#20201D] border-b border-[#2A2A27] cursor-pointer select-none hover:bg-[#262623] transition gap-2"
+                                  >
+                                    <!-- Left: Toggle Icon, Number, Editable Title & Verses -->
+                                    <div class="flex items-center gap-2 flex-1 min-w-0">
+                                      <span class="rich-heading-toggle-icon font-mono text-xs text-[#8C8A84] w-4 text-center shrink-0">
+                                        ${isCol ? "▶" : "▼"}
+                                      </span>
+                                      <span class="w-5 h-5 rounded bg-[#272724] text-[#A19E97] font-mono text-[11px] flex items-center justify-center shrink-0">
+                                        ${idx + 1}
+                                      </span>
+                                      <input
+                                        type="text"
+                                        data-heading-title-input="${idx}"
+                                        value="${(block.heading || "").replace(/"/g, "&quot;")}"
+                                        placeholder="Section Title"
+                                        class="heading-title-input bg-transparent border border-transparent hover:border-[#3A3A36] focus:border-[#C4B79C] focus:bg-[#141413] rounded px-1.5 py-0.5 font-serif font-semibold text-sm md:text-base text-[#DBCFB3] focus:text-white outline-none transition flex-1 min-w-[120px]"
+                                        title="Click to edit section header title"
+                                      />
+                                      <input
+                                        type="text"
+                                        data-heading-verses-input="${idx}"
+                                        value="${(block.verses || "").replace(/"/g, "&quot;")}"
+                                        placeholder="v. range"
+                                        class="heading-verses-input bg-transparent border border-transparent hover:border-[#3A3A36] focus:border-[#C4B79C] focus:bg-[#141413] rounded px-1.5 py-0.5 text-xs font-mono text-[#7B7974] focus:text-[#DBCFB3] outline-none transition w-20 shrink-0"
+                                        title="Optional verse range (e.g. 1-12)"
+                                      />
+                                    </div>
+
+                                    <!-- Right: Action Buttons (+ Below & Delete) -->
+                                    <div class="flex items-center gap-1 shrink-0">
+                                      <button
+                                        type="button"
+                                        data-insert-heading-after="${idx}"
+                                        class="insert-heading-after-btn px-2 py-1 rounded text-xs font-mono text-[#8C8A84] hover:text-[#C4B79C] hover:bg-[#2A2A27] transition flex items-center gap-1 cursor-pointer"
+                                        title="Insert a new section header below this one"
+                                      >
+                                        <span>+ Below</span>
+                                      </button>
+                                      <button
+                                        type="button"
+                                        data-delete-heading="${idx}"
+                                        class="delete-heading-btn p-1.5 rounded text-xs text-[#8C8A84] hover:text-[#E57373] hover:bg-[#2A2A27] transition flex items-center justify-center cursor-pointer"
+                                        title="Delete this section header and its notes"
+                                      >
+                                        <span class="text-sm">🗑</span>
+                                      </button>
+                                    </div>
+                                  </div>
+
+                                  <!-- PROTECTED BULLETED LIST EDITOR CANVAS FOR THIS SECTION -->
+                                  <div
+                                    data-section-body="${idx}"
+                                    class="esv-rich-heading-body ${isCol ? "hidden" : ""}"
+                                  >
+                                    <div
+                                      contenteditable="true"
+                                      spellcheck="false"
+                                      data-section-editor="${idx}"
+                                      placeholder="Outline what happened under '${
+                                        block.heading
+                                      }'... Click '• Bulleted List' above or press Tab to indent sub-bullets."
+                                      class="section-bullet-canvas p-4 text-[#EAE8E2] font-sans text-sm md:text-base leading-[1.8] outline-none min-h-[70px] focus:bg-[#1C1C1A] transition"
+                                    >
+                                      <ul style="list-style-type: disc; margin-left: 1.5rem;">
+                                        ${pts
+                                          .map(
+                                            (p) =>
+                                              `<li>${
+                                                (p || "")
+                                                  .replace(/^•\s*/, "")
+                                                  .replace(/</g, "&lt;")
+                                                  .replace(/>/g, "&gt;") || "<br>"
+                                              }</li>`
+                                          )
+                                          .join("")}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              `;
+                            })
+                            .join("")
+                    }
+
+                    ${
+                      blocks.length > 0
+                        ? `
+                          <div class="pt-2">
+                            <button
+                              type="button"
+                              id="bottom-add-heading-btn"
+                              class="w-full py-2.5 px-4 border border-dashed border-[#3A3A36] hover:border-[#C4B79C] hover:bg-[#20201D] text-[#A19E97] hover:text-[#DBCFB3] rounded-md transition text-xs font-mono flex items-center justify-center gap-1.5 cursor-pointer"
+                              title="Add a new section header to the end of this outline"
                             >
-                              <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                                ${pts
-                                  .map(
-                                    (p) =>
-                                      `<li>${
-                                        (p || "")
-                                          .replace(/^•\s*/, "")
-                                          .replace(/</g, "&lt;")
-                                          .replace(/>/g, "&gt;") || "<br>"
-                                      }</li>`
-                                  )
-                                  .join("")}
-                              </ul>
-                            </div>
+                              <span>+</span>
+                              <span>Add Section Header</span>
+                            </button>
                           </div>
-                        </div>
-                      `;
-                    })
-                    .join("")}
+                        `
+                        : ""
+                    }
                   </div>
                 </div>
 
