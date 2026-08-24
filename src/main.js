@@ -774,71 +774,6 @@ class BibleOutlineStudio {
       });
     });
 
-    // Export Dropdown & Modal Logic
-    const exportMenuBtn = document.getElementById("export-menu-btn");
-    const exportDropdownMenu = document.getElementById("export-dropdown-menu");
-    const exportModal = document.getElementById("export-options-modal");
-    const openExportModalBtn = document.getElementById("open-export-modal-btn");
-    const closeExportModalBtn = document.getElementById("close-export-modal-btn");
-    const cancelExportModalBtn = document.getElementById("cancel-export-modal-btn");
-    const confirmExportModalBtn = document.getElementById("confirm-export-modal-btn");
-
-    if (exportMenuBtn && exportDropdownMenu) {
-      exportMenuBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        exportDropdownMenu.classList.toggle("hidden");
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!e.target.closest("#export-dropdown-wrapper")) {
-          exportDropdownMenu.classList.add("hidden");
-        }
-      });
-    }
-
-    const exportActionBtns = document.querySelectorAll(".export-action-btn");
-    exportActionBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const type = btn.getAttribute("data-export-type") || "md";
-        const scope = btn.getAttribute("data-export-scope") || "current";
-        const layout = btn.getAttribute("data-export-layout") || "document";
-        if (exportDropdownMenu) exportDropdownMenu.classList.add("hidden");
-        this.performExport(type, scope, layout);
-      });
-    });
-
-    if (openExportModalBtn && exportModal) {
-      openExportModalBtn.addEventListener("click", () => {
-        if (exportDropdownMenu) exportDropdownMenu.classList.add("hidden");
-        exportModal.classList.remove("hidden");
-      });
-    }
-
-    if (closeExportModalBtn && exportModal) {
-      closeExportModalBtn.addEventListener("click", () => {
-        exportModal.classList.add("hidden");
-      });
-    }
-
-    if (cancelExportModalBtn && exportModal) {
-      cancelExportModalBtn.addEventListener("click", () => {
-        exportModal.classList.add("hidden");
-      });
-    }
-
-    if (confirmExportModalBtn && exportModal) {
-      confirmExportModalBtn.addEventListener("click", () => {
-        const formatRadio = document.querySelector('input[name="export-modal-format"]:checked');
-        const scopeRadio = document.querySelector('input[name="export-modal-scope"]:checked');
-        const layoutRadio = document.querySelector('input[name="export-modal-layout"]:checked');
-        const format = formatRadio ? formatRadio.value : "md";
-        const scope = scopeRadio ? scopeRadio.value : "current";
-        const layout = layoutRadio ? layoutRadio.value : "document";
-        exportModal.classList.add("hidden");
-        this.performExport(format, scope, layout);
-      });
-    }
-
     // Book Rollup View layout switcher (Document vs Grid)
     const setRollupLayoutBtns = document.querySelectorAll(".set-rollup-layout-btn");
     setRollupLayoutBtns.forEach((btn) => {
@@ -850,7 +785,7 @@ class BibleOutlineStudio {
       });
     });
 
-    // Book Rollup View export buttons
+    // Book Rollup View export buttons (exports in the active layout)
     const exportBookMdBtns = document.querySelectorAll(".export-book-md-btn");
     exportBookMdBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -874,13 +809,14 @@ class BibleOutlineStudio {
       });
     });
 
-    // Legacy Export button handler if present
-    const exportCurMd = document.getElementById("export-current-book-btn");
-    if (exportCurMd) {
-      exportCurMd.addEventListener("click", () => {
-        this.performExport("md", "current", "document");
+    const exportAllBooksPdfBtns = document.querySelectorAll(".export-all-books-pdf-btn");
+    exportAllBooksPdfBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const layout = btn.getAttribute("data-export-layout") || this.bookRollupLayout || "document";
+        this.saveActiveChapterEditorBeforeSwitch();
+        printOrSaveToPDF(this.data, null, layout);
       });
-    }
+    });
 
     // Google SSO & Cloud Sync Modal
     const openSsoBtn = document.getElementById("open-cloud-sso-btn");

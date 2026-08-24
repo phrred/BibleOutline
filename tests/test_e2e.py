@@ -24,7 +24,7 @@ class E2ETester:
             ("E2E: Book Rollup & Bible Plot Views", self.test_book_rollup_and_plot),
             ("E2E: Diagnostic Quiz Flow & Scorecard", self.test_diagnostic_quiz_flow),
             ("E2E: Question Flag Modal & Interaction Flow", self.test_flag_question_modal_flow),
-            ("E2E: Markdown & PDF Export Dropdown & Modal", self.test_export_dropdown_and_modal),
+            ("E2E: Book Rollup Layout & Direct Export Actions", self.test_book_rollup_export_actions),
             ("E2E: Cloud Sync & Deep Merge Lifecycle", self.test_cloud_sync_lifecycle)
         ]
 
@@ -440,86 +440,62 @@ class E2ETester:
         assert r.get("selectedCat") == "too_specific", f"Category selection failed, got {r.get('selectedCat')}"
         assert r.get("modalClosed") == True, "Flag modal failed to close upon clicking cancel"
 
-    def test_export_dropdown_and_modal(self):
+    def test_book_rollup_export_actions(self):
         r = self.eval_js("""
         (() => {
             const app = window.bibleOutlineApp;
+            app.selectedBookId = 'GEN';
+            app.activeView = 'book-rollup';
+            app.bookRollupLayout = 'document';
             app.render();
 
-            // 1. Check Export menu button and dropdown
-            const menuBtn = document.getElementById('export-menu-btn');
-            const dropdown = document.getElementById('export-dropdown-menu');
-            const hasMenuBtn = Boolean(menuBtn);
-            let dropdownOpened = false;
+            // 1. Check layout and export buttons presence in Book Rollup header
+            const pdfBtn = document.querySelector('.export-book-pdf-btn');
+            const mdBtn = document.querySelector('.export-book-md-btn');
+            const allPdfBtn = document.querySelector('.export-all-books-pdf-btn');
+            const gridToggleBtn = document.querySelector('[data-set-rollup-layout="grid"]');
+            const docToggleBtn = document.querySelector('[data-set-rollup-layout="document"]');
 
-            if (menuBtn && dropdown) {
-                menuBtn.click();
-                dropdownOpened = !dropdown.classList.contains('hidden');
+            const hasPdfBtn = Boolean(pdfBtn);
+            const hasMdBtn = Boolean(mdBtn);
+            const hasAllPdfBtn = Boolean(allPdfBtn);
+
+            // 2. Test Document layout export
+            let exportedDocFileName = "";
+            let exportedGridFileName = "";
+            let printTriggeredWithLayout = "";
+
+            const origDownload = app.downloadFile;
+            app.downloadFile = (fn, content, type) => {
+                if (fn.includes('_Grid')) exportedGridFileName = fn;
+                else exportedDocFileName = fn;
+            };
+
+            // Trigger MD export in document mode
+            if (mdBtn) mdBtn.click();
+
+            // 3. Switch to Grid mode and test Grid layout export
+            if (gridToggleBtn) {
+                gridToggleBtn.click();
+                const mdBtnGrid = document.querySelector('.export-book-md-btn');
+                if (mdBtnGrid) mdBtnGrid.click();
             }
 
-            // 2. Open Export Modal
-            const openModalBtn = document.getElementById('open-export-modal-btn');
-            const modal = document.getElementById('export-options-modal');
-            let modalOpened = false;
-
-            if (openModalBtn && modal) {
-                openModalBtn.click();
-                modalOpened = !modal.classList.contains('hidden');
-            }
-
-            // 3. Verify format, scope & layout radio options
-            const formatRadios = Array.from(document.querySelectorAll('input[name="export-modal-format"]')).map(r => r.value);
-            const scopeRadios = Array.from(document.querySelectorAll('input[name="export-modal-scope"]')).map(r => r.value);
-            const layoutRadios = Array.from(document.querySelectorAll('input[name="export-modal-layout"]')).map(r => r.value);
-
-            // 4. Close modal
-            const closeBtn = document.getElementById('close-export-modal-btn');
-            if (closeBtn && modal) {
-                closeBtn.click();
-            }
-            const modalClosed = modal ? modal.classList.contains('hidden') : true;
-
-            // 5. Test performExport without throwing
-            let exportMdSuccess = false;
-            let exportGridMdSuccess = false;
-            let exportPdfSuccess = false;
-            try {
-                // Mock downloadFile and printOrSaveToPDF for testing
-                const origDownload = app.downloadFile;
-                app.downloadFile = (fn, content, type) => {
-                    if (fn.includes('_Grid')) exportGridMdSuccess = true;
-                    else exportMdSuccess = true;
-                };
-                app.performExport('md', 'current', 'document');
-                app.performExport('md', 'current', 'grid');
-                app.downloadFile = origDownload;
-
-                exportPdfSuccess = typeof app.performExport === 'function';
-            } catch (e) {
-                console.error("Export test error:", e);
-            }
+            app.downloadFile = origDownload;
 
             return {
-                hasMenuBtn,
-                dropdownOpened,
-                modalOpened,
-                formatRadios,
-                scopeRadios,
-                layoutRadios,
-                modalClosed,
-                exportMdSuccess,
-                exportGridMdSuccess,
-                exportPdfSuccess
+                hasPdfBtn,
+                hasMdBtn,
+                hasAllPdfBtn,
+                exportedDocFileName,
+                exportedGridFileName,
+                activeLayoutAfterGridClick: app.bookRollupLayout
             };
         })()
         """)
-        assert r.get("hasMenuBtn") == True, "Export menu button missing in navbar"
-        assert r.get("dropdownOpened") == True, "Export dropdown failed to open on click"
-        assert r.get("modalOpened") == True, "Export options modal failed to open"
-        assert "md" in r.get("formatRadios", []) and "pdf" in r.get("formatRadios", []), "Missing MD or PDF format radio options"
-        assert "current" in r.get("scopeRadios", []) and "all" in r.get("scopeRadios", []), "Missing Current or All scope radio options"
-        assert "document" in r.get("layoutRadios", []) and "grid" in r.get("layoutRadios", []), "Missing Document or Grid layout radio options in export modal"
-        assert r.get("modalClosed") == True, "Export modal failed to close"
-        assert r.get("exportMdSuccess") == True, "performExport('md', 'current', 'document') failed"
-        assert r.get("exportGridMdSuccess") == True, "performExport('md', 'current', 'grid') failed"
-        assert r.get("exportPdfSuccess") == True, "performExport('pdf') handler failed"
+        assert r.get("hasPdfBtn") == True, "Export PDF button missing in Book Rollup header"
+        assert r.get("hasMdBtn") == True, "Export MD button missing in Book Rollup header"
+        assert r.get("hasAllPdfBtn") == True, "Export All 66 Books button missing in Book Rollup header"
+        assert r.get("exportedDocFileName") == "Gen_Outline.md", f"Expected Gen_Outline.md, got {r.get('exportedDocFileName')}"
+        assert r.get("exportedGridFileName") == "Gen_Outline_Grid.md", f"Expected Gen_Outline_Grid.md, got {r.get('exportedGridFileName')}"
+        assert r.get("activeLayoutAfterGridClick") == "grid", "Layout failed to update to grid"

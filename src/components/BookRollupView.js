@@ -25,10 +25,10 @@ export function renderBookRollupView({
 
           <div class="flex flex-wrap items-center gap-2">
             <!-- Layout Switcher (Document List vs Two-Column Grid) -->
-            <div class="flex items-center bg-[#1D1D1B] p-0.5 rounded-lg border border-[#2B2B28] text-xs mr-1">
+            <div class="flex items-center bg-[#1D1D1B] p-0.5 rounded-lg border border-[#2B2B28] text-xs">
               <button
                 data-set-rollup-layout="document"
-                class="set-rollup-layout-btn px-2.5 py-1 rounded text-xs transition flex items-center gap-1 cursor-pointer ${
+                class="set-rollup-layout-btn px-2.5 py-1.5 rounded text-xs transition flex items-center gap-1.5 cursor-pointer ${
                   rollupLayout === "document"
                     ? "bg-[#2D2D2A] text-[#EAE8E2] font-semibold shadow-xs"
                     : "text-[#8C8A84] hover:text-[#EAE8E2]"
@@ -36,41 +36,59 @@ export function renderBookRollupView({
                 title="Vertical Document List Outline"
               >
                 <span>📄</span>
-                <span>List</span>
+                <span>List View</span>
               </button>
               <button
                 data-set-rollup-layout="grid"
-                class="set-rollup-layout-btn px-2.5 py-1 rounded text-xs transition flex items-center gap-1 cursor-pointer ${
+                class="set-rollup-layout-btn px-2.5 py-1.5 rounded text-xs transition flex items-center gap-1.5 cursor-pointer ${
                   rollupLayout === "grid"
                     ? "bg-[#2D2D2A] text-[#EAE8E2] font-semibold shadow-xs"
                     : "text-[#8C8A84] hover:text-[#EAE8E2]"
                 }"
-                title="Two-Column Grid View (Headings Column + Bullets Row/Column)"
+                title="Two-Column Grid Table (Headings Column + Bullets Column)"
               >
                 <span>▦</span>
-                <span>Grid</span>
+                <span>Grid View</span>
               </button>
             </div>
 
-            <button
-              data-export-book-md="${selectedBook.id}"
-              data-export-layout="${rollupLayout}"
-              class="export-book-md-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1 cursor-pointer"
-              title="Export ${selectedBook.name} as Markdown (.md) in ${rollupLayout === 'grid' ? 'Grid Table' : 'Document'} layout"
-            >
-              <span>📄 .md</span>
-            </button>
+            <span class="text-[#333330] hidden sm:inline">|</span>
+
+            <!-- Layout-Aware Export Buttons -->
             <button
               data-export-book-pdf="${selectedBook.id}"
               data-export-layout="${rollupLayout}"
-              class="export-book-pdf-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#C4B79C] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1 cursor-pointer"
-              title="Export ${selectedBook.name} as printable PDF (.pdf) in ${rollupLayout === 'grid' ? 'Grid Table' : 'Document'} layout"
+              class="export-book-pdf-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#C4B79C] text-[#C4B79C] hover:text-[#141413] border border-[#3A3A34] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+              title="Print or Save ${selectedBook.name} as a compact PDF using ${rollupLayout === 'grid' ? 'Grid Table' : 'List'} layout"
             >
-              <span>📑 PDF</span>
+              <span>📑</span>
+              <span>Print / PDF (${rollupLayout === "grid" ? "Grid" : "List"})</span>
             </button>
             <button
+              data-export-book-md="${selectedBook.id}"
+              data-export-layout="${rollupLayout}"
+              class="export-book-md-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+              title="Export ${selectedBook.name} as Markdown (.md) in ${rollupLayout === 'grid' ? 'Grid Table' : 'List'} layout"
+            >
+              <span>📄</span>
+              <span>.md</span>
+            </button>
+            <button
+              data-export-all-books="all"
+              data-export-layout="${rollupLayout}"
+              class="export-all-books-pdf-btn px-2.5 py-1.5 rounded-lg bg-[#1C1C1A] hover:bg-[#262623] text-[#A19E97] hover:text-[#EAE8E2] border border-[#2B2B28] text-xs font-medium transition shadow flex items-center gap-1 cursor-pointer"
+              title="Export Complete Bible (All 66 Books) in ${rollupLayout === 'grid' ? 'Grid Table' : 'List'} layout"
+            >
+              <span>🌐</span>
+              <span>All 66 Books</span>
+            </button>
+
+            <span class="text-[#333330] hidden sm:inline">|</span>
+
+            <!-- Quiz Actions -->
+            <button
               data-launch-book-headings-quiz="${selectedBook.id}"
-              class="launch-book-headings-quiz-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+              class="launch-book-headings-quiz-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
               title="Test major chapter headings for ${selectedBook.name}"
             >
               <span>📑 Quiz Headings</span>

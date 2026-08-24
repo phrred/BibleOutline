@@ -335,16 +335,17 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
       <div class="book-container ${bIdx > 0 ? "page-break" : ""}">
         <div class="book-header">
           <div class="book-title-row">
-            <h1 class="book-title">${book.name}</h1>
-            <span class="book-badge">${book.testament} • ${book.category}</span>
-          </div>
-          <div class="book-meta">
-            <span><strong>Author:</strong> ${book.author}</span>
-            <span><strong>Date:</strong> ${book.date}</span>
-            <span><strong>Key Theme:</strong> ${book.keyTheme}</span>
+            <div class="book-title-group">
+              <h1 class="book-title">${book.name}</h1>
+              <span class="book-badge">${book.testament} • ${book.category}</span>
+            </div>
+            <div class="book-meta">
+              <span><strong>Author:</strong> ${book.author} (${book.date})</span>
+              <span><strong>Key Theme:</strong> ${book.keyTheme}</span>
+            </div>
           </div>
           <div class="book-context">
-            <strong>Historical & Narrative Context:</strong> ${book.context}
+            <strong>Context:</strong> ${book.context}
           </div>
         </div>
 
@@ -352,8 +353,8 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
           hasSummary
             ? `
               <div class="book-summary-box">
-                <div class="section-badge">Overall Book Summary</div>
-                <div class="summary-text">${(bookData.bookSummary || "").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>")}</div>
+                <span class="section-badge">Overall Book Summary:</span>
+                <span class="summary-text">${(bookData.bookSummary || "").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</span>
               </div>
             `
             : ""
@@ -388,8 +389,8 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
                   <table class="grid-export-table">
                     <thead>
                       <tr>
-                        <th style="width: 38%;">Section Heading & Reference</th>
-                        <th style="width: 62%;">Outline Bullets & Notes</th>
+                        <th style="width: 34%;">Section & Reference</th>
+                        <th style="width: 66%;">Outline Bullets & Notes</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -397,7 +398,7 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
                         blocks.length === 0
                           ? `
                             <tr>
-                              <td colspan="2" class="empty-notes-hint" style="margin: 0; padding: 10px;">
+                              <td colspan="2" class="empty-notes-hint" style="margin: 0; padding: 4px 6px;">
                                 No notes recorded for this chapter.
                               </td>
                             </tr>
@@ -423,7 +424,7 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
                                       ${
                                         pts.length > 0
                                           ? `
-                                            <ul class="points-list" style="margin-left: 16px;">
+                                            <ul class="points-list">
                                               ${pts
                                                 .map(
                                                   (p) =>
@@ -434,7 +435,7 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
                                                 .join("")}
                                             </ul>
                                           `
-                                          : `<div class="no-points-hint" style="margin-left: 0;">No outline notes under this heading.</div>`
+                                          : `<div class="no-points-hint">No outline notes under this heading.</div>`
                                       }
                                     </td>
                                   </tr>
@@ -448,7 +449,7 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
                   ${
                     chData.takeaway && chData.takeaway.trim()
                       ? `
-                        <div class="takeaway-box" style="margin-top: 10px;">
+                        <div class="takeaway-box">
                           <strong>Key Takeaway:</strong> <em>${chData.takeaway.replace(/</g, "&lt;")}</em>
                         </div>
                       `
@@ -535,14 +536,17 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
   <style>
     @page {
       size: letter;
-      margin: 15mm 15mm 15mm 15mm;
+      margin: 6mm 6mm 6mm 6mm;
     }
     @media print {
       body {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
         background: #fff !important;
-        color: #111 !important;
+        color: #000 !important;
+        font-size: 9.5px !important;
+        line-height: 1.25 !important;
+        padding: 0 !important;
       }
       .page-break {
         page-break-before: always;
@@ -561,178 +565,193 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #1f2937;
+      color: #111827;
       background: #ffffff;
-      line-height: 1.5;
-      font-size: 13px;
+      line-height: 1.3;
+      font-size: 10px;
       margin: 0;
-      padding: 24px;
+      padding: 12px;
     }
     .print-banner {
-      background: #f3f4f6;
-      border: 1px solid #d1d5db;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
       border-radius: 6px;
-      padding: 12px 16px;
-      margin-bottom: 24px;
+      padding: 8px 14px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      font-size: 11px;
     }
     .print-btn {
-      background: #1e3a8a;
+      background: #0f172a;
       color: #fff;
       border: none;
-      padding: 8px 16px;
+      padding: 5px 12px;
       border-radius: 4px;
       font-weight: 600;
       cursor: pointer;
-      font-size: 13px;
+      font-size: 11px;
+      transition: opacity 0.2s;
     }
     .print-btn:hover {
-      background: #1e40af;
+      background: #1e293b;
     }
     .doc-header {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
     }
     .doc-header h1 {
       font-family: Georgia, serif;
-      font-size: 24px;
+      font-size: 16px;
       font-weight: 700;
-      color: #111827;
-      margin: 0 0 4px 0;
+      color: #000;
+      margin: 0 0 2px 0;
     }
     .doc-subtitle {
-      font-size: 13px;
+      font-size: 10px;
       color: #4b5563;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
     .doc-date {
-      font-size: 11px;
+      font-size: 9px;
       color: #6b7280;
       font-family: monospace;
     }
     .doc-divider {
       border: none;
-      border-top: 2px solid #e5e7eb;
-      margin: 20px 0 28px 0;
+      border-top: 1px solid #cbd5e1;
+      margin: 6px 0 10px 0;
     }
     .book-container {
-      margin-bottom: 36px;
+      margin-bottom: 12px;
     }
     .book-header {
-      border-bottom: 2px solid #111827;
-      padding-bottom: 10px;
-      margin-bottom: 16px;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 3px;
+      margin-bottom: 6px;
     }
     .book-title-row {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      margin-bottom: 6px;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+    .book-title-group {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
     }
     .book-title {
       font-family: Georgia, serif;
-      font-size: 24px;
+      font-size: 16px;
       font-weight: 700;
-      color: #111827;
+      color: #000;
       margin: 0;
     }
     .book-badge {
-      font-size: 11px;
+      font-size: 8.5px;
       font-family: monospace;
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-      padding: 2px 8px;
-      border-radius: 4px;
-      color: #4b5563;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: #334155;
       font-weight: 600;
     }
     .book-meta {
-      font-size: 12px;
-      color: #4b5563;
+      font-size: 9.5px;
+      color: #475569;
       display: flex;
-      gap: 16px;
-      margin-bottom: 8px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
     .book-context {
-      font-size: 12px;
-      color: #374151;
-      background: #f9fafb;
-      border-left: 3px solid #9ca3af;
-      padding: 6px 10px;
-      border-radius: 0 4px 4px 0;
+      font-size: 9px;
+      color: #334155;
+      background: #f8fafc;
+      border-left: 2.5px solid #64748b;
+      padding: 2px 6px;
+      border-radius: 0 3px 3px 0;
+      margin-top: 2px;
+      line-height: 1.2;
     }
     .book-summary-box {
       background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 12px 14px;
-      margin-bottom: 18px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 4px 8px;
+      margin-bottom: 6px;
+      font-size: 9.5px;
+      line-height: 1.25;
     }
     .section-badge {
-      font-size: 10.5px;
+      font-size: 8.5px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: #0f766e;
-      margin-bottom: 4px;
+      margin-right: 4px;
     }
     .summary-text {
-      font-size: 12.5px;
-      color: #334155;
-      line-height: 1.55;
+      color: #1e293b;
     }
     .chapters-header-row {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 6px;
-      margin-bottom: 14px;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 2px;
+      margin-bottom: 4px;
     }
     .chapters-title {
       font-family: Georgia, serif;
-      font-size: 16px;
+      font-size: 11.5px;
       font-weight: 700;
-      color: #111827;
+      color: #000;
       margin: 0;
     }
     .chapters-count {
-      font-size: 11.5px;
-      color: #6b7280;
+      font-size: 8.5px;
+      color: #64748b;
       font-family: monospace;
     }
     .chapter-card {
-      border: 1px solid #e5e7eb;
-      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
       background: #ffffff;
-      padding: 12px 14px;
-      margin-bottom: 14px;
+      padding: 0;
+      margin-bottom: 4px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      overflow: hidden;
     }
     .chapter-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #f8fafc;
-      border-bottom: 1px solid #e2e8f0;
-      margin: -12px -14px 10px -14px;
-      padding: 8px 14px;
-      border-radius: 5px 5px 0 0;
+      background: #f1f5f9;
+      border-bottom: 1px solid #cbd5e1;
+      padding: 2px 6px;
     }
     .chapter-number {
       font-family: Georgia, serif;
       font-weight: 700;
-      font-size: 14px;
-      color: #1e293b;
+      font-size: 10.5px;
+      color: #0f172a;
     }
     .chapter-ref {
       font-family: monospace;
-      font-size: 11px;
+      font-size: 8.5px;
       color: #64748b;
     }
+    .chapter-sections-list {
+      padding: 4px 6px;
+    }
     .section-item {
-      margin-bottom: 10px;
+      margin-bottom: 3px;
     }
     .section-item:last-child {
       margin-bottom: 0;
@@ -740,102 +759,113 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
     .section-title-line {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 12.5px;
-      margin-bottom: 3px;
+      gap: 4px;
+      font-size: 9.5px;
+      margin-bottom: 1px;
     }
     .section-num {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 17px;
-      height: 17px;
-      background: #f1f5f9;
+      width: 13px;
+      height: 13px;
+      background: #e2e8f0;
       border: 1px solid #cbd5e1;
-      border-radius: 3px;
-      font-size: 10px;
+      border-radius: 2px;
+      font-size: 8px;
       font-family: monospace;
-      color: #475569;
+      color: #334155;
       font-weight: bold;
+      flex-shrink: 0;
     }
     .section-heading {
       font-family: Georgia, serif;
-      font-weight: 600;
+      font-weight: 700;
       color: #0f172a;
+      font-size: 9.5px;
     }
     .section-verses {
-      font-size: 11px;
+      font-size: 8.5px;
       font-family: monospace;
-      color: #64748b;
+      color: #475569;
     }
     .points-list {
-      margin: 2px 0 6px 26px;
+      margin: 1px 0 2px 14px;
       padding: 0;
       list-style-type: disc;
     }
     .points-list li {
-      font-size: 12.5px;
-      color: #334155;
-      margin-bottom: 2px;
-      line-height: 1.45;
+      font-size: 9px;
+      color: #1e293b;
+      margin-bottom: 1px;
+      line-height: 1.25;
     }
     .no-points-hint, .empty-notes-hint {
-      font-size: 11px;
+      font-size: 8.5px;
       font-style: italic;
       color: #94a3b8;
-      margin-left: 26px;
-      margin-bottom: 4px;
+      margin-left: 14px;
+      margin-bottom: 1px;
     }
     .takeaway-box {
-      margin-top: 8px;
-      font-size: 11.5px;
+      margin: 2px 4px 4px 4px;
+      font-size: 8.5px;
       background: #eff6ff;
-      border-left: 3px solid #3b82f6;
-      padding: 6px 10px;
+      border-left: 2.5px solid #3b82f6;
+      padding: 2px 6px;
       color: #1e40af;
-      border-radius: 0 4px 4px 0;
+      border-radius: 0 2px 2px 0;
+      line-height: 1.2;
     }
     .grid-export-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 4px;
-      font-size: 12.5px;
+      font-size: 9.5px;
+      line-height: 1.2;
     }
     .grid-export-table th {
-      background: #f1f5f9;
+      background: #f8fafc;
       color: #475569;
-      font-size: 10.5px;
+      font-size: 8.5px;
       font-family: monospace;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 6px 10px;
+      letter-spacing: 0.4px;
+      padding: 2px 6px;
       border: 1px solid #cbd5e1;
       text-align: left;
+      font-weight: 700;
     }
     .grid-export-table td {
       border: 1px solid #e2e8f0;
-      padding: 8px 10px;
+      padding: 3px 6px;
       vertical-align: top;
     }
     .grid-export-heading-cell {
       background: #fafafa;
     }
     .grid-verses-tag {
-      font-size: 11px;
+      font-size: 8.5px;
       font-family: monospace;
-      color: #64748b;
-      margin-top: 2px;
-      margin-left: 23px;
+      color: #475569;
+      margin-top: 1px;
+      margin-left: 17px;
     }
     .grid-export-points-cell {
       background: #ffffff;
+    }
+    .grid-export-points-cell .points-list {
+      margin: 0;
+      padding-left: 12px;
+    }
+    .grid-export-points-cell .no-points-hint {
+      margin-left: 0;
     }
   </style>
 </head>
 <body>
   <div class="print-banner no-print">
     <div>
-      <strong>Print & PDF Export:</strong> Use your browser's Print dialog to <strong>Save as PDF</strong> or print physical notes.
+      <strong>Print & PDF Export:</strong> Use your browser's Print dialog to <strong>Save as PDF</strong> or print physical study notes.
     </div>
     <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
   </div>

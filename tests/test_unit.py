@@ -445,7 +445,7 @@ class UnitTester:
                 gridMdHasTable: gridMarkdownExport.includes('| Section Heading & Passage | Outline Points & Notes |'),
                 gridMdHasHeadingRow: gridMarkdownExport.includes('| **Creation** *(v1-31)* | • Point 1 |'),
                 pdfHasGenesis: pdfHtml.includes('Genesis') && pdfHtml.includes('Creation') && pdfHtml.includes('Point 1'),
-                gridPdfHasTable: gridPdfHtml.includes('grid-export-table') && gridPdfHtml.includes('Section Heading & Reference'),
+                gridPdfHasTable: gridPdfHtml.includes('grid-export-table') && gridPdfHtml.includes('Section & Reference'),
                 fullPdfHasHeader: fullPdfHtml.includes('Complete Bible Outline')
             };
         })()

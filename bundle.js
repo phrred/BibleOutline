@@ -32419,16 +32419,17 @@ function exportToPrintableHTML(data, bookId = null, layout = "document") {
       <div class="book-container ${bIdx > 0 ? "page-break" : ""}">
         <div class="book-header">
           <div class="book-title-row">
-            <h1 class="book-title">${book.name}</h1>
-            <span class="book-badge">${book.testament} • ${book.category}</span>
-          </div>
-          <div class="book-meta">
-            <span><strong>Author:</strong> ${book.author}</span>
-            <span><strong>Date:</strong> ${book.date}</span>
-            <span><strong>Key Theme:</strong> ${book.keyTheme}</span>
+            <div class="book-title-group">
+              <h1 class="book-title">${book.name}</h1>
+              <span class="book-badge">${book.testament} • ${book.category}</span>
+            </div>
+            <div class="book-meta">
+              <span><strong>Author:</strong> ${book.author} (${book.date})</span>
+              <span><strong>Key Theme:</strong> ${book.keyTheme}</span>
+            </div>
           </div>
           <div class="book-context">
-            <strong>Historical & Narrative Context:</strong> ${book.context}
+            <strong>Context:</strong> ${book.context}
           </div>
         </div>
 
@@ -32436,8 +32437,8 @@ function exportToPrintableHTML(data, bookId = null, layout = "document") {
           hasSummary
             ? `
               <div class="book-summary-box">
-                <div class="section-badge">Overall Book Summary</div>
-                <div class="summary-text">${(bookData.bookSummary || "").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>")}</div>
+                <span class="section-badge">Overall Book Summary:</span>
+                <span class="summary-text">${(bookData.bookSummary || "").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</span>
               </div>
             `
             : ""
@@ -32472,8 +32473,8 @@ function exportToPrintableHTML(data, bookId = null, layout = "document") {
                   <table class="grid-export-table">
                     <thead>
                       <tr>
-                        <th style="width: 38%;">Section Heading & Reference</th>
-                        <th style="width: 62%;">Outline Bullets & Notes</th>
+                        <th style="width: 34%;">Section & Reference</th>
+                        <th style="width: 66%;">Outline Bullets & Notes</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -32481,7 +32482,7 @@ function exportToPrintableHTML(data, bookId = null, layout = "document") {
                         blocks.length === 0
                           ? `
                             <tr>
-                              <td colspan="2" class="empty-notes-hint" style="margin: 0; padding: 10px;">
+                              <td colspan="2" class="empty-notes-hint" style="margin: 0; padding: 4px 6px;">
                                 No notes recorded for this chapter.
                               </td>
                             </tr>
@@ -32507,7 +32508,7 @@ function exportToPrintableHTML(data, bookId = null, layout = "document") {
                                       ${
                                         pts.length > 0
                                           ? `
-                                            <ul class="points-list" style="margin-left: 16px;">
+                                            <ul class="points-list">
                                               ${pts
                                                 .map(
                                                   (p) =>
@@ -32518,7 +32519,7 @@ function exportToPrintableHTML(data, bookId = null, layout = "document") {
                                                 .join("")}
                                             </ul>
                                           `
-                                          : `<div class="no-points-hint" style="margin-left: 0;">No outline notes under this heading.</div>`
+                                          : `<div class="no-points-hint">No outline notes under this heading.</div>`
                                       }
                                     </td>
                                   </tr>
@@ -32532,7 +32533,7 @@ function exportToPrintableHTML(data, bookId = null, layout = "document") {
                   ${
                     chData.takeaway && chData.takeaway.trim()
                       ? `
-                        <div class="takeaway-box" style="margin-top: 10px;">
+                        <div class="takeaway-box">
                           <strong>Key Takeaway:</strong> <em>${chData.takeaway.replace(/</g, "&lt;")}</em>
                         </div>
                       `
@@ -32619,14 +32620,17 @@ function exportToPrintableHTML(data, bookId = null, layout = "document") {
   <style>
     @page {
       size: letter;
-      margin: 15mm 15mm 15mm 15mm;
+      margin: 6mm 6mm 6mm 6mm;
     }
     @media print {
       body {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
         background: #fff !important;
-        color: #111 !important;
+        color: #000 !important;
+        font-size: 9.5px !important;
+        line-height: 1.25 !important;
+        padding: 0 !important;
       }
       .page-break {
         page-break-before: always;
@@ -32645,178 +32649,193 @@ function exportToPrintableHTML(data, bookId = null, layout = "document") {
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #1f2937;
+      color: #111827;
       background: #ffffff;
-      line-height: 1.5;
-      font-size: 13px;
+      line-height: 1.3;
+      font-size: 10px;
       margin: 0;
-      padding: 24px;
+      padding: 12px;
     }
     .print-banner {
-      background: #f3f4f6;
-      border: 1px solid #d1d5db;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
       border-radius: 6px;
-      padding: 12px 16px;
-      margin-bottom: 24px;
+      padding: 8px 14px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      font-size: 11px;
     }
     .print-btn {
-      background: #1e3a8a;
+      background: #0f172a;
       color: #fff;
       border: none;
-      padding: 8px 16px;
+      padding: 5px 12px;
       border-radius: 4px;
       font-weight: 600;
       cursor: pointer;
-      font-size: 13px;
+      font-size: 11px;
+      transition: opacity 0.2s;
     }
     .print-btn:hover {
-      background: #1e40af;
+      background: #1e293b;
     }
     .doc-header {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
     }
     .doc-header h1 {
       font-family: Georgia, serif;
-      font-size: 24px;
+      font-size: 16px;
       font-weight: 700;
-      color: #111827;
-      margin: 0 0 4px 0;
+      color: #000;
+      margin: 0 0 2px 0;
     }
     .doc-subtitle {
-      font-size: 13px;
+      font-size: 10px;
       color: #4b5563;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
     .doc-date {
-      font-size: 11px;
+      font-size: 9px;
       color: #6b7280;
       font-family: monospace;
     }
     .doc-divider {
       border: none;
-      border-top: 2px solid #e5e7eb;
-      margin: 20px 0 28px 0;
+      border-top: 1px solid #cbd5e1;
+      margin: 6px 0 10px 0;
     }
     .book-container {
-      margin-bottom: 36px;
+      margin-bottom: 12px;
     }
     .book-header {
-      border-bottom: 2px solid #111827;
-      padding-bottom: 10px;
-      margin-bottom: 16px;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 3px;
+      margin-bottom: 6px;
     }
     .book-title-row {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      margin-bottom: 6px;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+    .book-title-group {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
     }
     .book-title {
       font-family: Georgia, serif;
-      font-size: 24px;
+      font-size: 16px;
       font-weight: 700;
-      color: #111827;
+      color: #000;
       margin: 0;
     }
     .book-badge {
-      font-size: 11px;
+      font-size: 8.5px;
       font-family: monospace;
-      background: #f3f4f6;
-      border: 1px solid #e5e7eb;
-      padding: 2px 8px;
-      border-radius: 4px;
-      color: #4b5563;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: #334155;
       font-weight: 600;
     }
     .book-meta {
-      font-size: 12px;
-      color: #4b5563;
+      font-size: 9.5px;
+      color: #475569;
       display: flex;
-      gap: 16px;
-      margin-bottom: 8px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
     .book-context {
-      font-size: 12px;
-      color: #374151;
-      background: #f9fafb;
-      border-left: 3px solid #9ca3af;
-      padding: 6px 10px;
-      border-radius: 0 4px 4px 0;
+      font-size: 9px;
+      color: #334155;
+      background: #f8fafc;
+      border-left: 2.5px solid #64748b;
+      padding: 2px 6px;
+      border-radius: 0 3px 3px 0;
+      margin-top: 2px;
+      line-height: 1.2;
     }
     .book-summary-box {
       background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 12px 14px;
-      margin-bottom: 18px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 4px 8px;
+      margin-bottom: 6px;
+      font-size: 9.5px;
+      line-height: 1.25;
     }
     .section-badge {
-      font-size: 10.5px;
+      font-size: 8.5px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: #0f766e;
-      margin-bottom: 4px;
+      margin-right: 4px;
     }
     .summary-text {
-      font-size: 12.5px;
-      color: #334155;
-      line-height: 1.55;
+      color: #1e293b;
     }
     .chapters-header-row {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      border-bottom: 1px solid #e5e7eb;
-      padding-bottom: 6px;
-      margin-bottom: 14px;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 2px;
+      margin-bottom: 4px;
     }
     .chapters-title {
       font-family: Georgia, serif;
-      font-size: 16px;
+      font-size: 11.5px;
       font-weight: 700;
-      color: #111827;
+      color: #000;
       margin: 0;
     }
     .chapters-count {
-      font-size: 11.5px;
-      color: #6b7280;
+      font-size: 8.5px;
+      color: #64748b;
       font-family: monospace;
     }
     .chapter-card {
-      border: 1px solid #e5e7eb;
-      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
       background: #ffffff;
-      padding: 12px 14px;
-      margin-bottom: 14px;
+      padding: 0;
+      margin-bottom: 4px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      overflow: hidden;
     }
     .chapter-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #f8fafc;
-      border-bottom: 1px solid #e2e8f0;
-      margin: -12px -14px 10px -14px;
-      padding: 8px 14px;
-      border-radius: 5px 5px 0 0;
+      background: #f1f5f9;
+      border-bottom: 1px solid #cbd5e1;
+      padding: 2px 6px;
     }
     .chapter-number {
       font-family: Georgia, serif;
       font-weight: 700;
-      font-size: 14px;
-      color: #1e293b;
+      font-size: 10.5px;
+      color: #0f172a;
     }
     .chapter-ref {
       font-family: monospace;
-      font-size: 11px;
+      font-size: 8.5px;
       color: #64748b;
     }
+    .chapter-sections-list {
+      padding: 4px 6px;
+    }
     .section-item {
-      margin-bottom: 10px;
+      margin-bottom: 3px;
     }
     .section-item:last-child {
       margin-bottom: 0;
@@ -32824,102 +32843,113 @@ function exportToPrintableHTML(data, bookId = null, layout = "document") {
     .section-title-line {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 12.5px;
-      margin-bottom: 3px;
+      gap: 4px;
+      font-size: 9.5px;
+      margin-bottom: 1px;
     }
     .section-num {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 17px;
-      height: 17px;
-      background: #f1f5f9;
+      width: 13px;
+      height: 13px;
+      background: #e2e8f0;
       border: 1px solid #cbd5e1;
-      border-radius: 3px;
-      font-size: 10px;
+      border-radius: 2px;
+      font-size: 8px;
       font-family: monospace;
-      color: #475569;
+      color: #334155;
       font-weight: bold;
+      flex-shrink: 0;
     }
     .section-heading {
       font-family: Georgia, serif;
-      font-weight: 600;
+      font-weight: 700;
       color: #0f172a;
+      font-size: 9.5px;
     }
     .section-verses {
-      font-size: 11px;
+      font-size: 8.5px;
       font-family: monospace;
-      color: #64748b;
+      color: #475569;
     }
     .points-list {
-      margin: 2px 0 6px 26px;
+      margin: 1px 0 2px 14px;
       padding: 0;
       list-style-type: disc;
     }
     .points-list li {
-      font-size: 12.5px;
-      color: #334155;
-      margin-bottom: 2px;
-      line-height: 1.45;
+      font-size: 9px;
+      color: #1e293b;
+      margin-bottom: 1px;
+      line-height: 1.25;
     }
     .no-points-hint, .empty-notes-hint {
-      font-size: 11px;
+      font-size: 8.5px;
       font-style: italic;
       color: #94a3b8;
-      margin-left: 26px;
-      margin-bottom: 4px;
+      margin-left: 14px;
+      margin-bottom: 1px;
     }
     .takeaway-box {
-      margin-top: 8px;
-      font-size: 11.5px;
+      margin: 2px 4px 4px 4px;
+      font-size: 8.5px;
       background: #eff6ff;
-      border-left: 3px solid #3b82f6;
-      padding: 6px 10px;
+      border-left: 2.5px solid #3b82f6;
+      padding: 2px 6px;
       color: #1e40af;
-      border-radius: 0 4px 4px 0;
+      border-radius: 0 2px 2px 0;
+      line-height: 1.2;
     }
     .grid-export-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 4px;
-      font-size: 12.5px;
+      font-size: 9.5px;
+      line-height: 1.2;
     }
     .grid-export-table th {
-      background: #f1f5f9;
+      background: #f8fafc;
       color: #475569;
-      font-size: 10.5px;
+      font-size: 8.5px;
       font-family: monospace;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 6px 10px;
+      letter-spacing: 0.4px;
+      padding: 2px 6px;
       border: 1px solid #cbd5e1;
       text-align: left;
+      font-weight: 700;
     }
     .grid-export-table td {
       border: 1px solid #e2e8f0;
-      padding: 8px 10px;
+      padding: 3px 6px;
       vertical-align: top;
     }
     .grid-export-heading-cell {
       background: #fafafa;
     }
     .grid-verses-tag {
-      font-size: 11px;
+      font-size: 8.5px;
       font-family: monospace;
-      color: #64748b;
-      margin-top: 2px;
-      margin-left: 23px;
+      color: #475569;
+      margin-top: 1px;
+      margin-left: 17px;
     }
     .grid-export-points-cell {
       background: #ffffff;
+    }
+    .grid-export-points-cell .points-list {
+      margin: 0;
+      padding-left: 12px;
+    }
+    .grid-export-points-cell .no-points-hint {
+      margin-left: 0;
     }
   </style>
 </head>
 <body>
   <div class="print-banner no-print">
     <div>
-      <strong>Print & PDF Export:</strong> Use your browser's Print dialog to <strong>Save as PDF</strong> or print physical notes.
+      <strong>Print & PDF Export:</strong> Use your browser's Print dialog to <strong>Save as PDF</strong> or print physical study notes.
     </div>
     <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
   </div>
@@ -34265,185 +34295,8 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
               : `<svg class="w-3.5 h-3.5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg><span>Sign in with Google</span>`
           }
         </button>
-
-        <span class="text-[#333330]">|</span>
-
-        <!-- Export Dropdown & Modal Trigger -->
-        <div class="relative inline-block text-left" id="export-dropdown-wrapper">
-          <button
-            type="button"
-            id="export-menu-btn"
-            class="px-2.5 py-1 rounded bg-[#20201E] hover:bg-[#2A2A27] border border-[#2B2B28] text-[#EAE8E2] transition flex items-center gap-1.5 cursor-pointer text-xs font-medium"
-            title="Export outline as Markdown (.md) or PDF (.pdf)"
-          >
-            <span>📤 Export</span>
-            <span class="text-[10px] text-[#8C8A84]">▼</span>
-          </button>
-
-          <!-- Dropdown Menu -->
-          <div
-            id="export-dropdown-menu"
-            class="hidden absolute right-0 mt-1.5 w-56 rounded-lg bg-[#1C1C1A] border border-[#2B2B28] shadow-2xl z-50 py-1.5 text-xs text-[#EAE8E2]"
-          >
-            <div class="px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-[#8C8A84] border-b border-[#262624]">
-              Current Book (${selectedBook.name})
-            </div>
-            <button
-              type="button"
-              data-export-type="md"
-              data-export-scope="current"
-              data-export-layout="document"
-              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#DBCFB3]"
-            >
-              <span>📄</span>
-              <span>Export Markdown (.md)</span>
-            </button>
-            <button
-              type="button"
-              data-export-type="pdf"
-              data-export-scope="current"
-              data-export-layout="document"
-              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#C4B79C]"
-            >
-              <span>📑</span>
-              <span>Export PDF (.pdf)</span>
-            </button>
-            <button
-              type="button"
-              data-export-type="pdf"
-              data-export-scope="current"
-              data-export-layout="grid"
-              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#C4B79C]"
-            >
-              <span>▦</span>
-              <span>Export Grid Table (PDF)</span>
-            </button>
-
-            <div class="px-3 py-1 mt-1 text-[10px] font-mono uppercase tracking-wider text-[#8C8A84] border-t border-b border-[#262624]">
-              Complete Bible Outline
-            </div>
-            <button
-              type="button"
-              data-export-type="md"
-              data-export-scope="all"
-              data-export-layout="document"
-              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#A19E97] hover:text-[#EAE8E2]"
-            >
-              <span>🌐</span>
-              <span>All 66 Books (.md)</span>
-            </button>
-            <button
-              type="button"
-              data-export-type="pdf"
-              data-export-scope="all"
-              data-export-layout="document"
-              class="export-action-btn w-full text-left px-3 py-2 hover:bg-[#2A2A27] flex items-center gap-2 transition cursor-pointer text-[#A19E97] hover:text-[#EAE8E2]"
-            >
-              <span>📑</span>
-              <span>All 66 Books (PDF)</span>
-            </button>
-
-            <div class="border-t border-[#262624] pt-1 mt-1">
-              <button
-                type="button"
-                id="open-export-modal-btn"
-                class="w-full text-left px-3 py-1.5 hover:bg-[#2A2A27] flex items-center gap-1.5 transition cursor-pointer text-[11px] text-[#7B7974] hover:text-[#C4B79C]"
-              >
-                <span>⚙️</span>
-                <span>More Export Options (Grid / Layout)...</span>
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </header>
-
-    <!-- Export Options Modal -->
-    <div
-      id="export-options-modal"
-      class="hidden fixed inset-0 bg-black/75 backdrop-blur-2xs z-50 flex items-center justify-center p-4 text-[#EAE8E2]"
-    >
-      <div class="bg-[#171715] border border-[#2A2A27] rounded-xl max-w-md w-full p-6 space-y-5 shadow-2xl">
-        <div class="flex items-center justify-between border-b border-[#242422] pb-3">
-          <div class="flex items-center gap-2">
-            <span class="w-6 h-6 rounded bg-[#2A2A27] flex items-center justify-center text-xs">📤</span>
-            <h3 class="font-serif text-lg font-bold text-[#EAE8E2]">Export Study Outlines</h3>
-          </div>
-          <button id="close-export-modal-btn" class="text-[#8C8A84] hover:text-[#EAE8E2] text-sm cursor-pointer">✕</button>
-        </div>
-
-        <!-- Step 1: Select Format -->
-        <div class="space-y-2 text-xs">
-          <label class="block font-mono uppercase tracking-wider text-[#A19E97]">1. Select File Format</label>
-          <div class="grid grid-cols-2 gap-2.5">
-            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
-              <input type="radio" name="export-modal-format" value="md" checked class="text-[#C4B79C] focus:ring-0" />
-              <div>
-                <div class="font-semibold text-[#DBCFB3]">📄 Markdown (.md)</div>
-                <div class="text-[11px] text-[#7B7974]">Obsidian / Notion / Text</div>
-              </div>
-            </label>
-            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
-              <input type="radio" name="export-modal-format" value="pdf" class="text-[#C4B79C] focus:ring-0" />
-              <div>
-                <div class="font-semibold text-[#DBCFB3]">📑 PDF Document</div>
-                <div class="text-[11px] text-[#7B7974]">Formatted print / PDF</div>
-              </div>
-            </label>
-          </div>
-        </div>
-
-        <!-- Step 2: Select Scope -->
-        <div class="space-y-2 text-xs">
-          <label class="block font-mono uppercase tracking-wider text-[#A19E97]">2. Select Export Scope</label>
-          <div class="space-y-2">
-            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
-              <input type="radio" name="export-modal-scope" value="current" checked class="text-[#C4B79C] focus:ring-0" />
-              <div class="flex-1">
-                <div class="font-semibold text-[#DBCFB3]">Current Book (${selectedBook.name})</div>
-                <div class="text-[11px] text-[#7B7974]">${selectedBook.chapterCount} chapters with notes & summary</div>
-              </div>
-            </label>
-            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
-              <input type="radio" name="export-modal-scope" value="all" class="text-[#C4B79C] focus:ring-0" />
-              <div class="flex-1">
-                <div class="font-semibold text-[#DBCFB3]">Complete Bible Outline</div>
-                <div class="text-[11px] text-[#7B7974]">All 66 canonical books (1,189 chapters)</div>
-              </div>
-            </label>
-          </div>
-        </div>
-
-        <!-- Step 3: Select Layout Style -->
-        <div class="space-y-2 text-xs">
-          <label class="block font-mono uppercase tracking-wider text-[#A19E97]">3. Select Layout Style</label>
-          <div class="grid grid-cols-2 gap-2.5">
-            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
-              <input type="radio" name="export-modal-layout" value="document" checked class="text-[#C4B79C] focus:ring-0" />
-              <div>
-                <div class="font-semibold text-[#DBCFB3]">📄 Document Outline</div>
-                <div class="text-[11px] text-[#7B7974]">Vertical list & headings</div>
-              </div>
-            </label>
-            <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#2B2B28] bg-[#1C1C1A] hover:bg-[#262623] cursor-pointer transition">
-              <input type="radio" name="export-modal-layout" value="grid" class="text-[#C4B79C] focus:ring-0" />
-              <div>
-                <div class="font-semibold text-[#DBCFB3]">▦ Two-Column Grid</div>
-                <div class="text-[11px] text-[#7B7974]">Headings + Bullets table</div>
-              </div>
-            </label>
-          </div>
-        </div>
-
-        <!-- Footer Actions -->
-        <div class="flex items-center justify-end gap-2.5 pt-2 border-t border-[#242422]">
-          <button id="cancel-export-modal-btn" class="px-3 py-1.5 rounded text-xs text-[#8C8A84] hover:text-[#EAE8E2] transition cursor-pointer">Cancel</button>
-          <button id="confirm-export-modal-btn" class="px-4 py-1.5 rounded bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] font-semibold text-xs transition cursor-pointer shadow flex items-center gap-1.5">
-            <span>📥 Export</span>
-          </button>
-        </div>
-      </div>
-    </div>
 
     <!-- Google SSO & Production Publishing Modal -->
     <div
@@ -34564,10 +34417,10 @@ function renderBookRollupView({
 
           <div class="flex flex-wrap items-center gap-2">
             <!-- Layout Switcher (Document List vs Two-Column Grid) -->
-            <div class="flex items-center bg-[#1D1D1B] p-0.5 rounded-lg border border-[#2B2B28] text-xs mr-1">
+            <div class="flex items-center bg-[#1D1D1B] p-0.5 rounded-lg border border-[#2B2B28] text-xs">
               <button
                 data-set-rollup-layout="document"
-                class="set-rollup-layout-btn px-2.5 py-1 rounded text-xs transition flex items-center gap-1 cursor-pointer ${
+                class="set-rollup-layout-btn px-2.5 py-1.5 rounded text-xs transition flex items-center gap-1.5 cursor-pointer ${
                   rollupLayout === "document"
                     ? "bg-[#2D2D2A] text-[#EAE8E2] font-semibold shadow-xs"
                     : "text-[#8C8A84] hover:text-[#EAE8E2]"
@@ -34575,41 +34428,59 @@ function renderBookRollupView({
                 title="Vertical Document List Outline"
               >
                 <span>📄</span>
-                <span>List</span>
+                <span>List View</span>
               </button>
               <button
                 data-set-rollup-layout="grid"
-                class="set-rollup-layout-btn px-2.5 py-1 rounded text-xs transition flex items-center gap-1 cursor-pointer ${
+                class="set-rollup-layout-btn px-2.5 py-1.5 rounded text-xs transition flex items-center gap-1.5 cursor-pointer ${
                   rollupLayout === "grid"
                     ? "bg-[#2D2D2A] text-[#EAE8E2] font-semibold shadow-xs"
                     : "text-[#8C8A84] hover:text-[#EAE8E2]"
                 }"
-                title="Two-Column Grid View (Headings Column + Bullets Row/Column)"
+                title="Two-Column Grid Table (Headings Column + Bullets Column)"
               >
                 <span>▦</span>
-                <span>Grid</span>
+                <span>Grid View</span>
               </button>
             </div>
 
-            <button
-              data-export-book-md="${selectedBook.id}"
-              data-export-layout="${rollupLayout}"
-              class="export-book-md-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1 cursor-pointer"
-              title="Export ${selectedBook.name} as Markdown (.md) in ${rollupLayout === 'grid' ? 'Grid Table' : 'Document'} layout"
-            >
-              <span>📄 .md</span>
-            </button>
+            <span class="text-[#333330] hidden sm:inline">|</span>
+
+            <!-- Layout-Aware Export Buttons -->
             <button
               data-export-book-pdf="${selectedBook.id}"
               data-export-layout="${rollupLayout}"
-              class="export-book-pdf-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#C4B79C] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1 cursor-pointer"
-              title="Export ${selectedBook.name} as printable PDF (.pdf) in ${rollupLayout === 'grid' ? 'Grid Table' : 'Document'} layout"
+              class="export-book-pdf-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#C4B79C] text-[#C4B79C] hover:text-[#141413] border border-[#3A3A34] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+              title="Print or Save ${selectedBook.name} as a compact PDF using ${rollupLayout === 'grid' ? 'Grid Table' : 'List'} layout"
             >
-              <span>📑 PDF</span>
+              <span>📑</span>
+              <span>Print / PDF (${rollupLayout === "grid" ? "Grid" : "List"})</span>
             </button>
             <button
+              data-export-book-md="${selectedBook.id}"
+              data-export-layout="${rollupLayout}"
+              class="export-book-md-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+              title="Export ${selectedBook.name} as Markdown (.md) in ${rollupLayout === 'grid' ? 'Grid Table' : 'List'} layout"
+            >
+              <span>📄</span>
+              <span>.md</span>
+            </button>
+            <button
+              data-export-all-books="all"
+              data-export-layout="${rollupLayout}"
+              class="export-all-books-pdf-btn px-2.5 py-1.5 rounded-lg bg-[#1C1C1A] hover:bg-[#262623] text-[#A19E97] hover:text-[#EAE8E2] border border-[#2B2B28] text-xs font-medium transition shadow flex items-center gap-1 cursor-pointer"
+              title="Export Complete Bible (All 66 Books) in ${rollupLayout === 'grid' ? 'Grid Table' : 'List'} layout"
+            >
+              <span>🌐</span>
+              <span>All 66 Books</span>
+            </button>
+
+            <span class="text-[#333330] hidden sm:inline">|</span>
+
+            <!-- Quiz Actions -->
+            <button
               data-launch-book-headings-quiz="${selectedBook.id}"
-              class="launch-book-headings-quiz-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+              class="launch-book-headings-quiz-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
               title="Test major chapter headings for ${selectedBook.name}"
             >
               <span>📑 Quiz Headings</span>
@@ -37816,71 +37687,6 @@ class BibleOutlineStudio {
       });
     });
 
-    // Export Dropdown & Modal Logic
-    const exportMenuBtn = document.getElementById("export-menu-btn");
-    const exportDropdownMenu = document.getElementById("export-dropdown-menu");
-    const exportModal = document.getElementById("export-options-modal");
-    const openExportModalBtn = document.getElementById("open-export-modal-btn");
-    const closeExportModalBtn = document.getElementById("close-export-modal-btn");
-    const cancelExportModalBtn = document.getElementById("cancel-export-modal-btn");
-    const confirmExportModalBtn = document.getElementById("confirm-export-modal-btn");
-
-    if (exportMenuBtn && exportDropdownMenu) {
-      exportMenuBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        exportDropdownMenu.classList.toggle("hidden");
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!e.target.closest("#export-dropdown-wrapper")) {
-          exportDropdownMenu.classList.add("hidden");
-        }
-      });
-    }
-
-    const exportActionBtns = document.querySelectorAll(".export-action-btn");
-    exportActionBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const type = btn.getAttribute("data-export-type") || "md";
-        const scope = btn.getAttribute("data-export-scope") || "current";
-        const layout = btn.getAttribute("data-export-layout") || "document";
-        if (exportDropdownMenu) exportDropdownMenu.classList.add("hidden");
-        this.performExport(type, scope, layout);
-      });
-    });
-
-    if (openExportModalBtn && exportModal) {
-      openExportModalBtn.addEventListener("click", () => {
-        if (exportDropdownMenu) exportDropdownMenu.classList.add("hidden");
-        exportModal.classList.remove("hidden");
-      });
-    }
-
-    if (closeExportModalBtn && exportModal) {
-      closeExportModalBtn.addEventListener("click", () => {
-        exportModal.classList.add("hidden");
-      });
-    }
-
-    if (cancelExportModalBtn && exportModal) {
-      cancelExportModalBtn.addEventListener("click", () => {
-        exportModal.classList.add("hidden");
-      });
-    }
-
-    if (confirmExportModalBtn && exportModal) {
-      confirmExportModalBtn.addEventListener("click", () => {
-        const formatRadio = document.querySelector('input[name="export-modal-format"]:checked');
-        const scopeRadio = document.querySelector('input[name="export-modal-scope"]:checked');
-        const layoutRadio = document.querySelector('input[name="export-modal-layout"]:checked');
-        const format = formatRadio ? formatRadio.value : "md";
-        const scope = scopeRadio ? scopeRadio.value : "current";
-        const layout = layoutRadio ? layoutRadio.value : "document";
-        exportModal.classList.add("hidden");
-        this.performExport(format, scope, layout);
-      });
-    }
-
     // Book Rollup View layout switcher (Document vs Grid)
     const setRollupLayoutBtns = document.querySelectorAll(".set-rollup-layout-btn");
     setRollupLayoutBtns.forEach((btn) => {
@@ -37892,7 +37698,7 @@ class BibleOutlineStudio {
       });
     });
 
-    // Book Rollup View export buttons
+    // Book Rollup View export buttons (exports in the active layout)
     const exportBookMdBtns = document.querySelectorAll(".export-book-md-btn");
     exportBookMdBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -37916,13 +37722,14 @@ class BibleOutlineStudio {
       });
     });
 
-    // Legacy Export button handler if present
-    const exportCurMd = document.getElementById("export-current-book-btn");
-    if (exportCurMd) {
-      exportCurMd.addEventListener("click", () => {
-        this.performExport("md", "current", "document");
+    const exportAllBooksPdfBtns = document.querySelectorAll(".export-all-books-pdf-btn");
+    exportAllBooksPdfBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const layout = btn.getAttribute("data-export-layout") || this.bookRollupLayout || "document";
+        this.saveActiveChapterEditorBeforeSwitch();
+        printOrSaveToPDF(this.data, null, layout);
       });
-    }
+    });
 
     // Google SSO & Cloud Sync Modal
     const openSsoBtn = document.getElementById("open-cloud-sso-btn");
