@@ -198,11 +198,9 @@ def find_free_port():
     return port
 
 def is_port_open(port):
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
-        s.connect(('localhost', port))
-        s.close()
-        return True
+        req = urllib.request.urlopen(f"http://127.0.0.1:{port}/", timeout=1.0)
+        return req.getcode() == 200
     except Exception:
         return False
 
