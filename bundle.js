@@ -35010,8 +35010,14 @@ function renderChapterEditorView({
                                     data-toggle-heading="${idx}"
                                     class="esv-rich-heading-banner flex items-center justify-between px-3.5 py-2.5 bg-[#1E1E1B] border-b border-[#262624] cursor-pointer select-none hover:bg-[#232320] transition gap-2"
                                   >
-                                    <!-- Left: Toggle Icon, Title & Verse Tag -->
-                                    <div class="flex items-center gap-2 flex-1 min-w-0">
+                                    <!-- Left: Drag Handle, Toggle Icon, Title -->
+                                    <div class="flex items-center gap-1.5 flex-1 min-w-0">
+                                      <span
+                                        data-drag-heading="${idx}"
+                                        draggable="true"
+                                        class="heading-drag-handle text-[#55534E] hover:text-[#DBCFB3] cursor-grab active:cursor-grabbing font-mono text-xs select-none px-1 py-0.5"
+                                        title="Drag to reorder section"
+                                      >⋮⋮</span>
                                       <span class="rich-heading-toggle-icon font-mono text-xs text-[#8C8A84] w-4 text-center shrink-0">
                                         ${isCol ? "▶" : "▼"}
                                       </span>
@@ -35025,13 +35031,34 @@ function renderChapterEditorView({
                                       />
                                     </div>
 
-                                    <!-- Right: Clean Delete Action -->
+                                    <!-- Right: Reorder & Delete Actions -->
                                     <div class="flex items-center gap-1 shrink-0">
                                       <button
                                         type="button"
+                                        data-move-heading-up="${idx}"
+                                        ${idx === 0 ? "disabled" : ""}
+                                        class="move-heading-up-btn p-1 text-[#8C8A84] hover:text-[#DBCFB3] disabled:opacity-20 disabled:hover:text-[#8C8A84] disabled:cursor-not-allowed transition flex items-center justify-center cursor-pointer rounded hover:bg-[#2A2A27]"
+                                        title="${idx === 0 ? 'First section' : 'Move heading up'}"
+                                        aria-label="Move heading up"
+                                      >
+                                        <span class="text-xs">▲</span>
+                                      </button>
+                                      <button
+                                        type="button"
+                                        data-move-heading-down="${idx}"
+                                        ${idx === blocks.length - 1 ? "disabled" : ""}
+                                        class="move-heading-down-btn p-1 text-[#8C8A84] hover:text-[#DBCFB3] disabled:opacity-20 disabled:hover:text-[#8C8A84] disabled:cursor-not-allowed transition flex items-center justify-center cursor-pointer rounded hover:bg-[#2A2A27]"
+                                        title="${idx === blocks.length - 1 ? 'Last section' : 'Move heading down'}"
+                                        aria-label="Move heading down"
+                                      >
+                                        <span class="text-xs">▼</span>
+                                      </button>
+                                      <button
+                                        type="button"
                                         data-delete-heading="${idx}"
-                                        class="delete-heading-btn p-1 text-[#6D6B66] hover:text-[#E57373] transition flex items-center justify-center cursor-pointer opacity-50 hover:opacity-100"
+                                        class="delete-heading-btn p-1 text-[#6D6B66] hover:text-[#E57373] transition flex items-center justify-center cursor-pointer opacity-50 hover:opacity-100 ml-1 rounded hover:bg-[#2A2A27]"
                                         title="Delete heading"
+                                        aria-label="Delete heading"
                                       >
                                         <span class="text-sm">🗑</span>
                                       </button>
@@ -37999,6 +38026,67 @@ class BibleOutlineStudio {
       });
     });
 
+    // Re-order Headings (Move Up / Move Down)
+    const moveHeadingUpBtns = document.querySelectorAll(".move-heading-up-btn");
+    moveHeadingUpBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute("data-move-heading-up"), 10);
+        this.moveHeadingUp(idx);
+      });
+    });
+
+    const moveHeadingDownBtns = document.querySelectorAll(".move-heading-down-btn");
+    moveHeadingDownBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute("data-move-heading-down"), 10);
+        this.moveHeadingDown(idx);
+      });
+    });
+
+    // Re-order Headings (Drag and Drop)
+    const dragHandles = document.querySelectorAll(".heading-drag-handle");
+    dragHandles.forEach((handle) => {
+      handle.addEventListener("dragstart", (e) => {
+        e.stopPropagation();
+        const idx = handle.getAttribute("data-drag-heading");
+        e.dataTransfer.setData("text/plain", idx);
+        e.dataTransfer.effectAllowed = "move";
+        const wrap = handle.closest(".esv-rich-section-wrap");
+        if (wrap) wrap.classList.add("opacity-50");
+      });
+
+      handle.addEventListener("dragend", () => {
+        const wrap = handle.closest(".esv-rich-section-wrap");
+        if (wrap) wrap.classList.remove("opacity-50");
+      });
+    });
+
+    const sectionWraps = document.querySelectorAll(".esv-rich-section-wrap");
+    sectionWraps.forEach((wrap) => {
+      wrap.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+        wrap.classList.add("ring-2", "ring-[#C4B79C]");
+      });
+
+      wrap.addEventListener("dragleave", () => {
+        wrap.classList.remove("ring-2", "ring-[#C4B79C]");
+      });
+
+      wrap.addEventListener("drop", (e) => {
+        e.preventDefault();
+        wrap.classList.remove("ring-2", "ring-[#C4B79C]");
+        const fromIdxStr = e.dataTransfer.getData("text/plain");
+        const fromIdx = parseInt(fromIdxStr, 10);
+        const toIdx = parseInt(wrap.getAttribute("data-heading-index"), 10);
+        if (!isNaN(fromIdx) && !isNaN(toIdx) && fromIdx !== toIdx) {
+          this.reorderHeadings(fromIdx, toIdx);
+        }
+      });
+    });
+
     // Inline Header Title & Verses Input Handlers
     const headingTitleInputs = document.querySelectorAll(".heading-title-input");
     headingTitleInputs.forEach((input) => {
@@ -38325,7 +38413,7 @@ class BibleOutlineStudio {
       banner.addEventListener("click", (e) => {
         if (
           e.target.closest(
-            "input, button, .delete-heading-btn, .insert-heading-after-btn, .heading-title-input, .heading-verses-input"
+            "input, button, .delete-heading-btn, .move-heading-up-btn, .move-heading-down-btn, .heading-drag-handle, .insert-heading-after-btn, .heading-title-input, .heading-verses-input"
           )
         ) {
           return;
@@ -39453,6 +39541,71 @@ class BibleOutlineStudio {
     };
     doScroll();
     requestAnimationFrame(doScroll);
+  }
+
+  moveHeadingUp(idx) {
+    this.saveActiveChapterEditorBeforeSwitch();
+    const chKey = `${this.selectedBookId}-${this.selectedChapterNum}`;
+    const blocks = this.data.chapters[chKey]?.headingBlocks;
+    if (!Array.isArray(blocks) || idx <= 0 || idx >= blocks.length) return;
+
+    const temp = blocks[idx];
+    blocks[idx] = blocks[idx - 1];
+    blocks[idx - 1] = temp;
+
+    if (window.collapsedHeadingsMap?.[chKey]) {
+      const map = window.collapsedHeadingsMap[chKey];
+      const c1 = map[idx];
+      const c0 = map[idx - 1];
+      map[idx - 1] = c1;
+      map[idx] = c0;
+    }
+
+    saveOutlineStorage(this.data);
+    this.notifyDataChanged();
+    this.render();
+  }
+
+  moveHeadingDown(idx) {
+    this.saveActiveChapterEditorBeforeSwitch();
+    const chKey = `${this.selectedBookId}-${this.selectedChapterNum}`;
+    const blocks = this.data.chapters[chKey]?.headingBlocks;
+    if (!Array.isArray(blocks) || idx < 0 || idx >= blocks.length - 1) return;
+
+    const temp = blocks[idx];
+    blocks[idx] = blocks[idx + 1];
+    blocks[idx + 1] = temp;
+
+    if (window.collapsedHeadingsMap?.[chKey]) {
+      const map = window.collapsedHeadingsMap[chKey];
+      const c0 = map[idx];
+      const c1 = map[idx + 1];
+      map[idx + 1] = c0;
+      map[idx] = c1;
+    }
+
+    saveOutlineStorage(this.data);
+    this.notifyDataChanged();
+    this.render();
+  }
+
+  reorderHeadings(fromIdx, toIdx) {
+    this.saveActiveChapterEditorBeforeSwitch();
+    const chKey = `${this.selectedBookId}-${this.selectedChapterNum}`;
+    const blocks = this.data.chapters[chKey]?.headingBlocks;
+    if (!Array.isArray(blocks) || fromIdx === toIdx) return;
+    if (fromIdx < 0 || fromIdx >= blocks.length || toIdx < 0 || toIdx >= blocks.length) return;
+
+    const [moved] = blocks.splice(fromIdx, 1);
+    blocks.splice(toIdx, 0, moved);
+
+    if (window.collapsedHeadingsMap?.[chKey]) {
+      delete window.collapsedHeadingsMap[chKey];
+    }
+
+    saveOutlineStorage(this.data);
+    this.notifyDataChanged();
+    this.render();
   }
 }
 

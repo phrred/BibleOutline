@@ -29,6 +29,7 @@ class E2ETester:
             ("E2E: Canvas Clean Paste Formatting", self.test_canvas_clean_paste_formatting),
             ("E2E: Deleted ESV Heading Persistence", self.test_deleted_esv_heading_does_not_come_back),
             ("E2E: Selected Chapter Focus & Scroll Retention", self.test_selected_chapter_focus_retention),
+            ("E2E: Heading Re-order (Buttons and Drag/Drop)", self.test_heading_reorder),
             ("E2E: Cloud Sync & Deep Merge Lifecycle", self.test_cloud_sync_lifecycle)
         ]
 
@@ -721,6 +722,81 @@ class E2ETester:
         assert r.get("activeChapterNum") == 40, f"Expected active chapter 40, got {r.get('activeChapterNum')}"
         assert r.get("scrollLeft") > 0, f"Expected scrollLeft > 0 for chapter 40, got {r.get('scrollLeft')}"
         assert r.get("isVisibleInBar") == True, f"Chapter 40 should be visible in chapter pills bar, state: {r}"
+
+    def test_heading_reorder(self):
+        r = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            app.activeView = "chapter-outliner";
+            app.selectedBookId = "MAT";
+            app.selectedChapterNum = 2;
+
+            app.data.chapters["MAT-2"] = {
+                headingBlocks: [
+                    { heading: "Section 1: The Visit of the Wise Men", verses: "v1-12", points: ["Gold, frankincense, myrrh"], notes: "Gold, frankincense, myrrh" },
+                    { heading: "Section 2: The Flight to Egypt", verses: "v13-15", points: ["Escape by night"], notes: "Escape by night" },
+                    { heading: "Section 3: The Return to Nazareth", verses: "v19-23", points: ["He shall be called a Nazarene"], notes: "He shall be called a Nazarene" }
+                ],
+                status: "in-progress"
+            };
+            app.render();
+
+            // Initial order
+            const initialHeadings = app.data.chapters["MAT-2"].headingBlocks.map(b => b.heading);
+
+            // Click move-down button on Section 1 (index 0)
+            const downBtn0 = document.querySelector('.move-heading-down-btn[data-move-heading-down="0"]');
+            if (downBtn0) downBtn0.click();
+            const orderAfterDown = app.data.chapters["MAT-2"].headingBlocks.map(b => b.heading);
+
+            // Click move-up button on Section 3 (now index 2)
+            const upBtn2 = document.querySelector('.move-heading-up-btn[data-move-heading-up="2"]');
+            if (upBtn2) upBtn2.click();
+            const orderAfterUp = app.data.chapters["MAT-2"].headingBlocks.map(b => b.heading);
+
+            // Test programmatic drag/drop reorder: move index 2 to index 0
+            app.reorderHeadings(2, 0);
+            const orderAfterDrag = app.data.chapters["MAT-2"].headingBlocks.map(b => b.heading);
+
+            // Verify disabled states on boundary buttons
+            const firstUpDisabled = document.querySelector('.move-heading-up-btn[data-move-heading-up="0"]')?.hasAttribute("disabled");
+            const lastDownDisabled = document.querySelector('.move-heading-down-btn[data-move-heading-down="2"]')?.hasAttribute("disabled");
+
+            return {
+                initialHeadings,
+                orderAfterDown,
+                orderAfterUp,
+                orderAfterDrag,
+                firstUpDisabled,
+                lastDownDisabled
+            };
+        })()
+        """)
+        # Initial: [Section 1, Section 2, Section 3]
+        # After move Section 1 down: [Section 2, Section 1, Section 3]
+        assert r.get("orderAfterDown") == [
+            "Section 2: The Flight to Egypt",
+            "Section 1: The Visit of the Wise Men",
+            "Section 3: The Return to Nazareth"
+        ], f"Unexpected order after move down: {r.get('orderAfterDown')}"
+
+        # After move Section 3 up: [Section 2, Section 3, Section 1]
+        assert r.get("orderAfterUp") == [
+            "Section 2: The Flight to Egypt",
+            "Section 3: The Return to Nazareth",
+            "Section 1: The Visit of the Wise Men"
+        ], f"Unexpected order after move up: {r.get('orderAfterUp')}"
+
+        # After reorderHeadings(2, 0): move Section 1 (index 2) to index 0 -> [Section 1, Section 2, Section 3]
+        assert r.get("orderAfterDrag") == [
+            "Section 1: The Visit of the Wise Men",
+            "Section 2: The Flight to Egypt",
+            "Section 3: The Return to Nazareth"
+        ], f"Unexpected order after drag reorder: {r.get('orderAfterDrag')}"
+
+        assert r.get("firstUpDisabled") == True, "First heading's move up button should be disabled"
+        assert r.get("lastDownDisabled") == True, "Last heading's move down button should be disabled"
+
 
 
 

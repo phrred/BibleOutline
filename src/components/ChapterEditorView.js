@@ -331,8 +331,14 @@ export function renderChapterEditorView({
                                     data-toggle-heading="${idx}"
                                     class="esv-rich-heading-banner flex items-center justify-between px-3.5 py-2.5 bg-[#1E1E1B] border-b border-[#262624] cursor-pointer select-none hover:bg-[#232320] transition gap-2"
                                   >
-                                    <!-- Left: Toggle Icon, Title & Verse Tag -->
-                                    <div class="flex items-center gap-2 flex-1 min-w-0">
+                                    <!-- Left: Drag Handle, Toggle Icon, Title -->
+                                    <div class="flex items-center gap-1.5 flex-1 min-w-0">
+                                      <span
+                                        data-drag-heading="${idx}"
+                                        draggable="true"
+                                        class="heading-drag-handle text-[#55534E] hover:text-[#DBCFB3] cursor-grab active:cursor-grabbing font-mono text-xs select-none px-1 py-0.5"
+                                        title="Drag to reorder section"
+                                      >⋮⋮</span>
                                       <span class="rich-heading-toggle-icon font-mono text-xs text-[#8C8A84] w-4 text-center shrink-0">
                                         ${isCol ? "▶" : "▼"}
                                       </span>
@@ -346,13 +352,34 @@ export function renderChapterEditorView({
                                       />
                                     </div>
 
-                                    <!-- Right: Clean Delete Action -->
+                                    <!-- Right: Reorder & Delete Actions -->
                                     <div class="flex items-center gap-1 shrink-0">
                                       <button
                                         type="button"
+                                        data-move-heading-up="${idx}"
+                                        ${idx === 0 ? "disabled" : ""}
+                                        class="move-heading-up-btn p-1 text-[#8C8A84] hover:text-[#DBCFB3] disabled:opacity-20 disabled:hover:text-[#8C8A84] disabled:cursor-not-allowed transition flex items-center justify-center cursor-pointer rounded hover:bg-[#2A2A27]"
+                                        title="${idx === 0 ? 'First section' : 'Move heading up'}"
+                                        aria-label="Move heading up"
+                                      >
+                                        <span class="text-xs">▲</span>
+                                      </button>
+                                      <button
+                                        type="button"
+                                        data-move-heading-down="${idx}"
+                                        ${idx === blocks.length - 1 ? "disabled" : ""}
+                                        class="move-heading-down-btn p-1 text-[#8C8A84] hover:text-[#DBCFB3] disabled:opacity-20 disabled:hover:text-[#8C8A84] disabled:cursor-not-allowed transition flex items-center justify-center cursor-pointer rounded hover:bg-[#2A2A27]"
+                                        title="${idx === blocks.length - 1 ? 'Last section' : 'Move heading down'}"
+                                        aria-label="Move heading down"
+                                      >
+                                        <span class="text-xs">▼</span>
+                                      </button>
+                                      <button
+                                        type="button"
                                         data-delete-heading="${idx}"
-                                        class="delete-heading-btn p-1 text-[#6D6B66] hover:text-[#E57373] transition flex items-center justify-center cursor-pointer opacity-50 hover:opacity-100"
+                                        class="delete-heading-btn p-1 text-[#6D6B66] hover:text-[#E57373] transition flex items-center justify-center cursor-pointer opacity-50 hover:opacity-100 ml-1 rounded hover:bg-[#2A2A27]"
                                         title="Delete heading"
+                                        aria-label="Delete heading"
                                       >
                                         <span class="text-sm">🗑</span>
                                       </button>
