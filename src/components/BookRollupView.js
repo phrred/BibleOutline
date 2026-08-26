@@ -203,7 +203,6 @@ export function renderBookRollupView({
                                     <div class="font-serif font-semibold text-sm text-[#EAE8E2] leading-snug">
                                       ${block.heading}
                                     </div>
-                                    ${block.verses ? `<div class="text-[11px] font-mono text-[#8C8A84]">(${block.verses})</div>` : ""}
                                   </td>
 
                                   <!-- Column 2: Outline Bullets -->
@@ -274,11 +273,6 @@ export function renderBookRollupView({
                               <span class="font-serif font-semibold text-sm text-[#EAE8E2]">
                                 ${block.heading}
                               </span>
-                              ${
-                                block.verses
-                                  ? `<span class="text-xs font-mono text-[#7B7974]">(${block.verses})</span>`
-                                  : ""
-                              }
                             </div>
                             ${(() => {
                               const pts = Array.isArray(block.points)

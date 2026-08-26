@@ -443,12 +443,13 @@ class UnitTester:
                 singleHasGenesis: singleBookExport.includes('# Genesis'),
                 singleOmitsFullHeader: !singleBookExport.includes('# COMPLETE BIBLE OUTLINE'),
                 gridMdHasTable: gridMarkdownExport.includes('| Section Heading & Passage | Outline Points & Notes |'),
-                gridMdHasHeadingRow: gridMarkdownExport.includes('| **Creation** *(v1-31)* | • Point 1 |'),
+                gridMdHasHeadingRow: gridMarkdownExport.includes('| **Creation** | • Point 1 |'),
                 pdfHasGenesis: pdfHtml.includes('Genesis') && pdfHtml.includes('Creation') && pdfHtml.includes('Point 1'),
                 gridPdfHasTable: gridPdfHtml.includes('grid-export-table') && !gridPdfHtml.includes('Section & Reference'),
                 pdfOmitsChapterOutlinesTitle: !pdfHtml.includes('Chapter Outlines'),
                 pdfOmitsOutlinedCount: !pdfHtml.includes('Chapters Outlined'),
                 pdfOmitsChapterRefTag: !gridPdfHtml.includes('chapter-ref'),
+                pdfOmitsVerseRef: !gridPdfHtml.includes('(v1-31)') && !pdfHtml.includes('(v1-31)'),
                 fullPdfHasHeader: fullPdfHtml.includes('Complete Bible Outline')
             };
         })()
@@ -466,6 +467,7 @@ class UnitTester:
         assert r.get("pdfOmitsChapterOutlinesTitle") == True, "PDF export should omit 'Chapter Outlines' title"
         assert r.get("pdfOmitsOutlinedCount") == True, "PDF export should omit 'Chapters Outlined' count"
         assert r.get("pdfOmitsChapterRefTag") == True, "PDF export should omit right-hand chapter ref like 'GEN 1'"
+        assert r.get("pdfOmitsVerseRef") == True, "PDF export should omit verse references in outline headings"
         assert r.get("fullPdfHasHeader") == True, "Full PDF HTML export missing header"
 
     def test_flag_question_modal(self):

@@ -339,11 +339,6 @@ export function renderChapterEditorView({
                                         class="heading-title-input bg-transparent border-b border-transparent hover:border-[#3A3A36] focus:border-[#C4B79C] px-1 py-0.5 font-serif font-semibold text-sm md:text-base text-[#DBCFB3] focus:text-white outline-none transition flex-1 min-w-[120px]"
                                         title="Click to edit heading"
                                       />
-                                      ${
-                                        block.verses
-                                          ? `<span class="text-xs font-mono text-[#8C8A84] shrink-0 font-normal">(${block.verses})</span>`
-                                          : ""
-                                      }
                                     </div>
 
                                     <!-- Right: Clean Delete Action -->

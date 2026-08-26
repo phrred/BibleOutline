@@ -242,7 +242,7 @@ export function exportToMarkdown(data, bookId = null, layout = "document") {
           md += `| *Chapter ${ch}* | *No notes recorded under this chapter.* |\n`;
         } else {
           blocks.forEach((block) => {
-            const headingText = `**${(block.heading || "Section").replace(/\|/g, "\\|")}**${block.verses ? ` *(${block.verses.replace(/\|/g, "\\|")})*` : ""}`;
+            const headingText = `**${(block.heading || "Section").replace(/\|/g, "\\|")}**`;
             const pts = Array.isArray(block.points) && block.points.length > 0
               ? block.points.filter((p) => p && p.trim().length > 0)
               : block.notes
@@ -264,7 +264,7 @@ export function exportToMarkdown(data, bookId = null, layout = "document") {
         md += `\n`;
       } else {
         blocks.forEach((block) => {
-          md += `#### ${block.heading}${block.verses ? ` (${block.verses})` : ""}\n\n`;
+          md += `#### ${block.heading}\n\n`;
           const pts = Array.isArray(block.points) && block.points.length > 0
             ? block.points.filter((p) => p && p.trim().length > 0)
             : block.notes
@@ -403,7 +403,6 @@ export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
                                       <div class="section-title-line">
                                         <span class="section-heading">${(block.heading || "Section").replace(/</g, "&lt;")}</span>
                                       </div>
-                                      ${block.verses ? `<div class="grid-verses-tag">(${block.verses.replace(/</g, "&lt;")})</div>` : ""}
                                     </td>
                                     <td class="grid-export-points-cell">
                                       ${
@@ -465,7 +464,6 @@ export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
                                 <div class="section-item">
                                   <div class="section-title-line">
                                     <span class="section-heading">${block.heading || "Section"}</span>
-                                    ${block.verses ? `<span class="section-verses">(${block.verses})</span>` : ""}
                                   </div>
                                   ${
                                     pts.length > 0
@@ -742,11 +740,6 @@ export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
       color: #0f172a;
       font-size: 9.5px;
     }
-    .section-verses {
-      font-size: 8.5px;
-      font-family: monospace;
-      color: #475569;
-    }
     .points-list {
       margin: 1px 0 2px 14px;
       padding: 0;
@@ -794,12 +787,6 @@ export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
       width: 36%;
       background: #f8fafc;
       border-right: 1.5px solid #94a3b8 !important;
-    }
-    .grid-verses-tag {
-      font-size: 8.5px;
-      font-family: monospace;
-      color: #475569;
-      margin-top: 1px;
     }
     .grid-export-points-cell {
       width: 64%;
