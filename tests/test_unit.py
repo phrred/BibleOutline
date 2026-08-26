@@ -433,6 +433,7 @@ class UnitTester:
             const singleBookExport = exportToMarkdown(storage, 'GEN');
             const gridMarkdownExport = exportToMarkdown(storage, 'GEN', 'grid');
             const pdfHtml = exportToPrintableHTML(storage, 'GEN');
+            const docPdfHtml = exportToPrintableHTML(storage, 'GEN', 'document');
             const gridPdfHtml = exportToPrintableHTML(storage, 'GEN', 'grid');
             const fullPdfHtml = exportToPrintableHTML(storage);
 
@@ -446,6 +447,9 @@ class UnitTester:
                 gridMdHasHeadingRow: gridMarkdownExport.includes('| **Creation** | • Point 1 |'),
                 pdfHasGenesis: pdfHtml.includes('Genesis') && pdfHtml.includes('Creation') && pdfHtml.includes('Point 1'),
                 gridPdfHasTable: gridPdfHtml.includes('grid-export-table') && !gridPdfHtml.includes('Section & Reference'),
+                gridPdfHasChapterCell: gridPdfHtml.includes('grid-export-chapter-cell') && gridPdfHtml.includes('chapter-number">1</span>') && !gridPdfHtml.includes('chapter-number">Chapter 1</span>'),
+                gridPdfOmitsChapterBarHeader: !gridPdfHtml.includes('<div class="chapter-bar">'),
+                pdfDocumentHasChapterBar: docPdfHtml.includes('<div class="chapter-bar">'),
                 pdfOmitsChapterOutlinesTitle: !pdfHtml.includes('Chapter Outlines'),
                 pdfOmitsOutlinedCount: !pdfHtml.includes('Chapters Outlined'),
                 pdfOmitsChapterRefTag: !gridPdfHtml.includes('chapter-ref'),
@@ -464,6 +468,9 @@ class UnitTester:
         assert r.get("gridMdHasHeadingRow") == True, "Grid markdown export missing table heading row"
         assert r.get("pdfHasGenesis") == True, "PDF HTML export missing Genesis content"
         assert r.get("gridPdfHasTable") == True, "Grid PDF HTML export should have grid-export-table and omit Section & Reference header"
+        assert r.get("gridPdfHasChapterCell") == True, "Grid PDF HTML export should have chapter number without word 'Chapter' in grid-export-chapter-cell"
+        assert r.get("gridPdfOmitsChapterBarHeader") == True, "Grid PDF HTML export should omit chapter-bar header"
+        assert r.get("pdfDocumentHasChapterBar") == True, "Document layout PDF export should retain chapter-bar header"
         assert r.get("pdfOmitsChapterOutlinesTitle") == True, "PDF export should omit 'Chapter Outlines' title"
         assert r.get("pdfOmitsOutlinedCount") == True, "PDF export should omit 'Chapters Outlined' count"
         assert r.get("pdfOmitsChapterRefTag") == True, "PDF export should omit right-hand chapter ref like 'GEN 1'"

@@ -362,6 +362,133 @@ export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
 
         <div class="chapter-outlines-wrapper">
           ${(() => {
+            if (layout === "grid") {
+              let tbodiesHtml = "";
+              for (let ch = 1; ch <= book.chapterCount; ch++) {
+                const chKey = `${book.id}-${ch}`;
+                const chData = data.chapters[chKey] || {};
+                const blocks = Array.isArray(chData.headingBlocks) ? chData.headingBlocks : [];
+                const hasNotes = blocks.some((b) => (b.notes && b.notes.trim()) || (Array.isArray(b.points) && b.points.some((p) => p && p.trim())));
+
+                if (!hasNotes && !bookId) {
+                  continue;
+                }
+
+                const hasTakeaway = Boolean(chData.takeaway && chData.takeaway.trim());
+                const effectiveBlocks = blocks.length > 0 ? blocks : [];
+                const totalRows = (effectiveBlocks.length > 0 ? effectiveBlocks.length : 1) + (hasTakeaway ? 1 : 0);
+
+                if (effectiveBlocks.length === 0) {
+                  tbodiesHtml += `
+                    <tbody class="chapter-group no-break">
+                      <tr class="grid-chapter-last-row">
+                        <td class="grid-export-chapter-cell" rowspan="1">
+                          <span class="chapter-number">${ch}</span>
+                        </td>
+                        ${
+                          hasTakeaway
+                            ? `
+                              <td colspan="2" class="grid-export-takeaway-cell">
+                                <div class="takeaway-box">
+                                  <strong>Key Takeaway:</strong> <em>${chData.takeaway.replace(/</g, "&lt;")}</em>
+                                </div>
+                              </td>
+                            `
+                            : `
+                              <td class="grid-export-heading-cell">
+                                <span class="empty-notes-hint">—</span>
+                              </td>
+                              <td class="grid-export-points-cell">
+                                <span class="empty-notes-hint">No outline notes recorded.</span>
+                              </td>
+                            `
+                        }
+                      </tr>
+                    </tbody>
+                  `;
+                } else {
+                  tbodiesHtml += `
+                    <tbody class="chapter-group no-break">
+                      ${effectiveBlocks
+                        .map((block, hIdx) => {
+                          const pts = Array.isArray(block.points) && block.points.length > 0
+                            ? block.points.filter((p) => p && p.trim().length > 0)
+                            : block.notes
+                            ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+                            : [];
+
+                          const isLastRow = hIdx === effectiveBlocks.length - 1 && !hasTakeaway;
+
+                          return `
+                            <tr class="grid-section-row ${isLastRow ? "grid-chapter-last-row" : ""}">
+                              ${
+                                hIdx === 0
+                                  ? `
+                                    <td class="grid-export-chapter-cell" rowspan="${totalRows}">
+                                      <span class="chapter-number">${ch}</span>
+                                    </td>
+                                  `
+                                  : ""
+                              }
+                              <td class="grid-export-heading-cell">
+                                <div class="section-title-line">
+                                  <span class="section-heading">${(block.heading || "Section").replace(/</g, "&lt;")}</span>
+                                </div>
+                              </td>
+                              <td class="grid-export-points-cell">
+                                ${
+                                  pts.length > 0
+                                    ? `
+                                      <ul class="points-list">
+                                        ${pts
+                                          .map(
+                                            (p) =>
+                                              `<li>${(p || "")
+                                                .replace(/</g, "&lt;")
+                                                .replace(/>/g, "&gt;")}</li>`
+                                          )
+                                          .join("")}
+                                      </ul>
+                                    `
+                                    : ""
+                                }
+                              </td>
+                            </tr>
+                          `;
+                        })
+                        .join("")}
+                      ${
+                        hasTakeaway
+                          ? `
+                            <tr class="grid-takeaway-row grid-chapter-last-row">
+                              <td colspan="2" class="grid-export-takeaway-cell">
+                                <div class="takeaway-box">
+                                  <strong>Key Takeaway:</strong> <em>${chData.takeaway.replace(/</g, "&lt;")}</em>
+                                </div>
+                              </td>
+                            </tr>
+                          `
+                          : ""
+                      }
+                    </tbody>
+                  `;
+                }
+              }
+
+              return tbodiesHtml
+                ? `
+                  <table class="grid-export-table">
+                    <colgroup>
+                      <col style="width: 5%;" />
+                      <col style="width: 35%;" />
+                      <col style="width: 60%;" />
+                    </colgroup>
+                    ${tbodiesHtml}
+                  </table>
+                `
+                : "";
+            }
+
             let chHtml = "";
             for (let ch = 1; ch <= book.chapterCount; ch++) {
               const chKey = `${book.id}-${ch}`;
@@ -373,133 +500,64 @@ export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
                 continue;
               }
 
-              if (layout === "grid") {
-                chHtml += `
-                <div class="chapter-card no-break">
-                  <div class="chapter-bar">
-                    <span class="chapter-number">Chapter ${ch}</span>
-                  </div>
-
-                  <table class="grid-export-table">
-                    <colgroup>
-                      <col style="width: 36%;" />
-                      <col style="width: 64%;" />
-                    </colgroup>
-                    <tbody>
-                      ${
-                        blocks.length === 0
-                          ? ""
-                          : blocks
-                              .map((block, hIdx) => {
-                                const pts = Array.isArray(block.points) && block.points.length > 0
-                                  ? block.points.filter((p) => p && p.trim().length > 0)
-                                  : block.notes
-                                  ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
-                                  : [];
-
-                                return `
-                                  <tr class="grid-section-row">
-                                    <td class="grid-export-heading-cell">
-                                      <div class="section-title-line">
-                                        <span class="section-heading">${(block.heading || "Section").replace(/</g, "&lt;")}</span>
-                                      </div>
-                                    </td>
-                                    <td class="grid-export-points-cell">
-                                      ${
-                                        pts.length > 0
-                                          ? `
-                                            <ul class="points-list">
-                                              ${pts
-                                                .map(
-                                                  (p) =>
-                                                    `<li>${(p || "")
-                                                      .replace(/</g, "&lt;")
-                                                      .replace(/>/g, "&gt;")}</li>`
-                                                )
-                                                .join("")}
-                                            </ul>
-                                          `
-                                          : ""
-                                      }
-                                    </td>
-                                  </tr>
-                                `;
-                              })
-                              .join("")
-                      }
-                    </tbody>
-                  </table>
-
-                  ${
-                    chData.takeaway && chData.takeaway.trim()
-                      ? `
-                        <div class="takeaway-box">
-                          <strong>Key Takeaway:</strong> <em>${chData.takeaway.replace(/</g, "&lt;")}</em>
-                        </div>
-                      `
-                      : ""
-                  }
+              chHtml += `
+              <div class="chapter-card no-break">
+                <div class="chapter-bar">
+                  <span class="chapter-number">Chapter ${ch}</span>
                 </div>
-                `;
-              } else {
-                chHtml += `
-                <div class="chapter-card no-break">
-                  <div class="chapter-bar">
-                    <span class="chapter-number">Chapter ${ch}</span>
-                  </div>
 
-                  <div class="chapter-sections-list">
-                    ${
-                      blocks.length === 0
-                        ? ""
-                        : blocks
-                            .map((block, hIdx) => {
-                              const pts = Array.isArray(block.points) && block.points.length > 0
-                                ? block.points.filter((p) => p && p.trim().length > 0)
-                                : block.notes
-                                ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
-                                : [];
+                <div class="chapter-sections-list">
+                  ${
+                    blocks.length === 0
+                      ? ""
+                      : blocks
+                          .map((block, hIdx) => {
+                            const pts = Array.isArray(block.points) && block.points.length > 0
+                              ? block.points.filter((p) => p && p.trim().length > 0)
+                              : block.notes
+                              ? block.notes.split("\n").map((l) => l.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+                              : [];
 
-                              return `
-                                <div class="section-item">
-                                  <div class="section-title-line">
-                                    <span class="section-heading">${block.heading || "Section"}</span>
-                                  </div>
-                                  ${
-                                    pts.length > 0
-                                      ? `
-                                        <ul class="points-list">
-                                          ${pts
-                                            .map(
-                                              (p) =>
-                                                `<li>${(p || "")
-                                                  .replace(/</g, "&lt;")
-                                                  .replace(/>/g, "&gt;")}</li>`
-                                            )
-                                            .join("")}
-                                        </ul>
-                                      `
-                                      : ""
-                                  }
+                            return `
+                              <div class="section-item">
+                                <div class="section-title-line">
+                                  <span class="section-heading">${block.heading || "Section"}</span>
+                                  ${block.verses ? `<span class="section-verses">(${block.verses})</span>` : ""}
                                 </div>
-                              `;
-                            })
-                            .join("")
-                    }
-                  </div>
-
-                  ${
-                    chData.takeaway && chData.takeaway.trim()
-                      ? `
-                        <div class="takeaway-box">
-                          <strong>Key Takeaway:</strong> <em>${chData.takeaway.replace(/</g, "&lt;")}</em>
-                        </div>
-                      `
-                      : ""
+                                ${
+                                  pts.length > 0
+                                    ? `
+                                      <ul class="points-list">
+                                        ${pts
+                                          .map(
+                                            (p) =>
+                                              `<li>${(p || "")
+                                                .replace(/</g, "&lt;")
+                                                .replace(/>/g, "&gt;")}</li>`
+                                          )
+                                          .join("")}
+                                      </ul>
+                                    `
+                                    : ""
+                                }
+                              </div>
+                            `;
+                          })
+                          .join("")
                   }
                 </div>
+
+                ${
+                  chData.takeaway && chData.takeaway.trim()
+                    ? `
+                      <div class="takeaway-box">
+                        <strong>Key Takeaway:</strong> <em>${chData.takeaway.replace(/</g, "&lt;")}</em>
+                      </div>
+                    `
+                    : ""
+                }
+              </div>
               `;
-              }
             }
             return chHtml;
           })()}
@@ -774,22 +832,45 @@ export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
       table-layout: fixed;
       font-size: 9.5px;
       line-height: 1.3;
+      border: 1.5px solid #94a3b8;
+      background: #ffffff;
+      margin-bottom: 8px;
+    }
+    .chapter-group {
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
     .grid-export-table td {
       padding: 4px 8px;
       vertical-align: top;
-      border-bottom: 1px solid #94a3b8;
+      border-bottom: 1px solid #cbd5e1;
     }
-    .grid-export-table tr:last-child td {
-      border-bottom: none;
+    .grid-chapter-last-row td {
+      border-bottom: 2px solid #94a3b8 !important;
     }
-    .grid-export-heading-cell {
-      width: 36%;
+    .grid-export-table tbody:last-child .grid-chapter-last-row td,
+    .grid-export-table tbody:last-child tr:last-child td {
+      border-bottom: none !important;
+    }
+    .grid-export-chapter-cell {
+      width: 5%;
       background: #f8fafc;
       border-right: 1.5px solid #94a3b8 !important;
+      text-align: center;
+      vertical-align: top;
+      padding: 6px 2px;
+      color: #0f172a;
+      font-family: Georgia, serif;
+      font-weight: 700;
+      font-size: 11px;
+    }
+    .grid-export-heading-cell {
+      width: 35%;
+      background: #ffffff;
+      border-right: 1.5px solid #cbd5e1 !important;
     }
     .grid-export-points-cell {
-      width: 64%;
+      width: 60%;
       background: #ffffff;
     }
     .grid-export-points-cell .points-list {
@@ -798,6 +879,13 @@ export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
     }
     .grid-export-points-cell .no-points-hint {
       margin-left: 0;
+    }
+    .grid-export-takeaway-cell {
+      padding: 3px 6px !important;
+      background: #ffffff;
+    }
+    .grid-export-takeaway-cell .takeaway-box {
+      margin: 1px 0;
     }
   </style>
 </head>
