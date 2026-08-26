@@ -15,12 +15,10 @@ A distraction-free, minimalist study web application for outlining all 66 books 
   - Uses official ESV API v3 (`api.esv.org`) with your authorization token.
   - As you navigate to any chapter (`Genesis 1`, `Matthew 5`, etc.), the app automatically fetches the official ESV Scripture and **extracts all ESV Section Headings** with their verse ranges.
 
-- **Unified Google Doc-Style Rich Outline Canvas (`contenteditable`)**
-  - **Indestructible ESV Section Headings**: ESV section headers (`▼ 1. The Creation of the World (v1–31)`) render as protected banners inside your document that can **never** be accidentally deleted by Backspace/Delete.
-  - **Real Bulleted & Numbered Lists**: Includes a Google Docs-style formatting toolbar (`Bold`, `Italic`, `• Bulleted List`, `1. Numbered List`, `→ Sub-bullet Indent`, `← Outdent`).
-  - **Sub-Bullet Indentation**: Press **`Tab`** while typing on any bullet line to indent a sub-bullet (`◦` open circle marker), and press **`Shift+Tab`** to outdent back to a primary bullet (`•`).
+- **Unified Rich Outline Canvas (`contenteditable`)**
+  - **Simplified Section Headings**: Clean, elegant section headings with direct title editing, optional verse tags, and one-click collapsible sections.
+  - **Clean Bulleted & Numbered Lists**: Streamlined formatting toolbar (`Bold`, `Italic`, `• Bulleted List`, `1. Numbered List`, `+ Add Heading`, `📑 ESV Headings`) with flat, clean bullet points without unnecessary sub-bullet nesting.
   - **Smart Google Doc Keyboard Shortcuts**: Type `- ` or `* ` at line start to create bullets; press **`Enter`** to continue bulleted lines; press **`Enter`** or **`Backspace`** on an empty bullet to exit the list natively.
-  - **1-Click Scripture Verse Quotes**: Click any verse number badge (`¹`, `²`, `¹⁴`) in the side-by-side Scripture reader to insert `(v14)` directly into your outline cursor.
 
 - **Zero-Config Single-Bundle Architecture (`bundle.js`)**
   - Runs directly from `http://localhost:8000` or file URLs, with immediate debounced local storage and cross-chapter note preservation.

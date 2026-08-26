@@ -44,7 +44,7 @@ class BibleOutlineStudio {
     this.splitViewMode = "split"; // 'split' | 'outline' | 'scripture'
     const savedRatio = parseFloat(localStorage.getItem("bibleOutline_splitRatio"));
     this.splitRatio = !isNaN(savedRatio) && savedRatio >= 15 && savedRatio <= 85 ? savedRatio : 50;
-    this.bookRollupLayout = localStorage.getItem("bibleOutline_bookRollupLayout") || "document"; // 'document' | 'grid'
+    this.bookRollupLayout = localStorage.getItem("bibleOutline_bookRollupLayout") || "grid"; // 'grid' | 'document'
     this.isCollapsed = false;
 
     // Quiz & Diagnostic state
@@ -1236,17 +1236,13 @@ class BibleOutlineStudio {
       canvas.addEventListener("keyup", () => updateActiveSectionCanvas(canvas));
       canvas.addEventListener("pointerdown", () => updateActiveSectionCanvas(canvas));
 
-      // Sub-bullet Tab / Shift+Tab keyboard shortcuts like Google Docs
+      // Handle Tab key in outline canvas (no sub-bullets)
       canvas.addEventListener("keydown", (e) => {
         updateActiveSectionCanvas(canvas);
         if (e.key === "Tab") {
           e.preventDefault();
-          if (e.shiftKey) {
-            document.execCommand("outdent", false, null);
-          } else {
-            document.execCommand("indent", false, null);
-          }
-          canvas.dispatchEvent(new Event("input", { bubbles: true }));
+          // Sub-bullets are removed; keep list flat
+          return;
         }
       });
 
@@ -1260,11 +1256,22 @@ class BibleOutlineStudio {
           }
         }
 
-        // Style sub-bullets cleanly with open circle markers
-        const subUls = canvas.querySelectorAll("ul ul");
-        subUls.forEach((subUl) => {
-          subUl.style.listStyleType = "circle";
-          subUl.style.marginLeft = "1.5rem";
+        // Flatten any nested sub-bullets into standard flat bullet points
+        const nestedLists = canvas.querySelectorAll("ul ul, ul ol, ol ul, ol ol");
+        nestedLists.forEach((nested) => {
+          const parentList = nested.parentElement ? nested.parentElement.closest("ul, ol") : null;
+          const parentLi = nested.closest("li");
+          if (parentList) {
+            const children = Array.from(nested.children);
+            children.forEach((child) => {
+              if (parentLi && parentLi.nextSibling) {
+                parentList.insertBefore(child, parentLi.nextSibling);
+              } else {
+                parentList.appendChild(child);
+              }
+            });
+            nested.remove();
+          }
         });
 
         const editor = document.getElementById("chapter-rich-outline-editor");
@@ -1332,7 +1339,7 @@ class BibleOutlineStudio {
       });
     });
 
-    // Google Docs Rich Toolbar formatting buttons
+    // Toolbar formatting buttons
     const richToolbarBtns = document.querySelectorAll("button[data-rich-command], .rich-toolbar-btn");
     richToolbarBtns.forEach((btn) => {
       // Prevent clicking toolbar buttons from stealing focus away from active section canvas
@@ -1361,10 +1368,9 @@ class BibleOutlineStudio {
             ensureSectionBulletedList(activeCanvas);
           } else if (cmd === "insertOrderedList") {
             document.execCommand("insertOrderedList", false, null);
-          } else if (cmd === "indent") {
-            document.execCommand("indent", false, null);
-          } else if (cmd === "outdent") {
-            document.execCommand("outdent", false, null);
+          } else if (cmd === "indent" || cmd === "outdent") {
+            // Sub-bullets removed
+            return;
           } else {
             document.execCommand(cmd, false, null);
           }
@@ -2361,7 +2367,7 @@ class BibleOutlineStudio {
     }
   }
 
-  performExport(format = "md", scope = "current", layout = "document") {
+  performExport(format = "md", scope = "current", layout = "grid") {
     this.saveActiveChapterEditorBeforeSwitch();
     const book = this.getSelectedBook();
     const bookId = scope === "current" ? book.id : null;

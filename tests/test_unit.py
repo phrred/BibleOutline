@@ -445,7 +445,10 @@ class UnitTester:
                 gridMdHasTable: gridMarkdownExport.includes('| Section Heading & Passage | Outline Points & Notes |'),
                 gridMdHasHeadingRow: gridMarkdownExport.includes('| **Creation** *(v1-31)* | • Point 1 |'),
                 pdfHasGenesis: pdfHtml.includes('Genesis') && pdfHtml.includes('Creation') && pdfHtml.includes('Point 1'),
-                gridPdfHasTable: gridPdfHtml.includes('grid-export-table') && gridPdfHtml.includes('Section & Reference'),
+                gridPdfHasTable: gridPdfHtml.includes('grid-export-table') && !gridPdfHtml.includes('Section & Reference'),
+                pdfOmitsChapterOutlinesTitle: !pdfHtml.includes('Chapter Outlines'),
+                pdfOmitsOutlinedCount: !pdfHtml.includes('Chapters Outlined'),
+                pdfOmitsChapterRefTag: !gridPdfHtml.includes('chapter-ref'),
                 fullPdfHasHeader: fullPdfHtml.includes('Complete Bible Outline')
             };
         })()
@@ -459,7 +462,10 @@ class UnitTester:
         assert r.get("gridMdHasTable") == True, "Grid markdown export missing table header"
         assert r.get("gridMdHasHeadingRow") == True, "Grid markdown export missing table heading row"
         assert r.get("pdfHasGenesis") == True, "PDF HTML export missing Genesis content"
-        assert r.get("gridPdfHasTable") == True, "Grid PDF HTML export missing grid-export-table class"
+        assert r.get("gridPdfHasTable") == True, "Grid PDF HTML export should have grid-export-table and omit Section & Reference header"
+        assert r.get("pdfOmitsChapterOutlinesTitle") == True, "PDF export should omit 'Chapter Outlines' title"
+        assert r.get("pdfOmitsOutlinedCount") == True, "PDF export should omit 'Chapters Outlined' count"
+        assert r.get("pdfOmitsChapterRefTag") == True, "PDF export should omit right-hand chapter ref like 'GEN 1'"
         assert r.get("fullPdfHasHeader") == True, "Full PDF HTML export missing header"
 
     def test_flag_question_modal(self):

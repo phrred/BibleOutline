@@ -165,6 +165,21 @@ class E2ETester:
             }
             let widthAfterDblClick = outlinePanel ? outlinePanel.style.width : null;
 
+            // Test that Sub-bullet controls and clunky heading inputs are removed
+            const hasSubBulletButton = Boolean(document.querySelector('button[data-rich-command="indent"]'));
+            const hasOutdentButton = Boolean(document.querySelector('button[data-rich-command="outdent"]'));
+            const hasHeadingVersesInput = Boolean(document.querySelector('.heading-verses-input'));
+            const hasInsertAfterButton = Boolean(document.querySelector('.insert-heading-after-btn'));
+
+            // Test list flattening on canvas (no sub-bullets)
+            let nestedUlCount = 0;
+            if (canvases.length > 0) {
+                const c0 = canvases[0];
+                c0.innerHTML = '<ul><li>Parent<ul><li>Child</li></ul></li></ul>';
+                c0.dispatchEvent(new Event('input', { bubbles: true }));
+                nestedUlCount = c0.querySelectorAll('ul ul').length;
+            }
+
             return {
                 hasCanvas: canvases.length > 0,
                 hasSummaryArea: Boolean(summaryArea),
@@ -176,7 +191,12 @@ class E2ETester:
                 countAfterDelete,
                 hasDivider: Boolean(divider),
                 hasOutlinePanel: Boolean(outlinePanel),
-                widthAfterDblClick
+                widthAfterDblClick,
+                hasSubBulletButton,
+                hasOutdentButton,
+                hasHeadingVersesInput,
+                hasInsertAfterButton,
+                nestedUlCount
             };
         })()
         """)
@@ -189,6 +209,11 @@ class E2ETester:
         assert r.get("countAfterDelete") == r.get("initialHeadingCount"), "Expected heading count to return to initial after delete"
         assert r.get("hasDivider") == True, "Resizable split divider missing"
         assert r.get("widthAfterDblClick") == "50%", f"Expected 50% width after double click, got {r.get('widthAfterDblClick')}"
+        assert r.get("hasSubBulletButton") == False, "Sub-bullet button should be removed from toolbar"
+        assert r.get("hasOutdentButton") == False, "Outdent button should be removed from toolbar"
+        assert r.get("hasHeadingVersesInput") == False, "Clunky heading verses input box should be removed"
+        assert r.get("hasInsertAfterButton") == False, "Clunky insert after button should be removed from headings"
+        assert r.get("nestedUlCount") == 0, "Canvas should flatten sub-bullets to single-level bullets"
 
     def test_book_rollup_and_plot(self):
         # 1. Book Rollup View & Grid View Toggle

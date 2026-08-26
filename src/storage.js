@@ -255,7 +255,7 @@ export function exportToMarkdown(data, bookId = null, layout = "document") {
             } else if (block.notes && block.notes.trim()) {
               notesText = block.notes.replace(/\|/g, "\\|").replace(/\n/g, "<br>");
             } else {
-              notesText = "*No notes recorded under this heading.*";
+              notesText = "*No notes recorded.*";
             }
 
             md += `| ${headingText} | ${notesText} |\n`;
@@ -295,8 +295,8 @@ export function exportToMarkdown(data, bookId = null, layout = "document") {
   return md;
 }
 
-// Generates high-quality print-ready HTML for PDF export (Document or Grid Table layout)
-export function exportToPrintableHTML(data, bookId = null, layout = "document") {
+// Generates high-quality print-ready HTML for PDF export (Grid Table or Document layout)
+export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
   const booksToExport = bookId ? [BIBLE_BOOKS.find((b) => b.id === bookId)].filter(Boolean) : BIBLE_BOOKS;
   const docTitle = bookId && booksToExport[0] ? `${booksToExport[0].name} Outline` : "Complete Bible Outline";
 
@@ -361,11 +361,6 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
         }
 
         <div class="chapter-outlines-wrapper">
-          <div class="chapters-header-row">
-            <h2 class="chapters-title">Chapter Outlines</h2>
-            <span class="chapters-count">${outlinedCount} of ${book.chapterCount} Chapters Outlined</span>
-          </div>
-
           ${(() => {
             let chHtml = "";
             for (let ch = 1; ch <= book.chapterCount; ch++) {
@@ -383,26 +378,17 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
                 <div class="chapter-card no-break">
                   <div class="chapter-bar">
                     <span class="chapter-number">Chapter ${ch}</span>
-                    <span class="chapter-ref">${book.shortName} ${ch}</span>
                   </div>
 
                   <table class="grid-export-table">
-                    <thead>
-                      <tr>
-                        <th style="width: 34%;">Section & Reference</th>
-                        <th style="width: 66%;">Outline Bullets & Notes</th>
-                      </tr>
-                    </thead>
+                    <colgroup>
+                      <col style="width: 36%;" />
+                      <col style="width: 64%;" />
+                    </colgroup>
                     <tbody>
                       ${
                         blocks.length === 0
-                          ? `
-                            <tr>
-                              <td colspan="2" class="empty-notes-hint" style="margin: 0; padding: 4px 6px;">
-                                No notes recorded for this chapter.
-                              </td>
-                            </tr>
-                          `
+                          ? ""
                           : blocks
                               .map((block, hIdx) => {
                                 const pts = Array.isArray(block.points) && block.points.length > 0
@@ -412,10 +398,9 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
                                   : [];
 
                                 return `
-                                  <tr>
+                                  <tr class="grid-section-row">
                                     <td class="grid-export-heading-cell">
                                       <div class="section-title-line">
-                                        <span class="section-num">${hIdx + 1}</span>
                                         <span class="section-heading">${(block.heading || "Section").replace(/</g, "&lt;")}</span>
                                       </div>
                                       ${block.verses ? `<div class="grid-verses-tag">(${block.verses.replace(/</g, "&lt;")})</div>` : ""}
@@ -435,7 +420,7 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
                                                 .join("")}
                                             </ul>
                                           `
-                                          : `<div class="no-points-hint">No outline notes under this heading.</div>`
+                                          : ""
                                       }
                                     </td>
                                   </tr>
@@ -462,13 +447,12 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
                 <div class="chapter-card no-break">
                   <div class="chapter-bar">
                     <span class="chapter-number">Chapter ${ch}</span>
-                    <span class="chapter-ref">${book.shortName} ${ch}</span>
                   </div>
 
                   <div class="chapter-sections-list">
                     ${
                       blocks.length === 0
-                        ? `<div class="empty-notes-hint">No notes recorded for this chapter.</div>`
+                        ? ""
                         : blocks
                             .map((block, hIdx) => {
                               const pts = Array.isArray(block.points) && block.points.length > 0
@@ -480,7 +464,6 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
                               return `
                                 <div class="section-item">
                                   <div class="section-title-line">
-                                    <span class="section-num">${hIdx + 1}</span>
                                     <span class="section-heading">${block.heading || "Section"}</span>
                                     ${block.verses ? `<span class="section-verses">(${block.verses})</span>` : ""}
                                   </div>
@@ -498,7 +481,7 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
                                             .join("")}
                                         </ul>
                                       `
-                                      : `<div class="no-points-hint">No outline notes under this heading.</div>`
+                                      : ""
                                   }
                                 </div>
                               `;
@@ -698,32 +681,12 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
     .summary-text {
       color: #1e293b;
     }
-    .chapters-header-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      border-bottom: 1px solid #cbd5e1;
-      padding-bottom: 2px;
-      margin-bottom: 4px;
-    }
-    .chapters-title {
-      font-family: Georgia, serif;
-      font-size: 11.5px;
-      font-weight: 700;
-      color: #000;
-      margin: 0;
-    }
-    .chapters-count {
-      font-size: 8.5px;
-      color: #64748b;
-      font-family: monospace;
-    }
     .chapter-card {
-      border: 1px solid #cbd5e1;
+      border: 1.5px solid #94a3b8;
       border-radius: 4px;
       background: #ffffff;
       padding: 0;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
       break-inside: avoid;
       page-break-inside: avoid;
       overflow: hidden;
@@ -731,30 +694,25 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
     .chapter-bar {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       background: #f1f5f9;
-      border-bottom: 1px solid #cbd5e1;
-      padding: 2px 6px;
+      border-bottom: 1.5px solid #94a3b8;
+      padding: 3px 8px;
     }
     .chapter-number {
       font-family: Georgia, serif;
       font-weight: 700;
-      font-size: 10.5px;
+      font-size: 11px;
       color: #0f172a;
-    }
-    .chapter-ref {
-      font-family: monospace;
-      font-size: 8.5px;
-      color: #64748b;
     }
     .chapter-sections-list {
       padding: 4px 6px;
     }
     .section-item {
-      margin-bottom: 3px;
+      padding: 4px 2px;
+      border-bottom: 1px solid #cbd5e1;
     }
     .section-item:last-child {
-      margin-bottom: 0;
+      border-bottom: none;
     }
     .section-title-line {
       display: flex;
@@ -820,37 +778,31 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
     .grid-export-table {
       width: 100%;
       border-collapse: collapse;
+      table-layout: fixed;
       font-size: 9.5px;
-      line-height: 1.2;
-    }
-    .grid-export-table th {
-      background: #f8fafc;
-      color: #475569;
-      font-size: 8.5px;
-      font-family: monospace;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      padding: 2px 6px;
-      border: 1px solid #cbd5e1;
-      text-align: left;
-      font-weight: 700;
+      line-height: 1.3;
     }
     .grid-export-table td {
-      border: 1px solid #e2e8f0;
-      padding: 3px 6px;
+      padding: 4px 8px;
       vertical-align: top;
+      border-bottom: 1px solid #94a3b8;
+    }
+    .grid-export-table tr:last-child td {
+      border-bottom: none;
     }
     .grid-export-heading-cell {
-      background: #fafafa;
+      width: 36%;
+      background: #f8fafc;
+      border-right: 1.5px solid #94a3b8 !important;
     }
     .grid-verses-tag {
       font-size: 8.5px;
       font-family: monospace;
       color: #475569;
       margin-top: 1px;
-      margin-left: 17px;
     }
     .grid-export-points-cell {
+      width: 64%;
       background: #ffffff;
     }
     .grid-export-points-cell .points-list {
@@ -876,7 +828,7 @@ export function exportToPrintableHTML(data, bookId = null, layout = "document") 
 }
 
 // Opens the formatted printable document in a new window and triggers print
-export function printOrSaveToPDF(data, bookId = null, layout = "document") {
+export function printOrSaveToPDF(data, bookId = null, layout = "grid") {
   const html = exportToPrintableHTML(data, bookId, layout);
   const printWindow = window.open("", "_blank");
   if (!printWindow) {

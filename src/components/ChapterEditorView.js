@@ -206,10 +206,10 @@ export function renderChapterEditorView({
                         .join("")}
                     </div>
 
-                    <!-- Google Docs Rich Toolbar Row -->
+                    <!-- Outline Toolbar Row -->
                     <div class="flex items-center justify-between pt-1">
 
-                    <!-- Google Docs Rich Toolbar Buttons -->
+                    <!-- Outline Toolbar Buttons -->
                     <div class="flex items-center gap-1 bg-[#1A1A18] p-1 rounded border border-[#2B2B28] text-xs">
                       <button
                         type="button"
@@ -249,52 +249,35 @@ export function renderChapterEditorView({
                       <span class="w-[1px] h-4 bg-[#2D2D2A] mx-0.5"></span>
                       <button
                         type="button"
-                        data-rich-command="indent"
-                        class="rich-toolbar-btn px-2 py-1 rounded hover:bg-[#2A2A27] text-[#C4B79C] font-mono transition flex items-center gap-1"
-                        title="Indent Sub-bullet (Tab)"
-                      >
-                        <span>→ Sub-bullet</span>
-                      </button>
-                      <button
-                        type="button"
-                        data-rich-command="outdent"
-                        class="rich-toolbar-btn px-2 py-1 rounded hover:bg-[#2A2A27] text-[#A19E97] font-mono transition flex items-center gap-1"
-                        title="Outdent Bullet (Shift+Tab)"
-                      >
-                        <span>← Outdent</span>
-                      </button>
-                      <span class="w-[1px] h-4 bg-[#2D2D2A] mx-0.5"></span>
-                      <button
-                        type="button"
-                        id="toggle-rich-headings-btn"
-                        class="px-2 py-1 rounded hover:bg-[#2A2A27] text-[#A19E97] transition flex items-center gap-1"
-                        title="Collapse or Expand all Section Headings in this outline"
-                      >
-                        <span>▼</span>
-                        <span>Toggle Headings</span>
-                      </button>
-                      <button
-                        type="button"
                         id="add-heading-btn"
                         class="px-2.5 py-1 rounded bg-[#20201D] hover:bg-[#2A2A27] text-[#C4B79C] hover:text-[#DBCFB3] border border-[#2B2B28] transition flex items-center gap-1 font-mono text-xs font-medium"
-                        title="Add a new section header to this chapter outline"
+                        title="Add a new section heading"
                       >
                         <span>+</span>
-                        <span>Add Header</span>
+                        <span>Add Heading</span>
                       </button>
                       <button
                         type="button"
                         id="reinsert-esv-headings-btn"
                         class="px-2 py-1 rounded hover:bg-[#2A2A27] text-[#8C8A84] hover:text-[#C4B79C] transition"
-                        title="Reset/Insert official ESV Section Headings into this outline"
+                        title="Reset to official ESV Section Headings"
                       >
-                        📑 Insert ESV Headings
+                        📑 ESV Headings
+                      </button>
+                      <button
+                        type="button"
+                        id="toggle-rich-headings-btn"
+                        class="px-2 py-1 rounded hover:bg-[#2A2A27] text-[#8C8A84] hover:text-[#EAE8E2] transition flex items-center gap-1"
+                        title="Collapse or Expand all section headings"
+                      >
+                        <span>▼</span>
+                        <span>Toggle All</span>
                       </button>
                     </div>
                   </div>
                 </div>
 
-                <!-- ONE UNIFIED CHAPTER OUTLINE DOCUMENT WITH EDITABLE & MANAGEABLE HEADERS -->
+                <!-- ONE UNIFIED CHAPTER OUTLINE DOCUMENT WITH CLEAN HEADERS -->
                   <div
                     id="chapter-rich-outline-editor"
                     class="flex-1 bg-[#1A1A18] border border-[#2B2B28] rounded-lg p-5 space-y-4 overflow-y-auto shadow-inner"
@@ -303,8 +286,8 @@ export function renderChapterEditorView({
                       blocks.length === 0
                         ? `
                           <div class="py-12 px-4 text-center text-xs text-[#7B7974] space-y-3">
-                            <div class="text-sm text-[#A19E97] font-medium">No section headers in this chapter outline.</div>
-                            <p class="text-xs text-[#6D6B66]">Add custom headers to structure your notes or insert default ESV chapter headings.</p>
+                            <div class="text-sm text-[#A19E97] font-medium">No section headings in this chapter outline.</div>
+                            <p class="text-xs text-[#6D6B66]">Add custom headings to structure your outline or insert default ESV headings.</p>
                             <div class="flex items-center justify-center gap-3 pt-2">
                               <button
                                 type="button"
@@ -312,7 +295,7 @@ export function renderChapterEditorView({
                                 class="px-3 py-1.5 rounded bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] font-semibold text-xs transition flex items-center gap-1 cursor-pointer"
                               >
                                 <span>+</span>
-                                <span>Add Header</span>
+                                <span>Add Heading</span>
                               </button>
                               <button
                                 type="button"
@@ -335,62 +318,48 @@ export function renderChapterEditorView({
 
                               return `
                                 <div
-                                  class="esv-rich-section-wrap border border-[#2B2B28] rounded-md bg-[#181816] overflow-hidden transition"
+                                  class="esv-rich-section-wrap border border-[#262624] rounded-lg bg-[#181816] overflow-hidden transition"
                                   data-heading-index="${idx}"
                                 >
-                                  <!-- SECTION HEADING BANNER -->
+                                  <!-- SIMPLIFIED SECTION HEADING -->
                                   <div
                                     data-toggle-heading="${idx}"
-                                    class="esv-rich-heading-banner flex items-center justify-between px-3 py-2 bg-[#20201D] border-b border-[#2A2A27] cursor-pointer select-none hover:bg-[#262623] transition gap-2"
+                                    class="esv-rich-heading-banner flex items-center justify-between px-3.5 py-2.5 bg-[#1E1E1B] border-b border-[#262624] cursor-pointer select-none hover:bg-[#232320] transition gap-2"
                                   >
-                                    <!-- Left: Toggle Icon, Number, Editable Title & Verses -->
+                                    <!-- Left: Toggle Icon, Title & Verse Tag -->
                                     <div class="flex items-center gap-2 flex-1 min-w-0">
                                       <span class="rich-heading-toggle-icon font-mono text-xs text-[#8C8A84] w-4 text-center shrink-0">
                                         ${isCol ? "▶" : "▼"}
-                                      </span>
-                                      <span class="w-5 h-5 rounded bg-[#272724] text-[#A19E97] font-mono text-[11px] flex items-center justify-center shrink-0">
-                                        ${idx + 1}
                                       </span>
                                       <input
                                         type="text"
                                         data-heading-title-input="${idx}"
                                         value="${(block.heading || "").replace(/"/g, "&quot;")}"
-                                        placeholder="Section Title"
-                                        class="heading-title-input bg-transparent border border-transparent hover:border-[#3A3A36] focus:border-[#C4B79C] focus:bg-[#141413] rounded px-1.5 py-0.5 font-serif font-semibold text-sm md:text-base text-[#DBCFB3] focus:text-white outline-none transition flex-1 min-w-[120px]"
-                                        title="Click to edit section header title"
+                                        placeholder="Heading title"
+                                        class="heading-title-input bg-transparent border-b border-transparent hover:border-[#3A3A36] focus:border-[#C4B79C] px-1 py-0.5 font-serif font-semibold text-sm md:text-base text-[#DBCFB3] focus:text-white outline-none transition flex-1 min-w-[120px]"
+                                        title="Click to edit heading"
                                       />
-                                      <input
-                                        type="text"
-                                        data-heading-verses-input="${idx}"
-                                        value="${(block.verses || "").replace(/"/g, "&quot;")}"
-                                        placeholder="v. range"
-                                        class="heading-verses-input bg-transparent border border-transparent hover:border-[#3A3A36] focus:border-[#C4B79C] focus:bg-[#141413] rounded px-1.5 py-0.5 text-xs font-mono text-[#7B7974] focus:text-[#DBCFB3] outline-none transition w-20 shrink-0"
-                                        title="Optional verse range (e.g. 1-12)"
-                                      />
+                                      ${
+                                        block.verses
+                                          ? `<span class="text-xs font-mono text-[#8C8A84] shrink-0 font-normal">(${block.verses})</span>`
+                                          : ""
+                                      }
                                     </div>
 
-                                    <!-- Right: Action Buttons (+ Below & Delete) -->
+                                    <!-- Right: Clean Delete Action -->
                                     <div class="flex items-center gap-1 shrink-0">
                                       <button
                                         type="button"
-                                        data-insert-heading-after="${idx}"
-                                        class="insert-heading-after-btn px-2 py-1 rounded text-xs font-mono text-[#8C8A84] hover:text-[#C4B79C] hover:bg-[#2A2A27] transition flex items-center gap-1 cursor-pointer"
-                                        title="Insert a new section header below this one"
-                                      >
-                                        <span>+ Below</span>
-                                      </button>
-                                      <button
-                                        type="button"
                                         data-delete-heading="${idx}"
-                                        class="delete-heading-btn p-1.5 rounded text-xs text-[#8C8A84] hover:text-[#E57373] hover:bg-[#2A2A27] transition flex items-center justify-center cursor-pointer"
-                                        title="Delete this section header and its notes"
+                                        class="delete-heading-btn p-1 text-[#6D6B66] hover:text-[#E57373] transition flex items-center justify-center cursor-pointer opacity-50 hover:opacity-100"
+                                        title="Delete heading"
                                       >
                                         <span class="text-sm">🗑</span>
                                       </button>
                                     </div>
                                   </div>
 
-                                  <!-- PROTECTED BULLETED LIST EDITOR CANVAS FOR THIS SECTION -->
+                                  <!-- FLAT BULLETED LIST EDITOR CANVAS -->
                                   <div
                                     data-section-body="${idx}"
                                     class="esv-rich-heading-body ${isCol ? "hidden" : ""}"
@@ -399,12 +368,12 @@ export function renderChapterEditorView({
                                       contenteditable="true"
                                       spellcheck="false"
                                       data-section-editor="${idx}"
-                                      placeholder="Outline what happened under '${
-                                        block.heading
-                                      }'... Click '• Bulleted List' above or press Tab to indent sub-bullets."
-                                      class="section-bullet-canvas p-4 text-[#EAE8E2] font-sans text-sm md:text-base leading-[1.8] outline-none min-h-[70px] focus:bg-[#1C1C1A] transition"
+                                      placeholder="Outline key points under '${
+                                        block.heading || "this section"
+                                      }'..."
+                                      class="section-bullet-canvas p-3.5 text-[#EAE8E2] font-sans text-sm md:text-base leading-[1.8] outline-none min-h-[60px] focus:bg-[#1C1C1A] transition"
                                     >
-                                      <ul style="list-style-type: disc; margin-left: 1.5rem;">
+                                      <ul style="list-style-type: disc; margin-left: 1.25rem;">
                                         ${pts
                                           .map(
                                             (p) =>
@@ -432,11 +401,11 @@ export function renderChapterEditorView({
                             <button
                               type="button"
                               id="bottom-add-heading-btn"
-                              class="w-full py-2.5 px-4 border border-dashed border-[#3A3A36] hover:border-[#C4B79C] hover:bg-[#20201D] text-[#A19E97] hover:text-[#DBCFB3] rounded-md transition text-xs font-mono flex items-center justify-center gap-1.5 cursor-pointer"
-                              title="Add a new section header to the end of this outline"
+                              class="w-full py-2 px-3 border border-[#2B2B28] hover:border-[#C4B79C] bg-[#181816] hover:bg-[#20201D] text-[#8C8A84] hover:text-[#DBCFB3] rounded transition text-xs font-mono flex items-center justify-center gap-1.5 cursor-pointer"
+                              title="Add section heading"
                             >
                               <span>+</span>
-                              <span>Add Section Header</span>
+                              <span>Add Heading</span>
                             </button>
                           </div>
                         `

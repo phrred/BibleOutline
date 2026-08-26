@@ -180,8 +180,8 @@ export function renderBookRollupView({
                       <table class="w-full text-left text-xs border-collapse">
                         <thead>
                           <tr class="bg-[#141413] text-[#8C8A84] font-mono uppercase tracking-wider text-[10px] border-b border-[#242422]">
-                            <th class="py-2.5 px-4 w-[38%] border-r border-[#242422]">Section Headings & Passage</th>
-                            <th class="py-2.5 px-4 w-[62%]">Outline Bullets & Notes</th>
+                            <th class="py-2.5 px-4 w-[38%] border-r border-[#242422]">Heading</th>
+                            <th class="py-2.5 px-4 w-[62%]">Outline</th>
                           </tr>
                         </thead>
                         <tbody class="divide-y divide-[#222220]">
@@ -198,20 +198,15 @@ export function renderBookRollupView({
 
                               return `
                                 <tr class="hover:bg-[#1A1A18]/60 transition">
-                                  <!-- Column 1: Headings & Passage -->
+                                  <!-- Column 1: Heading -->
                                   <td class="py-3 px-4 align-top border-r border-[#222220] space-y-1">
-                                    <div class="flex items-start gap-2">
-                                      <span class="inline-flex items-center justify-center w-4 h-4 rounded bg-[#242422] text-[#8C8A84] text-[10px] font-mono shrink-0 mt-0.5 font-bold">${hIdx + 1}</span>
-                                      <div class="space-y-0.5">
-                                        <div class="font-serif font-semibold text-sm text-[#EAE8E2] leading-snug">
-                                          ${block.heading}
-                                        </div>
-                                        ${block.verses ? `<div class="text-[11px] font-mono text-[#C4B79C]">(${block.verses})</div>` : ""}
-                                      </div>
+                                    <div class="font-serif font-semibold text-sm text-[#EAE8E2] leading-snug">
+                                      ${block.heading}
                                     </div>
+                                    ${block.verses ? `<div class="text-[11px] font-mono text-[#8C8A84]">(${block.verses})</div>` : ""}
                                   </td>
 
-                                  <!-- Column 2: Bullets & Notes -->
+                                  <!-- Column 2: Outline Bullets -->
                                   <td class="py-3 px-4 align-top text-sm text-[#EAE8E2]">
                                     ${
                                       pts.length > 0
@@ -231,7 +226,7 @@ export function renderBookRollupView({
                                         `
                                         : `
                                           <div class="text-xs text-[#6D6B66] italic">
-                                            No outline notes under "${block.heading}"
+                                            No outline notes recorded
                                           </div>
                                         `
                                     }
@@ -313,7 +308,7 @@ export function renderBookRollupView({
                               }
                               return `
                                 <div class="text-xs text-[#6D6B66] italic">
-                                  No outline points under "${block.heading}"
+                                  No outline notes recorded
                                 </div>
                               `;
                             })()}
