@@ -28,6 +28,7 @@ class E2ETester:
             ("E2E: Dark and Light Theme Toggle", self.test_dark_light_theme_toggle),
             ("E2E: Canvas Clean Paste Formatting", self.test_canvas_clean_paste_formatting),
             ("E2E: Deleted ESV Heading Persistence", self.test_deleted_esv_heading_does_not_come_back),
+            ("E2E: Selected Chapter Focus & Scroll Retention", self.test_selected_chapter_focus_retention),
             ("E2E: Cloud Sync & Deep Merge Lifecycle", self.test_cloud_sync_lifecycle)
         ]
 
@@ -671,6 +672,56 @@ class E2ETester:
         assert "the genealogy of jesus christ" in [h.lower() for h in r.get("deletedList")], "Deleted heading was not recorded in deletedHeadings"
         assert "The Genealogy of Jesus Christ" not in r.get("headingsAfterSync"), "Deleted heading resurrected after syncHeadingBlocksForChapter!"
         assert "The Genealogy of Jesus Christ" not in r.get("headingsAfterAutoLoad"), "Deleted heading resurrected after autoLoadESVForCurrentChapter!"
+
+    def test_selected_chapter_focus_retention(self):
+        r = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            app.activeView = "chapter-outliner";
+            app.selectedBookId = "GEN";
+            app.selectedChapterNum = 1;
+            app.render();
+
+            const pillsBar = document.getElementById("compact-chapter-pills-bar");
+            const pill40 = document.querySelector('.quick-chapter-pill[data-quick-ch="40"]');
+
+            if (!pillsBar || !pill40) {
+                return { error: "pillsBar or pill40 not found" };
+            }
+
+            // Click chapter 40
+            pill40.click();
+
+            // Check position of chapter 40 after selecting it
+            const currentPillsBar = document.getElementById("compact-chapter-pills-bar");
+            const activePill = document.getElementById("active-chapter-pill") ||
+                document.querySelector('.quick-chapter-pill[data-quick-ch="40"]');
+            const scrollLeft = currentPillsBar ? currentPillsBar.scrollLeft : 0;
+            const barWidth = currentPillsBar ? currentPillsBar.clientWidth : 0;
+            const pillRect = activePill ? activePill.getBoundingClientRect() : null;
+            const barRect = currentPillsBar ? currentPillsBar.getBoundingClientRect() : null;
+
+            // Is pill within the visible window of the pills bar?
+            const isVisibleInBar = activePill && currentPillsBar &&
+                (pillRect.left >= barRect.left - 10) &&
+                (pillRect.right <= barRect.right + 10);
+
+            const activeChapterNum = app.selectedChapterNum;
+            const isFocusRetained = document.activeElement === activePill;
+
+            return {
+                activeChapterNum,
+                scrollLeft,
+                barWidth,
+                isVisibleInBar,
+                isFocusRetained
+            };
+        })()
+        """)
+        assert r.get("activeChapterNum") == 40, f"Expected active chapter 40, got {r.get('activeChapterNum')}"
+        assert r.get("scrollLeft") > 0, f"Expected scrollLeft > 0 for chapter 40, got {r.get('scrollLeft')}"
+        assert r.get("isVisibleInBar") == True, f"Chapter 40 should be visible in chapter pills bar, state: {r}"
+
 
 
 

@@ -183,7 +183,7 @@ export function renderChapterEditorView({
                     </div>
 
                     <!-- Compact Chapter Number Bar -->
-                    <div class="flex items-center gap-1.5 overflow-x-auto py-1 min-h-[38px] no-scrollbar">
+                    <div id="compact-chapter-pills-bar" class="relative flex items-center gap-1.5 overflow-x-auto py-1 min-h-[38px] no-scrollbar">
                       ${Array.from({ length: selectedBook.chapterCount }, (_, i) => i + 1)
                         .map((chN) => {
                           const cKey = `${selectedBook.id}-${chN}`;
@@ -192,6 +192,7 @@ export function renderChapterEditorView({
                           return `
                             <button
                               type="button"
+                              ${isCur ? 'id="active-chapter-pill"' : ""}
                               data-quick-ch="${chN}"
                               class="quick-chapter-pill shrink-0 px-2.5 py-1.5 rounded text-xs leading-none font-mono transition flex items-center gap-1 ${
                                 isCur

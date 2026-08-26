@@ -160,7 +160,7 @@ export function renderBookRollupView({
 
               if (rollupLayout === "grid") {
                 rows.push(`
-                  <div class="border border-[#262624] bg-[#171715] rounded-xl overflow-hidden shadow-md space-y-0">
+                  <div id="rollup-chapter-${ch}" class="border border-[#262624] bg-[#171715] rounded-xl overflow-hidden shadow-md space-y-0">
                     <!-- Chapter Header Bar -->
                     <div class="flex items-center justify-between px-4 py-3 bg-[#1F1F1D] border-b border-[#2B2B28]">
                       <div class="flex items-center gap-2.5">
@@ -253,7 +253,7 @@ export function renderBookRollupView({
                 `);
               } else {
                 rows.push(`
-                  <div class="border-b border-[#222220] pb-6 space-y-4">
+                  <div id="rollup-chapter-${ch}" class="border-b border-[#222220] pb-6 space-y-4">
                     <div class="flex items-center justify-between">
                       <h3 class="font-serif text-lg font-bold text-[#DBCFB3]">
                         Chapter ${ch}

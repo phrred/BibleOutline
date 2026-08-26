@@ -728,6 +728,7 @@ class BibleOutlineStudio {
       `;
 
       this.attachEventListeners();
+      this.scrollActiveChapterPillIntoView();
     } catch (err) {
       console.error("Studio Render Error:", err);
       this.rootElement.innerHTML = `
@@ -1015,10 +1016,7 @@ class BibleOutlineStudio {
       btn.addEventListener("click", () => {
         this.saveActiveChapterEditorBeforeSwitch();
         const ch = parseInt(btn.getAttribute("data-chapter-num"), 10);
-        this.selectedChapterNum = ch;
-        this.activeView = "chapter-outliner";
-        this.render();
-        this.autoLoadESVForCurrentChapter();
+        this.navigateTo({ activeView: "chapter-outliner", chapterNum: ch });
       });
     });
 
@@ -1027,9 +1025,7 @@ class BibleOutlineStudio {
       pill.addEventListener("click", () => {
         this.saveActiveChapterEditorBeforeSwitch();
         const ch = parseInt(pill.getAttribute("data-quick-ch"), 10);
-        this.selectedChapterNum = ch;
-        this.render();
-        this.autoLoadESVForCurrentChapter();
+        this.navigateTo({ chapterNum: ch });
       });
     });
 
@@ -2602,6 +2598,36 @@ class BibleOutlineStudio {
     const nextTheme = this.theme === "dark" ? "light" : "dark";
     this.applyTheme(nextTheme);
     this.render();
+  }
+
+  scrollActiveChapterPillIntoView() {
+    if (this.activeView !== "chapter-outliner") return;
+    const doScroll = () => {
+      const pillsBar = document.getElementById("compact-chapter-pills-bar");
+      const activePill =
+        document.getElementById("active-chapter-pill") ||
+        document.querySelector(`.quick-chapter-pill[data-quick-ch="${this.selectedChapterNum}"]`);
+      if (pillsBar && activePill) {
+        const pillRect = activePill.getBoundingClientRect();
+        const barRect = pillsBar.getBoundingClientRect();
+        const currentScroll = pillsBar.scrollLeft;
+        const pillRelativeLeft = pillRect.left - barRect.left + currentScroll;
+        const targetScrollLeft = Math.max(0, pillRelativeLeft - barRect.width / 2 + pillRect.width / 2);
+        pillsBar.scrollLeft = targetScrollLeft;
+        pillsBar.scrollTo({ left: targetScrollLeft, behavior: "auto" });
+
+        if (
+          document.activeElement === document.body ||
+          document.activeElement?.classList?.contains("quick-chapter-pill")
+        ) {
+          try {
+            activePill.focus({ preventScroll: true });
+          } catch (e) {}
+        }
+      }
+    };
+    doScroll();
+    requestAnimationFrame(doScroll);
   }
 }
 

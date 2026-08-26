@@ -34505,7 +34505,7 @@ function renderBookRollupView({
 
               if (rollupLayout === "grid") {
                 rows.push(`
-                  <div class="border border-[#262624] bg-[#171715] rounded-xl overflow-hidden shadow-md space-y-0">
+                  <div id="rollup-chapter-${ch}" class="border border-[#262624] bg-[#171715] rounded-xl overflow-hidden shadow-md space-y-0">
                     <!-- Chapter Header Bar -->
                     <div class="flex items-center justify-between px-4 py-3 bg-[#1F1F1D] border-b border-[#2B2B28]">
                       <div class="flex items-center gap-2.5">
@@ -34598,7 +34598,7 @@ function renderBookRollupView({
                 `);
               } else {
                 rows.push(`
-                  <div class="border-b border-[#222220] pb-6 space-y-4">
+                  <div id="rollup-chapter-${ch}" class="border-b border-[#222220] pb-6 space-y-4">
                     <div class="flex items-center justify-between">
                       <h3 class="font-serif text-lg font-bold text-[#DBCFB3]">
                         Chapter ${ch}
@@ -34862,7 +34862,7 @@ function renderChapterEditorView({
                     </div>
 
                     <!-- Compact Chapter Number Bar -->
-                    <div class="flex items-center gap-1.5 overflow-x-auto py-1 min-h-[38px] no-scrollbar">
+                    <div id="compact-chapter-pills-bar" class="relative flex items-center gap-1.5 overflow-x-auto py-1 min-h-[38px] no-scrollbar">
                       ${Array.from({ length: selectedBook.chapterCount }, (_, i) => i + 1)
                         .map((chN) => {
                           const cKey = `${selectedBook.id}-${chN}`;
@@ -34871,6 +34871,7 @@ function renderChapterEditorView({
                           return `
                             <button
                               type="button"
+                              ${isCur ? 'id="active-chapter-pill"' : ""}
                               data-quick-ch="${chN}"
                               class="quick-chapter-pill shrink-0 px-2.5 py-1.5 rounded text-xs leading-none font-mono transition flex items-center gap-1 ${
                                 isCur
@@ -37552,6 +37553,7 @@ class BibleOutlineStudio {
       `;
 
       this.attachEventListeners();
+      this.scrollActiveChapterPillIntoView();
     } catch (err) {
       console.error("Studio Render Error:", err);
       this.rootElement.innerHTML = `
@@ -37839,10 +37841,7 @@ class BibleOutlineStudio {
       btn.addEventListener("click", () => {
         this.saveActiveChapterEditorBeforeSwitch();
         const ch = parseInt(btn.getAttribute("data-chapter-num"), 10);
-        this.selectedChapterNum = ch;
-        this.activeView = "chapter-outliner";
-        this.render();
-        this.autoLoadESVForCurrentChapter();
+        this.navigateTo({ activeView: "chapter-outliner", chapterNum: ch });
       });
     });
 
@@ -37851,9 +37850,7 @@ class BibleOutlineStudio {
       pill.addEventListener("click", () => {
         this.saveActiveChapterEditorBeforeSwitch();
         const ch = parseInt(pill.getAttribute("data-quick-ch"), 10);
-        this.selectedChapterNum = ch;
-        this.render();
-        this.autoLoadESVForCurrentChapter();
+        this.navigateTo({ chapterNum: ch });
       });
     });
 
@@ -39426,6 +39423,36 @@ class BibleOutlineStudio {
     const nextTheme = this.theme === "dark" ? "light" : "dark";
     this.applyTheme(nextTheme);
     this.render();
+  }
+
+  scrollActiveChapterPillIntoView() {
+    if (this.activeView !== "chapter-outliner") return;
+    const doScroll = () => {
+      const pillsBar = document.getElementById("compact-chapter-pills-bar");
+      const activePill =
+        document.getElementById("active-chapter-pill") ||
+        document.querySelector(`.quick-chapter-pill[data-quick-ch="${this.selectedChapterNum}"]`);
+      if (pillsBar && activePill) {
+        const pillRect = activePill.getBoundingClientRect();
+        const barRect = pillsBar.getBoundingClientRect();
+        const currentScroll = pillsBar.scrollLeft;
+        const pillRelativeLeft = pillRect.left - barRect.left + currentScroll;
+        const targetScrollLeft = Math.max(0, pillRelativeLeft - barRect.width / 2 + pillRect.width / 2);
+        pillsBar.scrollLeft = targetScrollLeft;
+        pillsBar.scrollTo({ left: targetScrollLeft, behavior: "auto" });
+
+        if (
+          document.activeElement === document.body ||
+          document.activeElement?.classList?.contains("quick-chapter-pill")
+        ) {
+          try {
+            activePill.focus({ preventScroll: true });
+          } catch (e) {}
+        }
+      }
+    };
+    doScroll();
+    requestAnimationFrame(doScroll);
   }
 }
 
