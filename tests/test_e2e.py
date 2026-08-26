@@ -30,6 +30,7 @@ class E2ETester:
             ("E2E: Deleted ESV Heading Persistence", self.test_deleted_esv_heading_does_not_come_back),
             ("E2E: Selected Chapter Focus & Scroll Retention", self.test_selected_chapter_focus_retention),
             ("E2E: Heading Re-order (Buttons and Drag/Drop)", self.test_heading_reorder),
+            ("E2E: Scripture & Outline Scroll Retention on Add/Delete Heading", self.test_scripture_scroll_retention_on_heading_mutation),
             ("E2E: Cloud Sync & Deep Merge Lifecycle", self.test_cloud_sync_lifecycle)
         ]
 
@@ -797,7 +798,70 @@ class E2ETester:
         assert r.get("firstUpDisabled") == True, "First heading's move up button should be disabled"
         assert r.get("lastDownDisabled") == True, "Last heading's move down button should be disabled"
 
+    def test_scripture_scroll_retention_on_heading_mutation(self):
+        r = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            app.activeView = "chapter-outliner";
+            app.selectedBookId = "GEN";
+            app.selectedChapterNum = 1;
+            
+            // Provide ample scripture text so #chapter-scripture-panel is scrollable
+            const longScripture = Array.from({ length: 40 }, (_, i) => `[${i + 1}] In the beginning was verse ${i + 1} with extensive detail that fills multiple paragraphs to create real scroll depth.`).join("\\n\\n");
+            if (!app.data.chapters['GEN-1']) {
+                app.data.chapters['GEN-1'] = { headingBlocks: [], status: "in-progress" };
+            }
+            app.data.chapters['GEN-1'].chapterScripture = longScripture;
+            app.data.chapters['GEN-1'].headingBlocks = [
+                { heading: "Initial Section 1", verses: "v1-10", notes: "Notes 1", points: ["Point 1"] },
+                { heading: "Initial Section 2", verses: "v11-20", notes: "Notes 2", points: ["Point 2"] }
+            ];
+            app.render();
 
+            const panel = document.getElementById("chapter-scripture-panel");
+            if (!panel) return { error: "chapter-scripture-panel not found" };
 
+            // Ensure scrollable
+            const maxScroll = panel.scrollHeight - panel.clientHeight;
+            if (maxScroll <= 50) return { error: "panel not scrollable", scrollHeight: panel.scrollHeight, clientHeight: panel.clientHeight };
 
+            // Scroll down to 200px
+            const targetScroll = Math.min(200, Math.floor(maxScroll / 2));
+            panel.scrollTop = targetScroll;
+            panel.dispatchEvent(new Event("scroll"));
+
+            const scrollBeforeAdd = panel.scrollTop;
+
+            // Click add heading button (#bottom-add-heading-btn)
+            const addBtn = document.getElementById("bottom-add-heading-btn") || document.getElementById("add-heading-btn");
+            if (addBtn) addBtn.click();
+
+            const panelAfterAdd = document.getElementById("chapter-scripture-panel");
+            const scrollAfterAdd = panelAfterAdd ? panelAfterAdd.scrollTop : null;
+
+            // Delete the last added heading
+            const blocksAfterAdd = app.data.chapters['GEN-1'].headingBlocks;
+            const lastIdx = blocksAfterAdd.length - 1;
+            const deleteBtn = document.querySelector(`.delete-heading-btn[data-delete-heading="${lastIdx}"]`);
+            if (deleteBtn) {
+                const originalConfirm = window.confirm;
+                window.confirm = () => true;
+                deleteBtn.click();
+                window.confirm = originalConfirm;
+            }
+
+            const panelAfterDelete = document.getElementById("chapter-scripture-panel");
+            const scrollAfterDelete = panelAfterDelete ? panelAfterDelete.scrollTop : null;
+
+            return {
+                scrollBeforeAdd,
+                scrollAfterAdd,
+                scrollAfterDelete,
+                targetScroll
+            };
+        })()
+        """)
+        assert r.get("scrollBeforeAdd") == r.get("targetScroll"), f"Scroll before add mismatch: {r}"
+        assert r.get("scrollAfterAdd") == r.get("targetScroll"), f"Bible text reset after adding heading! Expected {r.get('targetScroll')}, got {r.get('scrollAfterAdd')}"
+        assert r.get("scrollAfterDelete") == r.get("targetScroll"), f"Bible text reset after deleting heading! Expected {r.get('targetScroll')}, got {r.get('scrollAfterDelete')}"
 

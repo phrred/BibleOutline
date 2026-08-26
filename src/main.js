@@ -49,6 +49,11 @@ class BibleOutlineStudio {
     this.theme = localStorage.getItem("bibleOutline_theme") || (typeof document !== "undefined" && document.documentElement.classList.contains("light") ? "light" : "dark");
     this.applyTheme(this.theme);
 
+    // Scroll retention maps (per chapter)
+    this.scriptureScrollPositions = {};
+    this.outlineScrollPositions = {};
+    this.currentRenderedChapterKey = null;
+
     // Quiz & Diagnostic state
     this.activeQuizTab = "diagnostic"; // 'diagnostic' | 'book-quizzes' | 'history'
     this.quizSession = null;
@@ -374,9 +379,18 @@ class BibleOutlineStudio {
   // Save active editor canvas back to data state synchronously before changing chapter/book
   saveActiveChapterEditorBeforeSwitch() {
     const richEditor = document.getElementById("chapter-rich-outline-editor");
+    const scripturePanel = document.getElementById("chapter-scripture-panel");
+    const chKey = `${this.selectedBookId}-${this.selectedChapterNum}`;
+
+    if (scripturePanel) {
+      this.scriptureScrollPositions[chKey] = scripturePanel.scrollTop;
+    }
+    if (richEditor) {
+      this.outlineScrollPositions[chKey] = richEditor.scrollTop;
+    }
+
     if (!richEditor) return;
 
-    const chKey = `${this.selectedBookId}-${this.selectedChapterNum}`;
     if (!this.data.chapters[chKey]) {
       this.data.chapters[chKey] = { headingBlocks: [], status: "empty" };
     }
@@ -660,6 +674,18 @@ class BibleOutlineStudio {
 
       const book = this.getSelectedBook();
 
+      // Preserve scroll positions for scripture reader and outline editor before DOM replacement
+      if (this.currentRenderedChapterKey && this.activeView === "chapter-outliner") {
+        const curScripturePanel = document.getElementById("chapter-scripture-panel");
+        if (curScripturePanel) {
+          this.scriptureScrollPositions[this.currentRenderedChapterKey] = curScripturePanel.scrollTop;
+        }
+        const curOutlineEditor = document.getElementById("chapter-rich-outline-editor");
+        if (curOutlineEditor) {
+          this.outlineScrollPositions[this.currentRenderedChapterKey] = curOutlineEditor.scrollTop;
+        }
+      }
+
       this.rootElement.innerHTML = `
         <div class="flex h-screen w-screen overflow-hidden bg-[#141413] font-sans text-[#EAE8E2]">
           <!-- Sidebar -->
@@ -727,8 +753,10 @@ class BibleOutlineStudio {
         </div>
       `;
 
+      this.currentRenderedChapterKey = `${this.selectedBookId}-${this.selectedChapterNum}`;
       this.attachEventListeners();
       this.scrollActiveChapterPillIntoView();
+      this.restoreChapterEditorScrollPositions();
     } catch (err) {
       console.error("Studio Render Error:", err);
       this.rootElement.innerHTML = `
@@ -1030,6 +1058,29 @@ class BibleOutlineStudio {
     });
 
     // 4. Chapter Outline & Side-by-Side Scripture Reader interactions
+    // Track scroll positions for Scripture Reader and Outline Editor in real time
+    const scripturePanel = document.getElementById("chapter-scripture-panel");
+    if (scripturePanel) {
+      scripturePanel.addEventListener(
+        "scroll",
+        () => {
+          this.scriptureScrollPositions[chKey] = scripturePanel.scrollTop;
+        },
+        { passive: true }
+      );
+    }
+
+    const richOutlineEditor = document.getElementById("chapter-rich-outline-editor");
+    if (richOutlineEditor) {
+      richOutlineEditor.addEventListener(
+        "scroll",
+        () => {
+          this.outlineScrollPositions[chKey] = richOutlineEditor.scrollTop;
+        },
+        { passive: true }
+      );
+    }
+
     // Toggle Collapse / Expand per Heading Bar
     const toggleHeadingBars = document.querySelectorAll(".toggle-heading-bar");
     toggleHeadingBars.forEach((bar) => {
@@ -2659,6 +2710,27 @@ class BibleOutlineStudio {
     const nextTheme = this.theme === "dark" ? "light" : "dark";
     this.applyTheme(nextTheme);
     this.render();
+  }
+
+  restoreChapterEditorScrollPositions() {
+    if (this.activeView !== "chapter-outliner") return;
+    const chKey = `${this.selectedBookId}-${this.selectedChapterNum}`;
+    const scriptureScroll = this.scriptureScrollPositions[chKey];
+    const outlineScroll = this.outlineScrollPositions[chKey];
+
+    const applyScroll = () => {
+      const scripturePanel = document.getElementById("chapter-scripture-panel");
+      if (scripturePanel && typeof scriptureScroll === "number") {
+        scripturePanel.scrollTop = scriptureScroll;
+      }
+      const outlineEditor = document.getElementById("chapter-rich-outline-editor");
+      if (outlineEditor && typeof outlineScroll === "number") {
+        outlineEditor.scrollTop = outlineScroll;
+      }
+    };
+
+    applyScroll();
+    requestAnimationFrame(applyScroll);
   }
 
   scrollActiveChapterPillIntoView() {
