@@ -32656,6 +32656,9 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
 <head>
   <meta charset="utf-8">
   <title>${docTitle}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     @page {
       size: letter;
@@ -32687,7 +32690,7 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
       box-sizing: border-box;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: #111827;
       background: #ffffff;
       line-height: 1.3;
@@ -32725,7 +32728,7 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
       margin-bottom: 8px;
     }
     .doc-header h1 {
-      font-family: Georgia, serif;
+      font-family: "Playfair Display", "Lora", Georgia, "Times New Roman", serif;
       font-size: 16px;
       font-weight: 700;
       color: #000;
@@ -32739,7 +32742,7 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
     .doc-date {
       font-size: 9px;
       color: #6b7280;
-      font-family: monospace;
+      font-family: "JetBrains Mono", monospace;
     }
     .doc-divider {
       border: none;
@@ -32768,7 +32771,7 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
       gap: 6px;
     }
     .book-title {
-      font-family: Georgia, serif;
+      font-family: "Playfair Display", "Lora", Georgia, "Times New Roman", serif;
       font-size: 16px;
       font-weight: 700;
       color: #000;
@@ -32776,7 +32779,7 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
     }
     .book-badge {
       font-size: 8.5px;
-      font-family: monospace;
+      font-family: "JetBrains Mono", monospace;
       background: #f1f5f9;
       border: 1px solid #cbd5e1;
       padding: 1px 5px;
@@ -32839,7 +32842,7 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
       padding: 3px 8px;
     }
     .chapter-number {
-      font-family: Georgia, serif;
+      font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 700;
       font-size: 11px;
       color: #0f172a;
@@ -32871,13 +32874,13 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
       border: 1px solid #cbd5e1;
       border-radius: 2px;
       font-size: 8px;
-      font-family: monospace;
+      font-family: "JetBrains Mono", monospace;
       color: #334155;
       font-weight: bold;
       flex-shrink: 0;
     }
     .section-heading {
-      font-family: Georgia, serif;
+      font-family: "Playfair Display", "Lora", Georgia, "Times New Roman", serif;
       font-weight: 700;
       color: #0f172a;
       font-size: 9.5px;
@@ -32944,9 +32947,9 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
       vertical-align: top;
       padding: 6px 2px;
       color: #0f172a;
-      font-family: Georgia, serif;
+      font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 700;
-      font-size: 11px;
+      font-size: 11.5px;
     }
     .grid-export-heading-cell {
       width: 35%;

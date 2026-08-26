@@ -450,6 +450,9 @@ class UnitTester:
                 gridPdfHasChapterCell: gridPdfHtml.includes('grid-export-chapter-cell') && gridPdfHtml.includes('chapter-number">1</span>') && !gridPdfHtml.includes('chapter-number">Chapter 1</span>'),
                 gridPdfOmitsChapterBarHeader: !gridPdfHtml.includes('<div class="chapter-bar">'),
                 pdfDocumentHasChapterBar: docPdfHtml.includes('<div class="chapter-bar">'),
+                pdfHasGoogleFonts: gridPdfHtml.includes('IBM+Plex+Sans') && docPdfHtml.includes('IBM+Plex+Sans') && gridPdfHtml.includes('Playfair+Display'),
+                pdfHasConsistentSerifHeading: gridPdfHtml.includes('"Playfair Display"') && docPdfHtml.includes('"Playfair Display"'),
+                pdfHasConsistentSansBody: gridPdfHtml.includes('"IBM Plex Sans"') && docPdfHtml.includes('"IBM Plex Sans"'),
                 pdfOmitsChapterOutlinesTitle: !pdfHtml.includes('Chapter Outlines'),
                 pdfOmitsOutlinedCount: !pdfHtml.includes('Chapters Outlined'),
                 pdfOmitsChapterRefTag: !gridPdfHtml.includes('chapter-ref'),
@@ -471,6 +474,9 @@ class UnitTester:
         assert r.get("gridPdfHasChapterCell") == True, "Grid PDF HTML export should have chapter number without word 'Chapter' in grid-export-chapter-cell"
         assert r.get("gridPdfOmitsChapterBarHeader") == True, "Grid PDF HTML export should omit chapter-bar header"
         assert r.get("pdfDocumentHasChapterBar") == True, "Document layout PDF export should retain chapter-bar header"
+        assert r.get("pdfHasGoogleFonts") == True, "PDF HTML exports should link IBM Plex Sans and Playfair Display Google Fonts"
+        assert r.get("pdfHasConsistentSerifHeading") == True, "PDF HTML exports should consistently use Playfair Display / Lora for headings"
+        assert r.get("pdfHasConsistentSansBody") == True, "PDF HTML exports should consistently use IBM Plex Sans for body and chapter numbers"
         assert r.get("pdfOmitsChapterOutlinesTitle") == True, "PDF export should omit 'Chapter Outlines' title"
         assert r.get("pdfOmitsOutlinedCount") == True, "PDF export should omit 'Chapters Outlined' count"
         assert r.get("pdfOmitsChapterRefTag") == True, "PDF export should omit right-hand chapter ref like 'GEN 1'"
