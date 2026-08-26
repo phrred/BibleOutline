@@ -36,6 +36,8 @@ SRC_FILES = [
     "src/firebase_sync.js",
     "src/esv_api.js",
     "src/quiz_engine.js",
+    "src/controllers/OutlinerController.js",
+    "src/controllers/QuizController.js",
     "src/components/Sidebar.js",
     "src/components/TopNavbar.js",
     "src/components/BookRollupView.js",

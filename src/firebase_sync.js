@@ -471,3 +471,151 @@ export const debouncedCloudAutoSave = (user, localData, onStatusUpdate, delayMs)
   debouncedCloudAutoSaveBook(user, localData?.selectedBookId || "GEN", localData, onStatusUpdate, delayMs);
 };
 
+// Deep merge cloud outlines into local storage state without resurrecting deleted headings
+export function mergeCloudAndLocalState(cloudData, localData) {
+  if (!cloudData || !localData) return false;
+  let merged = false;
+
+  if (!localData.books) localData.books = {};
+  if (!localData.chapters) localData.chapters = {};
+
+  // 1. Merge Book Summaries & Themes
+  if (cloudData.books) {
+    for (const [bid, b] of Object.entries(cloudData.books)) {
+      if (!b) continue;
+      if (!localData.books[bid]) {
+        localData.books[bid] = { bookSummary: "", myBookTheme: "", updatedAt: null };
+      }
+      if (b.bookSummary && b.bookSummary.trim()) {
+        localData.books[bid].bookSummary = b.bookSummary;
+        merged = true;
+      }
+      if (b.myBookTheme && b.myBookTheme.trim()) {
+        localData.books[bid].myBookTheme = b.myBookTheme;
+        merged = true;
+      }
+    }
+  }
+
+  // 2. Merge Chapters
+  if (cloudData.chapters) {
+    for (const [cid, ch] of Object.entries(cloudData.chapters)) {
+      if (!ch) continue;
+      if (!localData.chapters[cid]) {
+        localData.chapters[cid] = { headingBlocks: [], status: "in-progress" };
+      }
+      if (!Array.isArray(localData.chapters[cid].headingBlocks)) {
+        localData.chapters[cid].headingBlocks = [];
+      }
+      if (ch.takeaway) {
+        localData.chapters[cid].takeaway = ch.takeaway;
+        merged = true;
+      }
+      if (ch.chapterOutlineRichHTML) {
+        localData.chapters[cid].chapterOutlineRichHTML = ch.chapterOutlineRichHTML;
+        merged = true;
+      }
+      if (ch.status && ch.status !== "empty") {
+        localData.chapters[cid].status = ch.status;
+      }
+      if (Array.isArray(ch.deletedHeadings) && ch.deletedHeadings.length > 0) {
+        if (!Array.isArray(localData.chapters[cid].deletedHeadings)) {
+          localData.chapters[cid].deletedHeadings = [];
+        }
+        ch.deletedHeadings.forEach((dh) => {
+          const dhKey = (dh || "").toLowerCase().trim();
+          if (dhKey && !localData.chapters[cid].deletedHeadings.includes(dhKey)) {
+            localData.chapters[cid].deletedHeadings.push(dhKey);
+          }
+        });
+      }
+      if (ch.headingsInitialized) {
+        localData.chapters[cid].headingsInitialized = true;
+      }
+
+      const cloudSections = ch.headingBlocks || ch.sections || [];
+      const localDeleted = localData.chapters[cid].deletedHeadings || [];
+      if (Array.isArray(cloudSections) && cloudSections.length > 0) {
+        cloudSections.forEach((cs, sIdx) => {
+          if (!cs) return;
+          const csHeading = (cs.heading || "").trim();
+          if (csHeading && localDeleted.includes(csHeading.toLowerCase())) {
+            return; // Do not resurrect locally deleted headings from cloud sync
+          }
+          let match = localData.chapters[cid].headingBlocks.find(
+            (hb) => hb && hb.heading && csHeading && hb.heading.toLowerCase() === csHeading.toLowerCase()
+          );
+          if (!match && localData.chapters[cid].headingBlocks[sIdx]) {
+            match = localData.chapters[cid].headingBlocks[sIdx];
+          }
+
+          const pts = Array.isArray(cs.points) && cs.points.length > 0
+            ? cs.points.map((p) => (p || "").trim()).filter(Boolean)
+            : cs.notes
+            ? cs.notes.split("\n").map((p) => p.replace(/^[•\-\*]\s*/, "").trim()).filter(Boolean)
+            : [""];
+          const nts = cs.notes || (pts.filter(Boolean).length > 0 ? pts.join("\n") : "");
+
+          if (match) {
+            if (pts.filter(Boolean).length > 0) {
+              match.points = pts;
+            }
+            if (nts.trim().length > 0) {
+              match.notes = nts;
+            }
+            if (cs.verses) match.verses = cs.verses;
+          } else {
+            localData.chapters[cid].headingBlocks.push({
+              heading: csHeading || "Section",
+              verses: cs.verses || "",
+              notes: nts,
+              points: pts
+            });
+          }
+        });
+        merged = true;
+      }
+    }
+  }
+
+  // 3. Merge Quiz History
+  if (Array.isArray(cloudData.quizHistory) && cloudData.quizHistory.length > 0) {
+    if (!Array.isArray(localData.quizHistory)) localData.quizHistory = [];
+    const existingIds = new Set(localData.quizHistory.map((q) => q.id || `${q.date}`));
+    cloudData.quizHistory.forEach((q) => {
+      const qKey = q.id || `${q.date}`;
+      if (!existingIds.has(qKey)) {
+        localData.quizHistory.push(q);
+        existingIds.add(qKey);
+        merged = true;
+      }
+    });
+    localData.quizHistory.sort((a, b) => (b.date || 0) - (a.date || 0));
+  }
+
+  // 4. Merge Book Mastery
+  if (cloudData.bookMastery && typeof cloudData.bookMastery === "object") {
+    localData.bookMastery = { ...localData.bookMastery, ...cloudData.bookMastery };
+    merged = true;
+  }
+
+  return merged;
+}
+
+// Two-way synchronization between Firestore cloud outlines & local storage
+export async function syncCloudOutlinesWithLocal(user, localData) {
+  if (!user) return { merged: false, data: localData };
+  try {
+    const cloudData = await loadOutlinesFromCloud(user);
+    let merged = false;
+    if (cloudData) {
+      merged = mergeCloudAndLocalState(cloudData, localData);
+    }
+    await saveAllOutlinesToCloud(user, localData);
+    return { merged, data: localData };
+  } catch (err) {
+    console.warn("Cloud sync error:", err);
+    return { merged: false, data: localData };
+  }
+}
+

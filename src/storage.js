@@ -18,9 +18,6 @@ export function createInitialStorage() {
       const chKey = `${book.id}-${ch}`;
       chapters[chKey] = {
         headingBlocks: [], // Array of heading blocks e.g. { heading, verses, points, notes }
-        chapterTitle: "",
-        sections: [], // Array of string section titles e.g. "v1-11: Call of Abram"
-        notes: "",    // Notes of what happened
         chapterScripture: "", // Cached bible scripture text for the chapter reader
         status: "empty", // 'empty' | 'in-progress' | 'completed'
         takeaway: "",
@@ -71,8 +68,32 @@ export function loadOutlineStorage() {
         const chKey = `${book.id}-${ch}`;
         if (!data.chapters[chKey]) {
           data.chapters[chKey] = defaultData.chapters[chKey];
-        } else if (!Array.isArray(data.chapters[chKey].headingBlocks)) {
-          data.chapters[chKey].headingBlocks = [];
+        } else {
+          const chData = data.chapters[chKey];
+          if (!Array.isArray(chData.headingBlocks)) {
+            chData.headingBlocks = [];
+          }
+          // Backward-compatibility: auto-migrate legacy notes/sections if headingBlocks is empty
+          if (chData.headingBlocks.length === 0) {
+            const legacyHeading = chData.chapterTitle || (Array.isArray(chData.sections) && chData.sections[0]) || "";
+            const legacyNotes = chData.notes || "";
+            if (legacyHeading.trim() || legacyNotes.trim()) {
+              const pts = legacyNotes
+                .split("\n")
+                .map((l) => l.replace(/^[•\-\*]\s*/, "").trim())
+                .filter(Boolean);
+              chData.headingBlocks.push({
+                heading: legacyHeading.trim() || "Overview",
+                verses: "",
+                notes: legacyNotes.trim(),
+                points: pts
+              });
+            }
+          }
+          // Clean up legacy keys
+          delete chData.chapterTitle;
+          delete chData.sections;
+          delete chData.notes;
         }
       }
     });
@@ -161,13 +182,18 @@ export function injectExampleOutlines(data) {
 
   // Matthew 1
   data.chapters["MAT-1"] = {
-    chapterTitle: "The Genealogy of King Jesus & Immanuel's Birth",
-    sections: [
-      "v1-17: The Royal Lineage from Abraham and David to Joseph",
-      "v18-25: The Angel's Message to Joseph & Birth of Immanuel"
+    headingBlocks: [
+      {
+        heading: "The Genealogy of Jesus Christ",
+        verses: "v1–17",
+        notes: "• Genealogy establishes Jesus as the rightful heir to Abraham (blessing to nations) and David (eternal throne).\n• Notably includes women of grace and redemption (Tamar, Rahab, Ruth, Bathsheba) showing God's mercy extends to all."
+      },
+      {
+        heading: "The Birth of Jesus Christ",
+        verses: "v18–25",
+        notes: "• Angel reveals to Joseph that Mary has conceived by the Holy Spirit.\n• Name JESUS = 'Yahweh saves' (He will save His people from their sins).\n• Immanuel = 'God with us' (fulfilling Isaiah 7:14)."
+      }
     ],
-    notes:
-      "• Genealogy establishes Jesus as the rightful heir to Abraham (blessing to nations) and David (eternal throne).\n• Notably includes women of grace/redemption (Tamar, Rahab, Ruth, Bathsheba) showing God's mercy extends to all.\n• Angel reveals to Joseph that Mary conceived by the Holy Spirit.\n• Name JESUS = 'Yahweh saves' (He will save His people from their sins).\n• Immanuel = 'God with us' (fulfilling Isaiah 7:14).",
     status: "completed",
     takeaway: "Jesus is the fulfillment of all God's promises—God with us to save us from our sins.",
     updatedAt: Date.now()

@@ -254,13 +254,25 @@ class E2ETester:
                 layoutAfterDocClick = app.bookRollupLayout;
             }
 
+            // Test clicking open chapter editor button to jump to Chapter 2 outliner
+            const openCh2Btn = document.querySelector('.open-chapter-editor-btn[data-chapter-num="2"]');
+            let jumpedView = null;
+            let jumpedCh = null;
+            if (openCh2Btn) {
+                openCh2Btn.click();
+                jumpedView = app.activeView;
+                jumpedCh = app.selectedChapterNum;
+            }
+
             return {
                 view: app.activeView,
                 hasSummaryArea: Boolean(summaryArea),
                 savedSummary: app.data.books['GEN']?.bookSummary,
                 layoutAfterGridClick,
                 hasGridTable,
-                layoutAfterDocClick
+                layoutAfterDocClick,
+                jumpedView,
+                jumpedCh
             };
         })()
         """)
@@ -269,6 +281,8 @@ class E2ETester:
         assert r1.get("layoutAfterGridClick") == "grid", "Clicking grid layout button did not set bookRollupLayout to grid"
         assert r1.get("hasGridTable") == True, "Two-column grid table missing when in grid rollup layout"
         assert r1.get("layoutAfterDocClick") == "document", "Clicking document layout button did not set bookRollupLayout to document"
+        assert r1.get("jumpedView") == "chapter-outliner", f"Expected jump to chapter-outliner, got {r1.get('jumpedView')}"
+        assert r1.get("jumpedCh") == 2, f"Expected jump to chapter 2, got {r1.get('jumpedCh')}"
 
         # 2. Bible Plot View
         r2 = self.eval_js("""
