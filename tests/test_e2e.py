@@ -25,6 +25,7 @@ class E2ETester:
             ("E2E: Diagnostic Quiz Flow & Scorecard", self.test_diagnostic_quiz_flow),
             ("E2E: Question Flag Modal & Interaction Flow", self.test_flag_question_modal_flow),
             ("E2E: Book Rollup Layout & Direct Export Actions", self.test_book_rollup_export_actions),
+            ("E2E: Dark and Light Theme Toggle", self.test_dark_light_theme_toggle),
             ("E2E: Cloud Sync & Deep Merge Lifecycle", self.test_cloud_sync_lifecycle)
         ]
 
@@ -524,3 +525,46 @@ class E2ETester:
         assert r.get("exportedDocFileName") == "Gen_Outline.md", f"Expected Gen_Outline.md, got {r.get('exportedDocFileName')}"
         assert r.get("exportedGridFileName") == "Gen_Outline_Grid.md", f"Expected Gen_Outline_Grid.md, got {r.get('exportedGridFileName')}"
         assert r.get("activeLayoutAfterGridClick") == "grid", "Layout failed to update to grid"
+
+    def test_dark_light_theme_toggle(self):
+        r = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            const root = document.documentElement;
+            const themeBtn = document.getElementById("theme-toggle-btn");
+
+            // Verify button presence
+            const hasThemeBtn = Boolean(themeBtn);
+
+            // Toggle to light mode
+            if (themeBtn) themeBtn.click();
+            const themeAfterFirstToggle = app.theme;
+            const rootClassAfterFirstToggle = root.className;
+            const storageAfterFirstToggle = localStorage.getItem("bibleOutline_theme");
+
+            // Toggle back to dark mode
+            const themeBtnSecond = document.getElementById("theme-toggle-btn");
+            if (themeBtnSecond) themeBtnSecond.click();
+            const themeAfterSecondToggle = app.theme;
+            const rootClassAfterSecondToggle = root.className;
+            const storageAfterSecondToggle = localStorage.getItem("bibleOutline_theme");
+
+            return {
+                hasThemeBtn,
+                themeAfterFirstToggle,
+                rootClassAfterFirstToggle,
+                storageAfterFirstToggle,
+                themeAfterSecondToggle,
+                rootClassAfterSecondToggle,
+                storageAfterSecondToggle
+            };
+        })()
+        """)
+        assert r.get("hasThemeBtn") == True, "Theme toggle button (#theme-toggle-btn) missing from TopNavbar"
+        assert r.get("themeAfterFirstToggle") == "light", f"Expected theme to be 'light' after toggle, got {r.get('themeAfterFirstToggle')}"
+        assert "light" in r.get("rootClassAfterFirstToggle"), f"Expected root class to contain 'light', got {r.get('rootClassAfterFirstToggle')}"
+        assert r.get("storageAfterFirstToggle") == "light", f"Expected localStorage to be 'light', got {r.get('storageAfterFirstToggle')}"
+        assert r.get("themeAfterSecondToggle") == "dark", f"Expected theme to toggle back to 'dark', got {r.get('themeAfterSecondToggle')}"
+        assert "dark" in r.get("rootClassAfterSecondToggle"), f"Expected root class to contain 'dark', got {r.get('rootClassAfterSecondToggle')}"
+        assert r.get("storageAfterSecondToggle") == "dark", f"Expected localStorage to be 'dark', got {r.get('storageAfterSecondToggle')}"
+

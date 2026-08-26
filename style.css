@@ -1,0 +1,286 @@
+/* ========================================================
+   BIBLE OUTLINE STUDIO — THEME STYLESHEET (DARK / LIGHT)
+   ======================================================== */
+
+:root {
+  color-scheme: dark;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+/* Smooth transition when toggling modes */
+body, #app, header, nav, aside, main, input, textarea, button {
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Custom Scrollbars */
+html.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #141413;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #2b2b28;
+  border-radius: 4px;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3a3a36;
+}
+
+html.light ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+html.light ::-webkit-scrollbar-track {
+  background: #faf8f5;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #d6d0c4;
+  border-radius: 4px;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #b5ad9e;
+}
+
+/* ========================================================
+   LIGHT THEME: Editorial Manuscript & Warm Parchment Palette
+   ======================================================== */
+
+html.light,
+html.light body,
+html.light #app {
+  background-color: #FAF8F5 !important;
+  color: #1C1917 !important;
+}
+
+/* Base Surfaces: Panels, Scripture Reader, Outliner Canvas */
+html.light .bg-\[\#171715\],
+html.light .bg-\[\#181816\],
+html.light .bg-\[\#191917\] {
+  background-color: #FFFFFF !important;
+}
+
+/* Clean Parchment Background (Sidebar, App Canvas, Outliner Base) */
+html.light .bg-\[\#121211\],
+html.light .bg-\[\#141413\],
+html.light .bg-\[\#151513\],
+html.light .bg-\[\#161614\] {
+  background-color: #FAF8F5 !important;
+}
+
+/* Secondary Containers, Pill Bars & Toolbar Shelves */
+html.light .bg-\[\#1A1A18\],
+html.light .bg-\[\#1B1A17\],
+html.light .bg-\[\#1C1C1A\],
+html.light .bg-\[\#1D1D1B\],
+html.light .bg-\[\#1E1E1B\],
+html.light .bg-\[\#1E1E1C\],
+html.light .bg-\[\#1F1F1D\] {
+  background-color: #F2EFE9 !important;
+}
+
+/* Elevated Controls, Inactive Pills, Buttons & Badges */
+html.light .bg-\[\#20201D\],
+html.light .bg-\[\#20201E\],
+html.light .bg-\[\#22221F\],
+html.light .bg-\[\#232320\],
+html.light .bg-\[\#242421\],
+html.light .bg-\[\#242422\],
+html.light .bg-\[\#252522\],
+html.light .bg-\[\#262623\],
+html.light .bg-\[\#282825\],
+html.light .bg-\[\#2A2A27\],
+html.light .bg-\[\#2B2B28\],
+html.light .bg-\[\#2C2C28\],
+html.light .bg-\[\#2D2D2A\],
+html.light .bg-\[\#2E2E2A\],
+html.light .bg-\[\#30302C\],
+html.light .bg-\[\#353531\],
+html.light .bg-\[\#383834\],
+html.light .bg-\[\#484844\] {
+  background-color: #E8E2D5 !important;
+  color: #1C1917 !important;
+}
+
+/* Interactive Hover States */
+html.light .hover\:bg-\[\#1A1A18\]:hover,
+html.light .hover\:bg-\[\#1A1A18\]\/60:hover,
+html.light .hover\:bg-\[\#1E1E1C\]:hover,
+html.light .hover\:bg-\[\#20201D\]:hover,
+html.light .hover\:bg-\[\#22221F\]:hover {
+  background-color: #EDE8DE !important;
+}
+
+html.light .hover\:bg-\[\#232320\]:hover,
+html.light .hover\:bg-\[\#262623\]:hover,
+html.light .hover\:bg-\[\#2A2A27\]:hover,
+html.light .hover\:bg-\[\#2D2D29\]:hover,
+html.light .hover\:bg-\[\#2E2E2A\]:hover,
+html.light .hover\:bg-\[\#30302C\]:hover,
+html.light .hover\:bg-\[\#353531\]:hover {
+  background-color: #DDD6C7 !important;
+}
+
+/* Active Gold Highlights & Action Buttons */
+html.light .bg-\[\#C4B79C\] {
+  background-color: #8A6D3B !important;
+  color: #FFFFFF !important;
+}
+
+html.light .hover\:bg-\[\#C4B79C\]:hover {
+  background-color: #785E32 !important;
+  color: #FFFFFF !important;
+}
+
+html.light .hover\:bg-\[\#DBCFB3\]:hover {
+  background-color: #E3DCCF !important;
+}
+
+html.light .bg-\[\#C4B79C\]\/15,
+html.light .bg-\[\#C4B79C\]\/20 {
+  background-color: rgba(138, 109, 59, 0.12) !important;
+}
+
+/* Modal Backdrops */
+html.light .bg-black\/75,
+html.light .bg-black\/80 {
+  background-color: rgba(28, 25, 23, 0.45) !important;
+}
+
+/* ---------------- Text Colors ---------------- */
+
+/* Primary Text */
+html.light .text-\[\#EAE8E2\],
+html.light .text-\[\#ECE9E0\] {
+  color: #1C1917 !important;
+}
+
+/* Secondary Text */
+html.light .text-\[\#DBCFB3\],
+html.light .text-\[\#D6D4CE\] {
+  color: #292524 !important;
+}
+
+/* Gold Accent Text */
+html.light .text-\[\#C4B79C\] {
+  color: #8A6D3B !important;
+}
+
+/* Medium Muted Text */
+html.light .text-\[\#A19E97\],
+html.light .text-\[\#9A9891\],
+html.light .text-\[\#8C8A84\],
+html.light .text-\[\#7B7974\] {
+  color: #57534E !important;
+}
+
+/* Low Muted / Dim Text */
+html.light .text-\[\#6D6B66\],
+html.light .text-\[\#5B5953\],
+html.light .text-\[\#333330\] {
+  color: #8C857B !important;
+}
+
+/* Hover Text Overrides */
+html.light .hover\:text-\[\#EAE8E2\]:hover {
+  color: #1C1917 !important;
+}
+
+html.light .hover\:text-\[\#C4B79C\]:hover {
+  color: #8A6D3B !important;
+}
+
+html.light .hover\:text-\[\#DBCFB3\]:hover {
+  color: #1C1917 !important;
+}
+
+html.light .hover\:text-\[\#141413\]:hover {
+  color: #FFFFFF !important;
+}
+
+/* ---------------- Border & Divider Colors ---------------- */
+
+html.light .border-\[\#141413\],
+html.light .border-\[\#222220\],
+html.light .border-\[\#242422\],
+html.light .border-\[\#262623\],
+html.light .border-\[\#262624\],
+html.light .border-\[\#282825\],
+html.light .border-\[\#2A2A27\],
+html.light .border-\[\#2B2B28\],
+html.light .border-\[\#2D2D29\],
+html.light .border-\[\#2E2E2A\],
+html.light .border-\[\#33332E\],
+html.light .border-\[\#33332F\],
+html.light .border-\[\#383834\],
+html.light .border-\[\#3A3A34\],
+html.light .border-\[\#3A3A36\] {
+  border-color: #E2DDD3 !important;
+}
+
+html.light .border-\[\#C4B79C\],
+html.light .focus\:border-\[\#C4B79C\]:focus {
+  border-color: #8A6D3B !important;
+}
+
+html.light .divide-\[\#222220\] > :not([hidden]) ~ :not([hidden]),
+html.light .divide-\[\#242422\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: #E2DDD3 !important;
+}
+
+/* ---------------- Input & Editor Styles ---------------- */
+
+html.light input:not(.heading-title-input),
+html.light textarea,
+html.light select {
+  background-color: #FFFFFF !important;
+  color: #1C1917 !important;
+  border-color: #D6D0C4 !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #8C857B !important;
+}
+
+html.light .heading-title-input {
+  background-color: transparent !important;
+  color: #1C1917 !important;
+  border-color: transparent !important;
+}
+
+html.light .heading-title-input:hover {
+  border-color: #D6D0C4 !important;
+}
+
+html.light .heading-title-input:focus {
+  border-bottom-color: #8A6D3B !important;
+  color: #1C1917 !important;
+}
+
+html.light [contenteditable] {
+  color: #1C1917 !important;
+  background-color: #FFFFFF !important;
+}
+
+html.light .section-bullet-canvas:focus {
+  background-color: #FAFAF7 !important;
+}
+
+/* Scripture Reader Panel Text */
+html.light #scripture-reader-display {
+  color: #1C1917 !important;
+}
+
+/* Book Rollup Takeaway Banner */
+html.light .bg-\[\#1B1A17\] {
+  background-color: #F8F5EE !important;
+}

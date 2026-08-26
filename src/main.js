@@ -46,6 +46,8 @@ class BibleOutlineStudio {
     this.splitRatio = !isNaN(savedRatio) && savedRatio >= 15 && savedRatio <= 85 ? savedRatio : 50;
     this.bookRollupLayout = localStorage.getItem("bibleOutline_bookRollupLayout") || "grid"; // 'grid' | 'document'
     this.isCollapsed = false;
+    this.theme = localStorage.getItem("bibleOutline_theme") || (typeof document !== "undefined" && document.documentElement.classList.contains("light") ? "light" : "dark");
+    this.applyTheme(this.theme);
 
     // Quiz & Diagnostic state
     this.activeQuizTab = "diagnostic"; // 'diagnostic' | 'book-quizzes' | 'history'
@@ -652,7 +654,8 @@ class BibleOutlineStudio {
               selectedBook: book,
               selectedChapterNum: this.selectedChapterNum,
               googleUser: this.googleUser,
-              cloudSyncStatus: this.cloudSyncStatus
+              cloudSyncStatus: this.cloudSyncStatus,
+              theme: this.theme
             })}
 
             <!-- Main Scrollable Canvas -->
@@ -764,7 +767,14 @@ class BibleOutlineStudio {
       });
     });
 
-    // 2. Navbar view switchers
+    // 2. Navbar view switchers & Theme Toggle
+    const themeToggleBtn = document.getElementById("theme-toggle-btn");
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener("click", () => {
+        this.toggleTheme();
+      });
+    }
+
     const studioViewBtns = document.querySelectorAll(".studio-view-btn");
     studioViewBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -2392,6 +2402,29 @@ class BibleOutlineStudio {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+  }
+
+  applyTheme(theme) {
+    this.theme = theme === "light" ? "light" : "dark";
+    try {
+      localStorage.setItem("bibleOutline_theme", this.theme);
+    } catch (e) {}
+    if (typeof document !== "undefined") {
+      const root = document.documentElement;
+      if (this.theme === "light") {
+        root.classList.remove("dark");
+        root.classList.add("light");
+      } else {
+        root.classList.remove("light");
+        root.classList.add("dark");
+      }
+    }
+  }
+
+  toggleTheme() {
+    const nextTheme = this.theme === "dark" ? "light" : "dark";
+    this.applyTheme(nextTheme);
+    this.render();
   }
 }
 

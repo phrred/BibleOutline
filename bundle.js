@@ -34170,7 +34170,7 @@ function renderSidebar({
 }
 
 // --- FILE: src/components/TopNavbar.js ---
-function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleUser, cloudSyncStatus }) {
+function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleUser, cloudSyncStatus, theme = "dark" }) {
   return `
     <header class="h-12 bg-[#141413] border-b border-[#242422] px-6 flex items-center justify-between shrink-0 select-none text-xs">
       <!-- Left: Book & Chapter indicator -->
@@ -34221,8 +34221,18 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
         </button>
       </nav>
 
-      <!-- Right: Quiet Actions & Cloud SSO Modal Trigger -->
-      <div class="flex items-center gap-3">
+      <!-- Right: Quiet Actions, Theme Toggle & Cloud SSO Modal Trigger -->
+      <div class="flex items-center gap-2.5">
+        <button
+          id="theme-toggle-btn"
+          class="px-2.5 py-1 rounded bg-[#1C1C1A] hover:bg-[#262623] border border-[#2B2B28] text-[#EAE8E2] transition flex items-center gap-1.5 text-xs font-medium cursor-pointer shadow-xs"
+          title="Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode"
+          aria-label="Toggle dark and light theme"
+        >
+          <span class="text-xs select-none">${theme === "dark" ? "☀️" : "🌙"}</span>
+          <span class="hidden sm:inline">${theme === "dark" ? "Light" : "Dark"}</span>
+        </button>
+
         <button
           id="open-cloud-sso-btn"
           class="px-3 py-1 rounded bg-[#1C1C1A] hover:bg-[#262623] border border-[#2B2B28] text-[#EAE8E2] transition flex items-center gap-1.5 text-xs font-medium"
@@ -36851,6 +36861,8 @@ class BibleOutlineStudio {
     this.splitRatio = !isNaN(savedRatio) && savedRatio >= 15 && savedRatio <= 85 ? savedRatio : 50;
     this.bookRollupLayout = localStorage.getItem("bibleOutline_bookRollupLayout") || "grid"; // 'grid' | 'document'
     this.isCollapsed = false;
+    this.theme = localStorage.getItem("bibleOutline_theme") || (typeof document !== "undefined" && document.documentElement.classList.contains("light") ? "light" : "dark");
+    this.applyTheme(this.theme);
 
     // Quiz & Diagnostic state
     this.activeQuizTab = "diagnostic"; // 'diagnostic' | 'book-quizzes' | 'history'
@@ -37457,7 +37469,8 @@ class BibleOutlineStudio {
               selectedBook: book,
               selectedChapterNum: this.selectedChapterNum,
               googleUser: this.googleUser,
-              cloudSyncStatus: this.cloudSyncStatus
+              cloudSyncStatus: this.cloudSyncStatus,
+              theme: this.theme
             })}
 
             <!-- Main Scrollable Canvas -->
@@ -37569,7 +37582,14 @@ class BibleOutlineStudio {
       });
     });
 
-    // 2. Navbar view switchers
+    // 2. Navbar view switchers & Theme Toggle
+    const themeToggleBtn = document.getElementById("theme-toggle-btn");
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener("click", () => {
+        this.toggleTheme();
+      });
+    }
+
     const studioViewBtns = document.querySelectorAll(".studio-view-btn");
     studioViewBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -39197,6 +39217,29 @@ class BibleOutlineStudio {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+  }
+
+  applyTheme(theme) {
+    this.theme = theme === "light" ? "light" : "dark";
+    try {
+      localStorage.setItem("bibleOutline_theme", this.theme);
+    } catch (e) {}
+    if (typeof document !== "undefined") {
+      const root = document.documentElement;
+      if (this.theme === "light") {
+        root.classList.remove("dark");
+        root.classList.add("light");
+      } else {
+        root.classList.remove("light");
+        root.classList.add("dark");
+      }
+    }
+  }
+
+  toggleTheme() {
+    const nextTheme = this.theme === "dark" ? "light" : "dark";
+    this.applyTheme(nextTheme);
+    this.render();
   }
 }
 

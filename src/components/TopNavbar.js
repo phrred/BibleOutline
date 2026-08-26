@@ -1,4 +1,4 @@
-export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleUser, cloudSyncStatus }) {
+export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleUser, cloudSyncStatus, theme = "dark" }) {
   return `
     <header class="h-12 bg-[#141413] border-b border-[#242422] px-6 flex items-center justify-between shrink-0 select-none text-xs">
       <!-- Left: Book & Chapter indicator -->
@@ -49,8 +49,18 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
         </button>
       </nav>
 
-      <!-- Right: Quiet Actions & Cloud SSO Modal Trigger -->
-      <div class="flex items-center gap-3">
+      <!-- Right: Quiet Actions, Theme Toggle & Cloud SSO Modal Trigger -->
+      <div class="flex items-center gap-2.5">
+        <button
+          id="theme-toggle-btn"
+          class="px-2.5 py-1 rounded bg-[#1C1C1A] hover:bg-[#262623] border border-[#2B2B28] text-[#EAE8E2] transition flex items-center gap-1.5 text-xs font-medium cursor-pointer shadow-xs"
+          title="Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode"
+          aria-label="Toggle dark and light theme"
+        >
+          <span class="text-xs select-none">${theme === "dark" ? "☀️" : "🌙"}</span>
+          <span class="hidden sm:inline">${theme === "dark" ? "Light" : "Dark"}</span>
+        </button>
+
         <button
           id="open-cloud-sso-btn"
           class="px-3 py-1 rounded bg-[#1C1C1A] hover:bg-[#262623] border border-[#2B2B28] text-[#EAE8E2] transition flex items-center gap-1.5 text-xs font-medium"
