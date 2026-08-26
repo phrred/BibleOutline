@@ -27,13 +27,17 @@ export function renderChapterEditorView({
       chData.chapterScripture,
       `${selectedBook.name} ${chapterNum}`
     );
-    blocks = extractedHeadings.map((esvH) => ({
-      heading: esvH.heading,
-      verses: esvH.verses,
-      notes: "",
-      points: [""]
-    }));
+    const deletedHeadings = chData.deletedHeadings || [];
+    blocks = extractedHeadings
+      .filter((esvH) => !deletedHeadings.includes((esvH.heading || "").toLowerCase().trim()))
+      .map((esvH) => ({
+        heading: esvH.heading,
+        verses: esvH.verses,
+        notes: "",
+        points: [""]
+      }));
     chData.headingBlocks = blocks;
+    chData.headingsInitialized = true;
   } else {
     // Ensure all blocks have well-formed points arrays
     blocks.forEach((b) => {

@@ -147,14 +147,15 @@ export function renderBookRollupView({
               };
 
               let blocks = chData.headingBlocks;
-              if (!Array.isArray(blocks) || blocks.length === 0) {
-                blocks = extractESVHeadings(chData.chapterScripture, `${selectedBook.name} ${ch}`).map(
-                  (h) => ({
+              if (!Array.isArray(blocks)) {
+                const deletedHeadings = chData.deletedHeadings || [];
+                blocks = extractESVHeadings(chData.chapterScripture, `${selectedBook.name} ${ch}`)
+                  .filter((h) => !deletedHeadings.includes((h.heading || "").toLowerCase().trim()))
+                  .map((h) => ({
                     heading: h.heading,
                     verses: h.verses,
                     notes: ""
-                  })
-                );
+                  }));
               }
 
               if (rollupLayout === "grid") {

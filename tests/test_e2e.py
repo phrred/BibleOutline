@@ -27,6 +27,7 @@ class E2ETester:
             ("E2E: Book Rollup Layout & Direct Export Actions", self.test_book_rollup_export_actions),
             ("E2E: Dark and Light Theme Toggle", self.test_dark_light_theme_toggle),
             ("E2E: Canvas Clean Paste Formatting", self.test_canvas_clean_paste_formatting),
+            ("E2E: Deleted ESV Heading Persistence", self.test_deleted_esv_heading_does_not_come_back),
             ("E2E: Cloud Sync & Deep Merge Lifecycle", self.test_cloud_sync_lifecycle)
         ]
 
@@ -576,10 +577,16 @@ class E2ETester:
             app.activeView = "chapter-outliner";
             app.selectedBookId = "GEN";
             app.selectedChapterNum = 1;
+            if (!app.data.chapters['GEN-1'] || !Array.isArray(app.data.chapters['GEN-1'].headingBlocks) || app.data.chapters['GEN-1'].headingBlocks.length === 0) {
+                app.data.chapters['GEN-1'] = {
+                    headingBlocks: [{ heading: "The Creation of the World", verses: "v1–31", points: [""], notes: "" }],
+                    status: "in-progress"
+                };
+            }
             app.render();
 
             const canvas = document.querySelector(".section-bullet-canvas");
-            if (!canvas) return { error: "canvas not found" };
+            if (!canvas) return { error: "canvas not found", activeView: app.activeView, bodyHtml: document.body.innerHTML.substring(0, 300) };
 
             // Simulate pasting messy text with foreign tags, bullet symbols, and numbers
             const pasteEvent = new Event("paste", { bubbles: true, cancelable: true });
@@ -609,5 +616,61 @@ class E2ETester:
         assert "Point A: Creation" in r.get("lis"), f"Expected 'Point A: Creation' in lis, got {r.get('lis')}"
         assert "Point D: Rest" in r.get("lis"), f"Expected 'Point D: Rest' in lis, got {r.get('lis')}"
         assert len(r.get("storedPoints")) >= 4, f"Expected at least 4 stored points, got {r.get('storedPoints')}"
+
+    def test_deleted_esv_heading_does_not_come_back(self):
+        r = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            app.activeView = "chapter-outliner";
+            app.selectedBookId = "MAT";
+            app.selectedChapterNum = 1;
+
+            // Initial ESV scripture with two headings
+            const sampleScripture = "The Genealogy of Jesus Christ\\n\\n[1] The book of the genealogy of Jesus Christ...\\n\\nThe Birth of Jesus Christ\\n\\n[18] Now the birth of Jesus Christ took place in this way...";
+            app.data.chapters["MAT-1"] = {
+                headingBlocks: [
+                    { heading: "The Genealogy of Jesus Christ", verses: "v1-17", points: ["Line of Abraham"], notes: "Line of Abraham" },
+                    { heading: "The Birth of Jesus Christ", verses: "v18-25", points: ["Born in Bethlehem"], notes: "Born in Bethlehem" }
+                ],
+                chapterScripture: sampleScripture,
+                status: "in-progress"
+            };
+            app.render();
+
+            // Delete the first heading ("The Genealogy of Jesus Christ") via delete-heading-btn
+            const deleteBtn = document.querySelector('.delete-heading-btn[data-delete-heading="0"]');
+            if (deleteBtn) {
+                const originalConfirm = window.confirm;
+                window.confirm = () => true;
+                deleteBtn.click();
+                window.confirm = originalConfirm;
+            }
+
+            const headingsAfterDelete = (app.data.chapters["MAT-1"].headingBlocks || []).map(b => b.heading);
+            const deletedList = app.data.chapters["MAT-1"].deletedHeadings || [];
+
+            // Simulate chapter switch / reload: call syncHeadingBlocksForChapter again with force=false
+            app.syncHeadingBlocksForChapter("MAT-1", sampleScripture, "Matthew", 1, false);
+            const headingsAfterSync = (app.data.chapters["MAT-1"].headingBlocks || []).map(b => b.heading);
+
+            // Simulate autoLoadESVForCurrentChapter with force=false
+            app.selectedChapterNum = 1;
+            app.autoLoadESVForCurrentChapter(false);
+            const headingsAfterAutoLoad = (app.data.chapters["MAT-1"].headingBlocks || []).map(b => b.heading);
+
+            return {
+                headingsAfterDelete,
+                deletedList,
+                headingsAfterSync,
+                headingsAfterAutoLoad
+            };
+        })()
+        """)
+        assert "The Genealogy of Jesus Christ" not in r.get("headingsAfterDelete"), "Deleted heading was not removed after clicking delete"
+        assert len(r.get("headingsAfterDelete")) == 1, f"Expected 1 heading after delete, got {r.get('headingsAfterDelete')}"
+        assert "the genealogy of jesus christ" in [h.lower() for h in r.get("deletedList")], "Deleted heading was not recorded in deletedHeadings"
+        assert "The Genealogy of Jesus Christ" not in r.get("headingsAfterSync"), "Deleted heading resurrected after syncHeadingBlocksForChapter!"
+        assert "The Genealogy of Jesus Christ" not in r.get("headingsAfterAutoLoad"), "Deleted heading resurrected after autoLoadESVForCurrentChapter!"
+
 
 

@@ -148,11 +148,30 @@ class BibleOutlineStudio {
             if (ch.status && ch.status !== "empty") {
               this.data.chapters[cid].status = ch.status;
             }
+            if (Array.isArray(ch.deletedHeadings) && ch.deletedHeadings.length > 0) {
+              if (!Array.isArray(this.data.chapters[cid].deletedHeadings)) {
+                this.data.chapters[cid].deletedHeadings = [];
+              }
+              ch.deletedHeadings.forEach((dh) => {
+                const dhKey = (dh || "").toLowerCase().trim();
+                if (dhKey && !this.data.chapters[cid].deletedHeadings.includes(dhKey)) {
+                  this.data.chapters[cid].deletedHeadings.push(dhKey);
+                }
+              });
+            }
+            if (ch.headingsInitialized) {
+              this.data.chapters[cid].headingsInitialized = true;
+            }
+
             const cloudSections = ch.headingBlocks || ch.sections || [];
+            const localDeleted = this.data.chapters[cid].deletedHeadings || [];
             if (Array.isArray(cloudSections) && cloudSections.length > 0) {
               cloudSections.forEach((cs, sIdx) => {
                 if (!cs) return;
                 const csHeading = (cs.heading || "").trim();
+                if (csHeading && localDeleted.includes(csHeading.toLowerCase())) {
+                  return; // Do not resurrect locally deleted headings from cloud sync
+                }
                 let match = this.data.chapters[cid].headingBlocks.find(
                   (hb) => hb && hb.heading && csHeading && hb.heading.toLowerCase() === csHeading.toLowerCase()
                 );
@@ -267,24 +286,33 @@ class BibleOutlineStudio {
       this.data.chapters[chKey] = {
         headingBlocks: [],
         chapterScripture: text,
-        status: "empty"
+        status: "empty",
+        headingsInitialized: false,
+        deletedHeadings: []
       };
     }
 
-    // If not forced and headingBlocks is already initialized, keep existing blocks
-    if (!force && Array.isArray(this.data.chapters[chKey].headingBlocks) && this.data.chapters[chKey].headingBlocks.length > 0) {
-      this.data.chapters[chKey].chapterScripture = text;
+    const chData = this.data.chapters[chKey];
+    if (!Array.isArray(chData.deletedHeadings)) chData.deletedHeadings = [];
+
+    // If not forced and headingBlocks is already initialized (or edited by user), keep existing blocks
+    if (!force && (chData.headingsInitialized || Array.isArray(chData.headingBlocks))) {
+      chData.chapterScripture = text;
       return;
     }
 
     const extracted = extractESVHeadings(text, `${bookName} ${chNum}`);
-    const existing = Array.isArray(this.data.chapters[chKey]?.headingBlocks)
-      ? this.data.chapters[chKey].headingBlocks
-      : [];
+    const existing = Array.isArray(chData.headingBlocks) ? chData.headingBlocks : [];
 
-    const synced = extracted.map((h, idx) => {
+    // Filter out headings that the user explicitly deleted
+    const filteredExtracted = extracted.filter((h) => {
+      const hKey = (h.heading || "").toLowerCase().trim();
+      return !chData.deletedHeadings.includes(hKey);
+    });
+
+    const synced = filteredExtracted.map((h, idx) => {
       const matchTitle = existing.find(
-        (eb) => eb && eb.heading && h.heading && eb.heading.toLowerCase() === h.heading.toLowerCase() && !eb.heading.includes("Overview")
+        (eb) => eb && eb.heading && h.heading && eb.heading.toLowerCase().trim() === h.heading.toLowerCase().trim()
       );
       const matchIdx = existing[idx];
       const pts = matchTitle?.points || matchIdx?.points || [""];
@@ -297,13 +325,12 @@ class BibleOutlineStudio {
       };
     });
 
-    const currentRichHTML = this.data.chapters[chKey]?.chapterOutlineRichHTML;
-    const currentStatus = this.data.chapters[chKey]?.status || "empty";
-
-    this.data.chapters[chKey].headingBlocks = synced;
-    this.data.chapters[chKey].chapterScripture = text;
+    const currentRichHTML = chData.chapterOutlineRichHTML;
+    chData.headingBlocks = synced;
+    chData.chapterScripture = text;
+    chData.headingsInitialized = true;
     if (currentRichHTML) {
-      this.data.chapters[chKey].chapterOutlineRichHTML = currentRichHTML;
+      chData.chapterOutlineRichHTML = currentRichHTML;
     }
   }
 
@@ -477,7 +504,7 @@ class BibleOutlineStudio {
       window.history.replaceState({ hash: defaultHash }, "", defaultHash);
       if (isInitial) {
         this.render();
-        this.autoLoadESVForCurrentChapter(true);
+        this.autoLoadESVForCurrentChapter(false);
       }
       return;
     }
@@ -572,7 +599,7 @@ class BibleOutlineStudio {
     this.render();
 
     if (isInitial || bookChanged || chapterChanged) {
-      this.autoLoadESVForCurrentChapter(isInitial);
+      this.autoLoadESVForCurrentChapter(false);
     }
   }
 
@@ -1128,10 +1155,24 @@ class BibleOutlineStudio {
           if (!ok) return;
         }
 
-        this.data.chapters[chKey].headingBlocks.splice(idx, 1);
+        // Record this heading as permanently deleted by user so it never comes back
+        const chData = this.data.chapters[chKey];
+        if (!Array.isArray(chData.deletedHeadings)) {
+          chData.deletedHeadings = [];
+        }
+        if (block.heading) {
+          const hKey = block.heading.toLowerCase().trim();
+          if (!chData.deletedHeadings.includes(hKey)) {
+            chData.deletedHeadings.push(hKey);
+          }
+        }
+        chData.headingsInitialized = true;
+
+        chData.headingBlocks.splice(idx, 1);
         if (window.collapsedHeadingsMap?.[chKey]) {
           delete window.collapsedHeadingsMap[chKey][idx];
         }
+        saveOutlineStorage(this.data);
         this.notifyDataChanged();
         this.render();
       });
@@ -1179,10 +1220,16 @@ class BibleOutlineStudio {
       const ok = confirm("Reset outline headers to the official ESV section headings for this chapter?");
       if (!ok) return;
 
-      const text = this.data.chapters[chKey]?.chapterScripture;
+      const chData = this.data.chapters[chKey];
+      if (chData) {
+        chData.deletedHeadings = []; // Clear deleted headings so user's explicit request to restore can succeed
+      }
+
+      const text = chData?.chapterScripture;
       const book = this.getSelectedBook();
       if (text) {
         this.syncHeadingBlocksForChapter(chKey, text, book.name, this.selectedChapterNum, true);
+        saveOutlineStorage(this.data);
         this.notifyDataChanged();
       } else {
         this.autoLoadESVForCurrentChapter(true);
@@ -1200,7 +1247,8 @@ class BibleOutlineStudio {
     const refreshESVBtn = document.getElementById("refresh-esv-btn");
     if (refreshESVBtn) {
       refreshESVBtn.addEventListener("click", () => {
-        this.autoLoadESVForCurrentChapter(true);
+        // Refresh Scripture reading text only, keeping chapter outlines and deleted headings untouched
+        this.autoLoadESVForCurrentChapter(false);
       });
     }
 

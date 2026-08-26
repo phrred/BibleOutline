@@ -130,8 +130,10 @@ export function cleanChapterData(ch) {
   const richHTML = (ch.chapterOutlineRichHTML || "").trim();
   const status = ch.status && ch.status !== "empty" ? ch.status : null;
   const updatedAt = ch.updatedAt || null;
+  const deletedHeadings = Array.isArray(ch.deletedHeadings) && ch.deletedHeadings.length > 0 ? ch.deletedHeadings : null;
+  const headingsInitialized = Boolean(ch.headingsInitialized);
 
-  const hasContent = activeSections.length > 0 || takeaway.length > 0 || richHTML.length > 0;
+  const hasContent = activeSections.length > 0 || takeaway.length > 0 || richHTML.length > 0 || Boolean(deletedHeadings);
   if (!hasContent) return null;
 
   const compact = {};
@@ -140,6 +142,8 @@ export function cleanChapterData(ch) {
   if (richHTML) compact.chapterOutlineRichHTML = richHTML;
   if (status) compact.status = status;
   if (updatedAt) compact.updatedAt = updatedAt;
+  if (deletedHeadings) compact.deletedHeadings = deletedHeadings;
+  if (headingsInitialized) compact.headingsInitialized = true;
   return compact;
 }
 
