@@ -26,6 +26,7 @@ class E2ETester:
             ("E2E: Question Flag Modal & Interaction Flow", self.test_flag_question_modal_flow),
             ("E2E: Book Rollup Layout & Direct Export Actions", self.test_book_rollup_export_actions),
             ("E2E: Dark and Light Theme Toggle", self.test_dark_light_theme_toggle),
+            ("E2E: Canvas Clean Paste Formatting", self.test_canvas_clean_paste_formatting),
             ("E2E: Cloud Sync & Deep Merge Lifecycle", self.test_cloud_sync_lifecycle)
         ]
 
@@ -567,4 +568,46 @@ class E2ETester:
         assert r.get("themeAfterSecondToggle") == "dark", f"Expected theme to toggle back to 'dark', got {r.get('themeAfterSecondToggle')}"
         assert "dark" in r.get("rootClassAfterSecondToggle"), f"Expected root class to contain 'dark', got {r.get('rootClassAfterSecondToggle')}"
         assert r.get("storageAfterSecondToggle") == "dark", f"Expected localStorage to be 'dark', got {r.get('storageAfterSecondToggle')}"
+
+    def test_canvas_clean_paste_formatting(self):
+        r = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            app.activeView = "chapter-outliner";
+            app.selectedBookId = "GEN";
+            app.selectedChapterNum = 1;
+            app.render();
+
+            const canvas = document.querySelector(".section-bullet-canvas");
+            if (!canvas) return { error: "canvas not found" };
+
+            // Simulate pasting messy text with foreign tags, bullet symbols, and numbers
+            const pasteEvent = new Event("paste", { bubbles: true, cancelable: true });
+            pasteEvent.clipboardData = {
+                getData: (type) => "• Point A: Creation\\n- Point B: Light\\n1. Point C: Order\\n<span style='color:red;'>Point D: Rest</span>"
+            };
+
+            canvas.dispatchEvent(pasteEvent);
+
+            const lis = Array.from(canvas.querySelectorAll("li")).map(li => li.innerText.trim());
+            const chKey = `${app.selectedBookId}-${app.selectedChapterNum}`;
+            const storedPoints = app.data.chapters?.[chKey]?.headingBlocks?.[0]?.points || [];
+
+            return {
+                lis,
+                storedPoints,
+                canvasHtml: canvas.innerHTML,
+                hasSpan: canvas.innerHTML.includes("<span"),
+                hasDoubleBullet: lis.some(l => l.startsWith("•") || l.startsWith("-")),
+                hasNumbers: lis.some(l => /^\\d+\\./.test(l))
+            };
+        })()
+        """)
+        assert r.get("hasSpan") == False, f"Pasted content contains foreign <span> tag, html: {r.get('canvasHtml')}, lis: {r.get('lis')}"
+        assert r.get("hasDoubleBullet") == False, "Pasted content contains leading bullets"
+        assert r.get("hasNumbers") == False, "Pasted content contains leading numbers"
+        assert "Point A: Creation" in r.get("lis"), f"Expected 'Point A: Creation' in lis, got {r.get('lis')}"
+        assert "Point D: Rest" in r.get("lis"), f"Expected 'Point D: Rest' in lis, got {r.get('lis')}"
+        assert len(r.get("storedPoints")) >= 4, f"Expected at least 4 stored points, got {r.get('storedPoints')}"
+
 

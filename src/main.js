@@ -1141,6 +1141,15 @@ class BibleOutlineStudio {
     const headingTitleInputs = document.querySelectorAll(".heading-title-input");
     headingTitleInputs.forEach((input) => {
       input.addEventListener("click", (e) => e.stopPropagation());
+      input.addEventListener("paste", (e) => {
+        const text = e.clipboardData?.getData("text/plain");
+        if (text && /[\r\n]/.test(text)) {
+          e.preventDefault();
+          const cleanText = text.replace(/[\r\n]+/g, " ").trim();
+          document.execCommand("insertText", false, cleanText);
+          input.dispatchEvent(new Event("input", { bubbles: true }));
+        }
+      });
       input.addEventListener("input", () => {
         const idx = parseInt(input.getAttribute("data-heading-title-input"), 10);
         if (this.data.chapters[chKey]?.headingBlocks?.[idx]) {
@@ -1254,6 +1263,126 @@ class BibleOutlineStudio {
           // Sub-bullets are removed; keep list flat
           return;
         }
+      });
+
+      // Clean paste handler: formats pasted text to match default outliner styling
+      canvas.addEventListener("paste", (e) => {
+        e.preventDefault();
+        updateActiveSectionCanvas(canvas);
+
+        const clipboardData = e.clipboardData || window.clipboardData;
+        if (!clipboardData) return;
+
+        const rawText = clipboardData.getData("text/plain");
+        if (!rawText) return;
+
+        // Split lines and strip bullets, numbers, and tags
+        const lines = rawText.replace(/\r\n/g, "\n").replace(/\r/g, "\n").split("\n");
+        const cleanLines = [];
+        for (const line of lines) {
+          let t = line.replace(/<[^>]+>/g, "").trim();
+          t = t.replace(/^[•\u2022\u2023\u25E6\u2043\u2219\-\*]\s*/, "");
+          t = t.replace(/^(?:\d+[\.\)]|\(\d+\)|\[\d+\])\s*/, "");
+          t = t.trim();
+          if (t.length > 0) {
+            cleanLines.push(t);
+          }
+        }
+
+        if (cleanLines.length === 0) return;
+
+        // Ensure canvas contains standard bulleted list
+        let ul = canvas.querySelector("ul");
+        if (!ul) {
+          ul = document.createElement("ul");
+          ul.style.listStyleType = "disc";
+          ul.style.marginLeft = "1.25rem";
+          canvas.innerHTML = "";
+          canvas.appendChild(ul);
+        }
+
+        const selection = window.getSelection();
+        let currentLi = null;
+        let range = null;
+        if (selection && selection.rangeCount > 0) {
+          range = selection.getRangeAt(0);
+          const node = selection.anchorNode;
+          if (node) {
+            currentLi = node.nodeType === Node.ELEMENT_NODE ? node.closest("li") : node.parentElement?.closest("li");
+          }
+        }
+
+        // Case 1: Single line pasted inside an existing non-empty bullet item -> insert at cursor
+        if (cleanLines.length === 1 && currentLi && currentLi.textContent.trim().length > 0 && range) {
+          range.deleteContents();
+          const textNode = document.createTextNode(cleanLines[0]);
+          range.insertNode(textNode);
+          range.setStartAfter(textNode);
+          range.collapse(true);
+          selection.removeAllRanges();
+          selection.addRange(range);
+          canvas.dispatchEvent(new Event("input", { bubbles: true }));
+          return;
+        }
+
+        // Case 2: Multi-line paste or pasting into empty bullet item
+        if (currentLi && currentLi.textContent.trim().length === 0) {
+          currentLi.textContent = cleanLines[0];
+          let lastInserted = currentLi;
+          for (let i = 1; i < cleanLines.length; i++) {
+            const newLi = document.createElement("li");
+            newLi.textContent = cleanLines[i];
+            if (lastInserted.nextSibling) {
+              ul.insertBefore(newLi, lastInserted.nextSibling);
+            } else {
+              ul.appendChild(newLi);
+            }
+            lastInserted = newLi;
+          }
+          if (selection) {
+            const newRange = document.createRange();
+            newRange.selectNodeContents(lastInserted);
+            newRange.collapse(false);
+            selection.removeAllRanges();
+            selection.addRange(newRange);
+          }
+        } else if (currentLi) {
+          let lastInserted = currentLi;
+          for (let i = 0; i < cleanLines.length; i++) {
+            const newLi = document.createElement("li");
+            newLi.textContent = cleanLines[i];
+            if (lastInserted.nextSibling) {
+              ul.insertBefore(newLi, lastInserted.nextSibling);
+            } else {
+              ul.appendChild(newLi);
+            }
+            lastInserted = newLi;
+          }
+          if (selection) {
+            const newRange = document.createRange();
+            newRange.selectNodeContents(lastInserted);
+            newRange.collapse(false);
+            selection.removeAllRanges();
+            selection.addRange(newRange);
+          }
+        } else {
+          cleanLines.forEach((text) => {
+            const li = document.createElement("li");
+            li.textContent = text;
+            ul.appendChild(li);
+          });
+          const allLis = ul.querySelectorAll("li");
+          const lastLi = allLis[allLis.length - 1];
+          if (selection && lastLi) {
+            const newRange = document.createRange();
+            newRange.selectNodeContents(lastLi);
+            newRange.collapse(false);
+            selection.removeAllRanges();
+            selection.addRange(newRange);
+          }
+        }
+
+        canvas.dispatchEvent(new Event("input", { bubbles: true }));
       });
 
       // Auto-save on input & auto-convert start of line asterisk (*) or dash (-) to bullet list
