@@ -26,7 +26,8 @@ class UnitTester:
             ("Storage & Option A Subcollection Serialization", self.test_storage_serialization),
             ("Deep Merge & Local Storage Scaffolding", self.test_storage_scaffolding),
             ("Markdown & PDF Exporter Integrity", self.test_markdown_and_pdf_export),
-            ("Question Flag Modal & Categories Integrity", self.test_flag_question_modal)
+            ("Question Flag Modal & Categories Integrity", self.test_flag_question_modal),
+            ("Dynamic Random Heading Quiz Generation", self.test_dynamic_random_heading_generation)
         ]
 
         results = []
@@ -532,3 +533,129 @@ class UnitTester:
         assert r.get("rendersSuggestedAns") == True, "Flag modal suggested answer input missing"
         assert r.get("rendersComments") == True, "Flag modal comments input missing"
         assert r.get("nullIsBlank") == True, "Null flag modal data should return empty string"
+
+    def test_dynamic_random_heading_generation(self):
+        js = """
+        (() => {
+            // 1. Test buildHeadingQuestion helper
+            const sampleHdgQ = buildHeadingQuestion({
+                bookId: "RUT",
+                chapterNum: 2,
+                heading: "Ruth Meets Boaz in the Grainfield",
+                verseRange: "v1–23"
+            });
+
+            const evalRutNum = sampleHdgQ ? evaluateAnswer(sampleHdgQ, "2").isCorrect : false;
+            const evalRutFull = sampleHdgQ ? evaluateAnswer(sampleHdgQ, "Ruth 2").isCorrect : false;
+            const evalRutCh = sampleHdgQ ? evaluateAnswer(sampleHdgQ, "Chapter 2").isCorrect : false;
+            const evalRutWrong = sampleHdgQ ? evaluateAnswer(sampleHdgQ, "Ruth 3").isCorrect : false;
+
+            // 2. Test dynamic extraction from chaptersData
+            const mockChaptersData = {
+                "RUT-1": {
+                    headingBlocks: [
+                        { heading: "Elimelech's Family Goes to Moab", verses: "v1–5" },
+                        { heading: "Naomi and Ruth Return", verses: "v6–22" }
+                    ]
+                },
+                "RUT-2": {
+                    headingBlocks: [
+                        { heading: "Ruth Meets Boaz in the Grainfield", verses: "v1–23" }
+                    ]
+                },
+                "RUT-3": {
+                    headingBlocks: [
+                        { heading: "Ruth at the Threshing Floor of Boaz", verses: "v1–18" }
+                    ]
+                },
+                "RUT-4": {
+                    headingBlocks: [
+                        { heading: "Boaz Redeems Ruth", verses: "v1–12" },
+                        { heading: "The Genealogy of David", verses: "v18–22" },
+                        { heading: "Old Deleted Section", verses: "v13–17" }
+                    ],
+                    deletedHeadings: ["old deleted section"]
+                }
+            };
+
+            const extractedRut = extractQuestionsFromChaptersData(mockChaptersData, { specificBookId: "RUT" });
+
+            // 3. Test dynamic quiz generation with chaptersData for RUT
+            const rutHeadingQuiz = generateDynamicQuestions({
+                specificBookId: "RUT",
+                count: 10,
+                headingOnly: true,
+                chaptersData: mockChaptersData
+            });
+
+            // 4. Test randomization across multiple runs (multiple samples of Genesis headings)
+            const mockGenChapters = {};
+            for (let i = 1; i <= 50; i++) {
+                mockGenChapters[`GEN-${i}`] = {
+                    headingBlocks: [
+                        { heading: `Custom Genesis Chapter ${i} Section A`, verses: "v1–10" },
+                        { heading: `Custom Genesis Chapter ${i} Section B`, verses: "v11–25" }
+                    ]
+                };
+            }
+
+            const genRun1 = generateDynamicQuestions({
+                specificBookId: "GEN",
+                count: 15,
+                headingOnly: true,
+                chaptersData: mockGenChapters
+            });
+
+            const genRun2 = generateDynamicQuestions({
+                specificBookId: "GEN",
+                count: 15,
+                headingOnly: true,
+                chaptersData: mockGenChapters
+            });
+
+            const run1Ids = genRun1.map(q => q.id).join(",");
+            const run2Ids = genRun2.map(q => q.id).join(",");
+            const isDifferentRun = run1Ids !== run2Ids;
+
+            // 5. Test DiagnosticSession with chaptersData
+            const rutSession = new DiagnosticSession({
+                specificBookId: "RUT",
+                headingOnly: true,
+                questionCount: 6,
+                chaptersData: mockChaptersData
+            });
+
+            return {
+                sampleHdgValid: Boolean(sampleHdgQ && sampleHdgQ.id.startsWith("hdg_")),
+                evalRutNum,
+                evalRutFull,
+                evalRutCh,
+                evalRutWrong,
+                extractedRutCount: extractedRut.length,
+                deletedFilteredOut: !extractedRut.some(q => q.prompt.includes("Old Deleted Section")),
+                rutHeadingQuizCount: rutHeadingQuiz.length,
+                rutAllHeadingIds: rutHeadingQuiz.every(q => q.id.startsWith("hdg_") && q.bookId === "RUT"),
+                genRun1Count: genRun1.length,
+                genRun2Count: genRun2.length,
+                isDifferentRun,
+                rutSessionCount: rutSession.questions.length,
+                rutSessionHasDynamic: rutSession.questions.some(q => q.id.startsWith("hdg_dyn_"))
+            };
+        })()
+        """
+        r = self.eval_js(js)
+        assert r.get("sampleHdgValid") == True, "Dynamic heading question construction failed"
+        assert r.get("evalRutNum") == True, "Expected '2' to be correct for Ruth 2 heading"
+        assert r.get("evalRutFull") == True, "Expected 'Ruth 2' to be correct for Ruth 2 heading"
+        assert r.get("evalRutCh") == True, "Expected 'Chapter 2' to be correct for Ruth 2 heading"
+        assert r.get("evalRutWrong") == False, "Expected 'Ruth 3' to be incorrect for Ruth 2 heading"
+        assert r.get("extractedRutCount") == 6, f"Expected 6 extracted headings (excluding deleted), got {r.get('extractedRutCount')}"
+        assert r.get("deletedFilteredOut") == True, "Deleted headings should be excluded from dynamic questions"
+        assert r.get("rutHeadingQuizCount") >= 6, f"Expected >= 6 questions for Ruth heading quiz, got {r.get('rutHeadingQuizCount')}"
+        assert r.get("rutAllHeadingIds") == True, "All questions should have hdg_ prefix and bookId RUT"
+        assert r.get("genRun1Count") == 15, "Expected 15 questions in Genesis run 1"
+        assert r.get("genRun2Count") == 15, "Expected 15 questions in Genesis run 2"
+        assert r.get("isDifferentRun") == True, "Subsequent heading quiz runs should produce randomized question selections"
+        assert r.get("rutSessionCount") >= 6, "Expected DiagnosticSession to have at least 6 questions"
+        assert r.get("rutSessionHasDynamic") == True, "DiagnosticSession should include dynamically extracted headings"
+

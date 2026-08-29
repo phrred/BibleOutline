@@ -28,11 +28,16 @@ export function attachQuizListeners(app) {
       app.selectedBookId = bId;
       app.activeView = "quiz-diagnostic";
       app.activeQuizTab = "diagnostic";
+      const isHeadings = mode === "headings";
+      const qCount = isHeadings
+        ? Math.min(Math.max(bObj.chapterCount, 10), 15)
+        : Math.min(bObj.chapterCount, 15);
       app.quizSession = new DiagnosticSession({
         scope: "ALL",
-        questionCount: Math.min(bObj.chapterCount, 15),
+        questionCount: qCount,
         specificBookId: bId,
-        headingOnly: mode === "headings"
+        headingOnly: isHeadings,
+        chaptersData: app.data?.chapters
       });
       app.quizScorecard = null;
       app.viewingPastTest = null;
@@ -50,11 +55,13 @@ export function attachQuizListeners(app) {
       app.selectedBookId = bId;
       app.activeView = "quiz-diagnostic";
       app.activeQuizTab = "diagnostic";
+      const qCount = Math.min(Math.max(bObj.chapterCount, 10), 15);
       app.quizSession = new DiagnosticSession({
         scope: "ALL",
-        questionCount: Math.min(bObj.chapterCount, 15),
+        questionCount: qCount,
         specificBookId: bId,
-        headingOnly: true
+        headingOnly: true,
+        chaptersData: app.data?.chapters
       });
       app.quizScorecard = null;
       app.viewingPastTest = null;
@@ -121,7 +128,8 @@ export function attachQuizListeners(app) {
       app.quizSession = new DiagnosticSession({
         scope: app.selectedQuizScope,
         questionCount: app.selectedQuizQuestionCount,
-        headingOnly: app.selectedQuizFocus === "headings"
+        headingOnly: app.selectedQuizFocus === "headings",
+        chaptersData: app.data?.chapters
       });
       app.quizScorecard = null;
       app.viewingPastTest = null;
@@ -433,14 +441,16 @@ export function attachQuizListeners(app) {
             scope: test.scope || "ALL",
             customQuestions: test.questions,
             specificBookId: test.specificBookId,
-            headingOnly: Boolean(test.headingOnly)
+            headingOnly: Boolean(test.headingOnly),
+            chaptersData: app.data?.chapters
           });
         } else {
           newSession = new DiagnosticSession({
             scope: test.scope || "ALL",
             questionCount: test.questionCount || test.total || 25,
             specificBookId: test.specificBookId,
-            headingOnly: Boolean(test.headingOnly)
+            headingOnly: Boolean(test.headingOnly),
+            chaptersData: app.data?.chapters
           });
         }
       } else if (action === "missed") {
@@ -451,14 +461,16 @@ export function attachQuizListeners(app) {
             scope: test.scope || "ALL",
             customQuestions: missedQuestions,
             specificBookId: test.specificBookId,
-            headingOnly: Boolean(test.headingOnly)
+            headingOnly: Boolean(test.headingOnly),
+            chaptersData: app.data?.chapters
           });
         } else {
           newSession = new DiagnosticSession({
             scope: test.scope || "ALL",
             questionCount: test.questionCount || test.total || 25,
             specificBookId: test.specificBookId,
-            headingOnly: Boolean(test.headingOnly)
+            headingOnly: Boolean(test.headingOnly),
+            chaptersData: app.data?.chapters
           });
         }
       } else if (action === "new") {
@@ -466,7 +478,8 @@ export function attachQuizListeners(app) {
           scope: test.scope || "ALL",
           questionCount: test.questionCount || test.total || 25,
           specificBookId: test.specificBookId,
-          headingOnly: Boolean(test.headingOnly)
+          headingOnly: Boolean(test.headingOnly),
+          chaptersData: app.data?.chapters
         });
       }
 

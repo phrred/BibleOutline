@@ -34071,12 +34071,117 @@ function evaluateAnswer(question, userInput) {
 
 
 // --------------------------------------------------------------------------
+// DYNAMIC HEADING QUESTION BUILDER & EXTRACTOR
+// --------------------------------------------------------------------------
+
+function buildHeadingQuestion({ bookId, chapterNum, heading, verseRange = "", isCurated = false, sourceId = "" }) {
+  const bObj = getBookById(bookId);
+  const bookName = bObj ? bObj.name : bookId;
+  const trimmedHeading = (heading || "").trim();
+  if (!trimmedHeading || trimmedHeading.toLowerCase() === "chapter overview" || trimmedHeading.toLowerCase() === "section") {
+    return null;
+  }
+
+  const cleanSlug = cleanText(trimmedHeading).replace(/[^a-z0-9]+/g, "_").slice(0, 30);
+  const id = sourceId || `hdg_dyn_${bookId.toLowerCase()}_ch${chapterNum}_${cleanSlug}`;
+
+  const chInt = parseInt(chapterNum, 10);
+  const acceptedAnswers = [
+    `${chInt}`,
+    `Chapter ${chInt}`,
+    `Ch ${chInt}`,
+    `Ch. ${chInt}`,
+    `${bookName} ${chInt}`,
+    `${bookName} Chapter ${chInt}`,
+    `${bookName} Ch ${chInt}`,
+    `${bookId} ${chInt}`,
+    `${bookId} Ch ${chInt}`
+  ];
+
+  return {
+    id,
+    type: "chapter_in_book",
+    prompt: `In ${bookName}, what chapter contains the heading: '${trimmedHeading}'?`,
+    bookId: bookId.toUpperCase(),
+    chapterNum: chInt,
+    acceptedAnswers,
+    displayAnswer: `${bookName} ${chInt} (or Chapter ${chInt})`,
+    explanation: `${bookName} ${chInt} contains the heading '${trimmedHeading}'${verseRange ? ` (${verseRange})` : ""}.`,
+    scope: bObj ? (bObj.testament === "OT" ? "OT" : "NT") : "ALL",
+    genre: bObj ? bObj.category : ""
+  };
+}
+
+function extractQuestionsFromChaptersData(chaptersData, { specificBookId = null, scope = "ALL" } = {}) {
+  if (!chaptersData || typeof chaptersData !== "object") return [];
+  const dynamicQuestions = [];
+
+  for (const [chKey, chData] of Object.entries(chaptersData)) {
+    if (!chData || typeof chData !== "object") continue;
+    const parts = chKey.split("-");
+    if (parts.length < 2) continue;
+    const bId = parts[0].toUpperCase();
+    const chNum = parseInt(parts[1], 10);
+    if (isNaN(chNum)) continue;
+
+    if (specificBookId && bId !== specificBookId.toUpperCase()) continue;
+
+    const bObj = getBookById(bId);
+    if (scope === "OT" && bObj?.testament !== "OT") continue;
+    if (scope === "NT" && bObj?.testament !== "NT") continue;
+    if (scope === "GOSPELS" && bObj?.category !== "Gospels") continue;
+    if (scope === "EPISTLES" && !["Pauline Epistles", "General Epistles"].includes(bObj?.category)) continue;
+    if (scope === "PENTATEUCH" && bObj?.category !== "Pentateuch") continue;
+    if (scope === "HISTORICAL" && bObj?.category !== "Historical") continue;
+    if (scope === "PROPHETS" && !["Major Prophets", "Minor Prophets"].includes(bObj?.category)) continue;
+    if (scope === "WISDOM" && !["Poetry/Wisdom", "Wisdom & Poetry"].includes(bObj?.category)) continue;
+
+    const deletedHeadings = Array.isArray(chData.deletedHeadings) ? chData.deletedHeadings : [];
+
+    let blocks = chData.headingBlocks;
+    if (!Array.isArray(blocks) && chData.chapterScripture) {
+      blocks = extractESVHeadings(chData.chapterScripture, `${bObj?.name || bId} ${chNum}`);
+    }
+
+    if (Array.isArray(blocks)) {
+      blocks.forEach((hb, idx) => {
+        const headingText = (hb.heading || "").trim();
+        if (!headingText) return;
+        if (deletedHeadings.includes(headingText.toLowerCase())) return;
+        const q = buildHeadingQuestion({
+          bookId: bId,
+          chapterNum: chNum,
+          heading: headingText,
+          verseRange: hb.verses || "",
+          sourceId: `hdg_dyn_${bId.toLowerCase()}_ch${chNum}_${idx}`
+        });
+        if (q) dynamicQuestions.push(q);
+      });
+    }
+  }
+
+  return dynamicQuestions;
+}
+
+// --------------------------------------------------------------------------
 // CURATED QUESTION BANK RE-EXPORTS
 // Sourced from data/quiz_bank.js with compact schema & auto-hydration
 // --------------------------------------------------------------------------
 
 
-function generateDynamicQuestions({ scope = "ALL", count = 25, questionTypes = null, specificBookId = null, headingOnly = false }) {
+function generateDynamicQuestions({
+  scope = "ALL",
+  count = 25,
+  questionTypes = null,
+  specificBookId = null,
+  headingOnly = false,
+  chaptersData = null
+}) {
+  // If chaptersData is provided, extract dynamic chapter headings
+  const dynamicHeadingQuestions = (headingOnly || !questionTypes || questionTypes.includes("chapter_in_book"))
+    ? extractQuestionsFromChaptersData(chaptersData, { specificBookId, scope })
+    : [];
+
   // Filter curated pool according to scope, question types, and heading focus
   const pool = CURATED_QUESTION_BANK.filter((q) => {
     if (specificBookId && q.bookId !== specificBookId) return false;
@@ -34096,8 +34201,11 @@ function generateDynamicQuestions({ scope = "ALL", count = 25, questionTypes = n
     return true;
   });
 
+  // Combine curated questions with dynamic heading questions
+  const combinedPool = [...pool, ...dynamicHeadingQuestions];
+
   // Shuffle and deduplicate
-  const shuffled = [...pool].sort(() => Math.random() - 0.5);
+  const shuffled = [...combinedPool].sort(() => Math.random() - 0.5);
   const seenPrompts = new Set();
   const result = [];
 
@@ -34118,13 +34226,22 @@ function generateDynamicQuestions({ scope = "ALL", count = 25, questionTypes = n
 // --------------------------------------------------------------------------
 
 class DiagnosticSession {
-  constructor({ scope = "ALL", questionCount = 25, questionTypes = null, specificBookId = null, customQuestions = null, headingOnly = false }) {
+  constructor({
+    scope = "ALL",
+    questionCount = 25,
+    questionTypes = null,
+    specificBookId = null,
+    customQuestions = null,
+    headingOnly = false,
+    chaptersData = null
+  }) {
     this.id = `diag_${Date.now()}`;
     this.scope = scope;
     this.questionCount = customQuestions && customQuestions.length > 0 ? customQuestions.length : questionCount;
     this.questionTypes = questionTypes;
     this.specificBookId = specificBookId;
     this.headingOnly = headingOnly;
+    this.chaptersData = chaptersData;
     this.startTime = Date.now();
     this.endTime = null;
     this.currentIndex = 0;
@@ -34137,7 +34254,8 @@ class DiagnosticSession {
             count: questionCount,
             questionTypes,
             specificBookId,
-            headingOnly
+            headingOnly,
+            chaptersData
           });
     this.status = "in-progress"; // "in-progress" | "completed"
   }
@@ -35071,11 +35189,16 @@ function attachQuizListeners(app) {
       app.selectedBookId = bId;
       app.activeView = "quiz-diagnostic";
       app.activeQuizTab = "diagnostic";
+      const isHeadings = mode === "headings";
+      const qCount = isHeadings
+        ? Math.min(Math.max(bObj.chapterCount, 10), 15)
+        : Math.min(bObj.chapterCount, 15);
       app.quizSession = new DiagnosticSession({
         scope: "ALL",
-        questionCount: Math.min(bObj.chapterCount, 15),
+        questionCount: qCount,
         specificBookId: bId,
-        headingOnly: mode === "headings"
+        headingOnly: isHeadings,
+        chaptersData: app.data?.chapters
       });
       app.quizScorecard = null;
       app.viewingPastTest = null;
@@ -35093,11 +35216,13 @@ function attachQuizListeners(app) {
       app.selectedBookId = bId;
       app.activeView = "quiz-diagnostic";
       app.activeQuizTab = "diagnostic";
+      const qCount = Math.min(Math.max(bObj.chapterCount, 10), 15);
       app.quizSession = new DiagnosticSession({
         scope: "ALL",
-        questionCount: Math.min(bObj.chapterCount, 15),
+        questionCount: qCount,
         specificBookId: bId,
-        headingOnly: true
+        headingOnly: true,
+        chaptersData: app.data?.chapters
       });
       app.quizScorecard = null;
       app.viewingPastTest = null;
@@ -35164,7 +35289,8 @@ function attachQuizListeners(app) {
       app.quizSession = new DiagnosticSession({
         scope: app.selectedQuizScope,
         questionCount: app.selectedQuizQuestionCount,
-        headingOnly: app.selectedQuizFocus === "headings"
+        headingOnly: app.selectedQuizFocus === "headings",
+        chaptersData: app.data?.chapters
       });
       app.quizScorecard = null;
       app.viewingPastTest = null;
@@ -35476,14 +35602,16 @@ function attachQuizListeners(app) {
             scope: test.scope || "ALL",
             customQuestions: test.questions,
             specificBookId: test.specificBookId,
-            headingOnly: Boolean(test.headingOnly)
+            headingOnly: Boolean(test.headingOnly),
+            chaptersData: app.data?.chapters
           });
         } else {
           newSession = new DiagnosticSession({
             scope: test.scope || "ALL",
             questionCount: test.questionCount || test.total || 25,
             specificBookId: test.specificBookId,
-            headingOnly: Boolean(test.headingOnly)
+            headingOnly: Boolean(test.headingOnly),
+            chaptersData: app.data?.chapters
           });
         }
       } else if (action === "missed") {
@@ -35494,14 +35622,16 @@ function attachQuizListeners(app) {
             scope: test.scope || "ALL",
             customQuestions: missedQuestions,
             specificBookId: test.specificBookId,
-            headingOnly: Boolean(test.headingOnly)
+            headingOnly: Boolean(test.headingOnly),
+            chaptersData: app.data?.chapters
           });
         } else {
           newSession = new DiagnosticSession({
             scope: test.scope || "ALL",
             questionCount: test.questionCount || test.total || 25,
             specificBookId: test.specificBookId,
-            headingOnly: Boolean(test.headingOnly)
+            headingOnly: Boolean(test.headingOnly),
+            chaptersData: app.data?.chapters
           });
         }
       } else if (action === "new") {
@@ -35509,7 +35639,8 @@ function attachQuizListeners(app) {
           scope: test.scope || "ALL",
           questionCount: test.questionCount || test.total || 25,
           specificBookId: test.specificBookId,
-          headingOnly: Boolean(test.headingOnly)
+          headingOnly: Boolean(test.headingOnly),
+          chaptersData: app.data?.chapters
         });
       }
 
