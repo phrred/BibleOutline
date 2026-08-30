@@ -7807,7 +7807,7 @@ const CURATED_QUESTION_BANK = [
   {
     "id": "ot_q43",
     "type": "book_chapter",
-    "prompt": "What book & chapter is the Davidic Covenant where God promises David an eternal throne and kingdom?",
+    "prompt": "What book and chapter records the Davidic Covenant, where God promises David an eternal kingdom and throne?",
     "bookId": "2SA",
     "chapterNum": 7,
     "acceptedAnswers": [
@@ -7816,10 +7816,15 @@ const CURATED_QUESTION_BANK = [
       "2Samuel 7",
       "2Sam 7",
       "2 Samuel Chapter 7",
-      "2 Sam Ch 7"
+      "2 Sam Ch 7",
+      "2nd Samuel 7",
+      "2nd Sam 7",
+      "II Samuel 7",
+      "II Sam 7",
+      "Second Samuel 7"
     ],
     "displayAnswer": "2 Samuel 7",
-    "explanation": "In 2 Samuel 7, God establishes the Davidic Covenant, promising that David's throne would be established forever, pointing to Christ.",
+    "explanation": "In 2 Samuel 7:12-16, God establishes a covenant with David, promising that his throne and kingdom will be established forever.",
     "scope": "OT",
     "genre": "Historical"
   },
