@@ -32100,6 +32100,7 @@ function createInitialStorage() {
     books[book.id] = {
       bookSummary: "",
       myBookTheme: "",
+      chapterGroups: [], // Contiguous chapter ranges e.g. { id, title, startChapter, endChapter }
       updatedAt: null
     };
 
@@ -32152,6 +32153,9 @@ function loadOutlineStorage() {
     BIBLE_BOOKS.forEach((book) => {
       if (!data.books[book.id]) {
         data.books[book.id] = defaultData.books[book.id];
+      } else if (!Array.isArray(data.books[book.id].chapterGroups)) {
+        // Backward-compatibility: books saved before chapter grouping existed
+        data.books[book.id].chapterGroups = [];
       }
       for (let ch = 1; ch <= book.chapterCount; ch++) {
         const chKey = `${book.id}-${ch}`;
@@ -32292,6 +32296,128 @@ function injectExampleOutlines(data) {
   return data;
 }
 
+// --------------------------------------------------------------------------
+// CHAPTER GROUPING
+// A group is a contiguous, non-overlapping span of chapters within one book,
+// carrying a user-defined title. e.g. Genesis 1–11 → "Primeval History".
+// Groups are presentation-only: deleting one never touches chapter content.
+// --------------------------------------------------------------------------
+
+// Human-readable range label, e.g. "Chapters 1–11" or "Chapter 5"
+function formatGroupRange(group) {
+  if (!group) return "";
+  if (group.startChapter === group.endChapter) {
+    return `Chapter ${group.startChapter}`;
+  }
+  return `Chapters ${group.startChapter}–${group.endChapter}`;
+}
+
+// Returns a book's chapter groups, always sorted by start chapter
+function getChapterGroups(data, bookId) {
+  const groups = data && data.books && data.books[bookId] ? data.books[bookId].chapterGroups : null;
+  if (!Array.isArray(groups)) return [];
+  return [...groups].sort((a, b) => (a.startChapter || 0) - (b.startChapter || 0));
+}
+
+// Returns the group containing a chapter, or null when the chapter is ungrouped
+function getGroupForChapter(data, bookId, chapterNum) {
+  const ch = parseInt(chapterNum, 10);
+  if (isNaN(ch)) return null;
+  return getChapterGroups(data, bookId).find((g) => ch >= g.startChapter && ch <= g.endChapter) || null;
+}
+
+// Validates a proposed range against book bounds and existing groups.
+// Pass excludeGroupId when editing so a group never collides with itself.
+function validateChapterGroupRange(data, bookId, startChapter, endChapter, excludeGroupId = null) {
+  const book = BIBLE_BOOKS.find((b) => b.id === bookId);
+  if (!book) {
+    return { valid: false, reason: "Unknown book." };
+  }
+
+  const start = parseInt(startChapter, 10);
+  const end = parseInt(endChapter, 10);
+
+  if (isNaN(start) || isNaN(end)) {
+    return { valid: false, reason: "Start and end chapters must be numbers." };
+  }
+  if (start < 1 || end < 1) {
+    return { valid: false, reason: "Chapters must be 1 or greater." };
+  }
+  if (start > book.chapterCount || end > book.chapterCount) {
+    return { valid: false, reason: `${book.name} only has ${book.chapterCount} chapters.` };
+  }
+  if (start > end) {
+    return { valid: false, reason: "Start chapter must not be after the end chapter." };
+  }
+
+  const collision = getChapterGroups(data, bookId).find((g) => {
+    if (excludeGroupId && g.id === excludeGroupId) return false;
+    return start <= g.endChapter && end >= g.startChapter;
+  });
+  if (collision) {
+    return {
+      valid: false,
+      reason: `Overlaps “${collision.title}” (${formatGroupRange(collision)}).`
+    };
+  }
+
+  return { valid: true, reason: "" };
+}
+
+// Creates or updates a chapter group, keeping the list sorted by start chapter.
+// Stamps chapterGroupsUpdatedAt so cloud sync can resolve last-write-wins.
+function upsertChapterGroup(data, bookId, { id = null, title, startChapter, endChapter } = {}) {
+  if (!data.books) data.books = {};
+  if (!data.books[bookId]) {
+    data.books[bookId] = { bookSummary: "", myBookTheme: "", chapterGroups: [], updatedAt: null };
+  }
+  if (!Array.isArray(data.books[bookId].chapterGroups)) {
+    data.books[bookId].chapterGroups = [];
+  }
+
+  const cleanTitle = (title || "").trim();
+  if (!cleanTitle) return null;
+
+  const start = parseInt(startChapter, 10);
+  const end = parseInt(endChapter, 10);
+  if (isNaN(start) || isNaN(end)) return null;
+
+  const groups = data.books[bookId].chapterGroups;
+  const existing = id ? groups.find((g) => g.id === id) : null;
+
+  let group;
+  if (existing) {
+    existing.title = cleanTitle;
+    existing.startChapter = start;
+    existing.endChapter = end;
+    group = existing;
+  } else {
+    group = {
+      id: id || `grp_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
+      title: cleanTitle,
+      startChapter: start,
+      endChapter: end
+    };
+    groups.push(group);
+  }
+
+  groups.sort((a, b) => (a.startChapter || 0) - (b.startChapter || 0));
+  data.books[bookId].chapterGroupsUpdatedAt = Date.now();
+  return group;
+}
+
+// Removes a grouping only. Chapter outlines, takeaways and scripture are untouched.
+function deleteChapterGroup(data, bookId, groupId) {
+  const groups = data && data.books && data.books[bookId] ? data.books[bookId].chapterGroups : null;
+  if (!Array.isArray(groups)) return false;
+  const idx = groups.findIndex((g) => g.id === groupId);
+  if (idx === -1) return false;
+  groups.splice(idx, 1);
+  data.books[bookId].chapterGroupsUpdatedAt = Date.now();
+  return true;
+}
+
+
 // Helper to export Book or full Bible Outline to clean Markdown format (Document or Grid Table layout)
 function exportToMarkdown(data, bookId = null, layout = "document") {
   const booksToExport = bookId ? [BIBLE_BOOKS.find((b) => b.id === bookId)].filter(Boolean) : BIBLE_BOOKS;
@@ -32337,6 +32463,12 @@ function exportToMarkdown(data, bookId = null, layout = "document") {
 
     md += `## Chapter Outlines (${outlinedCount}/${book.chapterCount} Chapters Outlined)\n\n`;
 
+    const chapterGroups = getChapterGroups(data, book.id);
+    // Tracks bands already emitted, so a group whose literal start chapter was
+    // skipped (empty, full-bible export) still gets its band before its first
+    // chapter that actually renders.
+    const emittedGroupIds = new Set();
+
     for (let ch = 1; ch <= book.chapterCount; ch++) {
       const chKey = `${book.id}-${ch}`;
       const chData = data.chapters[chKey] || {};
@@ -32347,7 +32479,17 @@ function exportToMarkdown(data, bookId = null, layout = "document") {
         continue;
       }
 
-      md += `### Chapter ${ch}\n\n`;
+      const group = chapterGroups.find((g) => ch >= g.startChapter && ch <= g.endChapter) || null;
+      if (group && !emittedGroupIds.has(group.id)) {
+        emittedGroupIds.add(group.id);
+        md += `### ${group.title} (${formatGroupRange(group)})\n\n`;
+      }
+
+      // Chapters inside a group sit one level beneath its band
+      const chapterLevel = group ? "####" : "###";
+      const blockLevel = group ? "#####" : "####";
+
+      md += `${chapterLevel} Chapter ${ch}\n\n`;
 
       if (layout === "grid") {
         md += `| Section Heading & Passage | Outline Points & Notes |\n`;
@@ -32379,7 +32521,7 @@ function exportToMarkdown(data, bookId = null, layout = "document") {
         md += `\n`;
       } else {
         blocks.forEach((block) => {
-          md += `#### ${block.heading}\n\n`;
+          md += `${blockLevel} ${block.heading}\n\n`;
           const pts = Array.isArray(block.points) && block.points.length > 0
             ? block.points.filter((p) => p && p.trim().length > 0)
             : block.notes
@@ -32477,6 +32619,9 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
 
         <div class="chapter-outlines-wrapper">
           ${(() => {
+            const chapterGroups = getChapterGroups(data, book.id);
+            const emittedGroupIds = new Set();
+
             if (layout === "grid") {
               let tbodiesHtml = "";
               for (let ch = 1; ch <= book.chapterCount; ch++) {
@@ -32487,6 +32632,21 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
 
                 if (!hasNotes && !bookId) {
                   continue;
+                }
+
+                const group = chapterGroups.find((g) => ch >= g.startChapter && ch <= g.endChapter) || null;
+                if (group && !emittedGroupIds.has(group.id)) {
+                  emittedGroupIds.add(group.id);
+                  tbodiesHtml += `
+                    <tbody class="group-band-body no-break">
+                      <tr class="grid-group-row">
+                        <td colspan="3" class="grid-export-group-cell">
+                          <span class="group-title">${(group.title || "").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</span>
+                          <span class="group-range">${formatGroupRange(group)}</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  `;
                 }
 
                 const hasTakeaway = Boolean(chData.takeaway && chData.takeaway.trim());
@@ -32613,6 +32773,17 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
 
               if (!hasNotes && !bookId) {
                 continue;
+              }
+
+              const group = chapterGroups.find((g) => ch >= g.startChapter && ch <= g.endChapter) || null;
+              if (group && !emittedGroupIds.has(group.id)) {
+                emittedGroupIds.add(group.id);
+                chHtml += `
+                  <div class="group-header no-break">
+                    <span class="group-title">${(group.title || "").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</span>
+                    <span class="group-range">${formatGroupRange(group)}</span>
+                  </div>
+                `;
               }
 
               chHtml += `
@@ -32854,6 +33025,43 @@ function exportToPrintableHTML(data, bookId = null, layout = "grid") {
     }
     .summary-text {
       color: #1e293b;
+    }
+    .group-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      background: #f0fdfa;
+      border: 1.5px solid #0f766e;
+      border-left-width: 4px;
+      border-radius: 4px;
+      padding: 4px 8px;
+      margin: 10px 0 6px 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    .group-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: #134e4a;
+    }
+    .group-range {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #0f766e;
+    }
+    .grid-export-group-cell {
+      background: #f0fdfa;
+      border: 1.5px solid #0f766e;
+      border-left-width: 4px;
+      padding: 4px 8px;
+    }
+    .grid-export-group-cell .group-range {
+      margin-left: 8px;
     }
     .chapter-card {
       border: 1.5px solid #94a3b8;
@@ -33233,6 +33441,18 @@ function extractBookData(bookId, localData) {
   const myBookTheme = (b.myBookTheme || "").trim();
   const updatedAt = b.updatedAt || Date.now();
 
+  const chapterGroups = Array.isArray(b.chapterGroups)
+    ? b.chapterGroups
+        .filter((g) => g && (g.title || "").trim() && g.startChapter && g.endChapter)
+        .map((g) => ({
+          id: g.id,
+          title: (g.title || "").trim(),
+          startChapter: g.startChapter,
+          endChapter: g.endChapter
+        }))
+    : [];
+  const chapterGroupsUpdatedAt = b.chapterGroupsUpdatedAt || null;
+
   const chaptersMap = {};
   if (localData.chapters) {
     const prefix = `${bookId}-`;
@@ -33247,19 +33467,28 @@ function extractBookData(bookId, localData) {
   }
 
   const hasAnyChapters = Object.keys(chaptersMap).length > 0;
-  const hasBookContent = bookSummary.length > 0 || myBookTheme.length > 0;
+  const hasBookContent = bookSummary.length > 0 || myBookTheme.length > 0 || chapterGroups.length > 0;
 
   if (!hasAnyChapters && !hasBookContent) {
     return null;
   }
 
-  return {
+  const payload = {
     bookId,
     bookSummary,
     myBookTheme,
     updatedAt,
     chapters: chaptersMap
   };
+
+  // Always emit the timestamp when one exists, even alongside an empty array —
+  // an empty array paired with a newer timestamp is how a deletion propagates.
+  if (chapterGroupsUpdatedAt) {
+    payload.chapterGroups = chapterGroups;
+    payload.chapterGroupsUpdatedAt = chapterGroupsUpdatedAt;
+  }
+
+  return payload;
 }
 
 // Save only a single book document to /users/{uid}/books/{bookId} (Option A: Granular Save)
@@ -33557,12 +33786,15 @@ function mergeCloudAndLocalState(cloudData, localData) {
   if (!localData.books) localData.books = {};
   if (!localData.chapters) localData.chapters = {};
 
-  // 1. Merge Book Summaries & Themes
+  // 1. Merge Book Summaries, Themes & Chapter Groups
   if (cloudData.books) {
     for (const [bid, b] of Object.entries(cloudData.books)) {
       if (!b) continue;
       if (!localData.books[bid]) {
-        localData.books[bid] = { bookSummary: "", myBookTheme: "", updatedAt: null };
+        localData.books[bid] = { bookSummary: "", myBookTheme: "", chapterGroups: [], updatedAt: null };
+      }
+      if (!Array.isArray(localData.books[bid].chapterGroups)) {
+        localData.books[bid].chapterGroups = [];
       }
       if (b.bookSummary && b.bookSummary.trim()) {
         localData.books[bid].bookSummary = b.bookSummary;
@@ -33570,6 +33802,24 @@ function mergeCloudAndLocalState(cloudData, localData) {
       }
       if (b.myBookTheme && b.myBookTheme.trim()) {
         localData.books[bid].myBookTheme = b.myBookTheme;
+        merged = true;
+      }
+
+      // Chapter groups use whole-array last-write-wins keyed on the timestamp.
+      // This intentionally runs even when the cloud array is empty: an empty
+      // array with a newer stamp represents a deletion on another device, and
+      // skipping it (as the "cloud wins if non-empty" idiom above would) is
+      // exactly what would resurrect a group the user already removed.
+      const cloudStamp = b.chapterGroupsUpdatedAt || 0;
+      const localStamp = localData.books[bid].chapterGroupsUpdatedAt || 0;
+      if (cloudStamp > localStamp && Array.isArray(b.chapterGroups)) {
+        localData.books[bid].chapterGroups = b.chapterGroups.map((g) => ({
+          id: g.id,
+          title: g.title,
+          startChapter: g.startChapter,
+          endChapter: g.endChapter
+        }));
+        localData.books[bid].chapterGroupsUpdatedAt = cloudStamp;
         merged = true;
       }
     }
@@ -35173,6 +35423,177 @@ function attachOutlinerListeners(app) {
   }
 }
 
+// --- FILE: src/controllers/ChapterGroupController.js ---
+/**
+ * ChapterGroupController
+ * Encapsulates creating, editing, deleting and collapsing chapter groups
+ * within the Book Rollup view. Groups are presentation-only: removing a group
+ * never mutates the underlying chapter outlines.
+ */
+function attachChapterGroupListeners(app) {
+  if (app.activeView !== "book-rollup") return;
+
+  const bookId = app.selectedBookId;
+
+  const closeModal = () => {
+    app.chapterGroupModal = null;
+    app.render();
+  };
+
+  // 1. Open the modal for a brand new group
+  const openBtn = document.getElementById("open-chapter-group-modal-btn");
+  if (openBtn) {
+    openBtn.addEventListener("click", () => {
+      // Default the range to the first chapter not already covered by a group
+      const groups = getChapterGroups(app.data, bookId);
+      let firstFree = 1;
+      for (const g of groups) {
+        if (firstFree >= g.startChapter && firstFree <= g.endChapter) {
+          firstFree = g.endChapter + 1;
+        }
+      }
+      const maxCh = app.getSelectedBook().chapterCount;
+      if (firstFree > maxCh) firstFree = maxCh;
+
+      app.chapterGroupModal = {
+        editingGroupId: null,
+        title: "",
+        startChapter: firstFree,
+        endChapter: firstFree,
+        errorMessage: ""
+      };
+      app.render();
+    });
+  }
+
+  // 2. Close / cancel
+  const closeBtn = document.getElementById("close-chapter-group-modal-btn");
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+  const cancelBtn = document.getElementById("cancel-chapter-group-btn");
+  if (cancelBtn) cancelBtn.addEventListener("click", closeModal);
+
+  const overlay = document.getElementById("chapter-group-modal");
+  if (overlay) {
+    overlay.addEventListener("click", (e) => {
+      if (e.target.id === "chapter-group-modal") closeModal();
+    });
+  }
+
+  // 3. Save (create or update)
+  const saveBtn = document.getElementById("save-chapter-group-btn");
+  if (saveBtn) {
+    saveBtn.addEventListener("click", () => {
+      const titleInput = document.getElementById("chapter-group-title-input");
+      const startSelect = document.getElementById("chapter-group-start-select");
+      const endSelect = document.getElementById("chapter-group-end-select");
+      if (!titleInput || !startSelect || !endSelect) return;
+
+      const editingGroupId = saveBtn.getAttribute("data-editing-group-id") || null;
+      const title = titleInput.value.trim();
+      const startChapter = parseInt(startSelect.value, 10);
+      const endChapter = parseInt(endSelect.value, 10);
+
+      // Preserve what the user typed so a failed submit does not clear the form
+      const retainState = {
+        editingGroupId,
+        title: titleInput.value,
+        startChapter,
+        endChapter
+      };
+
+      if (!title) {
+        app.chapterGroupModal = { ...retainState, errorMessage: "Please enter a group title." };
+        app.render();
+        return;
+      }
+
+      const check = validateChapterGroupRange(app.data, bookId, startChapter, endChapter, editingGroupId);
+      if (!check.valid) {
+        app.chapterGroupModal = { ...retainState, errorMessage: check.reason };
+        app.render();
+        return;
+      }
+
+      upsertChapterGroup(app.data, bookId, {
+        id: editingGroupId,
+        title,
+        startChapter,
+        endChapter
+      });
+
+      app.chapterGroupModal = null;
+      app.notifyDataChanged(bookId);
+      app.render();
+    });
+  }
+
+  // Submitting with Enter from the title field
+  const titleInput = document.getElementById("chapter-group-title-input");
+  if (titleInput) {
+    titleInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const btn = document.getElementById("save-chapter-group-btn");
+        if (btn) btn.click();
+      }
+    });
+  }
+
+  // 4. Edit an existing group (prefills the modal)
+  document.querySelectorAll(".edit-chapter-group-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const groupId = btn.getAttribute("data-edit-chapter-group");
+      const group = getChapterGroups(app.data, bookId).find((g) => g.id === groupId);
+      if (!group) return;
+
+      app.chapterGroupModal = {
+        editingGroupId: group.id,
+        title: group.title,
+        startChapter: group.startChapter,
+        endChapter: group.endChapter,
+        errorMessage: ""
+      };
+      app.render();
+    });
+  });
+
+  // 5. Delete a group (grouping only — chapter content is preserved)
+  document.querySelectorAll(".delete-chapter-group-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const groupId = btn.getAttribute("data-delete-chapter-group");
+      if (!groupId) return;
+
+      if (deleteChapterGroup(app.data, bookId, groupId)) {
+        if (app.collapsedChapterGroups instanceof Set) {
+          app.collapsedChapterGroups.delete(`${bookId}:${groupId}`);
+        }
+        app.notifyDataChanged(bookId);
+        app.render();
+      }
+    });
+  });
+
+  // 6. Collapse / expand (transient, never persisted)
+  document.querySelectorAll(".toggle-chapter-group-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const groupId = btn.getAttribute("data-toggle-chapter-group");
+      if (!groupId) return;
+
+      if (!(app.collapsedChapterGroups instanceof Set)) {
+        app.collapsedChapterGroups = new Set();
+      }
+      const key = `${bookId}:${groupId}`;
+      if (app.collapsedChapterGroups.has(key)) {
+        app.collapsedChapterGroups.delete(key);
+      } else {
+        app.collapsedChapterGroups.add(key);
+      }
+      app.render();
+    });
+  });
+}
+
 // --- FILE: src/controllers/QuizController.js ---
 /**
  * QuizController
@@ -36239,7 +36660,9 @@ function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleU
 function renderBookRollupView({
   selectedBook,
   data,
-  rollupLayout = "document"
+  rollupLayout = "document",
+  chapterGroupModal = null,
+  collapsedChapterGroups = null
 }) {
   const bookData = data.books[selectedBook.id] || { bookSummary: "" };
 
@@ -36320,6 +36743,18 @@ function renderBookRollupView({
 
             <span class="text-[#333330] hidden sm:inline">|</span>
 
+            <!-- Chapter Grouping -->
+            <button
+              id="open-chapter-group-modal-btn"
+              data-group-book-id="${selectedBook.id}"
+              class="open-chapter-group-modal-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+              title="Group a range of ${selectedBook.name} chapters under a title"
+            >
+              <span>＋ Group Chapters</span>
+            </button>
+
+            <span class="text-[#333330] hidden sm:inline">|</span>
+
             <!-- Quiz Actions -->
             <button
               data-launch-book-headings-quiz="${selectedBook.id}"
@@ -36373,6 +36808,9 @@ function renderBookRollupView({
         <div class="space-y-8">
           ${(() => {
             const rows = [];
+            const chapterGroups = getChapterGroups(data, selectedBook.id);
+            const collapsedSet = collapsedChapterGroups instanceof Set ? collapsedChapterGroups : new Set();
+
             for (let ch = 1; ch <= selectedBook.chapterCount; ch++) {
               const chKey = `${selectedBook.id}-${ch}`;
               const chData = data.chapters[chKey] || {
@@ -36391,6 +36829,66 @@ function renderBookRollupView({
                     verses: h.verses,
                     notes: ""
                   }));
+              }
+
+              const group = chapterGroups.find((g) => ch >= g.startChapter && ch <= g.endChapter) || null;
+              const isCollapsed = group ? collapsedSet.has(`${selectedBook.id}:${group.id}`) : false;
+              const chapterSpan = group ? group.endChapter - group.startChapter + 1 : 0;
+
+              // Open the group container and band at the group's first chapter
+              if (group && ch === group.startChapter) {
+                rows.push(`
+                  <div class="chapter-group-wrapper border border-[#33332E] rounded-xl overflow-hidden bg-[#161614]">
+                    <div class="chapter-group-band flex items-center justify-between gap-3 px-4 py-2.5 bg-[#1F1F1D] border-b border-[#2B2B28]">
+                      <button
+                        data-toggle-chapter-group="${group.id}"
+                        class="toggle-chapter-group-btn flex items-center gap-2 text-left cursor-pointer min-w-0"
+                        title="${isCollapsed ? "Expand" : "Collapse"} this group"
+                      >
+                        <span class="text-[#C4B79C] text-[10px] shrink-0">${isCollapsed ? "▶" : "▼"}</span>
+                        <span class="font-serif text-base font-bold text-[#DBCFB3] hover:text-[#EAE8E2] truncate">
+                          ${(group.title || "").replace(/</g, "&lt;")}
+                        </span>
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#141413] border border-[#2A2A27] text-[#8C8A84] shrink-0">
+                          ${formatGroupRange(group)}
+                        </span>
+                      </button>
+                      <div class="flex items-center gap-1 shrink-0">
+                        <button
+                          data-edit-chapter-group="${group.id}"
+                          class="edit-chapter-group-btn px-2 py-1 rounded text-[11px] text-[#8C8A84] hover:text-[#EAE8E2] hover:bg-[#2A2A27] transition cursor-pointer"
+                          title="Edit this group's title or chapter range"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          data-delete-chapter-group="${group.id}"
+                          class="delete-chapter-group-btn px-2 py-1 rounded text-[11px] text-[#8C8A84] hover:text-rose-400 hover:bg-rose-500/10 transition cursor-pointer"
+                          title="Remove this grouping (all chapter outlines are kept)"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                `);
+
+                if (isCollapsed) {
+                  rows.push(`
+                    <div class="px-4 py-3 text-[11px] text-[#6D6B66] italic">
+                      ${chapterSpan} chapter${chapterSpan === 1 ? "" : "s"} hidden — click the group title to expand.
+                    </div>
+                  `);
+                } else {
+                  rows.push(`<div class="chapter-group-body p-3 md:p-4 space-y-6">`);
+                }
+              }
+
+              if (isCollapsed) {
+                // Close the wrapper on the group's last chapter even while collapsed
+                if (group && ch === group.endChapter) {
+                  rows.push(`</div>`);
+                }
+                continue;
               }
 
               if (rollupLayout === "grid") {
@@ -36559,13 +37057,140 @@ function renderBookRollupView({
                   </div>
                 `);
               }
+
+              // Close the group body and wrapper after the group's final chapter
+              if (group && ch === group.endChapter) {
+                rows.push(`</div></div>`);
+              }
             }
             return rows.join("");
           })()}
         </div>
       </div>
     </div>
+
+    <!-- Chapter Group Modal Overlay -->
+    ${chapterGroupModal ? renderChapterGroupModal({ ...chapterGroupModal, selectedBook, data }) : ""}
   </div>
+  `;
+}
+
+// --------------------------------------------------------------------------
+// CHAPTER GROUP MODAL (Create / Edit)
+// --------------------------------------------------------------------------
+function renderChapterGroupModal({
+  selectedBook,
+  editingGroupId = null,
+  title = "",
+  startChapter = 1,
+  endChapter = 1,
+  errorMessage = "",
+  data = {}
+}) {
+  if (!selectedBook) return "";
+
+  const groups = getChapterGroups(data, selectedBook.id);
+  const editingGroup = editingGroupId ? groups.find((g) => g.id === editingGroupId) : null;
+  const isEditing = Boolean(editingGroup);
+
+  const chapterOptions = (selectedValue) => {
+    let opts = "";
+    for (let c = 1; c <= selectedBook.chapterCount; c++) {
+      opts += `<option value="${c}" ${Number(selectedValue) === c ? "selected" : ""}>Chapter ${c}</option>`;
+    }
+    return opts;
+  };
+
+  return `
+    <div id="chapter-group-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-xs">
+      <div class="bg-[#1C1C1A] border border-[#2B2B28] rounded-2xl shadow-2xl w-full max-w-md p-5 space-y-4">
+        <div class="flex items-start justify-between gap-4 border-b border-[#262624] pb-3">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#C4B79C]">
+              ${isEditing ? "Edit Chapter Group" : "New Chapter Group"}
+            </span>
+            <h3 class="font-serif text-lg font-bold text-[#EAE8E2] mt-0.5">${selectedBook.name}</h3>
+          </div>
+          <button
+            id="close-chapter-group-modal-btn"
+            class="text-xs text-[#8C8A84] hover:text-[#EAE8E2] px-2 py-1 rounded bg-[#141413] border border-[#2A2A27] transition cursor-pointer"
+          >
+            ✕
+          </button>
+        </div>
+
+        <p class="text-[11px] text-[#A19E97] leading-relaxed">
+          Group a continuous span of chapters under one title. Chapters outside any group keep showing normally,
+          and deleting a group never removes your outline notes.
+        </p>
+
+        ${
+          errorMessage
+            ? `
+              <div class="bg-rose-500/10 border border-rose-500/40 rounded-lg px-3 py-2 text-[11px] text-rose-300">
+                ${errorMessage.replace(/</g, "&lt;")}
+              </div>
+            `
+            : ""
+        }
+
+        <div class="space-y-3">
+          <div class="space-y-1.5">
+            <label class="block text-[10px] font-mono uppercase tracking-wider text-[#8C8A84]">
+              Group Title
+            </label>
+            <input
+              id="chapter-group-title-input"
+              type="text"
+              placeholder="e.g. Primeval History"
+              value="${(title || "").replace(/"/g, "&quot;")}"
+              class="w-full bg-[#141413] border border-[#2B2B28] focus:border-[#C4B79C] rounded-md px-3 py-2 text-sm text-[#EAE8E2] placeholder:text-[#6D6B66] focus:outline-none transition"
+            />
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="space-y-1.5">
+              <label class="block text-[10px] font-mono uppercase tracking-wider text-[#8C8A84]">
+                From
+              </label>
+              <select
+                id="chapter-group-start-select"
+                class="w-full bg-[#141413] border border-[#2B2B28] focus:border-[#C4B79C] rounded-md px-3 py-2 text-sm text-[#EAE8E2] focus:outline-none transition cursor-pointer"
+              >
+                ${chapterOptions(startChapter)}
+              </select>
+            </div>
+            <div class="space-y-1.5">
+              <label class="block text-[10px] font-mono uppercase tracking-wider text-[#8C8A84]">
+                To
+              </label>
+              <select
+                id="chapter-group-end-select"
+                class="w-full bg-[#141413] border border-[#2B2B28] focus:border-[#C4B79C] rounded-md px-3 py-2 text-sm text-[#EAE8E2] focus:outline-none transition cursor-pointer"
+              >
+                ${chapterOptions(endChapter)}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 pt-2 border-t border-[#262624]">
+          <button
+            id="cancel-chapter-group-btn"
+            class="px-4 py-2 rounded-lg bg-[#2A2A27] hover:bg-[#383834] text-[#EAE8E2] text-xs font-semibold transition cursor-pointer"
+          >
+            Cancel
+          </button>
+          <button
+            id="save-chapter-group-btn"
+            data-editing-group-id="${editingGroupId || ""}"
+            class="px-5 py-2 rounded-lg bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] text-xs font-bold font-serif transition shadow cursor-pointer"
+          >
+            ${isEditing ? "Save Changes" : "Create Group"}
+          </button>
+        </div>
+      </div>
+    </div>
   `;
 }
 
@@ -38796,6 +39421,10 @@ class BibleOutlineStudio {
     this.outlineScrollPositions = {};
     this.currentRenderedChapterKey = null;
 
+    // Chapter grouping state (transient — never persisted or synced)
+    this.chapterGroupModal = null; // { editingGroupId, title, startChapter, endChapter, errorMessage }
+    this.collapsedChapterGroups = new Set(); // keys shaped "GEN:grp_123"
+
     // Quiz & Diagnostic state
     this.activeQuizTab = "diagnostic"; // 'diagnostic' | 'book-quizzes' | 'history'
     this.quizSession = null;
@@ -39317,7 +39946,9 @@ class BibleOutlineStudio {
         mainScrollCanvas.innerHTML = renderBookRollupView({
           selectedBook: book,
           data: this.data,
-          rollupLayout: this.bookRollupLayout || "document"
+          rollupLayout: this.bookRollupLayout || "document",
+          chapterGroupModal: this.chapterGroupModal,
+          collapsedChapterGroups: this.collapsedChapterGroups
         });
       } else {
         mainScrollCanvas.innerHTML = renderChapterEditorView({
@@ -39360,6 +39991,7 @@ class BibleOutlineStudio {
     this.attachTopNavbarListeners();
     this.attachBookRollupListeners();
     attachOutlinerListeners(this);
+    attachChapterGroupListeners(this);
     attachQuizListeners(this);
     this.attachKeyboardNavigation();
   }

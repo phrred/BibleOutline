@@ -24,6 +24,7 @@ import { renderBookRollupView } from "./components/BookRollupView.js";
 import { renderChapterEditorView } from "./components/ChapterEditorView.js";
 import { renderDiagnosticQuizView } from "./components/DiagnosticQuizView.js";
 import { attachOutlinerListeners } from "./controllers/OutlinerController.js";
+import { attachChapterGroupListeners } from "./controllers/ChapterGroupController.js";
 import { attachQuizListeners } from "./controllers/QuizController.js";
 
 // Global map of collapsed states for headings
@@ -47,6 +48,10 @@ class BibleOutlineStudio {
     this.scriptureScrollPositions = {};
     this.outlineScrollPositions = {};
     this.currentRenderedChapterKey = null;
+
+    // Chapter grouping state (transient — never persisted or synced)
+    this.chapterGroupModal = null; // { editingGroupId, title, startChapter, endChapter, errorMessage }
+    this.collapsedChapterGroups = new Set(); // keys shaped "GEN:grp_123"
 
     // Quiz & Diagnostic state
     this.activeQuizTab = "diagnostic"; // 'diagnostic' | 'book-quizzes' | 'history'
@@ -569,7 +574,9 @@ class BibleOutlineStudio {
         mainScrollCanvas.innerHTML = renderBookRollupView({
           selectedBook: book,
           data: this.data,
-          rollupLayout: this.bookRollupLayout || "document"
+          rollupLayout: this.bookRollupLayout || "document",
+          chapterGroupModal: this.chapterGroupModal,
+          collapsedChapterGroups: this.collapsedChapterGroups
         });
       } else {
         mainScrollCanvas.innerHTML = renderChapterEditorView({
@@ -612,6 +619,7 @@ class BibleOutlineStudio {
     this.attachTopNavbarListeners();
     this.attachBookRollupListeners();
     attachOutlinerListeners(this);
+    attachChapterGroupListeners(this);
     attachQuizListeners(this);
     this.attachKeyboardNavigation();
   }

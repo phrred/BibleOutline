@@ -27,7 +27,8 @@ class UnitTester:
             ("Deep Merge & Local Storage Scaffolding", self.test_storage_scaffolding),
             ("Markdown & PDF Exporter Integrity", self.test_markdown_and_pdf_export),
             ("Question Flag Modal & Categories Integrity", self.test_flag_question_modal),
-            ("Dynamic Random Heading Quiz Generation", self.test_dynamic_random_heading_generation)
+            ("Dynamic Random Heading Quiz Generation", self.test_dynamic_random_heading_generation),
+            ("Chapter Group CRUD, Validation & Export", self.test_chapter_groups)
         ]
 
         results = []
@@ -658,4 +659,228 @@ class UnitTester:
         assert r.get("isDifferentRun") == True, "Subsequent heading quiz runs should produce randomized question selections"
         assert r.get("rutSessionCount") >= 6, "Expected DiagnosticSession to have at least 6 questions"
         assert r.get("rutSessionHasDynamic") == True, "DiagnosticSession should include dynamically extracted headings"
+
+    def test_chapter_groups(self):
+        js = """
+        (() => {
+            const d = createInitialStorage();
+
+            // Seed Genesis 1-4 with outline content so exports render them
+            [1, 2, 3, 4].forEach((n) => {
+                d.chapters[`GEN-${n}`] = {
+                    headingBlocks: [
+                        { heading: `Heading ${n}`, verses: "v1–10", points: [`Point for chapter ${n}`] }
+                    ],
+                    chapterScripture: "",
+                    status: "completed",
+                    takeaway: ""
+                };
+            });
+
+            // 1. Fresh storage starts with an empty group list
+            const startsEmpty = Array.isArray(d.books["GEN"].chapterGroups) && d.books["GEN"].chapterGroups.length === 0;
+
+            // 2. Create two groups out of canonical order; they should come back sorted
+            upsertChapterGroup(d, "GEN", { title: "The Patriarchs", startChapter: 3, endChapter: 4 });
+            upsertChapterGroup(d, "GEN", { title: "Primeval History", startChapter: 1, endChapter: 2 });
+            const sorted = getChapterGroups(d, "GEN").map((g) => g.title);
+
+            const primeval = getChapterGroups(d, "GEN").find((g) => g.title === "Primeval History");
+            const patriarchs = getChapterGroups(d, "GEN").find((g) => g.title === "The Patriarchs");
+
+            // 3. Overlap rejection (both fully-contained and partial overlap)
+            const overlapExact = validateChapterGroupRange(d, "GEN", 1, 2);
+            const overlapPartial = validateChapterGroupRange(d, "GEN", 2, 3);
+            const overlapInside = validateChapterGroupRange(d, "GEN", 1, 1);
+
+            // 4. A gap between groups is allowed
+            const gapAllowed = validateChapterGroupRange(d, "GEN", 10, 12);
+
+            // 5. Editing a group must not collide with itself
+            const selfEdit = validateChapterGroupRange(d, "GEN", 1, 2, primeval.id);
+
+            // 6. Bounds checks
+            const tooLow = validateChapterGroupRange(d, "GEN", 0, 5);
+            const tooHigh = validateChapterGroupRange(d, "GEN", 49, 51);   // Genesis has 50
+            const inverted = validateChapterGroupRange(d, "GEN", 20, 10);
+
+            // 7. Single-chapter group is valid and labels in the singular
+            const singleValid = validateChapterGroupRange(d, "GEN", 7, 7);
+            const singleLabel = formatGroupRange({ startChapter: 7, endChapter: 7 });
+            const rangeLabel = formatGroupRange({ startChapter: 1, endChapter: 11 });
+
+            // 8. Edit in place: same id, updated title and range, still sorted
+            const idBefore = patriarchs.id;
+            upsertChapterGroup(d, "GEN", {
+                id: idBefore,
+                title: "Patriarchal Narratives",
+                startChapter: 3,
+                endChapter: 5
+            });
+            const afterEdit = getChapterGroups(d, "GEN");
+            const editedInPlace =
+                afterEdit.length === 2 &&
+                afterEdit.filter((g) => g.id === idBefore).length === 1 &&
+                afterEdit.find((g) => g.id === idBefore).title === "Patriarchal Narratives" &&
+                afterEdit.find((g) => g.id === idBefore).endChapter === 5;
+
+            // 9. Lookup by chapter
+            const lookupInside = getGroupForChapter(d, "GEN", 2);
+            const lookupUngrouped = getGroupForChapter(d, "GEN", 30);
+
+            // 10. Markdown export: band present, grouped chapters demoted one level
+            const mdDoc = exportToMarkdown(d, "GEN", "document");
+            const mdHasBand = mdDoc.includes("### Primeval History (Chapters 1\\u20132)");
+            const mdHasDemotedChapter = mdDoc.includes("#### Chapter 1");
+            const mdHasDemotedHeading = mdDoc.includes("##### Heading 1");
+
+            const mdGrid = exportToMarkdown(d, "GEN", "grid");
+            const mdGridHasBand = mdGrid.includes("### Primeval History (Chapters 1\\u20132)");
+
+            // 11. Printable HTML export: group header in both layouts
+            const htmlDoc = exportToPrintableHTML(d, "GEN", "document");
+            const htmlDocHasGroup = htmlDoc.includes('class="group-header') && htmlDoc.includes("Primeval History");
+            const htmlGrid = exportToPrintableHTML(d, "GEN", "grid");
+            const htmlGridHasGroup = htmlGrid.includes("grid-export-group-cell") && htmlGrid.includes("Primeval History");
+
+            // 12. Delete removes only the grouping, never the chapter content
+            const chapterBlocksBefore = d.chapters["GEN-1"].headingBlocks.length;
+            const deleted = deleteChapterGroup(d, "GEN", primeval.id);
+            const groupsAfterDelete = getChapterGroups(d, "GEN").length;
+            const chapterBlocksAfter = d.chapters["GEN-1"].headingBlocks.length;
+            const takeawayIntact = d.chapters["GEN-1"].headingBlocks[0].heading === "Heading 1";
+
+            // 13. Cloud serialization carries groups and the timestamp
+            const extracted = extractBookData("GEN", d);
+            const serializesGroups =
+                Array.isArray(extracted.chapterGroups) &&
+                typeof extracted.chapterGroupsUpdatedAt === "number";
+
+            // 14. Merge - newer cloud wins
+            const localA = createInitialStorage();
+            localA.books["GEN"].chapterGroups = [
+                { id: "grp_old", title: "Stale Group", startChapter: 1, endChapter: 5 }
+            ];
+            localA.books["GEN"].chapterGroupsUpdatedAt = 1000;
+            mergeCloudAndLocalState(
+                {
+                    books: {
+                        GEN: {
+                            chapterGroups: [{ id: "grp_new", title: "Fresh Group", startChapter: 1, endChapter: 9 }],
+                            chapterGroupsUpdatedAt: 5000
+                        }
+                    }
+                },
+                localA
+            );
+            const newerCloudWins =
+                localA.books["GEN"].chapterGroups.length === 1 &&
+                localA.books["GEN"].chapterGroups[0].title === "Fresh Group";
+
+            // 15. Merge - a deletion elsewhere propagates (empty array, newer stamp)
+            const localB = createInitialStorage();
+            localB.books["GEN"].chapterGroups = [
+                { id: "grp_x", title: "Doomed Group", startChapter: 1, endChapter: 5 }
+            ];
+            localB.books["GEN"].chapterGroupsUpdatedAt = 2000;
+            mergeCloudAndLocalState(
+                { books: { GEN: { chapterGroups: [], chapterGroupsUpdatedAt: 4000 } } },
+                localB
+            );
+            const deletionPropagates = localB.books["GEN"].chapterGroups.length === 0;
+
+            // 16. Merge - an older cloud must NOT resurrect a locally deleted group
+            const localC = createInitialStorage();
+            localC.books["GEN"].chapterGroups = [];
+            localC.books["GEN"].chapterGroupsUpdatedAt = 9000;
+            mergeCloudAndLocalState(
+                {
+                    books: {
+                        GEN: {
+                            chapterGroups: [{ id: "grp_zombie", title: "Zombie Group", startChapter: 1, endChapter: 3 }],
+                            chapterGroupsUpdatedAt: 3000
+                        }
+                    }
+                },
+                localC
+            );
+            const noResurrection = localC.books["GEN"].chapterGroups.length === 0;
+
+            return {
+                startsEmpty,
+                sortedFirst: sorted[0],
+                sortedSecond: sorted[1],
+                overlapExactRejected: overlapExact.valid === false,
+                overlapPartialRejected: overlapPartial.valid === false,
+                overlapInsideRejected: overlapInside.valid === false,
+                overlapReasonNamesGroup: overlapExact.reason.includes("Primeval History"),
+                gapAllowed: gapAllowed.valid === true,
+                selfEditAllowed: selfEdit.valid === true,
+                tooLowRejected: tooLow.valid === false,
+                tooHighRejected: tooHigh.valid === false,
+                invertedRejected: inverted.valid === false,
+                singleValid: singleValid.valid === true,
+                singleLabel,
+                rangeLabel,
+                editedInPlace,
+                lookupInsideTitle: lookupInside ? lookupInside.title : null,
+                lookupUngrouped: lookupUngrouped === null,
+                mdHasBand,
+                mdHasDemotedChapter,
+                mdHasDemotedHeading,
+                mdGridHasBand,
+                htmlDocHasGroup,
+                htmlGridHasGroup,
+                deleted,
+                groupsAfterDelete,
+                chapterContentPreserved: chapterBlocksBefore === chapterBlocksAfter && takeawayIntact,
+                serializesGroups,
+                newerCloudWins,
+                deletionPropagates,
+                noResurrection
+            };
+        })()
+        """
+        r = self.eval_js(js)
+
+        assert r.get("startsEmpty") == True, "New storage should start with an empty chapterGroups array"
+        assert r.get("sortedFirst") == "Primeval History", f"Groups should sort by start chapter, got {r.get('sortedFirst')} first"
+        assert r.get("sortedSecond") == "The Patriarchs", "Second group out of expected sort order"
+
+        assert r.get("overlapExactRejected") == True, "An exactly-overlapping range must be rejected"
+        assert r.get("overlapPartialRejected") == True, "A partially-overlapping range must be rejected"
+        assert r.get("overlapInsideRejected") == True, "A range contained inside an existing group must be rejected"
+        assert r.get("overlapReasonNamesGroup") == True, "Overlap error should name the colliding group"
+        assert r.get("gapAllowed") == True, "A range in a gap between groups must be allowed"
+        assert r.get("selfEditAllowed") == True, "A group being edited must not collide with itself"
+
+        assert r.get("tooLowRejected") == True, "Chapter 0 must be rejected"
+        assert r.get("tooHighRejected") == True, "A range past the book's chapter count must be rejected"
+        assert r.get("invertedRejected") == True, "start > end must be rejected"
+
+        assert r.get("singleValid") == True, "A single-chapter group must be allowed"
+        assert r.get("singleLabel") == "Chapter 7", f"Single-chapter label wrong: {r.get('singleLabel')}"
+        assert r.get("rangeLabel") == "Chapters 1\u201311", f"Range label wrong: {r.get('rangeLabel')}"
+
+        assert r.get("editedInPlace") == True, "Editing must update in place without duplicating the group id"
+        assert r.get("lookupInsideTitle") == "Primeval History", "getGroupForChapter should find the containing group"
+        assert r.get("lookupUngrouped") == True, "An ungrouped chapter should resolve to null"
+
+        assert r.get("mdHasBand") == True, "Markdown export missing the group band heading"
+        assert r.get("mdHasDemotedChapter") == True, "Grouped chapters should be demoted to #### in Markdown"
+        assert r.get("mdHasDemotedHeading") == True, "Headings inside a grouped chapter should be demoted to #####"
+        assert r.get("mdGridHasBand") == True, "Grid Markdown export missing the group band heading"
+
+        assert r.get("htmlDocHasGroup") == True, "Document PDF export missing the group header block"
+        assert r.get("htmlGridHasGroup") == True, "Grid PDF export missing the group header cell"
+
+        assert r.get("deleted") == True, "deleteChapterGroup should report success"
+        assert r.get("groupsAfterDelete") == 1, f"Expected 1 group remaining after delete, got {r.get('groupsAfterDelete')}"
+        assert r.get("chapterContentPreserved") == True, "Deleting a group must never touch chapter outline content"
+
+        assert r.get("serializesGroups") == True, "extractBookData should carry chapterGroups and its timestamp"
+        assert r.get("newerCloudWins") == True, "A newer cloud timestamp should replace the local group list"
+        assert r.get("deletionPropagates") == True, "An empty cloud array with a newer stamp must clear local groups"
+        assert r.get("noResurrection") == True, "An older cloud payload must not resurrect a locally deleted group"
+
 

@@ -11,6 +11,7 @@ export function createInitialStorage() {
     books[book.id] = {
       bookSummary: "",
       myBookTheme: "",
+      chapterGroups: [], // Contiguous chapter ranges e.g. { id, title, startChapter, endChapter }
       updatedAt: null
     };
 
@@ -63,6 +64,9 @@ export function loadOutlineStorage() {
     BIBLE_BOOKS.forEach((book) => {
       if (!data.books[book.id]) {
         data.books[book.id] = defaultData.books[book.id];
+      } else if (!Array.isArray(data.books[book.id].chapterGroups)) {
+        // Backward-compatibility: books saved before chapter grouping existed
+        data.books[book.id].chapterGroups = [];
       }
       for (let ch = 1; ch <= book.chapterCount; ch++) {
         const chKey = `${book.id}-${ch}`;
@@ -203,6 +207,128 @@ export function injectExampleOutlines(data) {
   return data;
 }
 
+// --------------------------------------------------------------------------
+// CHAPTER GROUPING
+// A group is a contiguous, non-overlapping span of chapters within one book,
+// carrying a user-defined title. e.g. Genesis 1–11 → "Primeval History".
+// Groups are presentation-only: deleting one never touches chapter content.
+// --------------------------------------------------------------------------
+
+// Human-readable range label, e.g. "Chapters 1–11" or "Chapter 5"
+export function formatGroupRange(group) {
+  if (!group) return "";
+  if (group.startChapter === group.endChapter) {
+    return `Chapter ${group.startChapter}`;
+  }
+  return `Chapters ${group.startChapter}–${group.endChapter}`;
+}
+
+// Returns a book's chapter groups, always sorted by start chapter
+export function getChapterGroups(data, bookId) {
+  const groups = data && data.books && data.books[bookId] ? data.books[bookId].chapterGroups : null;
+  if (!Array.isArray(groups)) return [];
+  return [...groups].sort((a, b) => (a.startChapter || 0) - (b.startChapter || 0));
+}
+
+// Returns the group containing a chapter, or null when the chapter is ungrouped
+export function getGroupForChapter(data, bookId, chapterNum) {
+  const ch = parseInt(chapterNum, 10);
+  if (isNaN(ch)) return null;
+  return getChapterGroups(data, bookId).find((g) => ch >= g.startChapter && ch <= g.endChapter) || null;
+}
+
+// Validates a proposed range against book bounds and existing groups.
+// Pass excludeGroupId when editing so a group never collides with itself.
+export function validateChapterGroupRange(data, bookId, startChapter, endChapter, excludeGroupId = null) {
+  const book = BIBLE_BOOKS.find((b) => b.id === bookId);
+  if (!book) {
+    return { valid: false, reason: "Unknown book." };
+  }
+
+  const start = parseInt(startChapter, 10);
+  const end = parseInt(endChapter, 10);
+
+  if (isNaN(start) || isNaN(end)) {
+    return { valid: false, reason: "Start and end chapters must be numbers." };
+  }
+  if (start < 1 || end < 1) {
+    return { valid: false, reason: "Chapters must be 1 or greater." };
+  }
+  if (start > book.chapterCount || end > book.chapterCount) {
+    return { valid: false, reason: `${book.name} only has ${book.chapterCount} chapters.` };
+  }
+  if (start > end) {
+    return { valid: false, reason: "Start chapter must not be after the end chapter." };
+  }
+
+  const collision = getChapterGroups(data, bookId).find((g) => {
+    if (excludeGroupId && g.id === excludeGroupId) return false;
+    return start <= g.endChapter && end >= g.startChapter;
+  });
+  if (collision) {
+    return {
+      valid: false,
+      reason: `Overlaps “${collision.title}” (${formatGroupRange(collision)}).`
+    };
+  }
+
+  return { valid: true, reason: "" };
+}
+
+// Creates or updates a chapter group, keeping the list sorted by start chapter.
+// Stamps chapterGroupsUpdatedAt so cloud sync can resolve last-write-wins.
+export function upsertChapterGroup(data, bookId, { id = null, title, startChapter, endChapter } = {}) {
+  if (!data.books) data.books = {};
+  if (!data.books[bookId]) {
+    data.books[bookId] = { bookSummary: "", myBookTheme: "", chapterGroups: [], updatedAt: null };
+  }
+  if (!Array.isArray(data.books[bookId].chapterGroups)) {
+    data.books[bookId].chapterGroups = [];
+  }
+
+  const cleanTitle = (title || "").trim();
+  if (!cleanTitle) return null;
+
+  const start = parseInt(startChapter, 10);
+  const end = parseInt(endChapter, 10);
+  if (isNaN(start) || isNaN(end)) return null;
+
+  const groups = data.books[bookId].chapterGroups;
+  const existing = id ? groups.find((g) => g.id === id) : null;
+
+  let group;
+  if (existing) {
+    existing.title = cleanTitle;
+    existing.startChapter = start;
+    existing.endChapter = end;
+    group = existing;
+  } else {
+    group = {
+      id: id || `grp_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
+      title: cleanTitle,
+      startChapter: start,
+      endChapter: end
+    };
+    groups.push(group);
+  }
+
+  groups.sort((a, b) => (a.startChapter || 0) - (b.startChapter || 0));
+  data.books[bookId].chapterGroupsUpdatedAt = Date.now();
+  return group;
+}
+
+// Removes a grouping only. Chapter outlines, takeaways and scripture are untouched.
+export function deleteChapterGroup(data, bookId, groupId) {
+  const groups = data && data.books && data.books[bookId] ? data.books[bookId].chapterGroups : null;
+  if (!Array.isArray(groups)) return false;
+  const idx = groups.findIndex((g) => g.id === groupId);
+  if (idx === -1) return false;
+  groups.splice(idx, 1);
+  data.books[bookId].chapterGroupsUpdatedAt = Date.now();
+  return true;
+}
+
+
 // Helper to export Book or full Bible Outline to clean Markdown format (Document or Grid Table layout)
 export function exportToMarkdown(data, bookId = null, layout = "document") {
   const booksToExport = bookId ? [BIBLE_BOOKS.find((b) => b.id === bookId)].filter(Boolean) : BIBLE_BOOKS;
@@ -248,6 +374,12 @@ export function exportToMarkdown(data, bookId = null, layout = "document") {
 
     md += `## Chapter Outlines (${outlinedCount}/${book.chapterCount} Chapters Outlined)\n\n`;
 
+    const chapterGroups = getChapterGroups(data, book.id);
+    // Tracks bands already emitted, so a group whose literal start chapter was
+    // skipped (empty, full-bible export) still gets its band before its first
+    // chapter that actually renders.
+    const emittedGroupIds = new Set();
+
     for (let ch = 1; ch <= book.chapterCount; ch++) {
       const chKey = `${book.id}-${ch}`;
       const chData = data.chapters[chKey] || {};
@@ -258,7 +390,17 @@ export function exportToMarkdown(data, bookId = null, layout = "document") {
         continue;
       }
 
-      md += `### Chapter ${ch}\n\n`;
+      const group = chapterGroups.find((g) => ch >= g.startChapter && ch <= g.endChapter) || null;
+      if (group && !emittedGroupIds.has(group.id)) {
+        emittedGroupIds.add(group.id);
+        md += `### ${group.title} (${formatGroupRange(group)})\n\n`;
+      }
+
+      // Chapters inside a group sit one level beneath its band
+      const chapterLevel = group ? "####" : "###";
+      const blockLevel = group ? "#####" : "####";
+
+      md += `${chapterLevel} Chapter ${ch}\n\n`;
 
       if (layout === "grid") {
         md += `| Section Heading & Passage | Outline Points & Notes |\n`;
@@ -290,7 +432,7 @@ export function exportToMarkdown(data, bookId = null, layout = "document") {
         md += `\n`;
       } else {
         blocks.forEach((block) => {
-          md += `#### ${block.heading}\n\n`;
+          md += `${blockLevel} ${block.heading}\n\n`;
           const pts = Array.isArray(block.points) && block.points.length > 0
             ? block.points.filter((p) => p && p.trim().length > 0)
             : block.notes
@@ -388,6 +530,9 @@ export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
 
         <div class="chapter-outlines-wrapper">
           ${(() => {
+            const chapterGroups = getChapterGroups(data, book.id);
+            const emittedGroupIds = new Set();
+
             if (layout === "grid") {
               let tbodiesHtml = "";
               for (let ch = 1; ch <= book.chapterCount; ch++) {
@@ -398,6 +543,21 @@ export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
 
                 if (!hasNotes && !bookId) {
                   continue;
+                }
+
+                const group = chapterGroups.find((g) => ch >= g.startChapter && ch <= g.endChapter) || null;
+                if (group && !emittedGroupIds.has(group.id)) {
+                  emittedGroupIds.add(group.id);
+                  tbodiesHtml += `
+                    <tbody class="group-band-body no-break">
+                      <tr class="grid-group-row">
+                        <td colspan="3" class="grid-export-group-cell">
+                          <span class="group-title">${(group.title || "").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</span>
+                          <span class="group-range">${formatGroupRange(group)}</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  `;
                 }
 
                 const hasTakeaway = Boolean(chData.takeaway && chData.takeaway.trim());
@@ -524,6 +684,17 @@ export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
 
               if (!hasNotes && !bookId) {
                 continue;
+              }
+
+              const group = chapterGroups.find((g) => ch >= g.startChapter && ch <= g.endChapter) || null;
+              if (group && !emittedGroupIds.has(group.id)) {
+                emittedGroupIds.add(group.id);
+                chHtml += `
+                  <div class="group-header no-break">
+                    <span class="group-title">${(group.title || "").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</span>
+                    <span class="group-range">${formatGroupRange(group)}</span>
+                  </div>
+                `;
               }
 
               chHtml += `
@@ -765,6 +936,43 @@ export function exportToPrintableHTML(data, bookId = null, layout = "grid") {
     }
     .summary-text {
       color: #1e293b;
+    }
+    .group-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      background: #f0fdfa;
+      border: 1.5px solid #0f766e;
+      border-left-width: 4px;
+      border-radius: 4px;
+      padding: 4px 8px;
+      margin: 10px 0 6px 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    .group-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700;
+      font-size: 12px;
+      color: #134e4a;
+    }
+    .group-range {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #0f766e;
+    }
+    .grid-export-group-cell {
+      background: #f0fdfa;
+      border: 1.5px solid #0f766e;
+      border-left-width: 4px;
+      padding: 4px 8px;
+    }
+    .grid-export-group-cell .group-range {
+      margin-left: 8px;
     }
     .chapter-card {
       border: 1.5px solid #94a3b8;

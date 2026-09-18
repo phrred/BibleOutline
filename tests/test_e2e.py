@@ -31,6 +31,7 @@ class E2ETester:
             ("E2E: Selected Chapter Focus & Scroll Retention", self.test_selected_chapter_focus_retention),
             ("E2E: Heading Re-order (Buttons and Drag/Drop)", self.test_heading_reorder),
             ("E2E: Scripture & Outline Scroll Retention on Add/Delete Heading", self.test_scripture_scroll_retention_on_heading_mutation),
+            ("E2E: Chapter Grouping Lifecycle (Create/Collapse/Edit/Delete)", self.test_chapter_grouping_lifecycle),
             ("E2E: Cloud Sync & Deep Merge Lifecycle", self.test_cloud_sync_lifecycle)
         ]
 
@@ -878,4 +879,167 @@ class E2ETester:
         assert r.get("scrollBeforeAdd") == r.get("targetScroll"), f"Scroll before add mismatch: {r}"
         assert r.get("scrollAfterAdd") == r.get("targetScroll"), f"Bible text reset after adding heading! Expected {r.get('targetScroll')}, got {r.get('scrollAfterAdd')}"
         assert r.get("scrollAfterDelete") == r.get("targetScroll"), f"Bible text reset after deleting heading! Expected {r.get('targetScroll')}, got {r.get('scrollAfterDelete')}"
+
+    def test_chapter_grouping_lifecycle(self):
+        # --- 1. Open the Book Rollup for Genesis and launch the grouping modal ---
+        r1 = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            app.selectedBookId = 'GEN';
+            app.activeView = 'book-rollup';
+            app.bookRollupLayout = 'document';
+            if (!app.data.books['GEN']) app.data.books['GEN'] = {};
+            app.data.books['GEN'].chapterGroups = [];
+            app.chapterGroupModal = null;
+            app.collapsedChapterGroups = new Set();
+            app.render();
+
+            const openBtn = document.getElementById('open-chapter-group-modal-btn');
+            const hadOpenBtn = Boolean(openBtn);
+            if (openBtn) openBtn.click();
+
+            return {
+                hadOpenBtn,
+                modalVisible: Boolean(document.getElementById('chapter-group-modal')),
+                startOptionCount: document.querySelectorAll('#chapter-group-start-select option').length,
+                endOptionCount: document.querySelectorAll('#chapter-group-end-select option').length
+            };
+        })()
+        """)
+        assert r1.get("hadOpenBtn") == True, "'Group Chapters' button missing from Book Rollup header"
+        assert r1.get("modalVisible") == True, "Chapter group modal did not open on click"
+        assert r1.get("startOptionCount") == 50, f"Expected 50 start-chapter options for Genesis, got {r1.get('startOptionCount')}"
+        assert r1.get("endOptionCount") == 50, f"Expected 50 end-chapter options for Genesis, got {r1.get('endOptionCount')}"
+
+        # --- 2. Create the group "Primeval History" spanning chapters 1-11 ---
+        r2 = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            document.getElementById('chapter-group-title-input').value = 'Primeval History';
+            document.getElementById('chapter-group-start-select').value = '1';
+            document.getElementById('chapter-group-end-select').value = '11';
+            document.getElementById('save-chapter-group-btn').click();
+
+            const band = document.querySelector('.chapter-group-band');
+            const groups = app.data.books['GEN'].chapterGroups || [];
+            return {
+                modalClosed: !document.getElementById('chapter-group-modal'),
+                bandText: band ? band.textContent.replace(/\\s+/g, ' ').trim() : '',
+                bandCount: document.querySelectorAll('.chapter-group-band').length,
+                storedCount: groups.length,
+                storedTitle: groups[0] ? groups[0].title : '',
+                storedStart: groups[0] ? groups[0].startChapter : null,
+                storedEnd: groups[0] ? groups[0].endChapter : null,
+                hasTimestamp: Boolean(app.data.books['GEN'].chapterGroupsUpdatedAt),
+                groupedChapterRendered: Boolean(document.getElementById('rollup-chapter-5')),
+                chapterInsideBody: Boolean(document.querySelector('.chapter-group-body #rollup-chapter-5')),
+                ungroupedChapterOutside: Boolean(
+                    document.getElementById('rollup-chapter-12') &&
+                    !document.querySelector('.chapter-group-body #rollup-chapter-12')
+                )
+            };
+        })()
+        """)
+        assert r2.get("modalClosed") == True, "Modal stayed open after a valid save"
+        assert r2.get("storedCount") == 1, f"Expected 1 stored group, got {r2.get('storedCount')}"
+        assert r2.get("storedTitle") == "Primeval History", f"Stored title mismatch: {r2.get('storedTitle')}"
+        assert r2.get("storedStart") == 1 and r2.get("storedEnd") == 11, f"Stored range mismatch: {r2}"
+        assert r2.get("hasTimestamp") == True, "chapterGroupsUpdatedAt was not stamped on save"
+        assert r2.get("bandCount") == 1, f"Expected exactly 1 group band, got {r2.get('bandCount')}"
+        assert "Primeval History" in r2.get("bandText", ""), f"Group title missing from band: {r2.get('bandText')}"
+        assert "Chapters 1\u201311" in r2.get("bandText", ""), f"Range label missing from band: {r2.get('bandText')}"
+        assert r2.get("chapterInsideBody") == True, "Chapter 5 was not wrapped inside the group container"
+        assert r2.get("ungroupedChapterOutside") == True, "Chapter 12 should render outside the group container"
+
+        # --- 3. Collapse hides member chapters; expanding restores them ---
+        r3 = self.eval_js("""
+        (() => {
+            document.querySelector('.toggle-chapter-group-btn').click();
+            const collapsed = {
+                bandStillThere: Boolean(document.querySelector('.chapter-group-band')),
+                memberChapterHidden: !document.getElementById('rollup-chapter-5'),
+                ungroupedStillThere: Boolean(document.getElementById('rollup-chapter-12'))
+            };
+
+            document.querySelector('.toggle-chapter-group-btn').click();
+            const expanded = {
+                memberChapterBack: Boolean(document.getElementById('rollup-chapter-5'))
+            };
+
+            return { ...collapsed, ...expanded };
+        })()
+        """)
+        assert r3.get("bandStillThere") == True, "Group band disappeared when collapsed"
+        assert r3.get("memberChapterHidden") == True, "Collapsing the group did not hide its member chapters"
+        assert r3.get("ungroupedStillThere") == True, "Collapsing the group wrongly hid ungrouped chapters"
+        assert r3.get("memberChapterBack") == True, "Expanding the group did not restore its member chapters"
+
+        # --- 4. Edit prefills the modal and updates the band in place ---
+        r4 = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            document.querySelector('.edit-chapter-group-btn').click();
+
+            const prefill = {
+                modalOpen: Boolean(document.getElementById('chapter-group-modal')),
+                prefilledTitle: document.getElementById('chapter-group-title-input').value,
+                prefilledStart: document.getElementById('chapter-group-start-select').value,
+                prefilledEnd: document.getElementById('chapter-group-end-select').value
+            };
+
+            document.getElementById('chapter-group-title-input').value = 'Beginnings';
+            document.getElementById('chapter-group-end-select').value = '9';
+            document.getElementById('save-chapter-group-btn').click();
+
+            const band = document.querySelector('.chapter-group-band');
+            const groups = app.data.books['GEN'].chapterGroups || [];
+            return {
+                ...prefill,
+                groupCountAfterEdit: groups.length,
+                bandTextAfterEdit: band ? band.textContent.replace(/\\s+/g, ' ').trim() : '',
+                chapter10NowUngrouped: Boolean(
+                    document.getElementById('rollup-chapter-10') &&
+                    !document.querySelector('.chapter-group-body #rollup-chapter-10')
+                )
+            };
+        })()
+        """)
+        assert r4.get("modalOpen") == True, "Edit button did not reopen the modal"
+        assert r4.get("prefilledTitle") == "Primeval History", f"Modal not prefilled with the group title: {r4.get('prefilledTitle')}"
+        assert r4.get("prefilledStart") == "1", f"Modal not prefilled with start chapter: {r4.get('prefilledStart')}"
+        assert r4.get("prefilledEnd") == "11", f"Modal not prefilled with end chapter: {r4.get('prefilledEnd')}"
+        assert r4.get("groupCountAfterEdit") == 1, f"Editing duplicated the group instead of updating it: {r4.get('groupCountAfterEdit')}"
+        assert "Beginnings" in r4.get("bandTextAfterEdit", ""), f"Edited title did not render: {r4.get('bandTextAfterEdit')}"
+        assert "Chapters 1\u20139" in r4.get("bandTextAfterEdit", ""), f"Edited range did not render: {r4.get('bandTextAfterEdit')}"
+        assert r4.get("chapter10NowUngrouped") == True, "Chapter 10 should have left the group after shrinking the range"
+
+        # --- 5. Deleting removes only the grouping; chapter outlines survive ---
+        r5 = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            const chapter1Before = Boolean(document.getElementById('rollup-chapter-1'));
+            const origConfirm = window.confirm;
+            window.confirm = () => true;
+            document.querySelector('.delete-chapter-group-btn').click();
+            window.confirm = origConfirm;
+
+            return {
+                chapter1Before,
+                bandGone: !document.querySelector('.chapter-group-band'),
+                wrapperGone: !document.querySelector('.chapter-group-wrapper'),
+                storedCount: (app.data.books['GEN'].chapterGroups || []).length,
+                chapter1Still: Boolean(document.getElementById('rollup-chapter-1')),
+                chapter11Still: Boolean(document.getElementById('rollup-chapter-11')),
+                chapterDataIntact: Boolean(app.data.chapters)
+            };
+        })()
+        """)
+        assert r5.get("chapter1Before") == True, "Chapter 1 card missing before delete (test setup issue)"
+        assert r5.get("bandGone") == True, "Group band still rendered after delete"
+        assert r5.get("wrapperGone") == True, "Group wrapper still rendered after delete"
+        assert r5.get("storedCount") == 0, f"Group not removed from storage: {r5.get('storedCount')}"
+        assert r5.get("chapter1Still") == True, "Deleting the group removed chapter 1's card"
+        assert r5.get("chapter11Still") == True, "Deleting the group removed chapter 11's card"
+        assert r5.get("chapterDataIntact") == True, "Chapter outline data was lost on group delete"
+
 

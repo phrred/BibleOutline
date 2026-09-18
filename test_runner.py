@@ -37,6 +37,7 @@ SRC_FILES = [
     "src/esv_api.js",
     "src/quiz_engine.js",
     "src/controllers/OutlinerController.js",
+    "src/controllers/ChapterGroupController.js",
     "src/controllers/QuizController.js",
     "src/components/Sidebar.js",
     "src/components/TopNavbar.js",

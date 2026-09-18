@@ -1,10 +1,13 @@
 import { BIBLE_ERAS } from "../../data/bible_catalog.js";
 import { extractESVHeadings } from "../esv_api.js";
+import { getChapterGroups, formatGroupRange } from "../storage.js";
 
 export function renderBookRollupView({
   selectedBook,
   data,
-  rollupLayout = "document"
+  rollupLayout = "document",
+  chapterGroupModal = null,
+  collapsedChapterGroups = null
 }) {
   const bookData = data.books[selectedBook.id] || { bookSummary: "" };
 
@@ -85,6 +88,18 @@ export function renderBookRollupView({
 
             <span class="text-[#333330] hidden sm:inline">|</span>
 
+            <!-- Chapter Grouping -->
+            <button
+              id="open-chapter-group-modal-btn"
+              data-group-book-id="${selectedBook.id}"
+              class="open-chapter-group-modal-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+              title="Group a range of ${selectedBook.name} chapters under a title"
+            >
+              <span>＋ Group Chapters</span>
+            </button>
+
+            <span class="text-[#333330] hidden sm:inline">|</span>
+
             <!-- Quiz Actions -->
             <button
               data-launch-book-headings-quiz="${selectedBook.id}"
@@ -138,6 +153,9 @@ export function renderBookRollupView({
         <div class="space-y-8">
           ${(() => {
             const rows = [];
+            const chapterGroups = getChapterGroups(data, selectedBook.id);
+            const collapsedSet = collapsedChapterGroups instanceof Set ? collapsedChapterGroups : new Set();
+
             for (let ch = 1; ch <= selectedBook.chapterCount; ch++) {
               const chKey = `${selectedBook.id}-${ch}`;
               const chData = data.chapters[chKey] || {
@@ -156,6 +174,66 @@ export function renderBookRollupView({
                     verses: h.verses,
                     notes: ""
                   }));
+              }
+
+              const group = chapterGroups.find((g) => ch >= g.startChapter && ch <= g.endChapter) || null;
+              const isCollapsed = group ? collapsedSet.has(`${selectedBook.id}:${group.id}`) : false;
+              const chapterSpan = group ? group.endChapter - group.startChapter + 1 : 0;
+
+              // Open the group container and band at the group's first chapter
+              if (group && ch === group.startChapter) {
+                rows.push(`
+                  <div class="chapter-group-wrapper border border-[#33332E] rounded-xl overflow-hidden bg-[#161614]">
+                    <div class="chapter-group-band flex items-center justify-between gap-3 px-4 py-2.5 bg-[#1F1F1D] border-b border-[#2B2B28]">
+                      <button
+                        data-toggle-chapter-group="${group.id}"
+                        class="toggle-chapter-group-btn flex items-center gap-2 text-left cursor-pointer min-w-0"
+                        title="${isCollapsed ? "Expand" : "Collapse"} this group"
+                      >
+                        <span class="text-[#C4B79C] text-[10px] shrink-0">${isCollapsed ? "▶" : "▼"}</span>
+                        <span class="font-serif text-base font-bold text-[#DBCFB3] hover:text-[#EAE8E2] truncate">
+                          ${(group.title || "").replace(/</g, "&lt;")}
+                        </span>
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#141413] border border-[#2A2A27] text-[#8C8A84] shrink-0">
+                          ${formatGroupRange(group)}
+                        </span>
+                      </button>
+                      <div class="flex items-center gap-1 shrink-0">
+                        <button
+                          data-edit-chapter-group="${group.id}"
+                          class="edit-chapter-group-btn px-2 py-1 rounded text-[11px] text-[#8C8A84] hover:text-[#EAE8E2] hover:bg-[#2A2A27] transition cursor-pointer"
+                          title="Edit this group's title or chapter range"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          data-delete-chapter-group="${group.id}"
+                          class="delete-chapter-group-btn px-2 py-1 rounded text-[11px] text-[#8C8A84] hover:text-rose-400 hover:bg-rose-500/10 transition cursor-pointer"
+                          title="Remove this grouping (all chapter outlines are kept)"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                `);
+
+                if (isCollapsed) {
+                  rows.push(`
+                    <div class="px-4 py-3 text-[11px] text-[#6D6B66] italic">
+                      ${chapterSpan} chapter${chapterSpan === 1 ? "" : "s"} hidden — click the group title to expand.
+                    </div>
+                  `);
+                } else {
+                  rows.push(`<div class="chapter-group-body p-3 md:p-4 space-y-6">`);
+                }
+              }
+
+              if (isCollapsed) {
+                // Close the wrapper on the group's last chapter even while collapsed
+                if (group && ch === group.endChapter) {
+                  rows.push(`</div>`);
+                }
+                continue;
               }
 
               if (rollupLayout === "grid") {
@@ -324,12 +402,139 @@ export function renderBookRollupView({
                   </div>
                 `);
               }
+
+              // Close the group body and wrapper after the group's final chapter
+              if (group && ch === group.endChapter) {
+                rows.push(`</div></div>`);
+              }
             }
             return rows.join("");
           })()}
         </div>
       </div>
     </div>
+
+    <!-- Chapter Group Modal Overlay -->
+    ${chapterGroupModal ? renderChapterGroupModal({ ...chapterGroupModal, selectedBook, data }) : ""}
   </div>
+  `;
+}
+
+// --------------------------------------------------------------------------
+// CHAPTER GROUP MODAL (Create / Edit)
+// --------------------------------------------------------------------------
+export function renderChapterGroupModal({
+  selectedBook,
+  editingGroupId = null,
+  title = "",
+  startChapter = 1,
+  endChapter = 1,
+  errorMessage = "",
+  data = {}
+}) {
+  if (!selectedBook) return "";
+
+  const groups = getChapterGroups(data, selectedBook.id);
+  const editingGroup = editingGroupId ? groups.find((g) => g.id === editingGroupId) : null;
+  const isEditing = Boolean(editingGroup);
+
+  const chapterOptions = (selectedValue) => {
+    let opts = "";
+    for (let c = 1; c <= selectedBook.chapterCount; c++) {
+      opts += `<option value="${c}" ${Number(selectedValue) === c ? "selected" : ""}>Chapter ${c}</option>`;
+    }
+    return opts;
+  };
+
+  return `
+    <div id="chapter-group-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-xs">
+      <div class="bg-[#1C1C1A] border border-[#2B2B28] rounded-2xl shadow-2xl w-full max-w-md p-5 space-y-4">
+        <div class="flex items-start justify-between gap-4 border-b border-[#262624] pb-3">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#C4B79C]">
+              ${isEditing ? "Edit Chapter Group" : "New Chapter Group"}
+            </span>
+            <h3 class="font-serif text-lg font-bold text-[#EAE8E2] mt-0.5">${selectedBook.name}</h3>
+          </div>
+          <button
+            id="close-chapter-group-modal-btn"
+            class="text-xs text-[#8C8A84] hover:text-[#EAE8E2] px-2 py-1 rounded bg-[#141413] border border-[#2A2A27] transition cursor-pointer"
+          >
+            ✕
+          </button>
+        </div>
+
+        <p class="text-[11px] text-[#A19E97] leading-relaxed">
+          Group a continuous span of chapters under one title. Chapters outside any group keep showing normally,
+          and deleting a group never removes your outline notes.
+        </p>
+
+        ${
+          errorMessage
+            ? `
+              <div class="bg-rose-500/10 border border-rose-500/40 rounded-lg px-3 py-2 text-[11px] text-rose-300">
+                ${errorMessage.replace(/</g, "&lt;")}
+              </div>
+            `
+            : ""
+        }
+
+        <div class="space-y-3">
+          <div class="space-y-1.5">
+            <label class="block text-[10px] font-mono uppercase tracking-wider text-[#8C8A84]">
+              Group Title
+            </label>
+            <input
+              id="chapter-group-title-input"
+              type="text"
+              placeholder="e.g. Primeval History"
+              value="${(title || "").replace(/"/g, "&quot;")}"
+              class="w-full bg-[#141413] border border-[#2B2B28] focus:border-[#C4B79C] rounded-md px-3 py-2 text-sm text-[#EAE8E2] placeholder:text-[#6D6B66] focus:outline-none transition"
+            />
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="space-y-1.5">
+              <label class="block text-[10px] font-mono uppercase tracking-wider text-[#8C8A84]">
+                From
+              </label>
+              <select
+                id="chapter-group-start-select"
+                class="w-full bg-[#141413] border border-[#2B2B28] focus:border-[#C4B79C] rounded-md px-3 py-2 text-sm text-[#EAE8E2] focus:outline-none transition cursor-pointer"
+              >
+                ${chapterOptions(startChapter)}
+              </select>
+            </div>
+            <div class="space-y-1.5">
+              <label class="block text-[10px] font-mono uppercase tracking-wider text-[#8C8A84]">
+                To
+              </label>
+              <select
+                id="chapter-group-end-select"
+                class="w-full bg-[#141413] border border-[#2B2B28] focus:border-[#C4B79C] rounded-md px-3 py-2 text-sm text-[#EAE8E2] focus:outline-none transition cursor-pointer"
+              >
+                ${chapterOptions(endChapter)}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 pt-2 border-t border-[#262624]">
+          <button
+            id="cancel-chapter-group-btn"
+            class="px-4 py-2 rounded-lg bg-[#2A2A27] hover:bg-[#383834] text-[#EAE8E2] text-xs font-semibold transition cursor-pointer"
+          >
+            Cancel
+          </button>
+          <button
+            id="save-chapter-group-btn"
+            data-editing-group-id="${editingGroupId || ""}"
+            class="px-5 py-2 rounded-lg bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] text-xs font-bold font-serif transition shadow cursor-pointer"
+          >
+            ${isEditing ? "Save Changes" : "Create Group"}
+          </button>
+        </div>
+      </div>
+    </div>
   `;
 }

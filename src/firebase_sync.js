@@ -155,6 +155,18 @@ export function extractBookData(bookId, localData) {
   const myBookTheme = (b.myBookTheme || "").trim();
   const updatedAt = b.updatedAt || Date.now();
 
+  const chapterGroups = Array.isArray(b.chapterGroups)
+    ? b.chapterGroups
+        .filter((g) => g && (g.title || "").trim() && g.startChapter && g.endChapter)
+        .map((g) => ({
+          id: g.id,
+          title: (g.title || "").trim(),
+          startChapter: g.startChapter,
+          endChapter: g.endChapter
+        }))
+    : [];
+  const chapterGroupsUpdatedAt = b.chapterGroupsUpdatedAt || null;
+
   const chaptersMap = {};
   if (localData.chapters) {
     const prefix = `${bookId}-`;
@@ -169,19 +181,28 @@ export function extractBookData(bookId, localData) {
   }
 
   const hasAnyChapters = Object.keys(chaptersMap).length > 0;
-  const hasBookContent = bookSummary.length > 0 || myBookTheme.length > 0;
+  const hasBookContent = bookSummary.length > 0 || myBookTheme.length > 0 || chapterGroups.length > 0;
 
   if (!hasAnyChapters && !hasBookContent) {
     return null;
   }
 
-  return {
+  const payload = {
     bookId,
     bookSummary,
     myBookTheme,
     updatedAt,
     chapters: chaptersMap
   };
+
+  // Always emit the timestamp when one exists, even alongside an empty array —
+  // an empty array paired with a newer timestamp is how a deletion propagates.
+  if (chapterGroupsUpdatedAt) {
+    payload.chapterGroups = chapterGroups;
+    payload.chapterGroupsUpdatedAt = chapterGroupsUpdatedAt;
+  }
+
+  return payload;
 }
 
 // Save only a single book document to /users/{uid}/books/{bookId} (Option A: Granular Save)
@@ -479,12 +500,15 @@ export function mergeCloudAndLocalState(cloudData, localData) {
   if (!localData.books) localData.books = {};
   if (!localData.chapters) localData.chapters = {};
 
-  // 1. Merge Book Summaries & Themes
+  // 1. Merge Book Summaries, Themes & Chapter Groups
   if (cloudData.books) {
     for (const [bid, b] of Object.entries(cloudData.books)) {
       if (!b) continue;
       if (!localData.books[bid]) {
-        localData.books[bid] = { bookSummary: "", myBookTheme: "", updatedAt: null };
+        localData.books[bid] = { bookSummary: "", myBookTheme: "", chapterGroups: [], updatedAt: null };
+      }
+      if (!Array.isArray(localData.books[bid].chapterGroups)) {
+        localData.books[bid].chapterGroups = [];
       }
       if (b.bookSummary && b.bookSummary.trim()) {
         localData.books[bid].bookSummary = b.bookSummary;
@@ -492,6 +516,24 @@ export function mergeCloudAndLocalState(cloudData, localData) {
       }
       if (b.myBookTheme && b.myBookTheme.trim()) {
         localData.books[bid].myBookTheme = b.myBookTheme;
+        merged = true;
+      }
+
+      // Chapter groups use whole-array last-write-wins keyed on the timestamp.
+      // This intentionally runs even when the cloud array is empty: an empty
+      // array with a newer stamp represents a deletion on another device, and
+      // skipping it (as the "cloud wins if non-empty" idiom above would) is
+      // exactly what would resurrect a group the user already removed.
+      const cloudStamp = b.chapterGroupsUpdatedAt || 0;
+      const localStamp = localData.books[bid].chapterGroupsUpdatedAt || 0;
+      if (cloudStamp > localStamp && Array.isArray(b.chapterGroups)) {
+        localData.books[bid].chapterGroups = b.chapterGroups.map((g) => ({
+          id: g.id,
+          title: g.title,
+          startChapter: g.startChapter,
+          endChapter: g.endChapter
+        }));
+        localData.books[bid].chapterGroupsUpdatedAt = cloudStamp;
         merged = true;
       }
     }
