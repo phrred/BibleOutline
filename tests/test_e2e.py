@@ -894,12 +894,34 @@ class E2ETester:
             app.collapsedChapterGroups = new Set();
             app.render();
 
+            const scroller = document.getElementById('book-rollup-scroll-container');
+            if (scroller) {
+                scroller.scrollTop = 600;
+            }
             const openBtn = document.getElementById('open-chapter-group-modal-btn');
+            const stickyHeader = document.getElementById('book-rollup-sticky-header');
             const hadOpenBtn = Boolean(openBtn);
+            const isSticky = Boolean(
+                (openBtn && getComputedStyle(openBtn).position === 'sticky') ||
+                (stickyHeader && getComputedStyle(stickyHeader).position === 'sticky')
+            );
+            const btnRect = openBtn ? openBtn.getBoundingClientRect() : null;
+            const scrollerRect = scroller ? scroller.getBoundingClientRect() : null;
+            const visibleWhileScrolled = Boolean(
+                btnRect && scrollerRect &&
+                btnRect.top >= scrollerRect.top - 5 &&
+                btnRect.bottom <= scrollerRect.bottom
+            );
             if (openBtn) openBtn.click();
+
+            const scrollerAfterClick = document.getElementById('book-rollup-scroll-container');
+            const scrollAfterModalOpen = scrollerAfterClick ? scrollerAfterClick.scrollTop : 0;
 
             return {
                 hadOpenBtn,
+                isSticky,
+                visibleWhileScrolled,
+                scrollAfterModalOpen,
                 modalVisible: Boolean(document.getElementById('chapter-group-modal')),
                 startOptionCount: document.querySelectorAll('#chapter-group-start-select option').length,
                 endOptionCount: document.querySelectorAll('#chapter-group-end-select option').length
@@ -907,6 +929,9 @@ class E2ETester:
         })()
         """)
         assert r1.get("hadOpenBtn") == True, "'Group Chapters' button missing from Book Rollup header"
+        assert r1.get("isSticky") == True, "'Group Chapters' button / header should have position: sticky"
+        assert r1.get("visibleWhileScrolled") == True, f"'Group Chapters' button should stay visible when scrolled down: {r1}"
+        assert r1.get("scrollAfterModalOpen") == 600, f"Expected scroll position 600 after opening modal, got {r1.get('scrollAfterModalOpen')}"
         assert r1.get("modalVisible") == True, "Chapter group modal did not open on click"
         assert r1.get("startOptionCount") == 50, f"Expected 50 start-chapter options for Genesis, got {r1.get('startOptionCount')}"
         assert r1.get("endOptionCount") == 50, f"Expected 50 end-chapter options for Genesis, got {r1.get('endOptionCount')}"

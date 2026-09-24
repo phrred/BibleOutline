@@ -35441,8 +35441,7 @@ function attachChapterGroupListeners(app) {
   };
 
   // 1. Open the modal for a brand new group
-  const openBtn = document.getElementById("open-chapter-group-modal-btn");
-  if (openBtn) {
+  document.querySelectorAll("#open-chapter-group-modal-btn, .open-chapter-group-modal-btn").forEach((openBtn) => {
     openBtn.addEventListener("click", () => {
       // Default the range to the first chapter not already covered by a group
       const groups = getChapterGroups(app.data, bookId);
@@ -35464,7 +35463,7 @@ function attachChapterGroupListeners(app) {
       };
       app.render();
     });
-  }
+  });
 
   // 2. Close / cancel
   const closeBtn = document.getElementById("close-chapter-group-modal-btn");
@@ -36667,117 +36666,116 @@ function renderBookRollupView({
   const bookData = data.books[selectedBook.id] || { bookSummary: "" };
 
   return `
-    <div class="h-full w-full overflow-y-auto bg-[#141413] text-[#EAE8E2]">
-      <div class="${rollupLayout === "grid" ? "max-w-5xl" : "max-w-3xl"} mx-auto p-6 md:p-10 space-y-10">
-      <!-- Quiet Book Header -->
-      <div class="border-b border-[#242422] pb-6 space-y-3">
-        <div class="flex items-center justify-between text-xs text-[#8C8A84]">
-          <span>${selectedBook.testament} • ${selectedBook.category}</span>
-          <span>${selectedBook.author} • ${selectedBook.date}</span>
-        </div>
+    <div id="book-rollup-scroll-container" class="h-full w-full overflow-y-auto bg-[#141413] text-[#EAE8E2]">
+      <div class="${rollupLayout === "grid" ? "max-w-5xl" : "max-w-3xl"} mx-auto px-6 md:px-10 pt-6 md:pt-8 pb-6 md:pb-10 space-y-8">
+      <!-- Quiet Book Metadata -->
+      <div class="flex items-center justify-between text-xs text-[#8C8A84] -mb-5">
+        <span>${selectedBook.testament} • ${selectedBook.category}</span>
+        <span>${selectedBook.author} • ${selectedBook.date}</span>
+      </div>
 
-        <div class="flex flex-wrap items-center justify-between gap-3">
-          <h1 class="font-serif text-3xl font-bold text-[#EAE8E2] tracking-tight">
-            ${selectedBook.name}
-          </h1>
+      <!-- Sticky Book Header & Action Toolbar -->
+      <div id="book-rollup-sticky-header" class="sticky top-0 z-30 bg-[#141413] border-b border-[#242422] py-3 flex flex-wrap items-center justify-between gap-3">
+        <h1 class="font-serif text-3xl font-bold text-[#EAE8E2] tracking-tight">
+          ${selectedBook.name}
+        </h1>
 
-          <div class="flex flex-wrap items-center gap-2">
-            <!-- Layout Switcher (Document List vs Two-Column Grid) -->
-            <div class="flex items-center bg-[#1D1D1B] p-0.5 rounded-lg border border-[#2B2B28] text-xs">
-              <button
-                data-set-rollup-layout="document"
-                class="set-rollup-layout-btn px-2.5 py-1.5 rounded text-xs transition flex items-center gap-1.5 cursor-pointer ${
-                  rollupLayout === "document"
-                    ? "bg-[#2D2D2A] text-[#EAE8E2] font-semibold shadow-xs"
-                    : "text-[#8C8A84] hover:text-[#EAE8E2]"
-                }"
-                title="Vertical Document List Outline"
-              >
-                <span>📄</span>
-                <span>List View</span>
-              </button>
-              <button
-                data-set-rollup-layout="grid"
-                class="set-rollup-layout-btn px-2.5 py-1.5 rounded text-xs transition flex items-center gap-1.5 cursor-pointer ${
-                  rollupLayout === "grid"
-                    ? "bg-[#2D2D2A] text-[#EAE8E2] font-semibold shadow-xs"
-                    : "text-[#8C8A84] hover:text-[#EAE8E2]"
-                }"
-                title="Two-Column Grid Table (Headings Column + Bullets Column)"
-              >
-                <span>▦</span>
-                <span>Grid View</span>
-              </button>
-            </div>
-
-            <span class="text-[#333330] hidden sm:inline">|</span>
-
-            <!-- Layout-Aware Export Buttons -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Layout Switcher (Document List vs Two-Column Grid) -->
+          <div class="flex items-center bg-[#1D1D1B] p-0.5 rounded-lg border border-[#2B2B28] text-xs">
             <button
-              data-export-book-pdf="${selectedBook.id}"
-              data-export-layout="${rollupLayout}"
-              class="export-book-pdf-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#C4B79C] text-[#C4B79C] hover:text-[#141413] border border-[#3A3A34] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
-              title="Print or Save ${selectedBook.name} as a compact PDF using ${rollupLayout === 'grid' ? 'Grid Table' : 'List'} layout"
-            >
-              <span>📑</span>
-              <span>Print / PDF (${rollupLayout === "grid" ? "Grid" : "List"})</span>
-            </button>
-            <button
-              data-export-book-md="${selectedBook.id}"
-              data-export-layout="${rollupLayout}"
-              class="export-book-md-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
-              title="Export ${selectedBook.name} as Markdown (.md) in ${rollupLayout === 'grid' ? 'Grid Table' : 'List'} layout"
+              data-set-rollup-layout="document"
+              class="set-rollup-layout-btn px-2.5 py-1.5 rounded text-xs transition flex items-center gap-1.5 cursor-pointer ${
+                rollupLayout === "document"
+                  ? "bg-[#2D2D2A] text-[#EAE8E2] font-semibold shadow-xs"
+                  : "text-[#8C8A84] hover:text-[#EAE8E2]"
+              }"
+              title="Vertical Document List Outline"
             >
               <span>📄</span>
-              <span>.md</span>
+              <span>List View</span>
             </button>
             <button
-              data-export-all-books="all"
-              data-export-layout="${rollupLayout}"
-              class="export-all-books-pdf-btn px-2.5 py-1.5 rounded-lg bg-[#1C1C1A] hover:bg-[#262623] text-[#A19E97] hover:text-[#EAE8E2] border border-[#2B2B28] text-xs font-medium transition shadow flex items-center gap-1 cursor-pointer"
-              title="Export Complete Bible (All 66 Books) in ${rollupLayout === 'grid' ? 'Grid Table' : 'List'} layout"
+              data-set-rollup-layout="grid"
+              class="set-rollup-layout-btn px-2.5 py-1.5 rounded text-xs transition flex items-center gap-1.5 cursor-pointer ${
+                rollupLayout === "grid"
+                  ? "bg-[#2D2D2A] text-[#EAE8E2] font-semibold shadow-xs"
+                  : "text-[#8C8A84] hover:text-[#EAE8E2]"
+              }"
+              title="Two-Column Grid Table (Headings Column + Bullets Column)"
             >
-              <span>🌐</span>
-              <span>All 66 Books</span>
-            </button>
-
-            <span class="text-[#333330] hidden sm:inline">|</span>
-
-            <!-- Chapter Grouping -->
-            <button
-              id="open-chapter-group-modal-btn"
-              data-group-book-id="${selectedBook.id}"
-              class="open-chapter-group-modal-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
-              title="Group a range of ${selectedBook.name} chapters under a title"
-            >
-              <span>＋ Group Chapters</span>
-            </button>
-
-            <span class="text-[#333330] hidden sm:inline">|</span>
-
-            <!-- Quiz Actions -->
-            <button
-              data-launch-book-headings-quiz="${selectedBook.id}"
-              class="launch-book-headings-quiz-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
-              title="Test major chapter headings for ${selectedBook.name}"
-            >
-              <span>📑 Quiz Headings</span>
-            </button>
-            <button
-              data-launch-book-quiz="${selectedBook.id}"
-              class="launch-book-quiz-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#C4B79C] text-[#C4B79C] hover:text-[#141413] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
-              title="Launch a full chapter mastery quiz for ${selectedBook.name}"
-            >
-              <span>📝 Quiz Book</span>
-              <span>→</span>
+              <span>▦</span>
+              <span>Grid View</span>
             </button>
           </div>
-        </div>
 
-        <p class="text-xs leading-relaxed text-[#A19E97]">
-          ${selectedBook.context}
-        </p>
+          <span class="text-[#333330] hidden sm:inline">|</span>
+
+          <!-- Layout-Aware Export Buttons -->
+          <button
+            data-export-book-pdf="${selectedBook.id}"
+            data-export-layout="${rollupLayout}"
+            class="export-book-pdf-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#C4B79C] text-[#C4B79C] hover:text-[#141413] border border-[#3A3A34] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+            title="Print or Save ${selectedBook.name} as a compact PDF using ${rollupLayout === 'grid' ? 'Grid Table' : 'List'} layout"
+          >
+            <span>📑</span>
+            <span>Print / PDF (${rollupLayout === "grid" ? "Grid" : "List"})</span>
+          </button>
+          <button
+            data-export-book-md="${selectedBook.id}"
+            data-export-layout="${rollupLayout}"
+            class="export-book-md-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+            title="Export ${selectedBook.name} as Markdown (.md) in ${rollupLayout === 'grid' ? 'Grid Table' : 'List'} layout"
+          >
+            <span>📄</span>
+            <span>.md</span>
+          </button>
+          <button
+            data-export-all-books="all"
+            data-export-layout="${rollupLayout}"
+            class="export-all-books-pdf-btn px-2.5 py-1.5 rounded-lg bg-[#1C1C1A] hover:bg-[#262623] text-[#A19E97] hover:text-[#EAE8E2] border border-[#2B2B28] text-xs font-medium transition shadow flex items-center gap-1 cursor-pointer"
+            title="Export Complete Bible (All 66 Books) in ${rollupLayout === 'grid' ? 'Grid Table' : 'List'} layout"
+          >
+            <span>🌐</span>
+            <span>All 66 Books</span>
+          </button>
+
+          <span class="text-[#333330] hidden sm:inline">|</span>
+
+          <!-- Chapter Grouping (Sticky) -->
+          <button
+            id="open-chapter-group-modal-btn"
+            data-group-book-id="${selectedBook.id}"
+            class="open-chapter-group-modal-btn sticky top-3 z-30 px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+            title="Group a range of ${selectedBook.name} chapters under a title"
+          >
+            <span>＋ Group Chapters</span>
+          </button>
+
+          <span class="text-[#333330] hidden sm:inline">|</span>
+
+          <!-- Quiz Actions -->
+          <button
+            data-launch-book-headings-quiz="${selectedBook.id}"
+            class="launch-book-headings-quiz-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+            title="Test major chapter headings for ${selectedBook.name}"
+          >
+            <span>📑 Quiz Headings</span>
+          </button>
+          <button
+            data-launch-book-quiz="${selectedBook.id}"
+            class="launch-book-quiz-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#C4B79C] text-[#C4B79C] hover:text-[#141413] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
+            title="Launch a full chapter mastery quiz for ${selectedBook.name}"
+          >
+            <span>📝 Quiz Book</span>
+            <span>→</span>
+          </button>
+        </div>
       </div>
+
+      <p class="text-xs leading-relaxed text-[#A19E97] border-b border-[#242422] pb-5 -mt-4">
+        ${selectedBook.context}
+      </p>
 
       <!-- Overall Book Summary Section -->
       <div class="space-y-2">
@@ -39416,10 +39414,12 @@ class BibleOutlineStudio {
     this.theme = localStorage.getItem("bibleOutline_theme") || (typeof document !== "undefined" && document.documentElement.classList.contains("light") ? "light" : "dark");
     this.applyTheme(this.theme);
 
-    // Scroll retention maps (per chapter)
+    // Scroll retention maps (per chapter / book)
     this.scriptureScrollPositions = {};
     this.outlineScrollPositions = {};
+    this.bookRollupScrollPositions = {};
     this.currentRenderedChapterKey = null;
+    this.currentRenderedRollupBookId = null;
 
     // Chapter grouping state (transient — never persisted or synced)
     this.chapterGroupModal = null; // { editingGroupId, title, startChapter, endChapter, errorMessage }
@@ -39901,6 +39901,12 @@ class BibleOutlineStudio {
           this.outlineScrollPositions[this.currentRenderedChapterKey] = curOutlineEditor.scrollTop;
         }
       }
+      if (this.currentRenderedRollupBookId && this.activeView === "book-rollup") {
+        const curRollupScroller = document.getElementById("book-rollup-scroll-container");
+        if (curRollupScroller) {
+          this.bookRollupScrollPositions[this.currentRenderedRollupBookId] = curRollupScroller.scrollTop;
+        }
+      }
 
       const { sidebarContainer, topNavbarContainer, mainScrollCanvas } = this.ensureAppShell();
 
@@ -39963,6 +39969,7 @@ class BibleOutlineStudio {
       }
 
       this.currentRenderedChapterKey = `${this.selectedBookId}-${this.selectedChapterNum}`;
+      this.currentRenderedRollupBookId = this.activeView === "book-rollup" ? this.selectedBookId : null;
       this.attachEventListeners();
       this.scrollActiveChapterPillIntoView();
       this.restoreChapterEditorScrollPositions();
@@ -40519,6 +40526,18 @@ class BibleOutlineStudio {
   }
 
   restoreChapterEditorScrollPositions() {
+    if (this.activeView === "book-rollup") {
+      const rollupScroll = this.bookRollupScrollPositions[this.selectedBookId];
+      const applyRollupScroll = () => {
+        const rollupScroller = document.getElementById("book-rollup-scroll-container");
+        if (rollupScroller && typeof rollupScroll === "number") {
+          rollupScroller.scrollTop = rollupScroll;
+        }
+      };
+      applyRollupScroll();
+      requestAnimationFrame(applyRollupScroll);
+      return;
+    }
     if (this.activeView !== "chapter-outliner") return;
     const chKey = `${this.selectedBookId}-${this.selectedChapterNum}`;
     const scriptureScroll = this.scriptureScrollPositions[chKey];

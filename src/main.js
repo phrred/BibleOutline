@@ -44,10 +44,12 @@ class BibleOutlineStudio {
     this.theme = localStorage.getItem("bibleOutline_theme") || (typeof document !== "undefined" && document.documentElement.classList.contains("light") ? "light" : "dark");
     this.applyTheme(this.theme);
 
-    // Scroll retention maps (per chapter)
+    // Scroll retention maps (per chapter / book)
     this.scriptureScrollPositions = {};
     this.outlineScrollPositions = {};
+    this.bookRollupScrollPositions = {};
     this.currentRenderedChapterKey = null;
+    this.currentRenderedRollupBookId = null;
 
     // Chapter grouping state (transient — never persisted or synced)
     this.chapterGroupModal = null; // { editingGroupId, title, startChapter, endChapter, errorMessage }
@@ -529,6 +531,12 @@ class BibleOutlineStudio {
           this.outlineScrollPositions[this.currentRenderedChapterKey] = curOutlineEditor.scrollTop;
         }
       }
+      if (this.currentRenderedRollupBookId && this.activeView === "book-rollup") {
+        const curRollupScroller = document.getElementById("book-rollup-scroll-container");
+        if (curRollupScroller) {
+          this.bookRollupScrollPositions[this.currentRenderedRollupBookId] = curRollupScroller.scrollTop;
+        }
+      }
 
       const { sidebarContainer, topNavbarContainer, mainScrollCanvas } = this.ensureAppShell();
 
@@ -591,6 +599,7 @@ class BibleOutlineStudio {
       }
 
       this.currentRenderedChapterKey = `${this.selectedBookId}-${this.selectedChapterNum}`;
+      this.currentRenderedRollupBookId = this.activeView === "book-rollup" ? this.selectedBookId : null;
       this.attachEventListeners();
       this.scrollActiveChapterPillIntoView();
       this.restoreChapterEditorScrollPositions();
@@ -1147,6 +1156,18 @@ class BibleOutlineStudio {
   }
 
   restoreChapterEditorScrollPositions() {
+    if (this.activeView === "book-rollup") {
+      const rollupScroll = this.bookRollupScrollPositions[this.selectedBookId];
+      const applyRollupScroll = () => {
+        const rollupScroller = document.getElementById("book-rollup-scroll-container");
+        if (rollupScroller && typeof rollupScroll === "number") {
+          rollupScroller.scrollTop = rollupScroll;
+        }
+      };
+      applyRollupScroll();
+      requestAnimationFrame(applyRollupScroll);
+      return;
+    }
     if (this.activeView !== "chapter-outliner") return;
     const chKey = `${this.selectedBookId}-${this.selectedChapterNum}`;
     const scriptureScroll = this.scriptureScrollPositions[chKey];

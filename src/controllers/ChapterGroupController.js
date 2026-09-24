@@ -22,8 +22,7 @@ export function attachChapterGroupListeners(app) {
   };
 
   // 1. Open the modal for a brand new group
-  const openBtn = document.getElementById("open-chapter-group-modal-btn");
-  if (openBtn) {
+  document.querySelectorAll("#open-chapter-group-modal-btn, .open-chapter-group-modal-btn").forEach((openBtn) => {
     openBtn.addEventListener("click", () => {
       // Default the range to the first chapter not already covered by a group
       const groups = getChapterGroups(app.data, bookId);
@@ -45,7 +44,7 @@ export function attachChapterGroupListeners(app) {
       };
       app.render();
     });
-  }
+  });
 
   // 2. Close / cancel
   const closeBtn = document.getElementById("close-chapter-group-modal-btn");
