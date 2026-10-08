@@ -1,6 +1,6 @@
 // Comprehensive Diagnostic & Biblical Mastery Question Bank
 // Sourced from Diagnostic Repositories, BMPI, GFC, and Official 66-Book Chapter Heading Quizzes
-// Contains all 1658 curated questions with full schema properties
+// Contains all 1730 curated questions with full schema properties
 
 export const CURATED_QUESTION_BANK = [
   {
@@ -31049,5 +31049,1445 @@ export const CURATED_QUESTION_BANK = [
     "explanation": "Revelation 22 contains the ESV heading 'The River of Life'. The pure river of the water of life flows from God's throne with the Tree of Life; Christ promises: 'Surely I am coming soon. Amen. Come, Lord Jesus!'",
     "scope": "NT",
     "genre": "Apocalyptic"
+  },
+  {
+    "id": "mat_ch_immanuel",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does the angel announce that the child shall be called \"Immanuel\" (which means \"God with us\")?",
+    "bookId": "MAT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Matthew 1",
+      "MAT 1",
+      "Matthew Chapter 1",
+      "Matt 1"
+    ],
+    "displayAnswer": "Matthew 1 (or Chapter 1)",
+    "explanation": "Matthew 1:23 quotes Isaiah 7:14: \"they shall call his name Immanuel\" (which means, God with us).",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_fourteen_generations",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew is Jesus' genealogy grouped into three sets of fourteen generations?",
+    "bookId": "MAT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "1",
+      "Chapter 1",
+      "Ch 1",
+      "Matthew 1",
+      "MAT 1",
+      "Matthew Chapter 1",
+      "Matt 1"
+    ],
+    "displayAnswer": "Matthew 1 (or Chapter 1)",
+    "explanation": "Matthew 1:17 summarizes the genealogy as fourteen generations from Abraham to David, David to the exile, and the exile to Christ.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_herod_massacre",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Herod kill all the male children in Bethlehem who were two years old or under?",
+    "bookId": "MAT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "2",
+      "Chapter 2",
+      "Ch 2",
+      "Matthew 2",
+      "MAT 2",
+      "Matthew Chapter 2",
+      "Matt 2"
+    ],
+    "displayAnswer": "Matthew 2 (or Chapter 2)",
+    "explanation": "Matthew 2:16 records Herod's massacre of the infants of Bethlehem after being tricked by the wise men.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_locusts_honey",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew is John the Baptist described as wearing camel's hair and eating locusts and wild honey?",
+    "bookId": "MAT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "3",
+      "Chapter 3",
+      "Ch 3",
+      "Matthew 3",
+      "MAT 3",
+      "Matthew Chapter 3",
+      "Matt 3"
+    ],
+    "displayAnswer": "Matthew 3 (or Chapter 3)",
+    "explanation": "Matthew 3:4 describes John's garment of camel's hair, leather belt, and diet of locusts and wild honey.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_bread_alone",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say: \"Man shall not live by bread alone, but by every word that comes from the mouth of God\"?",
+    "bookId": "MAT",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "4",
+      "Chapter 4",
+      "Ch 4",
+      "Matthew 4",
+      "MAT 4",
+      "Matthew Chapter 4",
+      "Matt 4"
+    ],
+    "displayAnswer": "Matthew 4 (or Chapter 4)",
+    "explanation": "Matthew 4:4 — Jesus answers the devil's first temptation by quoting Deuteronomy 8:3.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_salt_light",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say: \"You are the salt of the earth… You are the light of the world\"?",
+    "bookId": "MAT",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Matthew 5",
+      "MAT 5",
+      "Matthew Chapter 5",
+      "Matt 5"
+    ],
+    "displayAnswer": "Matthew 5 (or Chapter 5)",
+    "explanation": "Matthew 5:13–14, in the Sermon on the Mount, calls disciples salt and light.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_love_enemies",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say: \"Love your enemies and pray for those who persecute you\"?",
+    "bookId": "MAT",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "5",
+      "Chapter 5",
+      "Ch 5",
+      "Matthew 5",
+      "MAT 5",
+      "Matthew Chapter 5",
+      "Matt 5"
+    ],
+    "displayAnswer": "Matthew 5 (or Chapter 5)",
+    "explanation": "Matthew 5:44, in the Sermon on the Mount.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_birds_lilies",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say: \"Look at the birds of the air… Consider the lilies of the field\"?",
+    "bookId": "MAT",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "6",
+      "Chapter 6",
+      "Ch 6",
+      "Matthew 6",
+      "MAT 6",
+      "Matthew Chapter 6",
+      "Matt 6"
+    ],
+    "displayAnswer": "Matthew 6 (or Chapter 6)",
+    "explanation": "Matthew 6:26–28 — Jesus teaches against anxiety, pointing to God's care for birds and lilies.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_false_prophets",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus warn: \"Beware of false prophets, who come to you in sheep's clothing… You will recognize them by their fruits\"?",
+    "bookId": "MAT",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Matthew 7",
+      "MAT 7",
+      "Matthew Chapter 7",
+      "Matt 7"
+    ],
+    "displayAnswer": "Matthew 7 (or Chapter 7)",
+    "explanation": "Matthew 7:15–16, near the end of the Sermon on the Mount.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_summary_8",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus cleanse a leper, heal a centurion's servant, calm a storm at sea, and cast demons into a herd of pigs?",
+    "bookId": "MAT",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Matthew 8",
+      "MAT 8",
+      "Matthew Chapter 8",
+      "Matt 8"
+    ],
+    "displayAnswer": "Matthew 8 (or Chapter 8)",
+    "explanation": "Matthew 8 records a series of miracles showing Jesus' authority over disease, nature, and demons.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_centurion_word",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does a centurion tell Jesus: \"Only say the word, and my servant will be healed\"?",
+    "bookId": "MAT",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "8",
+      "Chapter 8",
+      "Ch 8",
+      "Matthew 8",
+      "MAT 8",
+      "Matthew Chapter 8",
+      "Matt 8"
+    ],
+    "displayAnswer": "Matthew 8 (or Chapter 8)",
+    "explanation": "Matthew 8:8 — Jesus marvels that He has not found such faith in Israel (8:10).",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_summary_9",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus heal a paralytic, call Matthew the tax collector, heal a woman who touched His garment, and raise a ruler's daughter?",
+    "bookId": "MAT",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Matthew 9",
+      "MAT 9",
+      "Matthew Chapter 9",
+      "Matt 9"
+    ],
+    "displayAnswer": "Matthew 9 (or Chapter 9)",
+    "explanation": "Matthew 9 continues the miracle narratives and records the call of Matthew.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_dinner_sinners",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus eat with tax collectors and sinners at Matthew's house, prompting the Pharisees to object?",
+    "bookId": "MAT",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Matthew 9",
+      "MAT 9",
+      "Matthew Chapter 9",
+      "Matt 9"
+    ],
+    "displayAnswer": "Matthew 9 (or Chapter 9)",
+    "explanation": "Matthew 9:10–13 — Jesus replies that He came not to call the righteous, but sinners.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_summary_10",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus name the twelve apostles and send them out \"as sheep in the midst of wolves\"?",
+    "bookId": "MAT",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "10",
+      "Chapter 10",
+      "Ch 10",
+      "Matthew 10",
+      "MAT 10",
+      "Matthew Chapter 10",
+      "Matt 10"
+    ],
+    "displayAnswer": "Matthew 10 (or Chapter 10)",
+    "explanation": "Matthew 10 lists the Twelve and gives Jesus' missionary instructions.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_summary_11",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does the imprisoned John the Baptist send disciples to ask Jesus, \"Are you the one who is to come?\", and Jesus denounces Chorazin and Bethsaida?",
+    "bookId": "MAT",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Matthew 11",
+      "MAT 11",
+      "Matthew Chapter 11",
+      "Matt 11"
+    ],
+    "displayAnswer": "Matthew 11 (or Chapter 11)",
+    "explanation": "Matthew 11 records John's question from prison and the woes on unrepentant cities.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_come_to_me",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say: \"Come to me, all who labor and are heavy laden, and I will give you rest\"?",
+    "bookId": "MAT",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Matthew 11",
+      "MAT 11",
+      "Matthew Chapter 11",
+      "Matt 11"
+    ],
+    "displayAnswer": "Matthew 11 (or Chapter 11)",
+    "explanation": "Matthew 11:28.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_summary_12",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus declare Himself Lord of the Sabbath, heal a man with a withered hand, and respond to the accusation that He casts out demons by Beelzebul?",
+    "bookId": "MAT",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Matthew 12",
+      "MAT 12",
+      "Matthew Chapter 12",
+      "Matt 12"
+    ],
+    "displayAnswer": "Matthew 12 (or Chapter 12)",
+    "explanation": "Matthew 12 records growing conflict with the Pharisees.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_sign_of_jonah",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus give the sign of Jonah — three days and three nights in the belly of the great fish?",
+    "bookId": "MAT",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Matthew 12",
+      "MAT 12",
+      "Matthew Chapter 12",
+      "Matt 12"
+    ],
+    "displayAnswer": "Matthew 12 (or Chapter 12)",
+    "explanation": "Matthew 12:39–40.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_my_mother_brothers",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus ask: \"Who is my mother, and who are my brothers?\"",
+    "bookId": "MAT",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Matthew 12",
+      "MAT 12",
+      "Matthew Chapter 12",
+      "Matt 12"
+    ],
+    "displayAnswer": "Matthew 12 (or Chapter 12)",
+    "explanation": "Matthew 12:48–50 — whoever does the will of the Father is His brother, sister, and mother.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_prophet_hometown",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say: \"A prophet is not without honor except in his hometown\"?",
+    "bookId": "MAT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Matthew 13",
+      "MAT 13",
+      "Matthew Chapter 13",
+      "Matt 13"
+    ],
+    "displayAnswer": "Matthew 13 (or Chapter 13)",
+    "explanation": "Matthew 13:57, when Jesus is rejected at Nazareth.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_gennesaret",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew are the sick at Gennesaret healed by touching the fringe of Jesus' garment?",
+    "bookId": "MAT",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "14",
+      "Chapter 14",
+      "Ch 14",
+      "Matthew 14",
+      "MAT 14",
+      "Matthew Chapter 14",
+      "Matt 14"
+    ],
+    "displayAnswer": "Matthew 14 (or Chapter 14)",
+    "explanation": "Matthew 14:34–36.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_summary_15",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus confront the Pharisees about handwashing traditions, commend the Canaanite woman's faith, and feed the 4,000?",
+    "bookId": "MAT",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "15",
+      "Chapter 15",
+      "Ch 15",
+      "Matthew 15",
+      "MAT 15",
+      "Matthew Chapter 15",
+      "Matt 15"
+    ],
+    "displayAnswer": "Matthew 15 (or Chapter 15)",
+    "explanation": "Matthew 15.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_dogs_crumbs",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does a woman tell Jesus: \"Yet even the dogs eat the crumbs that fall from their masters' table\"?",
+    "bookId": "MAT",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "15",
+      "Chapter 15",
+      "Ch 15",
+      "Matthew 15",
+      "MAT 15",
+      "Matthew Chapter 15",
+      "Matt 15"
+    ],
+    "displayAnswer": "Matthew 15 (or Chapter 15)",
+    "explanation": "Matthew 15:27 — the Canaanite woman's daughter is healed because of her great faith.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_rock_keys",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say: \"On this rock I will build my church… I will give you the keys of the kingdom of heaven\"?",
+    "bookId": "MAT",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "16",
+      "Chapter 16",
+      "Ch 16",
+      "Matthew 16",
+      "MAT 16",
+      "Matthew Chapter 16",
+      "Matt 16"
+    ],
+    "displayAnswer": "Matthew 16 (or Chapter 16)",
+    "explanation": "Matthew 16:18–19, following Peter's confession.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_get_behind_me",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus rebuke Peter: \"Get behind me, Satan!\"?",
+    "bookId": "MAT",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "16",
+      "Chapter 16",
+      "Ch 16",
+      "Matthew 16",
+      "MAT 16",
+      "Matthew Chapter 16",
+      "Matt 16"
+    ],
+    "displayAnswer": "Matthew 16 (or Chapter 16)",
+    "explanation": "Matthew 16:23, after Peter objects to Jesus' prediction of His death.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_mustard_faith",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say that faith like a grain of mustard seed can say to a mountain, \"Move from here to there,\" and it will move?",
+    "bookId": "MAT",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "Matthew 17",
+      "MAT 17",
+      "Matthew Chapter 17",
+      "Matt 17"
+    ],
+    "displayAnswer": "Matthew 17 (or Chapter 17)",
+    "explanation": "Matthew 17:20, after the disciples fail to cast out a demon.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_coin_fish",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Peter find a coin in a fish's mouth to pay the temple tax?",
+    "bookId": "MAT",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "17",
+      "Chapter 17",
+      "Ch 17",
+      "Matthew 17",
+      "MAT 17",
+      "Matthew Chapter 17",
+      "Matt 17"
+    ],
+    "displayAnswer": "Matthew 17 (or Chapter 17)",
+    "explanation": "Matthew 17:24–27.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_seventy_seven",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell Peter to forgive \"not seven times, but seventy-seven times\"?",
+    "bookId": "MAT",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "Matthew 18",
+      "MAT 18",
+      "Matthew Chapter 18",
+      "Matt 18"
+    ],
+    "displayAnswer": "Matthew 18 (or Chapter 18)",
+    "explanation": "Matthew 18:21–22, leading into the parable of the unforgiving servant.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_summary_19",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus teach about divorce, bless the little children, and tell the rich young man to sell his possessions?",
+    "bookId": "MAT",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "19",
+      "Chapter 19",
+      "Ch 19",
+      "Matthew 19",
+      "MAT 19",
+      "Matthew Chapter 19",
+      "Matt 19"
+    ],
+    "displayAnswer": "Matthew 19 (or Chapter 19)",
+    "explanation": "Matthew 19.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_camel_needle",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say it is \"easier for a camel to go through the eye of a needle than for a rich person to enter the kingdom of God\"?",
+    "bookId": "MAT",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "19",
+      "Chapter 19",
+      "Ch 19",
+      "Matthew 19",
+      "MAT 19",
+      "Matthew Chapter 19",
+      "Matt 19"
+    ],
+    "displayAnswer": "Matthew 19 (or Chapter 19)",
+    "explanation": "Matthew 19:24.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_summary_20",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew are the parable of the laborers in the vineyard, the request of James and John's mother, and the healing of two blind men near Jericho?",
+    "bookId": "MAT",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "20",
+      "Chapter 20",
+      "Ch 20",
+      "Matthew 20",
+      "MAT 20",
+      "Matthew Chapter 20",
+      "Matt 20"
+    ],
+    "displayAnswer": "Matthew 20 (or Chapter 20)",
+    "explanation": "Matthew 20.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_serve_ransom",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say: \"The Son of Man came not to be served but to serve, and to give his life as a ransom for many\"?",
+    "bookId": "MAT",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "20",
+      "Chapter 20",
+      "Ch 20",
+      "Matthew 20",
+      "MAT 20",
+      "Matthew Chapter 20",
+      "Matt 20"
+    ],
+    "displayAnswer": "Matthew 20 (or Chapter 20)",
+    "explanation": "Matthew 20:28.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_fig_tree_cursed",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus curse a fig tree so that it withers at once?",
+    "bookId": "MAT",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "21",
+      "Chapter 21",
+      "Ch 21",
+      "Matthew 21",
+      "MAT 21",
+      "Matthew Chapter 21",
+      "Matt 21"
+    ],
+    "displayAnswer": "Matthew 21 (or Chapter 21)",
+    "explanation": "Matthew 21:18–19.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_den_of_robbers",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say: \"My house shall be called a house of prayer, but you make it a den of robbers\"?",
+    "bookId": "MAT",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "21",
+      "Chapter 21",
+      "Ch 21",
+      "Matthew 21",
+      "MAT 21",
+      "Matthew Chapter 21",
+      "Matt 21"
+    ],
+    "displayAnswer": "Matthew 21 (or Chapter 21)",
+    "explanation": "Matthew 21:13, as Jesus cleanses the temple.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_summary_22",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew are the parable of the wedding feast, the Sadducees' question about the resurrection, and the Great Commandment?",
+    "bookId": "MAT",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "22",
+      "Chapter 22",
+      "Ch 22",
+      "Matthew 22",
+      "MAT 22",
+      "Matthew Chapter 22",
+      "Matt 22"
+    ],
+    "displayAnswer": "Matthew 22 (or Chapter 22)",
+    "explanation": "Matthew 22.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_render_caesar",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say: \"Render to Caesar the things that are Caesar's, and to God the things that are God's\"?",
+    "bookId": "MAT",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "22",
+      "Chapter 22",
+      "Ch 22",
+      "Matthew 22",
+      "MAT 22",
+      "Matthew Chapter 22",
+      "Matt 22"
+    ],
+    "displayAnswer": "Matthew 22 (or Chapter 22)",
+    "explanation": "Matthew 22:21.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_summary_23",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus pronounce seven woes on the scribes and Pharisees and lament over Jerusalem?",
+    "bookId": "MAT",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "23",
+      "Chapter 23",
+      "Ch 23",
+      "Matthew 23",
+      "MAT 23",
+      "Matthew Chapter 23",
+      "Matt 23"
+    ],
+    "displayAnswer": "Matthew 23 (or Chapter 23)",
+    "explanation": "Matthew 23.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_whitewashed_tombs",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus compare the scribes and Pharisees to \"whitewashed tombs\"?",
+    "bookId": "MAT",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "23",
+      "Chapter 23",
+      "Ch 23",
+      "Matthew 23",
+      "MAT 23",
+      "Matthew Chapter 23",
+      "Matt 23"
+    ],
+    "displayAnswer": "Matthew 23 (or Chapter 23)",
+    "explanation": "Matthew 23:27.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_days_of_noah",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say: \"As were the days of Noah, so will be the coming of the Son of Man\"?",
+    "bookId": "MAT",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "Matthew 24",
+      "MAT 24",
+      "Matthew Chapter 24",
+      "Matt 24"
+    ],
+    "displayAnswer": "Matthew 24 (or Chapter 24)",
+    "explanation": "Matthew 24:37, in the Olivet Discourse.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_least_of_these",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus say: \"As you did it to one of the least of these my brothers, you did it to me\"?",
+    "bookId": "MAT",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "25",
+      "Chapter 25",
+      "Ch 25",
+      "Matthew 25",
+      "MAT 25",
+      "Matthew Chapter 25",
+      "Matt 25"
+    ],
+    "displayAnswer": "Matthew 25 (or Chapter 25)",
+    "explanation": "Matthew 25:40, in the judgment of the sheep and the goats.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_anointing_bethany",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does a woman pour expensive ointment on Jesus' head at Bethany?",
+    "bookId": "MAT",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "26",
+      "Chapter 26",
+      "Ch 26",
+      "Matthew 26",
+      "MAT 26",
+      "Matthew Chapter 26",
+      "Matt 26"
+    ],
+    "displayAnswer": "Matthew 26 (or Chapter 26)",
+    "explanation": "Matthew 26:6–13.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_thirty_silver",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Judas agree to betray Jesus for thirty pieces of silver?",
+    "bookId": "MAT",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "26",
+      "Chapter 26",
+      "Ch 26",
+      "Matthew 26",
+      "MAT 26",
+      "Matthew Chapter 26",
+      "Matt 26"
+    ],
+    "displayAnswer": "Matthew 26 (or Chapter 26)",
+    "explanation": "Matthew 26:14–16.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_rooster_deny",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell Peter: \"Before the rooster crows, you will deny me three times\"?",
+    "bookId": "MAT",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "26",
+      "Chapter 26",
+      "Ch 26",
+      "Matthew 26",
+      "MAT 26",
+      "Matthew Chapter 26",
+      "Matt 26"
+    ],
+    "displayAnswer": "Matthew 26 (or Chapter 26)",
+    "explanation": "Matthew 26:34, fulfilled in 26:69–75.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_pilate_hands",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Pilate wash his hands before the crowd, saying \"I am innocent of this man's blood\"?",
+    "bookId": "MAT",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "27",
+      "Chapter 27",
+      "Ch 27",
+      "Matthew 27",
+      "MAT 27",
+      "Matthew Chapter 27",
+      "Matt 27"
+    ],
+    "displayAnswer": "Matthew 27 (or Chapter 27)",
+    "explanation": "Matthew 27:24.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_curtain_torn",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew is the curtain of the temple torn in two, from top to bottom?",
+    "bookId": "MAT",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "27",
+      "Chapter 27",
+      "Ch 27",
+      "Matthew 27",
+      "MAT 27",
+      "Matthew Chapter 27",
+      "Matt 27"
+    ],
+    "displayAnswer": "Matthew 27 (or Chapter 27)",
+    "explanation": "Matthew 27:51, at the moment of Jesus' death.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_guards_bribed",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew are the guards paid to say that the disciples stole Jesus' body?",
+    "bookId": "MAT",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "28",
+      "Chapter 28",
+      "Ch 28",
+      "Matthew 28",
+      "MAT 28",
+      "Matthew Chapter 28",
+      "Matt 28"
+    ],
+    "displayAnswer": "Matthew 28 (or Chapter 28)",
+    "explanation": "Matthew 28:11–15.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_ch_with_you_always",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus promise: \"Behold, I am with you always, to the end of the age\"?",
+    "bookId": "MAT",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "28",
+      "Chapter 28",
+      "Ch 28",
+      "Matthew 28",
+      "MAT 28",
+      "Matthew Chapter 28",
+      "Matt 28"
+    ],
+    "displayAnswer": "Matthew 28 (or Chapter 28)",
+    "explanation": "Matthew 28:20, closing the Great Commission.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "hdg_mat_11",
+    "type": "chapter_in_book",
+    "prompt": "In Matthew, what chapter contains the heading: 'Come to Me, and I Will Give You Rest'?",
+    "bookId": "MAT",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "11",
+      "Chapter 11",
+      "Ch 11",
+      "Matthew 11",
+      "MAT 11",
+      "Matthew Chapter 11",
+      "Matt 11"
+    ],
+    "displayAnswer": "Matthew 11 (or Chapter 11)",
+    "explanation": "Matthew 11 contains the ESV heading 'Come to Me, and I Will Give You Rest'.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "hdg_mat_12",
+    "type": "chapter_in_book",
+    "prompt": "In Matthew, what chapter contains the heading: 'Blasphemy Against the Holy Spirit'?",
+    "bookId": "MAT",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Matthew 12",
+      "MAT 12",
+      "Matthew Chapter 12",
+      "Matt 12"
+    ],
+    "displayAnswer": "Matthew 12 (or Chapter 12)",
+    "explanation": "Matthew 12 contains the ESV heading 'Blasphemy Against the Holy Spirit'.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "hdg_mat_23",
+    "type": "chapter_in_book",
+    "prompt": "In Matthew, what chapter contains the heading: 'Seven Woes to the Scribes and Pharisees'?",
+    "bookId": "MAT",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "23",
+      "Chapter 23",
+      "Ch 23",
+      "Matthew 23",
+      "MAT 23",
+      "Matthew Chapter 23",
+      "Matt 23"
+    ],
+    "displayAnswer": "Matthew 23 (or Chapter 23)",
+    "explanation": "Matthew 23 contains the ESV heading 'Seven Woes to the Scribes and Pharisees'.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_builders",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Wise and Foolish Builders (houses built on the rock and on the sand)?",
+    "bookId": "MAT",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "7",
+      "Chapter 7",
+      "Ch 7",
+      "Matthew 7",
+      "MAT 7",
+      "Matthew Chapter 7",
+      "Matt 7"
+    ],
+    "displayAnswer": "Matthew 7 (or Chapter 7)",
+    "explanation": "The parable of the Wise and Foolish Builders is found in Matthew 7:24–27.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_cloth_wine",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of New Cloth and New Wine (unshrunk cloth on an old garment; new wine in old wineskins)?",
+    "bookId": "MAT",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "9",
+      "Chapter 9",
+      "Ch 9",
+      "Matthew 9",
+      "MAT 9",
+      "Matthew Chapter 9",
+      "Matt 9"
+    ],
+    "displayAnswer": "Matthew 9 (or Chapter 9)",
+    "explanation": "The parable of New Cloth and New Wine is found in Matthew 9:16–17.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_strong_man",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of Binding the Strong Man (plundering a strong man's house after first binding him)?",
+    "bookId": "MAT",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "12",
+      "Chapter 12",
+      "Ch 12",
+      "Matthew 12",
+      "MAT 12",
+      "Matthew Chapter 12",
+      "Matt 12"
+    ],
+    "displayAnswer": "Matthew 12 (or Chapter 12)",
+    "explanation": "The parable of Binding the Strong Man is found in Matthew 12:29.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_sower",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Sower (seed falling on the path, rocky ground, thorns, and good soil)?",
+    "bookId": "MAT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Matthew 13",
+      "MAT 13",
+      "Matthew Chapter 13",
+      "Matt 13"
+    ],
+    "displayAnswer": "Matthew 13 (or Chapter 13)",
+    "explanation": "The parable of the Sower is found in Matthew 13:3–9.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_weeds",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Weeds (Tares) (an enemy sows weeds among the wheat)?",
+    "bookId": "MAT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Matthew 13",
+      "MAT 13",
+      "Matthew Chapter 13",
+      "Matt 13"
+    ],
+    "displayAnswer": "Matthew 13 (or Chapter 13)",
+    "explanation": "The parable of the Weeds (Tares) is found in Matthew 13:24–30.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_mustard_seed",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Mustard Seed (the smallest seed grows into a tree where birds make nests)?",
+    "bookId": "MAT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Matthew 13",
+      "MAT 13",
+      "Matthew Chapter 13",
+      "Matt 13"
+    ],
+    "displayAnswer": "Matthew 13 (or Chapter 13)",
+    "explanation": "The parable of the Mustard Seed is found in Matthew 13:31–32.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_leaven",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Leaven (leaven hidden in three measures of flour)?",
+    "bookId": "MAT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Matthew 13",
+      "MAT 13",
+      "Matthew Chapter 13",
+      "Matt 13"
+    ],
+    "displayAnswer": "Matthew 13 (or Chapter 13)",
+    "explanation": "The parable of the Leaven is found in Matthew 13:33.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_hidden_treasure",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Hidden Treasure (a man sells all he has to buy a field containing treasure)?",
+    "bookId": "MAT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Matthew 13",
+      "MAT 13",
+      "Matthew Chapter 13",
+      "Matt 13"
+    ],
+    "displayAnswer": "Matthew 13 (or Chapter 13)",
+    "explanation": "The parable of the Hidden Treasure is found in Matthew 13:44.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_pearl",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Pearl of Great Value (a merchant sells all he has to buy one pearl)?",
+    "bookId": "MAT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Matthew 13",
+      "MAT 13",
+      "Matthew Chapter 13",
+      "Matt 13"
+    ],
+    "displayAnswer": "Matthew 13 (or Chapter 13)",
+    "explanation": "The parable of the Pearl of Great Value is found in Matthew 13:45–46.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_net",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Net (a net gathers fish of every kind and the bad are thrown away)?",
+    "bookId": "MAT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "13",
+      "Chapter 13",
+      "Ch 13",
+      "Matthew 13",
+      "MAT 13",
+      "Matthew Chapter 13",
+      "Matt 13"
+    ],
+    "displayAnswer": "Matthew 13 (or Chapter 13)",
+    "explanation": "The parable of the Net is found in Matthew 13:47–50.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_unforgiving_servant",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Unforgiving Servant (a servant forgiven a huge debt refuses to forgive a small one)?",
+    "bookId": "MAT",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "Matthew 18",
+      "MAT 18",
+      "Matthew Chapter 18",
+      "Matt 18"
+    ],
+    "displayAnswer": "Matthew 18 (or Chapter 18)",
+    "explanation": "The parable of the Unforgiving Servant is found in Matthew 18:23–35.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_lost_sheep",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Lost Sheep (leaving the ninety-nine to find the one that went astray)?",
+    "bookId": "MAT",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "18",
+      "Chapter 18",
+      "Ch 18",
+      "Matthew 18",
+      "MAT 18",
+      "Matthew Chapter 18",
+      "Matt 18"
+    ],
+    "displayAnswer": "Matthew 18 (or Chapter 18)",
+    "explanation": "The parable of the Lost Sheep is found in Matthew 18:12–14.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_laborers",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Laborers in the Vineyard (workers hired at different hours all receive a denarius)?",
+    "bookId": "MAT",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "20",
+      "Chapter 20",
+      "Ch 20",
+      "Matthew 20",
+      "MAT 20",
+      "Matthew Chapter 20",
+      "Matt 20"
+    ],
+    "displayAnswer": "Matthew 20 (or Chapter 20)",
+    "explanation": "The parable of the Laborers in the Vineyard is found in Matthew 20:1–16.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_two_sons",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Two Sons (one son says \"I will not\" but goes; the other says \"I go\" but does not)?",
+    "bookId": "MAT",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "21",
+      "Chapter 21",
+      "Ch 21",
+      "Matthew 21",
+      "MAT 21",
+      "Matthew Chapter 21",
+      "Matt 21"
+    ],
+    "displayAnswer": "Matthew 21 (or Chapter 21)",
+    "explanation": "The parable of the Two Sons is found in Matthew 21:28–32.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_wicked_tenants",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Wicked Tenants (tenants beat the servants and kill the master's son)?",
+    "bookId": "MAT",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "21",
+      "Chapter 21",
+      "Ch 21",
+      "Matthew 21",
+      "MAT 21",
+      "Matthew Chapter 21",
+      "Matt 21"
+    ],
+    "displayAnswer": "Matthew 21 (or Chapter 21)",
+    "explanation": "The parable of the Wicked Tenants is found in Matthew 21:33–41.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_wedding_feast",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Wedding Feast (a king's invited guests refuse to come and a man lacks a wedding garment)?",
+    "bookId": "MAT",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "22",
+      "Chapter 22",
+      "Ch 22",
+      "Matthew 22",
+      "MAT 22",
+      "Matthew Chapter 22",
+      "Matt 22"
+    ],
+    "displayAnswer": "Matthew 22 (or Chapter 22)",
+    "explanation": "The parable of the Wedding Feast is found in Matthew 22:1–14.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_fig_tree",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Fig Tree (when its branch becomes tender you know that summer is near)?",
+    "bookId": "MAT",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "Matthew 24",
+      "MAT 24",
+      "Matthew Chapter 24",
+      "Matt 24"
+    ],
+    "displayAnswer": "Matthew 24 (or Chapter 24)",
+    "explanation": "The parable of the Fig Tree is found in Matthew 24:32–35.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_thief_night",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Thief in the Night (had the master of the house known when the thief was coming, he would have stayed awake)?",
+    "bookId": "MAT",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "Matthew 24",
+      "MAT 24",
+      "Matthew Chapter 24",
+      "Matt 24"
+    ],
+    "displayAnswer": "Matthew 24 (or Chapter 24)",
+    "explanation": "The parable of the Thief in the Night is found in Matthew 24:43–44.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_faithful_servant",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Faithful and Wicked Servants (the master returns unexpectedly to find his servant working or abusing others)?",
+    "bookId": "MAT",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "24",
+      "Chapter 24",
+      "Ch 24",
+      "Matthew 24",
+      "MAT 24",
+      "Matthew Chapter 24",
+      "Matt 24"
+    ],
+    "displayAnswer": "Matthew 24 (or Chapter 24)",
+    "explanation": "The parable of the Faithful and Wicked Servants is found in Matthew 24:45–51.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_ten_virgins",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Ten Virgins (five wise and five foolish virgins waiting with their lamps)?",
+    "bookId": "MAT",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "25",
+      "Chapter 25",
+      "Ch 25",
+      "Matthew 25",
+      "MAT 25",
+      "Matthew Chapter 25",
+      "Matt 25"
+    ],
+    "displayAnswer": "Matthew 25 (or Chapter 25)",
+    "explanation": "The parable of the Ten Virgins is found in Matthew 25:1–13.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_talents",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Talents (servants entrusted with five, two, and one talent)?",
+    "bookId": "MAT",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "25",
+      "Chapter 25",
+      "Ch 25",
+      "Matthew 25",
+      "MAT 25",
+      "Matthew Chapter 25",
+      "Matt 25"
+    ],
+    "displayAnswer": "Matthew 25 (or Chapter 25)",
+    "explanation": "The parable of the Talents is found in Matthew 25:14–30.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "mat_par_sheep_goats",
+    "type": "chapter_in_book",
+    "prompt": "In what chapter of Matthew does Jesus tell the parable of the Sheep and the Goats (the Son of Man separates the nations as a shepherd separates sheep from goats)?",
+    "bookId": "MAT",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "25",
+      "Chapter 25",
+      "Ch 25",
+      "Matthew 25",
+      "MAT 25",
+      "Matthew Chapter 25",
+      "Matt 25"
+    ],
+    "displayAnswer": "Matthew 25 (or Chapter 25)",
+    "explanation": "The parable of the Sheep and the Goats is found in Matthew 25:31–46.",
+    "scope": "NT",
+    "genre": "Gospels"
   }
 ];
