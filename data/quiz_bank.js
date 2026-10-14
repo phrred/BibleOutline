@@ -26510,27 +26510,6 @@ export const CURATED_QUESTION_BANK = [
     "genre": "Gospels"
   },
   {
-    "id": "hdg_mat_15",
-    "type": "chapter_in_book",
-    "prompt": "In Matthew, what chapter contains the heading: 'Traditions and Defilement'?",
-    "bookId": "MAT",
-    "chapterNum": 15,
-    "acceptedAnswers": [
-      "15",
-      "Chapter 15",
-      "Ch 15",
-      "Matthew 15",
-      "Matt 15",
-      "Matthew Chapter 15",
-      "Matt Ch 15",
-      "MAT 15"
-    ],
-    "displayAnswer": "Matthew 15 (or Chapter 15)",
-    "explanation": "Matthew 15 contains the ESV heading 'Traditions and Defilement'. Jesus teaches that defilement comes from the heart, heals a Canaanite woman's daughter, and feeds four thousand.",
-    "scope": "NT",
-    "genre": "Gospels"
-  },
-  {
     "id": "hdg_mat_16",
     "type": "chapter_in_book",
     "prompt": "In Matthew, what chapter contains the heading: 'Peter Confesses Jesus as the Christ'?",
