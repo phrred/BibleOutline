@@ -10886,23 +10886,6 @@ const CURATED_QUESTION_BANK = [
     "genre": "Historical"
   },
   {
-    "id": "gfc_chr_2",
-    "type": "facts",
-    "prompt": "Chronologically, which of these events occurred first: Peter denying Jesus, Jesus being crucified, Timothy being circumcised, or Paul being shipwrecked?",
-    "bookId": "MAT",
-    "chapterNum": 26,
-    "acceptedAnswers": [
-      "Peter denying Jesus",
-      "Peter's denial",
-      "Peter denies Jesus",
-      "Peter denial"
-    ],
-    "displayAnswer": "Peter denies Jesus (Gospels c. AD 30)",
-    "explanation": "Peter's denial occurred early Friday morning before Jesus' crucifixion later that day, followed years later by Timothy's circumcision (Acts 16) and Paul's shipwreck (Acts 27).",
-    "scope": "NT",
-    "genre": "Gospels"
-  },
-  {
     "id": "gfc_chr_3",
     "type": "facts",
     "prompt": "Chronologically, which of these events occurred first: the Fall of man in Eden, Noah's Great Flood, the Nativity of Christ, or the descent of the New Jerusalem?",
