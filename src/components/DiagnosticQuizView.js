@@ -30,7 +30,7 @@ function getTestScopeLabel(scope, specificBookId, headingOnly = false) {
   if (specificBookId) {
     const book = getBookById(specificBookId);
     const bName = book?.name || specificBookId;
-    return headingOnly ? `${bName} Chapter Headings Quiz` : `${bName} Chapter Quiz`;
+    return headingOnly ? `${bName} Chapter Headings Quiz` : `${bName} Quiz`;
   }
   const scopeMap = {
     ALL: "Whole Bible (66 Books)",
@@ -58,6 +58,7 @@ export function renderDiagnosticQuizView({
   selectedQuestionCount = 25,
   selectedBookId = "GEN",
   selectedBookQuizMode = "all", // "all" | "headings"
+  selectedBookQuizQuestionCount = 15,
   historySearchQuery = "",
   historyScopeFilter = "ALL",
   retakeModalTest = null,
@@ -169,7 +170,12 @@ export function renderDiagnosticQuizView({
 
           // 5. Tab: Book Quizzes
           if (activeQuizTab === "book-quizzes") {
-            return renderBookQuizzesListView({ selectedBookId, selectedBookQuizMode, data });
+            return renderBookQuizzesListView({
+              selectedBookId,
+              selectedBookQuizMode,
+              selectedBookQuizQuestionCount,
+              data
+            });
           }
 
           // 6. Tab: Diagnostic Configurator (Default)
@@ -219,7 +225,7 @@ function renderDiagnosticConfiguratorView({ selectedScope, selectedQuizFocus = "
           <span>How the Diagnostic Assessment Works</span>
         </div>
         <p class="text-xs text-[#A19E97] leading-relaxed">
-          Questions are dynamically pulled from a rich library covering <strong class="text-[#EAE8E2]">Major Chapter Headings & Outlines</strong>, <strong class="text-[#EAE8E2]">Book & Chapter locations</strong> (e.g. <em>Genesis 12</em>, <em>Matthew 28</em>), <strong class="text-[#EAE8E2]">Chapter recall</strong>, <strong class="text-[#EAE8E2]">Key verse fill-ins</strong>, and <strong class="text-[#EAE8E2]">Biblical characters & events</strong>.
+          Questions are shuffled from a comprehensive 66-book library covering <strong class="text-[#EAE8E2]">ESV Scripture Comprehension</strong>, <strong class="text-[#EAE8E2]">Exact ESV Verse Fill-ins</strong>, <strong class="text-[#EAE8E2]">Theological Arguments & Exhortations</strong>, <strong class="text-[#EAE8E2]">Biblical Characters & Events</strong>, plus optional <strong class="text-[#EAE8E2]">Chapter Headings</strong> recall.
         </p>
       </div>
 
@@ -272,11 +278,11 @@ function renderDiagnosticConfiguratorView({ selectedScope, selectedQuizFocus = "
             }"
           >
             <div class="flex items-center justify-between">
-              <span class="font-serif font-bold text-sm text-[#EAE8E2]">🌟 Comprehensive All-Content</span>
-              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#141413] border border-[#2B2B28] text-[#C4B79C]">All Types</span>
+              <span class="font-serif font-bold text-sm text-[#EAE8E2]">🌟 Comprehensive Scripture Content</span>
+              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#141413] border border-[#2B2B28] text-[#C4B79C]">ESV Free-Answer</span>
             </div>
             <p class="text-[11px] text-[#A19E97]">
-              Mix of chapter locations, key verse fill-ins, biblical characters, places & events across the Bible.
+              Shuffled ESV passage comprehension, key verse fill-ins, people, places, arguments & exhortations across all 66 books.
             </p>
           </button>
 
@@ -359,8 +365,8 @@ function renderActiveExamView(session) {
   const typeLabels = {
     book_chapter: "Book & Chapter Location",
     chapter_in_book: "Chapter in Book",
-    verse_completion: "Scripture Verse Completion",
-    facts: "Characters, Places & Facts",
+    verse_completion: "ESV Verse Completion",
+    facts: "Scripture Comprehension",
     book_id: "Book Identification"
   };
 
@@ -407,7 +413,7 @@ function renderActiveExamView(session) {
           </h2>
         </div>
 
-        <!-- Fill-in-the-Blank Text Input -->
+        <!-- Free-Answer Text Input -->
         <div class="space-y-2 pt-2">
           <div class="relative">
             <input
@@ -421,7 +427,7 @@ function renderActiveExamView(session) {
                   : q.type === "chapter_in_book"
                   ? "e.g. 10, Luke 10, or Chapter 10"
                   : q.type === "verse_completion"
-                  ? "e.g. grace, life, heart"
+                  ? "Type the missing ESV word or phrase..."
                   : "Type your answer here..."
               }"
               value="${currentAns.replace(/"/g, "&quot;")}"
@@ -429,7 +435,13 @@ function renderActiveExamView(session) {
             />
           </div>
           <p class="text-[11px] text-[#8C8A84] italic">
-            Smart matching accepts abbreviations (e.g. <em>Gen 12</em>, <em>1 Sam 17</em>, <em>Mt 28</em>, <em>Ps 23</em>).
+            ${
+              q.type === "book_chapter" || q.type === "chapter_in_book" || q.type === "book_id"
+                ? "Smart matching accepts abbreviations (e.g. <em>Gen 12</em>, <em>1 Sam 17</em>, <em>Ch 12</em>)."
+                : q.type === "verse_completion"
+                ? "Enter the missing ESV word or short phrase — minor phrasing & article differences are accepted."
+                : "Enter a concise free-text answer — smart matching accepts natural phrasing & minor typos."
+            }
           </p>
         </div>
 
@@ -1442,8 +1454,28 @@ function renderRetakeModal(test) {
 // --------------------------------------------------------------------------
 // 7. BOOK QUIZZES LIST VIEW (All 66 Books)
 // --------------------------------------------------------------------------
-function renderBookQuizzesListView({ selectedBookId, selectedBookQuizMode = "all", data }) {
+function renderBookQuizzesListView({
+  selectedBookId,
+  selectedBookQuizMode = "all",
+  selectedBookQuizQuestionCount = 15,
+  data
+}) {
   const isHeadingsMode = selectedBookQuizMode === "headings";
+  const countPresets = [
+    { value: 5, label: "5" },
+    { value: 10, label: "10" },
+    { value: 15, label: "15" },
+    { value: 25, label: "25" },
+    { value: 50, label: "50" },
+    { value: "ALL", label: "All" }
+  ];
+  const isPresetCount = countPresets.some((p) => String(p.value) === String(selectedBookQuizQuestionCount));
+  const customInputValue =
+    selectedBookQuizQuestionCount !== "ALL" && !isNaN(parseInt(selectedBookQuizQuestionCount, 10))
+      ? parseInt(selectedBookQuizQuestionCount, 10)
+      : "";
+  const countBadgeText =
+    selectedBookQuizQuestionCount === "ALL" ? "All Qs" : `${selectedBookQuizQuestionCount} Qs`;
 
   return `
     <div class="space-y-6">
@@ -1452,10 +1484,10 @@ function renderBookQuizzesListView({ selectedBookId, selectedBookQuizMode = "all
           <div>
             <h3 class="font-serif text-base font-bold text-[#EAE8E2] flex items-center gap-2">
               <span>📖</span>
-              <span>Individual Book Chapter Mastery Quizzes</span>
+              <span>Individual Book Mastery Quizzes</span>
             </h3>
             <p class="text-xs text-[#A19E97] mt-1 leading-relaxed">
-              Select any of the 66 books to take a targeted chapter-level quiz. Choose between full chapter mastery or drilling specifically on major chapter headings.
+              Select any of the 66 books to take a shuffled ESV free-answer quiz covering passage comprehension & verse completions, or drill specifically on major chapter headings.
             </p>
           </div>
 
@@ -1483,6 +1515,59 @@ function renderBookQuizzesListView({ selectedBookId, selectedBookQuizMode = "all
             </button>
           </div>
         </div>
+
+        <!-- Question Count Selector -->
+        <div class="pt-3.5 border-t border-[#262624] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-0.5">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#8C8A84] block">
+              Number of Questions
+            </span>
+            <p class="text-[11px] text-[#6D6B66]">
+              Choose how many questions to include in your book test (shorter books will include all available questions).
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2 self-start sm:self-center shrink-0">
+            <div class="flex items-center gap-1 bg-[#141413] p-1 rounded-lg border border-[#2B2B28] text-xs">
+              ${countPresets
+                .map((p) => {
+                  const isSelected = String(selectedBookQuizQuestionCount) === String(p.value);
+                  return `
+                    <button
+                      data-set-book-quiz-count="${p.value}"
+                      class="set-book-quiz-count-btn px-2.5 py-1 rounded font-mono transition cursor-pointer ${
+                        isSelected
+                          ? "bg-[#C4B79C] text-[#141413] font-bold shadow-xs"
+                          : "text-[#8C8A84] hover:text-[#EAE8E2]"
+                      }"
+                      title="${p.value === "ALL" ? "Include all available questions for the selected book" : `Set book test length to ${p.value} questions`}"
+                    >
+                      ${p.label}
+                    </button>
+                  `;
+                })
+                .join("")}
+            </div>
+
+            <div class="flex items-center gap-1.5 bg-[#141413] px-2.5 py-1 rounded-lg border ${
+              !isPresetCount ? "border-[#C4B79C]" : "border-[#2B2B28]"
+            } text-xs">
+              <label for="custom-book-quiz-count-input" class="text-[10px] font-mono uppercase text-[#8C8A84]">
+                Custom:
+              </label>
+              <input
+                id="custom-book-quiz-count-input"
+                type="number"
+                min="1"
+                max="200"
+                placeholder="#"
+                value="${customInputValue}"
+                class="w-14 bg-transparent text-center font-mono text-xs text-[#EAE8E2] focus:outline-none"
+                title="Enter a custom number of questions (1–200)"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -1491,6 +1576,7 @@ function renderBookQuizzesListView({ selectedBookId, selectedBookQuizMode = "all
             <button
               data-launch-book-quiz="${b.id}"
               data-quiz-mode="${selectedBookQuizMode}"
+              data-quiz-count="${selectedBookQuizQuestionCount}"
               class="launch-book-quiz-btn text-left p-3.5 rounded-xl bg-[#1C1C1A] hover:bg-[#262623] border border-[#2B2B28] hover:border-[#C4B79C]/60 transition flex flex-col justify-between space-y-2 group cursor-pointer"
             >
               <div class="flex items-start justify-between">
@@ -1506,7 +1592,7 @@ function renderBookQuizzesListView({ selectedBookId, selectedBookQuizMode = "all
               </div>
               <p class="text-[11px] text-[#8C8A84] line-clamp-2">${b.keyTheme}</p>
               <div class="pt-1.5 border-t border-[#262624] flex items-center justify-between text-[11px] text-[#C4B79C] font-semibold">
-                <span>${isHeadingsMode ? "📑 Quiz Chapter Headings" : "Start Chapter Quiz"}</span>
+                <span>${isHeadingsMode ? "📑 Quiz Headings" : "Start Book Quiz"} (${countBadgeText})</span>
                 <span>→</span>
               </div>
             </button>

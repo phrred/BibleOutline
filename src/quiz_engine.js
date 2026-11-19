@@ -80,9 +80,52 @@ export function cleanText(str) {
   if (!str) return "";
   return str
     .toLowerCase()
-    .replace(/[“”"''`.,\/#!$%\^&\*;:{}=\-_~()\[\]]/g, " ")
+    .replace(/(\d),(?=\d{3}\b)/g, "$1")
+    .replace(/['’‘`]/g, "")
+    .replace(/[“”".,\/#!$%\^&\*;:{}=\-_~()\[\]?]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+const NUMBER_WORDS = {
+  zero: "0", one: "1", two: "2", three: "3", four: "4", five: "5",
+  six: "6", seven: "7", eight: "8", nine: "9", ten: "10",
+  eleven: "11", twelve: "12", thirteen: "13", fourteen: "14", fifteen: "15",
+  sixteen: "16", seventeen: "17", eighteen: "18", nineteen: "19", twenty: "20",
+  thirty: "30", forty: "40", fifty: "50", sixty: "60", seventy: "70",
+  eighty: "80", ninety: "90", hundred: "100", thousand: "1000"
+};
+
+// Strip harmless leading articles, determiners, and prepositions for free-text answers
+export function normalizeFreeAnswer(str) {
+  const cleaned = cleanText(str);
+  if (!cleaned) return "";
+  const stripped = cleaned
+    .replace(/^(?:(?:the|a|an|by|in|to|of|with|from|for|through|into|on|at|as|his|her|our|your|their|my|its)\s+)+/i, "")
+    .trim();
+  return stripped || cleaned;
+}
+
+function normalizeNumberWords(str) {
+  if (!str) return "";
+  const tensMap = { twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80, ninety: 90 };
+  const onesMap = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9 };
+  let out = str.replace(
+    /\b(twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\s+(one|two|three|four|five|six|seven|eight|nine)\b/g,
+    (_, t, o) => String(tensMap[t] + onesMap[o])
+  );
+  out = out.replace(
+    /\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|\d+)\s+thousand\b/g,
+    (_, n) => String((parseInt(NUMBER_WORDS[n] || n, 10) || 1) * 1000)
+  );
+  out = out.replace(
+    /\b(one|two|three|four|five|six|seven|eight|nine|\d+)\s+hundred\b/g,
+    (_, n) => String((parseInt(NUMBER_WORDS[n] || n, 10) || 1) * 100)
+  );
+  return out
+    .split(" ")
+    .map((w) => (NUMBER_WORDS[w] !== undefined ? NUMBER_WORDS[w] : w))
+    .join(" ");
 }
 
 // Levenshtein distance for typo tolerance
@@ -205,19 +248,36 @@ export function evaluateAnswer(question, userInput) {
     return { isCorrect: false, userText: rawUser };
   }
 
-  // 4. VERSE FILL-IN-THE-BLANK & FACTS / PEOPLE / PLACES
+  // 4. VERSE FILL-IN-THE-BLANK & FACTS / SCRIPTURE COMPREHENSION
   if (question.type === "verse_completion" || question.type === "facts") {
     const accepted = Array.isArray(question.acceptedAnswers) ? question.acceptedAnswers : [question.displayAnswer];
+    const strippedUser = normalizeFreeAnswer(rawUser);
+    const numUser = normalizeNumberWords(strippedUser);
+
     for (const ans of accepted) {
       const cleanAns = cleanText(ans);
-      if (cleanedUser === cleanAns) {
+      const strippedAns = normalizeFreeAnswer(ans);
+      const numAns = normalizeNumberWords(strippedAns);
+
+      if (
+        cleanedUser === cleanAns ||
+        (strippedAns && strippedUser === strippedAns) ||
+        (numAns && numUser === numAns)
+      ) {
         return { isCorrect: true, userText: rawUser };
       }
-      // Allow minor typo tolerance (1 char distance for words > 4 chars, or 2 for phrases > 10 chars)
-      const dist = levenshteinDistance(cleanedUser, cleanAns);
-      const threshold = cleanAns.length > 12 ? 2 : cleanAns.length > 4 ? 1 : 0;
-      if (dist <= threshold) {
-        return { isCorrect: true, userText: rawUser };
+
+      // Allow minor typo tolerance against both full and article-stripped answers
+      for (const [u, a] of [
+        [cleanedUser, cleanAns],
+        [strippedUser, strippedAns]
+      ]) {
+        if (!u || !a) continue;
+        const dist = levenshteinDistance(u, a);
+        const threshold = a.length > 12 ? 2 : a.length > 4 ? 1 : 0;
+        if (dist <= threshold) {
+          return { isCorrect: true, userText: rawUser };
+        }
       }
     }
     return { isCorrect: false, userText: rawUser };
@@ -339,18 +399,36 @@ export function generateDynamicQuestions({
   headingOnly = false,
   chaptersData = null
 }) {
-  // If chaptersData is provided, extract dynamic chapter headings
-  const dynamicHeadingQuestions = (headingOnly || !questionTypes || questionTypes.includes("chapter_in_book"))
-    ? extractQuestionsFromChaptersData(chaptersData, { specificBookId, scope })
-    : [];
+  // Extract dynamic chapter headings when explicitly testing headings (or when chapter_in_book is requested)
+  const dynamicHeadingQuestions =
+    headingOnly || (Array.isArray(questionTypes) && questionTypes.includes("chapter_in_book"))
+      ? extractQuestionsFromChaptersData(chaptersData, { specificBookId, scope })
+      : [];
+
+  const hasActs2Pool = CURATED_QUESTION_BANK.some((q) => q.id.startsWith("a2_"));
+  const targetBookNameClean = specificBookId ? cleanText(getBookById(specificBookId)?.name || "") : "";
 
   // Filter curated pool according to scope, question types, and heading focus
   const pool = CURATED_QUESTION_BANK.filter((q) => {
     if (specificBookId && q.bookId !== specificBookId) return false;
     // For single-book tests, do not include questions that have the book as the answer
-    if (specificBookId && q.type === "book_id") return false;
+    if (specificBookId) {
+      if (q.type === "book_id") return false;
+      if (
+        targetBookNameClean &&
+        Array.isArray(q.acceptedAnswers) &&
+        q.acceptedAnswers.some((ans) => cleanText(ans) === targetBookNameClean)
+      ) {
+        return false;
+      }
+    }
     // When headingOnly is selected, filter strictly for major chapter heading questions
-    if (headingOnly && !q.id.startsWith("hdg_")) return false;
+    if (headingOnly) {
+      if (!q.id.startsWith("hdg_")) return false;
+    } else if (!questionTypes && hasActs2Pool) {
+      // Standard content quizzes pull from the curated 66-book Acts2-style ESV free-answer pool
+      if (!q.id.startsWith("a2_")) return false;
+    }
     if (scope === "OT" && q.scope !== "OT") return false;
     if (scope === "NT" && q.scope !== "NT") return false;
     if (scope === "GOSPELS" && q.genre !== "Gospels") return false;
@@ -370,6 +448,10 @@ export function generateDynamicQuestions({
   const shuffled = [...combinedPool].sort(() => Math.random() - 0.5);
   const seenPrompts = new Set();
   const result = [];
+  const maxCount =
+    count === "ALL" || count === "all" || count === Infinity
+      ? Infinity
+      : Math.max(1, parseInt(count, 10) || 25);
 
   for (const q of shuffled) {
     const pKey = cleanText(q.prompt);
@@ -377,7 +459,7 @@ export function generateDynamicQuestions({
       seenPrompts.add(pKey);
       result.push(q);
     }
-    if (result.length >= count) break;
+    if (result.length >= maxCount) break;
   }
 
   return result;
@@ -399,7 +481,6 @@ export class DiagnosticSession {
   }) {
     this.id = `diag_${Date.now()}`;
     this.scope = scope;
-    this.questionCount = customQuestions && customQuestions.length > 0 ? customQuestions.length : questionCount;
     this.questionTypes = questionTypes;
     this.specificBookId = specificBookId;
     this.headingOnly = headingOnly;
@@ -419,6 +500,7 @@ export class DiagnosticSession {
             headingOnly,
             chaptersData
           });
+    this.questionCount = this.questions.length;
     this.status = "in-progress"; // "in-progress" | "completed"
   }
 

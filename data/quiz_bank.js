@@ -1,8 +1,23752 @@
 // Comprehensive Diagnostic & Biblical Mastery Question Bank
-// Sourced from Diagnostic Repositories, BMPI, GFC, and Official 66-Book Chapter Heading Quizzes
-// Contains all 1730 curated questions with full schema properties
+// Contains 1420 Acts2-style 66-book ESV free-answer questions + 1730 heading & diagnostic questions (3150 total)
 
 export const CURATED_QUESTION_BANK = [
+  {
+    "id": "a2_gen_1",
+    "type": "verse_completion",
+    "prompt": "Genesis 1:27 (ESV): \"So God created man in his own ______, in the image of God he created him; male and female he created them.\"",
+    "bookId": "GEN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "image",
+      "own image",
+      "his own image",
+      "the image of God",
+      "likeness"
+    ],
+    "displayAnswer": "image (Genesis 1:27)",
+    "explanation": "Genesis 1:27 states that humanity—both male and female—was created in the very image of God.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_2",
+    "type": "facts",
+    "prompt": "In Genesis 2:7, from what material of the ground did the LORD God form the man before breathing into his nostrils the breath of life?",
+    "bookId": "GEN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "dust",
+      "the dust",
+      "dust from the ground",
+      "dust of the ground",
+      "soil"
+    ],
+    "displayAnswer": "dust from the ground (Genesis 2:7)",
+    "explanation": "Genesis 2:7 records that the LORD God formed the man of dust from the ground and breathed into his nostrils the breath of life.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_3",
+    "type": "verse_completion",
+    "prompt": "Genesis 2:24 (ESV): \"Therefore a man shall leave his father and his mother and hold fast to his wife, and they shall become ______.\"",
+    "bookId": "GEN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "one flesh",
+      "one",
+      "a single flesh",
+      "united as one flesh"
+    ],
+    "displayAnswer": "one flesh (Genesis 2:24)",
+    "explanation": "Genesis 2:24 establishes the creation covenant of marriage in which husband and wife cleave to one another and become one flesh.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_4",
+    "type": "facts",
+    "prompt": "In Genesis 3:1–6, what crafty creature deceived the woman into eating fruit from the tree of the knowledge of good and evil?",
+    "bookId": "GEN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "serpent",
+      "the serpent",
+      "a serpent",
+      "snake",
+      "the snake",
+      "a snake"
+    ],
+    "displayAnswer": "the serpent (Genesis 3:1–6)",
+    "explanation": "In Genesis 3:1–6, the serpent—more crafty than any other beast of the field—questioned God's word and deceived the woman.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_5",
+    "type": "facts",
+    "prompt": "In Genesis 3:21, out of what material did the LORD God make garments to clothe Adam and his wife after their sin?",
+    "bookId": "GEN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "skins",
+      "garments of skins",
+      "animal skins",
+      "skin",
+      "leather",
+      "animal hides"
+    ],
+    "displayAnswer": "garments of skins (Genesis 3:21)",
+    "explanation": "Genesis 3:21 recounts God's gracious provision in making garments of skins for Adam and Eve to cover their shame.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_6",
+    "type": "verse_completion",
+    "prompt": "Genesis 4:9 (ESV): \"Then the LORD said to Cain, 'Where is Abel your brother?' He said, 'I do not know; am I my brother's ______?'\"",
+    "bookId": "GEN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "keeper",
+      "brother's keeper",
+      "my brother's keeper",
+      "guardian"
+    ],
+    "displayAnswer": "keeper (Genesis 4:9)",
+    "explanation": "After murdering Abel in Genesis 4:8–9, Cain evasively answered God's question with the famous retort, 'Am I my brother's keeper?'",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_7",
+    "type": "facts",
+    "prompt": "According to Genesis 5:24, which seventh-generation patriarch from Adam \"walked with God, and he was not, for God took him\" without dying?",
+    "bookId": "GEN",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Enoch",
+      "Henoch",
+      "patriarch Enoch",
+      "Enoch son of Jared"
+    ],
+    "displayAnswer": "Enoch (Genesis 5:24)",
+    "explanation": "Genesis 5:24 highlights Enoch's intimate walk with God before God took him directly without experiencing death.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_8",
+    "type": "facts",
+    "prompt": "In Genesis 6:14, out of what kind of wood did God command Noah to build the ark?",
+    "bookId": "GEN",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "gopher wood",
+      "gopher",
+      "gopherwood",
+      "cypress wood",
+      "cypress"
+    ],
+    "displayAnswer": "gopher wood (Genesis 6:14)",
+    "explanation": "In Genesis 6:14, God instructed Noah to make an ark of gopher wood with rooms inside and coat it inside and out with pitch.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_9",
+    "type": "facts",
+    "prompt": "In Genesis 7:12, for how many days and nights did rain fall upon the earth at the start of the great flood?",
+    "bookId": "GEN",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "40",
+      "forty",
+      "40 days",
+      "forty days",
+      "40 days and 40 nights",
+      "forty days and forty nights"
+    ],
+    "displayAnswer": "40 days and 40 nights (Genesis 7:12)",
+    "explanation": "Genesis 7:12 states that rain fell upon the earth forty days and forty nights as the fountains of the great deep burst forth.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_10",
+    "type": "facts",
+    "prompt": "In Genesis 8:11, what kind of freshly plucked leaf did the dove bring back in her mouth to Noah, showing that the floodwaters had subsided?",
+    "bookId": "GEN",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "olive leaf",
+      "an olive leaf",
+      "olive",
+      "freshly plucked olive leaf",
+      "olive branch"
+    ],
+    "displayAnswer": "an olive leaf (Genesis 8:11)",
+    "explanation": "In Genesis 8:11, the dove returned to Noah in the evening carrying a freshly plucked olive leaf, signaling receding waters.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_11",
+    "type": "verse_completion",
+    "prompt": "Genesis 9:13 (ESV): \"I have set my ______ in the cloud, and it shall be a sign of the covenant between me and the earth.\"",
+    "bookId": "GEN",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "bow",
+      "my bow",
+      "rainbow",
+      "a rainbow",
+      "the rainbow"
+    ],
+    "displayAnswer": "bow / rainbow (Genesis 9:13)",
+    "explanation": "In Genesis 9:13–15, God set his bow (rainbow) in the clouds as the visible sign of his Noahic covenant never again to flood all flesh.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_12",
+    "type": "facts",
+    "prompt": "In Genesis 11:9, what name was given to the city and tower in Shinar because there the LORD confused the language of all the earth?",
+    "bookId": "GEN",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Babel",
+      "Tower of Babel",
+      "City of Babel",
+      "Babylon"
+    ],
+    "displayAnswer": "Babel (Genesis 11:9)",
+    "explanation": "Genesis 11:9 explains that the place was called Babel because there the LORD confused humanity's language and dispersed them abroad.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_13",
+    "type": "verse_completion",
+    "prompt": "Genesis 12:3 (ESV): \"I will bless those who bless you, and him who dishonors you I will curse, and in you all the ______ of the earth shall be blessed.\"",
+    "bookId": "GEN",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "families",
+      "the families",
+      "nations",
+      "peoples",
+      "clans"
+    ],
+    "displayAnswer": "families (Genesis 12:3)",
+    "explanation": "Genesis 12:3 anchors the Abrahamic covenant promise that through Abram's line all the families of the earth would receive blessing.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_14",
+    "type": "facts",
+    "prompt": "In Genesis 13:10–12, near which wicked city of the Jordan Valley did Lot pitch his tents after separating from his uncle Abram?",
+    "bookId": "GEN",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "Sodom",
+      "city of Sodom",
+      "the city of Sodom",
+      "Sodom and Gomorrah"
+    ],
+    "displayAnswer": "Sodom (Genesis 13:12)",
+    "explanation": "Genesis 13:12–13 notes that Lot journeyed east into the Jordan Valley and pitched his tents as far as Sodom, whose men were wicked.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_15",
+    "type": "facts",
+    "prompt": "In Genesis 14:18, which king of Salem and priest of God Most High brought out bread and wine and blessed Abram?",
+    "bookId": "GEN",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "Melchizedek",
+      "King Melchizedek",
+      "Melchisedec",
+      "priest Melchizedek"
+    ],
+    "displayAnswer": "Melchizedek (Genesis 14:18)",
+    "explanation": "In Genesis 14:18–20, Melchizedek—king of Salem and priest of God Most High—blessed Abram and received a tenth of everything.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_16",
+    "type": "verse_completion",
+    "prompt": "Genesis 15:6 (ESV): \"And he believed the LORD, and he counted it to him as ______.\"",
+    "bookId": "GEN",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "righteousness",
+      "his righteousness",
+      "being righteous",
+      "as righteousness"
+    ],
+    "displayAnswer": "righteousness (Genesis 15:6)",
+    "explanation": "Genesis 15:6 is the foundational Scripture for justification by faith, later expounded by Paul in Romans 4 and Galatians 3.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_17",
+    "type": "facts",
+    "prompt": "In Genesis 16:11–15, what name meaning \"God hears\" was given to the son born to Abram through Sarai's Egyptian servant Hagar?",
+    "bookId": "GEN",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Ishmael",
+      "Yishmael",
+      "Ismael",
+      "son Ishmael"
+    ],
+    "displayAnswer": "Ishmael (Genesis 16:11, 15)",
+    "explanation": "In Genesis 16:11, the angel of the LORD instructed Hagar to name her son Ishmael because the LORD had listened to her affliction.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_18",
+    "type": "facts",
+    "prompt": "In Genesis 17:10–12, what covenant sign in the flesh was Abraham commanded to perform on every eight-day-old male in his household?",
+    "bookId": "GEN",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "circumcision",
+      "being circumcised",
+      "circumcising",
+      "the sign of circumcision"
+    ],
+    "displayAnswer": "circumcision (Genesis 17:10–12)",
+    "explanation": "Genesis 17:10–12 instituted circumcision of every male on the eighth day as the physical sign of God's covenant with Abraham.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_19",
+    "type": "verse_completion",
+    "prompt": "Genesis 18:14 (ESV): \"Is anything too ______ for the LORD? At the appointed time I will return to you, about this time next year, and Sarah shall have a son.\"",
+    "bookId": "GEN",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "hard",
+      "difficult",
+      "wonderful",
+      "impossible"
+    ],
+    "displayAnswer": "hard (Genesis 18:14)",
+    "explanation": "When Sarah laughed internally at the promise of bearing a child in old age, the LORD answered in Genesis 18:14, 'Is anything too hard for the LORD?'",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_20",
+    "type": "facts",
+    "prompt": "According to Genesis 19:26, into what did Lot's wife turn when she looked back behind him during the destruction of Sodom and Gomorrah?",
+    "bookId": "GEN",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "pillar of salt",
+      "a pillar of salt",
+      "salt",
+      "statue of salt",
+      "salt pillar"
+    ],
+    "displayAnswer": "a pillar of salt (Genesis 19:26)",
+    "explanation": "Disobeying the angels' command not to look back as sulfur and fire rained on Sodom, Lot's wife looked back and became a pillar of salt (Genesis 19:26).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_21",
+    "type": "facts",
+    "prompt": "In Genesis 21:3–6, what name—associated with laughter—did Abraham give to the promised son whom Sarah bore to him in his old age?",
+    "bookId": "GEN",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "Isaac",
+      "Yitzhak",
+      "son Isaac",
+      "promised son Isaac"
+    ],
+    "displayAnswer": "Isaac (Genesis 21:3)",
+    "explanation": "In obedience to God's earlier command, Abraham named his promised son Isaac, and Sarah rejoiced that God had made laughter for her (Genesis 21:3–6).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_22",
+    "type": "facts",
+    "prompt": "In Genesis 22:13, what animal caught in a thicket by its horns did Abraham offer up as a burnt offering instead of his son Isaac?",
+    "bookId": "GEN",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "ram",
+      "a ram",
+      "the ram",
+      "male sheep"
+    ],
+    "displayAnswer": "a ram (Genesis 22:13)",
+    "explanation": "In Genesis 22:13, Abraham lifted up his eyes and saw behind him a ram caught in a thicket by his horns, offering it as a substitute for Isaac.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_23",
+    "type": "verse_completion",
+    "prompt": "Genesis 22:14 (ESV): \"So Abraham called the name of that place, 'The LORD will ______'; as it is said to this day, 'On the mount of the LORD it shall be provided.'\"",
+    "bookId": "GEN",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "provide",
+      "will provide",
+      "the LORD will provide",
+      "Jehovah Jireh",
+      "Yahweh Yireh"
+    ],
+    "displayAnswer": "provide (Genesis 22:14)",
+    "explanation": "After God supplied the substitute ram on Mount Moriah, Abraham named the place 'The LORD will provide' (Genesis 22:14).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_24",
+    "type": "facts",
+    "prompt": "In Genesis 23:17–19, what was the name of the cave near Mamre (Hebron) that Abraham bought from Ephron the Hittite as a burial ground for Sarah?",
+    "bookId": "GEN",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "Machpelah",
+      "cave of Machpelah",
+      "the cave of Machpelah",
+      "Macpelah"
+    ],
+    "displayAnswer": "cave of Machpelah (Genesis 23:19)",
+    "explanation": "Abraham purchased the field and cave of Machpelah for 400 shekels of silver, establishing the family burial tomb in Canaan (Genesis 23:16–20).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_25",
+    "type": "facts",
+    "prompt": "In Genesis 24:15–20, which daughter of Bethuel drew water both for Abraham's servant and for all his camels, becoming Isaac's wife?",
+    "bookId": "GEN",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "Rebekah",
+      "Rebecca",
+      "Rebekah daughter of Bethuel",
+      "maiden Rebekah"
+    ],
+    "displayAnswer": "Rebekah (Genesis 24:15, 67)",
+    "explanation": "In direct answer to the prayer of Abraham's servant at the spring in Nahor, Rebekah watered his camels and returned to Canaan to marry Isaac (Genesis 24).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_26",
+    "type": "facts",
+    "prompt": "In Genesis 25:29–34, what family privilege did Esau despise and sell to his twin brother Jacob for bread and red lentil stew?",
+    "bookId": "GEN",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "birthright",
+      "his birthright",
+      "the birthright",
+      "firstborn birthright",
+      "right of the firstborn"
+    ],
+    "displayAnswer": "his birthright (Genesis 25:31–34)",
+    "explanation": "Exhausted from the field, Esau traded his firstborn birthright to Jacob for a single meal of bread and lentil stew (Genesis 25:29–34).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_27",
+    "type": "facts",
+    "prompt": "In Genesis 27:15–16, with the skins of what young animals did Rebekah cover Jacob's hands and smooth neck to deceive blind Isaac?",
+    "bookId": "GEN",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "young goats",
+      "goats",
+      "goat skins",
+      "skins of young goats",
+      "kids",
+      "goat"
+    ],
+    "displayAnswer": "young goats (Genesis 27:16)",
+    "explanation": "Rebekah placed Esau's best garments on Jacob and put the skins of young goats on his hands and neck so he would feel hairy like Esau (Genesis 27:15–16).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_28",
+    "type": "verse_completion",
+    "prompt": "Genesis 28:12 (ESV): \"And he dreamed, and behold, there was a ______ set up on the earth, and the top of it reached to heaven. And behold, the angels of God were ascending and descending on it!\"",
+    "bookId": "GEN",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "ladder",
+      "a ladder",
+      "stairway",
+      "staircase"
+    ],
+    "displayAnswer": "ladder (Genesis 28:12)",
+    "explanation": "In Jacob's dream at Luz in Genesis 28:12–15, a ladder joined heaven and earth as the LORD reaffirmed the Abrahamic promises to him.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_29",
+    "type": "facts",
+    "prompt": "In Genesis 28:19, what name—meaning \"house of God\"—did Jacob give to the city formerly called Luz after his dream there?",
+    "bookId": "GEN",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "Bethel",
+      "Beth-el",
+      "House of God",
+      "city of Bethel"
+    ],
+    "displayAnswer": "Bethel (Genesis 28:19)",
+    "explanation": "Awaking in awe at God's presence, Jacob set up his stone pillar, poured oil on it, and renamed Luz 'Bethel,' meaning House of God (Genesis 28:18–19).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_30",
+    "type": "facts",
+    "prompt": "In Genesis 29:20–25, although Jacob served Laban seven years for Rachel, which older sister did Laban deceitfully give to Jacob on his wedding night?",
+    "bookId": "GEN",
+    "chapterNum": 29,
+    "acceptedAnswers": [
+      "Leah",
+      "older daughter Leah",
+      "Laban's daughter Leah",
+      "sister Leah"
+    ],
+    "displayAnswer": "Leah (Genesis 29:23–25)",
+    "explanation": "Laban substituted his older daughter Leah for Rachel at the wedding feast, claiming local custom forbade giving the younger before the firstborn (Genesis 29:23–26).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_31",
+    "type": "facts",
+    "prompt": "In Genesis 32:28, what new name did the man who wrestled with Jacob until daybreak give him because he had striven with God and with men and prevailed?",
+    "bookId": "GEN",
+    "chapterNum": 32,
+    "acceptedAnswers": [
+      "Israel",
+      "Yisrael",
+      "name Israel",
+      "patriarch Israel"
+    ],
+    "displayAnswer": "Israel (Genesis 32:28)",
+    "explanation": "By the ford of the Jabbok in Genesis 32:28, Jacob's name was changed to Israel, the covenant name borne by his twelve sons and nation.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_32",
+    "type": "verse_completion",
+    "prompt": "Genesis 32:30 (ESV): \"So Jacob called the name of the place Peniel, saying, 'For I have seen God ______, and yet my life has been delivered.'\"",
+    "bookId": "GEN",
+    "chapterNum": 32,
+    "acceptedAnswers": [
+      "face to face",
+      "seen God face to face",
+      "face to face with God",
+      "directly"
+    ],
+    "displayAnswer": "face to face (Genesis 32:30)",
+    "explanation": "Jacob named the wrestling site Peniel ('face of God') because he had encountered God face to face and lived (Genesis 32:30).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_33",
+    "type": "facts",
+    "prompt": "In Genesis 35:18, as Rachel was dying in hard labor near Bethlehem, she named her newborn son Ben-oni, but what name did his father Jacob give him?",
+    "bookId": "GEN",
+    "chapterNum": 35,
+    "acceptedAnswers": [
+      "Benjamin",
+      "Benyamin",
+      "son Benjamin",
+      "youngest son Benjamin"
+    ],
+    "displayAnswer": "Benjamin (Genesis 35:18)",
+    "explanation": "Whereas dying Rachel called him Ben-oni ('son of my sorrow'), Jacob named his twelfth and youngest son Benjamin ('son of the right hand') in Genesis 35:18.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_34",
+    "type": "facts",
+    "prompt": "In Genesis 37:28, for how many shekels of silver was Joseph sold to the Ishmaelite traders who took him to Egypt?",
+    "bookId": "GEN",
+    "chapterNum": 37,
+    "acceptedAnswers": [
+      "20",
+      "twenty",
+      "20 shekels",
+      "twenty shekels",
+      "20 shekels of silver",
+      "twenty shekels of silver"
+    ],
+    "displayAnswer": "twenty shekels of silver (Genesis 37:28)",
+    "explanation": "After stripping Joseph of his robe of many colors and casting him into a pit, his brothers sold him for twenty shekels of silver (Genesis 37:28).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_35",
+    "type": "verse_completion",
+    "prompt": "Genesis 39:9 (ESV): \"How then can I do this great wickedness and ______ against God?\"",
+    "bookId": "GEN",
+    "chapterNum": 39,
+    "acceptedAnswers": [
+      "sin",
+      "commit sin",
+      "transgress",
+      "sin against God"
+    ],
+    "displayAnswer": "sin (Genesis 39:9)",
+    "explanation": "Refusing the advances of Potiphar's wife in Genesis 39:9, Joseph viewed sexual immorality above all as a sin directly against God.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_36",
+    "type": "facts",
+    "prompt": "In Genesis 40:20–21, between Pharaoh's two imprisoned officials whose dreams Joseph interpreted, which official did Pharaoh restore to his post on his birthday?",
+    "bookId": "GEN",
+    "chapterNum": 40,
+    "acceptedAnswers": [
+      "chief cupbearer",
+      "cupbearer",
+      "the chief cupbearer",
+      "the cupbearer",
+      "chief butler",
+      "butler"
+    ],
+    "displayAnswer": "chief cupbearer (Genesis 40:21)",
+    "explanation": "Just as Joseph interpreted, Pharaoh restored the chief cupbearer to place the cup in Pharaoh's hand after three days, while hanging the chief baker (Genesis 40:20–22).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_37",
+    "type": "facts",
+    "prompt": "In Genesis 41:29–30, after seven years of great plenty in Egypt, how many years of severe famine did Joseph tell Pharaoh would follow?",
+    "bookId": "GEN",
+    "chapterNum": 41,
+    "acceptedAnswers": [
+      "7",
+      "seven",
+      "7 years",
+      "seven years",
+      "seven years of famine",
+      "7 years of famine"
+    ],
+    "displayAnswer": "seven years (Genesis 41:30)",
+    "explanation": "Joseph explained that Pharaoh's two dreams warned of seven years of abundant harvest followed immediately by seven years of consuming famine (Genesis 41:29–30).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_38",
+    "type": "verse_completion",
+    "prompt": "Genesis 45:5 (ESV): \"And now do not be distressed or angry with yourselves because you sold me here, for God sent me before you to preserve ______.\"",
+    "bookId": "GEN",
+    "chapterNum": 45,
+    "acceptedAnswers": [
+      "life",
+      "your life",
+      "lives",
+      "preserve life"
+    ],
+    "displayAnswer": "life (Genesis 45:5)",
+    "explanation": "Revealing his identity to his stunned brothers in Genesis 45:5, Joseph recognized God's sovereign hand behind his suffering to preserve life.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_39",
+    "type": "verse_completion",
+    "prompt": "Genesis 49:10 (ESV): \"The ______ shall not depart from Judah, nor the ruler's staff from between his feet, until tribute comes to him; and to him shall be the obedience of the peoples.\"",
+    "bookId": "GEN",
+    "chapterNum": 49,
+    "acceptedAnswers": [
+      "scepter",
+      "sceptre",
+      "the scepter",
+      "royal scepter"
+    ],
+    "displayAnswer": "scepter (Genesis 49:10)",
+    "explanation": "Jacob's prophetic blessing over Judah in Genesis 49:10 foretold an enduring royal scepter culminating in the Messianic King.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_gen_40",
+    "type": "verse_completion",
+    "prompt": "Genesis 50:20 (ESV): \"As for you, you meant evil against me, but God meant it for ______, to bring it about that many people should be kept alive, as they are today.\"",
+    "bookId": "GEN",
+    "chapterNum": 50,
+    "acceptedAnswers": [
+      "good",
+      "for good",
+      "the good",
+      "goodness"
+    ],
+    "displayAnswer": "good (Genesis 50:20)",
+    "explanation": "Genesis 50:20 summarizes the providence of God across Genesis: human evil was overruled by God's good purpose to save many lives.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_1",
+    "type": "facts",
+    "prompt": "In Exodus 1:15–17, the Hebrew midwives Shiphrah and Puah disobeyed the king of Egypt's order to kill newborn boys because they feared whom?",
+    "bookId": "EXO",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "God",
+      "the LORD",
+      "Elohim",
+      "they feared God"
+    ],
+    "displayAnswer": "God (Exodus 1:17)",
+    "explanation": "Exodus 1:17 commends the midwives Shiphrah and Puah because they feared God rather than Pharaoh and let the male Hebrew babies live.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_2",
+    "type": "facts",
+    "prompt": "In Exodus 2:5–10, who discovered the basket among the reeds of the Nile, took pity on the crying Hebrew baby, and named him Moses?",
+    "bookId": "EXO",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Pharaoh's daughter",
+      "daughter of Pharaoh",
+      "the daughter of Pharaoh",
+      "princess of Egypt",
+      "Egyptian princess"
+    ],
+    "displayAnswer": "Pharaoh's daughter (Exodus 2:5–10)",
+    "explanation": "Pharaoh's daughter rescued the infant from the Nile reeds, paid his own mother to nurse him, and named him Moses because she drew him out of the water (Exodus 2:5–10).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_3",
+    "type": "facts",
+    "prompt": "In Exodus 3:2, the angel of the LORD appeared to Moses at Mount Horeb in a flame of fire out of the midst of what object that burned without being consumed?",
+    "bookId": "EXO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "bush",
+      "a bush",
+      "the bush",
+      "burning bush",
+      "a burning bush",
+      "the burning bush"
+    ],
+    "displayAnswer": "a bush (Exodus 3:2)",
+    "explanation": "At Horeb, the mountain of God, Moses turned aside to see the bush that was burning with fire yet was not consumed (Exodus 3:2–3).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_4",
+    "type": "verse_completion",
+    "prompt": "Exodus 3:5 (ESV): \"Then he said, 'Do not come near; take your sandals off your feet, for the place on which you are standing is ______ ground.'\"",
+    "bookId": "EXO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "holy",
+      "holy ground",
+      "sacred",
+      "consecrated"
+    ],
+    "displayAnswer": "holy (Exodus 3:5)",
+    "explanation": "God's manifest presence at the burning bush rendered the ground holy, requiring Moses to remove his sandals in reverence (Exodus 3:5).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_5",
+    "type": "facts",
+    "prompt": "In Exodus 4:14–16, whom did the LORD appoint to speak to the people as Moses' mouth after Moses protested that he was slow of speech?",
+    "bookId": "EXO",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Aaron",
+      "his brother Aaron",
+      "Aaron the Levite",
+      "Aaron his brother"
+    ],
+    "displayAnswer": "Aaron (Exodus 4:14–16)",
+    "explanation": "When Moses pleaded inadequacy in speech, God appointed his brother Aaron the Levite to serve as his spokesman before Israel and Pharaoh (Exodus 4:14–16).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_6",
+    "type": "facts",
+    "prompt": "In Exodus 5:7–8, what material did Pharaoh stop supplying to the Israelite foremen while still demanding the same daily quota of bricks?",
+    "bookId": "EXO",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "straw",
+      "the straw",
+      "straw for bricks",
+      "chopped straw"
+    ],
+    "displayAnswer": "straw (Exodus 5:7)",
+    "explanation": "In retaliation for Moses' demand to let Israel go, Pharaoh forced the enslaved Israelites to gather their own straw without reducing their brick quota (Exodus 5:7–8).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_7",
+    "type": "verse_completion",
+    "prompt": "Exodus 6:7 (ESV): \"I will take you to be my ______, and I will be your God, and you shall know that I am the LORD your God, who has brought you out from under the burdens of the Egyptians.\"",
+    "bookId": "EXO",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "people",
+      "my people",
+      "own people",
+      "covenant people"
+    ],
+    "displayAnswer": "people (Exodus 6:7)",
+    "explanation": "Exodus 6:7 states the heart of God's covenant formula: redeeming Israel out of Egyptian bondage to belong to him as his own people.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_8",
+    "type": "facts",
+    "prompt": "In Exodus 7:19–20, in the first plague upon Egypt, into what did all the water in the Nile turn when struck with the staff?",
+    "bookId": "EXO",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "blood",
+      "into blood",
+      "the blood",
+      "water into blood"
+    ],
+    "displayAnswer": "blood (Exodus 7:20)",
+    "explanation": "In the first of the ten plagues, Aaron lifted the staff and struck the Nile, turning its waters to blood so that the fish died (Exodus 7:20–21).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_9",
+    "type": "facts",
+    "prompt": "In Exodus 8:18–19, when Pharaoh's magicians failed to produce gnats by their secret arts, what body part of God did they tell Pharaoh had done this?",
+    "bookId": "EXO",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "finger",
+      "the finger",
+      "finger of God",
+      "the finger of God",
+      "his finger"
+    ],
+    "displayAnswer": "the finger of God (Exodus 8:19)",
+    "explanation": "Unable to replicate the third plague of gnats from the dust, the magicians confessed to Pharaoh, 'This is the finger of God' (Exodus 8:19).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_10",
+    "type": "facts",
+    "prompt": "In Exodus 9:26, which region of Egypt—where the people of Israel lived—was completely spared from the devastating seventh plague of hail?",
+    "bookId": "EXO",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Goshen",
+      "land of Goshen",
+      "the land of Goshen",
+      "region of Goshen"
+    ],
+    "displayAnswer": "land of Goshen (Exodus 9:26)",
+    "explanation": "God made a clear distinction between Egypt and his covenant people, so that no hail fell in the land of Goshen where Israel dwelt (Exodus 9:26).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_11",
+    "type": "facts",
+    "prompt": "In Exodus 10:21–23, for how many days did pitch darkness cover all the land of Egypt so that no one could see another or rise from his place?",
+    "bookId": "EXO",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "3",
+      "three",
+      "3 days",
+      "three days"
+    ],
+    "displayAnswer": "three days (Exodus 10:22–23)",
+    "explanation": "During the ninth plague, thick darkness that could be felt covered Egypt for three days, while all the people of Israel had light where they lived (Exodus 10:21–23).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_12",
+    "type": "verse_completion",
+    "prompt": "Exodus 12:13 (ESV): \"And when I see the ______, I will pass over you, and no plague will befall you to destroy you, when I strike the land of Egypt.\"",
+    "bookId": "EXO",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "blood",
+      "the blood",
+      "lamb's blood",
+      "Passover blood"
+    ],
+    "displayAnswer": "blood (Exodus 12:13)",
+    "explanation": "On the first Passover night, the blood of the unblemished lamb applied to the doorposts and lintel shielded households from judgment (Exodus 12:13).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_13",
+    "type": "facts",
+    "prompt": "In Exodus 12:22, a bunch of what plant did Moses instruct the elders of Israel to dip in the Passover blood in the basin to touch the lintel and two doorposts?",
+    "bookId": "EXO",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "hyssop",
+      "a bunch of hyssop",
+      "bunch of hyssop",
+      "hyssop branch"
+    ],
+    "displayAnswer": "hyssop (Exodus 12:22)",
+    "explanation": "Moses directed Israel to take a bunch of hyssop, dip it in the lamb's blood in the basin, and apply it to the lintel and two doorposts (Exodus 12:22).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_14",
+    "type": "facts",
+    "prompt": "According to Exodus 13:21, while the LORD went before Israel by day in a pillar of cloud, in a pillar of what did he lead them by night to give them light?",
+    "bookId": "EXO",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "fire",
+      "pillar of fire",
+      "a pillar of fire",
+      "flame"
+    ],
+    "displayAnswer": "pillar of fire (Exodus 13:21)",
+    "explanation": "The LORD continuously guided Israel day and night—in a pillar of cloud by day and a pillar of fire by night (Exodus 13:21–22).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_15",
+    "type": "verse_completion",
+    "prompt": "Exodus 14:14 (ESV): \"The LORD will ______ for you, and you have only to be silent.\"",
+    "bookId": "EXO",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "fight",
+      "will fight",
+      "fight for you",
+      "battle"
+    ],
+    "displayAnswer": "fight (Exodus 14:14)",
+    "explanation": "Trapped between Pharaoh's chariots and the Red Sea, Moses reassured terrified Israel in Exodus 14:14 that the LORD himself would fight for them.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_16",
+    "type": "verse_completion",
+    "prompt": "Exodus 15:2 (ESV): \"The LORD is my strength and my ______, and he has become my salvation; this is my God, and I will praise him, my father's God, and I will exalt him.\"",
+    "bookId": "EXO",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "song",
+      "my song",
+      "the song",
+      "strength and song"
+    ],
+    "displayAnswer": "song (Exodus 15:2)",
+    "explanation": "After crossing the Red Sea on dry ground, Moses and the people sang praise to the LORD as their strength, song, and salvation (Exodus 15:1–2).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_17",
+    "type": "facts",
+    "prompt": "In Exodus 15:23–25, at Marah where the water was bitter, what object did the LORD show Moses to throw into the water so that it became sweet?",
+    "bookId": "EXO",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "log",
+      "a log",
+      "wood",
+      "piece of wood",
+      "a tree",
+      "tree"
+    ],
+    "displayAnswer": "a log (Exodus 15:25)",
+    "explanation": "When Moses cried out at Marah, the LORD showed him a log (wood), and when he threw it into the bitter water, the water became sweet (Exodus 15:25).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_18",
+    "type": "facts",
+    "prompt": "In Exodus 16:14–15, 31, what name did the house of Israel give to the fine, flake-like bread from heaven that tasted like wafers made with honey?",
+    "bookId": "EXO",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "manna",
+      "the manna",
+      "bread manna",
+      "heavenly manna"
+    ],
+    "displayAnswer": "manna (Exodus 16:31)",
+    "explanation": "Each morning except the Sabbath, God rained bread from heaven which Israel called manna, sustaining them forty years until they reached Canaan (Exodus 16:31–35).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_19",
+    "type": "facts",
+    "prompt": "In Exodus 17:10–12, during Israel's battle against Amalek at Rephidim, Aaron and which other man supported Moses' weary hands until sunset?",
+    "bookId": "EXO",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "Hur",
+      "Aaron and Hur",
+      "man Hur",
+      "Hur of Judah"
+    ],
+    "displayAnswer": "Hur (Exodus 17:12)",
+    "explanation": "Whenever Moses held up his hand Israel prevailed, so Aaron and Hur seated Moses on a stone and held up his hands steady until sunset (Exodus 17:11–12).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_20",
+    "type": "verse_completion",
+    "prompt": "Exodus 17:15 (ESV): \"And Moses built an altar and called the name of it, The LORD Is My ______.\"",
+    "bookId": "EXO",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "Banner",
+      "My Banner",
+      "The LORD Is My Banner",
+      "Jehovah Nissi",
+      "Yahweh Nissi"
+    ],
+    "displayAnswer": "Banner (Exodus 17:15)",
+    "explanation": "Commemorating victory over Amalek at Rephidim, Moses built an altar and named it 'The LORD Is My Banner' (Exodus 17:15).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_21",
+    "type": "facts",
+    "prompt": "In Exodus 18:17–24, who was Moses' Midianite father-in-law who wisely advised him to delegate cases to trustworthy leaders of thousands, hundreds, fifties, and tens?",
+    "bookId": "EXO",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "Jethro",
+      "Reuel",
+      "priest of Midian Jethro",
+      "father-in-law Jethro"
+    ],
+    "displayAnswer": "Jethro (Exodus 18:1, 17–24)",
+    "explanation": "Seeing Moses wear himself out judging disputes from morning till evening, his father-in-law Jethro counseled him to appoint godly judges (Exodus 18:17–24).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_22",
+    "type": "verse_completion",
+    "prompt": "Exodus 19:6 (ESV): \"and you shall be to me a kingdom of ______ and a holy nation.\"",
+    "bookId": "EXO",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "priests",
+      "a kingdom of priests",
+      "kingdom of priests",
+      "royal priests"
+    ],
+    "displayAnswer": "priests (Exodus 19:6)",
+    "explanation": "At Mount Sinai, God declared Israel's vocation among the nations as his treasured possession, a kingdom of priests, and a holy nation (Exodus 19:5–6).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_23",
+    "type": "verse_completion",
+    "prompt": "Exodus 20:3 (ESV): \"You shall have no other ______ before me.\"",
+    "bookId": "EXO",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "gods",
+      "other gods",
+      "no other gods",
+      "false gods"
+    ],
+    "displayAnswer": "gods (Exodus 20:3)",
+    "explanation": "The first of the Ten Commandments demands exclusive covenant loyalty to the LORD, forbidding the worship of any other gods (Exodus 20:3).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_24",
+    "type": "verse_completion",
+    "prompt": "Exodus 20:12 (ESV): \"______ your father and your mother, that your days may be long in the land that the LORD your God is giving you.\"",
+    "bookId": "EXO",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "Honor",
+      "Honour",
+      "Respect",
+      "Honor your father"
+    ],
+    "displayAnswer": "Honor (Exodus 20:12)",
+    "explanation": "The fifth commandment calls children to honor their father and mother, carrying a promise of long life in the land (Exodus 20:12).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_25",
+    "type": "facts",
+    "prompt": "In Exodus 21:6, if a Hebrew servant loved his master and chose to serve him for life rather than go free, with what tool did his master pierce his ear at the doorpost?",
+    "bookId": "EXO",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "awl",
+      "an awl",
+      "the awl",
+      "piercing awl"
+    ],
+    "displayAnswer": "an awl (Exodus 21:6)",
+    "explanation": "Under the Book of the Covenant in Exodus 21:5–6, a servant who voluntarily pledged lifelong devotion had his ear pierced with an awl.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_26",
+    "type": "facts",
+    "prompt": "In Exodus 24:18, for how many days and nights was Moses on Mount Sinai in the midst of the cloud receiving the stone tablets and tabernacle pattern?",
+    "bookId": "EXO",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "40",
+      "forty",
+      "40 days",
+      "forty days",
+      "40 days and 40 nights",
+      "forty days and forty nights"
+    ],
+    "displayAnswer": "40 days and 40 nights (Exodus 24:18)",
+    "explanation": "Moses entered the cloud of God's glory on Mount Sinai and remained on the mountain forty days and forty nights (Exodus 24:18).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_27",
+    "type": "facts",
+    "prompt": "In Exodus 25:17–22, what is the ESV name for the pure gold cover placed above the ark of the testimony between the two cherubim, where God met with Moses?",
+    "bookId": "EXO",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "mercy seat",
+      "the mercy seat",
+      "atonement cover",
+      "propitiatory"
+    ],
+    "displayAnswer": "mercy seat (Exodus 25:17–22)",
+    "explanation": "Above the ark housing the testimony sat the pure gold mercy seat overshadowed by two cherubim, where God promised to meet and speak with Moses (Exodus 25:21–22).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_28",
+    "type": "facts",
+    "prompt": "In Exodus 28:17–21, how many precious stones—engraved with the names of the sons of Israel—were mounted in four rows on the high priest's breastpiece of judgment?",
+    "bookId": "EXO",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "12",
+      "twelve",
+      "12 stones",
+      "twelve stones",
+      "12 precious stones",
+      "twelve precious stones"
+    ],
+    "displayAnswer": "twelve (Exodus 28:21)",
+    "explanation": "Aaron bore the twelve tribes continually over his heart before the LORD via twelve engraved gemstones on the breastpiece of judgment (Exodus 28:21, 29).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_29",
+    "type": "facts",
+    "prompt": "In Exodus 31:2–3, which master craftsman from the tribe of Judah (son of Uri) did the LORD call by name and fill with the Spirit of God to build the tabernacle?",
+    "bookId": "EXO",
+    "chapterNum": 31,
+    "acceptedAnswers": [
+      "Bezalel",
+      "Bezaleel",
+      "Bezalel son of Uri",
+      "craftsman Bezalel"
+    ],
+    "displayAnswer": "Bezalel (Exodus 31:2)",
+    "explanation": "God filled Bezalel son of Uri with the Spirit of God in ability, intelligence, and craftsmanship to oversee the artistic construction of the tabernacle (Exodus 31:2–5).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_30",
+    "type": "facts",
+    "prompt": "In Exodus 32:2–4, while Moses delayed coming down Mount Sinai, Aaron melted the people's gold rings and fashioned an idol in the shape of what animal?",
+    "bookId": "EXO",
+    "chapterNum": 32,
+    "acceptedAnswers": [
+      "calf",
+      "golden calf",
+      "a golden calf",
+      "a calf",
+      "molten calf",
+      "young bull"
+    ],
+    "displayAnswer": "a golden calf (Exodus 32:4)",
+    "explanation": "Impatient for Moses' return, the people pressured Aaron, who cast their gold earrings into a golden calf and built an altar before it (Exodus 32:1–5).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_31",
+    "type": "verse_completion",
+    "prompt": "Exodus 33:14 (ESV): \"And he said, 'My ______ will go with you, and I will give you rest.'\"",
+    "bookId": "EXO",
+    "chapterNum": 33,
+    "acceptedAnswers": [
+      "presence",
+      "my presence",
+      "the presence",
+      "God's presence"
+    ],
+    "displayAnswer": "presence (Exodus 33:14)",
+    "explanation": "Following the golden calf crisis, Moses interceded that Israel was nothing without the LORD himself, receiving God's promise in Exodus 33:14, 'My presence will go with you.'",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_32",
+    "type": "verse_completion",
+    "prompt": "Exodus 34:6 (ESV): \"The LORD passed before him and proclaimed, 'The LORD, the LORD, a God merciful and gracious, slow to ______, and abounding in steadfast love and faithfulness,'\"",
+    "bookId": "EXO",
+    "chapterNum": 34,
+    "acceptedAnswers": [
+      "anger",
+      "wrath",
+      "slow to anger",
+      "his anger"
+    ],
+    "displayAnswer": "anger (Exodus 34:6)",
+    "explanation": "Exodus 34:6–7 is God's classic self-revelation of his character—merciful, gracious, slow to anger, and abounding in steadfast love and faithfulness—echoed throughout the Old Testament.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_33",
+    "type": "facts",
+    "prompt": "In Exodus 34:29–35, because the skin of Moses' face shone from speaking with the LORD, what covering did Moses put over his face after speaking with the people?",
+    "bookId": "EXO",
+    "chapterNum": 34,
+    "acceptedAnswers": [
+      "veil",
+      "a veil",
+      "the veil",
+      "face veil"
+    ],
+    "displayAnswer": "a veil (Exodus 34:33–35)",
+    "explanation": "Radiant from communing with God on Sinai, Moses placed a veil over his face before the congregation, removing it whenever he went in before the LORD (Exodus 34:33–35).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_34",
+    "type": "facts",
+    "prompt": "In Exodus 39:30, what four-word inscription was engraved like a signet on the plate of pure gold fastened to the front of the high priest's turban?",
+    "bookId": "EXO",
+    "chapterNum": 39,
+    "acceptedAnswers": [
+      "Holy to the LORD",
+      "Holiness to the LORD",
+      "Holy to Yahweh",
+      "Sacred to the LORD"
+    ],
+    "displayAnswer": "Holy to the LORD (Exodus 39:30)",
+    "explanation": "Fulfilling God's instruction in Exodus 28:36, the artisans engraved 'Holy to the LORD' on the pure gold crown plate of Aaron's turban (Exodus 39:30).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_exo_35",
+    "type": "verse_completion",
+    "prompt": "Exodus 40:34 (ESV): \"Then the cloud covered the tent of meeting, and the ______ of the LORD filled the tabernacle.\"",
+    "bookId": "EXO",
+    "chapterNum": 40,
+    "acceptedAnswers": [
+      "glory",
+      "the glory",
+      "glory of the LORD",
+      "shekinah glory"
+    ],
+    "displayAnswer": "glory (Exodus 40:34)",
+    "explanation": "Exodus concludes in 40:34–38 with Moses completing all the work as commanded and the glory of the LORD filling the newly erected tabernacle.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_1",
+    "type": "facts",
+    "prompt": "In Leviticus 1:4, what body part must a worshiper lay firmly on the head of the burnt offering animal so that it may be accepted to make atonement for him?",
+    "bookId": "LEV",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "hand",
+      "his hand",
+      "hands",
+      "his hands",
+      "the hand"
+    ],
+    "displayAnswer": "his hand (Leviticus 1:4)",
+    "explanation": "Laying one's hand on the unblemished animal's head in Leviticus 1:4 symbolized personal identification and substitutionary atonement.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_2",
+    "type": "facts",
+    "prompt": "In Leviticus 2:11–13, while leaven and honey were forbidden on the altar, what seasoning of the covenant were Israelites required to put on all their grain offerings?",
+    "bookId": "LEV",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "salt",
+      "seasoning of salt",
+      "the salt",
+      "salt of the covenant"
+    ],
+    "displayAnswer": "salt (Leviticus 2:13)",
+    "explanation": "Leviticus 2:13 commands that every grain offering be seasoned with salt—'the salt of the covenant with your God'—signifying permanence and fidelity.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_3",
+    "type": "facts",
+    "prompt": "According to Leviticus 3:16–17, besides blood, what rich portion of every peace-offering animal belonged wholly to the LORD as a statute forever?",
+    "bookId": "LEV",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "fat",
+      "the fat",
+      "all fat",
+      "all the fat"
+    ],
+    "displayAnswer": "all fat (Leviticus 3:16–17)",
+    "explanation": "In the peace offering of Leviticus 3:16–17, all the fat covering the entrails was burned as a pleasing aroma to the LORD: 'All fat is the LORD's.'",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_4",
+    "type": "facts",
+    "prompt": "In Leviticus 5:7, if a worshiper could not afford a lamb for a sin offering, he could bring to the LORD two turtledoves or two young of what other bird?",
+    "bookId": "LEV",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "pigeons",
+      "young pigeons",
+      "pigeon",
+      "two young pigeons"
+    ],
+    "displayAnswer": "pigeons (Leviticus 5:7)",
+    "explanation": "Leviticus 5:7 made gracious provision for the poor—later exemplified by Mary and Joseph in Luke 2:24—allowing two turtledoves or two young pigeons.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_5",
+    "type": "verse_completion",
+    "prompt": "Leviticus 6:13 (ESV): \"______ shall be kept burning on the altar continually; it shall not go out.\"",
+    "bookId": "LEV",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Fire",
+      "The fire",
+      "Altar fire",
+      "Sacred fire"
+    ],
+    "displayAnswer": "Fire (Leviticus 6:13)",
+    "explanation": "Leviticus 6:12–13 charged the priests to add wood every morning so that the sacred fire on the bronze altar burned continually without ever going out.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_6",
+    "type": "facts",
+    "prompt": "In Leviticus 8:12, what sacred liquid did Moses pour on Aaron's head to consecrate him as high priest?",
+    "bookId": "LEV",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "anointing oil",
+      "oil",
+      "the anointing oil",
+      "holy anointing oil",
+      "olive oil"
+    ],
+    "displayAnswer": "anointing oil (Leviticus 8:12)",
+    "explanation": "During the ordination ceremony of Leviticus 8:12, Moses poured some of the anointing oil on Aaron's head and anointed him to consecrate him.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_7",
+    "type": "facts",
+    "prompt": "In Leviticus 10:1–2, Nadab and which other son of Aaron were consumed by fire from the LORD when they offered unauthorized fire before him?",
+    "bookId": "LEV",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "Abihu",
+      "Nadab and Abihu",
+      "son Abihu",
+      "priest Abihu"
+    ],
+    "displayAnswer": "Abihu (Leviticus 10:1–2)",
+    "explanation": "Aaron's two eldest sons, Nadab and Abihu, disregarded God's command by offering unauthorized fire in their censers and died before the LORD (Leviticus 10:1–2).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_8",
+    "type": "verse_completion",
+    "prompt": "Leviticus 10:10 (ESV): \"You are to distinguish between the ______ and the common, and between the unclean and the clean,\"",
+    "bookId": "LEV",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "holy",
+      "sacred",
+      "the holy",
+      "consecrated"
+    ],
+    "displayAnswer": "holy (Leviticus 10:10)",
+    "explanation": "Leviticus 10:10–11 defines the priests' core teaching duty in Israel: discerning between the holy and the common, and between the unclean and the clean.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_9",
+    "type": "facts",
+    "prompt": "According to the dietary laws of Leviticus 11:3, a land animal was clean for Israel to eat only if it parted the hoof and chewed what?",
+    "bookId": "LEV",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "cud",
+      "the cud",
+      "chews the cud",
+      "chew the cud"
+    ],
+    "displayAnswer": "the cud (Leviticus 11:3)",
+    "explanation": "Leviticus 11:3 specifies two criteria for clean land mammals: having cloven (parted) hooves and chewing the cud.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_10",
+    "type": "facts",
+    "prompt": "In Leviticus 13:2, to what religious official had to be brought any Israelite who developed a swelling, eruption, or spot suspected of leprous skin disease?",
+    "bookId": "LEV",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "priest",
+      "the priest",
+      "a priest",
+      "Aaron the priest",
+      "priests"
+    ],
+    "displayAnswer": "the priest (Leviticus 13:2)",
+    "explanation": "Under Leviticus 13:2–3, Aaron or one of his priestly sons examined skin conditions to pronounce a person ritually clean or unclean.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_11",
+    "type": "facts",
+    "prompt": "In Leviticus 14:4–7, how many live clean birds were required for the cleansing ritual of a healed leper—one killed over fresh water and the other released into the open field?",
+    "bookId": "LEV",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "2",
+      "two",
+      "2 birds",
+      "two birds",
+      "two live clean birds"
+    ],
+    "displayAnswer": "two (Leviticus 14:4)",
+    "explanation": "Leviticus 14:4–7 pictures both cleansing blood and new freedom through two live clean birds—one slain and one dipped in blood and released alive.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_12",
+    "type": "facts",
+    "prompt": "In Leviticus 16:20–22, on the Day of Atonement, over the head of what live animal (cast by lot for Azazel) did Aaron confess all Israel's iniquities before sending it into the wilderness?",
+    "bookId": "LEV",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "goat",
+      "live goat",
+      "the live goat",
+      "scapegoat",
+      "the scapegoat",
+      "goat for Azazel"
+    ],
+    "displayAnswer": "the live goat / scapegoat (Leviticus 16:21–22)",
+    "explanation": "Two male goats stood at the center of the Day of Atonement: one slain as a sin offering and one live goat (scapegoat) bearing Israel's sins away into a solitary land (Leviticus 16:7–22).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_13",
+    "type": "verse_completion",
+    "prompt": "Leviticus 16:30 (ESV): \"For on this day shall ______ be made for you to cleanse you. You shall be clean before the LORD from all your sins.\"",
+    "bookId": "LEV",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "atonement",
+      "an atonement",
+      "the atonement",
+      "full atonement"
+    ],
+    "displayAnswer": "atonement (Leviticus 16:30)",
+    "explanation": "Leviticus 16:30 stands at the theological center of the Pentateuch, summarizing Yom Kippur (the Day of Atonement) as God's provision to cleanse Israel from all sin.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_14",
+    "type": "facts",
+    "prompt": "According to Leviticus 17:11, why did God forbid eating blood and appoint it on the altar to make atonement—because what of the flesh is in the blood?",
+    "bookId": "LEV",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "life",
+      "the life",
+      "lifeblood",
+      "soul"
+    ],
+    "displayAnswer": "the life (Leviticus 17:11)",
+    "explanation": "Leviticus 17:11 explains substitutionary sacrifice: 'For the life of the flesh is in the blood, and I have given it for you on the altar to make atonement for your souls.'",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_15",
+    "type": "verse_completion",
+    "prompt": "Leviticus 18:5 (ESV): \"You shall therefore keep my statutes and my rules; if a person does them, he shall ______ by them: I am the LORD.\"",
+    "bookId": "LEV",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "live",
+      "shall live",
+      "live by them",
+      "have life"
+    ],
+    "displayAnswer": "live (Leviticus 18:5)",
+    "explanation": "Leviticus 18:5 links God's commandments with life—a text later cited by Paul in Romans 10:5 and Galatians 3:12 regarding righteousness under the law.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_16",
+    "type": "verse_completion",
+    "prompt": "Leviticus 19:18 (ESV): \"You shall not take vengeance or bear a grudge against the sons of your own people, but you shall love your ______ as yourself: I am the LORD.\"",
+    "bookId": "LEV",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "neighbor",
+      "neighbour",
+      "your neighbor",
+      "fellow neighbor"
+    ],
+    "displayAnswer": "neighbor (Leviticus 19:18)",
+    "explanation": "Jesus identified Leviticus 19:18—'you shall love your neighbor as yourself'—as the second greatest commandment in all the Law (Matthew 22:39).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_17",
+    "type": "facts",
+    "prompt": "In Leviticus 23:42–43, during the seven-day autumn feast in the seventh month, in what temporary shelters were Israelites commanded to live to remember the exodus from Egypt?",
+    "bookId": "LEV",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "booths",
+      "tents",
+      "tabernacles",
+      "shelters",
+      "temporary shelters",
+      "sukkot"
+    ],
+    "displayAnswer": "booths (Leviticus 23:42)",
+    "explanation": "During the Feast of Booths (Tabernacles / Sukkot), native Israelites dwelt in booths for seven days to remember how God sheltered them after bringing them out of Egypt (Leviticus 23:42–43).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_18",
+    "type": "facts",
+    "prompt": "In Leviticus 24:5–8, how many loaves of fine flour (the bread of the Presence) were arranged in two piles of six before the LORD on the pure gold table every Sabbath?",
+    "bookId": "LEV",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "12",
+      "twelve",
+      "12 loaves",
+      "twelve loaves"
+    ],
+    "displayAnswer": "twelve loaves (Leviticus 24:5–6)",
+    "explanation": "Twelve loaves—representing the twelve tribes of Israel—were placed fresh before the LORD every Sabbath as a covenant forever (Leviticus 24:5–8).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_19",
+    "type": "facts",
+    "prompt": "In Leviticus 25:3–4, in which numbered year of the cycle was the Promised Land to observe a Sabbath of solemn rest with neither sowing fields nor pruning vineyards?",
+    "bookId": "LEV",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "7",
+      "7th",
+      "seventh",
+      "seventh year",
+      "the seventh year",
+      "7th year"
+    ],
+    "displayAnswer": "seventh year (Leviticus 25:4)",
+    "explanation": "After six years of sowing and harvesting, the seventh year was appointed as a sabbatical year of rest to the LORD for the land itself (Leviticus 25:3–4).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_20",
+    "type": "verse_completion",
+    "prompt": "Leviticus 25:10 (ESV): \"And you shall consecrate the fiftieth year, and proclaim ______ throughout the land to all its inhabitants. It shall be a jubilee for you, when each of you shall return to his property and each of you shall return to his clan.\"",
+    "bookId": "LEV",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "liberty",
+      "freedom",
+      "release",
+      "proclaim liberty"
+    ],
+    "displayAnswer": "liberty (Leviticus 25:10)",
+    "explanation": "In the fiftieth Year of Jubilee, the ram's horn sounded on the Day of Atonement to proclaim liberty, cancel debts, and restore ancestral land (Leviticus 25:9–10).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_21",
+    "type": "verse_completion",
+    "prompt": "Leviticus 26:12 (ESV): \"And I will ______ among you and will be your God, and you shall be my people.\"",
+    "bookId": "LEV",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "walk",
+      "will walk",
+      "walk among you",
+      "dwell"
+    ],
+    "displayAnswer": "walk (Leviticus 26:12)",
+    "explanation": "Leviticus 26:12 echoes Eden's intimacy—God walking among his people—and is cited by Paul in 2 Corinthians 6:16 as fulfilled in the church as God's temple.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_lev_22",
+    "type": "verse_completion",
+    "prompt": "Leviticus 27:30 (ESV): \"Every ______ of the land, whether of the seed of the land or of the fruit of the trees, is the LORD's; it is holy to the LORD.\"",
+    "bookId": "LEV",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "tithe",
+      "the tithe",
+      "tenth",
+      "tenth part"
+    ],
+    "displayAnswer": "tithe (Leviticus 27:30)",
+    "explanation": "Leviticus closes in chapter 27 with laws on vows and dedications, declaring that every tithe (tenth) of the land's produce belongs to the LORD as holy.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_1",
+    "type": "facts",
+    "prompt": "In Numbers 1:47–50, which tribe of Israel was exempted from the military census of fighting men and appointed instead to care for the tabernacle of the testimony?",
+    "bookId": "NUM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Levi",
+      "Levites",
+      "tribe of Levi",
+      "the Levites",
+      "the tribe of Levi"
+    ],
+    "displayAnswer": "tribe of Levi (Numbers 1:47–50)",
+    "explanation": "While twelve tribes were numbered for war in Numbers 1, the tribe of Levi was set apart from the military census to carry, guard, and minister around the tabernacle.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_2",
+    "type": "facts",
+    "prompt": "In Numbers 6:5, during all the days of a Nazirite's vow of separation to the LORD, what grooming tool was forbidden to touch his head?",
+    "bookId": "NUM",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "razor",
+      "a razor",
+      "no razor",
+      "blade"
+    ],
+    "displayAnswer": "a razor (Numbers 6:5)",
+    "explanation": "Along with abstaining from grape products and contact with dead bodies, a Nazirite let his hair grow consecrated without any razor touching his head (Numbers 6:3–6).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_3",
+    "type": "verse_completion",
+    "prompt": "Numbers 6:24 (ESV): \"The LORD bless you and ______ you;\"",
+    "bookId": "NUM",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "keep",
+      "keep you",
+      "protect",
+      "guard"
+    ],
+    "displayAnswer": "keep (Numbers 6:24)",
+    "explanation": "Numbers 6:24–26 records the Aaronic Priestly Blessing by which the priests put the LORD's name upon the people of Israel.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_4",
+    "type": "facts",
+    "prompt": "In Numbers 9:15–23, what visible sign rested over the tabernacle by day—whose lifting signaled Israel to set out and whose settling signaled Israel to camp?",
+    "bookId": "NUM",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "cloud",
+      "the cloud",
+      "pillar of cloud",
+      "a cloud"
+    ],
+    "displayAnswer": "the cloud (Numbers 9:15–18)",
+    "explanation": "At the command of the LORD through the lifting and resting of the cloud over the tabernacle, Israel broke camp or remained encamped (Numbers 9:17–23).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_5",
+    "type": "facts",
+    "prompt": "In Numbers 10:2, out of what hammered precious metal did the LORD command Moses to make two trumpets for summoning the congregation and directing the camps?",
+    "bookId": "NUM",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "silver",
+      "hammered silver",
+      "pure silver",
+      "solid silver"
+    ],
+    "displayAnswer": "silver (Numbers 10:2)",
+    "explanation": "God instructed Moses to make two trumpets of hammered silver for assembling the community, signaling departure, and sounding alarm in battle (Numbers 10:2–9).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_6",
+    "type": "verse_completion",
+    "prompt": "Numbers 10:35 (ESV): \"And whenever the ark set out, Moses said, 'Arise, O LORD, and let your ______ be scattered, and let those who hate you flee before you.'\"",
+    "bookId": "NUM",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "enemies",
+      "foes",
+      "your enemies",
+      "adversaries"
+    ],
+    "displayAnswer": "enemies (Numbers 10:35)",
+    "explanation": "Each time Israel marched from Sinai behind the ark of the covenant, Moses prayed for the LORD to go forth as Divine Warrior scattering his enemies (Numbers 10:35).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_7",
+    "type": "verse_completion",
+    "prompt": "Numbers 11:23 (ESV): \"And the LORD said to Moses, 'Is the LORD's ______ shortened? Now you shall see whether my word will come true for you or not.'\"",
+    "bookId": "NUM",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "hand",
+      "arm",
+      "LORD's hand",
+      "his hand"
+    ],
+    "displayAnswer": "hand (Numbers 11:23)",
+    "explanation": "When Moses doubted how 600,000 men on foot could be fed meat for a whole month in the desert, God rebuked his unbelief in Numbers 11:23.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_8",
+    "type": "facts",
+    "prompt": "In Numbers 11:31, when the rabble craved meat in the wilderness, what birds did a wind from the LORD bring in from the sea all around the camp?",
+    "bookId": "NUM",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "quail",
+      "quails",
+      "flocks of quail",
+      "the quail"
+    ],
+    "displayAnswer": "quail (Numbers 11:31)",
+    "explanation": "A wind from the LORD drove quail in from the sea a day's journey on each side of the camp, followed by severe judgment at Kibroth-hattaavah (Numbers 11:31–34).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_9",
+    "type": "verse_completion",
+    "prompt": "Numbers 12:3 (ESV): \"Now the man Moses was very ______, more than all people who were on the face of the earth.\"",
+    "bookId": "NUM",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "meek",
+      "very meek",
+      "humble",
+      "gentle"
+    ],
+    "displayAnswer": "meek (Numbers 12:3)",
+    "explanation": "Rather than defending himself when Miriam and Aaron challenged his unique prophetic authority, Moses relied on the LORD, who vindicated his meek servant (Numbers 12:3–8).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_10",
+    "type": "facts",
+    "prompt": "In Numbers 12:10–15, who was struck with snow-white leprosy and shut outside the camp for seven days after speaking with Aaron against Moses?",
+    "bookId": "NUM",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "Miriam",
+      "Moses' sister Miriam",
+      "sister Miriam",
+      "prophetess Miriam"
+    ],
+    "displayAnswer": "Miriam (Numbers 12:10–15)",
+    "explanation": "When the cloud lifted from the tent, Miriam was leprous like snow; Moses cried out for her healing, and the camp waited seven days until she was brought back in (Numbers 12:10–15).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_11",
+    "type": "facts",
+    "prompt": "In Numbers 13:23, from the Valley of Eshcol, the Israelite spies cut down a single branch bearing one huge cluster of what fruit, carried on a pole between two men?",
+    "bookId": "NUM",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "grapes",
+      "cluster of grapes",
+      "grape",
+      "a cluster of grapes"
+    ],
+    "displayAnswer": "grapes (Numbers 13:23)",
+    "explanation": "Demonstrating the rich fruitfulness of Canaan, the spies carried back a single cluster of grapes on a pole between two men, along with pomegranates and figs (Numbers 13:23).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_12",
+    "type": "facts",
+    "prompt": "In Numbers 13:30, which spy from the tribe of Judah quieted the fearful people before Moses and urged, \"Let us go up at once and occupy it, for we are well able to overcome it\"?",
+    "bookId": "NUM",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "Caleb",
+      "Caleb son of Jephunneh",
+      "Caleb the son of Jephunneh",
+      "spy Caleb"
+    ],
+    "displayAnswer": "Caleb (Numbers 13:6, 30)",
+    "explanation": "While ten spies spread an evil report of giants, Caleb son of Jephunneh wholly followed the LORD and urged immediate faith-filled conquest (Numbers 13:30; 14:24).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_13",
+    "type": "verse_completion",
+    "prompt": "Numbers 14:8 (ESV): \"If the LORD delights in us, he will bring us into this land and give it to us, a land that flows with ______ and honey.\"",
+    "bookId": "NUM",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "milk",
+      "milk and honey",
+      "rich milk"
+    ],
+    "displayAnswer": "milk (Numbers 14:8)",
+    "explanation": "Joshua and Caleb pleaded with the rebellious assembly in Numbers 14:8–9 not to fear the Canaanites, trusting the LORD who promised a land flowing with milk and honey.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_14",
+    "type": "verse_completion",
+    "prompt": "Numbers 14:18 (ESV): \"The LORD is slow to anger and abounding in ______ love, forgiving iniquity and transgression, but he will by no means clear the guilty,\"",
+    "bookId": "NUM",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "steadfast",
+      "steadfast love",
+      "unfailing",
+      "loyal"
+    ],
+    "displayAnswer": "steadfast (Numbers 14:18)",
+    "explanation": "Interceding for rebellious Israel at Kadesh, Moses appealed directly to God's own words from Exodus 34:6–7—that he abounds in steadfast love and forgives iniquity (Numbers 14:18–19).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_15",
+    "type": "facts",
+    "prompt": "In Numbers 14:33–34, corresponding to the forty days they spied out Canaan, for how many years were the Israelites sentenced to wander in the wilderness?",
+    "bookId": "NUM",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "40",
+      "forty",
+      "40 years",
+      "forty years"
+    ],
+    "displayAnswer": "40 years (Numbers 14:33–34)",
+    "explanation": "Because of the adult generation's unbelief at Kadesh, Israel bore their iniquity in the wilderness forty years—one year for each day the spies scouted the land (Numbers 14:33–34).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_16",
+    "type": "facts",
+    "prompt": "In Numbers 16:1–3, 31–32, which Levite son of Izhar led a rebellion with Dathan and Abiram against Moses and Aaron before the earth opened and swallowed their households?",
+    "bookId": "NUM",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Korah",
+      "Korah son of Izhar",
+      "Korah the Levite",
+      "rebel Korah"
+    ],
+    "displayAnswer": "Korah (Numbers 16:1, 32)",
+    "explanation": "Korah challenged Aaron's exclusive priesthood along with Dathan, Abiram, and 250 chiefs, resulting in divine judgment by earthquake and fire (Numbers 16:1–35).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_17",
+    "type": "facts",
+    "prompt": "In Numbers 17:8, when Aaron's staff for the house of Levi sprouted overnight inside the tent of testimony, what ripe nuts did it produce along with buds and blossoms?",
+    "bookId": "NUM",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "almonds",
+      "ripe almonds",
+      "almond",
+      "almond nuts"
+    ],
+    "displayAnswer": "almonds (Numbers 17:8)",
+    "explanation": "To silence grumbling over who was God's chosen priest, Aaron's wooden staff miraculously budded, blossomed, and yielded ripe almonds overnight (Numbers 17:8).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_18",
+    "type": "facts",
+    "prompt": "In Numbers 19:2–9, the ashes of an unblemished female cow (heifer) of what color were mixed with running water to make the water for impurity?",
+    "bookId": "NUM",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "red",
+      "red heifer",
+      "a red heifer",
+      "the red heifer"
+    ],
+    "displayAnswer": "red (Numbers 19:2)",
+    "explanation": "Numbers 19 prescribed burning an unblemished red heifer outside the camp to prepare cleansing water for anyone defiled by contact with death.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_19",
+    "type": "facts",
+    "prompt": "In Numbers 20:8–11, at Meribah, although the LORD commanded Moses to speak to the rock to yield water, Moses disobeyed by striking the rock twice with what object?",
+    "bookId": "NUM",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "staff",
+      "his staff",
+      "the staff",
+      "rod",
+      "his rod"
+    ],
+    "displayAnswer": "his staff (Numbers 20:11)",
+    "explanation": "Instead of speaking to the rock before the assembly as commanded, Moses lashed out in anger and struck the rock twice with his staff (Numbers 20:8–11).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_20",
+    "type": "verse_completion",
+    "prompt": "Numbers 20:12 (ESV): \"And the LORD said to Moses and Aaron, 'Because you did not ______ in me, to uphold me as holy in the eyes of the people of Israel, therefore you shall not bring this assembly into the land that I have given them.'\"",
+    "bookId": "NUM",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "believe",
+      "trust",
+      "have faith",
+      "believe in me"
+    ],
+    "displayAnswer": "believe (Numbers 20:12)",
+    "explanation": "Because Moses and Aaron failed to believe in the LORD and uphold his holiness at the waters of Meribah, neither was permitted to lead Israel across the Jordan (Numbers 20:12).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_21",
+    "type": "facts",
+    "prompt": "In Numbers 21:8–9, after fiery serpents bit the grumbling people, what bronze figure did Moses set on a pole so that anyone bitten who looked at it would live?",
+    "bookId": "NUM",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "bronze serpent",
+      "serpent",
+      "a bronze serpent",
+      "fiery serpent",
+      "bronze snake",
+      "snake"
+    ],
+    "displayAnswer": "a bronze serpent (Numbers 21:9)",
+    "explanation": "Looking in faith at the bronze serpent lifted on a pole brought life—a sign Jesus applied to his own crucifixion in John 3:14–15 (Numbers 21:8–9).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_22",
+    "type": "facts",
+    "prompt": "In Numbers 22:28–30, when Balaam struck his mount three times on the road to Moab, the LORD opened the mouth of what animal to speak to Balaam?",
+    "bookId": "NUM",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "donkey",
+      "his donkey",
+      "the donkey",
+      "female donkey",
+      "ass",
+      "Balaam's donkey"
+    ],
+    "displayAnswer": "his donkey (Numbers 22:28)",
+    "explanation": "Seeing the angel of the LORD standing in the road with a drawn sword while the seer Balaam remained blind to him, Balaam's donkey spoke aloud when struck (Numbers 22:23–30).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_23",
+    "type": "verse_completion",
+    "prompt": "Numbers 23:19 (ESV): \"God is not man, that he should ______, or a son of man, that he should change his mind. Has he said, and will he not do it? Or has he spoken, and will he not fulfill it?\"",
+    "bookId": "NUM",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "lie",
+      "tell a lie",
+      "speak falsely",
+      "deceive"
+    ],
+    "displayAnswer": "lie (Numbers 23:19)",
+    "explanation": "Hired by King Balak to curse Israel, Balaam had to declare in Numbers 23:19–20 that God never lies or revokes his covenant blessing.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_24",
+    "type": "verse_completion",
+    "prompt": "Numbers 24:17 (ESV): \"I see him, but not now; I behold him, but not near: a ______ shall come out of Jacob, and a scepter shall rise out of Israel;\"",
+    "bookId": "NUM",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "star",
+      "a star",
+      "the star",
+      "star out of Jacob"
+    ],
+    "displayAnswer": "star (Numbers 24:17)",
+    "explanation": "Balaam's fourth oracle in Numbers 24:17 prophesied a future royal 'star' and 'scepter' rising from Jacob to subdue Israel's enemies.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_25",
+    "type": "facts",
+    "prompt": "In Numbers 25:7–13, which grandson of Aaron (son of Eleazar) stopped the plague at Peor through his zeal for God and received a covenant of a perpetual priesthood?",
+    "bookId": "NUM",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "Phinehas",
+      "Phineas",
+      "Phinehas son of Eleazar",
+      "priest Phinehas"
+    ],
+    "displayAnswer": "Phinehas (Numbers 25:7–13)",
+    "explanation": "Because Phinehas was jealous with God's own jealousy when Israel yoked itself to Baal of Peor, God granted him his covenant of peace and a perpetual priesthood (Numbers 25:11–13).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_26",
+    "type": "verse_completion",
+    "prompt": "Numbers 27:17 (ESV): \"who shall go out before them and come in before them, who shall lead them out and bring them in, that the congregation of the LORD may not be as ______ that have no shepherd.\"",
+    "bookId": "NUM",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "sheep",
+      "a flock",
+      "flocks",
+      "sheep without a shepherd"
+    ],
+    "displayAnswer": "sheep (Numbers 27:17)",
+    "explanation": "Facing his own impending death, Moses prayed in Numbers 27:16–17 for a faithful successor so God's flock would not be left like sheep without a shepherd.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_27",
+    "type": "facts",
+    "prompt": "In Numbers 35:13–15, how many total cities of refuge (three east of the Jordan and three in Canaan) were appointed where an unintentional manslayer could flee?",
+    "bookId": "NUM",
+    "chapterNum": 35,
+    "acceptedAnswers": [
+      "6",
+      "six",
+      "6 cities",
+      "six cities",
+      "six cities of refuge"
+    ],
+    "displayAnswer": "six cities of refuge (Numbers 35:13–15)",
+    "explanation": "Among the forty-eight Levitical towns, six were designated as cities of refuge protecting anyone who killed a person unintentionally from the avenger of blood until trial (Numbers 35:6, 13–15).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_num_28",
+    "type": "facts",
+    "prompt": "In Numbers 36:1–12, the five heiress daughters of which man of Manasseh married sons of their father's brothers so that their land inheritance remained within their father's tribe?",
+    "bookId": "NUM",
+    "chapterNum": 36,
+    "acceptedAnswers": [
+      "Zelophehad",
+      "Zelophehad son of Hepher",
+      "daughters of Zelophehad"
+    ],
+    "displayAnswer": "Zelophehad (Numbers 36:1–12)",
+    "explanation": "Numbers concludes in chapter 36 with Zelophehad's five daughters—Mahlah, Tirzah, Hoglah, Milcah, and Noah—marrying within Manasseh to preserve tribal land boundaries.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_1",
+    "type": "facts",
+    "prompt": "In Deuteronomy 1:5, beyond the Jordan in the land of what nation did Moses undertake to expound God's law to the new generation of Israel?",
+    "bookId": "DEU",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Moab",
+      "land of Moab",
+      "the land of Moab",
+      "plains of Moab"
+    ],
+    "displayAnswer": "land of Moab (Deuteronomy 1:5)",
+    "explanation": "Deuteronomy consists of Moses' covenant renewal addresses delivered east of the Jordan in the land of Moab just before Israel crossed into Canaan (Deuteronomy 1:5).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_2",
+    "type": "facts",
+    "prompt": "In Deuteronomy 2:4–5, the Israelites were forbidden to contend in battle with the descendants of Esau because God had given Esau what hill country as his possession?",
+    "bookId": "DEU",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Seir",
+      "Mount Seir",
+      "Hill country of Seir",
+      "Mt Seir"
+    ],
+    "displayAnswer": "Mount Seir (Deuteronomy 2:5)",
+    "explanation": "Respecting God's allotment of territories among peoples, Israel marched peacefully past their relatives in Edom because the LORD had given Mount Seir to Esau (Deuteronomy 2:4–5).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_3",
+    "type": "facts",
+    "prompt": "In Deuteronomy 3:11, which giant king of Bashan—the last remnant of the Rephaim defeated by Israel—had a bedstead of iron nine cubits long and four cubits wide?",
+    "bookId": "DEU",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Og",
+      "King Og",
+      "Og king of Bashan",
+      "Og the king of Bashan"
+    ],
+    "displayAnswer": "Og, king of Bashan (Deuteronomy 3:11)",
+    "explanation": "After defeating Sihon king of Heshbon, Israel conquered Og king of Bashan—whose nine-cubit iron bedstead stood in Rabbah—taking sixty fortified cities (Deuteronomy 3:1–11).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_4",
+    "type": "verse_completion",
+    "prompt": "Deuteronomy 4:24 (ESV): \"For the LORD your God is a consuming ______, a jealous God.\"",
+    "bookId": "DEU",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "fire",
+      "consuming fire",
+      "a consuming fire",
+      "the fire"
+    ],
+    "displayAnswer": "fire (Deuteronomy 4:24)",
+    "explanation": "Warning Israel against fashioning carved idols, Moses declared in Deuteronomy 4:24 (quoted in Hebrews 12:29) that the LORD is a consuming fire, a jealous God.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_5",
+    "type": "facts",
+    "prompt": "According to Deuteronomy 5:15, in restating the Sabbath commandment, Moses reminded Israel to give rest to their servants because they themselves had been slaves in what land?",
+    "bookId": "DEU",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Egypt",
+      "land of Egypt",
+      "the land of Egypt",
+      "nation of Egypt"
+    ],
+    "displayAnswer": "land of Egypt (Deuteronomy 5:15)",
+    "explanation": "Whereas Exodus 20 grounds the Sabbath in creation, Deuteronomy 5:15 grounds Sabbath rest in redemption from slavery in the land of Egypt.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_6",
+    "type": "verse_completion",
+    "prompt": "Deuteronomy 6:4 (ESV): \"Hear, O Israel: The LORD our God, the LORD is ______.\"",
+    "bookId": "DEU",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "one",
+      "1",
+      "the LORD is one",
+      "one LORD"
+    ],
+    "displayAnswer": "one (Deuteronomy 6:4)",
+    "explanation": "Deuteronomy 6:4 opens the Shema ('Hear'), Israel's foundational confession of the uniqueness and unity of the LORD.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_7",
+    "type": "verse_completion",
+    "prompt": "Deuteronomy 6:5 (ESV): \"You shall ______ the LORD your God with all your heart and with all your soul and with all your might.\"",
+    "bookId": "DEU",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "love",
+      "shall love",
+      "love the LORD",
+      "wholeheartedly love"
+    ],
+    "displayAnswer": "love (Deuteronomy 6:5)",
+    "explanation": "Jesus declared Deuteronomy 6:5—wholehearted love for the LORD our God—to be the great and first commandment in the Law (Matthew 22:37–38).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_8",
+    "type": "facts",
+    "prompt": "In Deuteronomy 6:8–9, besides binding God's words as a sign on their hands and foreheads, on what structural part of their houses were Israelites commanded to write them?",
+    "bookId": "DEU",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "doorposts",
+      "the doorposts",
+      "doorposts of your house",
+      "doorframes"
+    ],
+    "displayAnswer": "doorposts of your house (Deuteronomy 6:9)",
+    "explanation": "Deuteronomy 6:6–9 called families to saturate daily life with Scripture—teaching children diligently and writing God's words on the doorposts of their houses and on their gates.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_9",
+    "type": "verse_completion",
+    "prompt": "Deuteronomy 7:9 (ESV): \"Know therefore that the LORD your God is God, the ______ God who keeps covenant and steadfast love with those who love him and keep his commandments, to a thousand generations,\"",
+    "bookId": "DEU",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "faithful",
+      "faithful God",
+      "the faithful God",
+      "trustworthy"
+    ],
+    "displayAnswer": "faithful (Deuteronomy 7:9)",
+    "explanation": "Deuteronomy 7:7–9 teaches that God set his love on Israel not because of their size, but because he is the faithful God who keeps his sworn covenant.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_10",
+    "type": "verse_completion",
+    "prompt": "Deuteronomy 8:3 (ESV): \"And he humbled you and let you hunger and fed you with manna, which you did not know, nor did your fathers know, that he might make you know that man does not live by ______ alone, but man lives by every word that comes from the mouth of the LORD.\"",
+    "bookId": "DEU",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "bread",
+      "bread alone",
+      "by bread alone",
+      "food"
+    ],
+    "displayAnswer": "bread (Deuteronomy 8:3)",
+    "explanation": "Jesus quoted Deuteronomy 8:3 to defeat Satan's first temptation in the wilderness (Matthew 4:4), affirming dependence on every word from God's mouth.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_11",
+    "type": "facts",
+    "prompt": "According to Deuteronomy 8:4, during Israel's forty years in the wilderness, their feet did not swell and what did not wear out on them?",
+    "bookId": "DEU",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "clothing",
+      "your clothing",
+      "their clothing",
+      "clothes",
+      "garments"
+    ],
+    "displayAnswer": "their clothing (Deuteronomy 8:4)",
+    "explanation": "Even through forty years of desert discipline, God sustained Israel miraculously so that their clothing did not wear out and their feet did not swell (Deuteronomy 8:4).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_12",
+    "type": "facts",
+    "prompt": "In Deuteronomy 9:15–17, what two stone objects written by God did Moses throw down from his two hands and shatter before the Israelites' eyes when he saw the molten calf?",
+    "bookId": "DEU",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "tablets",
+      "two tablets",
+      "tablets of the covenant",
+      "the two tablets",
+      "stone tablets",
+      "tablets of stone"
+    ],
+    "displayAnswer": "two tablets of the covenant (Deuteronomy 9:15–17)",
+    "explanation": "Recounting Israel's rebellion at Horeb to humble self-righteousness, Moses reminded them how he shattered the two stone tablets of the covenant before their eyes (Deuteronomy 9:15–17).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_13",
+    "type": "verse_completion",
+    "prompt": "Deuteronomy 10:12 (ESV): \"And now, Israel, what does the LORD your God require of you, but to ______ the LORD your God, to walk in all his ways, to love him, to serve the LORD your God with all your heart and with all your soul,\"",
+    "bookId": "DEU",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "fear",
+      "to fear",
+      "fear the LORD",
+      "revere"
+    ],
+    "displayAnswer": "fear (Deuteronomy 10:12)",
+    "explanation": "Deuteronomy 10:12–13 unites reverent fear, obedient walking, wholehearted love, and service as Israel's grateful response to God's grace.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_14",
+    "type": "facts",
+    "prompt": "In Deuteronomy 11:29, while the curse was to be put on Mount Ebal, on which opposite mountain near Shechem was the blessing to be pronounced once Israel entered Canaan?",
+    "bookId": "DEU",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Mount Gerizim",
+      "Gerizim",
+      "Mt Gerizim",
+      "mountain of Gerizim"
+    ],
+    "displayAnswer": "Mount Gerizim (Deuteronomy 11:29)",
+    "explanation": "Moses instructed Israel upon crossing the Jordan to set the covenant blessing on Mount Gerizim and the curse on Mount Ebal (Deuteronomy 11:29; 27:12–13).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_15",
+    "type": "facts",
+    "prompt": "In Deuteronomy 15:1–2, at the end of every how many years were Israelites commanded to grant a release of debts owed by a neighbor or brother?",
+    "bookId": "DEU",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "7",
+      "seven",
+      "7 years",
+      "seven years",
+      "every seven years"
+    ],
+    "displayAnswer": "seven years (Deuteronomy 15:1)",
+    "explanation": "Every seventh year in Deuteronomy 15:1–2 was a year of debt release, cultivating openhanded generosity toward poor fellow Israelites.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_16",
+    "type": "facts",
+    "prompt": "According to Deuteronomy 16:16, how many times a year were all Israelite males required to appear before the LORD at the chosen place (at Unleavened Bread, Weeks, and Booths)?",
+    "bookId": "DEU",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "3",
+      "three",
+      "3 times",
+      "three times",
+      "thrice"
+    ],
+    "displayAnswer": "three times a year (Deuteronomy 16:16)",
+    "explanation": "Three annual pilgrimage feasts—Unleavened Bread, Weeks, and Booths—gathered Israelite men to rejoice before the LORD at his chosen sanctuary (Deuteronomy 16:16).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_17",
+    "type": "facts",
+    "prompt": "In Deuteronomy 17:18–19, what was a future king of Israel commanded to write for himself in a book when seated on his throne, reading in it all the days of his life?",
+    "bookId": "DEU",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "copy of this law",
+      "a copy of this law",
+      "the law",
+      "God's law",
+      "law",
+      "Torah"
+    ],
+    "displayAnswer": "a copy of this law (Deuteronomy 17:18)",
+    "explanation": "Unlike surrounding monarchs who multiplied horses, wives, and gold, Israel's king had to hand-copy God's law and read it daily so his heart would not be lifted above his brothers (Deuteronomy 17:16–20).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_18",
+    "type": "verse_completion",
+    "prompt": "Deuteronomy 18:18 (ESV): \"I will raise up for them a ______ like you from among their brothers. And I will put my words in his mouth, and he shall speak to them all that I command him.\"",
+    "bookId": "DEU",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "prophet",
+      "a prophet",
+      "the prophet",
+      "prophet like you"
+    ],
+    "displayAnswer": "prophet (Deuteronomy 18:18)",
+    "explanation": "God promised Moses in Deuteronomy 18:15–18 to raise up a future Prophet like him—a Messianic promise proclaimed as fulfilled in Jesus in Acts 3:22–23 and 7:37.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_19",
+    "type": "facts",
+    "prompt": "According to Deuteronomy 19:15, a single witness could not convict anyone of any crime; a charge could be established only on the evidence of two or how many witnesses?",
+    "bookId": "DEU",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "3",
+      "three",
+      "3 witnesses",
+      "three witnesses",
+      "two or three",
+      "2 or 3"
+    ],
+    "displayAnswer": "three witnesses (Deuteronomy 19:15)",
+    "explanation": "Deuteronomy 19:15 safeguarded judicial fairness by requiring the testimony of two or three witnesses—a standard reaffirmed across the New Testament (Matthew 18:16; 2 Corinthians 13:1).",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_20",
+    "type": "facts",
+    "prompt": "According to Deuteronomy 21:23 (later cited by Paul in Galatians 3:13), a hanged man's body could not remain overnight because anyone hanged on what object is under God's curse?",
+    "bookId": "DEU",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "tree",
+      "a tree",
+      "the tree",
+      "wood",
+      "pole"
+    ],
+    "displayAnswer": "a tree (Deuteronomy 21:23)",
+    "explanation": "Deuteronomy 21:23 states that 'a hanged man is cursed by God,' which Galatians 3:13 shows Christ bore for us by becoming a curse on the cross ('cursed is everyone who is hanged on a tree').",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_21",
+    "type": "facts",
+    "prompt": "In Deuteronomy 25:4 (quoted by Paul in 1 Corinthians 9:9 and 1 Timothy 5:18), what working farm animal were Israelites forbidden to muzzle while it was treading out the grain?",
+    "bookId": "DEU",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "ox",
+      "an ox",
+      "the ox",
+      "oxen"
+    ],
+    "displayAnswer": "an ox (Deuteronomy 25:4)",
+    "explanation": "Deuteronomy 25:4 commanded humane care even for working animals—'You shall not muzzle an ox when it is treading out the grain'—which Paul applied to supporting gospel workers.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_22",
+    "type": "facts",
+    "prompt": "In the covenant blessings of Deuteronomy 28:13, if Israel obeyed the commandments of the LORD, he promised to make them the head and not what opposite body part?",
+    "bookId": "DEU",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "tail",
+      "the tail",
+      "a tail",
+      "not the tail"
+    ],
+    "displayAnswer": "the tail (Deuteronomy 28:13)",
+    "explanation": "Deuteronomy 28:13 promised faithful Israel leadership and blessing rather than subjugation: 'And the LORD will make you the head and not the tail, and you shall only go up and not down.'",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_23",
+    "type": "verse_completion",
+    "prompt": "Deuteronomy 29:29 (ESV): \"The ______ things belong to the LORD our God, but the things that are revealed belong to us and to our children forever, that we may do all the words of this law.\"",
+    "bookId": "DEU",
+    "chapterNum": 29,
+    "acceptedAnswers": [
+      "secret",
+      "secret things",
+      "the secret things",
+      "hidden"
+    ],
+    "displayAnswer": "secret (Deuteronomy 29:29)",
+    "explanation": "Deuteronomy 29:29 distinguishes God's hidden decretive counsels ('the secret things') from his clear revealed Word given so that his people may obey.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_24",
+    "type": "facts",
+    "prompt": "In Deuteronomy 30:6, looking beyond Israel's future exile, what inner part of his people did the LORD promise to circumcise so that they would love him with all their heart and soul?",
+    "bookId": "DEU",
+    "chapterNum": 30,
+    "acceptedAnswers": [
+      "heart",
+      "your heart",
+      "their heart",
+      "hearts",
+      "the heart"
+    ],
+    "displayAnswer": "your heart (Deuteronomy 30:6)",
+    "explanation": "Recognizing that outward law alone could not cure stubbornness, Moses foretold in Deuteronomy 30:6 God's new-covenant grace of circumcising the heart to love him.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_25",
+    "type": "verse_completion",
+    "prompt": "Deuteronomy 31:6 (ESV): \"Be strong and ______. Do not fear or be in dread of them, for it is the LORD your God who goes with you. He will not leave you or forsake you.\"",
+    "bookId": "DEU",
+    "chapterNum": 31,
+    "acceptedAnswers": [
+      "courageous",
+      "strong and courageous",
+      "of good courage",
+      "brave"
+    ],
+    "displayAnswer": "courageous (Deuteronomy 31:6)",
+    "explanation": "As leadership passed to the next generation in Deuteronomy 31:6–8, Moses charged both all Israel and his successor to be strong and courageous because the LORD goes before them.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_26",
+    "type": "facts",
+    "prompt": "In the Song of Moses in Deuteronomy 32:4, by what metaphor of unshakable stability is God praised as the One whose work is perfect and all whose ways are justice?",
+    "bookId": "DEU",
+    "chapterNum": 32,
+    "acceptedAnswers": [
+      "Rock",
+      "The Rock",
+      "a Rock",
+      "God our Rock"
+    ],
+    "displayAnswer": "The Rock (Deuteronomy 32:4)",
+    "explanation": "Throughout the Song of Moses (Deuteronomy 32:4, 15, 18, 30–31), 'the Rock' celebrates the LORD's covenant faithfulness, perfection, and justice.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_27",
+    "type": "verse_completion",
+    "prompt": "Deuteronomy 33:27 (ESV): \"The eternal God is your dwelling place, and underneath are the everlasting ______.\"",
+    "bookId": "DEU",
+    "chapterNum": 33,
+    "acceptedAnswers": [
+      "arms",
+      "everlasting arms",
+      "the everlasting arms",
+      "his arms"
+    ],
+    "displayAnswer": "arms (Deuteronomy 33:27)",
+    "explanation": "Near the climax of Moses' final blessing over the tribes of Israel in Deuteronomy 33:27, God is extolled as Israel's eternal refuge whose everlasting arms uphold his people.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_deu_28",
+    "type": "facts",
+    "prompt": "In Deuteronomy 34:1–7, how many years old was Moses when he viewed the Promised Land from Mount Nebo (Pisgah) and died in Moab with his eye undimmed and his vigor unabated?",
+    "bookId": "DEU",
+    "chapterNum": 34,
+    "acceptedAnswers": [
+      "120",
+      "one hundred twenty",
+      "one hundred and twenty",
+      "a hundred and twenty",
+      "120 years",
+      "120 years old"
+    ],
+    "displayAnswer": "120 years old (Deuteronomy 34:7)",
+    "explanation": "Deuteronomy 34:5–7 records that Moses, the servant of the LORD, died at 120 years old in Moab after viewing Canaan from Pisgah, and the LORD himself buried him.",
+    "scope": "OT",
+    "genre": "Pentateuch"
+  },
+  {
+    "id": "a2_jos_1",
+    "type": "verse_completion",
+    "prompt": "Joshua 1:9 (ESV): \"Have I not commanded you? Be strong and ______. Do not be frightened, and do not be dismayed, for the Lord your God is with you wherever you go.\"",
+    "bookId": "JOS",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "courageous",
+      "very courageous",
+      "be courageous",
+      "strong and courageous"
+    ],
+    "displayAnswer": "courageous (Joshua 1:9)",
+    "explanation": "Joshua 1:9 records God's repeated charge to be strong and courageous as Israel prepares to cross the Jordan into the Promised Land.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_2",
+    "type": "facts",
+    "prompt": "In Joshua 2:18–21, what did Rahab tie in her window as the sign so her household would be spared when Israel captured Jericho?",
+    "bookId": "JOS",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "a scarlet cord",
+      "scarlet cord",
+      "the scarlet cord",
+      "a scarlet rope",
+      "scarlet rope",
+      "scarlet thread",
+      "a red cord",
+      "red cord"
+    ],
+    "displayAnswer": "a scarlet cord (Joshua 2:18, 21)",
+    "explanation": "Joshua 2:18–21 states that the spies instructed Rahab to bind the scarlet cord in the window through which she had let them down.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_3",
+    "type": "verse_completion",
+    "prompt": "Joshua 3:5 (ESV): \"Then Joshua said to the people, 'Consecrate yourselves, for tomorrow the Lord will do ______ among you.'\"",
+    "bookId": "JOS",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "wonders",
+      "miracles",
+      "do wonders"
+    ],
+    "displayAnswer": "wonders (Joshua 3:5)",
+    "explanation": "Joshua 3:5 calls Israel to consecrate themselves on the eve of God's miraculous parting of the Jordan River at flood stage.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_4",
+    "type": "facts",
+    "prompt": "In Joshua 4:2–9 and 4:20, how many memorial stones—one for each tribe—did Israel take from the middle of the Jordan River and set up at Gilgal?",
+    "bookId": "JOS",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "12",
+      "twelve",
+      "12 stones",
+      "twelve stones",
+      "12 memorial stones",
+      "twelve memorial stones"
+    ],
+    "displayAnswer": "12 stones (Joshua 4:3, 20)",
+    "explanation": "Joshua 4:3, 20 records that twelve men took twelve stones from where the priests' feet stood in the Jordan and set them up at Gilgal as a lasting memorial.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_5",
+    "type": "facts",
+    "prompt": "In Joshua 5:11–12, what miraculous wilderness food ceased the day after the Israelites ate the produce of the land of Canaan at Gilgal?",
+    "bookId": "JOS",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "manna",
+      "the manna",
+      "bread from heaven"
+    ],
+    "displayAnswer": "manna (Joshua 5:12)",
+    "explanation": "Joshua 5:12 notes that the manna ceased the day after Israel ate of the produce of Canaan, marking the end of their forty-year wilderness provision.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_6",
+    "type": "facts",
+    "prompt": "In Joshua 6:4 and 6:15, how many times did Israel march around Jericho on the seventh day before the priests blew the trumpets and the wall fell down flat?",
+    "bookId": "JOS",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "7",
+      "seven",
+      "7 times",
+      "seven times"
+    ],
+    "displayAnswer": "7 times (Joshua 6:4, 15)",
+    "explanation": "Joshua 6:15 records that after marching around Jericho once a day for six days, Israel marched around the city seven times on the seventh day.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_7",
+    "type": "facts",
+    "prompt": "In Joshua 7:1 and 7:20–21, which man of Judah secretly took a cloak from Shinar, silver, and a bar of gold from the devoted things at Jericho, bringing defeat on Israel at Ai?",
+    "bookId": "JOS",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Achan",
+      "Achan son of Carmi",
+      "Achan the son of Carmi"
+    ],
+    "displayAnswer": "Achan (Joshua 7:1, 20)",
+    "explanation": "Joshua 7:1, 20–21 identifies Achan son of Carmi as the transgressor whose theft of devoted plunder brought covenant judgment on Israel's camp.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_8",
+    "type": "facts",
+    "prompt": "In Joshua 8:30–33, on which mountain opposite Mount Gerizim did Israel build an altar of uncut stones after defeating Ai?",
+    "bookId": "JOS",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Mount Ebal",
+      "Ebal",
+      "Mt Ebal",
+      "Mt. Ebal"
+    ],
+    "displayAnswer": "Mount Ebal (Joshua 8:30)",
+    "explanation": "Joshua 8:30–33 fulfills Moses' command in Deuteronomy 27 as Israel builds an altar on Mount Ebal and reads all the blessings and curses of the Law.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_9",
+    "type": "facts",
+    "prompt": "In Joshua 9:3–6, inhabitants of which Canaanite city deceived Israel into making a peace treaty by wearing worn-out sacks and patched sandals and carrying dry, crumbly bread?",
+    "bookId": "JOS",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Gibeon",
+      "the Gibeonites",
+      "Gibeonites",
+      "city of Gibeon",
+      "the city of Gibeon"
+    ],
+    "displayAnswer": "Gibeon (Joshua 9:3–6)",
+    "explanation": "Joshua 9:3–15 recounts how the Gibeonites disguised themselves as distant travelers and secured an oath of peace because Israel did not ask counsel from the Lord.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_10",
+    "type": "facts",
+    "prompt": "In Joshua 10:12–13, what two heavenly bodies stood still during Israel's battle to defend Gibeon against the five Amorite kings?",
+    "bookId": "JOS",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "the sun and the moon",
+      "sun and moon",
+      "the sun and moon",
+      "moon and sun",
+      "the moon and the sun"
+    ],
+    "displayAnswer": "the sun and the moon (Joshua 10:12–13)",
+    "explanation": "Joshua 10:12–13 records that the sun stood still over Gibeon and the moon in the Valley of Aijalon until the nation took vengeance on their enemies.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_11",
+    "type": "verse_completion",
+    "prompt": "Joshua 11:23 (ESV): \"And Joshua gave it for an inheritance to Israel according to their tribal allotments. And the land had ______ from war.\"",
+    "bookId": "JOS",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "rest",
+      "peace",
+      "had rest"
+    ],
+    "displayAnswer": "rest (Joshua 11:23)",
+    "explanation": "Joshua 11:23 concludes the northern and southern conquest narratives by declaring that the land had rest from war.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_12",
+    "type": "facts",
+    "prompt": "In Joshua 12:24, how many Canaanite kings in all are tallied as defeated west of the Jordan?",
+    "bookId": "JOS",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "31",
+      "thirty-one",
+      "thirty one",
+      "31 kings",
+      "thirty-one kings"
+    ],
+    "displayAnswer": "31 kings (Joshua 12:24)",
+    "explanation": "Joshua 12:7–24 catalogs each defeated royal city west of the Jordan and concludes with a total of thirty-one kings.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_13",
+    "type": "verse_completion",
+    "prompt": "Joshua 13:33 (ESV): \"But to the tribe of ______ Moses gave no inheritance; the Lord God of Israel is their inheritance, just as he said to them.\"",
+    "bookId": "JOS",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "Levi",
+      "the tribe of Levi",
+      "Levites",
+      "the Levites"
+    ],
+    "displayAnswer": "Levi (Joshua 13:33)",
+    "explanation": "Joshua 13:14, 33 emphasizes that the tribe of Levi received no territorial allotment because the Lord himself was their inheritance.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_14",
+    "type": "verse_completion",
+    "prompt": "Joshua 14:8 (ESV): \"My brothers who went up with me made the heart of the people melt; yet I wholly ______ the Lord my God.\"",
+    "bookId": "JOS",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "followed",
+      "wholly followed",
+      "obeyed"
+    ],
+    "displayAnswer": "followed (Joshua 14:8)",
+    "explanation": "In Joshua 14:8–12, eighty-five-year-old Caleb recalls his faithfulness as a spy at Kadesh-barnea before requesting the hill country of Hebron.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_15",
+    "type": "facts",
+    "prompt": "In Joshua 15:16–17, whom did Caleb give his daughter Achsah to in marriage because he attacked and captured Kiriath-sepher (Debir)?",
+    "bookId": "JOS",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "Othniel",
+      "Othniel son of Kenaz",
+      "Othniel the son of Kenaz"
+    ],
+    "displayAnswer": "Othniel (Joshua 15:17)",
+    "explanation": "Joshua 15:17 introduces Othniel son of Kenaz—later Israel's first judge—who captured Debir and married Caleb's daughter Achsah.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_16",
+    "type": "facts",
+    "prompt": "In Joshua 16:10, the Canaanites of which city in Ephraim's allotment were not driven out, dwelling among the Ephraimites as forced laborers?",
+    "bookId": "JOS",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Gezer",
+      "city of Gezer",
+      "the city of Gezer"
+    ],
+    "displayAnswer": "Gezer (Joshua 16:10)",
+    "explanation": "Joshua 16:10 notes Ephraim's incomplete obedience in failing to drive out the Canaanites of Gezer, instead putting them to forced labor.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_17",
+    "type": "facts",
+    "prompt": "In Joshua 17:3–4, whose five daughters (Mahlah, Noah, Hoglah, Milcah, and Tirzah) approached Eleazar the priest to receive their promised land inheritance among Manasseh?",
+    "bookId": "JOS",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "Zelophehad",
+      "Zelophehad's",
+      "Zelophehad son of Hepher",
+      "Zelophehad the son of Hepher"
+    ],
+    "displayAnswer": "Zelophehad (Joshua 17:3–4)",
+    "explanation": "Joshua 17:3–4 fulfills the Lord's ruling through Moses in Numbers 27 by granting an inheritance to the five daughters of Zelophehad.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_18",
+    "type": "facts",
+    "prompt": "In Joshua 18:1, at what town did the whole congregation of Israel assemble and set up the tent of meeting before casting lots for the remaining seven tribes?",
+    "bookId": "JOS",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "Shiloh",
+      "at Shiloh",
+      "city of Shiloh",
+      "town of Shiloh"
+    ],
+    "displayAnswer": "Shiloh (Joshua 18:1)",
+    "explanation": "Joshua 18:1 establishes Shiloh in Ephraim as Israel's central sanctuary site where the tabernacle stood throughout the period of the judges.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_19",
+    "type": "facts",
+    "prompt": "In Joshua 19:1 and 19:9, which tribe received its inheritance inside the midst of Judah's territory because Judah's portion was too large for them?",
+    "bookId": "JOS",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "Simeon",
+      "tribe of Simeon",
+      "the tribe of Simeon",
+      "the Simeonites",
+      "Simeonites"
+    ],
+    "displayAnswer": "Simeon (Joshua 19:1, 9)",
+    "explanation": "Joshua 19:1, 9 fulfills Jacob's prophecy in Genesis 49:7 as Simeon's towns are apportioned within the territory of Judah.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_20",
+    "type": "facts",
+    "prompt": "In Joshua 20:7–8, how many cities of refuge in total—three west of the Jordan and three east of the Jordan—did Israel set apart for someone who killed a person unintentionally?",
+    "bookId": "JOS",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "6",
+      "six",
+      "6 cities",
+      "six cities",
+      "6 cities of refuge",
+      "six cities of refuge"
+    ],
+    "displayAnswer": "6 cities of refuge (Joshua 20:7–8)",
+    "explanation": "Joshua 20:7–8 designates Kedesh, Shechem, and Hebron west of the Jordan, and Bezer, Ramoth in Gilead, and Golan east of the Jordan.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_21",
+    "type": "verse_completion",
+    "prompt": "Joshua 21:45 (ESV): \"Not one word of all the good ______ that the Lord had made to the house of Israel had failed; all came to pass.\"",
+    "bookId": "JOS",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "promises",
+      "good promises",
+      "promise"
+    ],
+    "displayAnswer": "promises (Joshua 21:45)",
+    "explanation": "Joshua 21:45 serves as the theological thesis of the book, celebrating God's complete faithfulness to every covenant promise made to Israel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_22",
+    "type": "facts",
+    "prompt": "In Joshua 22:10 and 22:34, what structure did Reuben, Gad, and the half-tribe of Manasseh build by the Jordan and name 'Witness'—nearly sparking civil war until they explained it was not for sacrifice?",
+    "bookId": "JOS",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "an altar",
+      "altar",
+      "the altar",
+      "a large altar",
+      "altar of Witness",
+      "a memorial altar"
+    ],
+    "displayAnswer": "an altar (Joshua 22:10, 34)",
+    "explanation": "Joshua 22:10–34 recounts how the eastern tribes built an imposing altar by the Jordan as a witness that future generations belonged to the Lord's people.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_23",
+    "type": "verse_completion",
+    "prompt": "Joshua 23:11 (ESV): \"Be very careful, therefore, to ______ the Lord your God.\"",
+    "bookId": "JOS",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "love",
+      "to love",
+      "love the Lord"
+    ],
+    "displayAnswer": "love (Joshua 23:11)",
+    "explanation": "In his farewell address to Israel's leaders in Joshua 23:11, Joshua urges vigilant covenant devotion rooted in loving the Lord.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jos_24",
+    "type": "verse_completion",
+    "prompt": "Joshua 24:15 (ESV): \"And if it is evil in your eyes to serve the Lord, choose this day whom you will serve... But as for me and my ______, we will serve the Lord.\"",
+    "bookId": "JOS",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "house",
+      "my house",
+      "household",
+      "family"
+    ],
+    "displayAnswer": "house (Joshua 24:15)",
+    "explanation": "At the covenant renewal assembly at Shechem in Joshua 24:15, Israel's aged leader pledges his entire household to the exclusive service of the Lord.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_1",
+    "type": "facts",
+    "prompt": "In Judges 1:6–7, which Canaanite ruler captured by Judah had his thumbs and big toes cut off, confessing that he had done the same to seventy kings under his table?",
+    "bookId": "JDG",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Adoni-bezek",
+      "Adonibezek",
+      "King Adoni-bezek"
+    ],
+    "displayAnswer": "Adoni-bezek (Judges 1:6–7)",
+    "explanation": "Judges 1:6–7 records Adoni-bezek's capture and his recognition that God had repaid him exactly as he had treated seventy conquered kings.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_2",
+    "type": "verse_completion",
+    "prompt": "Judges 2:10 (ESV): \"And all that generation also were gathered to their fathers. And there arose another generation after them who did not ______ the Lord or the work that he had done for Israel.\"",
+    "bookId": "JDG",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "know",
+      "know the Lord",
+      "acknowledge"
+    ],
+    "displayAnswer": "know (Judges 2:10)",
+    "explanation": "Judges 2:10 explains Israel's spiritual decline after Joshua's generation died, introducing the recurring cycle of apostasy, oppression, crying out, and deliverance.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_3",
+    "type": "facts",
+    "prompt": "In Judges 3:15–21, which left-handed Benjamite deliverer strapped a double-edged sword on his right thigh and assassinated Eglon king of Moab?",
+    "bookId": "JDG",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Ehud",
+      "Ehud son of Gera",
+      "Ehud the son of Gera"
+    ],
+    "displayAnswer": "Ehud (Judges 3:15–21)",
+    "explanation": "Judges 3:15–21 recounts how left-handed Ehud bypassed Moabite security by concealing his blade on his right thigh and delivered Israel from eighteen years of Moabite oppression.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_4",
+    "type": "facts",
+    "prompt": "In Judges 4:21, which woman killed Sisera, commander of Jabin's Canaanite army, by driving a tent peg through his temple while he slept in her tent?",
+    "bookId": "JDG",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Jael",
+      "Jael wife of Heber",
+      "Jael the wife of Heber"
+    ],
+    "displayAnswer": "Jael (Judges 4:21)",
+    "explanation": "Judges 4:9, 21 fulfills Deborah's prophecy that the Lord would sell Sisera into the hand of a woman—Jael, the wife of Heber the Kenite.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_5",
+    "type": "verse_completion",
+    "prompt": "Judges 5:31 (ESV): \"So may all your enemies perish, O Lord! But your friends be like the ______ as he rises in his might.\"",
+    "bookId": "JDG",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "sun",
+      "the sun",
+      "rising sun"
+    ],
+    "displayAnswer": "sun (Judges 5:31)",
+    "explanation": "Judges 5:31 concludes the Song of Deborah and Barak with a triumphant prayer contrasting the perishing of God's foes with the radiant strength of those who love him.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_6",
+    "type": "verse_completion",
+    "prompt": "Judges 6:12 (ESV): \"And the angel of the Lord appeared to him and said to him, 'The Lord is with you, O mighty man of ______.'\"",
+    "bookId": "JDG",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "valor",
+      "valour",
+      "mighty man of valor",
+      "courage"
+    ],
+    "displayAnswer": "valor (Judges 6:12)",
+    "explanation": "In Judges 6:11–12, the angel of the Lord addresses fearful Gideon—beating out wheat in a winepress to hide from the Midianites—according to what God's presence will make him.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_7",
+    "type": "facts",
+    "prompt": "In Judges 6:37–40, what object did Gideon lay on the threshing floor for two nights to ask God for a sign involving dew?",
+    "bookId": "JDG",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "a fleece of wool",
+      "fleece",
+      "a fleece",
+      "the fleece",
+      "fleece of wool",
+      "wool fleece"
+    ],
+    "displayAnswer": "a fleece of wool (Judges 6:37)",
+    "explanation": "Judges 6:37–40 describes Gideon testing God's assurance twice with a fleece of wool—first wet while the ground stayed dry, then dry while dew covered the ground.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_8",
+    "type": "facts",
+    "prompt": "In Judges 7:6–7, to how many men—those who lapped water by putting their hands to their mouths—did the Lord reduce Gideon's army so Israel could not boast over God?",
+    "bookId": "JDG",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "300",
+      "three hundred",
+      "300 men",
+      "three hundred men"
+    ],
+    "displayAnswer": "300 men (Judges 7:6–7)",
+    "explanation": "Judges 7:2–7 records God whittling Gideon's 32,000 troops down to 300 men so Israel could never claim, 'My own hand has saved me.'",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_9",
+    "type": "verse_completion",
+    "prompt": "Judges 7:20 (ESV): \"They held in their left hands the torches, and in their right hands the trumpets to blow. And they cried out, 'A sword for the Lord and for ______!'\"",
+    "bookId": "JDG",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Gideon",
+      "for Gideon",
+      "Gideon son of Joash"
+    ],
+    "displayAnswer": "Gideon (Judges 7:20)",
+    "explanation": "Judges 7:20 captures the midnight battle cry as Gideon's 300 men blew trumpets and smashed jars around the Midianite camp, throwing the enemy into panic.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_10",
+    "type": "verse_completion",
+    "prompt": "Judges 8:23 (ESV): \"Gideon said to them, 'I will not rule over you, and my son will not rule over you; the ______ will rule over you.'\"",
+    "bookId": "JDG",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Lord",
+      "the Lord",
+      "God"
+    ],
+    "displayAnswer": "Lord (Judges 8:23)",
+    "explanation": "When the men of Israel offered Gideon hereditary kingship in Judges 8:22–23, Gideon rightly affirmed the Lord's direct kingship over Israel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_11",
+    "type": "facts",
+    "prompt": "In Judges 9:5–6 and 9:53, which son of Gideon murdered seventy of his brothers at Ophrah to become king of Shechem, and was later fatally crushed by an upper millstone dropped by a woman at Thebez?",
+    "bookId": "JDG",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Abimelech",
+      "King Abimelech",
+      "Abimelech son of Jerubbaal"
+    ],
+    "displayAnswer": "Abimelech (Judges 9:5–6, 53)",
+    "explanation": "Judges 9:5–57 recounts Abimelech's bloody usurpation and poetic judgment when a woman dropped an upper millstone on his skull from the tower of Thebez.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_12",
+    "type": "facts",
+    "prompt": "In Judges 10:3–4, which Gileadite leader arose after Tola and had thirty sons who rode on thirty donkeys and possessed thirty cities in the land of Gilead?",
+    "bookId": "JDG",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "Jair",
+      "Jair the Gileadite",
+      "Jair of Gilead"
+    ],
+    "displayAnswer": "Jair (Judges 10:3–4)",
+    "explanation": "Judges 10:3–4 records Jair the Gileadite's twenty-two-year leadership and his thirty sons associated with the villages of Havvoth-jair.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_13",
+    "type": "facts",
+    "prompt": "In Judges 11:30–35, who came out of Jephthah's house at Mizpah with tambourines and dances to meet him after his Ammonite victory, tragically becoming the first to cross his threshold after his rash vow?",
+    "bookId": "JDG",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "his daughter",
+      "Jephthah's daughter",
+      "his only child",
+      "his only daughter",
+      "daughter"
+    ],
+    "displayAnswer": "his daughter (Judges 11:34)",
+    "explanation": "Judges 11:34 underscores the tragedy of Jephthah's unnecessary vow when his beloved only child came out first to celebrate his return.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_14",
+    "type": "facts",
+    "prompt": "In Judges 12:5–6, what test word did the men of Gilead require fugitives at the fords of the Jordan to pronounce, exposing Ephraimites who said 'Sibboleth'?",
+    "bookId": "JDG",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "Shibboleth",
+      "the word Shibboleth",
+      "say Shibboleth"
+    ],
+    "displayAnswer": "Shibboleth (Judges 12:6)",
+    "explanation": "Judges 12:5–6 records how Gileadite guards used the pronunciation of 'Shibboleth' at the Jordan crossings to identify fleeing Ephraimites.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_15",
+    "type": "facts",
+    "prompt": "In Judges 13:5 and 13:7, under what lifelong vow of consecration to God was Manoah's son Samson set apart from the womb, forbidding any razor on his head or wine and strong drink?",
+    "bookId": "JDG",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "a Nazirite",
+      "Nazirite",
+      "the Nazirite vow",
+      "a Nazirite vow",
+      "Nazirite vow",
+      "Nazarite",
+      "a Nazarite"
+    ],
+    "displayAnswer": "a Nazirite (Judges 13:5, 7)",
+    "explanation": "Judges 13:5, 7 announces that Samson would be a Nazirite to God from the womb until the day of his death and would begin to save Israel from the Philistines.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_16",
+    "type": "verse_completion",
+    "prompt": "Judges 14:14 (ESV): \"And he said to them, 'Out of the eater came something to eat. Out of the strong came something ______.' And in three days they could not solve the riddle.\"",
+    "bookId": "JDG",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "sweet",
+      "something sweet",
+      "sweetness"
+    ],
+    "displayAnswer": "sweet (Judges 14:14)",
+    "explanation": "Samson's wedding riddle in Judges 14:14 alluded to the honey he had scooped out of the carcass of the young lion he tore apart near Timnah.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_17",
+    "type": "facts",
+    "prompt": "In Judges 15:15–16, with the fresh jawbone of what animal did Samson strike down a thousand Philistines at Lehi?",
+    "bookId": "JDG",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "a donkey",
+      "donkey",
+      "the donkey",
+      "a male donkey",
+      "male donkey",
+      "an ass"
+    ],
+    "displayAnswer": "a donkey (Judges 15:15)",
+    "explanation": "Judges 15:15–17 recounts Samson seizing a fresh jawbone of a donkey to slay a thousand Philistines and naming the place Ramath-lehi ('Hill of the Jawbone').",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_18",
+    "type": "facts",
+    "prompt": "In Judges 16:4–5, which woman in the Valley of Sorek was offered 1,100 pieces of silver by each of the Philistine lords to entice Samson and discover the secret of his strength?",
+    "bookId": "JDG",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Delilah",
+      "Delilah of Sorek",
+      "woman named Delilah"
+    ],
+    "displayAnswer": "Delilah (Judges 16:4–5)",
+    "explanation": "Judges 16:4–19 narrates how Delilah pressed Samson daily until he revealed his Nazirite consecration, leading to his capture and blinding at Gaza.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_19",
+    "type": "verse_completion",
+    "prompt": "Judges 16:28 (ESV): \"Then Samson called to the Lord and said, 'O Lord God, please ______ me and please strengthen me only this once, O God, that I may be avenged on the Philistines for my two eyes.'\"",
+    "bookId": "JDG",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "remember",
+      "remember me",
+      "please remember"
+    ],
+    "displayAnswer": "remember (Judges 16:28)",
+    "explanation": "In Judges 16:28–30, blinded Samson cries out in humble dependence on the Lord between the two middle pillars of Dagon's temple, slaying more Philistines at his death than in his life.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_20",
+    "type": "facts",
+    "prompt": "In Judges 17:1–5 and 17:10, which Ephraimite man set up a household shrine with carved and metal images and hired a young Levite from Bethlehem to serve as his personal priest?",
+    "bookId": "JDG",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "Micah",
+      "Micah of Ephraim",
+      "man named Micah"
+    ],
+    "displayAnswer": "Micah (Judges 17:1–5, 10)",
+    "explanation": "Judges 17:1–13 illustrates Israel's religious syncretism through Micah's homemade idolatrous shrine and his hiring of a wandering Levite for ten pieces of silver a year.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_21",
+    "type": "facts",
+    "prompt": "In Judges 18:1 and 18:27–29, which tribe of Israel stole Micah's household idols and priest, slaughtered the quiet people of Laish, and renamed the northern city after their ancestor?",
+    "bookId": "JDG",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "Dan",
+      "tribe of Dan",
+      "the tribe of Dan",
+      "the Danites",
+      "Danites"
+    ],
+    "displayAnswer": "Dan (Judges 18:1, 29)",
+    "explanation": "Judges 18 recounts how the tribe of Dan abandoned its allotted territory, seized Laish in the far north, and established idolatrous worship there until the captivity.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_22",
+    "type": "facts",
+    "prompt": "In Judges 19:14–15 and 19:22–25, in which Benjamite town did wicked men surround an old man's house at night and fatally abuse a Levite's concubine?",
+    "bookId": "JDG",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "Gibeah",
+      "Gibeah of Benjamin",
+      "city of Gibeah",
+      "town of Gibeah"
+    ],
+    "displayAnswer": "Gibeah (Judges 19:14–15, 22)",
+    "explanation": "Judges 19 exposes how moral depravity inside Israelite Gibeah mirrored Sodom, provoking national outrage across the tribes.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_23",
+    "type": "facts",
+    "prompt": "In Judges 20:12–15, against which tribe did all the united tribes of Israel wage civil war because that tribe refused to hand over the guilty men of Gibeah?",
+    "bookId": "JDG",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "Benjamin",
+      "tribe of Benjamin",
+      "the tribe of Benjamin",
+      "the Benjaminites",
+      "Benjaminites",
+      "Benjamites"
+    ],
+    "displayAnswer": "Benjamin (Judges 20:12–15)",
+    "explanation": "Judges 20 narrates Israel's devastating three-battle civil war against the tribe of Benjamin, nearly wiping out an entire tribe of Israel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_jdg_24",
+    "type": "verse_completion",
+    "prompt": "Judges 21:25 (ESV): \"In those days there was no king in Israel. Everyone did what was right in his own ______.\"",
+    "bookId": "JDG",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "eyes",
+      "own eyes",
+      "his own eyes"
+    ],
+    "displayAnswer": "eyes (Judges 21:25)",
+    "explanation": "Judges 21:25 concludes the entire book with its diagnostic refrain, pointing forward to Israel's need for a righteous covenant king.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_1",
+    "type": "facts",
+    "prompt": "In Ruth 1:1–2, to what foreign country east of the Dead Sea did Elimelech, Naomi, and their sons Mahlon and Chilion sojourn during a famine in Bethlehem?",
+    "bookId": "RUT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Moab",
+      "country of Moab",
+      "the country of Moab",
+      "land of Moab"
+    ],
+    "displayAnswer": "Moab (Ruth 1:1–2)",
+    "explanation": "Ruth 1:1–2 sets the narrative in the days when the judges ruled, as Elimelech's family left Bethlehem of Judah to sojourn in Moab.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_2",
+    "type": "facts",
+    "prompt": "In Ruth 1:4 and 1:14, which Moabite daughter-in-law wept and kissed Naomi farewell, returning to her people and her gods while her sister-in-law clung to Naomi?",
+    "bookId": "RUT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Orpah",
+      "Orpah the Moabitess",
+      "Orpah of Moab"
+    ],
+    "displayAnswer": "Orpah (Ruth 1:4, 14)",
+    "explanation": "Ruth 1:14 contrasts Orpah's sensible return to her homeland in Moab with her sister-in-law's extraordinary covenant loyalty to Naomi and Israel's God.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_3",
+    "type": "verse_completion",
+    "prompt": "Ruth 1:16 (ESV): \"For where you go I will go, and where you lodge I will lodge. Your people shall be ______, and your God my God.\"",
+    "bookId": "RUT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "my people",
+      "mine",
+      "people"
+    ],
+    "displayAnswer": "my people (Ruth 1:16)",
+    "explanation": "Ruth 1:16 records the famous pledge of covenant allegiance embracing Naomi's people, land, and God.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_4",
+    "type": "verse_completion",
+    "prompt": "Ruth 1:20 (ESV): \"She said to them, 'Do not call me Naomi; call me ______, for the Almighty has dealt very bitterly with me.'\"",
+    "bookId": "RUT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Mara",
+      "Marah",
+      "call me Mara"
+    ],
+    "displayAnswer": "Mara (Ruth 1:20)",
+    "explanation": "In Ruth 1:20–21, bereaved Naomi ('Pleasant') asks the women of Bethlehem to call her Mara ('Bitter') because she went away full and returned empty.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_5",
+    "type": "facts",
+    "prompt": "In Ruth 2:1–3, which worthy man of the clan of Elimelech owned the portion of the field where Naomi's daughter-in-law happened to glean behind the reapers?",
+    "bookId": "RUT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Boaz",
+      "Boaz of Bethlehem",
+      "kinsman Boaz"
+    ],
+    "displayAnswer": "Boaz (Ruth 2:1, 3)",
+    "explanation": "Ruth 2:1–3 introduces Boaz as a worthy man of great wealth from Elimelech's clan, highlighting God's quiet providence as she 'happened' to come to his field.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_6",
+    "type": "verse_completion",
+    "prompt": "Ruth 2:12 (ESV): \"The Lord repay you for what you have done, and a full reward be given you by the Lord, the God of Israel, under whose ______ you have come to take refuge!\"",
+    "bookId": "RUT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "wings",
+      "his wings",
+      "whose wings"
+    ],
+    "displayAnswer": "wings (Ruth 2:12)",
+    "explanation": "Boaz's blessing in Ruth 2:12 anticipates how the Lord himself will answer that prayer through Boaz's own protective redemption in chapter 3.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_7",
+    "type": "facts",
+    "prompt": "In Ruth 2:17, about an ephah of what specific grain did Naomi's daughter-in-law beat out after gleaning in Boaz's field until evening?",
+    "bookId": "RUT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "barley",
+      "barley grain",
+      "the barley"
+    ],
+    "displayAnswer": "barley (Ruth 2:17)",
+    "explanation": "Ruth 1:22 and 2:17, 23 anchor the springtime setting at the beginning of the barley harvest, when she beat out a generous ephah on her first day.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_8",
+    "type": "facts",
+    "prompt": "In Ruth 2:20, by what family-legal title—meaning a close relative with the right and duty to buy back family land and rescue kin—did Naomi describe Boaz?",
+    "bookId": "RUT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "redeemer",
+      "a redeemer",
+      "redeemers",
+      "our redeemers",
+      "kinsman-redeemer",
+      "kinsman redeemer",
+      "next of kin"
+    ],
+    "displayAnswer": "redeemer / one of our redeemers (Ruth 2:20)",
+    "explanation": "Ruth 2:20 introduces the Hebrew concept of the go'el ('redeemer'), a close relative responsible for rescuing family members and their ancestral land from loss.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_9",
+    "type": "facts",
+    "prompt": "In Ruth 3:2–7, to what agricultural site did Naomi send her daughter-in-law at night while Boaz was winnowing barley?",
+    "bookId": "RUT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "the threshing floor",
+      "threshing floor",
+      "a threshing floor",
+      "Boaz's threshing floor"
+    ],
+    "displayAnswer": "the threshing floor (Ruth 3:2–3, 6)",
+    "explanation": "Ruth 3:2–7 sets the midnight appeal for redemption at Boaz's threshing floor at the end of the heap of winnowed barley.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_10",
+    "type": "facts",
+    "prompt": "In Ruth 3:4 and 3:7–8, what part of Boaz's body did Naomi instruct her daughter-in-law to uncover and lie down beside after he lay down to sleep?",
+    "bookId": "RUT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "his feet",
+      "feet",
+      "the feet",
+      "Boaz's feet"
+    ],
+    "displayAnswer": "his feet (Ruth 3:4, 7–8)",
+    "explanation": "Ruth 3:4, 7–8 describes uncovering Boaz's feet as a humble, culturally understood gesture appealing for his protective covering in marriage.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_11",
+    "type": "verse_completion",
+    "prompt": "Ruth 3:11 (ESV): \"And now, my daughter, do not fear. I will do for you all that you ask, for all my fellow townsmen know that you are a ______ woman.\"",
+    "bookId": "RUT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "worthy",
+      "a worthy",
+      "worthy woman",
+      "noble",
+      "virtuous"
+    ],
+    "displayAnswer": "worthy (Ruth 3:11)",
+    "explanation": "Ruth 3:11 uses the exact Hebrew phrase eshet chayil ('worthy woman'), matching the earlier description of Boaz as a 'worthy man' in Ruth 2:1.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_12",
+    "type": "facts",
+    "prompt": "In Ruth 3:15 and 3:17, how many measures of barley did Boaz pour into her cloak so she would not return empty-handed to her mother-in-law Naomi?",
+    "bookId": "RUT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "6",
+      "six",
+      "6 measures",
+      "six measures",
+      "six measures of barley"
+    ],
+    "displayAnswer": "6 measures of barley (Ruth 3:15, 17)",
+    "explanation": "Boaz's gift of six measures of barley in Ruth 3:15–17 tangibly reversed Naomi's earlier lament of returning 'empty' and pledged full provision.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_13",
+    "type": "facts",
+    "prompt": "In Ruth 4:2, how many elders of the city did Boaz gather to sit at the town gate as witnesses to the redemption proceedings?",
+    "bookId": "RUT",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "10",
+      "ten",
+      "10 men",
+      "ten men",
+      "10 elders",
+      "ten elders"
+    ],
+    "displayAnswer": "10 elders (Ruth 4:2)",
+    "explanation": "Ruth 4:1–2 shows Boaz convening a formal legal quorum of ten Bethlehem elders at the city gate before addressing the nearer redeemer.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_14",
+    "type": "facts",
+    "prompt": "In Ruth 4:7–8, what item of footwear did the nearer redeemer draw off in Israel to attest and confirm the transfer of the right of redemption to Boaz?",
+    "bookId": "RUT",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "his sandal",
+      "sandal",
+      "a sandal",
+      "the sandal",
+      "shoe",
+      "his shoe"
+    ],
+    "displayAnswer": "his sandal (Ruth 4:7–8)",
+    "explanation": "Ruth 4:7–8 explains the ancient Israelite custom whereby drawing off one's sandal publicly ratified a land redemption or legal exchange.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_15",
+    "type": "verse_completion",
+    "prompt": "Ruth 4:14 (ESV): \"Then the women said to Naomi, 'Blessed be the Lord, who has not left you this day without a ______, and may his name be renowned in Israel!'\"",
+    "bookId": "RUT",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "redeemer",
+      "a redeemer",
+      "kinsman-redeemer"
+    ],
+    "displayAnswer": "redeemer (Ruth 4:14)",
+    "explanation": "In Ruth 4:14–15, the women of Bethlehem praise the Lord that Naomi's newborn grandson himself will be a restorer of life and a nourisher of her old age.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_rut_16",
+    "type": "verse_completion",
+    "prompt": "Ruth 4:17 (ESV): \"And the women of the neighborhood gave him a name, saying, 'A son has been born to Naomi.' They named him ______. He was the father of Jesse, the father of David.\"",
+    "bookId": "RUT",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Obed",
+      "son Obed",
+      "Obed father of Jesse"
+    ],
+    "displayAnswer": "Obed (Ruth 4:17)",
+    "explanation": "Ruth 4:17–22 reveals the grand redemptive-historical purpose of the book: the child born to Boaz and his Moabite bride is Obed, grandfather of King David.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_1",
+    "type": "facts",
+    "prompt": "In 1 Samuel 1:9–13, which barren wife of Elkanah wept bitterly and prayed silently at Shiloh—moving only her lips so Eli thought she was drunken—vowing to give her son to the Lord?",
+    "bookId": "1SA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Hannah",
+      "Hannah wife of Elkanah",
+      "Elkanah's wife Hannah"
+    ],
+    "displayAnswer": "Hannah (1 Samuel 1:9–13)",
+    "explanation": "1 Samuel 1:9–20 recounts Hannah's fervent, tearful prayer at the tabernacle in Shiloh and God's gracious answer in giving her a son.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_2",
+    "type": "verse_completion",
+    "prompt": "1 Samuel 2:2 (ESV): \"There is none ______ like the Lord: for there is none besides you; there is no rock like our God.\"",
+    "bookId": "1SA",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "holy",
+      "so holy",
+      "holy like the Lord"
+    ],
+    "displayAnswer": "holy (1 Samuel 2:2)",
+    "explanation": "Hannah's prophetic song in 1 Samuel 2:1–10 exalts the unrivaled holiness and sovereignty of God, who humbles the proud and exalts the lowly.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_3",
+    "type": "verse_completion",
+    "prompt": "1 Samuel 3:10 (ESV): \"And the Lord came and stood, calling as at other times, 'Samuel! Samuel!' And Samuel said, 'Speak, for your ______ hears.'\"",
+    "bookId": "1SA",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "servant",
+      "your servant",
+      "thy servant"
+    ],
+    "displayAnswer": "servant (1 Samuel 3:10)",
+    "explanation": "Guided by aged Eli in 1 Samuel 3:9–10, young Samuel responds with humble readiness as the Lord renews prophetic revelation at Shiloh.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_4",
+    "type": "facts",
+    "prompt": "In 1 Samuel 4:21, what name—meaning 'The glory has departed from Israel'—did Phinehas's dying wife give her newborn son upon hearing that the ark of God was captured?",
+    "bookId": "1SA",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Ichabod",
+      "name Ichabod",
+      "boy Ichabod"
+    ],
+    "displayAnswer": "Ichabod (1 Samuel 4:21)",
+    "explanation": "1 Samuel 4:19–22 records the tragic birth of Ichabod after the Philistines defeated Israel at Ebenezer, slew Hophni and Phinehas, and captured the ark.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_5",
+    "type": "facts",
+    "prompt": "In 1 Samuel 5:2–4, into the temple of which Philistine god at Ashdod did the Philistines carry the captured ark, only to find the idol fallen face-down with its head and hands cut off?",
+    "bookId": "1SA",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Dagon",
+      "house of Dagon",
+      "god Dagon"
+    ],
+    "displayAnswer": "Dagon (1 Samuel 5:2–4)",
+    "explanation": "1 Samuel 5:1–5 demonstrates the Lord's supremacy even in exile as Dagon falls prostrate and shattered before the ark of the Lord without human help.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_6",
+    "type": "facts",
+    "prompt": "In 1 Samuel 6:12–15, to what Israelite border town did two milk cows pull the new cart carrying the ark of the Lord straight down the road from Ekron?",
+    "bookId": "1SA",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Beth-shemesh",
+      "Bethshemesh",
+      "Beth Shemesh"
+    ],
+    "displayAnswer": "Beth-shemesh (1 Samuel 6:12)",
+    "explanation": "1 Samuel 6:7–15 shows two nursing cows leaving their calves behind and lowing as they went straight up the road to Beth-shemesh, proving the plagues came from Israel's God.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_7",
+    "type": "verse_completion",
+    "prompt": "1 Samuel 7:12 (ESV): \"Then Samuel took a stone and set it up between Mizpah and Shen and called its name ______, for he said, 'Till now the Lord has helped us.'\"",
+    "bookId": "1SA",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Ebenezer",
+      "Eben-ezer",
+      "stone of help"
+    ],
+    "displayAnswer": "Ebenezer (1 Samuel 7:12)",
+    "explanation": "In 1 Samuel 7:12, the memorial stone Ebenezer ('Stone of Help') celebrates God's thunderous rout of the Philistines after Israel repented at Mizpah.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_8",
+    "type": "verse_completion",
+    "prompt": "1 Samuel 8:5 (ESV): \"Behold, you are old and your sons do not walk in your ways. Now appoint for us a ______ to judge us like all the nations.\"",
+    "bookId": "1SA",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "king",
+      "a king",
+      "human king"
+    ],
+    "displayAnswer": "king (1 Samuel 8:5)",
+    "explanation": "1 Samuel 8:5–7 exposes the elders' sinful motive in demanding a human king 'like all the nations,' rejecting the Lord himself as their King.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_9",
+    "type": "facts",
+    "prompt": "In 1 Samuel 9:3, what lost animals belonging to his father Kish was young Saul searching for through the hill country of Ephraim when he first met the seer?",
+    "bookId": "1SA",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "donkeys",
+      "the donkeys",
+      "female donkeys",
+      "his father's donkeys",
+      "Kish's donkeys",
+      "asses"
+    ],
+    "displayAnswer": "donkeys (1 Samuel 9:3)",
+    "explanation": "1 Samuel 9:3–20 shows God guiding an ordinary search for Kish's lost donkeys to bring Saul of Benjamin to be privately anointed.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_10",
+    "type": "facts",
+    "prompt": "In 1 Samuel 10:21–22, where was Saul found hiding when he was publicly selected by lot at Mizpah to be Israel's first king?",
+    "bookId": "1SA",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "among the baggage",
+      "in the baggage",
+      "the baggage",
+      "baggage",
+      "among the supplies",
+      "supplies"
+    ],
+    "displayAnswer": "among the baggage (1 Samuel 10:22)",
+    "explanation": "1 Samuel 10:21–23 notes the striking contrast between Saul's towering stature—taller than anyone from his shoulders upward—and his reluctance in hiding among the baggage.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_11",
+    "type": "facts",
+    "prompt": "In 1 Samuel 11:1–2, which Ammonite king besieged Jabesh-gilead and demanded to gouge out every man's right eye before Saul rallied Israel to rescue the city?",
+    "bookId": "1SA",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Nahash",
+      "Nahash the Ammonite",
+      "King Nahash"
+    ],
+    "displayAnswer": "Nahash the Ammonite (1 Samuel 11:1–2)",
+    "explanation": "1 Samuel 11:1–11 recounts Saul's Spirit-empowered victory over Nahash the Ammonite, confirming Saul's kingship before all Israel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_12",
+    "type": "verse_completion",
+    "prompt": "1 Samuel 12:23 (ESV): \"Moreover, as for me, far be it from me that I should sin against the Lord by ceasing to ______ for you, and I will instruct you in the good and the right way.\"",
+    "bookId": "1SA",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "pray",
+      "pray for you",
+      "to pray"
+    ],
+    "displayAnswer": "pray (1 Samuel 12:23)",
+    "explanation": "At the covenant renewal address in 1 Samuel 12:23, the prophet pledges unceasing intercession and faithful instruction even after Israel's transition to monarchy.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_13",
+    "type": "facts",
+    "prompt": "In 1 Samuel 13:8–10, what offering did King Saul unlawfully present himself at Gilgal when his troops began scattering before the Philistines, costing his house a lasting dynasty?",
+    "bookId": "1SA",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "the burnt offering",
+      "burnt offering",
+      "a burnt offering",
+      "burnt offerings",
+      "sacrifice"
+    ],
+    "displayAnswer": "the burnt offering (1 Samuel 13:9–10)",
+    "explanation": "1 Samuel 13:8–14 records Saul's presumptuous disobedience in offering the burnt sacrifice himself instead of obeying the Lord's command to wait.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_14",
+    "type": "verse_completion",
+    "prompt": "1 Samuel 14:6 (ESV): \"Come, let us go over to the garrison of these uncircumcised. It may be that the Lord will work for us, for nothing can hinder the Lord from ______ by many or by few.\"",
+    "bookId": "1SA",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "saving",
+      "delivering",
+      "from saving"
+    ],
+    "displayAnswer": "saving (1 Samuel 14:6)",
+    "explanation": "Jonathan's bold confession of faith to his armor-bearer at Michmash in 1 Samuel 14:6 contrasts sharply with his father Saul's fearful hesitation.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_15",
+    "type": "verse_completion",
+    "prompt": "1 Samuel 15:22 (ESV): \"Has the Lord as great delight in burnt offerings and sacrifices, as in obeying the voice of the Lord? Behold, to ______ is better than sacrifice, and to listen than the fat of rams.\"",
+    "bookId": "1SA",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "obey",
+      "to obey",
+      "obedience"
+    ],
+    "displayAnswer": "obey (1 Samuel 15:22)",
+    "explanation": "After Saul spared King Agag and the best Amalekite livestock in 1 Samuel 15, verse 22 delivers the classic prophetic indictment of ritual without obedience.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_16",
+    "type": "verse_completion",
+    "prompt": "1 Samuel 16:7 (ESV): \"For the Lord sees not as man sees: man looks on the outward appearance, but the Lord looks on the ______.\"",
+    "bookId": "1SA",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "heart",
+      "the heart",
+      "inward heart"
+    ],
+    "displayAnswer": "heart (1 Samuel 16:7)",
+    "explanation": "At Jesse's house in Bethlehem in 1 Samuel 16:7, God bypasses tall Eliab and chooses young shepherd David according to his heart.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_17",
+    "type": "verse_completion",
+    "prompt": "1 Samuel 17:47 (ESV): \"and that all this assembly may know that the Lord saves not with sword and spear. For the ______ is the Lord's, and he will give you into our hand.\"",
+    "bookId": "1SA",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "battle",
+      "the battle",
+      "war"
+    ],
+    "displayAnswer": "battle (1 Samuel 17:47)",
+    "explanation": "David's declaration before Goliath in the Valley of Elah (1 Samuel 17:47) centers Israel's victory not on human weaponry but on the living God's zeal for his name.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_18",
+    "type": "facts",
+    "prompt": "In 1 Samuel 18:1–4, which son of King Saul loved David as his own soul, made a covenant with him, and gave David his own robe, armor, sword, bow, and belt?",
+    "bookId": "1SA",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "Jonathan",
+      "Prince Jonathan",
+      "Jonathan son of Saul"
+    ],
+    "displayAnswer": "Jonathan (1 Samuel 18:1–4)",
+    "explanation": "1 Samuel 18:1–4 portrays Crown Prince Jonathan's selfless covenant friendship in symbolically handing his royal garments and weapons to God's anointed.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_19",
+    "type": "facts",
+    "prompt": "In 1 Samuel 19:11–13, which daughter of Saul and wife of David let David down through a window at night and hid an image with goat's hair in his bed to fool Saul's messengers?",
+    "bookId": "1SA",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "Michal",
+      "Michal daughter of Saul",
+      "Saul's daughter Michal"
+    ],
+    "displayAnswer": "Michal (1 Samuel 19:11–13)",
+    "explanation": "1 Samuel 19:11–17 recounts how Saul's daughter Michal rescued her husband David from her father's assassins by staging a sickbed decoy.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_20",
+    "type": "facts",
+    "prompt": "In 1 Samuel 20:20 and 20:35–38, what weapons did Jonathan shoot into the field past a young boy as a prearranged signal warning David to flee from Saul?",
+    "bookId": "1SA",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "arrows",
+      "three arrows",
+      "3 arrows",
+      "an arrow",
+      "the arrows"
+    ],
+    "displayAnswer": "arrows (1 Samuel 20:20, 36)",
+    "explanation": "1 Samuel 20:20–38 describes Jonathan shooting arrows beyond the boy and calling out, 'Is not the arrow beyond you?' to alert David that Saul sought his life.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_21",
+    "type": "facts",
+    "prompt": "In 1 Samuel 21:1–6 and 21:9, which priest at Nob gave fleeing David the holy Bread of the Presence as well as the sword of Goliath?",
+    "bookId": "1SA",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "Ahimelech",
+      "Ahimelech the priest",
+      "Priest Ahimelech"
+    ],
+    "displayAnswer": "Ahimelech (1 Samuel 21:1, 6, 9)",
+    "explanation": "1 Samuel 21:1–9 records Ahimelech the priest showing mercy to David and his hungry men at Nob—an episode Jesus later cites in Matthew 12:3–4.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_22",
+    "type": "facts",
+    "prompt": "In 1 Samuel 22:9 and 22:18–19, which chief herdsman of Saul—an Edomite—informed on Ahimelech and struck down eighty-five priests of the Lord at Nob?",
+    "bookId": "1SA",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "Doeg",
+      "Doeg the Edomite",
+      "herdsman Doeg"
+    ],
+    "displayAnswer": "Doeg the Edomite (1 Samuel 22:9, 18)",
+    "explanation": "1 Samuel 22:9–19 recounts how Saul's Israelite guards refused to attack the Lord's priests, whereas Doeg the Edomite slaughtered Nob's priestly families, leaving only Abiathar to escape.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_23",
+    "type": "facts",
+    "prompt": "In 1 Samuel 23:1–5, which Judean town did David save from Philistine raiders who were robbing its threshing floors after David twice inquired of the Lord?",
+    "bookId": "1SA",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "Keilah",
+      "city of Keilah",
+      "town of Keilah"
+    ],
+    "displayAnswer": "Keilah (1 Samuel 23:1–5)",
+    "explanation": "Even while hunted as a fugitive in 1 Samuel 23:1–5, David acted as Israel's true shepherd-king by inquiring of the Lord and rescuing Keilah.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_24",
+    "type": "facts",
+    "prompt": "In 1 Samuel 24:3–5, when Saul entered a cave in the wilderness of En-gedi, what did David stealthily cut off instead of taking Saul's life?",
+    "bookId": "1SA",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "the corner of Saul's robe",
+      "corner of Saul's robe",
+      "the corner of his robe",
+      "corner of his robe",
+      "edge of his robe",
+      "hem of his robe",
+      "piece of Saul's robe"
+    ],
+    "displayAnswer": "the corner of Saul's robe (1 Samuel 24:4)",
+    "explanation": "1 Samuel 24:4–11 shows David refusing to strike the Lord's anointed in the En-gedi cave, holding up only the severed corner of Saul's robe as proof of his innocence.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_25",
+    "type": "facts",
+    "prompt": "In 1 Samuel 25:3 and 25:18–35, which discerning wife of the harsh Carmelite Nabal met David with generous provisions and restrained him from avenging himself with bloodshed?",
+    "bookId": "1SA",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "Abigail",
+      "Abigail wife of Nabal",
+      "wise Abigail"
+    ],
+    "displayAnswer": "Abigail (1 Samuel 25:3, 18, 32–33)",
+    "explanation": "1 Samuel 25:18–35 highlights Abigail's wisdom and theological insight as David blesses God for sending her to keep him from bloodguilt.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_26",
+    "type": "verse_completion",
+    "prompt": "1 Samuel 26:9 (ESV): \"But David said to Abishai, 'Do not destroy him, for who can put out his hand against the Lord's ______ and be guiltless?'\"",
+    "bookId": "1SA",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "anointed",
+      "anointed one",
+      "Lord's anointed"
+    ],
+    "displayAnswer": "anointed (1 Samuel 26:9)",
+    "explanation": "Inside Saul's sleeping camp at the hill of Hachilah in 1 Samuel 26:8–12, David again spares Saul, taking only the spear and jar of water beside his head.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_27",
+    "type": "facts",
+    "prompt": "In 1 Samuel 27:5–6, what Philistine country town did Achish king of Gath grant to David as his residence for a year and four months?",
+    "bookId": "1SA",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "Ziklag",
+      "city of Ziklag",
+      "town of Ziklag"
+    ],
+    "displayAnswer": "Ziklag (1 Samuel 27:6)",
+    "explanation": "1 Samuel 27:6 notes that Achish gave Ziklag to David, explaining why Ziklag belonged to the kings of Judah to the author's day.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_28",
+    "type": "facts",
+    "prompt": "In 1 Samuel 28:7–8, to what town did a terrified, disguised King Saul travel by night before his final battle to consult a medium?",
+    "bookId": "1SA",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "Endor",
+      "En-dor",
+      "town of Endor"
+    ],
+    "displayAnswer": "Endor (1 Samuel 28:7)",
+    "explanation": "1 Samuel 28:6–8 shows Saul's spiritual desperation when the Lord no longer answered him, driving him to seek a medium at Endor in violation of God's law.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_29",
+    "type": "verse_completion",
+    "prompt": "1 Samuel 30:6 (ESV): \"And David was greatly distressed, for the people spoke of stoning him, because all the people were bitter in soul, each for his sons and daughters. But David ______ himself in the Lord his God.\"",
+    "bookId": "1SA",
+    "chapterNum": 30,
+    "acceptedAnswers": [
+      "strengthened",
+      "encouraged",
+      "strengthened himself"
+    ],
+    "displayAnswer": "strengthened (1 Samuel 30:6)",
+    "explanation": "When Amalekite raiders burned Ziklag and carried off the families in 1 Samuel 30:1–6, David turned to the Lord his God for strength and recovered everything.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1sa_30",
+    "type": "facts",
+    "prompt": "In 1 Samuel 31:1 and 31:8, on what mountain were King Saul and his three sons Jonathan, Abinadab, and Malchi-shua slain in battle against the Philistines?",
+    "bookId": "1SA",
+    "chapterNum": 31,
+    "acceptedAnswers": [
+      "Mount Gilboa",
+      "Gilboa",
+      "Mt Gilboa",
+      "Mt. Gilboa"
+    ],
+    "displayAnswer": "Mount Gilboa (1 Samuel 31:1, 8)",
+    "explanation": "1 Samuel 31:1–8 brings Saul's tragic reign to a close on Mount Gilboa as Israel flees before the Philistines and Saul and Jonathan fall.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_1",
+    "type": "verse_completion",
+    "prompt": "2 Samuel 1:27 (ESV): \"How the ______ have fallen, and the weapons of war perished!\"",
+    "bookId": "2SA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "mighty",
+      "the mighty",
+      "mighty men"
+    ],
+    "displayAnswer": "mighty (2 Samuel 1:27)",
+    "explanation": "2 Samuel 1:19–27 preserves David's moving 'Song of the Bow,' honoring Saul and Jonathan rather than gloating over his former rival's fall.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_2",
+    "type": "facts",
+    "prompt": "In 2 Samuel 2:1–4 and 2:11, in what Judean city was David first anointed king over the house of Judah, reigning there seven years and six months?",
+    "bookId": "2SA",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Hebron",
+      "city of Hebron",
+      "at Hebron"
+    ],
+    "displayAnswer": "Hebron (2 Samuel 2:1–4, 11)",
+    "explanation": "After inquiring of the Lord in 2 Samuel 2:1–4, David went up to Hebron, where the men of Judah anointed him king prior to his reign over all Israel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_3",
+    "type": "facts",
+    "prompt": "In 2 Samuel 3:27, which former commander of Saul's army—after making peace with David at Hebron—was treacherously killed in the gateway by Joab to avenge Asahel's blood?",
+    "bookId": "2SA",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Abner",
+      "Abner son of Ner",
+      "Abner the son of Ner"
+    ],
+    "displayAnswer": "Abner (2 Samuel 3:27)",
+    "explanation": "2 Samuel 3:26–39 recounts Joab's unauthorized murder of Abner son of Ner at Hebron and David's public mourning to clear his throne of bloodguilt.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_4",
+    "type": "facts",
+    "prompt": "In 2 Samuel 4:5–12, which surviving son of Saul—briefly king over Israel—was assassinated on his bed at noon by his own captains Rechab and Baanah, whom David then executed?",
+    "bookId": "2SA",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Ish-bosheth",
+      "Ishbosheth",
+      "Ish-bosheth son of Saul"
+    ],
+    "displayAnswer": "Ish-bosheth (2 Samuel 4:5–8, 12)",
+    "explanation": "2 Samuel 4:5–12 demonstrates that David refused to gain the northern throne through wicked bloodshed, executing Rechab and Baanah for murdering Ish-bosheth.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_5",
+    "type": "verse_completion",
+    "prompt": "2 Samuel 5:2 (ESV): \"And the Lord said to you, 'You shall be ______ of my people Israel, and you shall be prince over Israel.'\"",
+    "bookId": "2SA",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "shepherd",
+      "a shepherd",
+      "the shepherd"
+    ],
+    "displayAnswer": "shepherd (2 Samuel 5:2)",
+    "explanation": "When all the tribes of Israel anointed David at Hebron in 2 Samuel 5:1–3, they recalled God's promise that David would shepherd his people Israel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_6",
+    "type": "facts",
+    "prompt": "In 2 Samuel 6:6–7, who reached out his hand to steady the ark of God when the oxen stumbled at the threshing floor of Nacon and was struck dead beside the ark?",
+    "bookId": "2SA",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Uzzah",
+      "Uzza",
+      "Uzzah son of Abinadab"
+    ],
+    "displayAnswer": "Uzzah (2 Samuel 6:6–7)",
+    "explanation": "2 Samuel 6:3–7 highlights God's holiness when transporting the ark on an ox cart—contrary to the Levitical law of Numbers 4:15—cost Uzzah his life.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_7",
+    "type": "verse_completion",
+    "prompt": "2 Samuel 7:16 (ESV): \"And your house and your kingdom shall be made sure forever before me. Your ______ shall be established forever.\"",
+    "bookId": "2SA",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "throne",
+      "your throne",
+      "royal throne"
+    ],
+    "displayAnswer": "throne (2 Samuel 7:16)",
+    "explanation": "2 Samuel 7:12–16 establishes the Davidic Covenant, promising an eternal royal throne ultimately fulfilled in Jesus the Messiah, the Son of David.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_8",
+    "type": "facts",
+    "prompt": "In 2 Samuel 8:16, who served as commander over all the army during King David's united reign over Israel?",
+    "bookId": "2SA",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Joab",
+      "Joab son of Zeruiah",
+      "Joab the son of Zeruiah"
+    ],
+    "displayAnswer": "Joab (2 Samuel 8:16)",
+    "explanation": "2 Samuel 8:15–18 lists David's chief cabinet officials as he administered justice and equity, headed militarily by his nephew Joab son of Zeruiah.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_9",
+    "type": "facts",
+    "prompt": "In 2 Samuel 9:3 and 9:6–7, which son of Jonathan—crippled in both feet—did David welcome to eat always at the king's table and restore all Saul's land to?",
+    "bookId": "2SA",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Mephibosheth",
+      "Mephibosheth son of Jonathan",
+      "Jonathan's son Mephibosheth"
+    ],
+    "displayAnswer": "Mephibosheth (2 Samuel 9:6–7)",
+    "explanation": "2 Samuel 9 beautifully illustrates covenant steadfast love (chesed) as David seeks out Jonathan's lame son Mephibosheth and seats him like one of the king's sons.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_10",
+    "type": "verse_completion",
+    "prompt": "2 Samuel 10:12 (ESV): \"Be of good courage, and let us be courageous for our people, and for the ______ of our God, and may the Lord do what seems good to him.\"",
+    "bookId": "2SA",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "cities",
+      "the cities",
+      "cities of our God"
+    ],
+    "displayAnswer": "cities (2 Samuel 10:12)",
+    "explanation": "Surrounded front and rear by Syrian mercenaries and Ammonites in 2 Samuel 10:9–12, Joab rallies his brother Abishai with resolute action and submission to God's will.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_11",
+    "type": "facts",
+    "prompt": "In 2 Samuel 11:3 and 11:14–17, who was the loyal Hittite husband of Bathsheba whom David ordered placed at the forefront of the hardest fighting at Rabbah so he would be killed?",
+    "bookId": "2SA",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Uriah",
+      "Uriah the Hittite",
+      "soldier Uriah"
+    ],
+    "displayAnswer": "Uriah the Hittite (2 Samuel 11:3, 15)",
+    "explanation": "2 Samuel 11 contrasts Uriah the Hittite's self-denying wartime integrity with David's adultery, cover-up, and calculated murder.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_12",
+    "type": "verse_completion",
+    "prompt": "2 Samuel 12:7 (ESV): \"Nathan said to David, 'You are the ______! Thus says the Lord, the God of Israel, \"I anointed you king over Israel, and I delivered you out of the hand of Saul.\"'\"",
+    "bookId": "2SA",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "man",
+      "the man",
+      "you are the man"
+    ],
+    "displayAnswer": "man (2 Samuel 12:7)",
+    "explanation": "After awakening David's moral outrage through the parable of the poor man's ewe lamb in 2 Samuel 12:1–6, Nathan pierces the king's conscience with 'You are the man!'",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_13",
+    "type": "facts",
+    "prompt": "In 2 Samuel 13:28–29 and 13:38, which son of David commanded his servants at a sheepshearing feast to kill his half-brother Amnon for violating Tamar, and then fled to Geshur?",
+    "bookId": "2SA",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "Absalom",
+      "Prince Absalom",
+      "Absalom son of David"
+    ],
+    "displayAnswer": "Absalom (2 Samuel 13:28–29)",
+    "explanation": "2 Samuel 13 shows Nathan's prophecy ('the sword shall never depart from your house') unfolding as Absalom avenges his sister Tamar and flees into three-year exile.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_14",
+    "type": "facts",
+    "prompt": "In 2 Samuel 14:1–3, from what Judean town did Joab bring a wise woman who posed as a mourning widow before King David to persuade him to bring Absalom back?",
+    "bookId": "2SA",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "Tekoa",
+      "town of Tekoa",
+      "city of Tekoa"
+    ],
+    "displayAnswer": "Tekoa (2 Samuel 14:2)",
+    "explanation": "2 Samuel 14:1–21 recounts how Joab enlisted a wise woman of Tekoa whose parable convinced David to recall Absalom to Jerusalem.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_15",
+    "type": "facts",
+    "prompt": "In 2 Samuel 15:12 and 15:31, which renowned Gilonite counselor of David defected to join Absalom's conspiracy, prompting David to pray that the Lord would turn his counsel into foolishness?",
+    "bookId": "2SA",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "Ahithophel",
+      "Ahithophel the Gilonite",
+      "counselor Ahithophel"
+    ],
+    "displayAnswer": "Ahithophel (2 Samuel 15:12, 31)",
+    "explanation": "2 Samuel 15:12, 31; 16:23 notes that Ahithophel's counsel was esteemed like consulting the word of God before he betrayed David for Absalom.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_16",
+    "type": "facts",
+    "prompt": "In 2 Samuel 16:5–8, which man of Saul's clan from Bahurim walked along the hillside cursing David and throwing stones at him as the king fled Jerusalem?",
+    "bookId": "2SA",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Shimei",
+      "Shimei son of Gera",
+      "Shimei the son of Gera"
+    ],
+    "displayAnswer": "Shimei (2 Samuel 16:5)",
+    "explanation": "In 2 Samuel 16:5–13, David restrains Abishai from beheading Shimei son of Gera, humbly entrusting himself to the Lord's mercy amid humiliation.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_17",
+    "type": "facts",
+    "prompt": "In 2 Samuel 17:5–14, which Archite friend of David remained in Jerusalem to defeat the counsel of Ahithophel and buy precious time for David to cross the Jordan?",
+    "bookId": "2SA",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "Hushai",
+      "Hushai the Archite",
+      "David's friend Hushai"
+    ],
+    "displayAnswer": "Hushai the Archite (2 Samuel 17:5, 14)",
+    "explanation": "2 Samuel 17:14 explains that the Lord answered David's prayer through Hushai the Archite, ordaining to defeat the good counsel of Ahithophel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_18",
+    "type": "facts",
+    "prompt": "In 2 Samuel 18:9–14, in the thick branches of what kind of tree in the forest of Ephraim was Absalom's head caught fast as his mule rode beneath it?",
+    "bookId": "2SA",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "an oak",
+      "oak",
+      "a great oak",
+      "the oak",
+      "an oak tree",
+      "oak tree",
+      "terebinth"
+    ],
+    "displayAnswer": "an oak (2 Samuel 18:9)",
+    "explanation": "2 Samuel 18:9–15 describes Absalom hanging suspended between heaven and earth in a great oak before Joab thrust three javelins into his heart.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_19",
+    "type": "facts",
+    "prompt": "In 2 Samuel 19:31–37, which wealthy eighty-year-old Gileadite sustained David at Mahanaim and escorted him across the Jordan, declining life at Jerusalem's royal court because of his advanced age?",
+    "bookId": "2SA",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "Barzillai",
+      "Barzillai the Gileadite",
+      "Barzillai of Gilead"
+    ],
+    "displayAnswer": "Barzillai the Gileadite (2 Samuel 19:31–32)",
+    "explanation": "2 Samuel 19:31–39 honors aged Barzillai's loyal generosity to David during exile, sending his servant Chimham to Jerusalem in his stead.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_20",
+    "type": "facts",
+    "prompt": "In 2 Samuel 20:1–2 and 20:21–22, which worthless Benjaminite son of Bichri led a northern revolt against David until a wise woman of Abel of Beth-maacah had his head thrown over the wall?",
+    "bookId": "2SA",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "Sheba",
+      "Sheba son of Bichri",
+      "Sheba the son of Bichri"
+    ],
+    "displayAnswer": "Sheba son of Bichri (2 Samuel 20:1–2, 22)",
+    "explanation": "2 Samuel 20:1–22 shows tribal fractures already surfacing in Sheba's cry ('We have no portion in David!') before a wise woman saved her city from Joab's siege.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_21",
+    "type": "facts",
+    "prompt": "In 2 Samuel 21:8–11, which concubine of Saul—the daughter of Aiah—spread sackcloth on a rock and guarded her slain sons' bodies from birds and wild beasts until David gave Saul's bones an honorable burial?",
+    "bookId": "2SA",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "Rizpah",
+      "Rizpah daughter of Aiah",
+      "Rizpah the daughter of Aiah"
+    ],
+    "displayAnswer": "Rizpah (2 Samuel 21:8, 10)",
+    "explanation": "Moved by Rizpah's devoted vigil in 2 Samuel 21:10–14, David gathered the bones of Saul, Jonathan, and the seven sons for proper burial in Kish's tomb.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_22",
+    "type": "verse_completion",
+    "prompt": "2 Samuel 22:2 (ESV): \"The Lord is my ______ and my fortress and my deliverer,\"",
+    "bookId": "2SA",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "rock",
+      "my rock",
+      "the rock"
+    ],
+    "displayAnswer": "rock (2 Samuel 22:2)",
+    "explanation": "David's sweeping hymn of thanksgiving in 2 Samuel 22 (paralleling Psalm 18) praises the Lord as his immovable Rock who delivered him from all his enemies and from Saul.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_23",
+    "type": "verse_completion",
+    "prompt": "2 Samuel 23:2 (ESV): \"The ______ of the Lord speaks by me; his word is on my tongue.\"",
+    "bookId": "2SA",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "Spirit",
+      "the Spirit",
+      "Spirit of the Lord"
+    ],
+    "displayAnswer": "Spirit (2 Samuel 23:2)",
+    "explanation": "In 'the last words of David' in 2 Samuel 23:1–2, Israel's sweet psalmist explicitly affirms divine inspiration by the Spirit of the Lord.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2sa_24",
+    "type": "verse_completion",
+    "prompt": "2 Samuel 24:24 (ESV): \"But the king said to Araunah, 'No, but I will buy it from you for a price. I will not offer burnt offerings to the Lord my God that ______ me nothing.'\"",
+    "bookId": "2SA",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "cost",
+      "costs",
+      "cost me"
+    ],
+    "displayAnswer": "cost (2 Samuel 24:24)",
+    "explanation": "2 Samuel 24:24–25 concludes the book as David buys Araunah's threshing floor—future site of Solomon's temple—to offer costly sacrifice that halts the plague.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_1",
+    "type": "facts",
+    "prompt": "In 1 Kings 1:5 and 1:50–51, which older son of David (born of Haggith) exalted himself saying 'I will be king' in David's old age, and later grasped the horns of the altar in fear of Solomon?",
+    "bookId": "1KI",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Adonijah",
+      "Adonijah son of Haggith",
+      "Adonijah the son of Haggith",
+      "Prince Adonijah"
+    ],
+    "displayAnswer": "Adonijah (1 Kings 1:5, 50)",
+    "explanation": "1 Kings 1:5–53 narrates Adonijah's premature bid for David's throne and Nathan and Bathsheba's swift action securing Solomon's anointing at Gihon.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_2",
+    "type": "verse_completion",
+    "prompt": "1 Kings 2:2 (ESV): \"I am about to go the way of all the earth. Be strong, and show yourself a ______,\"",
+    "bookId": "1KI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "man",
+      "a man",
+      "strong man"
+    ],
+    "displayAnswer": "man (1 Kings 2:2)",
+    "explanation": "In his deathbed charge to Solomon in 1 Kings 2:2–3, David urges manly courage defined by walking in the ways and statutes of the Lord.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_3",
+    "type": "verse_completion",
+    "prompt": "1 Kings 3:9 (ESV): \"Give your servant therefore an ______ mind to govern your people, that I may discern between good and evil, for who is able to govern this your great people?\"",
+    "bookId": "1KI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "understanding",
+      "an understanding",
+      "understanding mind",
+      "discerning"
+    ],
+    "displayAnswer": "understanding (1 Kings 3:9)",
+    "explanation": "At Gibeon in 1 Kings 3:9–12, Solomon asks not for long life, riches, or his enemies' death, but for a listening, understanding mind to administer justice.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_4",
+    "type": "facts",
+    "prompt": "In 1 Kings 3:24–27, what weapon did King Solomon command to be brought to divide the living infant in two, revealing the true mother's compassion?",
+    "bookId": "1KI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "a sword",
+      "sword",
+      "the sword"
+    ],
+    "displayAnswer": "a sword (1 Kings 3:24)",
+    "explanation": "1 Kings 3:24–28 displays God's wisdom in Solomon as calling for a sword immediately exposed the real mother's sacrificial love for her child.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_5",
+    "type": "facts",
+    "prompt": "In 1 Kings 4:32, how many proverbs did King Solomon speak (alongside his 1,005 songs)?",
+    "bookId": "1KI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "3,000",
+      "3000",
+      "three thousand",
+      "3,000 proverbs",
+      "three thousand proverbs"
+    ],
+    "displayAnswer": "3,000 proverbs (1 Kings 4:32)",
+    "explanation": "1 Kings 4:29–34 celebrates the breadth of Solomon's God-given wisdom, including 3,000 proverbs and 1,005 songs.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_6",
+    "type": "facts",
+    "prompt": "In 1 Kings 5:1 and 5:8–10, which king of Tyre—a longtime friend of David—supplied Solomon with cedar and cypress timber from Lebanon for building the temple?",
+    "bookId": "1KI",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Hiram",
+      "King Hiram",
+      "Hiram king of Tyre",
+      "Hiram of Tyre"
+    ],
+    "displayAnswer": "Hiram king of Tyre (1 Kings 5:1, 8–10)",
+    "explanation": "1 Kings 5:1–12 records Solomon's treaty with Hiram of Tyre to float cedar and cypress logs down the Mediterranean coast in exchange for wheat and oil.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_7",
+    "type": "facts",
+    "prompt": "In 1 Kings 6:38, how many years did it take Solomon to build and finish the house of the Lord in Jerusalem?",
+    "bookId": "1KI",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "7",
+      "seven",
+      "7 years",
+      "seven years"
+    ],
+    "displayAnswer": "7 years (1 Kings 6:38)",
+    "explanation": "1 Kings 6:1, 37–38 notes that Solomon laid the temple's foundation in his fourth year and completed it in all its parts in seven years.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_8",
+    "type": "facts",
+    "prompt": "In 1 Kings 7:21, what were the names of the two tall bronze pillars cast by Hiram of Tyre and set up at the vestibule of Solomon's temple?",
+    "bookId": "1KI",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Jachin and Boaz",
+      "Boaz and Jachin",
+      "Jachin, Boaz",
+      "Boaz, Jachin"
+    ],
+    "displayAnswer": "Jachin and Boaz (1 Kings 7:21)",
+    "explanation": "1 Kings 7:15–21 describes the twin bronze pillars flanking the temple porch: Jachin ('He establishes') on the south and Boaz ('In him is strength') on the north.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_9",
+    "type": "verse_completion",
+    "prompt": "1 Kings 8:27 (ESV): \"But will God indeed dwell on the earth? Behold, heaven and the ______ heaven cannot contain you; how much less this house that I have built!\"",
+    "bookId": "1KI",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "highest",
+      "highest heaven",
+      "the highest"
+    ],
+    "displayAnswer": "highest (1 Kings 8:27)",
+    "explanation": "At the temple dedication in 1 Kings 8:27, Solomon marvels that the transcendent Creator whom the highest heaven cannot contain graciously condescends to hear prayer toward his house.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_10",
+    "type": "verse_completion",
+    "prompt": "1 Kings 9:3 (ESV): \"I have consecrated this house that you have built, by putting my ______ there forever. My eyes and my heart will be there for all time.\"",
+    "bookId": "1KI",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "name",
+      "my name",
+      "own name"
+    ],
+    "displayAnswer": "name (1 Kings 9:3)",
+    "explanation": "In 1 Kings 9:3–9, the Lord appears to Solomon a second time, promising to put his name on the temple while warning against covenant apostasy.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_11",
+    "type": "facts",
+    "prompt": "In 1 Kings 10:1–10, which royal visitor came from afar with spices, gold, and precious stones to test Solomon with hard questions, exclaiming that 'the half was not told me'?",
+    "bookId": "1KI",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "the queen of Sheba",
+      "queen of Sheba",
+      "Sheba's queen"
+    ],
+    "displayAnswer": "the queen of Sheba (1 Kings 10:1, 7)",
+    "explanation": "1 Kings 10:1–10 recounts the queen of Sheba's visit to Jerusalem—later cited by Jesus in Matthew 12:42 because one greater than Solomon had come.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_12",
+    "type": "facts",
+    "prompt": "In 1 Kings 11:29–31, which prophet of Shiloh tore a new garment into twelve pieces and handed ten pieces to Jeroboam to signify the tearing away of ten tribes?",
+    "bookId": "1KI",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Ahijah",
+      "Ahijah the Shilonite",
+      "Prophet Ahijah"
+    ],
+    "displayAnswer": "Ahijah the Shilonite (1 Kings 11:29–31)",
+    "explanation": "Because Solomon's foreign wives turned his heart after other gods in 1 Kings 11, the prophet Ahijah announced the division of the kingdom while preserving one tribe for David's sake.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_13",
+    "type": "facts",
+    "prompt": "In 1 Kings 12:28–29, in which two cities—one in the south and one in the far north—did Jeroboam set up two golden calves to keep northern Israelites from worshiping in Jerusalem?",
+    "bookId": "1KI",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "Bethel and Dan",
+      "Dan and Bethel",
+      "Bethel, Dan",
+      "Dan, Bethel"
+    ],
+    "displayAnswer": "Bethel and Dan (1 Kings 12:29)",
+    "explanation": "1 Kings 12:26–33 exposes Jeroboam's political idolatry in establishing rival shrines with golden calves at Bethel and Dan, the besetting sin of every northern king.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_14",
+    "type": "facts",
+    "prompt": "In 1 Kings 13:2, which future king of David's house did the man of God from Judah prophesy by name centuries in advance while crying out against Jeroboam's altar at Bethel?",
+    "bookId": "1KI",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "Josiah",
+      "King Josiah",
+      "Josiah by name"
+    ],
+    "displayAnswer": "Josiah (1 Kings 13:2)",
+    "explanation": "1 Kings 13:2 foretells by name that Josiah would burn the bones of false priests on Bethel's altar—fulfilled nearly three centuries later in 2 Kings 23:15–16.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_15",
+    "type": "facts",
+    "prompt": "In 1 Kings 14:25–26, which king of Egypt marched against Jerusalem in King Rehoboam's fifth year and carried off the temple treasures and Solomon's golden shields?",
+    "bookId": "1KI",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "Shishak",
+      "King Shishak",
+      "Shishak king of Egypt",
+      "Pharaoh Shishak"
+    ],
+    "displayAnswer": "Shishak king of Egypt (1 Kings 14:25–26)",
+    "explanation": "1 Kings 14:25–28 records Pharaoh Shishak's plunder of Jerusalem, forcing Rehoboam to replace Solomon's glorious shields of gold with shields of bronze.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_16",
+    "type": "facts",
+    "prompt": "In 1 Kings 15:9–13, which reforming king of Judah removed his grandmother Maacah from being queen mother because she had made an abominable image for Asherah?",
+    "bookId": "1KI",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "Asa",
+      "King Asa",
+      "Asa king of Judah"
+    ],
+    "displayAnswer": "King Asa (1 Kings 15:11–13)",
+    "explanation": "1 Kings 15:11–14 commends King Asa's wholehearted devotion to the Lord, demonstrated even in deposing his own grandmother Maacah over idolatry.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_17",
+    "type": "facts",
+    "prompt": "In 1 Kings 16:30–31, which Sidonian princess—daughter of King Ethbaal—did King Ahab marry, leading him to build a temple and altar for Baal in Samaria?",
+    "bookId": "1KI",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Jezebel",
+      "Queen Jezebel",
+      "Jezebel daughter of Ethbaal"
+    ],
+    "displayAnswer": "Jezebel (1 Kings 16:31)",
+    "explanation": "1 Kings 16:30–33 marks a new depth of northern apostasy as Ahab marries Jezebel of Sidon and promotes state-sponsored Baal worship.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_18",
+    "type": "verse_completion",
+    "prompt": "1 Kings 17:14 (ESV): \"For thus says the Lord, the God of Israel, 'The jar of flour shall not be spent, and the jug of ______ shall not be empty, until the day that the Lord sends rain upon the earth.'\"",
+    "bookId": "1KI",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "oil",
+      "olive oil",
+      "the oil"
+    ],
+    "displayAnswer": "oil (1 Kings 17:14)",
+    "explanation": "During the drought announced by Elijah in 1 Kings 17:8–16, the Lord miraculously sustained a Gentile widow and her son in Sidonian Zarephath—Baal's own heartland.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_19",
+    "type": "verse_completion",
+    "prompt": "1 Kings 18:24 (ESV): \"And you call upon the name of your god, and I will call upon the name of the Lord, and the God who answers by ______, he is God.\"",
+    "bookId": "1KI",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "fire",
+      "by fire",
+      "fire from heaven"
+    ],
+    "displayAnswer": "fire (1 Kings 18:24)",
+    "explanation": "On Mount Carmel in 1 Kings 18:21–39, Elijah challenges Baal's 450 prophets, and the Lord answers by fire consuming the water-drenched sacrifice, wood, stones, and dust.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_20",
+    "type": "facts",
+    "prompt": "In 1 Kings 18:43–44, how many times did Elijah send his servant on Mount Carmel to look toward the sea before a little cloud like a man's hand appeared?",
+    "bookId": "1KI",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "7",
+      "seven",
+      "7 times",
+      "seven times"
+    ],
+    "displayAnswer": "7 times (1 Kings 18:43–44)",
+    "explanation": "1 Kings 18:41–45 models persevering prayer as Elijah bows to the earth and sends his servant seven times until the drought-ending storm clouds rise.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_21",
+    "type": "verse_completion",
+    "prompt": "1 Kings 19:12 (ESV): \"And after the earthquake a fire, but the Lord was not in the fire. And after the fire the sound of a low ______.\"",
+    "bookId": "1KI",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "whisper",
+      "low whisper",
+      "gentle whisper",
+      "still small voice"
+    ],
+    "displayAnswer": "whisper (1 Kings 19:12)",
+    "explanation": "At Mount Horeb in 1 Kings 19:11–18, God meets discouraged Elijah not in wind, earthquake, or fire, but in the sound of a low whisper, assuring him that 7,000 in Israel had not bowed to Baal.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_22",
+    "type": "verse_completion",
+    "prompt": "1 Kings 20:11 (ESV): \"And the king of Israel answered, 'Tell him, Let not him who straps on his ______ boast himself as he who takes it off.'\"",
+    "bookId": "1KI",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "armor",
+      "armour",
+      "his armor"
+    ],
+    "displayAnswer": "armor (1 Kings 20:11)",
+    "explanation": "1 Kings 20:10–11 preserves the classic proverb rebuking Syrian king Ben-hadad's arrogant boasting before the battle had even begun.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_23",
+    "type": "facts",
+    "prompt": "In 1 Kings 21:1–16, which Jezreelite refused to give up his ancestral inheritance—his vineyard—to King Ahab and was framed and stoned to death through Jezebel's plot?",
+    "bookId": "1KI",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "Naboth",
+      "Naboth the Jezreelite",
+      "Naboth of Jezreel"
+    ],
+    "displayAnswer": "Naboth the Jezreelite (1 Kings 21:1–3, 13)",
+    "explanation": "1 Kings 21:1–24 shows Naboth faithfully upholding Levitical land law while Jezebel subverts Israelite justice, bringing Elijah's prophecy of doom upon Ahab's house.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ki_24",
+    "type": "facts",
+    "prompt": "In 1 Kings 22:8–28, which courageous prophet—the son of Imlah—stood alone against four hundred court prophets and warned Ahab that Israel would be scattered like sheep without a shepherd?",
+    "bookId": "1KI",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "Micaiah",
+      "Micaiah son of Imlah",
+      "Micaiah the son of Imlah",
+      "Prophet Micaiah"
+    ],
+    "displayAnswer": "Micaiah son of Imlah (1 Kings 22:8, 17)",
+    "explanation": "1 Kings 22:8–38 vindicates Micaiah son of Imlah when a 'random' arrow pierces disguised King Ahab at Ramoth-gilead just as the Lord had spoken.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_1",
+    "type": "facts",
+    "prompt": "In 2 Kings 1:2, which injured son of Ahab fell through the lattice in his upper chamber in Samaria and sent messengers to inquire of Baal-zebub, the god of Ekron?",
+    "bookId": "2KI",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Ahaziah",
+      "King Ahaziah",
+      "Ahaziah of Israel"
+    ],
+    "displayAnswer": "Ahaziah (2 Kings 1:2)",
+    "explanation": "2 Kings 1:2–17 opens with Elijah confronting Ahaziah's unbelief: 'Is it because there is no God in Israel that you are going to inquire of Baal-zebub?'",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_2",
+    "type": "facts",
+    "prompt": "In 2 Kings 2:11, what appeared with horses of fire to separate Elijah and Elisha as Elijah went up by a whirlwind into heaven?",
+    "bookId": "2KI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "chariots of fire",
+      "a chariot of fire",
+      "chariot of fire",
+      "fiery chariots",
+      "fiery chariot"
+    ],
+    "displayAnswer": "chariots of fire (2 Kings 2:11)",
+    "explanation": "2 Kings 2:11–14 records chariots of fire and horses of fire appearing as Elijah ascended in a whirlwind and Elisha took up Elijah's fallen cloak.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_3",
+    "type": "facts",
+    "prompt": "In 2 Kings 3:4 and 3:26–27, which Moabite sheep-breeder ruler rebelled against Israel and, when besieged at Kir-hareseth, offered his eldest son as a burnt offering on the wall?",
+    "bookId": "2KI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Mesha",
+      "Mesha of Moab",
+      "Mesha the Moabite"
+    ],
+    "displayAnswer": "Mesha (2 Kings 3:4, 27)",
+    "explanation": "2 Kings 3:4–27 recounts the allied campaign against Mesha of Moab, when God filled the dry valley with water before Mesha's horrifying pagan sacrifice ended the siege.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_4",
+    "type": "facts",
+    "prompt": "In 2 Kings 4:1–7, what single household supply did the prophet's impoverished widow have left, which Elisha multiplied into borrowed vessels to save her sons from slavery?",
+    "bookId": "2KI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "a jar of oil",
+      "oil",
+      "jar of oil",
+      "olive oil",
+      "a pot of oil",
+      "flask of oil"
+    ],
+    "displayAnswer": "a jar of oil (2 Kings 4:2)",
+    "explanation": "2 Kings 4:1–7 displays God's compassion for the vulnerable as the widow's solitary jar of oil keeps flowing until every borrowed vessel is full.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_5",
+    "type": "verse_completion",
+    "prompt": "2 Kings 5:10 (ESV): \"And Elisha sent a messenger to him, saying, 'Go and wash in the ______ seven times, and your flesh shall be restored, and you shall be clean.'\"",
+    "bookId": "2KI",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Jordan",
+      "the Jordan",
+      "Jordan River",
+      "River Jordan"
+    ],
+    "displayAnswer": "Jordan (2 Kings 5:10)",
+    "explanation": "In 2 Kings 5:10–15, proud Syrian commander Naaman humbles himself to dip seven times in the Jordan, receiving both cleansed skin and faith in Israel's God alone.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_6",
+    "type": "verse_completion",
+    "prompt": "2 Kings 6:16 (ESV): \"He said, 'Do not be afraid, for those who are with us are ______ than those who are with them.'\"",
+    "bookId": "2KI",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "more",
+      "greater",
+      "many more"
+    ],
+    "displayAnswer": "more (2 Kings 6:16)",
+    "explanation": "Surrounded by Syrian horses and chariots at Dothan in 2 Kings 6:15–17, Elisha prays for his servant's eyes to be opened to see the mountain full of horses and chariots of fire.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_7",
+    "type": "facts",
+    "prompt": "In 2 Kings 7:3–9, how many leprous men sitting at the gate of besieged Samaria discovered that the Syrian camp was completely deserted and reported the good news to the city?",
+    "bookId": "2KI",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "4",
+      "four",
+      "4 men",
+      "four men",
+      "4 lepers",
+      "four lepers",
+      "four leprous men"
+    ],
+    "displayAnswer": "4 leprous men (2 Kings 7:3, 8–9)",
+    "explanation": "2 Kings 7:3–16 fulfills Elisha's word overnight as four outcast lepers discover the Syrians had fled at the sound of a mighty army and refuse to hoard the good news.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_8",
+    "type": "facts",
+    "prompt": "In 2 Kings 8:12–15, which official of Damascus smothered sick Ben-hadad with a wet bedcover to seize Syria's throne, fulfilling Elisha's tearful prophecy?",
+    "bookId": "2KI",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Hazael",
+      "Hazael of Syria",
+      "Hazael of Damascus"
+    ],
+    "displayAnswer": "Hazael (2 Kings 8:12–15)",
+    "explanation": "2 Kings 8:7–15 fulfills God's commission to Elijah at Horeb as Hazael usurps the throne of Damascus and becomes a severe rod of judgment on Israel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_9",
+    "type": "facts",
+    "prompt": "In 2 Kings 9:2, 9:20, and 9:30–33, which furious-driving Israelite commander was anointed at Ramoth-gilead to wipe out Ahab's house, slaying Joram and ordering Jezebel thrown from her window?",
+    "bookId": "2KI",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Jehu",
+      "Jehu son of Jehoshaphat",
+      "Jehu son of Nimshi",
+      "Commander Jehu"
+    ],
+    "displayAnswer": "Jehu (2 Kings 9:2, 20, 30–33)",
+    "explanation": "2 Kings 9 recounts Jehu's swift execution of God's judgment against the house of Ahab and Jezebel on the plot of ground at Jezreel.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_10",
+    "type": "facts",
+    "prompt": "In 2 Kings 10:18–28, worship of which false god did Jehu eradicate from Israel after luring all its prophets and priests into its Samaria temple?",
+    "bookId": "2KI",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "Baal",
+      "god Baal",
+      "house of Baal"
+    ],
+    "displayAnswer": "Baal (2 Kings 10:18–28)",
+    "explanation": "2 Kings 10:28–29 notes that while Jehu wiped out Baal from Israel, he tragically did not turn away from the golden calves at Bethel and Dan.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_11",
+    "type": "facts",
+    "prompt": "In 2 Kings 11:1–3, which ruthless mother of Ahaziah seized Judah's throne and tried to destroy the entire Davidic royal family, failing only because Jehosheba hid infant Joash?",
+    "bookId": "2KI",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Athaliah",
+      "Queen Athaliah",
+      "Athaliah mother of Ahaziah"
+    ],
+    "displayAnswer": "Athaliah (2 Kings 11:1–3)",
+    "explanation": "2 Kings 11:1–3 shows God's faithfulness to his Davidic covenant when Jehosheba hid one-year-old Joash in the temple for six years during Athaliah's usurpation.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_12",
+    "type": "facts",
+    "prompt": "In 2 Kings 12:2 and 12:9, which high priest instructed young Jehoash (Joash) and bored a hole in the lid of a chest beside the altar to collect silver for temple repairs?",
+    "bookId": "2KI",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "Jehoiada",
+      "Jehoiada the priest",
+      "High Priest Jehoiada"
+    ],
+    "displayAnswer": "Jehoiada the priest (2 Kings 12:2, 9)",
+    "explanation": "2 Kings 12:2, 9–15 credits Jehoiada the priest with mentoring Jehoash in righteousness and instituting transparent temple-repair collections.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_13",
+    "type": "verse_completion",
+    "prompt": "2 Kings 13:23 (ESV): \"But the Lord was gracious to them and had compassion on them, and he turned toward them, because of his ______ with Abraham, Isaac, and Jacob, and would not destroy them, nor has he cast them from his presence until now.\"",
+    "bookId": "2KI",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "covenant",
+      "his covenant",
+      "promise"
+    ],
+    "displayAnswer": "covenant (2 Kings 13:23)",
+    "explanation": "Amid northern Israel's persistent sin under Syrian oppression, 2 Kings 13:23 grounds God's patient mercy in his unbreakable patriarchal covenant.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_14",
+    "type": "verse_completion",
+    "prompt": "2 Kings 14:6 (ESV): \"Fathers shall not be put to death because of their children, nor shall children be put to death because of their fathers. Each one shall be put to death for his own ______.\"",
+    "bookId": "2KI",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "sin",
+      "his own sin",
+      "iniquity"
+    ],
+    "displayAnswer": "sin (2 Kings 14:6)",
+    "explanation": "2 Kings 14:5–6 commends Amaziah of Judah for obeying Moses' law in Deuteronomy 24:16 by sparing the children of his father's assassins.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_15",
+    "type": "facts",
+    "prompt": "In 2 Kings 16:10–11, from which foreign capital—where he went to meet Assyrian ruler Tiglath-pileser—did Judah's Ahaz send Uriah the priest a pagan altar's model to copy in Jerusalem?",
+    "bookId": "2KI",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Damascus",
+      "city of Damascus",
+      "from Damascus"
+    ],
+    "displayAnswer": "Damascus (2 Kings 16:10)",
+    "explanation": "2 Kings 16:10–16 exposes Ahaz's spiritual compromise in displacing the Lord's bronze altar in Jerusalem with a replica of an altar he admired in Damascus.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_16",
+    "type": "verse_completion",
+    "prompt": "2 Kings 17:13 (ESV): \"Turn from your evil ways and keep my commandments and my statutes, in accordance with all the ______ that I commanded your fathers, and that I sent to you by my servants the prophets.\"",
+    "bookId": "2KI",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "Law",
+      "the Law",
+      "torah"
+    ],
+    "displayAnswer": "Law (2 Kings 17:13)",
+    "explanation": "2 Kings 17:7–23 provides the theological postmortem on Samaria's fall to Assyria in 722 BC: Israel fell because they despised God's covenant Law and warnings.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_17",
+    "type": "facts",
+    "prompt": "In 2 Kings 18:4, what bronze object originally made by Moses in the wilderness did Hezekiah break in pieces (calling it 'Nehushtan') because Israelites were burning incense to it?",
+    "bookId": "2KI",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "the bronze serpent",
+      "bronze serpent",
+      "the bronze snake",
+      "bronze snake",
+      "brass serpent",
+      "serpent of bronze"
+    ],
+    "displayAnswer": "the bronze serpent (2 Kings 18:4)",
+    "explanation": "2 Kings 18:4 highlights Hezekiah's thoroughgoing reform, destroying even Moses' historic bronze serpent (Numbers 21:9) once it became an object of idolatrous veneration.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_18",
+    "type": "verse_completion",
+    "prompt": "2 Kings 19:19 (ESV): \"So now, O Lord our God, save us, please, from his hand, that all the kingdoms of the earth may know that you, O Lord, are ______ alone.\"",
+    "bookId": "2KI",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "God",
+      "God alone",
+      "the Lord"
+    ],
+    "displayAnswer": "God (2 Kings 19:19)",
+    "explanation": "Spreading Sennacherib's blasphemous letter before the Lord in 2 Kings 19:14–19, Hezekiah prays for deliverance so all nations will recognize the Lord as God alone.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_19",
+    "type": "verse_completion",
+    "prompt": "2 Kings 20:5 (ESV): \"Thus says the Lord, the God of David your father: I have heard your prayer; I have seen your ______. Behold, I will heal you.\"",
+    "bookId": "2KI",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "tears",
+      "your tears",
+      "weeping"
+    ],
+    "displayAnswer": "tears (2 Kings 20:5)",
+    "explanation": "In 2 Kings 20:1–6, the Lord sends Isaiah back to mortally ill Hezekiah to announce healing and fifteen added years of life.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_20",
+    "type": "facts",
+    "prompt": "In 2 Kings 21:1 and 21:16, which son of Hezekiah began reigning at twelve, ruled fifty-five years in Jerusalem, rebuilt the high places, and filled Jerusalem with innocent blood?",
+    "bookId": "2KI",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "Manasseh",
+      "Manasseh son of Hezekiah",
+      "Manasseh of Judah"
+    ],
+    "displayAnswer": "Manasseh (2 Kings 21:1, 16)",
+    "explanation": "2 Kings 21:1–16 portrays Manasseh's fifty-five-year reign as the decisive tipping point of idolatry and bloodshed that sealed Judah's Babylonian exile.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_21",
+    "type": "facts",
+    "prompt": "In 2 Kings 22:14, which prophetess—the wife of Shallum—did Hilkiah the priest and Josiah's officials consult after finding the Book of the Law in the temple?",
+    "bookId": "2KI",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "Huldah",
+      "Huldah the prophetess",
+      "Prophetess Huldah"
+    ],
+    "displayAnswer": "Huldah (2 Kings 22:14)",
+    "explanation": "2 Kings 22:14–20 records the prophetess Huldah confirming the authenticity of the Law's curses while promising Josiah peace in his lifetime because his heart was penitent.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_22",
+    "type": "verse_completion",
+    "prompt": "2 Kings 23:25 (ESV): \"Before him there was no king like him, who turned to the Lord with all his ______ and with all his soul and with all his might, according to all the Law of Moses, nor did any like him arise after him.\"",
+    "bookId": "2KI",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "heart",
+      "his heart",
+      "all his heart"
+    ],
+    "displayAnswer": "heart (2 Kings 23:25)",
+    "explanation": "2 Kings 23:25 praises Josiah in the exact threefold language of the Shema (Deuteronomy 6:5) after his sweeping purge of idolatry and national Passover.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_23",
+    "type": "facts",
+    "prompt": "In 2 Kings 24:10–17, which Babylonian monarch besieged Jerusalem, deported Jehoiachin and the temple vessels to Babylon, and placed Zedekiah on Judah's throne?",
+    "bookId": "2KI",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "Nebuchadnezzar",
+      "Nebuchadnezzar of Babylon",
+      "Nebuchadrezzar"
+    ],
+    "displayAnswer": "Nebuchadnezzar (2 Kings 24:10–17)",
+    "explanation": "2 Kings 24:10–17 chronicles Nebuchadnezzar's 597 BC deportation of Jerusalem's royal house, officials, and craftsmen prior to the city's final destruction in 586 BC.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ki_24",
+    "type": "facts",
+    "prompt": "In 2 Kings 25:27–30, which exiled Judean ruler was released from prison in the thirty-seventh year of his captivity by Evil-merodach of Babylon and given a daily seat at the royal table?",
+    "bookId": "2KI",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "Jehoiachin",
+      "Jeconiah",
+      "Coniah",
+      "Jehoiachin of Judah"
+    ],
+    "displayAnswer": "Jehoiachin (2 Kings 25:27–30)",
+    "explanation": "2 Kings 25:27–30 ends the book with a quiet ray of Messianic hope: the line of David in exiled Jehoiachin remains alive and favored even in Babylon.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_1",
+    "type": "facts",
+    "prompt": "In 1 Chronicles 1:1, with which first man does the Chronicler's sweeping genealogy of world and covenant history begin?",
+    "bookId": "1CH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Adam",
+      "first man Adam",
+      "man Adam"
+    ],
+    "displayAnswer": "Adam (1 Chronicles 1:1)",
+    "explanation": "1 Chronicles 1:1 ('Adam, Seth, Enosh...') roots post-exilic Israel's identity all the way back in God's creation of humanity.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_2",
+    "type": "facts",
+    "prompt": "In 1 Chronicles 4:9–10, which honorable man of Judah called upon the God of Israel, praying, 'Oh that you would bless me and enlarge my border, and that your hand might be with me'?",
+    "bookId": "1CH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Jabez",
+      "man named Jabez",
+      "prayer of Jabez"
+    ],
+    "displayAnswer": "Jabez (1 Chronicles 4:9–10)",
+    "explanation": "Nestled inside Judah's genealogies, 1 Chronicles 4:9–10 highlights how Jabez ('Pain') overcame his sorrowful name through bold prayer that God granted.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_3",
+    "type": "facts",
+    "prompt": "In 1 Chronicles 5:1–2, because Reuben defiled his father's couch, to the sons of which brother was Reuben's firstborn birthright given?",
+    "bookId": "1CH",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Joseph",
+      "Joseph son of Israel",
+      "sons of Joseph"
+    ],
+    "displayAnswer": "Joseph (1 Chronicles 5:1–2)",
+    "explanation": "1 Chronicles 5:1–2 explains that while Judah became prominent and produced the royal prince, the double-portion birthright belonged to Joseph.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_4",
+    "type": "facts",
+    "prompt": "In 1 Chronicles 9:1, to what foreign land does the Chronicler note that Judah was taken into exile because of their breach of faith?",
+    "bookId": "1CH",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Babylon",
+      "Babylonia",
+      "land of Babylon"
+    ],
+    "displayAnswer": "Babylon (1 Chronicles 9:1)",
+    "explanation": "1 Chronicles 9:1 bridges the pre-exilic genealogies and the post-exilic community resettled in Jerusalem after the Babylonian captivity.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_5",
+    "type": "facts",
+    "prompt": "In 1 Chronicles 10:11–12, valiant men of which trans-Jordanian town retrieved the bodies of Saul and his sons from the Philistines and buried their bones under the oak?",
+    "bookId": "1CH",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "Jabesh-gilead",
+      "Jabesh",
+      "Jabesh Gilead"
+    ],
+    "displayAnswer": "Jabesh-gilead (1 Chronicles 10:11–12)",
+    "explanation": "1 Chronicles 10:11–12 honors the men of Jabesh-gilead, who never forgot how Saul had rescued their city from Nahash the Ammonite at the start of his reign.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_6",
+    "type": "facts",
+    "prompt": "In 1 Chronicles 11:17–19, from the well by the gate of what hometown did three of David's mighty men break through the Philistine camp to draw water that David poured out to the Lord?",
+    "bookId": "1CH",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Bethlehem",
+      "well of Bethlehem",
+      "town of Bethlehem"
+    ],
+    "displayAnswer": "Bethlehem (1 Chronicles 11:17–18)",
+    "explanation": "1 Chronicles 11:17–19 illustrates David's servant-hearted leadership as he refuses to drink water won at the risk of his men's lives, pouring it out as a sacred offering.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_7",
+    "type": "facts",
+    "prompt": "In 1 Chronicles 12:32, men of which tribe who rallied to David at Hebron were renowned as 'men who had understanding of the times, to know what Israel ought to do'?",
+    "bookId": "1CH",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "Issachar",
+      "tribe of Issachar",
+      "the tribe of Issachar",
+      "men of Issachar"
+    ],
+    "displayAnswer": "Issachar (1 Chronicles 12:32)",
+    "explanation": "1 Chronicles 12:32 commends the two hundred chiefs of Issachar for their spiritual discernment in recognizing God's appointed hour for David's kingship.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_8",
+    "type": "facts",
+    "prompt": "In 1 Chronicles 15:2 and 15:13–15, whom did David declare that no one else may carry the ark of God except, because the Lord had chosen them to bear it on their shoulders with poles?",
+    "bookId": "1CH",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "the Levites",
+      "Levites",
+      "tribe of Levi",
+      "sons of Levi"
+    ],
+    "displayAnswer": "the Levites (1 Chronicles 15:2, 15)",
+    "explanation": "Having learned from Uzzah's death, David ensures in 1 Chronicles 15:2, 13–15 that the Levites carry the ark on their shoulders strictly according to the word of the Lord.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_9",
+    "type": "verse_completion",
+    "prompt": "1 Chronicles 16:11 (ESV): \"Seek the Lord and his ______; seek his presence continually!\"",
+    "bookId": "1CH",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "strength",
+      "his strength",
+      "might"
+    ],
+    "displayAnswer": "strength (1 Chronicles 16:11)",
+    "explanation": "David's psalm of thanksgiving upon placing the ark in Jerusalem (1 Chronicles 16:8–36) summons God's people to continual worship and dependence.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_10",
+    "type": "verse_completion",
+    "prompt": "1 Chronicles 16:34 (ESV): \"Oh give thanks to the Lord, for he is good; for his steadfast ______ endures forever!\"",
+    "bookId": "1CH",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "love",
+      "steadfast love",
+      "mercy"
+    ],
+    "displayAnswer": "love (1 Chronicles 16:34)",
+    "explanation": "1 Chronicles 16:34 establishes the great liturgical refrain of Levitical temple praise echoed throughout Chronicles, Ezra, and the Psalms.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_11",
+    "type": "verse_completion",
+    "prompt": "1 Chronicles 17:20 (ESV): \"O Lord, there is none like you, and there is no ______ besides you, according to all that we have heard with our ears.\"",
+    "bookId": "1CH",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "God",
+      "other God",
+      "no God"
+    ],
+    "displayAnswer": "God (1 Chronicles 17:20)",
+    "explanation": "Overwhelmed by God's covenant promise to build him an eternal dynasty in 1 Chronicles 17, David responds in humble awe at the uniqueness of Israel's God.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_12",
+    "type": "facts",
+    "prompt": "In 1 Chronicles 21:18–26, whose threshing floor did David purchase for 600 shekels of gold by weight to build an altar where the Lord answered from heaven by fire and halted the plague?",
+    "bookId": "1CH",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "Ornan",
+      "Ornan the Jebusite",
+      "Araunah",
+      "Araunah the Jebusite"
+    ],
+    "displayAnswer": "Ornan the Jebusite (1 Chronicles 21:18, 25)",
+    "explanation": "1 Chronicles 21:18–22:1 identifies the threshing floor of Ornan the Jebusite as 'the house of the Lord God' where Solomon's temple would stand.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_13",
+    "type": "facts",
+    "prompt": "In 1 Chronicles 22:8, what did the word of the Lord say David had shed so much of in great wars before him that David would not build the temple himself?",
+    "bookId": "1CH",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "blood",
+      "much blood",
+      "human blood"
+    ],
+    "displayAnswer": "blood (1 Chronicles 22:8)",
+    "explanation": "1 Chronicles 22:7–10 explains why warrior-king David prepared vast materials while his son Solomon—a man of peace and rest—was chosen to build the temple.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_14",
+    "type": "verse_completion",
+    "prompt": "1 Chronicles 28:9 (ESV): \"And you, Solomon my son, know the God of your father and serve him with a whole heart and with a willing ______, for the Lord searches all hearts and understands every plan and thought.\"",
+    "bookId": "1CH",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "mind",
+      "willing mind",
+      "a willing mind"
+    ],
+    "displayAnswer": "mind (1 Chronicles 28:9)",
+    "explanation": "Before the assembled leaders of Israel in 1 Chronicles 28:9, David charges Solomon with sincere, inward devotion before the heart-searching God.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_15",
+    "type": "verse_completion",
+    "prompt": "1 Chronicles 29:11 (ESV): \"Yours, O Lord, is the greatness and the power and the ______ and the victory and the majesty, for all that is in the heavens and in the earth is yours.\"",
+    "bookId": "1CH",
+    "chapterNum": 29,
+    "acceptedAnswers": [
+      "glory",
+      "the glory",
+      "splendor"
+    ],
+    "displayAnswer": "glory (1 Chronicles 29:11)",
+    "explanation": "David's magnificent doxology in 1 Chronicles 29:11 celebrates the Lord's universal kingship over all creation and temple offerings.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_1ch_16",
+    "type": "verse_completion",
+    "prompt": "1 Chronicles 29:14 (ESV): \"But who am I, and what is my people, that we should be able thus to offer ______? For all things come from you, and of your own have we given you.\"",
+    "bookId": "1CH",
+    "chapterNum": 29,
+    "acceptedAnswers": [
+      "willingly",
+      "so willingly",
+      "freely"
+    ],
+    "displayAnswer": "willingly (1 Chronicles 29:14)",
+    "explanation": "David's closing stewardship prayer in 1 Chronicles 29:14 recognizes that even our generous, willing offerings merely return to God what already came from his hand.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_1",
+    "type": "verse_completion",
+    "prompt": "2 Chronicles 1:10 (ESV): \"Give me now ______ and knowledge to go out and come in before this people, for who can govern this people of yours, which is so great?\"",
+    "bookId": "2CH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "wisdom",
+      "wisdom and knowledge",
+      "understanding"
+    ],
+    "displayAnswer": "wisdom (2 Chronicles 1:10)",
+    "explanation": "2 Chronicles 1:7–12 opens Solomon's reign at Gibeon, where his request for wisdom and knowledge pleases God and brings unsurpassed wealth and honor as well.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_2",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 3:1, on what mountain in Jerusalem—where the Lord had appeared to David at Ornan's threshing floor—did Solomon begin building the house of the Lord?",
+    "bookId": "2CH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Mount Moriah",
+      "Moriah",
+      "Mt Moriah",
+      "Mt. Moriah"
+    ],
+    "displayAnswer": "Mount Moriah (2 Chronicles 3:1)",
+    "explanation": "2 Chronicles 3:1 explicitly links the Jerusalem temple site to Mount Moriah, recalling Abraham's offering of Isaac in Genesis 22:2.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_3",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 5:13–14, what filled the house of the Lord when the Levitical trumpeters and singers praised God in unison, so that the priests could not stand to minister?",
+    "bookId": "2CH",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "a cloud",
+      "cloud",
+      "the cloud",
+      "the glory of the Lord",
+      "glory of the Lord"
+    ],
+    "displayAnswer": "a cloud (2 Chronicles 5:13–14)",
+    "explanation": "Echoing Exodus 40:34–35, 2 Chronicles 5:13–14 records the cloud and radiant glory of the Lord filling the newly completed temple.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_4",
+    "type": "verse_completion",
+    "prompt": "2 Chronicles 7:14 (ESV): \"if my people who are called by my name ______ themselves, and pray and seek my face and turn from their wicked ways, then I will hear from heaven and will forgive their sin and heal their land.\"",
+    "bookId": "2CH",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "humble",
+      "humble themselves",
+      "will humble"
+    ],
+    "displayAnswer": "humble (2 Chronicles 7:14)",
+    "explanation": "2 Chronicles 7:14 provides the programmatic promise for the entire Chronicler's history, tracing how kings who humble themselves experience God's restoration.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_5",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 9:13, what was the weight in talents of gold that came to Solomon in one year (besides revenue from traders and merchants)?",
+    "bookId": "2CH",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "666",
+      "six hundred sixty-six",
+      "six hundred and sixty-six",
+      "666 talents",
+      "666 talents of gold"
+    ],
+    "displayAnswer": "666 talents of gold (2 Chronicles 9:13)",
+    "explanation": "2 Chronicles 9:13–28 illustrates the dazzling peak of Solomon's imperial wealth as 666 talents of gold flowed annually into his treasury.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_6",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 10:1 and 10:13–14, which son of Solomon rejected the counsel of the older men at Shechem and spoke harshly to Israel, splitting the united monarchy?",
+    "bookId": "2CH",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "Rehoboam",
+      "King Rehoboam",
+      "Rehoboam son of Solomon"
+    ],
+    "displayAnswer": "Rehoboam (2 Chronicles 10:1, 13–14)",
+    "explanation": "2 Chronicles 10:13–15 shows how Rehoboam's arrogant folly fulfilled the word of the Lord spoken through Ahijah the Shilonite.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_7",
+    "type": "verse_completion",
+    "prompt": "2 Chronicles 14:11 (ESV): \"And Asa cried to the Lord his God, 'O Lord, there is none like you to help, between the ______ and the weak. Help us, O Lord our God, for we rely on you, and in your name we have come against this multitude.'\"",
+    "bookId": "2CH",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "mighty",
+      "the mighty",
+      "strong"
+    ],
+    "displayAnswer": "mighty (2 Chronicles 14:11)",
+    "explanation": "Outnumbered by Zerah the Ethiopian's vast host in 2 Chronicles 14:9–12, King Asa models total reliance on the Lord, who routs the invaders.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_8",
+    "type": "verse_completion",
+    "prompt": "2 Chronicles 15:7 (ESV): \"But you, take courage! Do not let your hands be ______, for your work shall be rewarded.\"",
+    "bookId": "2CH",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "weak",
+      "slack",
+      "limp"
+    ],
+    "displayAnswer": "weak (2 Chronicles 15:7)",
+    "explanation": "In 2 Chronicles 15:1–8, the Spirit-filled prophet Azariah son of Oded stirs King Asa to bold covenant renewal and removal of abominable idols.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_9",
+    "type": "verse_completion",
+    "prompt": "2 Chronicles 16:9 (ESV): \"For the eyes of the Lord run to and fro throughout the whole earth, to give strong ______ to those whose heart is blameless toward him.\"",
+    "bookId": "2CH",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "support",
+      "strong support",
+      "strength"
+    ],
+    "displayAnswer": "support (2 Chronicles 16:9)",
+    "explanation": "Hanani the seer rebukes Asa in 2 Chronicles 16:7–9 for buying a Syrian alliance in his later years instead of relying on the watchful Lord who delivered him before.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_10",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 17:7–9, what sacred scroll did King Jehoshaphat's officials, Levites, and priests carry with them as they taught throughout all the cities of Judah?",
+    "bookId": "2CH",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "the Book of the Law",
+      "Book of the Law",
+      "Book of the Law of the Lord",
+      "the Law of the Lord",
+      "the Law"
+    ],
+    "displayAnswer": "the Book of the Law of the Lord (2 Chronicles 17:9)",
+    "explanation": "2 Chronicles 17:7–10 highlights Jehoshaphat's nationwide Scripture-teaching mission, bringing the fear of the Lord upon all surrounding kingdoms.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_11",
+    "type": "verse_completion",
+    "prompt": "2 Chronicles 20:12 (ESV): \"O our God, will you not execute judgment on them? For we are powerless against this great horde that is coming against us. We do not know what to do, but our ______ are on you.\"",
+    "bookId": "2CH",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "eyes",
+      "our eyes",
+      "eyes are on you"
+    ],
+    "displayAnswer": "eyes (2 Chronicles 20:12)",
+    "explanation": "Jehoshaphat's corporate prayer in 2 Chronicles 20:6–12 models helpless faith looking wholly to the Lord when surrounded by overwhelming enemies.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_12",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 20:21–22, whom did Jehoshaphat appoint to march ahead of the army giving thanks to the Lord in holy attire when God set ambushes against Moab, Ammon, and Mount Seir?",
+    "bookId": "2CH",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "singers",
+      "those who were to sing",
+      "the singers",
+      "choir",
+      "Levitical singers",
+      "musicians"
+    ],
+    "displayAnswer": "those who were to sing to the Lord / singers (2 Chronicles 20:21)",
+    "explanation": "2 Chronicles 20:21–22 records that at the very moment Judah's singers began to sing and praise, the Lord routed the three invading armies.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_13",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 24:20–22, which Spirit-clothed son of Jehoiada the priest was stoned to death by command of ungrateful King Joash in the court of the house of the Lord?",
+    "bookId": "2CH",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "Zechariah",
+      "Zechariah son of Jehoiada",
+      "Zechariah the son of Jehoiada"
+    ],
+    "displayAnswer": "Zechariah son of Jehoiada (2 Chronicles 24:20–21)",
+    "explanation": "2 Chronicles 24:20–22 recounts the martyrdom of Zechariah son of Jehoiada—cited by Jesus in Luke 11:51 as the final martyr in the Hebrew canon's ordering (Genesis to Chronicles).",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_14",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 26:16–21, with what disease did the Lord strike proud King Uzziah on his forehead when he entered the temple to burn incense on the altar of incense?",
+    "bookId": "2CH",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "leprosy",
+      "a leprous disease",
+      "leprous"
+    ],
+    "displayAnswer": "leprosy (2 Chronicles 26:19–21)",
+    "explanation": "2 Chronicles 26:16–21 warns against pride following success: Uzziah usurped the priests' office and lived in a separate house as a leper until his death.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_15",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 29:1–3, which godly king of Judah—in the very first month of the first year of his reign—reopened and repaired the doors of the house of the Lord that Ahaz had shut?",
+    "bookId": "2CH",
+    "chapterNum": 29,
+    "acceptedAnswers": [
+      "Hezekiah",
+      "King Hezekiah",
+      "Hezekiah king of Judah"
+    ],
+    "displayAnswer": "Hezekiah (2 Chronicles 29:1–3)",
+    "explanation": "2 Chronicles 29:1–3 emphasizes Hezekiah's immediate spiritual priority, reopening the temple doors in his very first month on the throne.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_16",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 30:1–5 and 30:26, what covenant festival did Hezekiah invite all Israel and Judah—from Beersheba to Dan—to celebrate together in Jerusalem with great joy?",
+    "bookId": "2CH",
+    "chapterNum": 30,
+    "acceptedAnswers": [
+      "the Passover",
+      "Passover",
+      "Feast of Unleavened Bread",
+      "Passover feast"
+    ],
+    "displayAnswer": "the Passover (2 Chronicles 30:1, 5)",
+    "explanation": "2 Chronicles 30:1–26 describes Hezekiah reaching out graciously to the northern remnant after Samaria's fall, producing joy in Jerusalem unmatched since Solomon's days.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_17",
+    "type": "verse_completion",
+    "prompt": "2 Chronicles 32:8 (ESV): \"With him is an arm of ______, but with us is the Lord our God, to help us and to fight our battles.\"",
+    "bookId": "2CH",
+    "chapterNum": 32,
+    "acceptedAnswers": [
+      "flesh",
+      "an arm of flesh",
+      "human flesh"
+    ],
+    "displayAnswer": "flesh (2 Chronicles 32:8)",
+    "explanation": "In 2 Chronicles 32:7–8, Hezekiah fortifies Jerusalem's faith against Sennacherib of Assyria by contrasting mere human power ('an arm of flesh') with the living God.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_18",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 33:11–13, to what city did Assyrian commanders take wicked King Manasseh bound in hooks and bronze chains, where he humbled himself greatly before God and was restored?",
+    "bookId": "2CH",
+    "chapterNum": 33,
+    "acceptedAnswers": [
+      "Babylon",
+      "city of Babylon",
+      "to Babylon"
+    ],
+    "displayAnswer": "Babylon (2 Chronicles 33:11)",
+    "explanation": "Uniquely recorded in 2 Chronicles 33:11–13, even Judah's worst king Manasseh found mercy when he humbled himself and prayed in Babylonian captivity—illustrating 2 Chronicles 7:14.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_19",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 35:20–24, on what plain was King Josiah fatally wounded by Egyptian archers when he went out in disguise to fight Pharaoh Neco?",
+    "bookId": "2CH",
+    "chapterNum": 35,
+    "acceptedAnswers": [
+      "the plain of Megiddo",
+      "Megiddo",
+      "plain of Megiddo",
+      "valley of Megiddo"
+    ],
+    "displayAnswer": "the plain of Megiddo (2 Chronicles 35:22)",
+    "explanation": "2 Chronicles 35:20–25 laments how godly Josiah died after failing to heed God's warning through Neco on the plain of Megiddo, mourned by Jeremiah and all Judah.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_2ch_20",
+    "type": "facts",
+    "prompt": "In 2 Chronicles 36:22–23, which king of Persia did the Lord stir up at the close of Chronicles to proclaim liberty for God's people to go up and rebuild the temple in Jerusalem?",
+    "bookId": "2CH",
+    "chapterNum": 36,
+    "acceptedAnswers": [
+      "Cyrus",
+      "King Cyrus",
+      "Cyrus king of Persia",
+      "Cyrus of Persia"
+    ],
+    "displayAnswer": "Cyrus king of Persia (2 Chronicles 36:22–23)",
+    "explanation": "2 Chronicles 36:22–23 concludes the Hebrew Bible's final book on an open-ended summons ('Let him go up!'), pointing forward to restoration from exile.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_1",
+    "type": "facts",
+    "prompt": "In Ezra 1:1, to fulfill the word of the Lord spoken by the mouth of which prophet did the Lord stir up the spirit of Cyrus king of Persia?",
+    "bookId": "EZR",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Jeremiah",
+      "the prophet Jeremiah",
+      "Prophet Jeremiah"
+    ],
+    "displayAnswer": "Jeremiah (Ezra 1:1)",
+    "explanation": "Ezra 1:1 links Cyrus's decree in 538 BC directly to Jeremiah's seventy-year exile prophecy in Jeremiah 25:11–12 and 29:10.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_2",
+    "type": "facts",
+    "prompt": "In Ezra 1:7–11, to which prince of Judah did King Cyrus's treasurer Mithredath count out the 5,400 gold and silver temple vessels that Nebuchadnezzar had taken?",
+    "bookId": "EZR",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Sheshbazzar",
+      "Prince Sheshbazzar",
+      "Sheshbazzar prince of Judah"
+    ],
+    "displayAnswer": "Sheshbazzar (Ezra 1:8, 11)",
+    "explanation": "Ezra 1:7–11 depicts a 'second exodus' as Cyrus restores 5,400 sacred temple vessels to Sheshbazzar, the prince of Judah, to carry back to Jerusalem.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_3",
+    "type": "facts",
+    "prompt": "In Ezra 2:62–63, from what sacred office were certain returning descendants excluded as unclean until a priest could consult Urim and Thummim, because their genealogical registration could not be found?",
+    "bookId": "EZR",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the priesthood",
+      "priesthood",
+      "priests",
+      "serving as priests",
+      "priestly office"
+    ],
+    "displayAnswer": "the priesthood (Ezra 2:62)",
+    "explanation": "Ezra 2:61–63 underscores post-exilic concern for covenant holiness and verified Aaronic lineage among those ministering at the altar.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_4",
+    "type": "facts",
+    "prompt": "In Ezra 3:2 and 3:8, alongside Jeshua the high priest, which son of Shealtiel led the returned exiles in rebuilding the altar and laying the foundation of the temple?",
+    "bookId": "EZR",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Zerubbabel",
+      "Zerubbabel son of Shealtiel",
+      "Governor Zerubbabel"
+    ],
+    "displayAnswer": "Zerubbabel (Ezra 3:2, 8)",
+    "explanation": "Ezra 3:2, 8 highlights the Davidic descendant Zerubbabel son of Shealtiel partnering with the priest Jeshua to restore sacrificial worship and lay the Second Temple's foundation.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_5",
+    "type": "verse_completion",
+    "prompt": "Ezra 3:11 (ESV): \"And they sang responsively, praising and giving thanks to the Lord, 'For he is ______, for his steadfast love endures forever toward Israel.'\"",
+    "bookId": "EZR",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "good",
+      "he is good",
+      "very good"
+    ],
+    "displayAnswer": "good (Ezra 3:11)",
+    "explanation": "As the Second Temple's foundation was laid in Ezra 3:10–13, joyful praise mingled with the loud weeping of older men who remembered the first house.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_6",
+    "type": "facts",
+    "prompt": "In Ezra 4:4–5 and 4:24, until the second year of the reign of which Persian king did local adversaries successfully halt work on the house of God in Jerusalem?",
+    "bookId": "EZR",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Darius",
+      "King Darius",
+      "Darius king of Persia",
+      "Darius of Persia"
+    ],
+    "displayAnswer": "Darius king of Persia (Ezra 4:5, 24)",
+    "explanation": "Ezra 4:4–5, 24 recounts roughly sixteen years of stalled temple construction caused by local opposition until the second year of King Darius (520 BC).",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_7",
+    "type": "facts",
+    "prompt": "In Ezra 5:1–2, which two prophets prophesied to the Jews in Judah and Jerusalem, stirring up Zerubbabel and Jeshua to resume rebuilding the house of God?",
+    "bookId": "EZR",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Haggai and Zechariah",
+      "Zechariah and Haggai",
+      "Haggai, Zechariah",
+      "Zechariah, Haggai"
+    ],
+    "displayAnswer": "Haggai and Zechariah (Ezra 5:1)",
+    "explanation": "Ezra 5:1–2 shows the power of prophetic preaching as Haggai and Zechariah son of Iddo rouse the discouraged community to finish the temple.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_8",
+    "type": "facts",
+    "prompt": "In Ezra 6:1–2, in the palace at what fortress city in the province of Media was the scroll containing Cyrus's original temple decree discovered during Darius's archival search?",
+    "bookId": "EZR",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Ecbatana",
+      "city of Ecbatana",
+      "fortress of Ecbatana"
+    ],
+    "displayAnswer": "Ecbatana (Ezra 6:2)",
+    "explanation": "Ezra 6:1–12 displays God's providence over imperial bureaucracy: finding Cyrus's memo at Ecbatana moved Darius not only to protect the builders, but to fund the temple from royal taxes.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_9",
+    "type": "verse_completion",
+    "prompt": "Ezra 6:22 (ESV): \"And they kept the Feast of Unleavened Bread seven days with ______, for the Lord had made them joyful and had turned the heart of the king of Assyria to them, so that he aided them in the work of the house of God, the God of Israel.\"",
+    "bookId": "EZR",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "joy",
+      "with joy",
+      "great joy"
+    ],
+    "displayAnswer": "joy (Ezra 6:22)",
+    "explanation": "Following the Second Temple's completion in 516 BC, Ezra 6:19–22 celebrates a joyful Passover recognizing God's sovereignty over pagan monarchs' hearts.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_10",
+    "type": "facts",
+    "prompt": "In Ezra 7:1–5, back to which chief priest—Israel's very first high priest—does the genealogy trace the scribe's priestly lineage?",
+    "bookId": "EZR",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Aaron",
+      "Aaron the chief priest",
+      "Aaron the high priest",
+      "High Priest Aaron"
+    ],
+    "displayAnswer": "Aaron the chief priest (Ezra 7:5)",
+    "explanation": "Ezra 7:1–6 establishes the scribe's authoritative credentials by tracing his priestly ancestry sixteen generations back to Aaron the chief priest.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_11",
+    "type": "verse_completion",
+    "prompt": "Ezra 7:10 (ESV): \"For Ezra had set his heart to study the Law of the Lord, and to ______ it and to teach his statutes and rules in Israel.\"",
+    "bookId": "EZR",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "do",
+      "do it",
+      "practice",
+      "obey"
+    ],
+    "displayAnswer": "do (Ezra 7:10)",
+    "explanation": "Ezra 7:10 models the threefold pattern of faithful ministry: first studying God's Word, second practicing ('doing') it personally, and third teaching it to God's people.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_12",
+    "type": "facts",
+    "prompt": "In Ezra 8:15 and 8:21, beside what river/canal did the second wave of returning exiles camp for three days, recruit Levites, and fast to seek a safe journey from God?",
+    "bookId": "EZR",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Ahava",
+      "the Ahava",
+      "river Ahava",
+      "Ahava canal"
+    ],
+    "displayAnswer": "the river Ahava (Ezra 8:15, 21)",
+    "explanation": "At the river running to Ahava in Ezra 8:15–23, the travelers humbled themselves in fasting and prayer before carrying vast temple treasures across unguarded territory.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_13",
+    "type": "verse_completion",
+    "prompt": "Ezra 8:22 (ESV): \"For I was ashamed to ask the king for a band of soldiers and horsemen to protect us against the enemy on our way, since we had told the king, 'The ______ of our God is for good on all who seek him, and the power of his wrath is against all who forsake him.'\"",
+    "bookId": "EZR",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "hand",
+      "the hand",
+      "good hand"
+    ],
+    "displayAnswer": "hand (Ezra 8:22)",
+    "explanation": "'The good hand of our God' is the signature theme of Ezra 7–8 (7:6, 9, 28; 8:18, 22, 31), crediting every step of protection and provision to God.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_14",
+    "type": "facts",
+    "prompt": "In Ezra 9:5, at the time of what daily temple offering did the grieving scribe rise from his fasting with torn garment, fall on his knees, and spread out his hands to the Lord?",
+    "bookId": "EZR",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "the evening sacrifice",
+      "evening sacrifice",
+      "the evening offering",
+      "evening offering"
+    ],
+    "displayAnswer": "the evening sacrifice (Ezra 9:5)",
+    "explanation": "Appalled by the community's intermarriage with surrounding pagan peoples in Ezra 9:1–6, the priest-scribe intercedes in corporate confession at the evening sacrifice.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_ezr_15",
+    "type": "verse_completion",
+    "prompt": "Ezra 10:2 (ESV): \"We have broken faith with our God and have married foreign women from the peoples of the land, but even now there is ______ for Israel in spite of this.\"",
+    "bookId": "EZR",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "hope",
+      "still hope",
+      "mercy"
+    ],
+    "displayAnswer": "hope (Ezra 10:2)",
+    "explanation": "In Ezra 10:2–3, Shecaniah son of Jehiel responds to weeping confession by pointing to covenant hope through genuine repentance and costly obedience.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_1",
+    "type": "facts",
+    "prompt": "In Nehemiah 1:11, what trusted royal position did Hanani's brother hold in the palace of Susa?",
+    "bookId": "NEH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "cupbearer",
+      "cupbearer to the king",
+      "the cupbearer",
+      "king's cupbearer",
+      "royal cupbearer"
+    ],
+    "displayAnswer": "cupbearer to the king (Nehemiah 1:11)",
+    "explanation": "Nehemiah 1:11 concludes chapter 1 by revealing his strategic providence-placed post: cupbearer to King Artaxerxes of Persia.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_2",
+    "type": "verse_completion",
+    "prompt": "Nehemiah 1:5 (ESV): \"O Lord God of heaven, the great and awesome God who keeps ______ and steadfast love with those who love him and keep his commandments,\"",
+    "bookId": "NEH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "covenant",
+      "his covenant",
+      "the covenant"
+    ],
+    "displayAnswer": "covenant (Nehemiah 1:5)",
+    "explanation": "Hearing of Jerusalem's broken walls and burned gates in Nehemiah 1:4–11, the cupbearer anchors four months of fasting prayer in God's covenant faithfulness.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_3",
+    "type": "facts",
+    "prompt": "In Nehemiah 2:1–8, which Persian king noticed his cupbearer's sad face in the month of Nisan and granted him royal letters and timber to rebuild Jerusalem?",
+    "bookId": "NEH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Artaxerxes",
+      "King Artaxerxes",
+      "Artaxerxes king of Persia"
+    ],
+    "displayAnswer": "King Artaxerxes (Nehemiah 2:1, 8)",
+    "explanation": "Nehemiah 2:1–8 shows how a split-second silent prayer before King Artaxerxes opened the door for royal authorization and materials to fortify Jerusalem.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_4",
+    "type": "verse_completion",
+    "prompt": "Nehemiah 2:20 (ESV): \"Then I replied to them, 'The God of heaven will make us ______, and we his servants will arise and build, but you have no portion or right or claim in Jerusalem.'\"",
+    "bookId": "NEH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "prosper",
+      "succeed",
+      "make us prosper"
+    ],
+    "displayAnswer": "prosper (Nehemiah 2:20)",
+    "explanation": "Confronted with jeering from Sanballat, Tobiah, and Geshem in Nehemiah 2:19–20, the governor unites faith in God's blessing with resolute action ('arise and build').",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_5",
+    "type": "facts",
+    "prompt": "In Nehemiah 3:1, which gate of Jerusalem—rebuilt and consecrated by Eliashib the high priest and his fellow priests—leads off the wall-rebuilding roster?",
+    "bookId": "NEH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "the Sheep Gate",
+      "Sheep Gate",
+      "Jerusalem Sheep Gate"
+    ],
+    "displayAnswer": "the Sheep Gate (Nehemiah 3:1)",
+    "explanation": "Nehemiah 3:1 begins the counterclockwise survey of forty-plus building teams at the Sheep Gate near the temple, where sacrificial animals entered.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_6",
+    "type": "facts",
+    "prompt": "In Nehemiah 4:3, which Ammonite adversary mocked the Jewish builders beside Sanballat, sneering that if a fox climbed up on their stone wall it would break it down?",
+    "bookId": "NEH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Tobiah",
+      "Tobiah the Ammonite",
+      "Tobiah the servant"
+    ],
+    "displayAnswer": "Tobiah the Ammonite (Nehemiah 4:3)",
+    "explanation": "Nehemiah 4:1–9 recounts how ridicule and military threats from Sanballat and Tobiah were met with prayer and armed vigilance—a trowel in one hand and a weapon in the other.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_7",
+    "type": "verse_completion",
+    "prompt": "Nehemiah 4:6 (ESV): \"So we built the wall. And all the wall was joined together to half its height, for the people had a ______ to work.\"",
+    "bookId": "NEH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "mind",
+      "a mind",
+      "mind to work",
+      "heart"
+    ],
+    "displayAnswer": "mind (Nehemiah 4:6)",
+    "explanation": "Nehemiah 4:6 attributes the rapid joining of Jerusalem's wall to half its height to the united, willing mindset of the people despite external mockery.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_8",
+    "type": "facts",
+    "prompt": "In Nehemiah 5:7 and 5:10–12, what exploitative financial practice were wealthy Jewish nobles and officials charging their impoverished brothers during famine, which the governor forced them to stop and restore?",
+    "bookId": "NEH",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "interest",
+      "exacting interest",
+      "usury",
+      "charging interest"
+    ],
+    "displayAnswer": "exacting interest / usury (Nehemiah 5:7, 10–11)",
+    "explanation": "In Nehemiah 5:1–13, internal economic oppression threatened community unity until the nobles swore before the priests to return fields, vineyards, and interest.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_9",
+    "type": "verse_completion",
+    "prompt": "Nehemiah 6:3 (ESV): \"And I sent messengers to them, saying, 'I am doing a great ______, and I cannot come down.'\"",
+    "bookId": "NEH",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "work",
+      "a great work",
+      "great work"
+    ],
+    "displayAnswer": "work (Nehemiah 6:3)",
+    "explanation": "Four times in Nehemiah 6:1–4, Sanballat and Geshem tried to lure the governor into an ambush on the plain of Ono, and four times he refused distraction.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_10",
+    "type": "facts",
+    "prompt": "In Nehemiah 6:15, in how many days was the rebuilding of Jerusalem's wall completed on the twenty-fifth day of Elul?",
+    "bookId": "NEH",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "52",
+      "fifty-two",
+      "fifty two",
+      "52 days",
+      "fifty-two days"
+    ],
+    "displayAnswer": "52 days (Nehemiah 6:15)",
+    "explanation": "Nehemiah 6:15–16 notes that finishing the wall in just fifty-two days forced even surrounding enemies to perceive that this work had been accomplished with the help of God.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_11",
+    "type": "facts",
+    "prompt": "In Nehemiah 7:2, alongside Hanani, which commander of the citadel was placed in charge of Jerusalem because 'he was a more faithful and God-fearing man than many'?",
+    "bookId": "NEH",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Hananiah",
+      "Commander Hananiah",
+      "Hananiah commander of the citadel"
+    ],
+    "displayAnswer": "Hananiah (Nehemiah 7:2)",
+    "explanation": "Once the physical walls and doors were hung in Nehemiah 7:1–3, godly leadership was entrusted to Hanani and faithful, God-fearing Hananiah.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_12",
+    "type": "facts",
+    "prompt": "In Nehemiah 8:1–3, which priest and scribe stood on a wooden platform before the Water Gate and read the Book of the Law of Moses from early morning until midday?",
+    "bookId": "NEH",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Ezra",
+      "Ezra the scribe",
+      "Ezra the priest",
+      "Ezra the priest and scribe"
+    ],
+    "displayAnswer": "Ezra the scribe (Nehemiah 8:1–2)",
+    "explanation": "Nehemiah 8:1–8 marks the transition from rebuilding city walls to rebuilding the covenant community around the clear reading and explanation of God's Word by Ezra.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_13",
+    "type": "verse_completion",
+    "prompt": "Nehemiah 8:10 (ESV): \"And do not be grieved, for the ______ of the Lord is your strength.\"",
+    "bookId": "NEH",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "joy",
+      "the joy",
+      "gladness"
+    ],
+    "displayAnswer": "joy (Nehemiah 8:10)",
+    "explanation": "As the people wept under conviction of the Law on the holy day in Nehemiah 8:9–12, Ezra and the Levites turned their grief into grateful celebration of God's grace.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_14",
+    "type": "verse_completion",
+    "prompt": "Nehemiah 9:17 (ESV): \"But you are a God ready to forgive, gracious and merciful, slow to ______ and abounding in steadfast love, and did not forsake them.\"",
+    "bookId": "NEH",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "anger",
+      "wrath",
+      "slow to anger"
+    ],
+    "displayAnswer": "anger (Nehemiah 9:17)",
+    "explanation": "Reciting Exodus 34:6 across Israel's long history of rebellion, the great Levitical prayer of Nehemiah 9 magnifies God's unfailing mercy.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_15",
+    "type": "facts",
+    "prompt": "In Nehemiah 10:32–39, what sacred building in Jerusalem did the covenant signatories pledge at the climax of their oath never to neglect?",
+    "bookId": "NEH",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "the house of our God",
+      "house of our God",
+      "the temple",
+      "temple",
+      "house of God",
+      "the house of God"
+    ],
+    "displayAnswer": "the house of our God / temple (Nehemiah 10:39)",
+    "explanation": "Nehemiah 10:28–39 seals a written covenant binding priests, Levites, leaders, and people to faithful obedience, Sabbath-keeping, and generous support for God's house.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_16",
+    "type": "facts",
+    "prompt": "In Nehemiah 11:1, what fraction of the population did the people cast lots to bring to live inside the holy city of Jerusalem while nine-tenths remained in the other towns?",
+    "bookId": "NEH",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "one out of ten",
+      "1 out of 10",
+      "one-tenth",
+      "one tenth",
+      "a tenth",
+      "1/10",
+      "10 percent",
+      "10%"
+    ],
+    "displayAnswer": "one out of ten / one-tenth (Nehemiah 11:1)",
+    "explanation": "Because rebuilt Jerusalem remained sparsely populated (7:4), Nehemiah 11:1–2 describes a 'tithe of people'—one out of ten—relocating to dwell in the holy city.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_17",
+    "type": "facts",
+    "prompt": "In Nehemiah 12:31 and 12:38–40, into how many great thanksgiving choirs did the governor divide the leaders and singers to march in opposite directions atop the rebuilt wall?",
+    "bookId": "NEH",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "2",
+      "two",
+      "2 choirs",
+      "two choirs",
+      "two great choirs"
+    ],
+    "displayAnswer": "2 great choirs (Nehemiah 12:31)",
+    "explanation": "Nehemiah 12:27–43 celebrates the wall's joyful dedication with two great choirs marching opposite ways around the ramparts until Jerusalem's joy was heard far away.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_neh_18",
+    "type": "verse_completion",
+    "prompt": "Nehemiah 13:31 (ESV): \"Remember me, O my God, for ______.\"",
+    "bookId": "NEH",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "good",
+      "for good",
+      "favor"
+    ],
+    "displayAnswer": "good (Nehemiah 13:31)",
+    "explanation": "After confronting Eliashib's compromise with Tobiah, neglected Levitical tithes, Sabbath-breaking, and mixed marriages, Nehemiah 13:31 closes the book with a humble plea to God.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_1",
+    "type": "facts",
+    "prompt": "In Esther 1:1, over how many provinces stretching from India to Ethiopia did King Ahasuerus reign from Susa the citadel?",
+    "bookId": "EST",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "127",
+      "one hundred twenty-seven",
+      "one hundred and twenty-seven",
+      "127 provinces"
+    ],
+    "displayAnswer": "127 provinces (Esther 1:1)",
+    "explanation": "Esther 1:1–4 showcases the vast reach and opulence of Persian King Ahasuerus's 127-province empire—all subtly overruled by the unseen providence of God.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_2",
+    "type": "facts",
+    "prompt": "In Esther 1:10–12 and 1:19, which queen refused King Ahasuerus's drunken command to display her beauty wearing her royal crown, resulting in her deposition?",
+    "bookId": "EST",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Vashti",
+      "Queen Vashti",
+      "royal Queen Vashti"
+    ],
+    "displayAnswer": "Queen Vashti (Esther 1:11–12, 19)",
+    "explanation": "Esther 1:10–22 recounts Queen Vashti's refusal to appear before the king's banquet guests, creating the royal vacancy that opened the way for her successor.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_3",
+    "type": "facts",
+    "prompt": "In Esther 2:5–7, which Benjaminite—the son of Jair—brought up his orphaned cousin as his own daughter in Susa?",
+    "bookId": "EST",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Mordecai",
+      "Mordecai the Jew",
+      "Mordecai son of Jair"
+    ],
+    "displayAnswer": "Mordecai (Esther 2:5–7)",
+    "explanation": "Esther 2:5–7 introduces Mordecai, a Benjaminite descended from Kish's exile, setting up the ancient Saul-versus-Agagite rivalry with Haman in chapter 3.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_4",
+    "type": "facts",
+    "prompt": "In Esther 2:21–23, what were the names of the two royal eunuchs who guarded the threshold and plotted to assassinate King Ahasuerus before Mordecai exposed them?",
+    "bookId": "EST",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Bigthan and Teresh",
+      "Teresh and Bigthan",
+      "Bigthana and Teresh",
+      "Bigthan, Teresh"
+    ],
+    "displayAnswer": "Bigthan and Teresh (Esther 2:21)",
+    "explanation": "Esther 2:21–23 notes that Mordecai's thwarted assassination report was written in the royal chronicles without immediate reward—planted providentially for chapter 6.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_5",
+    "type": "facts",
+    "prompt": "In Esther 3:1–6, which proud Agagite official, promoted above all the officials by Ahasuerus, plotted to annihilate all Jews in the empire because Mordecai would not bow to him?",
+    "bookId": "EST",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Haman",
+      "Haman the Agagite",
+      "Haman son of Hammedatha"
+    ],
+    "displayAnswer": "Haman the Agagite (Esther 3:1, 5–6)",
+    "explanation": "Esther 3:1–6 identifies Haman as an Agagite—recalling Amalekite King Agag in 1 Samuel 15—whose wounded pride escalated into a genocidal decree against all Jews.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_6",
+    "type": "facts",
+    "prompt": "In Esther 4:1–2, in what rough mourning attire (along with ashes) did Mordecai dress himself while crying out loudly in Susa, forbidden to enter the king's gate wearing it?",
+    "bookId": "EST",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "sackcloth",
+      "sackcloth and ashes",
+      "in sackcloth"
+    ],
+    "displayAnswer": "sackcloth (Esther 4:1–2)",
+    "explanation": "Esther 4:1–3 depicts widespread fasting, weeping, and sackcloth among the Jews across every province when Haman's edict of destruction was proclaimed.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_7",
+    "type": "verse_completion",
+    "prompt": "Esther 4:14 (ESV): \"And who knows whether you have not come to the kingdom for such a ______ as this?\"",
+    "bookId": "EST",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "time",
+      "a time",
+      "such a time"
+    ],
+    "displayAnswer": "time (Esther 4:14)",
+    "explanation": "Mordecai's famous challenge in Esther 4:14 captures the theological heartbeat of the book: unshakable confidence in God's deliverance paired with courageous human responsibility.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_8",
+    "type": "verse_completion",
+    "prompt": "Esther 4:16 (ESV): \"Go, gather all the Jews to be found in Susa, and hold a fast on my behalf, and do not eat or drink for three days, night or day. I and my young women will also fast as you do. Then I will go to the king, though it is against the ______, and if I perish, I perish.\"",
+    "bookId": "EST",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "law",
+      "the law",
+      "royal law"
+    ],
+    "displayAnswer": "law (Esther 4:16)",
+    "explanation": "After calling for a three-day community fast in Esther 4:16, the queen resolves to risk her life by approaching the king uninvited contrary to Persian law.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_9",
+    "type": "facts",
+    "prompt": "In Esther 5:2 (cf. 4:11), what royal object did King Ahasuerus hold out in his hand toward the queen when she stood in the inner court, sparing her life?",
+    "bookId": "EST",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "the golden scepter",
+      "golden scepter",
+      "his golden scepter",
+      "gold scepter",
+      "scepter",
+      "golden sceptre"
+    ],
+    "displayAnswer": "the golden scepter (Esther 5:2)",
+    "explanation": "Esther 5:1–3 records the tense turning point after three days of fasting as Ahasuerus extends the golden scepter and offers up to half his kingdom.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_10",
+    "type": "facts",
+    "prompt": "In Esther 5:14, on the advice of his wife Zeresh and his friends, a gallows of how many cubits high did Haman have built on which to hang Mordecai?",
+    "bookId": "EST",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "50",
+      "fifty",
+      "50 cubits",
+      "fifty cubits",
+      "50 cubits high"
+    ],
+    "displayAnswer": "50 cubits (Esther 5:14)",
+    "explanation": "Esther 5:14 underscores Haman's towering arrogance—building an absurdly tall fifty-cubit (~75-foot) gallows the very night before his own downfall began.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_11",
+    "type": "facts",
+    "prompt": "In Esther 6:1–2, when King Ahasuerus could not sleep that night, what royal record book did he order brought and read before him, reminding him of Mordecai's unrewarded service?",
+    "bookId": "EST",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "the book of memorable deeds",
+      "book of memorable deeds",
+      "the chronicles",
+      "chronicles",
+      "book of the chronicles",
+      "royal chronicles"
+    ],
+    "displayAnswer": "the book of memorable deeds, the chronicles (Esther 6:1)",
+    "explanation": "Esther 6:1 ('On that night the king could not sleep') marks the dramatic hinge of the entire book, turning Haman's morning visit into Mordecai's royal honor.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_12",
+    "type": "verse_completion",
+    "prompt": "Esther 6:13 (ESV): \"If Mordecai, before whom you have begun to fall, is of the Jewish people, you will not ______ him but will surely fall before him.\"",
+    "bookId": "EST",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "overcome",
+      "overcome him",
+      "prevail against"
+    ],
+    "displayAnswer": "overcome (Esther 6:13)",
+    "explanation": "After Haman was forced to parade Mordecai through Susa in royal robes, even his wife Zeresh and wise men foresaw Haman's inevitable ruin in Esther 6:13.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_13",
+    "type": "facts",
+    "prompt": "In Esther 7:9–10, which eunuch attending King Ahasuerus pointed out the fifty-cubit gallows standing at Haman's house for Mordecai, prompting the king to order, 'Hang him on that'?",
+    "bookId": "EST",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Harbona",
+      "Harbonah",
+      "eunuch Harbona"
+    ],
+    "displayAnswer": "Harbona (Esther 7:9)",
+    "explanation": "Esther 7:9–10 consummates the book's poetic reversal (peripeteia) as Haman is hanged on the very gallows he had erected for Mordecai.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_14",
+    "type": "facts",
+    "prompt": "In Esther 8:2 and 8:8–10, what royal item taken back from Haman did King Ahasuerus give to Mordecai to seal the counter-decree allowing the Jews to defend their lives?",
+    "bookId": "EST",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "his signet ring",
+      "signet ring",
+      "the signet ring",
+      "king's signet ring",
+      "royal signet ring",
+      "ring"
+    ],
+    "displayAnswer": "his signet ring (Esther 8:2, 8, 10)",
+    "explanation": "Because an edict sealed with the king's signet ring could not be revoked under Persian law, Mordecai used that same ring in Esther 8:8–10 to authorize Jewish self-defense.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_15",
+    "type": "verse_completion",
+    "prompt": "Esther 8:16 (ESV): \"The Jews had ______ and gladness and joy and honor.\"",
+    "bookId": "EST",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "light",
+      "light and gladness",
+      "bright light"
+    ],
+    "displayAnswer": "light (Esther 8:16)",
+    "explanation": "Esther 8:15–17 reverses the mourning and ashes of chapter 4 into light, gladness, joy, and honor throughout the empire.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_16",
+    "type": "verse_completion",
+    "prompt": "Esther 9:22 (ESV): \"as the days on which the Jews got relief from their enemies, and as the month that had been turned for them from sorrow into ______ and from mourning into a holiday;\"",
+    "bookId": "EST",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "gladness",
+      "joy",
+      "into gladness"
+    ],
+    "displayAnswer": "gladness (Esther 9:22)",
+    "explanation": "Esther 9:20–22 summarizes the great reversal of the twelfth month Adar—turning intended annihilation and sorrow into gladness, feasting, and gifts to the poor.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_17",
+    "type": "facts",
+    "prompt": "In Esther 9:24–28, what annual two-day Jewish festival—named from the word Pur ('lot')—was established to commemorate the Jews' deliverance from Haman's plot?",
+    "bookId": "EST",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Purim",
+      "Feast of Purim",
+      "Festival of Purim",
+      "days of Purim"
+    ],
+    "displayAnswer": "Purim (Esther 9:26, 28)",
+    "explanation": "Esther 9:24–32 institutes the annual celebration of Purim on the fourteenth and fifteenth days of Adar throughout every generation.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_est_18",
+    "type": "verse_completion",
+    "prompt": "Esther 10:3 (ESV): \"For Mordecai the Jew was second in rank to King Ahasuerus, and he was great among the Jews and popular with the multitude of his brothers, for he sought the ______ of his people and spoke peace to all his people.\"",
+    "bookId": "EST",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "welfare",
+      "good",
+      "well-being"
+    ],
+    "displayAnswer": "welfare (Esther 10:3)",
+    "explanation": "Esther 10:3 closes the book with Mordecai exalted second only to the Persian king—like Joseph in Egypt—using his authority for the welfare and peace of God's people.",
+    "scope": "OT",
+    "genre": "Historical"
+  },
+  {
+    "id": "a2_job_1",
+    "type": "facts",
+    "prompt": "In Job 1:1, in what land did the blameless and upright man Job live?",
+    "bookId": "JOB",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Uz",
+      "the land of Uz",
+      "land of Uz"
+    ],
+    "displayAnswer": "Uz (Job 1:1)",
+    "explanation": "Job 1:1 introduces Job as a blameless and upright man from the land of Uz who feared God and turned away from evil.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_2",
+    "type": "facts",
+    "prompt": "According to Job 1:2, how many sons were born to Job before disaster struck his household (alongside his three daughters)?",
+    "bookId": "JOB",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "7",
+      "seven",
+      "7 sons",
+      "seven sons"
+    ],
+    "displayAnswer": "seven (Job 1:2)",
+    "explanation": "Job 1:2 records that seven sons and three daughters were born to Job, symbolizing a complete and richly blessed household.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_3",
+    "type": "verse_completion",
+    "prompt": "Job 1:21 (ESV): \"The Lord gave, and the Lord has taken away; ______ be the name of the Lord.\"",
+    "bookId": "JOB",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "blessed",
+      "blessed be",
+      "be blessed"
+    ],
+    "displayAnswer": "blessed (Job 1:21)",
+    "explanation": "Even after losing his wealth and children in a single day, Job worshiped God and blessed His name rather than charging God with wrong (Job 1:21–22).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_4",
+    "type": "facts",
+    "prompt": "In Job 2:8, what object did Job take to scrape his loathsome sores while sitting in the ashes?",
+    "bookId": "JOB",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "broken pottery",
+      "a piece of broken pottery",
+      "piece of broken pottery",
+      "pottery",
+      "potsherd",
+      "a potsherd",
+      "pottery shard",
+      "shard"
+    ],
+    "displayAnswer": "a piece of broken pottery (Job 2:8)",
+    "explanation": "Afflicted with painful sores from sole to crown, Job took a piece of broken pottery to scrape himself while sitting among the ashes (Job 2:7–8).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_5",
+    "type": "facts",
+    "prompt": "In Job 2:11, three friends traveled to comfort Job: Bildad the Shuhite, Zophar the Naamathite, and which Temanite who speaks first in the dialogues?",
+    "bookId": "JOB",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Eliphaz",
+      "Eliphaz the Temanite",
+      "Eliphaz of Teman"
+    ],
+    "displayAnswer": "Eliphaz (Job 2:11)",
+    "explanation": "Eliphaz the Temanite leads each of the three cycles of speeches from Job's friends, beginning in Job 4.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_6",
+    "type": "facts",
+    "prompt": "In Job 2:13, for how many days and nights did Job's three friends sit with him on the ground without speaking a word because they saw his suffering was very great?",
+    "bookId": "JOB",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "7",
+      "seven",
+      "7 days",
+      "seven days",
+      "seven days and seven nights",
+      "7 days and 7 nights"
+    ],
+    "displayAnswer": "seven (Job 2:13)",
+    "explanation": "Job's friends wept, tore their robes, sprinkled dust on their heads, and sat silently with him for seven days and seven nights (Job 2:12–13).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_7",
+    "type": "facts",
+    "prompt": "In Job 3:1, when Job finally opened his mouth in anguish—refusing to curse God—what specific day did he curse instead?",
+    "bookId": "JOB",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "day of his birth",
+      "the day of his birth",
+      "his birth",
+      "his birthday",
+      "birthday",
+      "day he was born",
+      "the day he was born"
+    ],
+    "displayAnswer": "the day of his birth (Job 3:1)",
+    "explanation": "In Job 3:1–3, Job cursed the day of his birth, wishing he had never been born to see such misery, yet never cursing God as Satan predicted.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_8",
+    "type": "verse_completion",
+    "prompt": "Job 5:7 (ESV): \"but man is born to ______ as the sparks fly upward.\"",
+    "bookId": "JOB",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "trouble",
+      "to trouble",
+      "troubles"
+    ],
+    "displayAnswer": "trouble (Job 5:7)",
+    "explanation": "In Job 5:7, Eliphaz observes the inevitability of human affliction in a fallen world, comparing it to sparks rising from a fire.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_9",
+    "type": "facts",
+    "prompt": "In Job 8:1–3, which friend of Job—called \"the Shuhite\"—speaks second, asking \"Does God pervert justice?\" and comparing the godless to papyrus without water?",
+    "bookId": "JOB",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Bildad",
+      "Bildad the Shuhite",
+      "Bildad of Shuah"
+    ],
+    "displayAnswer": "Bildad (Job 8:1)",
+    "explanation": "Bildad the Shuhite argues from traditional retribution theology that suffering proves hidden sin, insisting God never perverts justice (Job 8:1–22).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_10",
+    "type": "facts",
+    "prompt": "In Job 11:1–7, which third friend of Job—called \"the Naamathite\"—harangues Job for his \"babble\" and asks, \"Can you find out the deep things of God?\"",
+    "bookId": "JOB",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Zophar",
+      "Zophar the Naamathite",
+      "Zophar of Naamah"
+    ],
+    "displayAnswer": "Zophar (Job 11:1)",
+    "explanation": "Zophar the Naamathite speaks most bluntly of the three friends, claiming God is actually exacting less from Job than his guilt deserves (Job 11:6).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_11",
+    "type": "verse_completion",
+    "prompt": "Job 13:15 (ESV): \"Though he ______ me, I will hope in him; yet I will argue my ways to his face.\"",
+    "bookId": "JOB",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "slay",
+      "slays",
+      "slay me",
+      "kill"
+    ],
+    "displayAnswer": "slay (Job 13:15)",
+    "explanation": "Job 13:15 expresses fierce covenant faith: even if facing death at God's hand, Job refuses hypocrisy and clings to hope in God Himself.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_12",
+    "type": "verse_completion",
+    "prompt": "Job 16:2 (ESV): \"I have heard many such things; miserable ______ are you all.\"",
+    "bookId": "JOB",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "comforters",
+      "miserable comforters",
+      "comforter"
+    ],
+    "displayAnswer": "comforters (Job 16:2)",
+    "explanation": "Instead of consoling Job in his grief, his friends piled accusations upon him, prompting Job to call them 'miserable comforters' (Job 16:2).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_13",
+    "type": "verse_completion",
+    "prompt": "Job 19:25 (ESV): \"For I know that my ______ lives, and at the last he will stand upon the earth.\"",
+    "bookId": "JOB",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "Redeemer",
+      "my Redeemer",
+      "the Redeemer"
+    ],
+    "displayAnswer": "Redeemer (Job 19:25)",
+    "explanation": "In the depths of abandonment, Job voices unshakable confidence that his living Kinsman-Redeemer (Goel) will ultimately vindicate him upon the earth (Job 19:25–27).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_14",
+    "type": "verse_completion",
+    "prompt": "Job 23:10 (ESV): \"But he knows the way that I take; when he has tried me, I shall come out as ______.\"",
+    "bookId": "JOB",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "gold",
+      "as gold",
+      "pure gold"
+    ],
+    "displayAnswer": "gold (Job 23:10)",
+    "explanation": "Though unable to perceive God's immediate presence, Job trusts that God knows his path and that fiery testing will prove his integrity like refined gold (Job 23:8–10).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_15",
+    "type": "verse_completion",
+    "prompt": "Job 26:7 (ESV): \"He stretches out the north over the void and hangs the earth on ______.\"",
+    "bookId": "JOB",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "nothing",
+      "on nothing",
+      "empty space"
+    ],
+    "displayAnswer": "nothing (Job 26:7)",
+    "explanation": "Job 26:7 poetically marvels at God's cosmic power in suspending the earth without visible pillars or mythic supports.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_16",
+    "type": "verse_completion",
+    "prompt": "Job 28:28 (ESV): \"And he said to man, 'Behold, the fear of the Lord, that is ______, and to turn away from evil is understanding.'\"",
+    "bookId": "JOB",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "wisdom",
+      "that is wisdom",
+      "true wisdom"
+    ],
+    "displayAnswer": "wisdom (Job 28:28)",
+    "explanation": "Job 28 concludes its hymn on the inaccessibility of cosmic wisdom to human mining by declaring that true wisdom begins with the fear of the Lord.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_17",
+    "type": "facts",
+    "prompt": "In Job 31:1, with what parts of his body did Job say he had \"made a covenant\" so that he would not gaze lustfully at a virgin?",
+    "bookId": "JOB",
+    "chapterNum": 31,
+    "acceptedAnswers": [
+      "eyes",
+      "his eyes",
+      "my eyes",
+      "the eyes"
+    ],
+    "displayAnswer": "his eyes (Job 31:1)",
+    "explanation": "In his final oath of innocence, Job affirms inward moral purity, declaring, 'I have made a covenant with my eyes; how then could I gaze at a virgin?' (Job 31:1).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_18",
+    "type": "facts",
+    "prompt": "In Job 32:2, which younger fourth speaker—the son of Barachel the Buzite—burns with anger because Job justified himself rather than God and the three older friends found no answer?",
+    "bookId": "JOB",
+    "chapterNum": 32,
+    "acceptedAnswers": [
+      "Elihu",
+      "Elihu son of Barachel",
+      "Elihu the Buzite"
+    ],
+    "displayAnswer": "Elihu (Job 32:2)",
+    "explanation": "Having waited respectfully because of his youth, Elihu speaks across Job 32–37 to defend God's justice and prepare the way for the Lord's own appearance.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_19",
+    "type": "facts",
+    "prompt": "In Job 38:1 (and 40:6), out of what powerful storm phenomenon did the Lord finally answer Job?",
+    "bookId": "JOB",
+    "chapterNum": 38,
+    "acceptedAnswers": [
+      "whirlwind",
+      "the whirlwind",
+      "a whirlwind",
+      "out of the whirlwind",
+      "storm",
+      "tempest"
+    ],
+    "displayAnswer": "the whirlwind (Job 38:1)",
+    "explanation": "In Job 38:1, the Lord answers Job out of the whirlwind, revealing His unsearchable wisdom and sovereign rule over all creation.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_20",
+    "type": "verse_completion",
+    "prompt": "Job 38:4 (ESV): \"Where were you when I laid the ______ of the earth? Tell me, if you have understanding.\"",
+    "bookId": "JOB",
+    "chapterNum": 38,
+    "acceptedAnswers": [
+      "foundation",
+      "the foundation",
+      "foundations",
+      "the foundations"
+    ],
+    "displayAnswer": "foundation (Job 38:4)",
+    "explanation": "God humbles Job with rapid-fire questions beginning at creation itself, showing the vast gulf between finite humanity and the Eternal Creator (Job 38:4).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_21",
+    "type": "facts",
+    "prompt": "In Job 40:15–18, what massive grass-eating creature—with bones like tubes of bronze and a tail stiff like a cedar—does God tell Job to \"Behold\" as first among the works of God?",
+    "bookId": "JOB",
+    "chapterNum": 40,
+    "acceptedAnswers": [
+      "Behemoth",
+      "the Behemoth",
+      "a Behemoth"
+    ],
+    "displayAnswer": "Behemoth (Job 40:15)",
+    "explanation": "God points to Behemoth in Job 40:15–24 as a towering land creature made along with Job yet utterly beyond human mastery.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_22",
+    "type": "facts",
+    "prompt": "In Job 41:1, what fearsome, armored sea creature does the Lord ask Job if he can draw out with a fishhook or press down its tongue with a cord?",
+    "bookId": "JOB",
+    "chapterNum": 41,
+    "acceptedAnswers": [
+      "Leviathan",
+      "the Leviathan",
+      "a Leviathan"
+    ],
+    "displayAnswer": "Leviathan (Job 41:1)",
+    "explanation": "Across all of Job 41, God portrays Leviathan as an untamable terror of the deep—showing that if no human dare confront God's creature, none can stand against the Creator (Job 41:10).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_23",
+    "type": "verse_completion",
+    "prompt": "Job 42:6 (ESV): \"therefore I despise myself, and repent in ______ and ashes.\"",
+    "bookId": "JOB",
+    "chapterNum": 42,
+    "acceptedAnswers": [
+      "dust",
+      "in dust",
+      "dust and ashes"
+    ],
+    "displayAnswer": "dust (Job 42:6)",
+    "explanation": "Having moved from hearing of God by the ear to seeing Him with his eye, Job humbles himself and repents in dust and ashes (Job 42:5–6).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_job_24",
+    "type": "facts",
+    "prompt": "According to Job 42:10, by what amount did the Lord restore and increase Job's former possessions after Job prayed for his friends?",
+    "bookId": "JOB",
+    "chapterNum": 42,
+    "acceptedAnswers": [
+      "twice as much",
+      "double",
+      "twofold",
+      "twice",
+      "two times",
+      "2x"
+    ],
+    "displayAnswer": "twice as much / double (Job 42:10)",
+    "explanation": "When Job interceded for Eliphaz, Bildad, and Zophar, the Lord restored Job's fortunes and gave him twice as much livestock and wealth as he had before (Job 42:10–12).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_1",
+    "type": "facts",
+    "prompt": "In Psalm 1:3, the blessed person who delights in the law of the Lord day and night is compared to a fruitful tree planted by streams of what?",
+    "bookId": "PSA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "water",
+      "streams of water",
+      "waters",
+      "rivers of water"
+    ],
+    "displayAnswer": "water (Psalm 1:3)",
+    "explanation": "Psalm 1:3 contrasts the chaff-like wicked with the righteous person rooted in God's Word like a tree nourished by streams of water.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_2",
+    "type": "verse_completion",
+    "prompt": "Psalm 2:7 (ESV): \"The Lord said to me, 'You are my ______; today I have begotten you.'\"",
+    "bookId": "PSA",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Son",
+      "my Son",
+      "his Son"
+    ],
+    "displayAnswer": "Son (Psalm 2:7)",
+    "explanation": "Psalm 2:7 proclaims the royal decree to the Lord's Anointed King, quoted repeatedly in the New Testament of Jesus' Messianic Sonship and resurrection.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_3",
+    "type": "verse_completion",
+    "prompt": "Psalm 8:5 (ESV): \"Yet you have made him a little lower than the heavenly beings and crowned him with ______ and honor.\"",
+    "bookId": "PSA",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "glory",
+      "with glory",
+      "glory and honor"
+    ],
+    "displayAnswer": "glory (Psalm 8:5)",
+    "explanation": "Marveling at the night sky, David celebrates the royal dignity God bestowed on humanity by crowning mankind with glory and honor over creation (Psalm 8:3–6).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_4",
+    "type": "facts",
+    "prompt": "According to Psalm 14:1 (and Psalm 53:1), what kind of person says in his heart, \"There is no God\"?",
+    "bookId": "PSA",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "the fool",
+      "fool",
+      "a fool",
+      "fools"
+    ],
+    "displayAnswer": "the fool (Psalm 14:1)",
+    "explanation": "In biblical wisdom, 'the fool' (nabal) denotes practical moral rebellion—living as though God does not see or hold humanity accountable (Psalm 14:1).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_5",
+    "type": "verse_completion",
+    "prompt": "Psalm 16:10 (ESV): \"For you will not abandon my soul to Sheol, or let your ______ one see corruption.\"",
+    "bookId": "PSA",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "holy",
+      "holy one",
+      "your holy one"
+    ],
+    "displayAnswer": "holy (Psalm 16:10)",
+    "explanation": "Both Peter (Acts 2:27) and Paul (Acts 13:35) cite Psalm 16:10 as David's prophetic testimony to the bodily resurrection of the Messiah.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_6",
+    "type": "verse_completion",
+    "prompt": "Psalm 19:1 (ESV): \"The ______ declare the glory of God, and the sky above proclaims his handiwork.\"",
+    "bookId": "PSA",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "heavens",
+      "the heavens",
+      "heaven"
+    ],
+    "displayAnswer": "heavens (Psalm 19:1)",
+    "explanation": "Psalm 19 pairs God's general revelation in the heavens (vv. 1–6) with His special revelation in the perfect law of the Lord (vv. 7–14).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_7",
+    "type": "facts",
+    "prompt": "In Psalm 19:10, after saying God's rules are more to be desired than fine gold, David declares them sweeter also than what natural food—even drippings of the comb?",
+    "bookId": "PSA",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "honey",
+      "the honeycomb",
+      "honeycomb"
+    ],
+    "displayAnswer": "honey (Psalm 19:10)",
+    "explanation": "Psalm 19:10 celebrates both the supreme worth (finer than gold) and supreme delight (sweeter than honey) of God's Word.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_8",
+    "type": "facts",
+    "prompt": "In Psalm 22:18—prophetically fulfilled at Jesus' crucifixion—what do the mockers cast for the sufferer's clothing after dividing his garments among them?",
+    "bookId": "PSA",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "lots",
+      "cast lots",
+      "casting lots",
+      "a lot"
+    ],
+    "displayAnswer": "lots (Psalm 22:18)",
+    "explanation": "Psalm 22:18 ('they divide my garments among them, and for my clothing they cast lots') was fulfilled by the Roman soldiers at the cross (John 19:24).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_9",
+    "type": "verse_completion",
+    "prompt": "Psalm 23:1 (ESV): \"The Lord is my ______; I shall not want.\"",
+    "bookId": "PSA",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "shepherd",
+      "my shepherd",
+      "a shepherd",
+      "the shepherd"
+    ],
+    "displayAnswer": "shepherd (Psalm 23:1)",
+    "explanation": "Psalm 23 portrays the covenant Lord as a tender, protective Shepherd who provides rest, guidance, and presence even through the valley of the shadow of death.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_10",
+    "type": "facts",
+    "prompt": "In Psalm 23:5, with what substance does the Lord anoint the psalmist's head as a gracious host while his cup overflows?",
+    "bookId": "PSA",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "oil",
+      "with oil",
+      "anointing oil",
+      "olive oil"
+    ],
+    "displayAnswer": "oil (Psalm 23:5)",
+    "explanation": "Shifting from Shepherd to Banquet Host in Psalm 23:5, God prepares a table before enemies and honors His guest by anointing his head with oil.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_11",
+    "type": "facts",
+    "prompt": "In Psalm 24:3–4, who may ascend the hill of the Lord and stand in his holy place—\"He who has clean hands and a pure ______\"?",
+    "bookId": "PSA",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "heart",
+      "a pure heart",
+      "pure heart"
+    ],
+    "displayAnswer": "heart (Psalm 24:4)",
+    "explanation": "Psalm 24:4 joins outward integrity ('clean hands') with inward devotion ('a pure heart') for approaching the holy King of glory.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_12",
+    "type": "verse_completion",
+    "prompt": "Psalm 27:1 (ESV): \"The Lord is my light and my ______; whom shall I fear?\"",
+    "bookId": "PSA",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "salvation",
+      "my salvation",
+      "the salvation"
+    ],
+    "displayAnswer": "salvation (Psalm 27:1)",
+    "explanation": "Grounded in the Lord as his light, salvation, and stronghold, David expresses fearless confidence even if an army encamps against him (Psalm 27:1–3).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_13",
+    "type": "verse_completion",
+    "prompt": "Psalm 34:8 (ESV): \"Oh, taste and see that the Lord is ______! Blessed is the man who takes refuge in him!\"",
+    "bookId": "PSA",
+    "chapterNum": 34,
+    "acceptedAnswers": [
+      "good",
+      "is good",
+      "the Lord is good"
+    ],
+    "displayAnswer": "good (Psalm 34:8)",
+    "explanation": "Composed after David feigned madness before Abimelech and escaped, Psalm 34:8 invites others to experience firsthand the goodness of God.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_14",
+    "type": "facts",
+    "prompt": "According to Psalm 37:11—echoed directly by Jesus in the Beatitudes—what kind of people \"shall inherit the land and delight themselves in abundant peace\"?",
+    "bookId": "PSA",
+    "chapterNum": 37,
+    "acceptedAnswers": [
+      "the meek",
+      "meek",
+      "humble",
+      "the humble",
+      "gentle"
+    ],
+    "displayAnswer": "the meek (Psalm 37:11)",
+    "explanation": "Psalm 37:11 promises that rather than fretting over evildoers, the meek who wait quietly on the Lord will inherit the land (cf. Matthew 5:5).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_15",
+    "type": "facts",
+    "prompt": "In Psalm 42:1, to what thirsty animal panting for flowing streams does the psalmist compare his soul panting for the living God?",
+    "bookId": "PSA",
+    "chapterNum": 42,
+    "acceptedAnswers": [
+      "deer",
+      "a deer",
+      "the deer",
+      "hart",
+      "a hart",
+      "stag"
+    ],
+    "displayAnswer": "a deer (Psalm 42:1)",
+    "explanation": "Opening Book II of the Psalter, the Sons of Korah compare spiritual longing for God's presence to a parched deer panting for flowing streams (Psalm 42:1–2).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_16",
+    "type": "verse_completion",
+    "prompt": "Psalm 46:1 (ESV): \"God is our ______ and strength, a very present help in trouble.\"",
+    "bookId": "PSA",
+    "chapterNum": 46,
+    "acceptedAnswers": [
+      "refuge",
+      "our refuge",
+      "a refuge"
+    ],
+    "displayAnswer": "refuge (Psalm 46:1)",
+    "explanation": "Even if the earth gives way and mountains totter into the heart of the sea, God Himself remains an unshakable refuge and fortress for His people (Psalm 46:1–3).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_17",
+    "type": "verse_completion",
+    "prompt": "Psalm 46:10 (ESV): \"Be ______, and know that I am God. I will be exalted among the nations, I will be exalted in the earth!\"",
+    "bookId": "PSA",
+    "chapterNum": 46,
+    "acceptedAnswers": [
+      "still",
+      "be still",
+      "quiet"
+    ],
+    "displayAnswer": "still (Psalm 46:10)",
+    "explanation": "After making wars cease to the end of the earth, the sovereign Lord commands anxious peoples and warring nations alike to cease striving and recognize His supremacy (Psalm 46:9–10).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_18",
+    "type": "facts",
+    "prompt": "According to the superscription of Psalm 51, which prophet came to confront David after he had gone in to Bathsheba, prompting this penitential psalm?",
+    "bookId": "PSA",
+    "chapterNum": 51,
+    "acceptedAnswers": [
+      "Nathan",
+      "Nathan the prophet",
+      "the prophet Nathan"
+    ],
+    "displayAnswer": "Nathan (Psalm 51 title)",
+    "explanation": "Following Nathan's parable and rebuke in 2 Samuel 12, David poured out his confession of sin and plea for cleansing in Psalm 51.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_19",
+    "type": "verse_completion",
+    "prompt": "Psalm 51:10 (ESV): \"Create in me a clean ______, O God, and renew a right spirit within me.\"",
+    "bookId": "PSA",
+    "chapterNum": 51,
+    "acceptedAnswers": [
+      "heart",
+      "clean heart",
+      "a clean heart"
+    ],
+    "displayAnswer": "heart (Psalm 51:10)",
+    "explanation": "Using the Hebrew verb 'bara' (used of divine creation), David recognizes that only God can create a pure heart within a fallen sinner (Psalm 51:10).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_20",
+    "type": "facts",
+    "prompt": "In Psalm 56:8, in what vessel does David ask God to put his tears as God keeps count of his tossings?",
+    "bookId": "PSA",
+    "chapterNum": 56,
+    "acceptedAnswers": [
+      "bottle",
+      "your bottle",
+      "a bottle",
+      "wineskin",
+      "skin"
+    ],
+    "displayAnswer": "your bottle (Psalm 56:8)",
+    "explanation": "Psalm 56:8 ('put my tears in your bottle. Are they not in your book?') expresses tender assurance that God notices and remembers every sorrow of His people.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_21",
+    "type": "facts",
+    "prompt": "In Psalm 68:5, God in his holy habitation is called \"Father of the fatherless and protector of ______.\" Protector of whom?",
+    "bookId": "PSA",
+    "chapterNum": 68,
+    "acceptedAnswers": [
+      "widows",
+      "the widows",
+      "widow",
+      "a widow"
+    ],
+    "displayAnswer": "widows (Psalm 68:5)",
+    "explanation": "The enthroned Warrior-King who rides upon the clouds reveals His heart by defending society's most vulnerable—orphans and widows (Psalm 68:4–5).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_22",
+    "type": "facts",
+    "prompt": "According to the superscription of Psalm 73, which Levitical choir leader authored this psalm wrestling with the prosperity of the wicked until he entered the sanctuary of God?",
+    "bookId": "PSA",
+    "chapterNum": 73,
+    "acceptedAnswers": [
+      "Asaph",
+      "of Asaph",
+      "psalm of Asaph"
+    ],
+    "displayAnswer": "Asaph (Psalm 73:1)",
+    "explanation": "Asaph—attributed with Psalm 50 and Psalms 73–83—nearly stumbled in envy of the arrogant until God's sanctuary reoriented him to eternal realities (Psalm 73:2, 17).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_23",
+    "type": "facts",
+    "prompt": "In Psalm 78:24–25, while recounting Israel's wilderness wanderings, what miraculous food rained down from the skies is called \"the grain of heaven\" and \"the bread of the angels\"?",
+    "bookId": "PSA",
+    "chapterNum": 78,
+    "acceptedAnswers": [
+      "manna",
+      "the manna",
+      "bread from heaven"
+    ],
+    "displayAnswer": "manna (Psalm 78:24)",
+    "explanation": "Psalm 78:24–25 recalls God's gracious provision of manna in the desert, later cited in John 6:31 when Jesus reveals Himself as the true bread from heaven.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_24",
+    "type": "facts",
+    "prompt": "According to the superscription of Psalm 84 (\"How lovely is your dwelling place, O Lord of hosts!\"), the descendants of which Levitical figure are named as authors (\"A Psalm of the Sons of ______\")?",
+    "bookId": "PSA",
+    "chapterNum": 84,
+    "acceptedAnswers": [
+      "Korah",
+      "Sons of Korah",
+      "the Sons of Korah"
+    ],
+    "displayAnswer": "Korah (Psalm 84 title)",
+    "explanation": "Spared when their ancestor rebelled in Numbers 26:11, the Sons of Korah served as temple gatekeepers and singers who treasured even a single day in God's courts.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_25",
+    "type": "verse_completion",
+    "prompt": "Psalm 84:10 (ESV): \"For a day in your ______ is better than a thousand elsewhere.\"",
+    "bookId": "PSA",
+    "chapterNum": 84,
+    "acceptedAnswers": [
+      "courts",
+      "your courts",
+      "court",
+      "temple courts"
+    ],
+    "displayAnswer": "courts (Psalm 84:10)",
+    "explanation": "The psalmist declares he would rather be a humble doorkeeper in the house of his God than dwell comfortably in the tents of wickedness (Psalm 84:10).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_26",
+    "type": "facts",
+    "prompt": "According to the superscription of Psalm 90 (\"Lord, you have been our dwelling place in all generations\"), which \"man of God\" wrote this prayer opening Book IV of the Psalter?",
+    "bookId": "PSA",
+    "chapterNum": 90,
+    "acceptedAnswers": [
+      "Moses",
+      "Moses the man of God",
+      "prophet Moses"
+    ],
+    "displayAnswer": "Moses (Psalm 90 title)",
+    "explanation": "Psalm 90 is the only psalm attributed to Moses, contrasting God's everlasting eternity with fleeting human mortality and asking Him to teach us to number our days.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_27",
+    "type": "facts",
+    "prompt": "In Psalm 90:10, how many years does Moses give as the normal span of human life (\"The years of our life are ______\"), before adding \"or even by reason of strength eighty\"?",
+    "bookId": "PSA",
+    "chapterNum": 90,
+    "acceptedAnswers": [
+      "70",
+      "seventy",
+      "70 years",
+      "seventy years",
+      "threescore and ten"
+    ],
+    "displayAnswer": "seventy / 70 (Psalm 90:10)",
+    "explanation": "Psalm 90:10 reflects on life's brevity—seventy years, or eighty with strength—motivating the prayer in verse 12 to number our days that we may get a heart of wisdom.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_28",
+    "type": "facts",
+    "prompt": "In Psalm 91:4, God's protective care is compared to a bird covering with his pinions, and under what part of a bird will the believer find refuge?",
+    "bookId": "PSA",
+    "chapterNum": 91,
+    "acceptedAnswers": [
+      "wings",
+      "his wings",
+      "under his wings",
+      "the wings"
+    ],
+    "displayAnswer": "his wings (Psalm 91:4)",
+    "explanation": "Psalm 91:4 pictures the Most High shielding those who dwell in His shelter beneath His protective wings, His faithfulness serving as shield and buckler.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_29",
+    "type": "verse_completion",
+    "prompt": "Psalm 100:4 (ESV): \"Enter his gates with ______, and his courts with praise! Give thanks to him; bless his name!\"",
+    "bookId": "PSA",
+    "chapterNum": 100,
+    "acceptedAnswers": [
+      "thanksgiving",
+      "with thanksgiving",
+      "thanks"
+    ],
+    "displayAnswer": "thanksgiving (Psalm 100:4)",
+    "explanation": "Titled 'A Psalm for giving thanks,' Psalm 100 summons all lands to joyful corporate worship grounded in the Lord's goodness and enduring steadfast love.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_30",
+    "type": "facts",
+    "prompt": "In Psalm 103:12, to illustrate how immeasurably far God removes our transgressions from us, David compares the distance between which two opposite compass directions?",
+    "bookId": "PSA",
+    "chapterNum": 103,
+    "acceptedAnswers": [
+      "east and west",
+      "east from the west",
+      "the east from the west",
+      "east from west",
+      "west and east"
+    ],
+    "displayAnswer": "east from the west (Psalm 103:12)",
+    "explanation": "'As far as the east is from the west, so far does he remove our transgressions from us' (Psalm 103:12)—an unending expanse that never meets.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_31",
+    "type": "facts",
+    "prompt": "In Psalm 110:4, the Lord swears an irrevocable oath to the Messianic King: \"You are a priest forever after the order of ______.\" Which ancient priest-king is named?",
+    "bookId": "PSA",
+    "chapterNum": 110,
+    "acceptedAnswers": [
+      "Melchizedek",
+      "order of Melchizedek",
+      "the order of Melchizedek"
+    ],
+    "displayAnswer": "Melchizedek (Psalm 110:4)",
+    "explanation": "Psalm 110 unites royal kingship at God's right hand (v. 1) with eternal priesthood after the order of Melchizedek (v. 4), expounded extensively in Hebrews 5–7.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_32",
+    "type": "verse_completion",
+    "prompt": "Psalm 118:22 (ESV): \"The stone that the builders rejected has become the ______.\"",
+    "bookId": "PSA",
+    "chapterNum": 118,
+    "acceptedAnswers": [
+      "cornerstone",
+      "the cornerstone",
+      "chief cornerstone",
+      "head of the corner"
+    ],
+    "displayAnswer": "cornerstone (Psalm 118:22)",
+    "explanation": "Jesus applied Psalm 118:22 to His rejection by Israel's leaders and glorious vindication by God as the chief cornerstone of salvation (Matthew 21:42; Acts 4:11).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_33",
+    "type": "verse_completion",
+    "prompt": "Psalm 119:11 (ESV): \"I have stored up your word in my ______, that I might not sin against you.\"",
+    "bookId": "PSA",
+    "chapterNum": 119,
+    "acceptedAnswers": [
+      "heart",
+      "my heart",
+      "in my heart"
+    ],
+    "displayAnswer": "heart (Psalm 119:11)",
+    "explanation": "Treasuring Scripture inwardly in the heart guards the believer's affections and conduct from sin (Psalm 119:9–11).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_34",
+    "type": "verse_completion",
+    "prompt": "Psalm 119:105 (ESV): \"Your word is a ______ to my feet and a light to my path.\"",
+    "bookId": "PSA",
+    "chapterNum": 119,
+    "acceptedAnswers": [
+      "lamp",
+      "a lamp",
+      "the lamp"
+    ],
+    "displayAnswer": "lamp (Psalm 119:105)",
+    "explanation": "Psalm 119:105 compares God's word to a lamp guiding each immediate step and a light illuminating the path ahead.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_35",
+    "type": "facts",
+    "prompt": "In Psalm 127:4, children born in one's youth—called a heritage from the Lord—are compared to what weapons in the hand of a warrior?",
+    "bookId": "PSA",
+    "chapterNum": 127,
+    "acceptedAnswers": [
+      "arrows",
+      "like arrows",
+      "arrow"
+    ],
+    "displayAnswer": "arrows (Psalm 127:4)",
+    "explanation": "In this Song of Ascents, children are celebrated as a divine blessing like arrows filling a warrior's quiver (Psalm 127:3–5).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_36",
+    "type": "facts",
+    "prompt": "In Psalm 137:1, by the waters of what foreign empire did the exiled Judeans sit down, hang their lyres on the willows, and weep when they remembered Zion?",
+    "bookId": "PSA",
+    "chapterNum": 137,
+    "acceptedAnswers": [
+      "Babylon",
+      "waters of Babylon",
+      "rivers of Babylon"
+    ],
+    "displayAnswer": "Babylon (Psalm 137:1)",
+    "explanation": "Psalm 137 voices the grief of captive Israel beside the canals of Babylon when their tormentors demanded songs of Zion (Psalm 137:1–4).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_37",
+    "type": "verse_completion",
+    "prompt": "Psalm 139:14 (ESV): \"I praise you, for I am fearfully and ______ made. Wonderful are your works; my soul knows it very well.\"",
+    "bookId": "PSA",
+    "chapterNum": 139,
+    "acceptedAnswers": [
+      "wonderfully",
+      "wonderfully made",
+      "fearfully and wonderfully"
+    ],
+    "displayAnswer": "wonderfully (Psalm 139:14)",
+    "explanation": "Psalm 139:13–16 marvels at God's intimate, intentional craftsmanship in knitting each person together in the mother's womb.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_psa_38",
+    "type": "facts",
+    "prompt": "In Psalm 150:6, the climactic final verse of the entire Psalter commands everything that has what to praise the Lord?",
+    "bookId": "PSA",
+    "chapterNum": 150,
+    "acceptedAnswers": [
+      "breath",
+      "has breath",
+      "the breath of life"
+    ],
+    "displayAnswer": "breath (Psalm 150:6)",
+    "explanation": "Concluding all 150 psalms in a crescendo of worship, Psalm 150:6 summons every living creature: 'Let everything that has breath praise the Lord! Praise the Lord!'",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_1",
+    "type": "verse_completion",
+    "prompt": "Proverbs 1:7 (ESV): \"The fear of the Lord is the beginning of ______; fools despise wisdom and instruction.\"",
+    "bookId": "PRO",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "knowledge",
+      "of knowledge",
+      "beginning of knowledge"
+    ],
+    "displayAnswer": "knowledge (Proverbs 1:7)",
+    "explanation": "Proverbs 1:7 serves as the foundational motto of the entire book: reverent awe and submission before the Lord is the starting point of all true knowledge.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_2",
+    "type": "facts",
+    "prompt": "In Proverbs 3:18, echoing Edenic imagery, Wisdom is called \"a tree of ______ to those who lay hold of her.\"",
+    "bookId": "PRO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "life",
+      "tree of life",
+      "a tree of life",
+      "the tree of life"
+    ],
+    "displayAnswer": "life / a tree of life (Proverbs 3:18)",
+    "explanation": "Proverbs 3:18 portrays godly wisdom as a tree of life bringing true flourishing and blessedness to everyone who holds her fast.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_3",
+    "type": "verse_completion",
+    "prompt": "Proverbs 3:5 (ESV): \"Trust in the Lord with all your ______, and do not lean on your own understanding.\"",
+    "bookId": "PRO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "heart",
+      "your heart",
+      "all your heart"
+    ],
+    "displayAnswer": "heart (Proverbs 3:5)",
+    "explanation": "Proverbs 3:5 calls for wholehearted reliance on the Lord in contrast to self-sufficient reliance on limited human perception.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_4",
+    "type": "verse_completion",
+    "prompt": "Proverbs 3:6 (ESV): \"In all your ways acknowledge him, and he will make straight your ______.\"",
+    "bookId": "PRO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "paths",
+      "your paths",
+      "path"
+    ],
+    "displayAnswer": "paths (Proverbs 3:6)",
+    "explanation": "When believers seek and honor the Lord across every sphere of life, He faithfully directs and smooths their course toward His purposes (Proverbs 3:6).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_5",
+    "type": "verse_completion",
+    "prompt": "Proverbs 4:23 (ESV): \"Keep your heart with all vigilance, for from it flow the ______ of life.\"",
+    "bookId": "PRO",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "springs",
+      "the springs",
+      "springs of life",
+      "fountains",
+      "issues"
+    ],
+    "displayAnswer": "springs (Proverbs 4:23)",
+    "explanation": "Because all speech, desires, and actions issue from the inner person, Proverbs 4:23 urges guarding the heart above everything else.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_6",
+    "type": "facts",
+    "prompt": "In Proverbs 6:6, what tiny, industrious insect does the sage tell the sluggard to go observe—which prepares its bread in summer without chief, officer, or ruler?",
+    "bookId": "PRO",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "ant",
+      "the ant",
+      "an ant",
+      "ants"
+    ],
+    "displayAnswer": "the ant (Proverbs 6:6)",
+    "explanation": "Proverbs 6:6–8 rebukes laziness by pointing to the self-motivated diligence and foresight of the ant gathering food during harvest.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_7",
+    "type": "facts",
+    "prompt": "In Proverbs 6:16, what number completes the classic graded saying: \"There are six things that the Lord hates, ______ that are an abomination to him\"?",
+    "bookId": "PRO",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "7",
+      "seven",
+      "7 things",
+      "seven things"
+    ],
+    "displayAnswer": "seven / 7 (Proverbs 6:16)",
+    "explanation": "Proverbs 6:16–19 uses the X / X+1 Hebrew poetic pattern ('six... seven') to list haughty eyes, a lying tongue, hands shedding innocent blood, wicked schemes, feet running to evil, a false witness, and sowing discord among brothers.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_8",
+    "type": "facts",
+    "prompt": "In Proverbs 8:1–3, what personified female figure cries aloud at the crossroads and beside the town gates, calling humanity to learn prudence and righteousness?",
+    "bookId": "PRO",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Wisdom",
+      "Lady Wisdom",
+      "personified Wisdom"
+    ],
+    "displayAnswer": "Wisdom (Proverbs 8:1)",
+    "explanation": "Throughout Proverbs 8, Lady Wisdom speaks publicly at the city gates and testifies to her presence with the Lord when He established the heavens and the earth.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_9",
+    "type": "facts",
+    "prompt": "In Proverbs 9:1, how many pillars has Wisdom hewn out to build her spacious banquet house?",
+    "bookId": "PRO",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "7",
+      "seven",
+      "7 pillars",
+      "seven pillars"
+    ],
+    "displayAnswer": "seven / 7 (Proverbs 9:1)",
+    "explanation": "Proverbs 9:1–6 pictures Wisdom building a grand house on seven pillars and preparing a feast to invite the simple to walk in the way of insight.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_10",
+    "type": "verse_completion",
+    "prompt": "Proverbs 9:10 (ESV): \"The ______ of the Lord is the beginning of wisdom, and the knowledge of the Holy One is insight.\"",
+    "bookId": "PRO",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "fear",
+      "the fear",
+      "fear of the Lord"
+    ],
+    "displayAnswer": "fear (Proverbs 9:10)",
+    "explanation": "Closing the opening nine-chapter fatherly discourses like a bookend with 1:7, Proverbs 9:10 anchors all wisdom in reverent fear of the Holy One.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_11",
+    "type": "verse_completion",
+    "prompt": "Proverbs 10:12 (ESV): \"Hatred stirs up strife, but ______ covers all offenses.\"",
+    "bookId": "PRO",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "love",
+      "but love",
+      "love covers all offenses"
+    ],
+    "displayAnswer": "love (Proverbs 10:12)",
+    "explanation": "Rather than nursing grudges and escalating conflict, godly love forgives and overlooks personal slights (Proverbs 10:12; cf. 1 Peter 4:8).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_12",
+    "type": "facts",
+    "prompt": "According to Proverbs 11:14 (and 24:6), where there is no guidance a people falls, but in an abundance of what is there safety?",
+    "bookId": "PRO",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "counselors",
+      "advisers",
+      "advisors",
+      "wise counselors",
+      "counsel"
+    ],
+    "displayAnswer": "counselors (Proverbs 11:14)",
+    "explanation": "Biblical wisdom warns against isolated, headstrong decision-making and commends seeking multiple wise counselors for safety and victory (Proverbs 11:14).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_13",
+    "type": "facts",
+    "prompt": "According to Proverbs 13:24, what instrument of correction does a parent spare to his son's harm (\"Whoever spares the ______ hates his son, but he who loves him is diligent to discipline him\")?",
+    "bookId": "PRO",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "rod",
+      "the rod",
+      "a rod",
+      "rod of discipline"
+    ],
+    "displayAnswer": "the rod (Proverbs 13:24)",
+    "explanation": "Proverbs 13:24 teaches that loving parents do not neglect timely, formative discipline when raising children.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_14",
+    "type": "verse_completion",
+    "prompt": "Proverbs 15:1 (ESV): \"A ______ answer turns away wrath, but a harsh word stirs up anger.\"",
+    "bookId": "PRO",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "soft",
+      "a soft",
+      "gentle",
+      "soft answer"
+    ],
+    "displayAnswer": "soft (Proverbs 15:1)",
+    "explanation": "Proverbs 15:1 highlights the de-escalating power of gentle, restrained speech in defusing hostility.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_15",
+    "type": "verse_completion",
+    "prompt": "Proverbs 16:18 (ESV): \"______ goes before destruction, and a haughty spirit before a fall.\"",
+    "bookId": "PRO",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Pride",
+      "arrogance",
+      "haughtiness"
+    ],
+    "displayAnswer": "Pride (Proverbs 16:18)",
+    "explanation": "Arrogance blinds a person to danger and invites divine humbling, making pride the classic precursor to ruin (Proverbs 16:18).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_16",
+    "type": "facts",
+    "prompt": "In Proverbs 17:22, to what healing remedy is a joyful heart compared (\"A joyful heart is good ______\"), whereas a crushed spirit dries up the bones?",
+    "bookId": "PRO",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "medicine",
+      "good medicine",
+      "a good medicine"
+    ],
+    "displayAnswer": "good medicine (Proverbs 17:22)",
+    "explanation": "Proverbs 17:22 observes the close connection between inner spiritual joy and physical vitality.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_17",
+    "type": "facts",
+    "prompt": "In Proverbs 18:10, to what fortified structure is the name of the Lord compared, into which the righteous man runs and is safe?",
+    "bookId": "PRO",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "strong tower",
+      "a strong tower",
+      "tower",
+      "a tower",
+      "the strong tower"
+    ],
+    "displayAnswer": "a strong tower (Proverbs 18:10)",
+    "explanation": "Whereas the rich trust their wealth as a fancied wall (v. 11), the righteous find true security by fleeing to the character and name of the Lord as a strong tower (Proverbs 18:10).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_18",
+    "type": "verse_completion",
+    "prompt": "Proverbs 18:21 (ESV): \"Death and life are in the power of the ______, and those who love it will eat its fruits.\"",
+    "bookId": "PRO",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "tongue",
+      "the tongue",
+      "power of the tongue"
+    ],
+    "displayAnswer": "tongue (Proverbs 18:21)",
+    "explanation": "Words are never trivial in Proverbs: the tongue possesses immense power either to wound unto death or to impart life-giving wisdom (Proverbs 18:21).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_19",
+    "type": "facts",
+    "prompt": "In Proverbs 20:1, what fermented drink is personified as \"a mocker\" alongside strong drink as \"a brawler,\" warning that whoever is led astray by it is not wise?",
+    "bookId": "PRO",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "wine",
+      "the wine",
+      "strong wine"
+    ],
+    "displayAnswer": "wine (Proverbs 20:1)",
+    "explanation": "Proverbs 20:1 warns against intoxication, noting how excess wine produces scoffing, loud quarreling, and impaired judgment.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_20",
+    "type": "verse_completion",
+    "prompt": "Proverbs 22:6 (ESV): \"Train up a ______ in the way he should go; even when he is old he will not depart from it.\"",
+    "bookId": "PRO",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "child",
+      "a child",
+      "the child"
+    ],
+    "displayAnswer": "child (Proverbs 22:6)",
+    "explanation": "Proverbs 22:6 underscores the lifelong shaping influence of early moral and spiritual instruction.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_21",
+    "type": "facts",
+    "prompt": "According to Proverbs 25:1, the men of which righteous king of Judah copied out the collection of proverbs spanning chapters 25–29?",
+    "bookId": "PRO",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "Hezekiah",
+      "King Hezekiah",
+      "Hezekiah king of Judah"
+    ],
+    "displayAnswer": "Hezekiah (Proverbs 25:1)",
+    "explanation": "During King Hezekiah's spiritual reforms in Judah (c. 715–686 BC), royal scribes compiled and preserved these additional Solomonic proverbs (Proverbs 25:1).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_22",
+    "type": "facts",
+    "prompt": "In Proverbs 25:21–22 (later quoted by Paul in Romans 12:20), giving bread and water to your hungry and thirsty enemy will heap burning what on his head?",
+    "bookId": "PRO",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "coals",
+      "burning coals",
+      "coals of fire",
+      "fiery coals"
+    ],
+    "displayAnswer": "burning coals (Proverbs 25:22)",
+    "explanation": "Responding to hostility with active kindness brings conviction and shame upon an enemy's malice while leaving vengeance and reward in the Lord's hands (Proverbs 25:21–22).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_23",
+    "type": "facts",
+    "prompt": "In Proverbs 27:17, to illustrate how one person sharpens the mind and character of another, what metal is said to sharpen itself?",
+    "bookId": "PRO",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "iron",
+      "iron sharpens iron",
+      "sharp iron"
+    ],
+    "displayAnswer": "iron (Proverbs 27:17)",
+    "explanation": "'Iron sharpens iron, and one man sharpens another' (Proverbs 27:17) pictures honest, constructive friendship honing godly wisdom.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_24",
+    "type": "facts",
+    "prompt": "According to Proverbs 30:1, which sage—the son of Jakeh—spoke the inspired oracle of humility and numerical sayings in Proverbs 30?",
+    "bookId": "PRO",
+    "chapterNum": 30,
+    "acceptedAnswers": [
+      "Agur",
+      "Agur son of Jakeh",
+      "Agur the son of Jakeh"
+    ],
+    "displayAnswer": "Agur (Proverbs 30:1)",
+    "explanation": "Agur son of Jakeh confesses human finitude before the Creator, affirms that every word of God proves true (30:5), and prays neither for poverty nor riches (30:8).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_25",
+    "type": "facts",
+    "prompt": "According to Proverbs 31:1, which king received the oracle taught to him by his mother urging him to avoid drunkenness and defend the rights of the poor and needy?",
+    "bookId": "PRO",
+    "chapterNum": 31,
+    "acceptedAnswers": [
+      "Lemuel",
+      "King Lemuel",
+      "Lemuel the king"
+    ],
+    "displayAnswer": "King Lemuel (Proverbs 31:1)",
+    "explanation": "Proverbs 31:1–9 records the queen mother's wise counsel to King Lemuel to speak up for the mute and judge righteously on behalf of the afflicted.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_pro_26",
+    "type": "verse_completion",
+    "prompt": "Proverbs 31:30 (ESV): \"Charm is deceitful, and ______ is vain, but a woman who fears the Lord is to be praised.\"",
+    "bookId": "PRO",
+    "chapterNum": 31,
+    "acceptedAnswers": [
+      "beauty",
+      "and beauty",
+      "outward beauty"
+    ],
+    "displayAnswer": "beauty (Proverbs 31:30)",
+    "explanation": "Near the close of the acrostic poem of the excellent wife, Proverbs 31:30 anchors lasting honor not in fleeting outward appearance but in the fear of the Lord.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_1",
+    "type": "facts",
+    "prompt": "In Ecclesiastes 1:1, by what title (translating Hebrew Qoheleth) does the speaker introduce himself—\"The words of the ______, the son of David, king in Jerusalem\"?",
+    "bookId": "ECC",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Preacher",
+      "the Preacher",
+      "Qoheleth",
+      "Teacher",
+      "the Teacher"
+    ],
+    "displayAnswer": "the Preacher (Ecclesiastes 1:1)",
+    "explanation": "In the ESV, 'Qoheleth'—one who convenes and addresses an assembly—is rendered 'the Preacher' throughout Ecclesiastes.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_2",
+    "type": "verse_completion",
+    "prompt": "Ecclesiastes 1:2 (ESV): \"Vanity of vanities, says the Preacher, vanity of vanities! All is ______.\"",
+    "bookId": "ECC",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "vanity",
+      "all is vanity",
+      "meaningless"
+    ],
+    "displayAnswer": "vanity (Ecclesiastes 1:2)",
+    "explanation": "The Hebrew word 'hevel' ('vapor' or 'vanity') frames the book (1:2; 12:8), capturing the fleeting, elusive nature of earthly life apart from God.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_3",
+    "type": "verse_completion",
+    "prompt": "Ecclesiastes 1:9 (ESV): \"What has been is what will be, and what has been done is what will be done, and there is nothing ______ under the sun.\"",
+    "bookId": "ECC",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "new",
+      "nothing new",
+      "new under the sun"
+    ],
+    "displayAnswer": "new (Ecclesiastes 1:9)",
+    "explanation": "Observing the repetitive cycles of nature and human history 'under the sun,' the Preacher concludes that human effort produces nothing ultimately new or permanent (Ecclesiastes 1:9).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_4",
+    "type": "facts",
+    "prompt": "Beginning in Ecclesiastes 1:14, futile human toil under the sun is repeatedly compared to \"a striving after ______\"—trying to grasp what invisible force of nature?",
+    "bookId": "ECC",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "wind",
+      "the wind",
+      "after wind",
+      "chasing the wind"
+    ],
+    "displayAnswer": "wind (Ecclesiastes 1:14)",
+    "explanation": "'A striving after wind' graphically pictures human attempts to secure lasting control or ultimate gain from a vaporous world.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_5",
+    "type": "facts",
+    "prompt": "In Ecclesiastes 2:13, after testing pleasure, projects, and wisdom, the Preacher sees that there is more gain in wisdom than in folly, just as there is more gain in what than in darkness?",
+    "bookId": "ECC",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "light",
+      "the light",
+      "in light"
+    ],
+    "displayAnswer": "light (Ecclesiastes 2:13)",
+    "explanation": "Even though both the wise and the fool eventually die, wisdom still excels folly along life's road as light excels darkness (Ecclesiastes 2:13–14).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_6",
+    "type": "verse_completion",
+    "prompt": "Ecclesiastes 3:1 (ESV): \"For everything there is a ______, and a time for every matter under heaven:\"",
+    "bookId": "ECC",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "season",
+      "a season",
+      "appointed season"
+    ],
+    "displayAnswer": "season (Ecclesiastes 3:1)",
+    "explanation": "Ecclesiastes 3:1–8 opens the famous poem of fourteen paired times—birth and death, weeping and laughing, war and peace—ordered under God's providence.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_7",
+    "type": "verse_completion",
+    "prompt": "Ecclesiastes 3:11 (ESV): \"He has made everything beautiful in its time. Also, he has put ______ into man's heart, yet so that he cannot find out what God has done from the beginning to the end.\"",
+    "bookId": "ECC",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "eternity",
+      "put eternity",
+      "eternity into man's heart"
+    ],
+    "displayAnswer": "eternity (Ecclesiastes 3:11)",
+    "explanation": "God has planted a deep awareness and longing for eternity within the human heart, even while finite mortals cannot fathom the whole sweep of His work (Ecclesiastes 3:11).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_8",
+    "type": "facts",
+    "prompt": "In Ecclesiastes 4:9–12, after showing why two are better than one when someone falls or lies cold, a cord of how many strands is said to be \"not quickly broken\"?",
+    "bookId": "ECC",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "3",
+      "three",
+      "threefold",
+      "a threefold cord",
+      "3 strands",
+      "three strands"
+    ],
+    "displayAnswer": "three / a threefold cord (Ecclesiastes 4:12)",
+    "explanation": "Ecclesiastes 4:9–12 commends mutual companionship over lonely greed, climaxing in the proverb 'a threefold cord is not quickly broken.'",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_9",
+    "type": "facts",
+    "prompt": "According to Ecclesiastes 5:10, what earthly possession will never satisfy the one who loves it (\"He who loves ______ will not be satisfied with ______\")?",
+    "bookId": "ECC",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "money",
+      "silver",
+      "wealth",
+      "riches"
+    ],
+    "displayAnswer": "money (Ecclesiastes 5:10)",
+    "explanation": "Ecclesiastes 5:10 exposes the insatiable nature of greed: loving money (Hebrew 'keseph', silver/money) only multiplies expenses and anxiety rather than contentment.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_10",
+    "type": "facts",
+    "prompt": "In Ecclesiastes 7:1, a good name (reputation of character) is declared to be better than what costly, fragrant luxury?",
+    "bookId": "ECC",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "precious ointment",
+      "ointment",
+      "perfume",
+      "fine perfume",
+      "precious oil",
+      "oil"
+    ],
+    "displayAnswer": "precious ointment (Ecclesiastes 7:1)",
+    "explanation": "Using wordplay in Hebrew ('shem' = name, 'shemen' = ointment/oil), Ecclesiastes 7:1 prizes lasting moral character above expensive perfume.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_11",
+    "type": "facts",
+    "prompt": "In Ecclesiastes 7:2, the Preacher says it is better to go to the house of what than to go to the house of feasting, because death is the end of all mankind and the living will lay it to heart?",
+    "bookId": "ECC",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "mourning",
+      "the house of mourning",
+      "house of mourning",
+      "sorrow",
+      "grief"
+    ],
+    "displayAnswer": "mourning (Ecclesiastes 7:2)",
+    "explanation": "Whereas frivolous feasting distracts from reality, a funeral ('the house of mourning') sobers the heart to live wisely in view of mortality (Ecclesiastes 7:2–4).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_12",
+    "type": "facts",
+    "prompt": "In Ecclesiastes 9:4, to illustrate that hope remains as long as one is among the living, a living dog is said to be better than a dead what?",
+    "bookId": "ECC",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "lion",
+      "a dead lion",
+      "dead lion",
+      "a lion"
+    ],
+    "displayAnswer": "lion (Ecclesiastes 9:4)",
+    "explanation": "Though dogs were despised scavengers and lions the noblest beasts in ancient Israel, even a living dog surpasses a dead lion because life still holds opportunity (Ecclesiastes 9:4).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_13",
+    "type": "verse_completion",
+    "prompt": "Ecclesiastes 9:11 (ESV): \"Again I saw that under the sun the ______ is not to the swift, nor the battle to the strong...\"",
+    "bookId": "ECC",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "race",
+      "the race",
+      "running the race"
+    ],
+    "displayAnswer": "race (Ecclesiastes 9:11)",
+    "explanation": "Ecclesiastes 9:11 reminds proud humanity that skill, speed, and strength never guarantee outcomes in a world subject to unforeseen 'time and chance.'",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_14",
+    "type": "facts",
+    "prompt": "In Ecclesiastes 10:1, what small dead insects cause the perfumer's ointment to give off a stench, illustrating how a little folly outweighs wisdom and honor?",
+    "bookId": "ECC",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "flies",
+      "dead flies",
+      "fly"
+    ],
+    "displayAnswer": "dead flies (Ecclesiastes 10:1)",
+    "explanation": "Just as a few dead flies spoil an entire jar of costly perfume, a single moment of foolishness can ruin a hard-earned reputation (Ecclesiastes 10:1).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_15",
+    "type": "verse_completion",
+    "prompt": "Ecclesiastes 11:1 (ESV): \"Cast your ______ upon the waters, for you will find it after many days.\"",
+    "bookId": "ECC",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "bread",
+      "your bread",
+      "cast your bread"
+    ],
+    "displayAnswer": "bread (Ecclesiastes 11:1)",
+    "explanation": "Rather than being paralyzed by uncertainty, Ecclesiastes 11:1–6 encourages bold, generous venture and diligence while trusting outcomes to God.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_16",
+    "type": "facts",
+    "prompt": "In Ecclesiastes 12:1, during what season of life does the Preacher urge his reader to \"Remember also your Creator,\" before the difficult days of old age arrive?",
+    "bookId": "ECC",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "youth",
+      "your youth",
+      "the days of your youth",
+      "days of your youth"
+    ],
+    "displayAnswer": "the days of your youth (Ecclesiastes 12:1)",
+    "explanation": "Before an evocative allegory of aging and death in 12:2–7, the Preacher calls the young to center their lives upon their Creator while strength remains.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_17",
+    "type": "facts",
+    "prompt": "In Ecclesiastes 12:11, the words of the wise are like goads and firmly fixed nails \"given by ______ Shepherd\"—by how many Shepherds?",
+    "bookId": "ECC",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "1",
+      "one",
+      "one Shepherd",
+      "1 Shepherd",
+      "a single Shepherd"
+    ],
+    "displayAnswer": "one Shepherd (Ecclesiastes 12:11)",
+    "explanation": "Ecclesiastes 12:11 traces true wisdom literature back to its single divine source—God Himself, the 'one Shepherd' of His people.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_ecc_18",
+    "type": "verse_completion",
+    "prompt": "Ecclesiastes 12:13 (ESV): \"The end of the matter; all has been heard. ______ God and keep his commandments, for this is the whole duty of man.\"",
+    "bookId": "ECC",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "Fear",
+      "Fear God",
+      "revere"
+    ],
+    "displayAnswer": "Fear (Ecclesiastes 12:13)",
+    "explanation": "Ecclesiastes concludes that revering God and obeying His commands—knowing He will bring every deed into judgment (12:14)—gives ultimate meaning to human life.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_1",
+    "type": "facts",
+    "prompt": "In Song of Solomon 1:5, to the dark tents of what nomadic Arabian tribe (alongside the curtains of the king) does the bride compare her sun-darkened yet lovely complexion?",
+    "bookId": "SNG",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Kedar",
+      "tents of Kedar",
+      "the tents of Kedar"
+    ],
+    "displayAnswer": "Kedar (Song of Solomon 1:5)",
+    "explanation": "Working outdoors in her brothers' vineyards darkened her skin like the black goat-hair tents of Kedar, yet she affirms she is lovely as royal tapestries (Song of Solomon 1:5–6).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_2",
+    "type": "facts",
+    "prompt": "In Song of Solomon 1:14, in the vineyards of what lush Judean oasis beside the Dead Sea does the bride picture the \"cluster of henna blossoms\" to which she compares her beloved?",
+    "bookId": "SNG",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Engedi",
+      "En-gedi",
+      "vineyards of Engedi",
+      "oasis of Engedi"
+    ],
+    "displayAnswer": "Engedi (Song of Solomon 1:14)",
+    "explanation": "Famous for its warm freshwater springs and aromatic plants amid the Judean desert, Engedi furnishes rich sensory imagery for the beloved (Song of Solomon 1:14).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_3",
+    "type": "verse_completion",
+    "prompt": "Song of Solomon 2:1 (ESV): \"I am a rose of ______, a lily of the valleys.\"",
+    "bookId": "SNG",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Sharon",
+      "of Sharon",
+      "rose of Sharon"
+    ],
+    "displayAnswer": "Sharon (Song of Solomon 2:1)",
+    "explanation": "When the bride modestly likens herself to a wildflower of the coastal plain of Sharon, her beloved replies that she outshines all others like a lily among brambles (Song of Solomon 2:1–2).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_4",
+    "type": "verse_completion",
+    "prompt": "Song of Solomon 2:4 (ESV): \"He brought me to the banqueting house, and his ______ over me was love.\"",
+    "bookId": "SNG",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "banner",
+      "his banner",
+      "the banner"
+    ],
+    "displayAnswer": "banner (Song of Solomon 2:4)",
+    "explanation": "Song of Solomon 2:4 celebrates the bridegroom publicly claiming and sheltering his bride under the banner of covenant love.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_5",
+    "type": "facts",
+    "prompt": "In Song of Solomon 2:15, what small animals—\"the little ______\"—must be caught because they spoil the vineyards while the vines are in blossom?",
+    "bookId": "SNG",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "foxes",
+      "little foxes",
+      "the little foxes",
+      "fox",
+      "jackals"
+    ],
+    "displayAnswer": "foxes (Song of Solomon 2:15)",
+    "explanation": "'Catch the foxes for us, the little foxes that spoil the vineyards' (Song of Solomon 2:15) poetically warns against subtle threats that damage blossoming love.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_6",
+    "type": "verse_completion",
+    "prompt": "Song of Solomon 2:16 (ESV): \"My ______ is mine, and I am his; he grazes among the lilies.\"",
+    "bookId": "SNG",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "beloved",
+      "my beloved",
+      "the beloved"
+    ],
+    "displayAnswer": "beloved (Song of Solomon 2:16)",
+    "explanation": "Repeated in varied forms across 2:16, 6:3, and 7:10, this refrain expresses joyful, exclusive mutual belonging in marriage.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_7",
+    "type": "facts",
+    "prompt": "In Song of Solomon 3:7–8, how many mighty men of Israel—all armed with swords and expert in war—escort the royal wedding litter against alarms by night?",
+    "bookId": "SNG",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "60",
+      "sixty",
+      "60 mighty men",
+      "sixty mighty men"
+    ],
+    "displayAnswer": "sixty / 60 (Song of Solomon 3:7)",
+    "explanation": "Song of Solomon 3:6–11 depicts the grand wedding procession approaching from the wilderness guarded by sixty elite warriors of Israel.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_8",
+    "type": "facts",
+    "prompt": "In Song of Solomon 4:8, 11, and 15, from what fragrant northern mountain range—renowned for its cedars and flowing streams—does the bridegroom draw rich imagery for his bride?",
+    "bookId": "SNG",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Lebanon",
+      "Mount Lebanon",
+      "Mt Lebanon"
+    ],
+    "displayAnswer": "Lebanon (Song of Solomon 4:8, 15)",
+    "explanation": "In Song of Solomon 4, the scent of the bride's garments is likened to the scent of Lebanon and her refreshing love to flowing streams from Lebanon.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_9",
+    "type": "facts",
+    "prompt": "In Song of Solomon 4:12, to praise his bride's chaste devotion reserved exclusively for marriage, the bridegroom calls her \"a ______ locked, a spring locked, a fountain sealed.\" What enclosed place is named?",
+    "bookId": "SNG",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "garden",
+      "a garden",
+      "a garden locked",
+      "locked garden"
+    ],
+    "displayAnswer": "a garden (Song of Solomon 4:12)",
+    "explanation": "The locked garden and sealed fountain in Song of Solomon 4:12 honor marital fidelity, which the bride then opens freely to her husband in 4:16.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_10",
+    "type": "verse_completion",
+    "prompt": "Song of Solomon 5:10 (ESV): \"My beloved is radiant and ruddy, distinguished among ______ thousand.\"",
+    "bookId": "SNG",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "ten",
+      "10",
+      "ten thousand",
+      "10,000",
+      "10000"
+    ],
+    "displayAnswer": "ten (Song of Solomon 5:10)",
+    "explanation": "Asked by the daughters of Jerusalem what sets her beloved apart (5:9), the bride launches into a glowing head-to-toe portrait beginning in Song of Solomon 5:10.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_11",
+    "type": "facts",
+    "prompt": "In Song of Solomon 6:13, by what title do the onlookers call out to the bride—\"Return, return, O ______, return, return, that we may look upon you\"?",
+    "bookId": "SNG",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Shulammite",
+      "the Shulammite",
+      "Shulamite",
+      "the Shulamite",
+      "O Shulammite"
+    ],
+    "displayAnswer": "the Shulammite (Song of Solomon 6:13)",
+    "explanation": "Song of Solomon 6:13 is the only place in Scripture using the title 'the Shulammite'—a feminine counterpart sharing the Hebrew root 'shalom' (peace).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_12",
+    "type": "facts",
+    "prompt": "In Song of Solomon 7:5, to what prominent coastal mountain in northern Israel does the bridegroom compare the bride's noble head (\"Your head crowns you like ______\")?",
+    "bookId": "SNG",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Carmel",
+      "Mount Carmel",
+      "Mt Carmel"
+    ],
+    "displayAnswer": "Carmel (Song of Solomon 7:5)",
+    "explanation": "Jutting majestically above the Mediterranean coast, lush Mount Carmel symbolizes stately beauty in Song of Solomon 7:5.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_13",
+    "type": "verse_completion",
+    "prompt": "Song of Solomon 8:6 (ESV): \"Set me as a ______ upon your heart, as a seal upon your arm, for love is strong as death...\"",
+    "bookId": "SNG",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "seal",
+      "a seal",
+      "the seal",
+      "signet"
+    ],
+    "displayAnswer": "seal (Song of Solomon 8:6)",
+    "explanation": "Signet seals worn on a cord over the chest or on the arm signified permanent ownership, identity, and unbreakable commitment—the climax of the Song's theology of love (8:6).",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_sng_14",
+    "type": "facts",
+    "prompt": "According to Song of Solomon 8:7, what force of nature \"cannot quench love, neither can floods drown it\"?",
+    "bookId": "SNG",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "many waters",
+      "waters",
+      "water",
+      "rushing waters"
+    ],
+    "displayAnswer": "many waters (Song of Solomon 8:7)",
+    "explanation": "Describing love as 'the very flame of the Lord' (8:6), Song of Solomon 8:7 declares that even 'many waters' and raging floods cannot extinguish genuine covenant love.",
+    "scope": "OT",
+    "genre": "Wisdom & Poetry"
+  },
+  {
+    "id": "a2_isa_1",
+    "type": "facts",
+    "prompt": "According to Isaiah 1:1, who was Isaiah's father (\"The vision of Isaiah the son of ______\")?",
+    "bookId": "ISA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Amoz",
+      "son of Amoz",
+      "the son of Amoz"
+    ],
+    "displayAnswer": "Amoz (Isaiah 1:1)",
+    "explanation": "Isaiah 1:1 identifies the prophet as Isaiah the son of Amoz, who prophesied concerning Judah and Jerusalem during the reigns of Uzziah, Jotham, Ahaz, and Hezekiah.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_2",
+    "type": "verse_completion",
+    "prompt": "Isaiah 1:18 (ESV): \"Come now, let us reason together, says the Lord: though your sins are like scarlet, they shall be as white as ______...\"",
+    "bookId": "ISA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "snow",
+      "as snow",
+      "white as snow"
+    ],
+    "displayAnswer": "snow (Isaiah 1:18)",
+    "explanation": "Despite Judah's deep crimson stain of rebellion, the Lord graciously invites repentance and promises complete cleansing as white as snow and wool (Isaiah 1:18).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_3",
+    "type": "facts",
+    "prompt": "In Isaiah 2:4, when the Lord judges between the nations and ends war, peoples will beat their swords into plowshares and their spears into what farming tools?",
+    "bookId": "ISA",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "pruning hooks",
+      "hooks",
+      "pruning knives",
+      "sickles"
+    ],
+    "displayAnswer": "pruning hooks (Isaiah 2:4)",
+    "explanation": "Isaiah 2:2–4 envisions all nations streaming to Zion to learn God's ways, transforming weapons of bloodshed into peaceful tools of agriculture.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_4",
+    "type": "facts",
+    "prompt": "In the prophetic \"Song\" of Isaiah 5:1–7, to what cultivated fruit-bearing property on a fertile hill does the prophet compare the house of Israel and the men of Judah?",
+    "bookId": "ISA",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "vineyard",
+      "a vineyard",
+      "the vineyard",
+      "vines",
+      "choicest vines"
+    ],
+    "displayAnswer": "a vineyard (Isaiah 5:1, 7)",
+    "explanation": "In Isaiah 5:1–7, God tended Israel like a beloved vineyard expecting sweet grapes of justice and righteousness, yet it yielded only wild grapes of bloodshed and outcry.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_5",
+    "type": "facts",
+    "prompt": "In Isaiah 6:1, in the year that which king of Judah died did Isaiah behold the Lord sitting upon a throne, high and lifted up, with the train of his robe filling the temple?",
+    "bookId": "ISA",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Uzziah",
+      "King Uzziah",
+      "Azariah",
+      "King Azariah"
+    ],
+    "displayAnswer": "King Uzziah (Isaiah 6:1)",
+    "explanation": "When earthly King Uzziah died after a long, prosperous reign (c. 740 BC), Isaiah received a breathtaking vision of the eternal, thrice-holy King enthroned above all (Isaiah 6:1–5).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_6",
+    "type": "facts",
+    "prompt": "In Isaiah 6:2–3, what six-winged heavenly beings stood above the Lord's throne calling to one another, \"Holy, holy, holy is the Lord of hosts\"?",
+    "bookId": "ISA",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "seraphim",
+      "the seraphim",
+      "seraphs",
+      "seraph"
+    ],
+    "displayAnswer": "seraphim (Isaiah 6:2)",
+    "explanation": "Isaiah 6 is the only chapter in Scripture naming the 'seraphim' ('burning ones'), each having six wings—two covering their faces, two covering their feet, and two for flying.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_7",
+    "type": "facts",
+    "prompt": "In Isaiah 6:6–7, what object taken with tongs from the temple altar did one of the seraphim touch to Isaiah's mouth to take away his guilt and atone for his sin?",
+    "bookId": "ISA",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "a burning coal",
+      "burning coal",
+      "live coal",
+      "a live coal",
+      "coal",
+      "hot coal"
+    ],
+    "displayAnswer": "a burning coal (Isaiah 6:6)",
+    "explanation": "After Isaiah cried 'Woe is me!... for I am a man of unclean lips,' a burning coal from the altar of sacrifice cleansed his lips for prophetic service (Isaiah 6:5–7).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_8",
+    "type": "verse_completion",
+    "prompt": "Isaiah 6:8 (ESV): \"And I heard the voice of the Lord saying, 'Whom shall I send, and who will go for us?' Then I said, 'Here I am! ______ me.'\"",
+    "bookId": "ISA",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Send",
+      "Send me",
+      "Here I am send me"
+    ],
+    "displayAnswer": "Send (Isaiah 6:8)",
+    "explanation": "Cleansed by God's grace, Isaiah eagerly volunteered ('Here I am! Send me') before even hearing how hard his prophetic commission would be (Isaiah 6:8–13).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_9",
+    "type": "facts",
+    "prompt": "In Isaiah 7:10–14, to which fearful, unbelieving king of Judah did the Lord give the sign of the virgin conceiving and bearing a son?",
+    "bookId": "ISA",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Ahaz",
+      "King Ahaz",
+      "Ahaz king of Judah"
+    ],
+    "displayAnswer": "King Ahaz (Isaiah 7:10–14)",
+    "explanation": "When King Ahaz refused to trust the Lord during the Syro-Ephraimite crisis, Isaiah addressed the house of David with the Messianic sign of Immanuel (Isaiah 7:10–14).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_10",
+    "type": "facts",
+    "prompt": "In Isaiah 7:14, what name—meaning \"God with us\" (Matthew 1:23)—shall the virgin call the son she conceives and bears?",
+    "bookId": "ISA",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Immanuel",
+      "Emmanuel",
+      "God with us"
+    ],
+    "displayAnswer": "Immanuel (Isaiah 7:14)",
+    "explanation": "Matthew 1:22–23 cites Isaiah 7:14 as ultimately fulfilled in the virgin conception and birth of Jesus, who is literally 'God with us' ('Immanuel').",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_11",
+    "type": "verse_completion",
+    "prompt": "Isaiah 9:6 (ESV): \"For to us a child is born, to us a son is given; and the ______ shall be upon his shoulder...\"",
+    "bookId": "ISA",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "government",
+      "the government",
+      "dominion",
+      "rule"
+    ],
+    "displayAnswer": "government (Isaiah 9:6)",
+    "explanation": "Isaiah 9:6–7 heralds the divine-human Messianic King—Wonderful Counselor, Mighty God, Everlasting Father, Prince of Peace—whose righteous government on David's throne will never end.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_12",
+    "type": "facts",
+    "prompt": "In Isaiah 11:1, from the cut-down stump of which Bethlehemite (King David's father) shall a Messianic shoot come forth and a branch from his roots bear fruit?",
+    "bookId": "ISA",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Jesse",
+      "stump of Jesse",
+      "the stump of Jesse"
+    ],
+    "displayAnswer": "Jesse (Isaiah 11:1)",
+    "explanation": "Even after the royal house of David is felled like a tree in judgment, God promises new Messianic life springing from the humble 'stump of Jesse' (Isaiah 11:1, 10).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_13",
+    "type": "facts",
+    "prompt": "In Isaiah 11:6, illustrating the restored creation harmony of the Messiah's reign, the predatory wolf shall dwell peacefully with what gentle animal?",
+    "bookId": "ISA",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "lamb",
+      "the lamb",
+      "a lamb"
+    ],
+    "displayAnswer": "the lamb (Isaiah 11:6)",
+    "explanation": "Isaiah 11:6–9 pictures cosmic shalom where the wolf dwells with the lamb, the leopard lies down with the young goat, and a little child leads them.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_14",
+    "type": "facts",
+    "prompt": "Against the proud king of which empire is the prophetic taunt in Isaiah 14:4, 12 (\"How you are fallen from heaven, O Day Star, son of Dawn!\") directed?",
+    "bookId": "ISA",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "Babylon",
+      "king of Babylon",
+      "the king of Babylon",
+      "Babylonia"
+    ],
+    "displayAnswer": "Babylon (Isaiah 14:4)",
+    "explanation": "Isaiah 14:4–23 mocks the hubris of the king of Babylon who boasted 'I will make myself like the Most High,' only to be brought down to Sheol.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_15",
+    "type": "facts",
+    "prompt": "In Isaiah 20:2–3, for how many years did Isaiah walk stripped and barefoot as a dramatic prophetic sign and portent against Egypt and Cush?",
+    "bookId": "ISA",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "3",
+      "three",
+      "3 years",
+      "three years"
+    ],
+    "displayAnswer": "three years (Isaiah 20:3)",
+    "explanation": "Isaiah's three years of walking naked and barefoot warned Judah not to rely on Cush and Egypt, whose captives Assyria would lead away in shame (Isaiah 20:1–6).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_16",
+    "type": "facts",
+    "prompt": "In Isaiah 25:8 (quoted by Paul in 1 Corinthians 15:54), as the Lord prepares a feast for all peoples on his mountain, what great enemy does He promise to \"swallow up... forever\" before wiping away tears from all faces?",
+    "bookId": "ISA",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "death",
+      "the grave",
+      "mortality"
+    ],
+    "displayAnswer": "death (Isaiah 25:8)",
+    "explanation": "Isaiah 25:8 ('He will swallow up death forever; and the Lord GOD will wipe away tears from all faces') anticipates the resurrection victory of Christ and New Creation (1 Cor 15:54; Rev 21:4).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_17",
+    "type": "verse_completion",
+    "prompt": "Isaiah 26:3 (ESV): \"You keep him in perfect ______ whose mind is stayed on you, because he trusts in you.\"",
+    "bookId": "ISA",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "peace",
+      "perfect peace",
+      "shalom"
+    ],
+    "displayAnswer": "peace (Isaiah 26:3)",
+    "explanation": "Literally 'shalom, shalom' in Hebrew, 'perfect peace' belongs to the one whose mind leans steadily on the Lord, the everlasting Rock (Isaiah 26:3–4).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_18",
+    "type": "facts",
+    "prompt": "In Isaiah 28:16 (quoted in Romans 9:33 and 1 Peter 2:6), what architectural stone does the Lord GOD say He is laying in Zion—\"a tested stone, a precious ______ of a sure foundation\"?",
+    "bookId": "ISA",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "cornerstone",
+      "precious cornerstone",
+      "a precious cornerstone",
+      "the cornerstone"
+    ],
+    "displayAnswer": "cornerstone (Isaiah 28:16)",
+    "explanation": "Contrasting Judah's false refuge of lies with God's sure foundation in Zion, Isaiah 28:16 points forward to Christ as the precious cornerstone in whom believers will never be put to shame.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_19",
+    "type": "facts",
+    "prompt": "In Isaiah 35:1–2, what parched, barren landscape \"shall be glad\" and \"rejoice and blossom like the crocus\" when God comes to save His people?",
+    "bookId": "ISA",
+    "chapterNum": 35,
+    "acceptedAnswers": [
+      "wilderness",
+      "the wilderness",
+      "desert",
+      "the desert",
+      "dry land",
+      "the dry land"
+    ],
+    "displayAnswer": "the wilderness / desert (Isaiah 35:1)",
+    "explanation": "Isaiah 35 pictures the cursed desert bursting into bloom, blind eyes opening, deaf ears unstopping, and the ransomed of the Lord returning to Zion with everlasting joy.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_20",
+    "type": "facts",
+    "prompt": "In Isaiah 36–37, which Assyrian king invaded Judah and sent the Rabshakeh to Jerusalem to taunt King Hezekiah and mock the living God, before the angel of the Lord struck down 185,000 in the Assyrian camp?",
+    "bookId": "ISA",
+    "chapterNum": 36,
+    "acceptedAnswers": [
+      "Sennacherib",
+      "King Sennacherib",
+      "Sennacherib king of Assyria"
+    ],
+    "displayAnswer": "Sennacherib (Isaiah 36:1)",
+    "explanation": "Unlike his father Ahaz in Isaiah 7, Hezekiah spread Sennacherib's threatening letter before the Lord in prayer, and God miraculously delivered Jerusalem (Isaiah 37:14–38).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_21",
+    "type": "facts",
+    "prompt": "In Isaiah 38:5, when terminally ill King Hezekiah wept bitterly and prayed to the Lord, how many years did God promise to add to his life (confirmed by the shadow retreating ten steps)?",
+    "bookId": "ISA",
+    "chapterNum": 38,
+    "acceptedAnswers": [
+      "15",
+      "fifteen",
+      "15 years",
+      "fifteen years"
+    ],
+    "displayAnswer": "fifteen / 15 (Isaiah 38:5)",
+    "explanation": "God heard Hezekiah's prayer, added fifteen years to his life, and turned the shadow on the dial of Ahaz back ten steps as a sign (Isaiah 38:5–8).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_22",
+    "type": "facts",
+    "prompt": "In Isaiah 39:1–6, envoys from Merodach-baladan, king of which rising power, viewed all Hezekiah's storehouses—prompting Isaiah to prophesy that Judah's royal treasures and princes would one day be carried away there?",
+    "bookId": "ISA",
+    "chapterNum": 39,
+    "acceptedAnswers": [
+      "Babylon",
+      "Babylonia",
+      "king of Babylon"
+    ],
+    "displayAnswer": "Babylon (Isaiah 39:1, 6)",
+    "explanation": "Isaiah 39 serves as the historical hinge of the book: Hezekiah's foolish display of wealth to Babylonian envoys sets the stage for the Babylonian exile addressed in Isaiah 40–66.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_23",
+    "type": "verse_completion",
+    "prompt": "Isaiah 40:8 (ESV): \"The grass withers, the flower fades, but the ______ of our God will stand forever.\"",
+    "bookId": "ISA",
+    "chapterNum": 40,
+    "acceptedAnswers": [
+      "word",
+      "the word",
+      "word of our God"
+    ],
+    "displayAnswer": "word (Isaiah 40:8)",
+    "explanation": "Whereas human empires and flesh wither like grass under God's breath, every promise of God's Word endures forever (Isaiah 40:6–8; cf. 1 Peter 1:24–25).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_24",
+    "type": "verse_completion",
+    "prompt": "Isaiah 40:31 (ESV): \"but they who wait for the Lord shall renew their strength; they shall mount up with wings like ______...\"",
+    "bookId": "ISA",
+    "chapterNum": 40,
+    "acceptedAnswers": [
+      "eagles",
+      "like eagles",
+      "eagle",
+      "an eagle"
+    ],
+    "displayAnswer": "eagles (Isaiah 40:31)",
+    "explanation": "Though even vigorous youths faint and grow weary, the inexhaustible Creator imparts fresh, soaring strength to all who wait in faith upon Him (Isaiah 40:28–31).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_25",
+    "type": "verse_completion",
+    "prompt": "Isaiah 41:10 (ESV): \"fear not, for I am with you; be not dismayed, for I am your God; I will strengthen you, I will help you, I will uphold you with my ______ right hand.\"",
+    "bookId": "ISA",
+    "chapterNum": 41,
+    "acceptedAnswers": [
+      "righteous",
+      "my righteous",
+      "righteous right hand"
+    ],
+    "displayAnswer": "righteous (Isaiah 41:10)",
+    "explanation": "Addressing fearful Israel as His chosen servant, God dispels terror with five covenant assurances anchored in His presence and His victorious, righteous right hand (Isaiah 41:8–10).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_26",
+    "type": "verse_completion",
+    "prompt": "Isaiah 42:3 (ESV): \"a bruised ______ he will not break, and a faintly burning wick he will not quench; he will faithfully bring forth justice.\"",
+    "bookId": "ISA",
+    "chapterNum": 42,
+    "acceptedAnswers": [
+      "reed",
+      "bruised reed",
+      "a bruised reed"
+    ],
+    "displayAnswer": "reed (Isaiah 42:3)",
+    "explanation": "In the first Servant Song (Isaiah 42:1–4; quoted of Jesus in Matthew 12:18–21), the Spirit-anointed Servant establishes global justice with tender compassion toward the weak and broken.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_27",
+    "type": "facts",
+    "prompt": "In Isaiah 44:28–45:1, which Persian conqueror does the Lord name long beforehand as His \"shepherd\" and His \"anointed,\" who will decree the rebuilding of Jerusalem and the temple?",
+    "bookId": "ISA",
+    "chapterNum": 45,
+    "acceptedAnswers": [
+      "Cyrus",
+      "King Cyrus",
+      "Cyrus the Great"
+    ],
+    "displayAnswer": "Cyrus (Isaiah 45:1)",
+    "explanation": "Demonstrating His unique sovereignty over history against lifeless idols, the Lord names Cyrus more than a century before Cyrus's 538 BC edict freeing the Jewish exiles (Ezra 1:1–4).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_28",
+    "type": "verse_completion",
+    "prompt": "Isaiah 52:7 (ESV): \"How beautiful upon the mountains are the ______ of him who brings good news, who publishes peace...\"",
+    "bookId": "ISA",
+    "chapterNum": 52,
+    "acceptedAnswers": [
+      "feet",
+      "the feet",
+      "beautiful feet"
+    ],
+    "displayAnswer": "feet (Isaiah 52:7)",
+    "explanation": "Picturing a herald racing across the hills to announce to Zion 'Your God reigns!' Isaiah 52:7 becomes Paul's classic text for gospel proclamation in Romans 10:15.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_29",
+    "type": "verse_completion",
+    "prompt": "Isaiah 53:5 (ESV): \"But he was pierced for our ______; he was crushed for our iniquities; upon him was the chastisement that brought us peace, and with his wounds we are healed.\"",
+    "bookId": "ISA",
+    "chapterNum": 53,
+    "acceptedAnswers": [
+      "transgressions",
+      "our transgressions",
+      "for our transgressions",
+      "transgression"
+    ],
+    "displayAnswer": "transgressions (Isaiah 53:5)",
+    "explanation": "At the heart of the fourth Servant Song (52:13–53:12), Isaiah 53:5 proclaims penal substitutionary atonement—the sinless Servant bearing our guilt to bring us peace and healing.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_30",
+    "type": "verse_completion",
+    "prompt": "Isaiah 53:6 (ESV): \"All we like ______ have gone astray; we have turned—every one—to his own way; and the Lord has laid on him the iniquity of us all.\"",
+    "bookId": "ISA",
+    "chapterNum": 53,
+    "acceptedAnswers": [
+      "sheep",
+      "like sheep",
+      "lost sheep"
+    ],
+    "displayAnswer": "sheep (Isaiah 53:6)",
+    "explanation": "Framed by 'All we' and 'of us all,' Isaiah 53:6 diagnoses universal human waywardness and announces the Lord laying our collective iniquity upon the Suffering Servant.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_31",
+    "type": "verse_completion",
+    "prompt": "Isaiah 55:8 (ESV): \"For my ______ are not your thoughts, neither are your ways my ways, declares the Lord.\"",
+    "bookId": "ISA",
+    "chapterNum": 55,
+    "acceptedAnswers": [
+      "thoughts",
+      "my thoughts",
+      "God's thoughts"
+    ],
+    "displayAnswer": "thoughts (Isaiah 55:8)",
+    "explanation": "In context (Isaiah 55:7–9), God's transcendent thoughts and ways surpass human expectations especially in His abundant, free pardon of repentant sinners.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_32",
+    "type": "verse_completion",
+    "prompt": "Isaiah 61:1 (ESV): \"The Spirit of the Lord GOD is upon me, because the Lord has anointed me to bring good news to the ______; he has sent me to bind up the brokenhearted...\"",
+    "bookId": "ISA",
+    "chapterNum": 61,
+    "acceptedAnswers": [
+      "poor",
+      "the poor",
+      "afflicted"
+    ],
+    "displayAnswer": "poor (Isaiah 61:1)",
+    "explanation": "Reading Isaiah 61:1–2 aloud in the Nazareth synagogue, Jesus declared, 'Today this Scripture has been fulfilled in your hearing' (Luke 4:18–21).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_33",
+    "type": "verse_completion",
+    "prompt": "Isaiah 64:8 (ESV): \"But now, O Lord, you are our Father; we are the ______, and you are our potter; we are all the work of your hand.\"",
+    "bookId": "ISA",
+    "chapterNum": 64,
+    "acceptedAnswers": [
+      "clay",
+      "the clay",
+      "lump of clay"
+    ],
+    "displayAnswer": "clay (Isaiah 64:8)",
+    "explanation": "Confessing that all our righteous deeds are like a polluted garment (64:6), the remnant appeals humbly to God as Father and sovereign Potter to reshape His people (Isaiah 64:8).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_isa_34",
+    "type": "facts",
+    "prompt": "In Isaiah 66:1 (quoted in Matthew 5:35 and Acts 7:49), while calling heaven His throne, to what piece of furniture does the Lord compare the earth (\"and the earth is my ______\")?",
+    "bookId": "ISA",
+    "chapterNum": 66,
+    "acceptedAnswers": [
+      "footstool",
+      "my footstool",
+      "a footstool",
+      "his footstool"
+    ],
+    "displayAnswer": "footstool (Isaiah 66:1)",
+    "explanation": "Declaring 'Heaven is my throne, and the earth is my footstool,' the transcendent Creator looks with favor not on mere ritual buildings, but on the humble and contrite in spirit who tremble at His word (Isaiah 66:1–2).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_1",
+    "type": "facts",
+    "prompt": "According to Jeremiah 1:1, in what Levitical priestly town in the territory of Benjamin did Jeremiah's family live?",
+    "bookId": "JER",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Anathoth",
+      "town of Anathoth",
+      "in Anathoth"
+    ],
+    "displayAnswer": "Anathoth (Jeremiah 1:1)",
+    "explanation": "Jeremiah was the son of Hilkiah, one of the priests in Anathoth just northeast of Jerusalem, though the men of Anathoth later plotted against his life (Jeremiah 11:21).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_2",
+    "type": "verse_completion",
+    "prompt": "Jeremiah 1:5 (ESV): \"Before I formed you in the ______ I knew you, and before you were born I consecrated you; I appointed you a prophet to the nations.\"",
+    "bookId": "JER",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "womb",
+      "the womb",
+      "in the womb"
+    ],
+    "displayAnswer": "womb (Jeremiah 1:5)",
+    "explanation": "Before Jeremiah's conception and birth, God sovereignly knew, set apart, and commissioned him as His prophet to the nations (Jeremiah 1:5).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_3",
+    "type": "facts",
+    "prompt": "In Jeremiah 1:11–12, a branch of what early-budding tree (Hebrew 'shaqed') did Jeremiah see in his first vision, signifying that the Lord is \"watching over\" ('shoqed') His word to perform it?",
+    "bookId": "JER",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "almond",
+      "almond tree",
+      "an almond tree",
+      "almond branch",
+      "rod of almond"
+    ],
+    "displayAnswer": "almond tree (Jeremiah 1:11)",
+    "explanation": "The almond tree—first to blossom in late winter ('the watcher tree')—formed a vivid Hebrew wordplay assuring young Jeremiah that God watches alertly to fulfill His word (Jeremiah 1:11–12).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_4",
+    "type": "facts",
+    "prompt": "In Jeremiah 2:13, God charges His people with two evils: forsaking Him, \"the fountain of living waters,\" and hewing out broken what for themselves that can hold no water?",
+    "bookId": "JER",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "cisterns",
+      "broken cisterns",
+      "cistern",
+      "cracked cisterns"
+    ],
+    "displayAnswer": "broken cisterns (Jeremiah 2:13)",
+    "explanation": "Trading an ever-flowing spring for cracked limestone pits exposes the utter folly of abandoning the living God for powerless idols and foreign alliances (Jeremiah 2:13).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_5",
+    "type": "facts",
+    "prompt": "In his famous Temple Sermon in Jeremiah 7:11 (later quoted by Jesus when cleansing the temple), Jeremiah asks if God's house has become \"a den of ______\" in the people's eyes?",
+    "bookId": "JER",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "robbers",
+      "den of robbers",
+      "a den of robbers",
+      "thieves"
+    ],
+    "displayAnswer": "robbers (Jeremiah 7:11)",
+    "explanation": "Judah treated the Jerusalem temple like a hideout where robbers flee for safety after committing murder, theft, and idolatry, chanting 'This is the temple of the Lord' (Jeremiah 7:4–11).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_6",
+    "type": "facts",
+    "prompt": "In Jeremiah 8:22, weeping over the unhealed spiritual wound of his people, the prophet famously asks, \"Is there no balm in ______? Is there no physician there?\"",
+    "bookId": "JER",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Gilead",
+      "in Gilead",
+      "balm in Gilead"
+    ],
+    "displayAnswer": "Gilead (Jeremiah 8:22)",
+    "explanation": "Though mountainous Gilead east of the Jordan was renowned across the ancient world for its medicinal resin ('balm'), no earthly salve could cure unrepentant Judah's spiritual sickness (Jeremiah 8:21–22).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_7",
+    "type": "verse_completion",
+    "prompt": "Jeremiah 9:23 (ESV): \"Thus says the Lord: 'Let not the wise man boast in his ______, let not the mighty man boast in his might, let not the rich man boast in his riches...'\"",
+    "bookId": "JER",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "wisdom",
+      "his wisdom",
+      "in his wisdom"
+    ],
+    "displayAnswer": "wisdom (Jeremiah 9:23)",
+    "explanation": "Sweeping aside human pride in intellect, power, or wealth, Jeremiah 9:23–24 declares that the one who boasts should boast only in understanding and knowing the Lord (cf. 1 Cor 1:31).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_8",
+    "type": "facts",
+    "prompt": "In Jeremiah 13:1–11, what linen undergarment or waistband did God command Jeremiah to buy, wear, and hide in a cleft of the rock until it was ruined and \"good for nothing,\" illustrating Judah's spoiled pride?",
+    "bookId": "JER",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "loincloth",
+      "a loincloth",
+      "linen loincloth",
+      "a linen loincloth",
+      "belt",
+      "linen belt",
+      "waistband",
+      "sash"
+    ],
+    "displayAnswer": "a linen loincloth (Jeremiah 13:1)",
+    "explanation": "Just as a loincloth clings close to a man's waist, God bound Israel and Judah close to Himself for His praise—yet idolatry left them ruined like the rotted linen (Jeremiah 13:1–11).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_9",
+    "type": "verse_completion",
+    "prompt": "Jeremiah 17:7 (ESV): \"Blessed is the man who ______ in the Lord, whose trust is the Lord.\"",
+    "bookId": "JER",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "trusts",
+      "trust",
+      "hopes"
+    ],
+    "displayAnswer": "trusts (Jeremiah 17:7)",
+    "explanation": "Contrasting the cursed shrub in the desert (17:5–6) with a thriving tree planted by water (17:7–8), Jeremiah 17 shows how trusting the Lord sustains fruitfulness even in years of drought.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_10",
+    "type": "verse_completion",
+    "prompt": "Jeremiah 17:9 (ESV): \"The ______ is deceitful above all things, and desperately sick; who can understand it?\"",
+    "bookId": "JER",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "heart",
+      "the heart",
+      "human heart"
+    ],
+    "displayAnswer": "heart (Jeremiah 17:9)",
+    "explanation": "Jeremiah 17:9–10 exposes the deep self-deception and incurable sickness of the fallen human heart, which only the Lord can search, test, and ultimately replace (31:33).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_11",
+    "type": "facts",
+    "prompt": "In Jeremiah 18:1–6, to what craftsman's workshop did the Lord send Jeremiah to watch spoiled clay being reshaped on the wheel into another vessel, illustrating God's sovereign right over nations?",
+    "bookId": "JER",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "potter",
+      "the potter",
+      "a potter",
+      "potter's house",
+      "the potter's house"
+    ],
+    "displayAnswer": "the potter's house (Jeremiah 18:2)",
+    "explanation": "At the potter's house, God showed Jeremiah that like clay in the potter's hand, if a warned nation turns from evil He will relent of disaster, and if a privileged nation does evil He will judge (Jeremiah 18:1–10).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_12",
+    "type": "facts",
+    "prompt": "In Jeremiah 20:1–2, which priest—the son of Immer and chief officer in the house of the Lord—struck Jeremiah and locked him overnight in the stocks after hearing his prophecy of doom?",
+    "bookId": "JER",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "Pashhur",
+      "Pashur",
+      "Pashhur son of Immer"
+    ],
+    "displayAnswer": "Pashhur (Jeremiah 20:1)",
+    "explanation": "When Pashhur released Jeremiah from the stocks the next day, Jeremiah fearlessly renamed him 'Magor-missabib' ('Terror on every side') and foretold his death in Babylonian captivity (Jeremiah 20:1–6).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_13",
+    "type": "verse_completion",
+    "prompt": "Jeremiah 20:9 (ESV): \"If I say, 'I will not mention him, or speak any more in his name,' there is in my heart as it were a burning ______ shut up in my bones...\"",
+    "bookId": "JER",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "fire",
+      "burning fire",
+      "a burning fire"
+    ],
+    "displayAnswer": "fire (Jeremiah 20:9)",
+    "explanation": "Mocked and persecuted daily, Jeremiah tried to keep silent, yet God's irrepressible Word burned like fire shut up in his bones until he could no longer hold it in (Jeremiah 20:7–9).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_14",
+    "type": "verse_completion",
+    "prompt": "Jeremiah 23:29 (ESV): \"Is not my word like fire, declares the Lord, and like a ______ that breaks the rock in pieces?\"",
+    "bookId": "JER",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "hammer",
+      "a hammer",
+      "the hammer"
+    ],
+    "displayAnswer": "hammer (Jeremiah 23:29)",
+    "explanation": "Contrasting false prophets' frothy dreams (straw) with true revelation (wheat), God compares His Word to consuming fire and a rock-shattering hammer (Jeremiah 23:28–29).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_15",
+    "type": "facts",
+    "prompt": "In Jeremiah 24:1–3, two baskets of what fruit—one very good and one so rotten it could not be eaten—set before the temple represented the exiles taken to Babylon versus Zedekiah's remnant in Jerusalem?",
+    "bookId": "JER",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "figs",
+      "fig",
+      "baskets of figs",
+      "two baskets of figs"
+    ],
+    "displayAnswer": "figs (Jeremiah 24:1)",
+    "explanation": "Reversing popular assumptions in Jerusalem, Jeremiah 24 revealed that the exiles already carried to Babylon with Jeconiah were the 'good figs' whom God would watch over and restore.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_16",
+    "type": "facts",
+    "prompt": "In Jeremiah 25:11–12 (and 29:10), for how many years did Jeremiah prophesy that Judah and the surrounding nations would serve the king of Babylon before God punished Babylon and brought His people back?",
+    "bookId": "JER",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "70",
+      "seventy",
+      "70 years",
+      "seventy years"
+    ],
+    "displayAnswer": "seventy / 70 (Jeremiah 25:11)",
+    "explanation": "Jeremiah's landmark prophecy of seventy years of Babylonian domination later prompted Daniel's earnest intercessory prayer in Daniel 9:2.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_17",
+    "type": "facts",
+    "prompt": "In Jeremiah 28:1–17, which false prophet from Gibeon dramatically broke the wooden yoke bar off Jeremiah's neck, falsely promising Babylon's yoke would break in two years—only to die two months later?",
+    "bookId": "JER",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "Hananiah",
+      "Hananiah son of Azzur",
+      "the prophet Hananiah"
+    ],
+    "displayAnswer": "Hananiah (Jeremiah 28:1, 10)",
+    "explanation": "God sent Jeremiah back to tell Hananiah that in breaking wooden bars he had forged bars of iron—and because Hananiah made the people trust in a lie, he died in the seventh month of that very year (Jeremiah 28:12–17).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_18",
+    "type": "verse_completion",
+    "prompt": "Jeremiah 29:11 (ESV): \"For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a ______.\"",
+    "bookId": "JER",
+    "chapterNum": 29,
+    "acceptedAnswers": [
+      "hope",
+      "a hope",
+      "future and a hope"
+    ],
+    "displayAnswer": "hope (Jeremiah 29:11)",
+    "explanation": "Written in Jeremiah's letter to the exiles in Babylon—telling them to build houses, plant gardens, and seek the welfare of the city for seventy years—Jeremiah 29:11 anchors patience in God's promised future and hope.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_19",
+    "type": "verse_completion",
+    "prompt": "Jeremiah 29:13 (ESV): \"You will seek me and find me, when you seek me with all your ______.\"",
+    "bookId": "JER",
+    "chapterNum": 29,
+    "acceptedAnswers": [
+      "heart",
+      "your heart",
+      "all your heart"
+    ],
+    "displayAnswer": "heart (Jeremiah 29:13)",
+    "explanation": "Echoing Deuteronomy 4:29, Jeremiah 29:13 assures the chastened exiles that when they turn back from halfheartedness to seek the Lord with all their heart, He will let Himself be found.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_20",
+    "type": "verse_completion",
+    "prompt": "Jeremiah 31:3 (ESV): \"The Lord appeared to him from far away. I have loved you with an ______ love; therefore I have continued my faithfulness to you.\"",
+    "bookId": "JER",
+    "chapterNum": 31,
+    "acceptedAnswers": [
+      "everlasting",
+      "an everlasting",
+      "everlasting love",
+      "eternal"
+    ],
+    "displayAnswer": "everlasting (Jeremiah 31:3)",
+    "explanation": "Standing in the 'Book of Consolation' (Jeremiah 30–33), Jeremiah 31:3 grounds Israel's future restoration not in human merit, but in God's unchanging, everlasting covenant love.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_21",
+    "type": "verse_completion",
+    "prompt": "Jeremiah 31:31 (ESV): \"Behold, the days are coming, declares the Lord, when I will make a ______ covenant with the house of Israel and the house of Judah...\"",
+    "bookId": "JER",
+    "chapterNum": 31,
+    "acceptedAnswers": [
+      "new",
+      "a new",
+      "new covenant"
+    ],
+    "displayAnswer": "new (Jeremiah 31:31)",
+    "explanation": "Jeremiah 31:31–34 is the premier Old Testament prophecy of the New Covenant—writing God's law on the heart and forgiving sin forever—inaugurated in Jesus' blood (Luke 22:20; Hebrews 8:8–12).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_22",
+    "type": "facts",
+    "prompt": "In Jeremiah 32:6–15, while imprisoned during Babylon's siege of Jerusalem, what real estate at Anathoth did Jeremiah buy for seventeen shekels of silver from his cousin Hanamel as a pledge of future restoration?",
+    "bookId": "JER",
+    "chapterNum": 32,
+    "acceptedAnswers": [
+      "field",
+      "a field",
+      "the field",
+      "land",
+      "piece of land",
+      "plot of land"
+    ],
+    "displayAnswer": "a field (Jeremiah 32:7–9)",
+    "explanation": "Buying a field already occupied by invading Babylonian troops seemed absurd, yet sealing the deed in an earthenware jar proclaimed God's promise: 'Houses and fields and vineyards shall again be bought in this land' (Jeremiah 32:15).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_23",
+    "type": "verse_completion",
+    "prompt": "Jeremiah 33:3 (ESV): \"______ to me and I will answer you, and will tell you great and hidden things that you have not known.\"",
+    "bookId": "JER",
+    "chapterNum": 33,
+    "acceptedAnswers": [
+      "Call",
+      "Call to me",
+      "pray"
+    ],
+    "displayAnswer": "Call (Jeremiah 33:3)",
+    "explanation": "Shut up in the court of the guard as Jerusalem crumbled, Jeremiah received God's invitation in 33:3 to call upon the Creator who promised cleansing, rebuilding, and the righteous Branch of David.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_24",
+    "type": "facts",
+    "prompt": "In Jeremiah 36:4, who was Jeremiah's loyal scribe—the son of Neriah—who wrote down all the words of the Lord on a scroll from Jeremiah's mouth and read them aloud in the temple?",
+    "bookId": "JER",
+    "chapterNum": 36,
+    "acceptedAnswers": [
+      "Baruch",
+      "Baruch son of Neriah",
+      "Baruch the scribe"
+    ],
+    "displayAnswer": "Baruch (Jeremiah 36:4)",
+    "explanation": "Baruch son of Neriah faithfully served alongside Jeremiah through persecution, rewrote the burned scroll with added words (36:32), and received a personal word of comfort in Jeremiah 45.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_25",
+    "type": "facts",
+    "prompt": "In Jeremiah 36:22–23, which defiant king of Judah cut columns off Jeremiah's prophetic scroll with a scribe's knife and tossed them into the winter firepot until the entire scroll was consumed?",
+    "bookId": "JER",
+    "chapterNum": 36,
+    "acceptedAnswers": [
+      "Jehoiakim",
+      "King Jehoiakim",
+      "Jehoiakim king of Judah"
+    ],
+    "displayAnswer": "King Jehoiakim (Jeremiah 36:22–23)",
+    "explanation": "Whereas his godly father Josiah tore his clothes in repentance upon hearing God's scroll (2 Kings 22:11), Jehoiakim brazenly sliced and burned God's Word without fear (Jeremiah 36:22–24).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_26",
+    "type": "facts",
+    "prompt": "In Jeremiah 38:6–13, when Judean officials lowered Jeremiah into a muddy cistern to starve, which courageous Ethiopian (Cushite) eunuch interceded with King Zedekiah and hoisted Jeremiah out using padded ropes?",
+    "bookId": "JER",
+    "chapterNum": 38,
+    "acceptedAnswers": [
+      "Ebed-melech",
+      "Ebedmelech",
+      "Ebed-melech the Ethiopian"
+    ],
+    "displayAnswer": "Ebed-melech (Jeremiah 38:7–13)",
+    "explanation": "Because the foreign court official Ebed-melech trusted in the Lord and risked his life to rescue God's prophet, God promised in Jeremiah 39:15–18 to spare his life when Jerusalem fell.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_27",
+    "type": "facts",
+    "prompt": "In Jeremiah 43:5–7, after assassins killed Governor Gedaliah, to what foreign land did Johanan and the rebellious Judean remnant carry Jeremiah and Baruch in direct disobedience to God's word?",
+    "bookId": "JER",
+    "chapterNum": 43,
+    "acceptedAnswers": [
+      "Egypt",
+      "land of Egypt",
+      "the land of Egypt",
+      "Tahpanhes"
+    ],
+    "displayAnswer": "Egypt (Jeremiah 43:7)",
+    "explanation": "Tragically reversing the Exodus, the fearful Judean remnant rejected God's promise of safety in Judah and dragged the aging prophet down to Tahpanhes in Egypt (Jeremiah 42–43).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_jer_28",
+    "type": "facts",
+    "prompt": "At the close of the book in Jeremiah 52:31–34, which exiled king of Judah did Evil-merodach king of Babylon release from prison in his thirty-seventh year of captivity and seat at the king's table for life?",
+    "bookId": "JER",
+    "chapterNum": 52,
+    "acceptedAnswers": [
+      "Jehoiachin",
+      "King Jehoiachin",
+      "Jeconiah",
+      "Coniah"
+    ],
+    "displayAnswer": "Jehoiachin (Jeremiah 52:31)",
+    "explanation": "Mirroring the hopeful ending of 2 Kings 25:27–30, the release and royal allowance granted to David's descendant Jehoiachin signaled that the Davidic line remained alive in exile.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_1",
+    "type": "facts",
+    "prompt": "In Lamentations 1:1, the ruined city of Jerusalem—once \"great among the nations\"—is personified as sitting lonely like what bereaved woman (\"How like a ______ has she become\")?",
+    "bookId": "LAM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "widow",
+      "a widow",
+      "like a widow"
+    ],
+    "displayAnswer": "a widow (Lamentations 1:1)",
+    "explanation": "Lamentations 1:1 opens with the haunting funeral cry 'How!' ('Eikah'), portraying fallen Jerusalem as a weeping widow abandoned by her former allies and lovers.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_2",
+    "type": "facts",
+    "prompt": "In Lamentations 1 (as well as chapters 2, 3, and 4), what structured poetic device—ordering stanzas sequentially through the twenty-two letters of the Hebrew alphabet—shapes the lament?",
+    "bookId": "LAM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "acrostic",
+      "an acrostic",
+      "alphabetic acrostic",
+      "acrostic poem",
+      "alphabetical acrostic"
+    ],
+    "displayAnswer": "alphabetic acrostic (Lamentations 1)",
+    "explanation": "Chapters 1, 2, and 4 are 22-verse alphabetic acrostics and Chapter 3 is an intensified 66-verse triple acrostic, expressing grief from 'Aleph to Tav' (A to Z) within artistic order.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_3",
+    "type": "verse_completion",
+    "prompt": "Lamentations 1:12 (ESV): \"Is it nothing to you, all you who pass by? Look and see if there is any ______ like my sorrow, which was brought upon me...\"",
+    "bookId": "LAM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "sorrow",
+      "any sorrow",
+      "pain",
+      "grief"
+    ],
+    "displayAnswer": "sorrow (Lamentations 1:12)",
+    "explanation": "Personified Zion calls out to indifferent passersby in Lamentations 1:12 to witness the depth of affliction the righteous Lord brought upon her in the day of His fierce anger.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_4",
+    "type": "facts",
+    "prompt": "Throughout Lamentations 2 (e.g., 2:1, 4, 8, 13, 18), by what poetic title—\"the daughter of ______\"—is devastated Jerusalem repeatedly addressed?",
+    "bookId": "LAM",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Zion",
+      "daughter of Zion",
+      "the daughter of Zion"
+    ],
+    "displayAnswer": "Zion / the daughter of Zion (Lamentations 2:1)",
+    "explanation": "'The daughter of Zion' personifies Jerusalem and its inhabitants, whose ramparts, gates, and sanctuary were cast down in the 586 BC Babylonian destruction (Lamentations 2:1–9).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_5",
+    "type": "facts",
+    "prompt": "In Lamentations 2:14, which group of religious leaders in Jerusalem is indicted for having \"seen for you false and deceptive visions\" and failing to expose the people's iniquity before exile fell?",
+    "bookId": "LAM",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "prophets",
+      "your prophets",
+      "her prophets",
+      "the prophets",
+      "false prophets"
+    ],
+    "displayAnswer": "your prophets / false prophets (Lamentations 2:14)",
+    "explanation": "Rather than calling Jerusalem to repentance as Jeremiah did, popular prophets offered soothing illusions of peace that hastened the city's ruin (Lamentations 2:14).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_6",
+    "type": "verse_completion",
+    "prompt": "Lamentations 2:19 (ESV): \"Arise, cry out in the night, at the beginning of the night watches! Pour out your ______ like water before the presence of the Lord!\"",
+    "bookId": "LAM",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "heart",
+      "your heart",
+      "soul"
+    ],
+    "displayAnswer": "heart (Lamentations 2:19)",
+    "explanation": "Amid unspeakable famine where children faint in the streets, Lamentations 2:19 summons grieving Zion to pour out her heart in unrestrained prayer before the Lord.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_7",
+    "type": "verse_completion",
+    "prompt": "Lamentations 3:22–23 (ESV): \"The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every ______; great is your faithfulness.\"",
+    "bookId": "LAM",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "morning",
+      "every morning",
+      "day"
+    ],
+    "displayAnswer": "morning (Lamentations 3:23)",
+    "explanation": "At the structural center of the entire book, Lamentations 3:21–24 anchors hope amid rubble in the Lord's unfailing covenant love ('hesed'), fresh daily mercies, and great faithfulness.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_8",
+    "type": "verse_completion",
+    "prompt": "Lamentations 3:24 (ESV): \"'The Lord is my ______,' says my soul, 'therefore I will hope in him.'\"",
+    "bookId": "LAM",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "portion",
+      "my portion",
+      "inheritance"
+    ],
+    "displayAnswer": "portion (Lamentations 3:24)",
+    "explanation": "Even when land, homes, and temple treasures were lost to Babylon, the believer could still confess with the Levites and psalmists: 'The Lord is my portion' (Lamentations 3:24).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_9",
+    "type": "facts",
+    "prompt": "In Lamentations 3:27, what wooden burden-bearing frame is named in the wisdom saying: \"It is good for a man that he bear the ______ in his youth\"?",
+    "bookId": "LAM",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "yoke",
+      "the yoke",
+      "a yoke"
+    ],
+    "displayAnswer": "the yoke (Lamentations 3:27)",
+    "explanation": "Lamentations 3:26–33 teaches quiet patience under God's chastening yoke, knowing the Lord does not afflict from His heart and will show compassion according to His steadfast love.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_10",
+    "type": "verse_completion",
+    "prompt": "Lamentations 3:40 (ESV): \"Let us test and examine our ______, and return to the Lord!\"",
+    "bookId": "LAM",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "ways",
+      "our ways",
+      "paths"
+    ],
+    "displayAnswer": "ways (Lamentations 3:40)",
+    "explanation": "Rather than complaining over the punishment of sins (3:39), Lamentations 3:40–41 calls the community to honest self-examination, confession, and heartfelt return to God.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_11",
+    "type": "facts",
+    "prompt": "Lamentations 4:1 opens by mourning Jerusalem's lost glory under the image of a tarnished precious metal: \"How the ______ has grown dim, how the pure ______ is changed!\" What metal is named?",
+    "bookId": "LAM",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "gold",
+      "pure gold",
+      "the gold"
+    ],
+    "displayAnswer": "gold (Lamentations 4:1)",
+    "explanation": "Lamentations 4:1–2 likens both the scattered sacred stones of the sanctuary and the precious sons of Zion—once worth their weight in fine gold—to cheap earthen pots.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_12",
+    "type": "facts",
+    "prompt": "In Lamentations 4:21–22, which hostile neighboring nation descended from Esau (dwelling in the land of Uz) is ironically told to rejoice while it can, because the Lord's cup of wrath will soon pass to her as well?",
+    "bookId": "LAM",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Edom",
+      "daughter of Edom",
+      "the daughter of Edom",
+      "Edomites"
+    ],
+    "displayAnswer": "Edom (Lamentations 4:21–22)",
+    "explanation": "Because Edom gloated over Jerusalem's destruction and aided Babylon (cf. Obadiah 10–14; Psalm 137:7), Lamentations 4:21–22 announces that Edom too will drink the cup of judgment.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_13",
+    "type": "facts",
+    "prompt": "How many verses make up the communal prayer of Lamentations 5—matching the number of letters in the Hebrew alphabet even though this final chapter drops the strict acrostic letter sequence?",
+    "bookId": "LAM",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "22",
+      "twenty-two",
+      "22 verses",
+      "twenty-two verses"
+    ],
+    "displayAnswer": "twenty-two / 22 (Lamentations 5:1–22)",
+    "explanation": "Retaining exactly 22 verses while relinquishing alphabetical order, Lamentations 5 mirrors a shattered remnant pouring out raw communal petition ('Remember, O Lord, what has befallen us').",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_lam_14",
+    "type": "verse_completion",
+    "prompt": "Lamentations 5:21 (ESV): \"______ us to yourself, O Lord, that we may be restored! Renew our days as of old—\"",
+    "bookId": "LAM",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Restore",
+      "Restore us",
+      "Turn us back"
+    ],
+    "displayAnswer": "Restore (Lamentations 5:21)",
+    "explanation": "Confessing 'You, O Lord, reign forever' (5:19), Lamentations closes by acknowledging that true spiritual restoration depends wholly on God turning His people back to Himself (5:21).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_1",
+    "type": "facts",
+    "prompt": "In Ezekiel 1:1–3, beside what waterway in the land of the Chaldeans was Ezekiel the priest living among the exiles when the heavens opened and he saw visions of God?",
+    "bookId": "EZE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Chebar",
+      "Chebar canal",
+      "the Chebar canal",
+      "Kebar",
+      "River Chebar"
+    ],
+    "displayAnswer": "the Chebar canal (Ezekiel 1:1)",
+    "explanation": "Taken to Babylonia with King Jehoiachin in 597 BC, Ezekiel received his inaugural throne-chariot vision beside the Chebar irrigation canal near Nippur (Ezekiel 1:1–3).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_2",
+    "type": "facts",
+    "prompt": "In Ezekiel 1:10, each of the four living creatures had four faces: the face of a man, a lion on the right, an ox on the left, and what swift bird?",
+    "bookId": "EZE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "eagle",
+      "an eagle",
+      "the eagle",
+      "face of an eagle"
+    ],
+    "displayAnswer": "an eagle (Ezekiel 1:10)",
+    "explanation": "Representing intelligence (man), majesty (lion), strength in service (ox), and swiftness (eagle), these four cherubic faces reappear around God's throne in Ezekiel 10:14 and Revelation 4:7.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_3",
+    "type": "facts",
+    "prompt": "In Ezekiel 1:15–18, beside each of the four living creatures gleamed a beryl-colored structure whose construction looked like \"a ______ within a ______,\" with tall rims full of eyes all around. What object is named?",
+    "bookId": "EZE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "wheel",
+      "wheels",
+      "a wheel",
+      "wheel within a wheel",
+      "a wheel within a wheel"
+    ],
+    "displayAnswer": "wheel (Ezekiel 1:16)",
+    "explanation": "Moving in all four directions without turning and covered with eyes, the 'wheel within a wheel' signified God's omniscient, unrestricted mobility—His throne was not trapped in Jerusalem!",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_4",
+    "type": "facts",
+    "prompt": "Beginning in Ezekiel 2:1 and occurring more than ninety times across the book, by what three-word title emphasizing his creaturely mortality does the Lord address Ezekiel?",
+    "bookId": "EZE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "son of man",
+      "O son of man",
+      "mortal"
+    ],
+    "displayAnswer": "son of man (Ezekiel 2:1)",
+    "explanation": "In Ezekiel, 'son of man' (Hebrew 'ben-adam', mortal human) underscores the prophet's humble humanity in stark contrast to the transcendent glory of the Lord GOD.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_5",
+    "type": "facts",
+    "prompt": "In Ezekiel 2:9–3:3, what object written on front and back with \"words of lamentation and mourning and woe\" did God command Ezekiel to eat, becoming sweet as honey in his mouth?",
+    "bookId": "EZE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "scroll",
+      "a scroll",
+      "the scroll",
+      "roll of a book"
+    ],
+    "displayAnswer": "a scroll (Ezekiel 3:1–3)",
+    "explanation": "Internalizing God's Word completely before speaking it to rebellious Israel, Ezekiel ate the scroll and found even a heavy message sweet because it came from God (Ezekiel 3:1–3; cf. Rev 10:9–10).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_6",
+    "type": "verse_completion",
+    "prompt": "Ezekiel 3:17 (ESV): \"Son of man, I have made you a ______ for the house of Israel. Whenever you hear a word from my mouth, you shall give them warning from me.\"",
+    "bookId": "EZE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "watchman",
+      "a watchman",
+      "sentinel"
+    ],
+    "displayAnswer": "watchman (Ezekiel 3:17)",
+    "explanation": "Appointed twice as Israel's spiritual watchman (Ezekiel 3:17; 33:7), Ezekiel bore solemn responsibility to sound God's warning faithfully whether people listened or refused.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_7",
+    "type": "facts",
+    "prompt": "In Ezekiel 4:1–2, on what clay building material did God instruct Ezekiel to engrave a map of Jerusalem and construct miniature siegeworks against it as a sign-act?",
+    "bookId": "EZE",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "brick",
+      "a brick",
+      "clay brick",
+      "a clay brick",
+      "tile"
+    ],
+    "displayAnswer": "a brick (Ezekiel 4:1)",
+    "explanation": "Using a sun-dried Mesopotamian mud brick, an iron griddle as a wall, and rationed bread, Ezekiel enacted before the exiles the coming Babylonian siege of Jerusalem (Ezekiel 4:1–3).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_8",
+    "type": "facts",
+    "prompt": "In Ezekiel 8:14, transported in visions to the Jerusalem temple to witness its secret abominations, Ezekiel saw women sitting at the north gate weeping for which Mesopotamian vegetation/fertility deity?",
+    "bookId": "EZE",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Tammuz",
+      "the god Tammuz",
+      "Dumuzi"
+    ],
+    "displayAnswer": "Tammuz (Ezekiel 8:14)",
+    "explanation": "Ezekiel 8 exposes escalating pagan syncretism right inside the Lord's temple: an image of jealousy, elders burning incense to animal carvings, women weeping for Tammuz, and men worshiping the sun.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_9",
+    "type": "facts",
+    "prompt": "In Ezekiel 10:18–19 (and 11:22–23), what radiant manifestation of God's presence—\"the ______ of the Lord\"—departed from the temple threshold via the cherubim and stood over the mountain east of Jerusalem?",
+    "bookId": "EZE",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "glory",
+      "the glory",
+      "glory of the Lord",
+      "the glory of the Lord",
+      "God's glory"
+    ],
+    "displayAnswer": "the glory of the Lord (Ezekiel 10:18)",
+    "explanation": "The heartbreaking departure of the glory of the Lord from the polluted temple in Ezekiel 10–11 left Jerusalem defenseless before Babylon—later reversed when His glory returns in Ezekiel 43:1–5.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_10",
+    "type": "verse_completion",
+    "prompt": "Ezekiel 11:19 (ESV): \"And I will give them one heart, and a new spirit I will put within them. I will remove the heart of ______ from their flesh and give them a heart of flesh...\"",
+    "bookId": "EZE",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "stone",
+      "of stone",
+      "heart of stone"
+    ],
+    "displayAnswer": "stone (Ezekiel 11:19)",
+    "explanation": "Even before the temple falls, God promises in Ezekiel 11:19–20 (and 36:26) supernatural regeneration: replacing dead, stubborn 'stone' with a tender, responsive 'heart of flesh.'",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_11",
+    "type": "facts",
+    "prompt": "In Ezekiel 18:2, what body part finishes the fatalistic proverb the exiles were quoting to blame earlier generations—\"The fathers have eaten sour grapes, and the children's ______ are set on edge\"?",
+    "bookId": "EZE",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "teeth",
+      "children's teeth",
+      "their teeth"
+    ],
+    "displayAnswer": "teeth (Ezekiel 18:2)",
+    "explanation": "Refuting the excuse that the exiles were merely victims of their ancestors' sins, Ezekiel 18 affirms individual moral responsibility and calls every person to repent and live.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_12",
+    "type": "verse_completion",
+    "prompt": "Ezekiel 18:4 (ESV): \"Behold, all souls are mine; the soul of the father as well as the soul of the son is mine: the soul who ______ shall die.\"",
+    "bookId": "EZE",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "sins",
+      "who sins",
+      "sinneth"
+    ],
+    "displayAnswer": "sins (Ezekiel 18:4)",
+    "explanation": "Ezekiel 18:4 establishes each person's direct accountability before God while pairing warning with gracious invitation to turn from transgression and live (18:30–32).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_13",
+    "type": "verse_completion",
+    "prompt": "Ezekiel 22:30 (ESV): \"And I sought for a man among them who should build up the wall and stand in the ______ before me for the land, that I should not destroy it, but I found none.\"",
+    "bookId": "EZE",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "breach",
+      "the breach",
+      "gap",
+      "the gap"
+    ],
+    "displayAnswer": "breach (Ezekiel 22:30)",
+    "explanation": "Unlike Moses who once 'stood in the breach' to intercede for Israel at Sinai (Psalm 106:23), Jerusalem's corrupt princes, priests, and prophets left no intercessor standing in the gap (Ezekiel 22:25–30).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_14",
+    "type": "facts",
+    "prompt": "In Ezekiel 24:15–18, which beloved family member of Ezekiel—called \"the delight of your eyes\"—died suddenly in the evening while God commanded Ezekiel not to weep aloud, modeling Judah's stunned grief when the sanctuary fell?",
+    "bookId": "EZE",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "wife",
+      "his wife",
+      "Ezekiel's wife"
+    ],
+    "displayAnswer": "his wife (Ezekiel 24:16–18)",
+    "explanation": "On the very day Nebuchadnezzar began his final siege of Jerusalem (24:1–2), the tragic death of Ezekiel's wife served as his costliest prophetic sign to Israel (Ezekiel 24:15–24).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_15",
+    "type": "facts",
+    "prompt": "Against the arrogant ruler of which wealthy Phoenician maritime city does Ezekiel raise a lament in Ezekiel 28:12–19 portraying him as an anointed guardian cherub in Eden cast down for pride in his beauty?",
+    "bookId": "EZE",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "Tyre",
+      "king of Tyre",
+      "the king of Tyre",
+      "prince of Tyre"
+    ],
+    "displayAnswer": "Tyre (Ezekiel 28:12)",
+    "explanation": "Sitting on its island fortress and boasting 'I am a god' (28:2), Tyre's commercial pride and fall receive an extended oracle and lament across Ezekiel 26–28.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_16",
+    "type": "verse_completion",
+    "prompt": "Ezekiel 33:11 (ESV): \"Say to them, As I live, declares the Lord GOD, I have no pleasure in the death of the ______, but that the wicked turn from his way and live...\"",
+    "bookId": "EZE",
+    "chapterNum": 33,
+    "acceptedAnswers": [
+      "wicked",
+      "the wicked",
+      "sinner"
+    ],
+    "displayAnswer": "wicked (Ezekiel 33:11)",
+    "explanation": "Swearing by His own life as Jerusalem falls, the Lord GOD reveals His compassionate heart pleading with sinners: 'turn back, turn back from your evil ways, for why will you die?' (Ezekiel 33:11).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_17",
+    "type": "verse_completion",
+    "prompt": "Ezekiel 34:11 (ESV): \"For thus says the Lord GOD: Behold, I, I myself will search for my ______ and will seek them out.\"",
+    "bookId": "EZE",
+    "chapterNum": 34,
+    "acceptedAnswers": [
+      "sheep",
+      "my sheep",
+      "flock"
+    ],
+    "displayAnswer": "sheep (Ezekiel 34:11)",
+    "explanation": "After rebuking Israel's predatory rulers ('shepherds' who fed themselves rather than the flock), the Lord Himself steps in to seek, rescue, and bind up His scattered sheep—fulfilled in Jesus the Good Shepherd (John 10:11; Luke 19:10).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_18",
+    "type": "facts",
+    "prompt": "In Ezekiel 34:23–24 (and 37:24), after removing Israel's corrupt leaders, God promises to set over His flock one shepherd, \"my servant ______\"—naming which royal ancestor of the Messiah?",
+    "bookId": "EZE",
+    "chapterNum": 34,
+    "acceptedAnswers": [
+      "David",
+      "King David",
+      "my servant David"
+    ],
+    "displayAnswer": "David (Ezekiel 34:23)",
+    "explanation": "Written long after historical King David's death, Ezekiel's promise of 'one shepherd, my servant David' points forward to the Messianic Son of David who will shepherd God's people forever.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_19",
+    "type": "verse_completion",
+    "prompt": "Ezekiel 36:26 (ESV): \"And I will give you a new ______, and a new spirit I will put within you.\"",
+    "bookId": "EZE",
+    "chapterNum": 36,
+    "acceptedAnswers": [
+      "heart",
+      "new heart",
+      "a new heart"
+    ],
+    "displayAnswer": "heart (Ezekiel 36:26)",
+    "explanation": "Ezekiel 36:25–27—cleansing with clean water, imparting a new heart, and putting God's Spirit within—forms the Old Testament backdrop to Jesus' teaching on being born of water and the Spirit in John 3:5.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_20",
+    "type": "verse_completion",
+    "prompt": "Ezekiel 37:3 (ESV): \"And he said to me, 'Son of man, can these ______ live?' And I answered, 'O Lord GOD, you know.'\"",
+    "bookId": "EZE",
+    "chapterNum": 37,
+    "acceptedAnswers": [
+      "bones",
+      "these bones",
+      "dry bones"
+    ],
+    "displayAnswer": "bones (Ezekiel 37:3)",
+    "explanation": "In the Valley of Dry Bones (Ezekiel 37:1–14), preaching God's Word and invoking the four winds ('ruach', breath/Spirit) raises hopeless, spiritually dead Israel into an exceedingly great army.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_21",
+    "type": "facts",
+    "prompt": "In Ezekiel 37:15–22, how many inscribed wooden sticks (one for Judah and one for Joseph/Ephraim) did God tell Ezekiel to join together in his hand so they became one stick, symbolizing one reunited nation under one King?",
+    "bookId": "EZE",
+    "chapterNum": 37,
+    "acceptedAnswers": [
+      "2",
+      "two",
+      "2 sticks",
+      "two sticks"
+    ],
+    "displayAnswer": "two sticks (Ezekiel 37:16–17)",
+    "explanation": "Healing the centuries-old schism between Northern Israel (Ephraim) and Southern Judah, the two sticks becoming one in Ezekiel's hand promised eternal unity under the Messianic King (Ezekiel 37:15–28).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_22",
+    "type": "facts",
+    "prompt": "In Ezekiel 38–39, what apocalyptic invader \"of the land of Magog\" leads a vast coalition of nations against restored Israel only to be supernaturally overthrown on the mountains of Israel?",
+    "bookId": "EZE",
+    "chapterNum": 38,
+    "acceptedAnswers": [
+      "Gog",
+      "Gog of Magog",
+      "Gog of the land of Magog"
+    ],
+    "displayAnswer": "Gog (Ezekiel 38:2)",
+    "explanation": "God's decisive triumph over Gog of Magog in Ezekiel 38–39 vindicates His holiness before all nations and furnishes imagery echoed in Revelation 20:8.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_23",
+    "type": "facts",
+    "prompt": "In Ezekiel 47:12 (echoed in Revelation 22:2), how often will the trees growing along both banks of the life-giving temple river bear fresh fruit, with leaves for healing (\"they will bear fresh fruit every ______\")?",
+    "bookId": "EZE",
+    "chapterNum": 47,
+    "acceptedAnswers": [
+      "month",
+      "every month",
+      "monthly",
+      "each month"
+    ],
+    "displayAnswer": "every month (Ezekiel 47:12)",
+    "explanation": "Nourished by water flowing from the sanctuary that turns even the Dead Sea fresh, the riverside trees bear fresh fruit every month and their leaves are for healing (Ezekiel 47:1–12; Rev 22:1–2).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_eze_24",
+    "type": "verse_completion",
+    "prompt": "Ezekiel 48:35 (ESV): \"And the name of the city from that time on shall be, The Lord Is ______.\"",
+    "bookId": "EZE",
+    "chapterNum": 48,
+    "acceptedAnswers": [
+      "There",
+      "The Lord Is There",
+      "Yahweh-shammah",
+      "Jehovah-shammah"
+    ],
+    "displayAnswer": "There (Ezekiel 48:35)",
+    "explanation": "Concluding Ezekiel's nine-chapter vision of the restored temple, land, and city (chapters 40–48), the final words of the book—'Yahweh-shammah' ('The Lord Is There')—celebrate God's permanent dwelling with His people.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_1",
+    "type": "facts",
+    "prompt": "In Daniel 1:7, what Babylonian name did Ashpenaz, chief of the eunuchs, assign to Daniel (while renaming Hananiah, Mishael, and Azariah as Shadrach, Meshach, and Abednego)?",
+    "bookId": "DAN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Belteshazzar",
+      "named Belteshazzar",
+      "Beltshazzar"
+    ],
+    "displayAnswer": "Belteshazzar (Daniel 1:7)",
+    "explanation": "Though the Babylonian court renamed Daniel 'Belteshazzar' to assimilate the Judean youths into Babylonian culture, Daniel resolved in his heart not to defile himself (Daniel 1:7–8).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_2",
+    "type": "facts",
+    "prompt": "In Daniel 1:12, rather than defiling himself with the king's food and wine, for how many days did Daniel ask the steward to test him and his three companions on vegetables and water?",
+    "bookId": "DAN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "10",
+      "ten",
+      "10 days",
+      "ten days"
+    ],
+    "displayAnswer": "ten days (Daniel 1:12)",
+    "explanation": "At the end of the ten-day test, Daniel and his three friends appeared healthier and better nourished than all the youths who ate the king's rich food (Daniel 1:12–15).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_3",
+    "type": "verse_completion",
+    "prompt": "Daniel 2:21 (ESV): \"He changes times and seasons; he removes kings and sets up kings; he gives ______ to the wise and knowledge to those who have understanding;\"",
+    "bookId": "DAN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "wisdom",
+      "gives wisdom",
+      "true wisdom"
+    ],
+    "displayAnswer": "wisdom (Daniel 2:21)",
+    "explanation": "After God revealed Nebuchadnezzar's secret dream in response to prayer, Daniel blessed the God of heaven as sovereign Lord over all rulers and source of all true wisdom (Daniel 2:19–23).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_4",
+    "type": "facts",
+    "prompt": "In Daniel 2:31–32, 38, in King Nebuchadnezzar's dream of a towering four-metal statue representing four successive kingdoms, what precious metal formed the statue's head?",
+    "bookId": "DAN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "gold",
+      "fine gold",
+      "head of gold",
+      "pure gold"
+    ],
+    "displayAnswer": "fine gold (Daniel 2:32)",
+    "explanation": "Daniel told Nebuchadnezzar directly, 'You are the head of gold' (Daniel 2:38), followed by silver (Medo-Persia), bronze (Greece), and iron mixed with clay (Rome).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_5",
+    "type": "facts",
+    "prompt": "In Daniel 2:34–35, 44–45, what object \"cut out by no human hand\" struck the statue on its feet of iron and clay, shattered all earthly kingdoms like chaff, and became a great mountain filling the whole earth?",
+    "bookId": "DAN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "stone",
+      "a stone",
+      "the stone",
+      "rock",
+      "a rock"
+    ],
+    "displayAnswer": "a stone (Daniel 2:34–35)",
+    "explanation": "The stone cut without human hands represents the eternal Kingdom established by the God of heaven that crushes every rival empire and stands forever (Daniel 2:44–45).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_6",
+    "type": "facts",
+    "prompt": "In Daniel 3:19, enraged that Shadrach, Meshach, and Abednego refused to bow to his ninety-foot golden image, how many times hotter than usual did Nebuchadnezzar order the fiery furnace heated?",
+    "bookId": "DAN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "7",
+      "seven",
+      "7 times",
+      "seven times",
+      "sevenfold"
+    ],
+    "displayAnswer": "seven times (Daniel 3:19)",
+    "explanation": "Heated seven times hotter than usual, the furnace flames slew the mighty soldiers who cast them in, yet left Shadrach, Meshach, and Abednego without even the smell of fire (Daniel 3:19–27).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_7",
+    "type": "verse_completion",
+    "prompt": "Daniel 3:17–18 (ESV): \"If this be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of your hand, O king. But if ______, be it known to you, O king, that we will not serve your gods...\"",
+    "bookId": "DAN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "not",
+      "if not",
+      "but if not"
+    ],
+    "displayAnswer": "not (Daniel 3:18)",
+    "explanation": "'But if not' in Daniel 3:18 exemplifies unconditional faithfulness: Shadrach, Meshach, and Abednego trusted God's power to save yet refused idolatry even if God chose martyrdom instead.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_8",
+    "type": "facts",
+    "prompt": "In Daniel 3:24–25, although three bound men were thrown into the furnace, how many men did astonished King Nebuchadnezzar see walking unbound and unharmed in the fire, the fourth looking like \"a son of the gods\"?",
+    "bookId": "DAN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "4",
+      "four",
+      "4 men",
+      "four men"
+    ],
+    "displayAnswer": "four men (Daniel 3:25)",
+    "explanation": "God did not merely shield the three Hebrews from afar—He sent a heavenly deliverer into the flames with them so that four men walked unbound amid the fire (Daniel 3:25, 28).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_9",
+    "type": "facts",
+    "prompt": "In Daniel 4:28–37, which proud Babylonian monarch boasted, \"Is not this great Babylon, which I have built by my mighty power?\" and was immediately driven out to eat grass like an ox until his reason returned?",
+    "bookId": "DAN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Nebuchadnezzar",
+      "King Nebuchadnezzar",
+      "Nebuchadnezzar king of Babylon"
+    ],
+    "displayAnswer": "King Nebuchadnezzar (Daniel 4:30–33)",
+    "explanation": "Humbled for 'seven periods of time' as warned in his dream of the felled tree, Nebuchadnezzar lifted his eyes to heaven and praised the Most High who is able to humble those who walk in pride (Daniel 4:34–37).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_10",
+    "type": "verse_completion",
+    "prompt": "Daniel 4:35 (ESV): \"all the inhabitants of the earth are accounted as nothing, and he does according to his will among the host of heaven and among the inhabitants of the earth; and none can stay his ______ or say to him, 'What have you done?'\"",
+    "bookId": "DAN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "hand",
+      "his hand",
+      "arm"
+    ],
+    "displayAnswer": "hand (Daniel 4:35)",
+    "explanation": "Restored to sanity, pagan emperor Nebuchadnezzar utters one of Scripture's grandest confessions of God's absolute, unchallengeable sovereignty in Daniel 4:34–35.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_11",
+    "type": "facts",
+    "prompt": "In Daniel 5:1–6, which arrogant Babylonian king profaned the gold and silver vessels from the Jerusalem temple at a drunken feast for a thousand lords and trembled when fingers of a human hand wrote on the palace wall?",
+    "bookId": "DAN",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Belshazzar",
+      "King Belshazzar",
+      "Belshazzar king of Babylon"
+    ],
+    "displayAnswer": "King Belshazzar (Daniel 5:1–6)",
+    "explanation": "Though Belshazzar knew how God had humbled Nebuchadnezzar, he lifted himself up against the Lord of heaven, saw the mysterious inscription MENE, MENE, TEKEL, and PARSIN, and was slain that very night (Daniel 5:22–30).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_12",
+    "type": "verse_completion",
+    "prompt": "Daniel 5:27 (ESV): \"TEKEL, you have been weighed in the ______ and found wanting;\"",
+    "bookId": "DAN",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "balances",
+      "the balances",
+      "scales",
+      "the scales",
+      "balance"
+    ],
+    "displayAnswer": "balances (Daniel 5:27)",
+    "explanation": "Daniel interpreted the Aramaic handwriting on the wall without fear of royal reward: MENE (numbered and ended), TEKEL (weighed in the balances and found lacking), PERES (divided and given to the Medes and Persians).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_13",
+    "type": "facts",
+    "prompt": "In Daniel 5:30–31 (and Daniel 6), which sixty-two-year-old ruler—called \"______ the Mede\"—received the kingdom when Belshazzar was killed and later reluctantly cast Daniel into the den of lions?",
+    "bookId": "DAN",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Darius",
+      "Darius the Mede",
+      "King Darius"
+    ],
+    "displayAnswer": "Darius the Mede (Daniel 5:31)",
+    "explanation": "Darius the Mede appointed Daniel among his three high officials, grieved when trapped by his own irrevocable decree, and rejoiced at daybreak to find Daniel unharmed in the lions' den (Daniel 5:31–6:28).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_14",
+    "type": "facts",
+    "prompt": "According to Daniel 6:10, even after learning King Darius had signed the thirty-day decree forbidding petition to any god or man, how many times a day did Daniel continue kneeling by his open windows toward Jerusalem to pray?",
+    "bookId": "DAN",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "3",
+      "three",
+      "3 times",
+      "three times",
+      "thrice",
+      "three times a day",
+      "3 times a day"
+    ],
+    "displayAnswer": "three times a day (Daniel 6:10)",
+    "explanation": "Neither hiding nor grandstanding, octogenarian Daniel simply continued praying and giving thanks three times a day 'just as he had done previously' (Daniel 6:10).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_15",
+    "type": "verse_completion",
+    "prompt": "Daniel 6:22 (ESV): \"My God sent his ______ and shut the lions' mouths, and they have not harmed me, because I was found blameless before him...\"",
+    "bookId": "DAN",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "angel",
+      "his angel",
+      "an angel"
+    ],
+    "displayAnswer": "angel (Daniel 6:22)",
+    "explanation": "Because Daniel trusted in his God (Daniel 6:23; Hebrews 11:33), God sent His angel to shut the lions' mouths and brought Daniel safely out of the sealed pit.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_16",
+    "type": "facts",
+    "prompt": "In Daniel 7:9, 13, 22, by what majestic title—\"the ______ of Days\"—is eternal God enthroned in judgment over the four beasts, clothed white as snow with hair like pure wool?",
+    "bookId": "DAN",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Ancient of Days",
+      "the Ancient of Days",
+      "Ancient"
+    ],
+    "displayAnswer": "the Ancient of Days (Daniel 7:9)",
+    "explanation": "Unique in Scripture to Daniel 7, 'the Ancient of Days' portrays the eternal, sovereign Judge before whom 'one like a son of man' comes with the clouds of heaven to receive everlasting dominion (Daniel 7:9–14).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_17",
+    "type": "verse_completion",
+    "prompt": "Daniel 7:14 (ESV): \"His dominion is an ______ dominion, which shall not pass away, and his kingdom one that shall not be destroyed.\"",
+    "bookId": "DAN",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "everlasting",
+      "an everlasting",
+      "eternal"
+    ],
+    "displayAnswer": "everlasting (Daniel 7:14)",
+    "explanation": "Jesus repeatedly adopted Daniel 7:13–14's title 'the Son of Man' for Himself, declaring at His trial that His judges would see the Son of Man coming on the clouds of heaven (Mark 14:62).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_18",
+    "type": "facts",
+    "prompt": "In Daniel 8:5–8, 20–21, a two-horned ram representing Media and Persia is shattered by what swift animal charging from the west without touching the ground, having a conspicuous horn between its eyes (representing the king of Greece)?",
+    "bookId": "DAN",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "male goat",
+      "a male goat",
+      "goat",
+      "a goat",
+      "he-goat"
+    ],
+    "displayAnswer": "a male goat (Daniel 8:5, 21)",
+    "explanation": "Daniel 8:20–22 explicitly identifies the two-horned ram as Media and Persia and the shaggy male goat's great horn as the first king of Greece (Alexander the Great), followed by four successor kingdoms.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_19",
+    "type": "facts",
+    "prompt": "In Daniel 8:16 (and 9:21), which named heavenly messenger is sent to explain the vision to Daniel (centuries before appearing to Zechariah and Mary in Luke 1)?",
+    "bookId": "DAN",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Gabriel",
+      "the angel Gabriel",
+      "angel Gabriel"
+    ],
+    "displayAnswer": "Gabriel (Daniel 8:16)",
+    "explanation": "Daniel 8:16 is the first appearance in the Bible of a named angel: Gabriel ('Man/Might of God'), who later announces the births of John the Baptist and Jesus in Luke 1.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_20",
+    "type": "facts",
+    "prompt": "In Daniel 9:24, after Daniel prays and confesses Israel's sins, Gabriel reveals that how many prophetic \"weeks\" (sevens) are decreed for Daniel's people and holy city to finish transgression and bring in everlasting righteousness?",
+    "bookId": "DAN",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "70",
+      "seventy",
+      "70 weeks",
+      "seventy weeks",
+      "seventy sevens",
+      "70 sevens"
+    ],
+    "displayAnswer": "seventy weeks / 70 (Daniel 9:24)",
+    "explanation": "Expanding beyond the 70 years of Babylonian captivity (9:2), Gabriel reveals a 70-'weeks' (70 sevens) redemptive timetable culminating in the Anointed One accomplishing atonement (Daniel 9:24–27).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_21",
+    "type": "verse_completion",
+    "prompt": "Daniel 9:9 (ESV): \"To the Lord our God belong ______ and forgiveness, for we have rebelled against him\"",
+    "bookId": "DAN",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "mercy",
+      "mercies",
+      "compassion"
+    ],
+    "displayAnswer": "mercy (Daniel 9:9)",
+    "explanation": "In his model prayer of corporate confession (Daniel 9:4–19), Daniel appeals not to Israel's righteousness ('we do not present our pleas before you because of our righteousness,' v. 18), but solely to God's great mercy.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_22",
+    "type": "facts",
+    "prompt": "In Daniel 10:13, 21 (and 12:1), which \"chief prince\" (archangel) who stands guard over Daniel's people came to aid the heavenly messenger when resisted twenty-one days by the spiritual \"prince of the kingdom of Persia\"?",
+    "bookId": "DAN",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "Michael",
+      "Michael the archangel",
+      "the archangel Michael"
+    ],
+    "displayAnswer": "Michael (Daniel 10:13, 21)",
+    "explanation": "Pulling back the curtain on unseen spiritual warfare behind earthly empires, Daniel 10 and 12 introduce Michael ('Who is like God?'), the great angelic prince championing God's covenant people.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_23",
+    "type": "verse_completion",
+    "prompt": "Daniel 11:32 (ESV): \"He shall seduce with flattery those who violate the covenant, but the people who ______ their God shall stand firm and take action.\"",
+    "bookId": "DAN",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "know",
+      "who know",
+      "know their God"
+    ],
+    "displayAnswer": "know (Daniel 11:32)",
+    "explanation": "Amid fierce persecution and smooth flattery aimed at covenant compromise, intimate knowledge of God empowers His faithful remnant to stand firm and act courageously (Daniel 11:32).",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_dan_24",
+    "type": "verse_completion",
+    "prompt": "Daniel 12:3 (ESV): \"And those who are wise shall shine like the brightness of the sky above; and those who turn many to righteousness, like the ______ forever and ever.\"",
+    "bookId": "DAN",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "stars",
+      "the stars",
+      "like the stars",
+      "star"
+    ],
+    "displayAnswer": "stars (Daniel 12:3)",
+    "explanation": "Immediately following the clearest Old Testament declaration of bodily resurrection (Daniel 12:2), verse 3 promises eternal radiant glory to the wise who endure and lead many to righteousness.",
+    "scope": "OT",
+    "genre": "Major Prophets"
+  },
+  {
+    "id": "a2_hos_1",
+    "type": "facts",
+    "prompt": "In Hosea 1:2–3, what was the name of Diblaim's daughter whom the Lord commanded Hosea to marry as a living picture of Israel's unfaithfulness?",
+    "bookId": "HOS",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Gomer",
+      "Gomer daughter of Diblaim",
+      "Gomer the daughter of Diblaim"
+    ],
+    "displayAnswer": "Gomer (Hosea 1:3)",
+    "explanation": "God commanded Hosea to marry Gomer, 'a wife of whoredom,' dramatizing Israel's spiritual adultery against her faithful covenant Husband.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_2",
+    "type": "facts",
+    "prompt": "In Hosea 1:4, what name did the Lord command Hosea to give his firstborn son, recalling the valley where Jehu shed blood?",
+    "bookId": "HOS",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Jezreel",
+      "Valley of Jezreel",
+      "the Valley of Jezreel"
+    ],
+    "displayAnswer": "Jezreel (Hosea 1:4)",
+    "explanation": "Hosea's first son was named Jezreel as a sign that God would judge the house of Jehu for the bloodshed of Jezreel and end the northern kingdom.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_3",
+    "type": "verse_completion",
+    "prompt": "Hosea 2:15 (ESV): \"And there I will give her her vineyards and make the Valley of Achor a door of ______.\"",
+    "bookId": "HOS",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "hope",
+      "a door of hope",
+      "door of hope"
+    ],
+    "displayAnswer": "hope (Hosea 2:15)",
+    "explanation": "The Valley of Achor ('trouble,' where Achan sinned in Joshua 7) is transformed by God's restoring grace into a 'door of hope' for Israel.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_4",
+    "type": "facts",
+    "prompt": "In Hosea 3:2, how many shekels of silver (along with barley) did Hosea pay to buy back and redeem his adulterous wife?",
+    "bookId": "HOS",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "15",
+      "fifteen",
+      "15 shekels",
+      "fifteen shekels",
+      "15 shekels of silver",
+      "fifteen shekels of silver"
+    ],
+    "displayAnswer": "15 shekels (Hosea 3:2)",
+    "explanation": "Hosea redeemed Gomer for fifteen shekels of silver and a homer and a lethech of barley, illustrating God's costly, redeeming love for wayward sinners.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_5",
+    "type": "verse_completion",
+    "prompt": "Hosea 4:6 (ESV): \"My people are destroyed for lack of ______...\"",
+    "bookId": "HOS",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "knowledge",
+      "lack of knowledge",
+      "a lack of knowledge",
+      "the knowledge of God"
+    ],
+    "displayAnswer": "knowledge (Hosea 4:6)",
+    "explanation": "Hosea 4:6 indicts Israel and her priests for rejecting the covenant knowledge of God and forgetting His law.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_6",
+    "type": "facts",
+    "prompt": "In Hosea 5:13, when Ephraim (northern Israel) saw his sickness, to what foreign empire and its 'great king' did Ephraim turn for help instead of the Lord?",
+    "bookId": "HOS",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Assyria",
+      "the Assyrians",
+      "Assyrian Empire",
+      "King of Assyria"
+    ],
+    "displayAnswer": "Assyria (Hosea 5:13)",
+    "explanation": "Rather than repenting before God, northern Israel sought political protection and tribute alliances with Assyria, which could never heal her spiritual wound.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_7",
+    "type": "verse_completion",
+    "prompt": "Hosea 6:6 (ESV): \"For I desire steadfast love and not ______, the knowledge of God rather than burnt offerings.\"",
+    "bookId": "HOS",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "sacrifice",
+      "sacrifices",
+      "a sacrifice"
+    ],
+    "displayAnswer": "sacrifice (Hosea 6:6)",
+    "explanation": "Jesus twice quoted Hosea 6:6 in Matthew 9:13 and 12:7 to rebuke empty ritualism devoid of covenant mercy and love for God.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_8",
+    "type": "facts",
+    "prompt": "In Hosea 6:2, after saying 'After two days he will revive us,' on which day do the people say the Lord 'will raise us up, that we may live before him'?",
+    "bookId": "HOS",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "third day",
+      "the third day",
+      "3rd day",
+      "the 3rd day",
+      "third",
+      "3rd",
+      "on the third day"
+    ],
+    "displayAnswer": "the third day (Hosea 6:2)",
+    "explanation": "Hosea 6:2 expresses hope in God's swift resurrection-like restoration on 'the third day,' a motif echoed in the New Testament witness to Christ's resurrection.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_9",
+    "type": "facts",
+    "prompt": "In Hosea 7:11, to what bird—described as 'silly and without sense'—is Ephraim compared as it frantically calls to Egypt and goes to Assyria?",
+    "bookId": "HOS",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "dove",
+      "a dove",
+      "the dove",
+      "silly dove",
+      "a silly dove"
+    ],
+    "displayAnswer": "dove (Hosea 7:11)",
+    "explanation": "Hosea likens Israel's panicked foreign policy to a senseless dove fluttering into nets between Egypt and Assyria while ignoring the Lord.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_10",
+    "type": "verse_completion",
+    "prompt": "Hosea 8:7 (ESV): \"For they sow the wind, and they shall reap the ______.\"",
+    "bookId": "HOS",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "whirlwind",
+      "the whirlwind",
+      "a whirlwind"
+    ],
+    "displayAnswer": "whirlwind (Hosea 8:7)",
+    "explanation": "Hosea 8:7 warns that planting empty idolatry and political intrigue yields catastrophic divine judgment—reaping the whirlwind.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_11",
+    "type": "facts",
+    "prompt": "In Hosea 9:10, the Lord recalls finding Israel like grapes in the wilderness and seeing their fathers like the first fruit on what kind of tree in its first season?",
+    "bookId": "HOS",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "fig tree",
+      "fig",
+      "a fig tree",
+      "the fig tree",
+      "figs"
+    ],
+    "displayAnswer": "fig tree (Hosea 9:10)",
+    "explanation": "God delighted in early Israel like fresh wilderness grapes and early figs, making their shameful apostasy at Baal-peor all the more tragic.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_12",
+    "type": "facts",
+    "prompt": "In Hosea 10:5–6 (and 8:5–6), what animal idol at Beth-aven (Bethel) do the inhabitants of Samaria mourn over when it is carried away as tribute to Assyria?",
+    "bookId": "HOS",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "calf",
+      "golden calf",
+      "a calf",
+      "the calf",
+      "the golden calf",
+      "calf idol"
+    ],
+    "displayAnswer": "calf / golden calf (Hosea 10:5)",
+    "explanation": "Jeroboam's calf idol at Bethel ('house of God,' mocked by Hosea as Beth-aven, 'house of wickedness') would itself be hauled off helplessly as spoil.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_13",
+    "type": "verse_completion",
+    "prompt": "Hosea 11:1 (ESV): \"When Israel was a child, I loved him, and out of ______ I called my son.\"",
+    "bookId": "HOS",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Egypt",
+      "the land of Egypt",
+      "out of Egypt"
+    ],
+    "displayAnswer": "Egypt (Hosea 11:1)",
+    "explanation": "Hosea 11:1 looks back to the Exodus in fatherly love and finds its ultimate typological fulfillment in Jesus Christ in Matthew 2:15.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_14",
+    "type": "facts",
+    "prompt": "In Hosea 12:2–4, which patriarch is recalled for taking his brother by the heel in the womb and striving with God and the angel?",
+    "bookId": "HOS",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "Jacob",
+      "Israel",
+      "Patriarch Jacob"
+    ],
+    "displayAnswer": "Jacob (Hosea 12:3–4)",
+    "explanation": "Hosea reminds Israel of their ancestor Jacob, who wrestled with the angel at Peniel and wept to seek God's favor rather than relying on deceit.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_15",
+    "type": "facts",
+    "prompt": "In Hosea 13:14 (later echoed by Paul in 1 Corinthians 15:55), what enemy is personified alongside Sheol in the question, 'O [what], where are your plagues?'",
+    "bookId": "HOS",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "Death",
+      "O Death",
+      "the grave"
+    ],
+    "displayAnswer": "Death (Hosea 13:14)",
+    "explanation": "Hosea 13:14 personifies Death and Sheol—imagery Paul takes up in 1 Corinthians 15:55 to celebrate Christ's resurrection victory over Death.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hos_16",
+    "type": "verse_completion",
+    "prompt": "Hosea 14:1 (ESV): \"______, O Israel, to the LORD your God, for you have stumbled because of your iniquity.\"",
+    "bookId": "HOS",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "Return",
+      "Turn",
+      "Turn back",
+      "Come back"
+    ],
+    "displayAnswer": "Return (Hosea 14:1)",
+    "explanation": "Hosea 14 opens with a tender call to repentance, promising that God will heal their apostasy and love them freely (Hosea 14:4).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_joe_1",
+    "type": "verse_completion",
+    "prompt": "Joel 1:3 (ESV): \"Tell your children of it, and let your children tell their children, and their children to another ______.\"",
+    "bookId": "JOE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "generation",
+      "another generation",
+      "generations"
+    ],
+    "displayAnswer": "generation (Joel 1:3)",
+    "explanation": "Joel opens by urging elders and parents to pass down the memory of God's sobering judgment across generations.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_joe_2",
+    "type": "facts",
+    "prompt": "In Joel 1:4, what destructive insect strips the land bare in four successive waves (cutting, swarming, hopping, and destroying)?",
+    "bookId": "JOE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "locusts",
+      "locust",
+      "a locust",
+      "the locusts",
+      "swarm of locusts"
+    ],
+    "displayAnswer": "locusts (Joel 1:4)",
+    "explanation": "Four waves of locusts utterly devastated Judah's vines, figs, and grain, serving as a harbinger of the coming Day of the Lord.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_joe_3",
+    "type": "facts",
+    "prompt": "In Joel 1:9 and 1:13, because the harvest and vines were ruined, the grain offering and what liquid offering were cut off from the house of the Lord?",
+    "bookId": "JOE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "drink offering",
+      "the drink offering",
+      "drink offerings",
+      "drink",
+      "wine offering"
+    ],
+    "displayAnswer": "drink offering (Joel 1:9, 13)",
+    "explanation": "With grain and new wine destroyed, daily temple worship was disrupted as both grain and drink offerings ceased.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_joe_4",
+    "type": "facts",
+    "prompt": "In Joel 1:13, what coarse mourning garment does Joel command the priests and ministers of the altar to put on and wear through the night?",
+    "bookId": "JOE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "sackcloth",
+      "sackcloths",
+      "rough sackcloth",
+      "clothes of sackcloth"
+    ],
+    "displayAnswer": "sackcloth (Joel 1:13)",
+    "explanation": "Joel summons the priests themselves to lead national lamentation in sackcloth and fasting before the Lord.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_joe_5",
+    "type": "facts",
+    "prompt": "In Joel 2:1 and 2:15, what instrument does Joel command to be blown in Zion to sound an alarm and call a solemn assembly?",
+    "bookId": "JOE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "trumpet",
+      "a trumpet",
+      "the trumpet",
+      "shofar",
+      "ram's horn",
+      "horn"
+    ],
+    "displayAnswer": "trumpet (Joel 2:1, 15)",
+    "explanation": "The shofar (trumpet) sounded in Zion both warned of approaching danger on the Day of the Lord and summoned the whole congregation to repent.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_joe_6",
+    "type": "verse_completion",
+    "prompt": "Joel 2:13 (ESV): \"...and rend your ______ and not your garments. Return to the LORD your God, for he is gracious and merciful, slow to anger, and abounding in steadfast love...\"",
+    "bookId": "JOE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "hearts",
+      "heart",
+      "your hearts",
+      "your heart"
+    ],
+    "displayAnswer": "hearts (Joel 2:13)",
+    "explanation": "God calls for genuine inward brokenness ('rend your hearts') rather than mere outward tearing of clothes, grounded in His Exodus 34:6 character.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_joe_7",
+    "type": "facts",
+    "prompt": "In Joel 2:25, what time span of loss does the Lord promise to restore to His repentant people—'that the swarming locust has eaten'?",
+    "bookId": "JOE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "years",
+      "the years",
+      "year",
+      "lost years"
+    ],
+    "displayAnswer": "the years (Joel 2:25)",
+    "explanation": "In Joel 2:25 ('I will restore to you the years that the swarming locust has eaten'), God promises abundant agricultural and covenantal renewal.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_joe_8",
+    "type": "verse_completion",
+    "prompt": "Joel 2:28 (ESV): \"And it shall come to pass afterward, that I will pour out my ______ on all flesh; your sons and your daughters shall prophesy...\"",
+    "bookId": "JOE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Spirit",
+      "my Spirit",
+      "Holy Spirit",
+      "the Spirit"
+    ],
+    "displayAnswer": "Spirit (Joel 2:28)",
+    "explanation": "Peter quoted Joel 2:28–32 on the Day of Pentecost in Acts 2:16–21 to announce the promised outpouring of the Holy Spirit across age, gender, and status.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_joe_9",
+    "type": "facts",
+    "prompt": "In Joel 3:2 and 3:12, to what named valley (meaning 'Yahweh judges') does the Lord say He will gather all the nations to enter into judgment with them?",
+    "bookId": "JOE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Valley of Jehoshaphat",
+      "Jehoshaphat",
+      "the Valley of Jehoshaphat"
+    ],
+    "displayAnswer": "Valley of Jehoshaphat (Joel 3:2, 12)",
+    "explanation": "God summons the nations to the symbolic Valley of Jehoshaphat ('the Lord judges') to hold them accountable for scattering His people.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_joe_10",
+    "type": "facts",
+    "prompt": "In Joel 3:10 (reversing Isaiah 2:4 and Micah 4:3 as a battle summons), into what weapons are the nations told to beat their plowshares?",
+    "bookId": "JOE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "swords",
+      "sword",
+      "into swords",
+      "a sword"
+    ],
+    "displayAnswer": "swords (Joel 3:10)",
+    "explanation": "Joel 3:10 ironically inverts the peace prophecy, challenging the nations to arm themselves ('Beat your plowshares into swords') only to face God's sovereign judgment.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_joe_11",
+    "type": "verse_completion",
+    "prompt": "Joel 3:14 (ESV): \"Multitudes, multitudes, in the valley of ______! For the day of the LORD is near...\"",
+    "bookId": "JOE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "decision",
+      "the valley of decision",
+      "valley of decision"
+    ],
+    "displayAnswer": "decision (Joel 3:14)",
+    "explanation": "Here 'decision' refers to the Lord's decisive verdict of judgment pronounced upon the assembled nations on the Day of the Lord.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_joe_12",
+    "type": "facts",
+    "prompt": "At the close of the book in Joel 3:17 and 3:21, on what holy mountain/city does the Lord declare that He dwells forever among His people?",
+    "bookId": "JOE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Zion",
+      "Mount Zion",
+      "Jerusalem",
+      "my holy mountain Zion"
+    ],
+    "displayAnswer": "Zion (Joel 3:17, 21)",
+    "explanation": "Joel concludes with the glorious assurance, 'for the LORD dwells in Zion,' securing Jerusalem's holiness and blessing.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_1",
+    "type": "facts",
+    "prompt": "In Amos 1:1 (and 7:14), what pastoral occupation did Amos hold in the Judean town of Tekoa before the Lord called him to prophesy to northern Israel?",
+    "bookId": "AMO",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "shepherd",
+      "a shepherd",
+      "shepherds",
+      "herdsman",
+      "a herdsman",
+      "sheepbreeder"
+    ],
+    "displayAnswer": "shepherd / herdsman (Amos 1:1; 7:14)",
+    "explanation": "Amos was not a professional court prophet, but a humble shepherd/herdsman from Tekoa (and dresser of sycamore figs) sent north by God.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_2",
+    "type": "facts",
+    "prompt": "Throughout Amos 1–2, each oracle against the nations uses the repeated numerical formula 'For three transgressions... and for [what number], I will not revoke the punishment'?",
+    "bookId": "AMO",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "4",
+      "four",
+      "for four",
+      "four transgressions",
+      "4 transgressions"
+    ],
+    "displayAnswer": "four (Amos 1:3)",
+    "explanation": "The Hebrew idiom 'for three transgressions, and for four' signifies a full, overflowing measure of persistent rebellion.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_3",
+    "type": "facts",
+    "prompt": "In Amos 2:6 (and 8:6), corrupt Israel is condemned for selling the righteous for silver and the needy for a pair of what inexpensive footwear?",
+    "bookId": "AMO",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "sandals",
+      "shoes",
+      "a pair of sandals",
+      "pair of sandals",
+      "a pair of shoes"
+    ],
+    "displayAnswer": "sandals (Amos 2:6)",
+    "explanation": "Greedy creditors enslaved poor Israelites over debts as trivial as the cost of a pair of sandals.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_4",
+    "type": "verse_completion",
+    "prompt": "Amos 3:7 (ESV): \"For the Lord GOD does nothing without revealing his secret to his servants the ______.\"",
+    "bookId": "AMO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "prophets",
+      "the prophets",
+      "his prophets",
+      "prophet"
+    ],
+    "displayAnswer": "prophets (Amos 3:7)",
+    "explanation": "Amos 3:7 affirms that before bringing covenant judgment, the sovereign Lord graciously warns through His prophetic messengers.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_5",
+    "type": "facts",
+    "prompt": "In Amos 3:8 (and 1:2), to what fierce animal's roar does Amos compare the irresistible voice of the Lord GOD that compels him to prophesy?",
+    "bookId": "AMO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "lion",
+      "a lion",
+      "the lion",
+      "roaring lion"
+    ],
+    "displayAnswer": "lion (Amos 3:8)",
+    "explanation": "'The lion has roared; who will not fear? The Lord GOD has spoken; who can but prophesy?' (Amos 3:8).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_6",
+    "type": "facts",
+    "prompt": "In Amos 4:1, Amos sarcastically addresses the pampered, oppressive wealthy women of Samaria as 'you cows of [what fertile region east of the Jordan]'?",
+    "bookId": "AMO",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Bashan",
+      "cows of Bashan",
+      "the cows of Bashan"
+    ],
+    "displayAnswer": "Bashan (Amos 4:1)",
+    "explanation": "Bashan was famed for rich pastures and sleek cattle; Amos rebukes Samaria's elite for fattening themselves by crushing the poor.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_7",
+    "type": "verse_completion",
+    "prompt": "Amos 4:12 (ESV): \"Therefore thus I will do to you, O Israel; because I will do this to you, ______ to meet your God, O Israel!\"",
+    "bookId": "AMO",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "prepare",
+      "be prepared",
+      "get ready"
+    ],
+    "displayAnswer": "prepare (Amos 4:12)",
+    "explanation": "After Israel ignored five chastening warnings (famine, drought, blight, plague, overthrow), God summoned the nation to face Him directly in judgment.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_8",
+    "type": "facts",
+    "prompt": "In Amos 5:18–20, Amos warns religious hypocrites who long for 'the day of the LORD' that for them that day will not be light, but what?",
+    "bookId": "AMO",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "darkness",
+      "gloom",
+      "pitch darkness",
+      "dark",
+      "utter darkness"
+    ],
+    "displayAnswer": "darkness (Amos 5:18, 20)",
+    "explanation": "Complacent Israelites assumed the Day of the Lord would only judge foreign foes, but Amos warned it would bring darkness and judgment on unrepentant Israel too.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_9",
+    "type": "verse_completion",
+    "prompt": "Amos 5:24 (ESV): \"But let ______ roll down like waters, and righteousness like an ever-flowing stream.\"",
+    "bookId": "AMO",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "justice",
+      "true justice",
+      "judgment"
+    ],
+    "displayAnswer": "justice (Amos 5:24)",
+    "explanation": "God rejected Israel's noisy festivals and sacrifices when divorced from justice and righteousness toward neighbor.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_10",
+    "type": "facts",
+    "prompt": "In Amos 6:4 (and 3:15), what luxury material inlaid on the beds of rich Israelites symbolizes their decadent self-indulgence while they ignore 'the ruin of Joseph'?",
+    "bookId": "AMO",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "ivory",
+      "beds of ivory",
+      "inlaid ivory"
+    ],
+    "displayAnswer": "ivory (Amos 6:4)",
+    "explanation": "Archaeologists in Samaria have uncovered Phoenician ivory carvings matching Amos's vivid indictment of 'beds of ivory' and 'houses of ivory.'",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_11",
+    "type": "facts",
+    "prompt": "In Amos 7:7–8, what builder's tool for testing vertical straightness did the Lord hold beside a wall to show that crooked Israel would no longer be passed by?",
+    "bookId": "AMO",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "plumb line",
+      "a plumb line",
+      "the plumb line",
+      "plumbline",
+      "a plumbline"
+    ],
+    "displayAnswer": "plumb line (Amos 7:7–8)",
+    "explanation": "Measured against God's righteous standard (the plumb line), Israel's moral and spiritual crookedness demanded judgment.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_12",
+    "type": "facts",
+    "prompt": "In Amos 7:10–13, what was the name of the priest of Bethel who accused Amos of conspiracy before King Jeroboam II and ordered Amos to flee back to Judah?",
+    "bookId": "AMO",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Amaziah",
+      "Amaziah the priest",
+      "Amaziah priest of Bethel",
+      "Priest Amaziah"
+    ],
+    "displayAnswer": "Amaziah (Amos 7:10)",
+    "explanation": "Amaziah defended the royal sanctuary at Bethel as 'the king's sanctuary,' prompting Amos's bold declaration of divine calling in Amos 7:14–15.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_13",
+    "type": "verse_completion",
+    "prompt": "Amos 8:11 (ESV): \"'Behold, the days are coming,' declares the Lord GOD, 'when I will send a famine on the land—not a famine of bread, nor a thirst for water, but of hearing the ______ of the LORD.'\"",
+    "bookId": "AMO",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "words",
+      "word",
+      "the words",
+      "the word",
+      "words of the Lord",
+      "word of the Lord"
+    ],
+    "displayAnswer": "words (Amos 8:11)",
+    "explanation": "Because Israel despised prophetic preaching, God warned of the worst famine of all: judicial silence and deprivation of God's Word.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_amo_14",
+    "type": "verse_completion",
+    "prompt": "Amos 9:11 (ESV): \"In that day I will raise up the booth of ______ that is fallen and repair its breaches, and raise up its ruins and rebuild it as in the days of old...\"",
+    "bookId": "AMO",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "David",
+      "King David",
+      "booth of David",
+      "the booth of David"
+    ],
+    "displayAnswer": "David (Amos 9:11)",
+    "explanation": "James quoted Amos 9:11–12 at the Jerusalem Council (Acts 15:16–17) to show that the restored Davidic kingdom welcomes Gentile believers who bear the Lord's name.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_oba_1",
+    "type": "facts",
+    "prompt": "In Obadiah 1:1, against what proud nation—living in rocky mountain strongholds southeast of Judah—is Obadiah's prophetic vision directed?",
+    "bookId": "OBA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Edom",
+      "the Edomites",
+      "Edomites",
+      "Mount Seir"
+    ],
+    "displayAnswer": "Edom (Obadiah 1:1)",
+    "explanation": "Obadiah, the shortest book in the Old Testament, pronounces divine judgment on Edom for its arrogance and betrayal of Judah.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_oba_2",
+    "type": "verse_completion",
+    "prompt": "Obadiah 1:3 (ESV): \"The ______ of your heart has deceived you, you who live in the clefts of the rock, in your lofty dwelling...\"",
+    "bookId": "OBA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "pride",
+      "the pride",
+      "arrogance"
+    ],
+    "displayAnswer": "pride (Obadiah 1:3)",
+    "explanation": "Trusting in its nearly impregnable sandstone cliffs in Seir/Petra, Edom boasted, 'Who will bring me down to the ground?'",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_oba_3",
+    "type": "facts",
+    "prompt": "In Obadiah 1:4, even though Edom soars aloft like what high-nesting bird of prey and sets its nest among the stars, the Lord declares He will bring them down?",
+    "bookId": "OBA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "eagle",
+      "an eagle",
+      "the eagle",
+      "eagles"
+    ],
+    "displayAnswer": "eagle (Obadiah 1:4)",
+    "explanation": "Even heights like an eagle's cliff-top aerie cannot shield proud sinners from the sovereign reach of God.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_oba_4",
+    "type": "facts",
+    "prompt": "In Obadiah 1:6 and 1:8–9, by the personal name of what ancestor (Jacob's twin brother) does Obadiah repeatedly refer to Edom and its mountains?",
+    "bookId": "OBA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Esau",
+      "Mount Esau",
+      "the house of Esau",
+      "house of Esau"
+    ],
+    "displayAnswer": "Esau (Obadiah 1:6, 8–9)",
+    "explanation": "Edom descended from Esau (Genesis 36:1), making its hostility toward Judah a shameful crime of fraternal betrayal.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_oba_5",
+    "type": "facts",
+    "prompt": "In Obadiah 1:10, shame and eternal cutting off will cover Edom 'because of the violence done to your brother'—by what patriarch's name does Obadiah call Judah/Israel here?",
+    "bookId": "OBA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Jacob",
+      "brother Jacob",
+      "your brother Jacob",
+      "Israel"
+    ],
+    "displayAnswer": "Jacob (Obadiah 1:10)",
+    "explanation": "God held Edom accountable for violating the brotherhood between Esau and Jacob by gloating over and plundering Judah.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_oba_6",
+    "type": "facts",
+    "prompt": "In Obadiah 1:11, when foreigners entered the gates and cast lots for what besieged capital city, Edom stood aloof and acted like one of the invaders?",
+    "bookId": "OBA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Jerusalem",
+      "city of Jerusalem",
+      "Zion"
+    ],
+    "displayAnswer": "Jerusalem (Obadiah 1:11)",
+    "explanation": "When Babylon sacked Jerusalem in 586 BC (compare Psalm 137:7), Edom rejoiced over Jerusalem's ruin, looted its wealth, and ambushed fleeing Judeans.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_oba_7",
+    "type": "verse_completion",
+    "prompt": "Obadiah 1:15 (ESV): \"For the day of the LORD is near upon all the nations. As you have done, it shall be done to you; your deeds shall return on your own ______.\"",
+    "bookId": "OBA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "head",
+      "own head",
+      "your own head",
+      "heads"
+    ],
+    "displayAnswer": "head (Obadiah 1:15)",
+    "explanation": "Obadiah 1:15 states the principle of lex talionis (retributive justice) on the Day of the Lord: Edom's cruelty would recoil upon its own head.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_oba_8",
+    "type": "facts",
+    "prompt": "In Obadiah 1:17, in contrast to Mount Esau's ruin, on what holy mountain does Obadiah prophesy there shall be 'those who escape, and it shall be holy'?",
+    "bookId": "OBA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Mount Zion",
+      "Zion",
+      "Mt Zion",
+      "the mountain of Zion"
+    ],
+    "displayAnswer": "Mount Zion (Obadiah 1:17)",
+    "explanation": "God promises deliverance, holiness, and restored inheritance on Mount Zion while proud Edom vanishes.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_oba_9",
+    "type": "facts",
+    "prompt": "In Obadiah 1:18, when the house of Jacob becomes a fire and the house of Joseph a flame, what dry, easily burned material will the house of Esau become?",
+    "bookId": "OBA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "stubble",
+      "straw",
+      "dry stubble",
+      "chaff"
+    ],
+    "displayAnswer": "stubble (Obadiah 1:18)",
+    "explanation": "Like fire consuming dry stubble, God's judgment would leave no lasting remnant of Edom's arrogant kingdom.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_oba_10",
+    "type": "verse_completion",
+    "prompt": "Obadiah 1:21 (ESV): \"Saviors shall go up to Mount Zion to rule Mount Esau, and the ______ shall be the LORD's.\"",
+    "bookId": "OBA",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "kingdom",
+      "the kingdom",
+      "kingship"
+    ],
+    "displayAnswer": "kingdom (Obadiah 1:21)",
+    "explanation": "Obadiah climaxes with the triumph of God's universal reign: 'and the kingdom shall be the LORD's.'",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_1",
+    "type": "facts",
+    "prompt": "In Jonah 1:1 (and 2 Kings 14:25), who is named as the father of the prophet Jonah?",
+    "bookId": "JON",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Amittai",
+      "son of Amittai",
+      "the son of Amittai"
+    ],
+    "displayAnswer": "Amittai (Jonah 1:1)",
+    "explanation": "Jonah son of Amittai was a real historical prophet from Gath-hepher in northern Israel during Jeroboam II's reign (2 Kings 14:25).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_2",
+    "type": "facts",
+    "prompt": "In Jonah 1:3, toward what distant western port/region did Jonah board a ship at Joppa to flee from the presence of the Lord?",
+    "bookId": "JON",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Tarshish",
+      "city of Tarshish",
+      "to Tarshish"
+    ],
+    "displayAnswer": "Tarshish (Jonah 1:3)",
+    "explanation": "Sent east to Nineveh, Jonah sailed in the exact opposite direction toward Tarshish at the western edge of the Mediterranean world.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_3",
+    "type": "verse_completion",
+    "prompt": "Jonah 1:9 (ESV): \"And he said to them, 'I am a ______, and I fear the LORD, the God of heaven, who made the sea and the dry land.'\"",
+    "bookId": "JON",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Hebrew",
+      "a Hebrew",
+      "Hebrew man"
+    ],
+    "displayAnswer": "Hebrew (Jonah 1:9)",
+    "explanation": "Ironically, Jonah confessed that the Lord made both the sea and the dry land even while trying to flee Him across the sea.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_4",
+    "type": "facts",
+    "prompt": "In Jonah 1:17, how many days and nights was Jonah in the belly of the great fish appointed by the Lord?",
+    "bookId": "JON",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "3",
+      "three",
+      "3 days",
+      "three days",
+      "3 days and 3 nights",
+      "three days and three nights"
+    ],
+    "displayAnswer": "three days and three nights (Jonah 1:17)",
+    "explanation": "Jesus pointed to Jonah's three days and three nights in the belly of the great fish as the sign of His own burial and resurrection (Matthew 12:40).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_5",
+    "type": "facts",
+    "prompt": "In Jonah 2:2, praying from inside the great fish, Jonah says he cried out to the Lord 'out of the belly of [what Hebrew realm of the dead]'?",
+    "bookId": "JON",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Sheol",
+      "the belly of Sheol",
+      "the grave"
+    ],
+    "displayAnswer": "Sheol (Jonah 2:2)",
+    "explanation": "Sinking into the watery depths felt like descending to the gates of death (Sheol), from which God graciously brought up Jonah's life.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_6",
+    "type": "facts",
+    "prompt": "In Jonah 2:4 and 2:7, as his life was fainting away beneath the waves, into what sacred place did Jonah say his prayer came to the Lord?",
+    "bookId": "JON",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "holy temple",
+      "temple",
+      "your holy temple",
+      "the temple",
+      "his holy temple",
+      "God's temple"
+    ],
+    "displayAnswer": "holy temple (Jonah 2:4, 7)",
+    "explanation": "From the bottom of the sea, Jonah looked by faith toward God's dwelling place—His holy temple—confident the Lord heard his cry.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_7",
+    "type": "verse_completion",
+    "prompt": "Jonah 2:9 (ESV): \"But I with the voice of thanksgiving will sacrifice to you; what I have vowed I will pay. ______ belongs to the LORD!\"",
+    "bookId": "JON",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Salvation",
+      "Deliverance",
+      "Rescue"
+    ],
+    "displayAnswer": "Salvation (Jonah 2:9)",
+    "explanation": "'Salvation belongs to the LORD!' is the theological centerpiece of Jonah: God is sovereign to save whom He wills, both rebel prophets and pagan Ninevites.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_8",
+    "type": "facts",
+    "prompt": "In Jonah 1:2 and 3:2–3, to what great Assyrian city—'a three days' journey in breadth'—did the Lord send Jonah to call out against its evil?",
+    "bookId": "JON",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Nineveh",
+      "city of Nineveh",
+      "the city of Nineveh"
+    ],
+    "displayAnswer": "Nineveh (Jonah 3:2–3)",
+    "explanation": "Nineveh was a major Assyrian metropolis famed for cruelty toward Israel's neighbors, explaining Jonah's nationalistic reluctance to see it spared.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_9",
+    "type": "verse_completion",
+    "prompt": "Jonah 3:4 (ESV): \"Jonah began to go into the city, going a day's journey. And he called out, 'Yet ______ days, and Nineveh shall be overthrown!'\"",
+    "bookId": "JON",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "forty",
+      "40",
+      "forty days",
+      "40 days"
+    ],
+    "displayAnswer": "forty (Jonah 3:4)",
+    "explanation": "In Hebrew, Jonah's message in Jonah 3:4 is only five words—yet God used it to spark citywide repentance from the greatest to the least.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_10",
+    "type": "facts",
+    "prompt": "In Jonah 3:6, when Jonah's message reached the king of Nineveh, he rose from his throne, removed his robe, covered himself with sackcloth, and sat in what?",
+    "bookId": "JON",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "ashes",
+      "ash",
+      "in ashes",
+      "dust and ashes"
+    ],
+    "displayAnswer": "ashes (Jonah 3:6)",
+    "explanation": "Even Nineveh's pagan monarch humbled himself in sackcloth and ashes, contrasting sharply with hardened kings in Israel.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_11",
+    "type": "facts",
+    "prompt": "In Jonah 3:7–8, the king of Nineveh issued a decree so sweeping that not only people, but even what creatures had to fast from food and water and wear sackcloth?",
+    "bookId": "JON",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "beasts",
+      "animals",
+      "cattle",
+      "livestock",
+      "herds and flocks",
+      "man and beast"
+    ],
+    "displayAnswer": "beasts / animals (Jonah 3:7–8)",
+    "explanation": "The royal decree included 'man and beast, herd and flock,' underscoring the total, urgent humility of Nineveh's repentance.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_12",
+    "type": "verse_completion",
+    "prompt": "Jonah 4:2 (ESV): \"...for I knew that you are a gracious God and merciful, slow to ______ and abounding in steadfast love, and relenting from disaster.\"",
+    "bookId": "JON",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "anger",
+      "wrath",
+      "slow to anger"
+    ],
+    "displayAnswer": "anger (Jonah 4:2)",
+    "explanation": "Jonah quoted God's own covenant creed from Exodus 34:6 in anger—resenting that God extended the same mercy to Israel's enemies.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_13",
+    "type": "facts",
+    "prompt": "In Jonah 4:7, what tiny creature did God appoint at dawn the next day to attack the shade plant over Jonah's head so that it withered?",
+    "bookId": "JON",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "worm",
+      "a worm",
+      "the worm"
+    ],
+    "displayAnswer": "worm (Jonah 4:7)",
+    "explanation": "Just as God sovereignly appointed a great fish (1:17) and a plant (4:6), He appointed a tiny worm (4:7) to expose Jonah's misplaced priorities.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_14",
+    "type": "facts",
+    "prompt": "In Jonah 4:8, after the plant withered and the sun rose, from which compass direction did God appoint a scorching wind to beat upon Jonah?",
+    "bookId": "JON",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "east",
+      "eastern",
+      "the east",
+      "east wind",
+      "scorching east wind"
+    ],
+    "displayAnswer": "east (Jonah 4:8)",
+    "explanation": "The dry, scorching desert sirocco ('east wind') drove Jonah to faint and wish for death, setting up God's searching closing question.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_jon_15",
+    "type": "verse_completion",
+    "prompt": "Jonah 4:11 (ESV): \"And should not I pity Nineveh, that great city, in which there are more than ______ persons who do not know their right hand from their left, and also much cattle?\"",
+    "bookId": "JON",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "120,000",
+      "120000",
+      "one hundred twenty thousand",
+      "one hundred and twenty thousand",
+      "a hundred and twenty thousand",
+      "120 thousand"
+    ],
+    "displayAnswer": "120,000 (Jonah 4:11)",
+    "explanation": "Jonah ends with an unanswered rhetorical question magnifying God's missionary heart of compassion for lost multitudes.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_1",
+    "type": "facts",
+    "prompt": "In Micah 1:1 (and Jeremiah 26:18), what rural Judean hometown is Micah identified as coming from?",
+    "bookId": "MIC",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Moresheth",
+      "Moresheth-gath",
+      "Moresheth Gath"
+    ],
+    "displayAnswer": "Moresheth (Micah 1:1)",
+    "explanation": "Micah of Moresheth ministered in the Judean foothills (Shephelah) as a contemporary of Isaiah during the reigns of Jotham, Ahaz, and Hezekiah.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_2",
+    "type": "facts",
+    "prompt": "In Micah 1:5–6, alongside Jerusalem (capital of Judah), what capital city of northern Israel does God declare He will make 'a heap in the open country'?",
+    "bookId": "MIC",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Samaria",
+      "city of Samaria",
+      "the city of Samaria"
+    ],
+    "displayAnswer": "Samaria (Micah 1:5–6)",
+    "explanation": "Micah prophesied Samaria's destruction before Assyria conquered the northern capital in 722 BC.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_3",
+    "type": "facts",
+    "prompt": "In Micah 2:12, shifting abruptly from judgment on land-grabbers to hope, the Lord promises to gather the remnant of Israel together like what animals in a fold?",
+    "bookId": "MIC",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "sheep",
+      "a flock",
+      "flock of sheep",
+      "sheep in a fold",
+      "lambs"
+    ],
+    "displayAnswer": "sheep (Micah 2:12)",
+    "explanation": "God promises to assemble Jacob's remnant 'like sheep in a fold, like a flock in its pasture,' led out by their divine King at their head (Micah 2:13).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_4",
+    "type": "facts",
+    "prompt": "In Micah 3:11, Jerusalem's corrupt heads give judgment for a bribe, its priests teach for a price, and its prophets practice divination for what?",
+    "bookId": "MIC",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "money",
+      "silver",
+      "gain",
+      "pay",
+      "profit",
+      "for money"
+    ],
+    "displayAnswer": "money (Micah 3:11)",
+    "explanation": "Though greedy civil and religious leaders commercialized justice and ministry for money, they presumptuously claimed no disaster would touch Jerusalem.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_5",
+    "type": "verse_completion",
+    "prompt": "Micah 3:12 (ESV): \"Therefore because of you Zion shall be plowed as a ______; Jerusalem shall become a heap of ruins, and the mountain of the house a wooded height.\"",
+    "bookId": "MIC",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "field",
+      "a field",
+      "plowed field"
+    ],
+    "displayAnswer": "field (Micah 3:12)",
+    "explanation": "Over a century later in Jeremiah 26:18, Judean elders quoted Micah 3:12 verbatim, recalling how King Hezekiah heeded Micah's warning and repented.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_6",
+    "type": "verse_completion",
+    "prompt": "Micah 4:3 (ESV): \"...and they shall beat their swords into ______, and their spears into pruning hooks; nation shall not lift up sword against nation, neither shall they learn war anymore.\"",
+    "bookId": "MIC",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "plowshares",
+      "plowshare",
+      "ploughshares",
+      "plows"
+    ],
+    "displayAnswer": "plowshares (Micah 4:3)",
+    "explanation": "In the coming reign of the Lord from Zion, weapons of warfare will be reforged into agricultural tools of lasting peace.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_7",
+    "type": "facts",
+    "prompt": "In Micah 4:4, picturing Messianic peace and prosperity, every person will sit unafraid under his vine and under what kind of fruit tree?",
+    "bookId": "MIC",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "fig tree",
+      "fig",
+      "his fig tree",
+      "a fig tree",
+      "figs"
+    ],
+    "displayAnswer": "fig tree (Micah 4:4)",
+    "explanation": "Sitting securely 'under his vine and under his fig tree' was Israel's classic proverb of peace, safety, and covenant blessing (1 Kings 4:25; Zechariah 3:10).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_8",
+    "type": "verse_completion",
+    "prompt": "Micah 5:2 (ESV): \"But you, O ______ Ephrathah, who are too little to be among the clans of Judah, from you shall come forth for me one who is to be ruler in Israel, whose coming forth is from of old, from ancient days.\"",
+    "bookId": "MIC",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Bethlehem",
+      "Bethlehem Ephrathah",
+      "O Bethlehem"
+    ],
+    "displayAnswer": "Bethlehem (Micah 5:2)",
+    "explanation": "When Herod asked where the Christ was to be born, the chief priests and scribes cited Micah 5:2 naming Bethlehem of Judea (Matthew 2:5–6).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_9",
+    "type": "facts",
+    "prompt": "In Micah 5:5, summing up the security brought by the Messianic Shepherd-King from Bethlehem (echoed in Ephesians 2:14), what one-word blessing does Micah say 'he shall be' for His people?",
+    "bookId": "MIC",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "peace",
+      "their peace",
+      "our peace",
+      "shalom"
+    ],
+    "displayAnswer": "peace (Micah 5:5)",
+    "explanation": "Micah 5:5 declares of the Messiah, 'And he shall be their peace'—a truth fulfilled in Christ, of whom Paul writes, 'For he himself is our peace' (Ephesians 2:14).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_10",
+    "type": "facts",
+    "prompt": "In Micah 6:4, reminding Israel of His saving grace in the Exodus, the Lord says He sent Moses, Aaron, and what woman leader before them?",
+    "bookId": "MIC",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Miriam",
+      "prophetess Miriam",
+      "Moses' sister Miriam"
+    ],
+    "displayAnswer": "Miriam (Micah 6:4)",
+    "explanation": "In His covenant lawsuit (Micah 6:1–5), God recalls sending Moses, Aaron, and Miriam to lead redeemed Israel up from slavery in Egypt.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_11",
+    "type": "verse_completion",
+    "prompt": "Micah 6:8 (ESV): \"He has told you, O man, what is good; and what does the LORD require of you but to do justice, and to love kindness, and to walk ______ with your God?\"",
+    "bookId": "MIC",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "humbly",
+      "in humility",
+      "walk humbly"
+    ],
+    "displayAnswer": "humbly (Micah 6:8)",
+    "explanation": "Rather than extravagant ritual bribes, God requires covenant justice, loyal love (hesed), and a humble walk with Him.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_12",
+    "type": "facts",
+    "prompt": "In Micah 7:7, amid family betrayal and national corruption, for the God of his what ('I will wait for the God of my...') does Micah resolve to wait in confidence?",
+    "bookId": "MIC",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "salvation",
+      "my salvation",
+      "deliverance",
+      "saving"
+    ],
+    "displayAnswer": "salvation (Micah 7:7)",
+    "explanation": "Micah models steadfast trust in dark times: 'But as for me, I will look to the LORD; I will wait for the God of my salvation; my God will hear me.'",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mic_13",
+    "type": "verse_completion",
+    "prompt": "Micah 7:19 (ESV): \"He will again have compassion on us; he will tread our iniquities underfoot. You will cast all our sins into the depths of the ______.\"",
+    "bookId": "MIC",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "sea",
+      "the sea",
+      "depths of the sea",
+      "ocean"
+    ],
+    "displayAnswer": "sea (Micah 7:19)",
+    "explanation": "Playing on his own name ('Who is like Yahweh?'), Micah ends in awe of a pardoning God who hurls His people's sins into the depths of the sea (Micah 7:18–20).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_nah_1",
+    "type": "facts",
+    "prompt": "In Nahum 1:1, against what brutal Assyrian capital city—which had returned to violence ~100 years after Jonah's preaching—is Nahum's oracle directed?",
+    "bookId": "NAH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Nineveh",
+      "city of Nineveh",
+      "the city of Nineveh"
+    ],
+    "displayAnswer": "Nineveh (Nahum 1:1)",
+    "explanation": "Nahum prophesied the final, irreversible fall of Nineveh, fulfilled historically when Babylonian and Median forces conquered the city in 612 BC.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_nah_2",
+    "type": "facts",
+    "prompt": "In Nahum 1:1, from what hometown is the prophet Nahum identified ('The book of the vision of Nahum of...')?",
+    "bookId": "NAH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Elkosh",
+      "of Elkosh",
+      "the Elkoshite"
+    ],
+    "displayAnswer": "Elkosh (Nahum 1:1)",
+    "explanation": "Little is known of Nahum personally beyond his name ('comfort') and his origin in Elkosh.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_nah_3",
+    "type": "verse_completion",
+    "prompt": "Nahum 1:7 (ESV): \"The LORD is good, a ______ in the day of trouble; he knows those who take refuge in him.\"",
+    "bookId": "NAH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "stronghold",
+      "a stronghold",
+      "fortress",
+      "refuge"
+    ],
+    "displayAnswer": "stronghold (Nahum 1:7)",
+    "explanation": "Amid thunderous warnings of wrath against oppressors, Nahum 1:7 shines as a tender promise of protection for all who take refuge in the Lord.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_nah_4",
+    "type": "verse_completion",
+    "prompt": "Nahum 1:15 (ESV): \"Behold, upon the mountains, the feet of him who brings good news, who publishes ______! Keep your feasts, O Judah; fulfill your vows...\"",
+    "bookId": "NAH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "peace",
+      "shalom",
+      "good news of peace"
+    ],
+    "displayAnswer": "peace (Nahum 1:15)",
+    "explanation": "Echoing Isaiah 52:7, Nahum 1:15 announces good news and peace to Judah because the Assyrian oppressor is utterly cut off.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_nah_5",
+    "type": "facts",
+    "prompt": "In Nahum 2:4, what war vehicles flash like torches and lightning as they race madly through the streets and squares during the siege of Nineveh?",
+    "bookId": "NAH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "chariots",
+      "chariot",
+      "the chariots",
+      "war chariots"
+    ],
+    "displayAnswer": "chariots (Nahum 2:4)",
+    "explanation": "Nahum 2 paints a breathtaking eyewitness-like scene of flashing shields, scarlet-clad soldiers, and racing chariots storming Nineveh.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_nah_6",
+    "type": "facts",
+    "prompt": "In Nahum 2:6, foretelling how Nineveh's defenses would give way to flooding waters, what gates are opened so that 'the palace melts away'?",
+    "bookId": "NAH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "river gates",
+      "the river gates",
+      "floodgates",
+      "water gates",
+      "gates of the rivers"
+    ],
+    "displayAnswer": "river gates (Nahum 2:6)",
+    "explanation": "Ancient historians record that heavy flooding of the Tigris/Khosr rivers undermined Nineveh's walls in 612 BC, matching Nahum 2:6.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_nah_7",
+    "type": "facts",
+    "prompt": "In Nahum 2:11–12, Nineveh is taunted as a predatory den of what fierce animals whose cubs once tore prey undisturbed until the Lord turned against them?",
+    "bookId": "NAH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "lions",
+      "lion",
+      "a lion",
+      "the lions",
+      "young lions",
+      "lions' den"
+    ],
+    "displayAnswer": "lions (Nahum 2:11–12)",
+    "explanation": "Assyrian kings famously boasted of royal lion reliefs and hunts; Nahum mocks Nineveh's vanished 'lions' den' as God silences her roar.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_nah_8",
+    "type": "verse_completion",
+    "prompt": "Nahum 3:1 (ESV): \"Woe to the ______ city, all full of lies and plunder—no end to the prey!\"",
+    "bookId": "NAH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "bloody",
+      "bloody city",
+      "the bloody city"
+    ],
+    "displayAnswer": "bloody (Nahum 3:1)",
+    "explanation": "Assyria's own royal inscriptions boasted of skinning captives, impaling prisoners, and piling skulls—justifying Nahum's indictment of 'the bloody city.'",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_nah_9",
+    "type": "facts",
+    "prompt": "In Nahum 3:8, to prove Nineveh is not invincible, Nahum asks if she is any better than what great Egyptian city by the Nile that had already fallen into captivity?",
+    "bookId": "NAH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Thebes",
+      "No-amon",
+      "No Amon",
+      "city of Thebes"
+    ],
+    "displayAnswer": "Thebes (Nahum 3:8)",
+    "explanation": "Assyria herself had sacked heavily fortified Thebes (No-amon) in 663 BC; Nahum warns Nineveh she will suffer the exact same fate.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_nah_10",
+    "type": "facts",
+    "prompt": "In Nahum 3:19, at the very end of the book, what celebratory hand gesture do all who hear the news of Nineveh's downfall make because of her unceasing evil?",
+    "bookId": "NAH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "clap their hands",
+      "clap",
+      "clapping",
+      "clap hands",
+      "applaud"
+    ],
+    "displayAnswer": "clap their hands (Nahum 3:19)",
+    "explanation": "Subjugated peoples across the Near East clap their hands in relief when God brings Assyria's relentless tyranny to an end.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_1",
+    "type": "facts",
+    "prompt": "In Habakkuk 1:6, what 'bitter and hasty nation' (the Babylonians) does the Lord shock Habakkuk by revealing He is raising up to judge Judah?",
+    "bookId": "HAB",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Chaldeans",
+      "the Chaldeans",
+      "Babylonians",
+      "the Babylonians",
+      "Babylon",
+      "Chaldea"
+    ],
+    "displayAnswer": "Chaldeans / Babylonians (Habakkuk 1:6)",
+    "explanation": "When Habakkuk lamented injustice inside Judah, God stunned him by announcing He was raising up the ruthless Neo-Babylonian (Chaldean) Empire.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_2",
+    "type": "facts",
+    "prompt": "In Habakkuk 1:8, the Chaldean cavalry's horses are described as more fierce than evening wolves and swifter than what spotted wild cats?",
+    "bookId": "HAB",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "leopards",
+      "leopard",
+      "a leopard",
+      "the leopards"
+    ],
+    "displayAnswer": "leopards (Habakkuk 1:8)",
+    "explanation": "Habakkuk 1:8 portrays Babylon's terrifying speed with three predators: swifter than leopards, fiercer than evening wolves, and swooping like an eagle.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_3",
+    "type": "verse_completion",
+    "prompt": "Habakkuk 1:13 (ESV): \"You who are of purer ______ than to see evil and cannot look at wrong, why do you idly look at traitors...\"",
+    "bookId": "HAB",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "eyes",
+      "purer eyes",
+      "sight"
+    ],
+    "displayAnswer": "eyes (Habakkuk 1:13)",
+    "explanation": "Grounded in God's absolute holiness ('purer eyes than to see evil'), Habakkuk wrestles honestly with why God allows a more wicked nation to swallow Judah.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_4",
+    "type": "facts",
+    "prompt": "In Habakkuk 1:14–16, the Chaldean conqueror treats nations like fish of the sea and idolatrously offers sacrifices and incense to what fishing gear representing his own military might?",
+    "bookId": "HAB",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "net",
+      "his net",
+      "dragnet",
+      "his dragnet",
+      "fishing net",
+      "nets"
+    ],
+    "displayAnswer": "his net / dragnet (Habakkuk 1:15–16)",
+    "explanation": "Arrogant Babylon deified its own military machine ('sacrifices to his net and makes offerings to his dragnet') because by it he lived in luxury.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_5",
+    "type": "facts",
+    "prompt": "In Habakkuk 2:2, on what writing surface does the Lord command Habakkuk to write the vision plainly 'so he may run who reads it'?",
+    "bookId": "HAB",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "tablets",
+      "tablet",
+      "on tablets",
+      "clay tablets",
+      "stone tablets"
+    ],
+    "displayAnswer": "tablets (Habakkuk 2:2)",
+    "explanation": "Inscribing the prophecy clearly on tablets guaranteed its public legibility and enduring witness until its appointed fulfillment.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_6",
+    "type": "verse_completion",
+    "prompt": "Habakkuk 2:4 (ESV): \"Behold, his soul is puffed up; it is not upright within him, but the righteous shall live by his ______.\"",
+    "bookId": "HAB",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "faith",
+      "his faith",
+      "faithfulness",
+      "by faith",
+      "by his faith"
+    ],
+    "displayAnswer": "faith (Habakkuk 2:4)",
+    "explanation": "Habakkuk 2:4 contrasts proud self-reliance with living by faith—a cornerstone verse quoted in Romans 1:17, Galatians 3:11, and Hebrews 10:38.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_7",
+    "type": "verse_completion",
+    "prompt": "Habakkuk 2:14 (ESV): \"For the earth will be filled with the knowledge of the ______ of the LORD as the waters cover the sea.\"",
+    "bookId": "HAB",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "glory",
+      "the glory",
+      "glory of the Lord"
+    ],
+    "displayAnswer": "glory (Habakkuk 2:14)",
+    "explanation": "Whereas human empires build cities with blood and vanity for nothing (2:12–13), God's glory will ultimately fill the whole earth.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_8",
+    "type": "facts",
+    "prompt": "In Habakkuk 2:18–19, what lifeless objects of wood and overlaid gold or silver does the fifth 'woe' mock as 'a teacher of lies' with no breath at all inside them?",
+    "bookId": "HAB",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "idols",
+      "idol",
+      "carved idols",
+      "carved images",
+      "metal images",
+      "graven images"
+    ],
+    "displayAnswer": "idols (Habakkuk 2:18–19)",
+    "explanation": "Mute idols made by human hands stand in total contrast to the living Lord enthroned in His holy temple (Habakkuk 2:20).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_9",
+    "type": "verse_completion",
+    "prompt": "Habakkuk 2:20 (ESV): \"But the LORD is in his holy temple; let all the earth keep ______ before him.\"",
+    "bookId": "HAB",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "silence",
+      "silent",
+      "quiet"
+    ],
+    "displayAnswer": "silence (Habakkuk 2:20)",
+    "explanation": "Before the sovereign majesty of the living God in His heavenly temple, human boasting and complaint give way to reverent silence.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_10",
+    "type": "facts",
+    "prompt": "In Habakkuk 3:2, praying for God to revive His work in the midst of the years, what attribute of God does Habakkuk plead for Him to remember 'in wrath'?",
+    "bookId": "HAB",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "mercy",
+      "compassion",
+      "your mercy",
+      "his mercy"
+    ],
+    "displayAnswer": "mercy (Habakkuk 3:2)",
+    "explanation": "Accepting God's coming discipline, Habakkuk pleads, 'in wrath remember mercy'—trusting God's covenant compassion even through judgment.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_11",
+    "type": "facts",
+    "prompt": "In Habakkuk 3:11, recalling God's past warrior victories as in Joshua's day, what two heavenly bodies stood still in their place at the flash of God's arrows and spears?",
+    "bookId": "HAB",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "sun and moon",
+      "the sun and moon",
+      "the sun and the moon",
+      "moon and sun"
+    ],
+    "displayAnswer": "sun and moon (Habakkuk 3:11)",
+    "explanation": "Habakkuk 3:11 alludes to Joshua 10:12–13 at Gibeon, celebrating God's cosmic supremacy as He marches forth for the salvation of His people.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_12",
+    "type": "verse_completion",
+    "prompt": "Habakkuk 3:17–18 (ESV): \"Though the fig tree should not blossom, nor fruit be on the vines... yet I will ______ in the LORD; I will take joy in the God of my salvation.\"",
+    "bookId": "HAB",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "rejoice",
+      "exult",
+      "be joyful"
+    ],
+    "displayAnswer": "rejoice (Habakkuk 3:18)",
+    "explanation": "Moving from perplexity to praise, Habakkuk rejoices in God Himself even if every agricultural livelihood in Judah is stripped away.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hab_13",
+    "type": "facts",
+    "prompt": "In Habakkuk 3:19, declaring 'GOD, the Lord, is my strength,' like what swift, sure-footed animal's feet does Habakkuk say God makes his feet to tread on high places?",
+    "bookId": "HAB",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "deer",
+      "deer's",
+      "a deer",
+      "the deer",
+      "hinds",
+      "hind"
+    ],
+    "displayAnswer": "deer's (Habakkuk 3:19)",
+    "explanation": "Echoing Psalm 18:33, Habakkuk closes on the heights of faith, strengthened by God to walk securely over rugged terrain.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zep_1",
+    "type": "facts",
+    "prompt": "In Zephaniah 1:1, during the reign of what righteous, reforming king of Judah (son of Amon) did the word of the Lord come to Zephaniah?",
+    "bookId": "ZEP",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Josiah",
+      "King Josiah",
+      "Josiah king of Judah",
+      "Josiah son of Amon"
+    ],
+    "displayAnswer": "Josiah (Zephaniah 1:1)",
+    "explanation": "Zephaniah, great-great-grandson of Hezekiah, preached against idolatry in Judah during King Josiah's reign (640–609 BC).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zep_2",
+    "type": "facts",
+    "prompt": "In Zephaniah 1:12, with what light-bearing objects does the Lord say He will search Jerusalem to punish complacent men who think God does neither good nor ill?",
+    "bookId": "ZEP",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "lamps",
+      "lamp",
+      "with lamps",
+      "lanterns",
+      "torches",
+      "candles"
+    ],
+    "displayAnswer": "lamps (Zephaniah 1:12)",
+    "explanation": "Like searchers probing dark cellars with lamps, God exposes practical atheists thickened in self-satisfied apathy ('settled on their dregs').",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zep_3",
+    "type": "verse_completion",
+    "prompt": "Zephaniah 1:14–15 (ESV): \"The great day of the LORD is near, near and hastening fast... A day of ______ is that day, a day of distress and anguish...\"",
+    "bookId": "ZEP",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "wrath",
+      "anger",
+      "a day of wrath"
+    ],
+    "displayAnswer": "wrath (Zephaniah 1:15)",
+    "explanation": "Zephaniah 1:15 ('Dies Irae' in Latin) paints one of Scripture's most solemn portraits of the Day of the Lord's judgment against sin.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zep_4",
+    "type": "facts",
+    "prompt": "In Zephaniah 1:18, alongside their silver, what precious metal will be completely unable to deliver sinners on the day of the wrath of the Lord?",
+    "bookId": "ZEP",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "gold",
+      "their gold",
+      "silver and gold"
+    ],
+    "displayAnswer": "gold (Zephaniah 1:18)",
+    "explanation": "Echoing Ezekiel 7:19 and Proverbs 11:4, Zephaniah warns that no earthly wealth of silver or gold can ransom anyone from divine judgment.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zep_5",
+    "type": "verse_completion",
+    "prompt": "Zephaniah 2:3 (ESV): \"Seek the LORD, all you humble of the land, who do his just commands; seek ______; seek humility; perhaps you may be hidden on the day of the anger of the LORD.\"",
+    "bookId": "ZEP",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "righteousness",
+      "justice",
+      "his righteousness"
+    ],
+    "displayAnswer": "righteousness (Zephaniah 2:3)",
+    "explanation": "Before judgment falls, Zephaniah calls the humble remnant to seek the Lord, righteousness, and humility.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zep_6",
+    "type": "facts",
+    "prompt": "In Zephaniah 2:9, because Moab and the Ammonites taunted God's people, the Lord swears Moab shall become like Sodom and the Ammonites like what destroyed city?",
+    "bookId": "ZEP",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Gomorrah",
+      "city of Gomorrah",
+      "Sodom and Gomorrah"
+    ],
+    "displayAnswer": "Gomorrah (Zephaniah 2:9)",
+    "explanation": "Moab and Ammon—descended from Lot, who escaped Sodom and Gomorrah—would ironically become desolate salt-pit wastelands like those cities.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zep_7",
+    "type": "facts",
+    "prompt": "In Zephaniah 2:13–15, stretching His hand against the north to destroy Assyria, what proud capital city ('I am, and there is no one else') does God say will become a dry waste where herds lie down?",
+    "bookId": "ZEP",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Nineveh",
+      "city of Nineveh",
+      "the city of Nineveh"
+    ],
+    "displayAnswer": "Nineveh (Zephaniah 2:13)",
+    "explanation": "When Zephaniah preached, Nineveh still stood at the height of imperial power, yet fell into desolate ruins within decades in 612 BC.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zep_8",
+    "type": "facts",
+    "prompt": "In Zephaniah 3:9 (reversing the confusion of Babel), what does the Lord promise to purify ('a pure...') among the peoples so that all may call upon the name of the Lord with one accord?",
+    "bookId": "ZEP",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "speech",
+      "pure speech",
+      "a pure speech",
+      "language",
+      "lips",
+      "pure lips"
+    ],
+    "displayAnswer": "speech (Zephaniah 3:9)",
+    "explanation": "Where proud Babel scattered nations' tongues, God promises redeemed nations 'a pure speech' united in worship of the Lord.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zep_9",
+    "type": "facts",
+    "prompt": "In Zephaniah 3:12, after removing proud boasters, the Lord promises to leave a humble and lowly people who seek what in the name of the Lord?",
+    "bookId": "ZEP",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "refuge",
+      "trust",
+      "shelter",
+      "protection"
+    ],
+    "displayAnswer": "refuge (Zephaniah 3:12)",
+    "explanation": "God's purified remnant is marked not by arrogance, but by humble dependence that seeks refuge in the name of the Lord.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zep_10",
+    "type": "verse_completion",
+    "prompt": "Zephaniah 3:15 (ESV): \"The LORD has taken away the judgments against you; he has cleared away your enemies. The ______ of Israel, the LORD, is in your midst; you shall never again fear evil.\"",
+    "bookId": "ZEP",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "King",
+      "the King",
+      "King of Israel"
+    ],
+    "displayAnswer": "King (Zephaniah 3:15)",
+    "explanation": "Zion's fearless joy flows from two realities: her judgments are pardoned ('taken away') and her divine King dwells in her midst.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zep_11",
+    "type": "verse_completion",
+    "prompt": "Zephaniah 3:17 (ESV): \"The LORD your God is in your midst, a mighty one who will save; he will rejoice over you with gladness; he will quiet you by his love; he will exult over you with loud ______.\"",
+    "bookId": "ZEP",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "singing",
+      "loud singing",
+      "songs",
+      "song"
+    ],
+    "displayAnswer": "singing (Zephaniah 3:17)",
+    "explanation": "A book that opened with sweeping wrath closes with the breathtaking image of God Himself rejoicing over His redeemed bride with loud singing.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hag_1",
+    "type": "facts",
+    "prompt": "In Haggai 1:1, in the second year of which Persian king (520 BC) did the word of the Lord come through Haggai?",
+    "bookId": "HAG",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Darius",
+      "King Darius",
+      "Darius the king",
+      "Darius I"
+    ],
+    "displayAnswer": "Darius (Haggai 1:1)",
+    "explanation": "All four messages in Haggai are precisely dated to the second year of Darius I (520 BC), sixteen years after the initial temple foundation was laid.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hag_2",
+    "type": "facts",
+    "prompt": "In Haggai 1:1, who was the Davidic governor of Judah (son of Shealtiel) addressed alongside Joshua the high priest to lead the rebuilding of the temple?",
+    "bookId": "HAG",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Zerubbabel",
+      "Governor Zerubbabel",
+      "Zerubbabel son of Shealtiel"
+    ],
+    "displayAnswer": "Zerubbabel (Haggai 1:1)",
+    "explanation": "Zerubbabel, grandson of King Jehoiachin and ancestor of Jesus (Matthew 1:12; Luke 3:27), served as civil governor of post-exilic Judah.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hag_3",
+    "type": "verse_completion",
+    "prompt": "Haggai 1:4 (ESV): \"Is it a time for you yourselves to dwell in your paneled houses, while this house lies in ______?\"",
+    "bookId": "HAG",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "ruins",
+      "ruin",
+      "waste",
+      "desolation"
+    ],
+    "displayAnswer": "ruins (Haggai 1:4)",
+    "explanation": "Returned exiles claimed the time had not yet come to rebuild God's temple, even while paneling their own comfortable homes.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hag_4",
+    "type": "verse_completion",
+    "prompt": "Haggai 1:5 (ESV): \"Now, therefore, thus says the LORD of hosts: Consider your ______.\"",
+    "bookId": "HAG",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "ways",
+      "your ways",
+      "paths"
+    ],
+    "displayAnswer": "ways (Haggai 1:5)",
+    "explanation": "Repeated in Haggai 1:5, 1:7, and 2:15, 18, 'Consider your ways' (literally 'set your heart on your ways') calls God's people to examine their priorities.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hag_5",
+    "type": "facts",
+    "prompt": "In Haggai 1:6, describing the economic futility caused by neglecting God's house, Haggai says the wage earner puts his wages into 'a bag with [what]'?",
+    "bookId": "HAG",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "holes",
+      "hole",
+      "a bag with holes",
+      "bag with holes"
+    ],
+    "displayAnswer": "holes (Haggai 1:6)",
+    "explanation": "God withheld rain and harvest blessing while His house was neglected, making self-centered labor vanish like coins leaking through a pierced pouch.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hag_6",
+    "type": "facts",
+    "prompt": "In Haggai 1:8, what building material does the Lord command the people to go up to the hills and bring so they may build the house of the Lord?",
+    "bookId": "HAG",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "wood",
+      "timber",
+      "lumber",
+      "logs",
+      "trees"
+    ],
+    "displayAnswer": "wood / timber (Haggai 1:8)",
+    "explanation": "Remarkably, within just twenty-three days of Haggai's rebuke, the leaders and all the remnant obeyed and resumed work on the temple (Haggai 1:12–15).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hag_7",
+    "type": "facts",
+    "prompt": "In Haggai 1:1 and 2:2, 4, what was the name of the high priest (son of Jehozadak) whom God told to 'Be strong' alongside Zerubbabel?",
+    "bookId": "HAG",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Joshua",
+      "Joshua the high priest",
+      "Joshua son of Jehozadak",
+      "Jeshua"
+    ],
+    "displayAnswer": "Joshua (Haggai 2:4)",
+    "explanation": "Joshua (called Jeshua in Ezra–Nehemiah) ministered as high priest alongside Governor Zerubbabel, encouraged by God's abiding Spirit (Haggai 2:4–5).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hag_8",
+    "type": "verse_completion",
+    "prompt": "Haggai 2:8 (ESV): \"The silver is mine, and the ______ is mine, declares the LORD of hosts.\"",
+    "bookId": "HAG",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "gold",
+      "the gold",
+      "pure gold",
+      "all the gold"
+    ],
+    "displayAnswer": "gold (Haggai 2:8)",
+    "explanation": "To discouraged builders grieving that the Second Temple lacked Solomon's lavish wealth, God reminded them that all the world's silver and gold belong to Him.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hag_9",
+    "type": "verse_completion",
+    "prompt": "Haggai 2:9 (ESV): \"The latter ______ of this house shall be greater than the former, says the LORD of hosts. And in this place I will give peace, declares the LORD of hosts.\"",
+    "bookId": "HAG",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "glory",
+      "splendor",
+      "the latter glory"
+    ],
+    "displayAnswer": "glory (Haggai 2:9)",
+    "explanation": "Though modest in outward construction, the Second Temple would witness the personal arrival of the Prince of Peace, Jesus Christ, and anticipate God's eschatological dwelling.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hag_10",
+    "type": "facts",
+    "prompt": "In Haggai 2:11–14, whom does the Lord instruct Haggai to ask for a ruling on ceremonial holiness and defilement?",
+    "bookId": "HAG",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "priests",
+      "the priests",
+      "Levitical priests",
+      "a priest"
+    ],
+    "displayAnswer": "the priests (Haggai 2:11)",
+    "explanation": "Using Levitical Torah rulings, Haggai showed that just as uncleanness spreads faster than holiness, mere proximity to the altar could not sanctify disobedient hearts.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_hag_11",
+    "type": "facts",
+    "prompt": "In Haggai 2:23, closing the book with a royal Messianic promise to Zerubbabel, what royal object of authority does the Lord say He will make Zerubbabel like?",
+    "bookId": "HAG",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "signet ring",
+      "a signet ring",
+      "the signet ring",
+      "signet",
+      "a signet"
+    ],
+    "displayAnswer": "signet ring (Haggai 2:23)",
+    "explanation": "God had cast off King Jeconiah like a discarded signet ring (Jeremiah 22:24), yet in His grandson Zerubbabel God reaffirmed His chosen Davidic line leading to Christ.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_1",
+    "type": "facts",
+    "prompt": "In Zechariah 1:8 (the first night vision), Zechariah sees a man riding on a red horse standing among what kind of fragrant evergreen trees in the glen?",
+    "bookId": "ZEC",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "myrtle trees",
+      "myrtle",
+      "the myrtle trees",
+      "myrtles",
+      "myrtle tree"
+    ],
+    "displayAnswer": "myrtle trees (Zechariah 1:8)",
+    "explanation": "Lowly myrtle trees in the valley picture humbled post-exilic Judah, yet the Angel of the Lord stands watchfully in their midst.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_2",
+    "type": "facts",
+    "prompt": "In Zechariah 2:1–5 (the third night vision), a man with a measuring line goes out to measure what city, which God promises to surround as 'a wall of fire'?",
+    "bookId": "ZEC",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Jerusalem",
+      "city of Jerusalem",
+      "Zion"
+    ],
+    "displayAnswer": "Jerusalem (Zechariah 2:2, 5)",
+    "explanation": "God promises that restored Jerusalem will overflow walls with people and livestock, protected by the Lord Himself as a wall of fire and glory within.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_3",
+    "type": "facts",
+    "prompt": "In Zechariah 3:1–4, who stood at the right hand of Joshua the high priest to accuse him before the Lord rebuked the accuser and clothed Joshua in pure vestments?",
+    "bookId": "ZEC",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Satan",
+      "the adversary",
+      "the devil",
+      "the accuser"
+    ],
+    "displayAnswer": "Satan (Zechariah 3:1–2)",
+    "explanation": "Zechariah 3 is a vivid Old Testament portrait of justification: the Lord silences Satan's accusation, removes Joshua's filthy garments of iniquity, and clothes him in pure robes.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_4",
+    "type": "facts",
+    "prompt": "In Zechariah 4:2–3 and 4:11–14, what two oil-producing trees stand on the right and left of the golden lampstand, continually supplying oil?",
+    "bookId": "ZEC",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "olive trees",
+      "two olive trees",
+      "olive",
+      "olive tree",
+      "the olive trees"
+    ],
+    "displayAnswer": "two olive trees (Zechariah 4:3, 11)",
+    "explanation": "The two olive trees ('the two anointed ones,' priest Joshua and royal governor Zerubbabel) channel the endless supply of God's Spirit to complete His work (compare Revelation 11:4).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_5",
+    "type": "verse_completion",
+    "prompt": "Zechariah 4:6 (ESV): \"...'This is the word of the LORD to Zerubbabel: Not by might, nor by power, but by my ______, says the LORD of hosts.'\"",
+    "bookId": "ZEC",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Spirit",
+      "my Spirit",
+      "Holy Spirit",
+      "the Spirit"
+    ],
+    "displayAnswer": "Spirit (Zechariah 4:6)",
+    "explanation": "Human strength could never overcome the obstacles facing the tiny post-exilic remnant; God's temple work succeeds solely by the power of His Spirit.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_6",
+    "type": "facts",
+    "prompt": "In Zechariah 5:1–3, what airborne object—twenty cubits long and ten cubits wide—does Zechariah see going out as a curse against every thief and false swearer?",
+    "bookId": "ZEC",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "flying scroll",
+      "scroll",
+      "a scroll",
+      "a flying scroll",
+      "the flying scroll"
+    ],
+    "displayAnswer": "flying scroll (Zechariah 5:1–2)",
+    "explanation": "Matching the dimensions of the temple porch (20 by 10 cubits), the flying scroll enforces both tables of God's law against theft and perjury in God's name.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_7",
+    "type": "facts",
+    "prompt": "In Zechariah 6:12–13 (and 3:8), what Messianic botanical title ('Behold, the man whose name is the...') is given to the coming ruler who will build the Lord's temple and unite the offices of King and Priest on His throne?",
+    "bookId": "ZEC",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Branch",
+      "the Branch",
+      "Righteous Branch"
+    ],
+    "displayAnswer": "the Branch (Zechariah 6:12)",
+    "explanation": "Crowning Joshua the high priest foreshadowed Jesus the Messianic Branch (Isaiah 11:1; Jeremiah 23:5), who reigns forever as both King and High Priest.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_8",
+    "type": "verse_completion",
+    "prompt": "Zechariah 7:9–10 (ESV): \"Thus says the LORD of hosts, Render true judgments, show kindness and ______ to one another, do not oppress the widow, the fatherless, the sojourner, or the poor...\"",
+    "bookId": "ZEC",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "mercy",
+      "compassion",
+      "mercies"
+    ],
+    "displayAnswer": "mercy (Zechariah 7:9)",
+    "explanation": "When asked whether to continue exilic fasts, God reminded the people that past exile came from ignoring justice, kindness, and mercy toward the vulnerable.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_9",
+    "type": "facts",
+    "prompt": "In Zechariah 8:23, how many men from the nations of every tongue will take hold of the robe of a Jew, saying, 'Let us go with you, for we have heard that God is with you'?",
+    "bookId": "ZEC",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "10",
+      "ten",
+      "10 men",
+      "ten men"
+    ],
+    "displayAnswer": "ten men (Zechariah 8:23)",
+    "explanation": "Zechariah 8:23 envisions the worldwide ingathering of Gentiles drawn to worship the true God through the witness of Zion.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_10",
+    "type": "verse_completion",
+    "prompt": "Zechariah 9:9 (ESV): \"...Behold, your king is coming to you; righteous and having salvation is he, humble and mounted on a ______...\"",
+    "bookId": "ZEC",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "donkey",
+      "a donkey",
+      "colt",
+      "a colt",
+      "foal of a donkey"
+    ],
+    "displayAnswer": "donkey (Zechariah 9:9)",
+    "explanation": "Fulfilled on Palm Sunday (Matthew 21:4–5; John 12:14–15), Zion's King enters not on a warhorse of conquest, but humbly riding a donkey to bring peace.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_11",
+    "type": "facts",
+    "prompt": "In Zechariah 10:4, what foundational building stone—later applied to Christ in the New Testament—does God say will come forth from Judah alongside the tent peg and battle bow?",
+    "bookId": "ZEC",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "cornerstone",
+      "the cornerstone",
+      "a cornerstone",
+      "chief cornerstone"
+    ],
+    "displayAnswer": "cornerstone (Zechariah 10:4)",
+    "explanation": "From the house of Judah comes the Cornerstone, Tent Peg, and Battle Bow—titles pointing to the Messianic Leader who anchors and defends God's people.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_12",
+    "type": "facts",
+    "prompt": "In Zechariah 11:12–13, how many pieces of silver were weighed out as the Good Shepherd's wages and thrown to the potter in the house of the Lord?",
+    "bookId": "ZEC",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "30",
+      "thirty",
+      "30 pieces",
+      "thirty pieces",
+      "30 pieces of silver",
+      "thirty pieces of silver"
+    ],
+    "displayAnswer": "30 pieces of silver (Zechariah 11:12–13)",
+    "explanation": "Thirty shekels of silver—the valuation of a gored slave in Exodus 21:32—precisely prefigured Judas's betrayal price and the purchase of the potter's field (Matthew 27:3–10).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_13",
+    "type": "verse_completion",
+    "prompt": "Zechariah 12:10 (ESV): \"...so that, when they look on me, on him whom they have ______, they shall mourn for him, as one mourns for an only child...\"",
+    "bookId": "ZEC",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "pierced",
+      "whom they have pierced",
+      "thrust through"
+    ],
+    "displayAnswer": "pierced (Zechariah 12:10)",
+    "explanation": "Quoted at the crucifixion in John 19:37 and echoed in Revelation 1:7, Zechariah 12:10 astonishingly identifies the pierced Messiah with the Lord Himself ('look on me, on him whom they have pierced').",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_14",
+    "type": "facts",
+    "prompt": "In Zechariah 13:1, what water source shall be opened on that day for the house of David and the inhabitants of Jerusalem 'to cleanse them from sin and uncleanness'?",
+    "bookId": "ZEC",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "fountain",
+      "a fountain",
+      "the fountain",
+      "cleansing fountain",
+      "spring"
+    ],
+    "displayAnswer": "a fountain (Zechariah 13:1)",
+    "explanation": "Flowing directly from the piercing of chapter 12, Zechariah 13:1 promises a cleansing fountain for sin—inspiring William Cowper's hymn 'There Is a Fountain Filled with Blood.'",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_15",
+    "type": "verse_completion",
+    "prompt": "Zechariah 13:7 (ESV): \"...'Strike the shepherd, and the ______ will be scattered...'\"",
+    "bookId": "ZEC",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "sheep",
+      "the sheep",
+      "flock"
+    ],
+    "displayAnswer": "sheep (Zechariah 13:7)",
+    "explanation": "On the Mount of Olives before Gethsemane, Jesus quoted Zechariah 13:7 to foretell His sacrificial death and the disciples' temporary scattering (Matthew 26:31; Mark 14:27).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_zec_16",
+    "type": "verse_completion",
+    "prompt": "Zechariah 14:4 (ESV): \"On that day his feet shall stand on the Mount of ______ that lies before Jerusalem on the east...\"",
+    "bookId": "ZEC",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "Olives",
+      "Mount of Olives",
+      "the Mount of Olives"
+    ],
+    "displayAnswer": "Olives (Zechariah 14:4)",
+    "explanation": "Zechariah 14 portrays the Lord standing on the Mount of Olives—where Jesus ascended (Acts 1:11–12)—reigning universally as King over all the earth (Zechariah 14:9).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_1",
+    "type": "facts",
+    "prompt": "In Malachi 1:2–3 (quoted in Romans 9:13), when Israel asks 'How have you loved us?', with which twin brother of Jacob does the Lord contrast His electing covenant love?",
+    "bookId": "MAL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Esau",
+      "brother Esau",
+      "Edom"
+    ],
+    "displayAnswer": "Esau (Malachi 1:2–3)",
+    "explanation": "Though both Jacob and Esau were twin sons of Isaac, Edom's permanent ruin vs. Judah's post-exilic preservation proved God's faithful covenant love for Jacob.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_2",
+    "type": "facts",
+    "prompt": "In Malachi 1:8, rebuking priests for offering blind, lame, and sick animals on the altar, God challenges them to present such blemished animals to what Persian civil official to see if he would show favor?",
+    "bookId": "MAL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "governor",
+      "your governor",
+      "the governor",
+      "their governor"
+    ],
+    "displayAnswer": "governor (Malachi 1:8)",
+    "explanation": "If not even an earthly Persian governor (pehah) would accept crippled animals as tax tribute, offering leftovers to the great King of hosts was sheer contempt.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_3",
+    "type": "verse_completion",
+    "prompt": "Malachi 1:11 (ESV): \"For from the rising of the sun to its setting my name will be great among the ______, and in every place incense will be offered to my name, and a pure offering...\"",
+    "bookId": "MAL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "nations",
+      "the nations",
+      "Gentiles",
+      "peoples"
+    ],
+    "displayAnswer": "nations (Malachi 1:11)",
+    "explanation": "Though Jerusalem's priests despised God's altar, God promised that from east to west His name will be worshiped purely among all the nations.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_4",
+    "type": "facts",
+    "prompt": "In Malachi 2:4–8, with what priestly ancestor/tribe did God say He made His 'covenant of life and peace,' which the corrupt post-exilic priests had violated?",
+    "bookId": "MAL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Levi",
+      "tribe of Levi",
+      "the Levites",
+      "Levites"
+    ],
+    "displayAnswer": "Levi (Malachi 2:4–5, 8)",
+    "explanation": "True priests in the line of Levi were meant to revere God, guard knowledge on their lips, and turn many from iniquity (Malachi 2:5–7).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_5",
+    "type": "facts",
+    "prompt": "In Malachi 2:14–15, rebuking men who were faithless to 'the wife of your youth,' what kind of offspring (children) does Malachi say the one God was seeking in making husband and wife one?",
+    "bookId": "MAL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "godly offspring",
+      "godly",
+      "godly children",
+      "godly seed",
+      "holy offspring"
+    ],
+    "displayAnswer": "godly offspring (Malachi 2:15)",
+    "explanation": "Malachi 2:14–16 defends marriage as a lifelong sacred covenant witnessed by God, designed to nurture godly offspring rather than treacherous divorce.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_6",
+    "type": "facts",
+    "prompt": "In Malachi 2:17, what divine attribute do cynical Israelites question when they weary the Lord by claiming He delights in evildoers ('Where is the God of...?')?",
+    "bookId": "MAL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "justice",
+      "judgment",
+      "the God of justice"
+    ],
+    "displayAnswer": "justice (Malachi 2:17)",
+    "explanation": "Impatient skeptics questioned God's moral governance ('Where is the God of justice?'), setting up chapter 3's announcement that the Lord Himself is coming to refine and judge.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_7",
+    "type": "verse_completion",
+    "prompt": "Malachi 3:1 (ESV): \"Behold, I send my ______, and he will prepare the way before me. And the Lord whom you seek will suddenly come to his temple...\"",
+    "bookId": "MAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "messenger",
+      "my messenger",
+      "forerunner"
+    ],
+    "displayAnswer": "messenger (Malachi 3:1)",
+    "explanation": "The Gospels explicitly identify 'my messenger' who prepares the way before the Lord as John the Baptist heralding Jesus Christ (Matthew 11:10; Mark 1:2).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_8",
+    "type": "facts",
+    "prompt": "In Malachi 3:2–3, the coming Messenger of the Covenant is compared to fullers' soap and to a refiner who sits to purify the sons of Levi like gold and what other precious metal?",
+    "bookId": "MAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "silver",
+      "pure silver",
+      "refined silver"
+    ],
+    "displayAnswer": "silver (Malachi 3:3)",
+    "explanation": "Like a silversmith sitting beside the crucible skimming away dross until the metal reflects his image, the Lord refines His people for righteous worship.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_9",
+    "type": "verse_completion",
+    "prompt": "Malachi 3:6 (ESV): \"For I the LORD do not ______; therefore you, O children of Jacob, are not consumed.\"",
+    "bookId": "MAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "change",
+      "alter",
+      "do not change"
+    ],
+    "displayAnswer": "change (Malachi 3:6)",
+    "explanation": "Israel's survival rests solely on God's immutability: because Yahweh never changes in His covenant promises, faithless Jacob is refined rather than annihilated.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_10",
+    "type": "facts",
+    "prompt": "In Malachi 3:8–10, in what tenths/offerings does God accuse the nation of robbing Him, challenging them to bring the full amount into the storehouse?",
+    "bookId": "MAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "tithes",
+      "tithe",
+      "the full tithe",
+      "tithes and contributions",
+      "tithes and offerings"
+    ],
+    "displayAnswer": "tithes (Malachi 3:8–10)",
+    "explanation": "Withholding tithes betrayed distrust in God's provision; God invited Israel to test His generosity as He opened the windows of heaven in blessing.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_11",
+    "type": "facts",
+    "prompt": "In Malachi 3:16, when those who feared the Lord spoke with one another, what kind of book was written before the Lord to record those who feared Him and esteemed His name?",
+    "bookId": "MAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "book of remembrance",
+      "a book of remembrance",
+      "the book of remembrance",
+      "remembrance",
+      "scroll of remembrance"
+    ],
+    "displayAnswer": "book of remembrance (Malachi 3:16)",
+    "explanation": "God notices and treasures every faithful conversation of His remnant, promising they shall be His 'treasured possession' (Malachi 3:17).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_12",
+    "type": "verse_completion",
+    "prompt": "Malachi 4:2 (ESV): \"But for you who fear my name, the sun of righteousness shall rise with ______ in its wings. You shall go out leaping like calves from the stall.\"",
+    "bookId": "MAL",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "healing",
+      "health",
+      "with healing"
+    ],
+    "displayAnswer": "healing (Malachi 4:2)",
+    "explanation": "While the Day of the Lord burns arrogant evildoers like an oven (4:1), it dawns like the healing Sun of Righteousness upon all who revere God's name.",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mal_13",
+    "type": "facts",
+    "prompt": "In Malachi 4:5–6, which Old Testament prophet does God promise to send before the great and awesome day of the Lord to turn the hearts of fathers and children to each other?",
+    "bookId": "MAL",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Elijah",
+      "Elijah the prophet",
+      "Prophet Elijah"
+    ],
+    "displayAnswer": "Elijah (Malachi 4:5)",
+    "explanation": "Closing the Old Testament canon in anticipation, Malachi 4:5–6 points forward to John the Baptist ministering 'in the spirit and power of Elijah' (Luke 1:17; Matthew 11:14; 17:12).",
+    "scope": "OT",
+    "genre": "Minor Prophets"
+  },
+  {
+    "id": "a2_mat_1",
+    "type": "facts",
+    "prompt": "In Matthew 1:23, what does the prophetic title Immanuel mean when translated?",
+    "bookId": "MAT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "God with us",
+      "God is with us",
+      "with us is God"
+    ],
+    "displayAnswer": "God with us (Matthew 1:23)",
+    "explanation": "Matthew 1:23 cites Isaiah 7:14, declaring that Jesus' virgin birth fulfills the promise that Immanuel means 'God with us.'",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_2",
+    "type": "facts",
+    "prompt": "In Matthew 2:1, in what Judean town was Jesus born during the days of Herod the king?",
+    "bookId": "MAT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Bethlehem",
+      "Bethlehem of Judea",
+      "Bethlehem in Judea"
+    ],
+    "displayAnswer": "Bethlehem (Matthew 2:1)",
+    "explanation": "Jesus was born in Bethlehem of Judea, fulfilling Micah 5:2 as the ruler who would shepherd God's people Israel.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_3",
+    "type": "facts",
+    "prompt": "In Matthew 2:13–15, to what country did Joseph take Mary and the child Jesus by night to escape Herod's slaughter?",
+    "bookId": "MAT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Egypt",
+      "land of Egypt",
+      "the land of Egypt",
+      "into Egypt"
+    ],
+    "displayAnswer": "Egypt (Matthew 2:13–15)",
+    "explanation": "Warned by an angel of the Lord in a dream, Joseph fled with Mary and Jesus to Egypt, fulfilling Hosea 11:1 ('Out of Egypt I called my son').",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_4",
+    "type": "facts",
+    "prompt": "In Matthew 3:4, what two foods did John the Baptist eat while preaching in the wilderness of Judea?",
+    "bookId": "MAT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "locusts and wild honey",
+      "locusts and honey",
+      "wild honey and locusts",
+      "honey and locusts"
+    ],
+    "displayAnswer": "locusts and wild honey (Matthew 3:4)",
+    "explanation": "Clothed in camel's hair with a leather belt like Elijah, John the Baptist lived simply in the wilderness on locusts and wild honey.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_5",
+    "type": "verse_completion",
+    "prompt": "Matthew 4:4 (ESV): \"It is written, 'Man shall not live by bread alone, but by every ______ that comes from the mouth of God.'\"",
+    "bookId": "MAT",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "word",
+      "every word",
+      "word of God"
+    ],
+    "displayAnswer": "word (Matthew 4:4)",
+    "explanation": "Quoting Deuteronomy 8:3 during His wilderness temptation, Jesus affirms total dependence on every word spoken by God.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_6",
+    "type": "verse_completion",
+    "prompt": "Matthew 5:9 (ESV): \"Blessed are the ______, for they shall be called sons of God.\"",
+    "bookId": "MAT",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "peacemakers",
+      "the peacemakers",
+      "peace makers"
+    ],
+    "displayAnswer": "peacemakers (Matthew 5:9)",
+    "explanation": "In the seventh Beatitude of the Sermon on the Mount, Jesus pronounces blessing on peacemakers who reflect the character of their heavenly Father.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_7",
+    "type": "facts",
+    "prompt": "In Matthew 5:41, if anyone forces you to go one mile, how far does Jesus say to go with him?",
+    "bookId": "MAT",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "two miles",
+      "2 miles",
+      "two",
+      "2"
+    ],
+    "displayAnswer": "two miles (Matthew 5:41)",
+    "explanation": "Addressing Roman military impressment in the Sermon on the Mount, Jesus teaches generous, non-retaliatory love by going two miles.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_8",
+    "type": "facts",
+    "prompt": "In Matthew 6:24, Jesus warns that no one can serve two masters—'You cannot serve God and' what rival master?",
+    "bookId": "MAT",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "money",
+      "mammon",
+      "wealth",
+      "riches"
+    ],
+    "displayAnswer": "money (Matthew 6:24)",
+    "explanation": "Matthew 6:24 (ESV) renders the Aramaic term mammon as 'money,' warning that undivided devotion to God excludes covetousness.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_9",
+    "type": "verse_completion",
+    "prompt": "Matthew 6:33 (ESV): \"But seek first the ______ of God and his righteousness, and all these things will be added to you.\"",
+    "bookId": "MAT",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "kingdom",
+      "the kingdom",
+      "kingdom of God"
+    ],
+    "displayAnswer": "kingdom (Matthew 6:33)",
+    "explanation": "Rather than being anxious about food or clothing, disciples are called to prioritize God's reign and righteousness trusting His fatherly provision.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_10",
+    "type": "verse_completion",
+    "prompt": "Matthew 7:7 (ESV): \"Ask, and it will be given to you; seek, and you will find; ______, and it will be opened to you.\"",
+    "bookId": "MAT",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "knock",
+      "and knock",
+      "keep knocking"
+    ],
+    "displayAnswer": "knock (Matthew 7:7)",
+    "explanation": "Jesus invites persistent, confident prayer to our heavenly Father through the threefold exhortation to ask, seek, and knock.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_11",
+    "type": "facts",
+    "prompt": "In Matthew 7:24–25, on what foundation did the wise man build his house so that it did not fall when the rain, floods, and winds beat on it?",
+    "bookId": "MAT",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "the rock",
+      "rock",
+      "a rock",
+      "solid rock"
+    ],
+    "displayAnswer": "the rock (Matthew 7:24–25)",
+    "explanation": "Closing the Sermon on the Mount, Jesus compares everyone who hears His words and does them to a wise man who built his house on the rock.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_12",
+    "type": "facts",
+    "prompt": "In Matthew 8:5–13, what Roman military officer in Capernaum amazed Jesus with his faith that Jesus need only 'say the word' to heal his paralyzed servant?",
+    "bookId": "MAT",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "a centurion",
+      "centurion",
+      "the centurion",
+      "Roman centurion"
+    ],
+    "displayAnswer": "a centurion (Matthew 8:5–13)",
+    "explanation": "Jesus marveled at the Gentile centurion's understanding of authority, declaring He had not found such faith with anyone in Israel.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_13",
+    "type": "verse_completion",
+    "prompt": "Matthew 9:13 (ESV): \"Go and learn what this means: 'I desire ______, and not sacrifice.' For I came not to call the righteous, but sinners.\"",
+    "bookId": "MAT",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "mercy",
+      "steadfast love",
+      "compassion"
+    ],
+    "displayAnswer": "mercy (Matthew 9:13)",
+    "explanation": "Quoting Hosea 6:6 while reclining at table with tax collectors and sinners, Jesus rebukes Pharisaic legalism and reveals God's merciful heart.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_14",
+    "type": "facts",
+    "prompt": "In Matthew 10:16, sending out the twelve apostles as sheep in the midst of wolves, Jesus tells them to be wise as serpents and innocent as what birds?",
+    "bookId": "MAT",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "doves",
+      "dove",
+      "a dove",
+      "as doves"
+    ],
+    "displayAnswer": "doves (Matthew 10:16)",
+    "explanation": "Jesus commissions His ambassadors to combine shrewd discernment ('wise as serpents') with pure integrity ('innocent as doves').",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_15",
+    "type": "verse_completion",
+    "prompt": "Matthew 11:28 (ESV): \"Come to me, all who labor and are heavy laden, and I will give you ______.\"",
+    "bookId": "MAT",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "rest",
+      "my rest",
+      "true rest"
+    ],
+    "displayAnswer": "rest (Matthew 11:28)",
+    "explanation": "Gentle and lowly in heart, Jesus invites weary sinners burdened by sin and legalism to find soul-rest under His easy yoke.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_16",
+    "type": "facts",
+    "prompt": "In Matthew 12:39–40, to which Old Testament prophet—who was three days and three nights in the belly of the great fish—does Jesus compare the sign of the Son of Man?",
+    "bookId": "MAT",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "Jonah",
+      "the prophet Jonah",
+      "prophet Jonah",
+      "sign of Jonah"
+    ],
+    "displayAnswer": "Jonah (Matthew 12:39–40)",
+    "explanation": "Jesus points to Jonah's three days in the great fish as a prophetic type of His own burial for three days and triumphant resurrection.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_17",
+    "type": "facts",
+    "prompt": "In Matthew 13:31–32, to what tiny seed—the smallest of all seeds that grows into a tree where birds make nests—does Jesus compare the kingdom of heaven?",
+    "bookId": "MAT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "mustard seed",
+      "a mustard seed",
+      "grain of mustard seed",
+      "the mustard seed"
+    ],
+    "displayAnswer": "a mustard seed (Matthew 13:31–32)",
+    "explanation": "The parable of the mustard seed illustrates how God's kingdom begins unobtrusively yet grows into an expansive shelter for the nations.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_18",
+    "type": "facts",
+    "prompt": "In Matthew 13:45–46, what single priceless gem caused a merchant in search of fine ones to go and sell all that he had and buy it?",
+    "bookId": "MAT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "a pearl",
+      "pearl",
+      "one pearl of great value",
+      "pearl of great value",
+      "fine pearl"
+    ],
+    "displayAnswer": "one pearl of great value (Matthew 13:45–46)",
+    "explanation": "Paired with the parable of the hidden treasure, the pearl of great value portrays the surpassing worth of the kingdom of heaven.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_19",
+    "type": "facts",
+    "prompt": "In Matthew 14:28–31, which apostle stepped out of the boat and walked on the water toward Jesus before seeing the wind and crying, 'Lord, save me'?",
+    "bookId": "MAT",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "Peter",
+      "Simon Peter",
+      "Simon",
+      "Cephas"
+    ],
+    "displayAnswer": "Peter (Matthew 14:28–31)",
+    "explanation": "Matthew uniquely records Peter walking on the Sea of Galilee at Jesus' command and Jesus immediately catching him when his faith faltered.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_20",
+    "type": "facts",
+    "prompt": "In Matthew 15:26–28, a Canaanite woman pleaded with Jesus to heal her demon-oppressed daughter, replying that even the dogs eat what falls from their masters' table?",
+    "bookId": "MAT",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "the crumbs",
+      "crumbs",
+      "scraps",
+      "the scraps"
+    ],
+    "displayAnswer": "the crumbs (Matthew 15:27)",
+    "explanation": "Commending her humble, persevering faith ('O woman, great is your faith!'), Jesus healed the Canaanite woman's daughter instantly.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_21",
+    "type": "verse_completion",
+    "prompt": "Matthew 16:16 (ESV): \"Simon Peter replied, 'You are the ______, the Son of the living God.'\"",
+    "bookId": "MAT",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Christ",
+      "the Christ",
+      "Messiah",
+      "the Messiah"
+    ],
+    "displayAnswer": "Christ (Matthew 16:16)",
+    "explanation": "At Caesarea Philippi, Peter confesses by the Father's revelation that Jesus is the promised Messiah ('the Christ') and divine Son.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_22",
+    "type": "verse_completion",
+    "prompt": "Matthew 16:24 (ESV): \"Then Jesus told his disciples, 'If anyone would come after me, let him deny himself and take up his ______ and follow me.'\"",
+    "bookId": "MAT",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "cross",
+      "his cross",
+      "own cross"
+    ],
+    "displayAnswer": "cross (Matthew 16:24)",
+    "explanation": "Immediately after predicting His own death and resurrection, Jesus defines true discipleship as self-denying, cross-bearing allegiance.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_23",
+    "type": "facts",
+    "prompt": "In Matthew 17:1–3, which two Old Testament figures appeared talking with Jesus on the high mountain when He was transfigured?",
+    "bookId": "MAT",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "Moses and Elijah",
+      "Elijah and Moses",
+      "Moses & Elijah",
+      "Elijah & Moses"
+    ],
+    "displayAnswer": "Moses and Elijah (Matthew 17:3)",
+    "explanation": "Representing the Law and the Prophets, Moses and Elijah appeared with the radiant Christ as the Father's voice commanded, 'Listen to him.'",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_24",
+    "type": "facts",
+    "prompt": "In Matthew 17:24–27, inside the mouth of what creature caught on a hook did Jesus tell Peter he would find a shekel coin to pay the temple tax?",
+    "bookId": "MAT",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "a fish",
+      "fish",
+      "the first fish",
+      "first fish"
+    ],
+    "displayAnswer": "a fish (Matthew 17:27)",
+    "explanation": "Though as the King's Son Jesus was exempt from the temple tax, He sovereignly provided a shekel in a fish's mouth so as not to give offense.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_25",
+    "type": "facts",
+    "prompt": "In Matthew 18:23–27, in the parable of the unforgiving servant, how many talents of debt did the compassionate king forgive his servant?",
+    "bookId": "MAT",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "10,000",
+      "10000",
+      "ten thousand",
+      "10,000 talents",
+      "10000 talents",
+      "ten thousand talents"
+    ],
+    "displayAnswer": "10,000 talents (Matthew 18:24)",
+    "explanation": "An astronomical debt of 10,000 talents underscores the immeasurable grace God shows sinners, obligating us to forgive others from the heart.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_26",
+    "type": "verse_completion",
+    "prompt": "Matthew 19:26 (ESV): \"But Jesus looked at them and said, 'With man this is impossible, but with God all things are ______.'\"",
+    "bookId": "MAT",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "possible",
+      "made possible",
+      "all things are possible"
+    ],
+    "displayAnswer": "possible (Matthew 19:26)",
+    "explanation": "When the astonished disciples asked 'Who then can be saved?' after the rich young man left sorrowfully, Jesus pointed to God's saving power.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_27",
+    "type": "facts",
+    "prompt": "In Matthew 20:1–16, in the parable of the laborers in the vineyard, what equal daily silver coin did the master pay both the eleventh-hour workers and those hired at dawn?",
+    "bookId": "MAT",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "a denarius",
+      "denarius",
+      "one denarius",
+      "1 denarius"
+    ],
+    "displayAnswer": "a denarius (Matthew 20:2, 9–10)",
+    "explanation": "The vineyard owner's generous payment of a full denarius to late-coming workers illustrates the sovereign generosity of God's kingdom grace.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_28",
+    "type": "facts",
+    "prompt": "In Matthew 21:9, as Jesus rode into Jerusalem on a donkey and a colt, what Hebrew acclamation did the crowds shout before 'to the Son of David!'?",
+    "bookId": "MAT",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "Hosanna",
+      "Hosanna to the Son of David",
+      "Hosanna in the highest"
+    ],
+    "displayAnswer": "Hosanna (Matthew 21:9)",
+    "explanation": "Derived from Psalm 118:25 ('Save us, we pray!'), 'Hosanna to the Son of David!' hailed Jesus as Israel's promised Davidic King.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_29",
+    "type": "verse_completion",
+    "prompt": "Matthew 22:37 (ESV): \"And he said to him, 'You shall love the Lord your God with all your heart and with all your soul and with all your ______.'\"",
+    "bookId": "MAT",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "mind",
+      "your mind",
+      "all your mind"
+    ],
+    "displayAnswer": "mind (Matthew 22:37)",
+    "explanation": "Summarizing the Law and the Prophets from Deuteronomy 6:5, Jesus identifies wholehearted love for God as the great and first commandment.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_30",
+    "type": "facts",
+    "prompt": "In Matthew 23:27, pronouncing seven woes on the scribes and Pharisees, Jesus compares hypocrites—outwardly beautiful yet inwardly full of dead people's bones—to whitewashed what?",
+    "bookId": "MAT",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "tombs",
+      "whitewashed tombs",
+      "graves",
+      "sepulchers"
+    ],
+    "displayAnswer": "tombs (Matthew 23:27)",
+    "explanation": "Whitewashed tombs looked clean to Passover pilgrims on the outside while concealing decay within, exposing external religious hypocrisy.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_31",
+    "type": "verse_completion",
+    "prompt": "Matthew 24:35 (ESV): \"Heaven and earth will pass away, but my ______ will not pass away.\"",
+    "bookId": "MAT",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "words",
+      "my words",
+      "word"
+    ],
+    "displayAnswer": "words (Matthew 24:35)",
+    "explanation": "In the Olivet Discourse, Jesus claims eternal, divine permanence for His own words above the created cosmos itself.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_32",
+    "type": "facts",
+    "prompt": "In Matthew 25:1–4, in the parable of the ten virgins waiting for the bridegroom, what did the five wise virgins bring in flasks along with their lamps?",
+    "bookId": "MAT",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "oil",
+      "extra oil",
+      "lamp oil",
+      "olive oil"
+    ],
+    "displayAnswer": "oil (Matthew 25:4)",
+    "explanation": "The wise virgins' readiness with oil in flasks teaches watchful, persevering preparedness for the Bridegroom's sudden arrival.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_33",
+    "type": "facts",
+    "prompt": "In Matthew 25:14–16, in the parable of the talents, how many talents did the master entrust to the first servant, who traded with them and made that same number more?",
+    "bookId": "MAT",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "5",
+      "five",
+      "five talents",
+      "5 talents"
+    ],
+    "displayAnswer": "five talents (Matthew 25:15–16)",
+    "explanation": "Entrusted with five talents according to his ability, the faithful servant doubled his master's resources and entered into his master's joy.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_34",
+    "type": "facts",
+    "prompt": "In Matthew 25:31–33, when the Son of Man sits on His glorious throne to judge all the nations, He separates people as a shepherd separates what two animals?",
+    "bookId": "MAT",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "sheep and goats",
+      "the sheep from the goats",
+      "sheep from goats",
+      "goats and sheep"
+    ],
+    "displayAnswer": "the sheep from the goats (Matthew 25:32)",
+    "explanation": "The King places the righteous sheep on His right to inherit the prepared kingdom and the goats on His left for eternal punishment.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_35",
+    "type": "facts",
+    "prompt": "In Matthew 26:14–15, how many pieces of silver did the chief priests pay Judas Iscariot to betray Jesus?",
+    "bookId": "MAT",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "30",
+      "thirty",
+      "30 pieces of silver",
+      "thirty pieces of silver",
+      "30 silver coins"
+    ],
+    "displayAnswer": "thirty pieces of silver (Matthew 26:15)",
+    "explanation": "Thirty pieces of silver—the price of a slave in Exodus 21:32 and foretold in Zechariah 11:12—sealed Judas's betrayal.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_36",
+    "type": "verse_completion",
+    "prompt": "Matthew 26:28 (ESV): \"for this is my ______ of the covenant, which is poured out for many for the forgiveness of sins.\"",
+    "bookId": "MAT",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "blood",
+      "my blood",
+      "precious blood"
+    ],
+    "displayAnswer": "blood (Matthew 26:28)",
+    "explanation": "Instituting the Lord's Supper at Passover, Jesus reveals His sacrificial death as the covenant blood ratifying forgiveness of sins.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_37",
+    "type": "facts",
+    "prompt": "In Matthew 27:32, which man from Cyrene did Roman soldiers compel to carry Jesus' cross on the way to Golgotha?",
+    "bookId": "MAT",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "Simon",
+      "Simon of Cyrene",
+      "Simon from Cyrene"
+    ],
+    "displayAnswer": "Simon of Cyrene (Matthew 27:32)",
+    "explanation": "As they went out to crucify Jesus, Roman soldiers drafted Simon, a North African visitor from Cyrene, to bear the crossbeam.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mat_38",
+    "type": "verse_completion",
+    "prompt": "Matthew 28:19 (ESV): \"Go therefore and make ______ of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit,\"",
+    "bookId": "MAT",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "disciples",
+      "learners",
+      "followers"
+    ],
+    "displayAnswer": "disciples (Matthew 28:19)",
+    "explanation": "Possessing all authority in heaven and on earth, the risen Jesus issues the Great Commission to make disciples of all nations.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_1",
+    "type": "verse_completion",
+    "prompt": "Mark 1:15 (ESV): \"and saying, 'The time is fulfilled, and the kingdom of God is at hand; ______ and believe in the gospel.'\"",
+    "bookId": "MRK",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "repent",
+      "turn",
+      "repent ye"
+    ],
+    "displayAnswer": "repent (Mark 1:15)",
+    "explanation": "Mark 1:15 summarizes Jesus' inaugural Galilean proclamation: God's promised reign has arrived, calling all people to repentance and faith.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_2",
+    "type": "facts",
+    "prompt": "In Mark 1:16–17, what occupation were Simon and his brother Andrew practicing at the Sea of Galilee when Jesus called them to become 'fishers of men'?",
+    "bookId": "MRK",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "fishermen",
+      "fishers",
+      "fishing",
+      "fisherman"
+    ],
+    "displayAnswer": "fishermen (Mark 1:16–17)",
+    "explanation": "Casting a net into the sea as fishermen, Simon and Andrew immediately left their nets to follow Jesus.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_3",
+    "type": "facts",
+    "prompt": "In Mark 1:29–31, whose mother-in-law lay sick with a fever in Capernaum before Jesus took her by the hand, lifted her up, and healed her?",
+    "bookId": "MRK",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Simon's",
+      "Simon",
+      "Simon Peter",
+      "Peter",
+      "Peter's",
+      "Simon Peter's"
+    ],
+    "displayAnswer": "Simon's (Mark 1:30–31)",
+    "explanation": "Upon leaving the Capernaum synagogue, Jesus entered Simon and Andrew's house and healed Simon's mother-in-law, who immediately served them.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_4",
+    "type": "facts",
+    "prompt": "In Mark 2:1–4, when four men could not bring a paralytic near Jesus because of the crowd in Capernaum, what part of the house did they remove and dig through?",
+    "bookId": "MRK",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the roof",
+      "roof",
+      "housetop",
+      "the housetop"
+    ],
+    "displayAnswer": "the roof (Mark 2:4)",
+    "explanation": "Seeing their bold faith as they lowered the paralytic's bed through the roof, Jesus forgave the man's sins and healed his paralysis.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_5",
+    "type": "verse_completion",
+    "prompt": "Mark 2:17 (ESV): \"And when Jesus heard it, he said to them, 'Those who are well have no need of a ______, but those who are sick. I came not to call the righteous, but sinners.'\"",
+    "bookId": "MRK",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "physician",
+      "a physician",
+      "doctor",
+      "healer"
+    ],
+    "displayAnswer": "physician (Mark 2:17)",
+    "explanation": "Eating with tax collectors and sinners at Levi's house, Jesus presents Himself as the Great Physician who came to rescue those who know their need.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_6",
+    "type": "facts",
+    "prompt": "In Mark 3:17, Jesus gave James and John, the sons of Zebedee, the name Boanerges—what does Boanerges mean?",
+    "bookId": "MRK",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Sons of Thunder",
+      "thunder",
+      "men of thunder"
+    ],
+    "displayAnswer": "Sons of Thunder (Mark 3:17)",
+    "explanation": "Mark alone preserves Jesus' Aramaic nickname Boanerges ('Sons of Thunder') for the fiery brothers James and John.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_7",
+    "type": "verse_completion",
+    "prompt": "Mark 3:35 (ESV): \"For whoever does the ______ of God, he is my brother and sister and mother.\"",
+    "bookId": "MRK",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "will",
+      "the will",
+      "will of God"
+    ],
+    "displayAnswer": "will (Mark 3:35)",
+    "explanation": "Looking around at those seated about Him, Jesus defines His true spiritual family by obedient allegiance to the will of God.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_8",
+    "type": "facts",
+    "prompt": "In Mark 4:37–38, when a great windstorm arose and waves were breaking into the boat on the Sea of Galilee, what was Jesus doing in the stern on the cushion?",
+    "bookId": "MRK",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "sleeping",
+      "asleep",
+      "he was asleep",
+      "sleeping on the cushion"
+    ],
+    "displayAnswer": "asleep (Mark 4:38)",
+    "explanation": "Mark's vivid eyewitness detail of Jesus sleeping on the stern cushion highlights both His true humanity and His serene trust before calming the sea.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_9",
+    "type": "verse_completion",
+    "prompt": "Mark 4:39 (ESV): \"And he awoke and rebuked the wind and said to the sea, '______! Be still!' And the wind ceased, and there was a great calm.\"",
+    "bookId": "MRK",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Peace",
+      "Hush",
+      "Quiet"
+    ],
+    "displayAnswer": "Peace (Mark 4:39)",
+    "explanation": "With sovereign divine authority over creation, Jesus commands the raging wind and sea into immediate stillness, leaving the disciples in awe.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_10",
+    "type": "facts",
+    "prompt": "In Mark 5:9, among the tombs in the country of the Gerasenes, what name did the unclean spirit give Jesus, saying 'for we are many'?",
+    "bookId": "MRK",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Legion",
+      "My name is Legion",
+      "a legion"
+    ],
+    "displayAnswer": "Legion (Mark 5:9)",
+    "explanation": "Referring to a Roman military unit of thousands of soldiers, 'Legion' exposed the overwhelming demonic bondage that Jesus shattered with a word.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_11",
+    "type": "facts",
+    "prompt": "In Mark 5:22, 41, who was the synagogue ruler whose twelve-year-old daughter Jesus raised from death by saying 'Talitha cumi' ('Little girl, I say to you, arise')?",
+    "bookId": "MRK",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Jairus",
+      "ruler Jairus",
+      "Jairus the synagogue ruler"
+    ],
+    "displayAnswer": "Jairus (Mark 5:22, 41)",
+    "explanation": "Telling Jairus 'Do not fear, only believe,' Jesus took the twelve-year-old girl by the hand and restored her to life with two Aramaic words.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_12",
+    "type": "facts",
+    "prompt": "In Mark 6:3, when people in Jesus' hometown synagogue took offense at Him, by what manual trade did they identify Mary's son?",
+    "bookId": "MRK",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "carpenter",
+      "the carpenter",
+      "a carpenter",
+      "builder"
+    ],
+    "displayAnswer": "carpenter (Mark 6:3)",
+    "explanation": "Unlike Matthew 13:55 ('the carpenter's son'), Mark 6:3 directly calls Jesus 'the carpenter,' testifying to His years of humble manual labor in Nazareth.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_13",
+    "type": "facts",
+    "prompt": "In Mark 6:38–44, how many loaves of bread (along with two fish) did Jesus bless and break to feed five thousand men in the desolate place?",
+    "bookId": "MRK",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "5",
+      "five",
+      "five loaves",
+      "5 loaves"
+    ],
+    "displayAnswer": "five loaves (Mark 6:38, 41)",
+    "explanation": "Having compassion on the crowd because they were like sheep without a shepherd, Jesus satisfied 5,000 men from five loaves and two fish with twelve baskets left over.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_14",
+    "type": "verse_completion",
+    "prompt": "Mark 7:6 (ESV): \"This people honors me with their ______, but their heart is far from me;\"",
+    "bookId": "MRK",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "lips",
+      "their lips",
+      "mouth"
+    ],
+    "displayAnswer": "lips (Mark 7:6)",
+    "explanation": "Quoting Isaiah 29:13, Jesus exposes empty ceremonial traditionalism that honors God outwardly with lips while keeping the heart distant.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_15",
+    "type": "facts",
+    "prompt": "In Mark 7:34, healing a deaf man with a speech impediment in the Decapolis, Jesus sighed and spoke the Aramaic word Ephphatha—what does Ephphatha mean?",
+    "bookId": "MRK",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Be opened",
+      "open",
+      "opened",
+      "be opened up"
+    ],
+    "displayAnswer": "Be opened (Mark 7:34)",
+    "explanation": "Unique to Mark's Gospel, Jesus' gentle touch and Aramaic command Ephphatha ('Be opened') instantly opened the man's ears and released his tongue.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_16",
+    "type": "facts",
+    "prompt": "In Mark 8:22–25, in the two-stage healing of a blind man at Bethsaida, what did the man say people looked like after Jesus first laid hands on him?",
+    "bookId": "MRK",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "trees",
+      "trees walking",
+      "like trees walking",
+      "walking trees"
+    ],
+    "displayAnswer": "trees walking (Mark 8:24)",
+    "explanation": "Recorded only in Mark 8, the two-stage healing at Bethsaida mirrors the disciples' partial spiritual sight just before Peter's confession.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_17",
+    "type": "verse_completion",
+    "prompt": "Mark 8:36 (ESV): \"For what does it profit a man to gain the whole ______ and forfeit his soul?\"",
+    "bookId": "MRK",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "world",
+      "whole world",
+      "the whole world"
+    ],
+    "displayAnswer": "world (Mark 8:36)",
+    "explanation": "Calling the crowd and His disciples to self-denial, Jesus weighs the fleeting wealth of the entire world as worthless beside one's eternal soul.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_18",
+    "type": "verse_completion",
+    "prompt": "Mark 9:24 (ESV): \"Immediately the father of the child cried out and said, 'I believe; help my ______!'\"",
+    "bookId": "MRK",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "unbelief",
+      "my unbelief",
+      "lack of faith"
+    ],
+    "displayAnswer": "unbelief (Mark 9:24)",
+    "explanation": "Desperate for his demon-afflicted boy, the father utters one of Scripture's most honest prayers, bringing imperfect faith to an all-sufficient Savior.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_19",
+    "type": "facts",
+    "prompt": "In Mark 9:42, what heavy grinding stone does Jesus say it would be better to have hung around one's neck and be thrown into the sea than to cause a little believer to sin?",
+    "bookId": "MRK",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "a great millstone",
+      "millstone",
+      "great millstone",
+      "a millstone"
+    ],
+    "displayAnswer": "a great millstone (Mark 9:42)",
+    "explanation": "A great millstone turned by a donkey vividly underscores how fiercely Jesus guards humble believers against spiritual stumbling blocks.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_20",
+    "type": "verse_completion",
+    "prompt": "Mark 10:45 (ESV): \"For even the Son of Man came not to be served but to serve, and to give his life as a ______ for many.\"",
+    "bookId": "MRK",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "ransom",
+      "a ransom",
+      "ransom for many"
+    ],
+    "displayAnswer": "ransom (Mark 10:45)",
+    "explanation": "Mark 10:45 is the key verse of Mark's Gospel, uniting Jesus' humble servant leadership with His substitutionary atonement as a ransom for many.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_21",
+    "type": "facts",
+    "prompt": "In Mark 10:46–52, what was the name of the blind beggar (the son of Timaeus) sitting by the roadside outside Jericho who cried out, 'Jesus, Son of David, have mercy on me!'?",
+    "bookId": "MRK",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "Bartimaeus",
+      "blind Bartimaeus",
+      "Bartimaeus son of Timaeus"
+    ],
+    "displayAnswer": "Bartimaeus (Mark 10:46)",
+    "explanation": "Mark preserves Bartimaeus's name; throwing off his cloak, he sprang up to Jesus, received his sight by faith, and followed Jesus on the way.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_22",
+    "type": "facts",
+    "prompt": "In Mark 11:12–14, 20, what kind of fruitless tree covered only with leaves did Jesus curse on the road from Bethany so that it withered away to its roots?",
+    "bookId": "MRK",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "fig tree",
+      "a fig tree",
+      "the fig tree",
+      "fig"
+    ],
+    "displayAnswer": "a fig tree (Mark 11:13, 20)",
+    "explanation": "Sandwiching the cleansing of the temple, the leafy yet barren fig tree enacted judgment on Israel's fruitless temple worship.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_23",
+    "type": "verse_completion",
+    "prompt": "Mark 11:17 (ESV): \"And he was teaching them and saying to them, 'Is it not written, \"My house shall be called a house of ______ for all the nations\"? But you have made it a den of robbers.'\"",
+    "bookId": "MRK",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "prayer",
+      "house of prayer",
+      "a house of prayer"
+    ],
+    "displayAnswer": "prayer (Mark 11:17)",
+    "explanation": "Mark uniquely includes the full phrase from Isaiah 56:7—'a house of prayer for all the nations'—highlighting God's heart for Gentile worshipers.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_24",
+    "type": "facts",
+    "prompt": "In Mark 12:15–17, whose likeness and inscription was stamped on the denarius coin when Jesus said to render to him the things that are his, and to God the things that are God's?",
+    "bookId": "MRK",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "Caesar's",
+      "Caesar",
+      "Caesars",
+      "Tiberius Caesar"
+    ],
+    "displayAnswer": "Caesar's (Mark 12:16–17)",
+    "explanation": "While Roman coins bore Caesar's image, human beings bear God's image and therefore owe their entire lives to God.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_25",
+    "type": "facts",
+    "prompt": "In Mark 12:41–44, how many small copper coins—everything she had, all she had to live on—did the poor widow drop into the temple offering box?",
+    "bookId": "MRK",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "2",
+      "two",
+      "two small copper coins",
+      "2 small copper coins",
+      "two copper coins",
+      "two mites"
+    ],
+    "displayAnswer": "two small copper coins (Mark 12:42)",
+    "explanation": "Seated opposite the treasury, Jesus commended the poor widow above all rich donors because she gave out of her poverty everything she had.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_26",
+    "type": "verse_completion",
+    "prompt": "Mark 13:32 (ESV): \"But concerning that day or that hour, no one knows, not even the angels in heaven, nor the Son, but only the ______.\"",
+    "bookId": "MRK",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "Father",
+      "the Father",
+      "God the Father"
+    ],
+    "displayAnswer": "Father (Mark 13:32)",
+    "explanation": "Because only the Father knows the appointed hour of Christ's return, Jesus urges His disciples repeatedly to stay awake and stay on guard.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_27",
+    "type": "facts",
+    "prompt": "In Mark 14:3, at Bethany in the house of Simon the leper, a woman broke an alabaster flask and poured ointment of pure what on Jesus' head?",
+    "bookId": "MRK",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "nard",
+      "pure nard",
+      "spikenard",
+      "ointment of pure nard"
+    ],
+    "displayAnswer": "pure nard (Mark 14:3)",
+    "explanation": "Worth more than three hundred denarii, this lavish anointing with pure nard prepared Jesus' body beforehand for burial.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_28",
+    "type": "facts",
+    "prompt": "In Mark 14:36, praying in Gethsemane that the cup might remove from Him, what intimate Aramaic word for 'Father' did Jesus speak?",
+    "bookId": "MRK",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "Abba",
+      "Abba Father",
+      "O Abba"
+    ],
+    "displayAnswer": "Abba (Mark 14:36)",
+    "explanation": "Mark alone records Jesus praying 'Abba, Father' in Gethsemane, combining deep filial intimacy with full submission ('yet not what I will, but what you will').",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_29",
+    "type": "verse_completion",
+    "prompt": "Mark 15:39 (ESV): \"And when the centurion, who stood facing him, saw that in this way he breathed his last, he said, 'Truly this man was the ______ of God!'\"",
+    "bookId": "MRK",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "Son",
+      "Son of God",
+      "the Son of God"
+    ],
+    "displayAnswer": "Son (Mark 15:39)",
+    "explanation": "Opening in Mark 1:1 with 'Jesus Christ, the Son of God,' Mark reaches its climax as a Gentile Roman centurion confesses that title at the foot of the cross.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_mrk_30",
+    "type": "facts",
+    "prompt": "In Mark 16:1–4, as Mary Magdalene, Mary the mother of James, and Salome approached the tomb with spices on the first day of the week, what did they see had already been rolled back?",
+    "bookId": "MRK",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "the stone",
+      "stone",
+      "the very large stone",
+      "large stone"
+    ],
+    "displayAnswer": "the stone (Mark 16:3–4)",
+    "explanation": "Though the women had worried who would roll away the very large stone from the entrance, they looked up to find it rolled back and Jesus risen.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_1",
+    "type": "facts",
+    "prompt": "In Luke 1:3–4, to what 'most excellent' recipient does the author address his orderly Gospel narrative so that he may have certainty concerning the things he was taught?",
+    "bookId": "LUK",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Theophilus",
+      "most excellent Theophilus",
+      "O Theophilus"
+    ],
+    "displayAnswer": "Theophilus (Luke 1:3)",
+    "explanation": "Both Luke's Gospel (Luke 1:3) and its sequel Acts (Acts 1:1) are dedicated to Theophilus, whose Greek name means 'friend of God.'",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_2",
+    "type": "verse_completion",
+    "prompt": "Luke 1:46–47 (ESV): \"And Mary said, 'My soul ______ the Lord, and my spirit rejoices in God my Savior,'\"",
+    "bookId": "LUK",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "magnifies",
+      "exalts",
+      "glorifies"
+    ],
+    "displayAnswer": "magnifies (Luke 1:46)",
+    "explanation": "Visiting her relative Elizabeth in the hill country of Judah, Mary bursts forth in the Magnificat, praising God's mercy and faithfulness to His promises.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_3",
+    "type": "facts",
+    "prompt": "In Luke 2:7, in what feeding trough did Mary lay her firstborn son after wrapping Him in swaddling cloths because there was no place for them in the inn?",
+    "bookId": "LUK",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "a manger",
+      "manger",
+      "the manger",
+      "in a manger"
+    ],
+    "displayAnswer": "a manger (Luke 2:7)",
+    "explanation": "The baby wrapped in swaddling cloths and lying in a manger served as the sign announced by the angel to the Bethlehem shepherds (Luke 2:12).",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_4",
+    "type": "verse_completion",
+    "prompt": "Luke 2:11 (ESV): \"For unto you is born this day in the city of David a ______, who is Christ the Lord.\"",
+    "bookId": "LUK",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Savior",
+      "a Savior",
+      "Saviour"
+    ],
+    "displayAnswer": "Savior (Luke 2:11)",
+    "explanation": "To lowly shepherds keeping watch over their flock by night, the angel of the Lord announced good news of great joy: the birth of the Savior, Christ the Lord.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_5",
+    "type": "facts",
+    "prompt": "In Luke 2:41–46, how many years old was Jesus when He stayed behind in Jerusalem at Passover and was found sitting among the teachers in the temple?",
+    "bookId": "LUK",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "12",
+      "twelve",
+      "12 years old",
+      "twelve years old"
+    ],
+    "displayAnswer": "twelve years old (Luke 2:42)",
+    "explanation": "Luke 2:41–52 is the sole canonical snapshot of Jesus' boyhood; at age twelve He astonished the temple teachers and declared He must be in His Father's house.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_6",
+    "type": "facts",
+    "prompt": "In Luke 3:38, tracing Jesus' lineage backward past Abraham, with what first human being ('the son of God') does Luke's genealogy conclude?",
+    "bookId": "LUK",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Adam",
+      "the first Adam",
+      "son of Adam"
+    ],
+    "displayAnswer": "Adam (Luke 3:38)",
+    "explanation": "Whereas Matthew begins with Abraham to highlight Israel's Messiah, Luke traces Jesus' line all the way back to Adam to show He is Savior of all humanity.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_7",
+    "type": "facts",
+    "prompt": "In Luke 4:16–21, standing to read in the Nazareth synagogue on the Sabbath, from which prophet's scroll did Jesus read, 'The Spirit of the Lord is upon me'?",
+    "bookId": "LUK",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Isaiah",
+      "the prophet Isaiah",
+      "scroll of Isaiah",
+      "book of Isaiah"
+    ],
+    "displayAnswer": "Isaiah (Luke 4:17)",
+    "explanation": "Reading Isaiah 61:1–2, Jesus rolled up the scroll and astonished the Nazareth synagogue by declaring, 'Today this Scripture has been fulfilled in your hearing.'",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_8",
+    "type": "facts",
+    "prompt": "In Luke 5:12–13, from what dreaded skin disease did Jesus cleanse a man who fell on his face begging, 'Lord, if you will, you can make me clean'?",
+    "bookId": "LUK",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "leprosy",
+      "skin disease",
+      "full of leprosy"
+    ],
+    "displayAnswer": "leprosy (Luke 5:12–13)",
+    "explanation": "Rather than contracting ritual uncleanness, Jesus stretched out His hand, touched the man full of leprosy saying 'I will; be clean,' and immediately cleansed him.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_9",
+    "type": "verse_completion",
+    "prompt": "Luke 6:27 (ESV): \"But I say to you who hear, ______ your enemies, do good to those who hate you,\"",
+    "bookId": "LUK",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Love",
+      "love your enemies",
+      "love them"
+    ],
+    "displayAnswer": "Love (Luke 6:27)",
+    "explanation": "In the Sermon on the Plain, Jesus calls Kingdom citizens to reflect the Most High's kindness by actively loving their enemies.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_10",
+    "type": "facts",
+    "prompt": "In Luke 7:11–15, outside the gate of the town called Nain, Jesus had compassion on a weeping widow and raised from the dead her only what?",
+    "bookId": "LUK",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "son",
+      "only son",
+      "her only son",
+      "boy"
+    ],
+    "displayAnswer": "her only son (Luke 7:12–15)",
+    "explanation": "Touching the funeral bier at Nain, Jesus said 'Young man, I say to you, arise,' and gave the resurrected son back to his widowed mother.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_11",
+    "type": "facts",
+    "prompt": "In Luke 7:37–38, when a sinful woman wet Jesus' feet with her tears at Simon the Pharisee's house, with what did she wipe them before kissing and anointing His feet?",
+    "bookId": "LUK",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "her hair",
+      "hair",
+      "the hair of her head",
+      "hair of her head"
+    ],
+    "displayAnswer": "the hair of her head (Luke 7:38)",
+    "explanation": "Contrasting her tearful devotion with Simon's cold hospitality, Jesus declared that her many sins were forgiven, as evidenced by her great love.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_12",
+    "type": "facts",
+    "prompt": "In Luke 8:2, how many demons had gone out of Mary called Magdalene, who accompanied Jesus and provided for Him and the twelve out of her means?",
+    "bookId": "LUK",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "7",
+      "seven",
+      "seven demons",
+      "7 demons"
+    ],
+    "displayAnswer": "seven (Luke 8:2)",
+    "explanation": "Delivered by Jesus from seven demons, Mary Magdalene became a devoted supporter of His ministry and a primary witness to His death and resurrection.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_13",
+    "type": "verse_completion",
+    "prompt": "Luke 9:23 (ESV): \"And he said to all, 'If anyone would come after me, let him deny himself and take up his cross ______ and follow me.'\"",
+    "bookId": "LUK",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "daily",
+      "every day",
+      "each day"
+    ],
+    "displayAnswer": "daily (Luke 9:23)",
+    "explanation": "Luke uniquely adds the word 'daily' to Jesus' call to bear the cross, emphasizing ongoing, day-by-day surrender to Christ.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_14",
+    "type": "verse_completion",
+    "prompt": "Luke 9:62 (ESV): \"Jesus said to him, 'No one who puts his hand to the ______ and looks back is fit for the kingdom of God.'\"",
+    "bookId": "LUK",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "plow",
+      "the plow",
+      "plough",
+      "the plough"
+    ],
+    "displayAnswer": "plow (Luke 9:62)",
+    "explanation": "Just as plowing a straight furrow requires eyes fixed ahead, following Jesus brooks no divided heart or backward longing.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_15",
+    "type": "facts",
+    "prompt": "In Luke 10:30–37, in Jesus' parable answering 'And who is my neighbor?', after a priest and a Levite passed by a half-dead traveler on the Jericho road, who had compassion and bound up his wounds?",
+    "bookId": "LUK",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "a Samaritan",
+      "Samaritan",
+      "the Samaritan",
+      "Good Samaritan",
+      "the Good Samaritan"
+    ],
+    "displayAnswer": "a Samaritan (Luke 10:33)",
+    "explanation": "By making a hated Samaritan the model of costly mercy, Jesus shatters ethnic boundaries and calls His hearers to 'go, and do likewise.'",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_16",
+    "type": "facts",
+    "prompt": "In Luke 10:38–42, while Martha was distracted with much serving, which sister sat at the Lord's feet listening to His teaching and chose 'the good portion'?",
+    "bookId": "LUK",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "Mary",
+      "Mary of Bethany",
+      "her sister Mary"
+    ],
+    "displayAnswer": "Mary (Luke 10:39, 42)",
+    "explanation": "Gently addressing anxious Martha, Jesus commends Mary for prioritizing attentive communion at His feet—the 'one thing' necessary.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_17",
+    "type": "verse_completion",
+    "prompt": "Luke 11:13 (ESV): \"If you then, who are evil, know how to give good gifts to your children, how much more will the heavenly Father give the ______ to those who ask him!\"",
+    "bookId": "LUK",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Holy Spirit",
+      "the Holy Spirit",
+      "Spirit"
+    ],
+    "displayAnswer": "Holy Spirit (Luke 11:13)",
+    "explanation": "Highlighting Luke's emphasis on the Spirit, Jesus assures praying disciples that the Father's supreme gift to those who ask Him is the Holy Spirit Himself.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_18",
+    "type": "facts",
+    "prompt": "In Luke 12:16–21, in the parable of the rich fool, what structures did the rich man plan to tear down and build larger to store his grain before God required his soul that night?",
+    "bookId": "LUK",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "his barns",
+      "barns",
+      "barn",
+      "storehouses"
+    ],
+    "displayAnswer": "his barns (Luke 12:18)",
+    "explanation": "Planning bigger barns for years of self-indulgent ease while not being 'rich toward God,' the rich man exposes the folly of covetousness.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_19",
+    "type": "verse_completion",
+    "prompt": "Luke 12:34 (ESV): \"For where your ______ is, there will your heart be also.\"",
+    "bookId": "LUK",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "treasure",
+      "your treasure",
+      "riches"
+    ],
+    "displayAnswer": "treasure (Luke 12:34)",
+    "explanation": "Urging His 'little flock' to provide purses in heaven that do not grow old, Jesus teaches that our investments both reveal and direct our hearts.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_20",
+    "type": "facts",
+    "prompt": "In Luke 13:10–16, for how many years had a woman been bent over by a disabling spirit before Jesus freed her in a synagogue on the Sabbath?",
+    "bookId": "LUK",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "18",
+      "eighteen",
+      "18 years",
+      "eighteen years"
+    ],
+    "displayAnswer": "eighteen years (Luke 13:11, 16)",
+    "explanation": "Calling her 'a daughter of Abraham whom Satan bound for eighteen years,' Jesus laid His hands on her so she immediately stood straight and glorified God.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_21",
+    "type": "facts",
+    "prompt": "In Luke 14:7–11, when invited to a wedding feast, where does Jesus advise a guest to sit rather than taking the place of honor?",
+    "bookId": "LUK",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "the lowest place",
+      "lowest place",
+      "lowest seat",
+      "the lowest seat",
+      "last place"
+    ],
+    "displayAnswer": "the lowest place (Luke 14:10)",
+    "explanation": "Jesus grounds practical humility in a foundational kingdom principle: 'everyone who exalts himself will be humbled, and he who humbles himself will be exalted.'",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_22",
+    "type": "facts",
+    "prompt": "In Luke 15:8–10, in the second parable of chapter 15, how many silver coins did the woman have before losing one and lighting a lamp to sweep her house?",
+    "bookId": "LUK",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "10",
+      "ten",
+      "ten silver coins",
+      "10 silver coins"
+    ],
+    "displayAnswer": "ten silver coins (Luke 15:8)",
+    "explanation": "Sandwiching the lost sheep and the prodigal son, the parable of the lost coin illustrates the joy before the angels of God over one sinner who repents.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_23",
+    "type": "facts",
+    "prompt": "In Luke 15:14–16, in the parable of the prodigal son, what unclean animals was the younger son sent into the fields to feed during a severe famine?",
+    "bookId": "LUK",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "pigs",
+      "swine",
+      "the pigs",
+      "hogs"
+    ],
+    "displayAnswer": "pigs (Luke 15:15–16)",
+    "explanation": "Longing even to eat the pods fed to pigs—deepest degradation for a Jewish son—the prodigal 'came to himself' and returned to his compassionate father.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_24",
+    "type": "verse_completion",
+    "prompt": "Luke 15:24 (ESV): \"For this my son was ______, and is alive again; he was lost, and is found.\"",
+    "bookId": "LUK",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "dead",
+      "once dead",
+      "was dead"
+    ],
+    "displayAnswer": "dead (Luke 15:24)",
+    "explanation": "Clothing his returned son with the best robe, ring, and sandals, the father celebrates spiritual resurrection and restoration with a feast.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_25",
+    "type": "facts",
+    "prompt": "In Luke 16:19–31, what was the name of the sore-covered beggar who lay at a rich man's gate and was carried by the angels to Abraham's side when he died?",
+    "bookId": "LUK",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Lazarus",
+      "the beggar Lazarus",
+      "poor Lazarus"
+    ],
+    "displayAnswer": "Lazarus (Luke 16:20)",
+    "explanation": "Luke 16 is the only parable in which Jesus gives a character a personal name—Lazarus ('God has helped')—warning against callous unbelief toward Scripture.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_26",
+    "type": "facts",
+    "prompt": "In Luke 17:11–19, after Jesus cleansed ten lepers between Samaria and Galilee, how many turned back praising God with a loud voice to thank Him?",
+    "bookId": "LUK",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "1",
+      "one",
+      "only one",
+      "just one",
+      "one Samaritan"
+    ],
+    "displayAnswer": "one (Luke 17:15–18)",
+    "explanation": "Only one healed leper—and he a Samaritan foreigner—returned to fall at Jesus' feet in gratitude, hearing 'Rise and go your way; your faith has made you well.'",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_27",
+    "type": "facts",
+    "prompt": "In Luke 18:9–14, contrasting two men praying in the temple, one was a self-righteous Pharisee and the other—crying 'God, be merciful to me, a sinner!'—had what despised occupation?",
+    "bookId": "LUK",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "tax collector",
+      "a tax collector",
+      "the tax collector",
+      "publican"
+    ],
+    "displayAnswer": "a tax collector (Luke 18:10, 13)",
+    "explanation": "Standing far off and beating his breast in contrite repentance, the tax collector—not the boasting Pharisee—went down to his house justified.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_28",
+    "type": "facts",
+    "prompt": "In Luke 19:1–4, what kind of tree did Zacchaeus the chief tax collector climb in Jericho to see Jesus because he was small in stature?",
+    "bookId": "LUK",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "sycamore tree",
+      "sycamore",
+      "a sycamore tree",
+      "sycamore-fig tree"
+    ],
+    "displayAnswer": "a sycamore tree (Luke 19:4)",
+    "explanation": "Looking up into the sycamore tree, Jesus called Zacchaeus by name to hurry down, bringing salvation and joyful restitution to his household.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_29",
+    "type": "verse_completion",
+    "prompt": "Luke 19:10 (ESV): \"For the Son of Man came to seek and to save the ______.\"",
+    "bookId": "LUK",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "lost",
+      "the lost",
+      "that which was lost"
+    ],
+    "displayAnswer": "lost (Luke 19:10)",
+    "explanation": "Spoken in Zacchaeus's home in Jericho, Luke 19:10 serves as the thematic thesis statement of the entire Gospel of Luke.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_30",
+    "type": "facts",
+    "prompt": "In Luke 20:27–38, which Jewish sect—who denied that there is a resurrection—tested Jesus with a question about seven brothers who married the same widow?",
+    "bookId": "LUK",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "Sadducees",
+      "the Sadducees",
+      "some Sadducees"
+    ],
+    "displayAnswer": "the Sadducees (Luke 20:27)",
+    "explanation": "Refuting the Sadducees from Exodus 3, Jesus proved resurrection life because the Lord calls Himself 'the God of Abraham and the God of Isaac and the God of Jacob'—the God of the living.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_31",
+    "type": "verse_completion",
+    "prompt": "Luke 21:28 (ESV): \"Now when these things begin to take place, straighten up and raise your heads, because your ______ is drawing near.\"",
+    "bookId": "LUK",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "redemption",
+      "your redemption",
+      "deliverance"
+    ],
+    "displayAnswer": "redemption (Luke 21:28)",
+    "explanation": "Rather than fainting with fear at cosmic upheaval, Christ's disciples lift their heads in expectant hope as final redemption approaches.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_32",
+    "type": "verse_completion",
+    "prompt": "Luke 22:19 (ESV): \"And he took bread, and when he had given thanks, he broke it and gave it to them, saying, 'This is my body, which is given for you. Do this in ______ of me.'\"",
+    "bookId": "LUK",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "remembrance",
+      "memory",
+      "in remembrance"
+    ],
+    "displayAnswer": "remembrance (Luke 22:19)",
+    "explanation": "At the Last Supper, Jesus institutes the ongoing memorial meal of the New Covenant pointing to His self-giving sacrifice.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_33",
+    "type": "facts",
+    "prompt": "In Luke 22:44, praying in agony on the Mount of Olives, Jesus' sweat became like great drops of what falling down to the ground?",
+    "bookId": "LUK",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "blood",
+      "drops of blood",
+      "great drops of blood"
+    ],
+    "displayAnswer": "blood (Luke 22:44)",
+    "explanation": "Recorded solely by Luke the beloved physician, Jesus' sweat like great drops of blood reveals the intense spiritual agony He bore in accepting the Father's cup.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_34",
+    "type": "verse_completion",
+    "prompt": "Luke 23:34 (ESV): \"And Jesus said, 'Father, ______ them, for they know not what they do.'\"",
+    "bookId": "LUK",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "forgive",
+      "forgive them",
+      "pardon"
+    ],
+    "displayAnswer": "forgive (Luke 23:34)",
+    "explanation": "Even as soldiers crucified Him at the place called The Skull and cast lots for His garments, Jesus interceded for His executioners, fulfilling Isaiah 53:12.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_35",
+    "type": "verse_completion",
+    "prompt": "Luke 23:43 (ESV): \"And he said to him, 'Truly, I say to you, today you will be with me in ______.'\"",
+    "bookId": "LUK",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "Paradise",
+      "in Paradise",
+      "God's Paradise"
+    ],
+    "displayAnswer": "Paradise (Luke 23:43)",
+    "explanation": "Answering the penitent criminal's plea ('Jesus, remember me when you come into your kingdom'), Jesus grants immediate, gracious assurance of fellowship in Paradise.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_luk_36",
+    "type": "facts",
+    "prompt": "In Luke 24:13–31, to what village about seven miles from Jerusalem were Cleopas and another disciple walking when the risen Jesus opened the Scriptures to them?",
+    "bookId": "LUK",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "Emmaus",
+      "village of Emmaus",
+      "to Emmaus"
+    ],
+    "displayAnswer": "Emmaus (Luke 24:13)",
+    "explanation": "Their hearts burned within them along the Emmaus road as the risen Lord interpreted in all the Scriptures the things concerning Himself before being recognized in breaking bread.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_1",
+    "type": "verse_completion",
+    "prompt": "John 1:14 (ESV): \"And the ______ became flesh and dwelt among us, and we have seen his glory, glory as of the only Son from the Father, full of grace and truth.\"",
+    "bookId": "JHN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Word",
+      "the Word",
+      "Logos"
+    ],
+    "displayAnswer": "Word (John 1:14)",
+    "explanation": "John's Prologue reaches its incarnation climax in 1:14 as the eternal, divine Word (Logos) takes on human flesh and tabernacles among His people.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_2",
+    "type": "facts",
+    "prompt": "In John 1:47–49, which 'Israelite indeed, in whom there is no deceit' marveled when Jesus said He had seen him under the fig tree before Philip called him?",
+    "bookId": "JHN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Nathanael",
+      "Nathaniel",
+      "Bartholomew"
+    ],
+    "displayAnswer": "Nathanael (John 1:47–49)",
+    "explanation": "Having initially asked 'Can anything good come out of Nazareth?', Nathanael immediately confessed Jesus as 'the Son of God' and 'the King of Israel.'",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_3",
+    "type": "facts",
+    "prompt": "In John 2:1–11, in what Galilean town did Jesus perform the first of His signs by turning water into wine at a wedding?",
+    "bookId": "JHN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Cana",
+      "Cana in Galilee",
+      "Cana of Galilee"
+    ],
+    "displayAnswer": "Cana in Galilee (John 2:1, 11)",
+    "explanation": "Turning water into choice wine at the wedding at Cana manifested Jesus' glory and led His disciples to believe in Him.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_4",
+    "type": "facts",
+    "prompt": "In John 2:6, how many stone water jars used for the Jewish rites of purification stood at the wedding in Cana when Jesus told the servants to fill them?",
+    "bookId": "JHN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "6",
+      "six",
+      "six stone water jars",
+      "6 stone water jars",
+      "six jars"
+    ],
+    "displayAnswer": "six (John 2:6)",
+    "explanation": "Each holding twenty or thirty gallons, the six stone purification jars overflowed with abundant Messianic joy when Jesus transformed the water into wine.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_5",
+    "type": "facts",
+    "prompt": "In John 3:1–3, which Pharisee and ruler of the Jews came to Jesus by night and heard Him teach, 'unless one is born again he cannot see the kingdom of God'?",
+    "bookId": "JHN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Nicodemus",
+      "the Pharisee Nicodemus",
+      "ruler Nicodemus"
+    ],
+    "displayAnswer": "Nicodemus (John 3:1)",
+    "explanation": "Nicodemus first visited Jesus at night in John 3, spoke up for fair legal hearing in John 7:50, and brought roughly seventy-five pounds of spices for Jesus' burial in John 19:39.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_6",
+    "type": "verse_completion",
+    "prompt": "John 3:16 (ESV): \"For God so loved the world, that he gave his only Son, that whoever believes in him should not ______ but have eternal life.\"",
+    "bookId": "JHN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "perish",
+      "die",
+      "be lost"
+    ],
+    "displayAnswer": "perish (John 3:16)",
+    "explanation": "Rooted in the Father's love for a fallen world, the gift of the lifted-up Son rescues everyone who believes from perishing unto eternal life.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_7",
+    "type": "facts",
+    "prompt": "In John 4:5–7, beside which patriarch's well at Sychar in Samaria did Jesus sit at the sixth hour and offer 'living water' to a Samaritan woman?",
+    "bookId": "JHN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Jacob's",
+      "Jacob",
+      "Jacobs",
+      "Jacob's well",
+      "Jacobs well"
+    ],
+    "displayAnswer": "Jacob's well (John 4:6)",
+    "explanation": "Greater than father Jacob who gave the physical well, Jesus offered the Samaritan outcast a spring of water welling up to eternal life.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_8",
+    "type": "verse_completion",
+    "prompt": "John 4:24 (ESV): \"God is spirit, and those who worship him must worship in spirit and ______.\"",
+    "bookId": "JHN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "truth",
+      "in truth",
+      "spirit and truth"
+    ],
+    "displayAnswer": "truth (John 4:24)",
+    "explanation": "Moving beyond the Jerusalem-versus-Gerizim location debate, Jesus inaugurates Spirit-empowered worship centered in the truth of who God reveals Himself to be.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_9",
+    "type": "facts",
+    "prompt": "In John 5:2–9, at the pool called Bethesda in Jerusalem, for how many years had the invalid been ill before Jesus told him, 'Get up, take up your bed, and walk'?",
+    "bookId": "JHN",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "38",
+      "thirty-eight",
+      "thirty eight",
+      "38 years",
+      "thirty-eight years"
+    ],
+    "displayAnswer": "thirty-eight years (John 5:5)",
+    "explanation": "Healing a man incapacitated for thirty-eight years on the Sabbath sparked controversy in which Jesus declared His equality in work and honor with the Father.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_10",
+    "type": "facts",
+    "prompt": "In John 6:8–9, which disciple—Simon Peter's brother—pointed out the boy who had five loaves and two fish before Jesus fed the five thousand?",
+    "bookId": "JHN",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Andrew",
+      "Apostle Andrew",
+      "Simon Peter's brother Andrew"
+    ],
+    "displayAnswer": "Andrew (John 6:8)",
+    "explanation": "Throughout John's Gospel (1:41, 6:8, 12:22), Andrew repeatedly brings individuals—his brother Simon, the boy with lunch, and inquiring Greeks—to Jesus.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_11",
+    "type": "facts",
+    "prompt": "In John 6:9, of what grain were the boy's five loaves made when Jesus multiplied them on the mountainside near the Sea of Galilee?",
+    "bookId": "JHN",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "barley",
+      "barley loaves",
+      "five barley loaves"
+    ],
+    "displayAnswer": "barley (John 6:9)",
+    "explanation": "John alone specifies 'five barley loaves,' the humble staple bread of the poor and reminiscent of Elisha's miracle with barley loaves in 2 Kings 4:42–44.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_12",
+    "type": "verse_completion",
+    "prompt": "John 6:35 (ESV): \"Jesus said to them, 'I am the ______ of life; whoever comes to me shall not hunger, and whoever believes in me shall never thirst.'\"",
+    "bookId": "JHN",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "bread",
+      "the bread",
+      "bread of life"
+    ],
+    "displayAnswer": "bread (John 6:35)",
+    "explanation": "In the first of John's seven 'I AM' statements, Jesus reveals Himself as the true heavenly bread surpassing the wilderness manna.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_13",
+    "type": "verse_completion",
+    "prompt": "John 7:38 (ESV): \"Whoever believes in me, as the Scripture has said, 'Out of his heart will flow rivers of living ______.'\"",
+    "bookId": "JHN",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "water",
+      "living water",
+      "waters"
+    ],
+    "displayAnswer": "water (John 7:38)",
+    "explanation": "Standing up on the last and greatest day of the Feast of Booths, Jesus promised the indwelling Holy Spirit whom believers would receive after His glorification.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_14",
+    "type": "verse_completion",
+    "prompt": "John 8:32 (ESV): \"and you will know the truth, and the truth will set you ______.\"",
+    "bookId": "JHN",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "free",
+      "set you free",
+      "at liberty"
+    ],
+    "displayAnswer": "free (John 8:32)",
+    "explanation": "Abiding in Jesus' word liberates disciples from slavery to sin through the Son who sets people free indeed (John 8:31–36).",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_15",
+    "type": "facts",
+    "prompt": "In John 8:56–58, Jesus stunned His opponents by declaring 'Truly, truly, I say to you, ... I am' before which Old Testament patriarch was even born?",
+    "bookId": "JHN",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Abraham",
+      "father Abraham",
+      "patriarch Abraham"
+    ],
+    "displayAnswer": "Abraham (John 8:58)",
+    "explanation": "Invoking the divine covenant name 'I AM' from Exodus 3:14, Jesus claimed eternal preexistence prior to Abraham, prompting His opponents to pick up stones.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_16",
+    "type": "facts",
+    "prompt": "In John 9:6–7, after anointing the eyes of a man born blind with mud made from saliva, to what pool (whose name means 'Sent') did Jesus tell him to go and wash?",
+    "bookId": "JHN",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Siloam",
+      "Pool of Siloam",
+      "the pool of Siloam"
+    ],
+    "displayAnswer": "the pool of Siloam (John 9:7)",
+    "explanation": "Washing in the pool of Siloam ('Sent') pointed to Jesus Himself as the One sent from the Father to be the light of the world.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_17",
+    "type": "verse_completion",
+    "prompt": "John 10:9 (ESV): \"I am the ______. If anyone enters by me, he will be saved and will go in and out and find pasture.\"",
+    "bookId": "JHN",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "door",
+      "the door",
+      "gate"
+    ],
+    "displayAnswer": "door (John 10:9)",
+    "explanation": "As the sole door of the sheepfold, Jesus grants eternal salvation, security, and abundant nourishment to all who enter through Him.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_18",
+    "type": "facts",
+    "prompt": "In John 10:11–14, in contrast to the hired hand who flees when he sees the wolf coming, what 'I am' title does Jesus claim because He lays down His life for the sheep?",
+    "bookId": "JHN",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "the good shepherd",
+      "good shepherd",
+      "shepherd",
+      "the shepherd"
+    ],
+    "displayAnswer": "the good shepherd (John 10:11, 14)",
+    "explanation": "Fulfilling Ezekiel 34, Jesus is the Good Shepherd who intimately knows His own sheep and willingly lays down His life for them.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_19",
+    "type": "facts",
+    "prompt": "In John 11:1, 17–18, in what village about two miles from Jerusalem did Lazarus and his sisters Mary and Martha live?",
+    "bookId": "JHN",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Bethany",
+      "village of Bethany",
+      "Bethany near Jerusalem"
+    ],
+    "displayAnswer": "Bethany (John 11:1, 18)",
+    "explanation": "Located on the eastern slope of the Mount of Olives just outside Jerusalem, Bethany was the setting of Jesus' climactic seventh sign—raising Lazarus after four days.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_20",
+    "type": "verse_completion",
+    "prompt": "John 11:25 (ESV): \"Jesus said to her, 'I am the ______ and the life. Whoever believes in me, though he die, yet shall he live,'\"",
+    "bookId": "JHN",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "resurrection",
+      "the resurrection",
+      "resurrection and the life"
+    ],
+    "displayAnswer": "resurrection (John 11:25)",
+    "explanation": "Speaking to grieving Martha outside Bethany, Jesus reveals that resurrection and eternal life are not merely future events but present realities embodied in Himself.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_21",
+    "type": "facts",
+    "prompt": "In John 11:35, standing deeply moved before the tomb of Lazarus, what famous two-word sentence records Jesus' tears?",
+    "bookId": "JHN",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Jesus wept",
+      "He wept",
+      "Jesus cried"
+    ],
+    "displayAnswer": "Jesus wept (John 11:35)",
+    "explanation": "Though knowing He was moments from raising Lazarus, the incarnate Son wept in compassionate grief and holy indignation at the ravages of death.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_22",
+    "type": "facts",
+    "prompt": "In John 12:24, to illustrate how His impending death would bear much fruit, what does Jesus say remains alone unless it falls into the earth and dies?",
+    "bookId": "JHN",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "a grain of wheat",
+      "grain of wheat",
+      "wheat",
+      "kernel of wheat"
+    ],
+    "displayAnswer": "a grain of wheat (John 12:24)",
+    "explanation": "When Greeks sought to see Him, Jesus announced that the hour had come for the Son of Man to be glorified through sacrificial death like a buried grain of wheat.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_23",
+    "type": "facts",
+    "prompt": "In John 13:4–5, rising from supper with a towel tied around Himself and pouring water into a basin, what part of the disciples' bodies did Jesus wash?",
+    "bookId": "JHN",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "their feet",
+      "feet",
+      "the disciples' feet",
+      "disciples feet"
+    ],
+    "displayAnswer": "their feet (John 13:5)",
+    "explanation": "Knowing the Father had given all things into His hands, Jesus assumed the posture of a lowly servant by washing the disciples' feet as an example of humble love.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_24",
+    "type": "verse_completion",
+    "prompt": "John 13:35 (ESV): \"By this all people will know that you are my disciples, if you have ______ for one another.\"",
+    "bookId": "JHN",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "love",
+      "agape love",
+      "love for one another"
+    ],
+    "displayAnswer": "love (John 13:35)",
+    "explanation": "Giving His 'new commandment' to love one another just as He loved them, Jesus marks Christlike love as the unmistakable badge of Christian discipleship.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_25",
+    "type": "verse_completion",
+    "prompt": "John 14:6 (ESV): \"Jesus said to him, 'I am the way, and the truth, and the ______. No one comes to the Father except through me.'\"",
+    "bookId": "JHN",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "life",
+      "the life",
+      "eternal life"
+    ],
+    "displayAnswer": "life (John 14:6)",
+    "explanation": "Answering Thomas's question in the Upper Room, Jesus declares Himself the exclusive mediator who brings sinners home to the Father.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_26",
+    "type": "facts",
+    "prompt": "In John 14:16, 26, by what comforting title in the ESV (translating the Greek Parakletos) does Jesus promise the Father will send the Holy Spirit to be with His disciples forever?",
+    "bookId": "JHN",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "Helper",
+      "the Helper",
+      "Advocate",
+      "Comforter",
+      "Counselor"
+    ],
+    "displayAnswer": "Helper (John 14:16, 26)",
+    "explanation": "Translating the Greek Parakletos as 'Helper,' the ESV highlights the Holy Spirit's ministry of dwelling within believers, teaching them, and bearing witness to Christ.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_27",
+    "type": "verse_completion",
+    "prompt": "John 15:5 (ESV): \"I am the ______; you are the branches. Whoever abides in me and I in him, he it is that bears much fruit, for apart from me you can do nothing.\"",
+    "bookId": "JHN",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "vine",
+      "the vine",
+      "true vine",
+      "the true vine"
+    ],
+    "displayAnswer": "vine (John 15:5)",
+    "explanation": "In the seventh 'I AM' statement, Jesus portrays Himself as Israel's true vine, teaching that spiritual fruitfulness flows solely from vital union with Him.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_28",
+    "type": "facts",
+    "prompt": "In John 15:14–15, what relational title does Jesus give His disciples instead of calling them servants, because He has made known to them everything heard from His Father?",
+    "bookId": "JHN",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "friends",
+      "my friends",
+      "friend"
+    ],
+    "displayAnswer": "friends (John 15:15)",
+    "explanation": "Demonstrating the greatest love by laying down His life for His friends, Jesus brings His disciples into intimate knowledge of the Father's redemptive plan.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_29",
+    "type": "verse_completion",
+    "prompt": "John 16:33 (ESV): \"I have said these things to you, that in me you may have peace. In the world you will have tribulation. But take heart; I have ______ the world.\"",
+    "bookId": "JHN",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "overcome",
+      "conquered",
+      "defeated"
+    ],
+    "displayAnswer": "overcome (John 16:33)",
+    "explanation": "Concluding the Upper Room Discourse on the eve of the cross, Jesus anchors His disciples' unshakable peace in His decisive victory over the world.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_30",
+    "type": "verse_completion",
+    "prompt": "John 17:17 (ESV): \"Sanctify them in the truth; your ______ is truth.\"",
+    "bookId": "JHN",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "word",
+      "your word",
+      "God's word"
+    ],
+    "displayAnswer": "word (John 17:17)",
+    "explanation": "In His High Priestly Prayer, Jesus prays that the Father will set apart and consecrate His disciples in the world through God's wholly truthful Word.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_31",
+    "type": "facts",
+    "prompt": "In John 18:10, what was the name of the high priest's servant whose right ear Simon Peter struck and cut off with a sword in the garden?",
+    "bookId": "JHN",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "Malchus",
+      "servant Malchus",
+      "the servant Malchus"
+    ],
+    "displayAnswer": "Malchus (John 18:10)",
+    "explanation": "John alone records the personal names of both Simon Peter and Malchus in the garden arrest, before Jesus rebuked Peter for resisting the Father's cup.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_32",
+    "type": "facts",
+    "prompt": "In John 19:17, bearing His own cross, Jesus went out to 'The Place of a Skull'—what is that place called in Aramaic?",
+    "bookId": "JHN",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "Golgotha",
+      "Calvary",
+      "Place of a Skull"
+    ],
+    "displayAnswer": "Golgotha (John 19:17)",
+    "explanation": "Outside the city gate at Golgotha ('Place of a Skull'), Jesus was crucified between two others under Pilate's trilingual inscription 'Jesus of Nazareth, the King of the Jews.'",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_33",
+    "type": "facts",
+    "prompt": "In John 19:30, after receiving the sour wine on the cross, what triumphant three-word declaration in the ESV did Jesus speak before bowing His head and giving up His spirit?",
+    "bookId": "JHN",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "It is finished",
+      "Tetelestai",
+      "finished",
+      "paid in full"
+    ],
+    "displayAnswer": "It is finished (John 19:30)",
+    "explanation": "Translating the single Greek word Tetelestai ('paid in full / accomplished'), 'It is finished' proclaims the complete accomplishment of redemption.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_34",
+    "type": "facts",
+    "prompt": "In John 20:11–18, who stood weeping outside the empty tomb, mistook the risen Jesus for the gardener, and recognized Him when He spoke her name?",
+    "bookId": "JHN",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "Mary Magdalene",
+      "Mary",
+      "Mary of Magdala"
+    ],
+    "displayAnswer": "Mary Magdalene (John 20:11, 16, 18)",
+    "explanation": "Hearing the Good Shepherd call her name 'Mary,' Mary Magdalene turned crying 'Rabboni!' and was sent to announce to the brothers, 'I have seen the Lord.'",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_35",
+    "type": "facts",
+    "prompt": "In John 20:24–28, which apostle (called the Twin) initially refused to believe without touching Jesus' nail scars, then confessed eight days later, 'My Lord and my God!'?",
+    "bookId": "JHN",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "Thomas",
+      "Didymus",
+      "Thomas called the Twin",
+      "Doubting Thomas"
+    ],
+    "displayAnswer": "Thomas (John 20:24–28)",
+    "explanation": "Thomas's climactic confession 'My Lord and my God!' forms a bookend with John 1:1 ('the Word was God'), leading into John's beatitude on those who believe without seeing.",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_jhn_36",
+    "type": "facts",
+    "prompt": "In John 21:11, when Simon Peter hauled the net ashore on the Sea of Tiberias at the risen Lord's command, how many large fish was it full of without tearing?",
+    "bookId": "JHN",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "153",
+      "one hundred fifty-three",
+      "one hundred and fifty-three",
+      "153 large fish",
+      "153 fish"
+    ],
+    "displayAnswer": "153 (John 21:11)",
+    "explanation": "The exact eyewitness count of 153 large fish preceded breakfast on the charcoal fire, where the risen Jesus thrice restored Peter with the charge 'Feed my sheep.'",
+    "scope": "NT",
+    "genre": "Gospels"
+  },
+  {
+    "id": "a2_act_1",
+    "type": "verse_completion",
+    "prompt": "Acts 1:8 (ESV): \"But you will receive power when the Holy Spirit has come upon you, and you will be my ______ in Jerusalem and in all Judea and Samaria, and to the end of the earth.\"",
+    "bookId": "ACT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "witnesses",
+      "my witnesses",
+      "witness"
+    ],
+    "displayAnswer": "witnesses (Acts 1:8)",
+    "explanation": "Acts 1:8 provides the geographical and theological outline for the entire book of Acts as the Spirit empowers Christ's witnesses from Jerusalem to Rome.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_2",
+    "type": "facts",
+    "prompt": "In Acts 1:23–26, which man was chosen by lot over Joseph called Barsabbas (Justus) to replace Judas and be numbered with the eleven apostles?",
+    "bookId": "ACT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Matthias",
+      "Apostle Matthias",
+      "Saint Matthias"
+    ],
+    "displayAnswer": "Matthias (Acts 1:26)",
+    "explanation": "Having accompanied Jesus from John's baptism to the ascension, Matthias was selected after prayer to restore the apostolic twelve prior to Pentecost.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_3",
+    "type": "verse_completion",
+    "prompt": "Acts 2:38 (ESV): \"And Peter said to them, '______ and be baptized every one of you in the name of Jesus Christ for the forgiveness of your sins, and you will receive the gift of the Holy Spirit.'\"",
+    "bookId": "ACT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Repent",
+      "Turn",
+      "Repent ye"
+    ],
+    "displayAnswer": "Repent (Acts 2:38)",
+    "explanation": "Cut to the heart by Peter's Pentecost sermon proclaiming the crucified and exalted Messiah, the Jerusalem crowd heard the gospel call to repent and be baptized.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_4",
+    "type": "facts",
+    "prompt": "In Acts 2:41, about how many souls received Peter's word, were baptized, and were added on the day of Pentecost?",
+    "bookId": "ACT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "3000",
+      "3,000",
+      "three thousand",
+      "about 3000",
+      "about 3,000",
+      "about three thousand"
+    ],
+    "displayAnswer": "3,000 (Acts 2:41)",
+    "explanation": "About three thousand souls were added at Pentecost and devoted themselves to the apostles' teaching, the fellowship, the breaking of bread, and the prayers.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_5",
+    "type": "facts",
+    "prompt": "In Acts 3:2–8, at which gate of the temple did Peter and John heal a man lame from birth in the name of Jesus Christ of Nazareth?",
+    "bookId": "ACT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Beautiful",
+      "the Beautiful Gate",
+      "Beautiful Gate",
+      "Gate Beautiful"
+    ],
+    "displayAnswer": "the Beautiful Gate (Acts 3:2, 10)",
+    "explanation": "Having no silver or gold at the Beautiful Gate, Peter gave the lame beggar healing in Jesus' name, and he entered the temple walking, leaping, and praising God.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_6",
+    "type": "verse_completion",
+    "prompt": "Acts 4:12 (ESV): \"And there is ______ in no one else, for there is no other name under heaven given among men by which we must be saved.\"",
+    "bookId": "ACT",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "salvation",
+      "deliverance",
+      "saving"
+    ],
+    "displayAnswer": "salvation (Acts 4:12)",
+    "explanation": "Filled with the Holy Spirit before the Sanhedrin, Peter boldly proclaimed the crucified and risen Jesus as the rejected cornerstone and sole Savior.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_7",
+    "type": "facts",
+    "prompt": "In Acts 4:36–37, what name meaning 'son of encouragement' did the apostles give Joseph, a Levite from Cyprus who sold a field and laid the proceeds at their feet?",
+    "bookId": "ACT",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Barnabas",
+      "Joseph Barnabas",
+      "Joseph called Barnabas"
+    ],
+    "displayAnswer": "Barnabas (Acts 4:36)",
+    "explanation": "True to his name 'son of encouragement,' Barnabas generously supported needy believers, vouched for newly converted Saul, and co-led the first missionary journey.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_8",
+    "type": "facts",
+    "prompt": "In Acts 5:1–10, which married couple sold a piece of property, secretly kept back part of the proceeds while lying to the Holy Spirit, and fell down dead?",
+    "bookId": "ACT",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Ananias and Sapphira",
+      "Sapphira and Ananias",
+      "Ananias & Sapphira"
+    ],
+    "displayAnswer": "Ananias and Sapphira (Acts 5:1–10)",
+    "explanation": "God's swift judgment on Ananias and Sapphira's deceitful hypocrisy filled the whole church with reverent fear and guarded the purity of the infant community.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_9",
+    "type": "verse_completion",
+    "prompt": "Acts 5:29 (ESV): \"But Peter and the apostles answered, 'We must ______ God rather than men.'\"",
+    "bookId": "ACT",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "obey",
+      "serve",
+      "listen to"
+    ],
+    "displayAnswer": "obey (Acts 5:29)",
+    "explanation": "Ordered strictly by the high priest and council not to teach in Jesus' name, the apostles affirmed God's supreme authority over human prohibitions.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_10",
+    "type": "facts",
+    "prompt": "In Acts 6:5–15, who was the first named among the seven Spirit-filled men chosen to serve the Hellenist widows, whose face shone like an angel's before the council?",
+    "bookId": "ACT",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Stephen",
+      "Saint Stephen",
+      "Deacon Stephen"
+    ],
+    "displayAnswer": "Stephen (Acts 6:5, 15)",
+    "explanation": "Full of grace and power, Stephen performed great wonders among the people and spoke with irresistible Spirit-given wisdom before becoming the first Christian martyr.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_11",
+    "type": "verse_completion",
+    "prompt": "Acts 7:59 (ESV): \"And as they were stoning Stephen, he called out, 'Lord Jesus, receive my ______.'\"",
+    "bookId": "ACT",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "spirit",
+      "my spirit",
+      "soul"
+    ],
+    "displayAnswer": "spirit (Acts 7:59)",
+    "explanation": "Gazing into heaven to behold Jesus standing at God's right hand, Stephen echoed his Lord's own crucifixion prayers as Saul approved of his execution.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_12",
+    "type": "facts",
+    "prompt": "In Acts 8:26–39, which evangelist ran up to the chariot of the Ethiopian eunuch, explained the good news about Jesus from Isaiah 53, and baptized him?",
+    "bookId": "ACT",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Philip",
+      "Philip the evangelist",
+      "Evangelist Philip"
+    ],
+    "displayAnswer": "Philip (Acts 8:26, 29, 35, 38)",
+    "explanation": "After preaching Christ in Samaria, Philip was directed by an angel to the desert road toward Gaza, bringing the gospel to an official of Queen Candace of Ethiopia.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_13",
+    "type": "facts",
+    "prompt": "In Acts 9:1–3, to what city was Saul traveling to arrest disciples when a light from heaven flashed around him and Jesus asked, 'Saul, Saul, why are you persecuting me?'",
+    "bookId": "ACT",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Damascus",
+      "city of Damascus",
+      "to Damascus"
+    ],
+    "displayAnswer": "Damascus (Acts 9:2–3)",
+    "explanation": "Confronted by the risen Christ on the Damascus road, the church's fiercest persecutor was transformed into God's chosen instrument to carry His name to the Gentiles.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_14",
+    "type": "facts",
+    "prompt": "In Acts 9:36–41, in Joppa Peter prayed and raised from the dead a charitable disciple named Tabitha—what is Tabitha's Greek name meaning 'gazelle'?",
+    "bookId": "ACT",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Dorcas",
+      "Tabitha Dorcas",
+      "Gazelle"
+    ],
+    "displayAnswer": "Dorcas (Acts 9:36, 39)",
+    "explanation": "Known for making tunics and garments for widows in Joppa, Tabitha (Dorcas) was restored to life when Peter prayed and said, 'Tabitha, arise.'",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_15",
+    "type": "facts",
+    "prompt": "In Acts 10:1–2, what was the name of the devout, God-fearing Roman centurion of the Italian Cohort at Caesarea who sent men to summon Simon Peter?",
+    "bookId": "ACT",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "Cornelius",
+      "centurion Cornelius",
+      "Cornelius the centurion"
+    ],
+    "displayAnswer": "Cornelius (Acts 10:1)",
+    "explanation": "Prepared by complementary visions to Cornelius and Peter, the outpouring of the Holy Spirit on Cornelius's household opened the door of faith to uncircumcised Gentiles.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_16",
+    "type": "facts",
+    "prompt": "In Acts 11:26, in what Syrian city were the disciples first called Christians after Barnabas and Saul taught a great company of people there for a whole year?",
+    "bookId": "ACT",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Antioch",
+      "Syrian Antioch",
+      "Antioch in Syria"
+    ],
+    "displayAnswer": "Antioch (Acts 11:26)",
+    "explanation": "Multiethnic Antioch in Syria became the vibrant hub where believers were first called Christians and from which Paul's missionary journeys were launched.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_17",
+    "type": "facts",
+    "prompt": "In Acts 12:12–16, after an angel rescued Peter from Herod's prison, what was the name of the servant girl who recognized Peter's voice at the gate and ran in for joy without opening it?",
+    "bookId": "ACT",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "Rhoda",
+      "servant girl Rhoda",
+      "young Rhoda"
+    ],
+    "displayAnswer": "Rhoda (Acts 12:13)",
+    "explanation": "While the church gathered earnestly praying at Mary's house, young Rhoda's excited reaction adds a vivid touch of real-life humor to God's miraculous deliverance.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_18",
+    "type": "facts",
+    "prompt": "In Acts 13:2–3, while prophets and teachers were worshiping the Lord and fasting at Antioch, which two men did the Holy Spirit set apart for the first missionary journey?",
+    "bookId": "ACT",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "Barnabas and Saul",
+      "Barnabas and Paul",
+      "Paul and Barnabas",
+      "Saul and Barnabas"
+    ],
+    "displayAnswer": "Barnabas and Saul (Acts 13:2)",
+    "explanation": "Fasting, praying, and laying hands on Barnabas and Saul, the Antioch church sent them off by the Holy Spirit to Cyprus and Pisidian Antioch.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_19",
+    "type": "facts",
+    "prompt": "In Acts 14:8–19, in what Lycaonian city did crowds try to offer sacrifice to Barnabas and Paul as Zeus and Hermes after a crippled man walked, before later stoning Paul?",
+    "bookId": "ACT",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "Lystra",
+      "city of Lystra",
+      "in Lystra"
+    ],
+    "displayAnswer": "Lystra (Acts 14:8, 19)",
+    "explanation": "Refusing idolatrous worship in Lystra and pointing to the living Creator God, Paul survived stoning there and bravely returned to strengthen the Lystran disciples.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_20",
+    "type": "verse_completion",
+    "prompt": "Acts 14:22 (ESV): \"strengthening the souls of the disciples, encouraging them to continue in the faith, and saying that through many ______ we must enter the kingdom of God.\"",
+    "bookId": "ACT",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "tribulations",
+      "trials",
+      "hardships",
+      "afflictions"
+    ],
+    "displayAnswer": "tribulations (Acts 14:22)",
+    "explanation": "Retracing their steps through Lystra, Iconium, and Antioch, Paul and Barnabas grounded young churches in perseverance amid inevitable suffering and appointed elders.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_21",
+    "type": "verse_completion",
+    "prompt": "Acts 15:11 (ESV): \"But we believe that we will be saved through the ______ of the Lord Jesus, just as they will.\"",
+    "bookId": "ACT",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "grace",
+      "the grace",
+      "grace of the Lord Jesus"
+    ],
+    "displayAnswer": "grace (Acts 15:11)",
+    "explanation": "At the Jerusalem Council, Peter affirmed that both Jews and Gentiles are saved solely by the grace of the Lord Jesus rather than by bearing the yoke of circumcision.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_22",
+    "type": "facts",
+    "prompt": "In Acts 16:22–26, in what Macedonian city (a leading Roman colony) were Paul and Silas praying and singing hymns in prison at midnight when a great earthquake opened the doors?",
+    "bookId": "ACT",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Philippi",
+      "city of Philippi",
+      "in Philippi"
+    ],
+    "displayAnswer": "Philippi (Acts 16:12, 25–26)",
+    "explanation": "Called into Macedonia by a vision, Paul and Silas planted Europe's first church in Philippi through the conversions of Lydia and the Philippian jailer's household.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_23",
+    "type": "verse_completion",
+    "prompt": "Acts 16:31 (ESV): \"And they said, '______ in the Lord Jesus, and you will be saved, you and your household.'\"",
+    "bookId": "ACT",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Believe",
+      "Trust",
+      "Put your faith"
+    ],
+    "displayAnswer": "Believe (Acts 16:31)",
+    "explanation": "Answering the trembling Philippian jailer's urgent question 'Sirs, what must I do to be saved?', Paul and Silas proclaimed salvation through faith in the Lord Jesus.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_24",
+    "type": "facts",
+    "prompt": "In Acts 17:10–11, the Jews in what Macedonian town were 'more noble than those in Thessalonica' because they received the word eagerly, examining the Scriptures daily?",
+    "bookId": "ACT",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "Berea",
+      "Beroea",
+      "city of Berea"
+    ],
+    "displayAnswer": "Berea (Acts 17:10–11)",
+    "explanation": "The noble Bereans combined eager openness to apostolic preaching with daily testing of everything against Old Testament Scripture, leading many of them to believe.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_25",
+    "type": "verse_completion",
+    "prompt": "Acts 17:28 (ESV): \"for 'In him we live and ______ and have our being'; as even some of your own poets have said, 'For we are indeed his offspring.'\"",
+    "bookId": "ACT",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "move",
+      "walk",
+      "act"
+    ],
+    "displayAnswer": "move (Acts 17:28)",
+    "explanation": "Addressing Athenian philosophers at the Areopagus, Paul cited Greek poets to show human dependence on the Creator before calling everyone everywhere to repent.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_26",
+    "type": "facts",
+    "prompt": "In Acts 18:1–3, in Corinth Paul stayed and worked with Aquila and his wife Priscilla because they shared what common trade?",
+    "bookId": "ACT",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "tentmakers",
+      "tentmaking",
+      "tentmaker",
+      "making tents"
+    ],
+    "displayAnswer": "tentmakers (Acts 18:3)",
+    "explanation": "Recently arrived from Rome after Claudius's edict, Priscilla and Aquila partnered closely with Paul in tentmaking and gospel ministry from Corinth to Ephesus.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_27",
+    "type": "facts",
+    "prompt": "In Acts 19:23–28, in Ephesus a silversmith named Demetrius stirred up a furious riot because Paul's preaching threatened the silver shrines of which Greek goddess of the Ephesians?",
+    "bookId": "ACT",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "Artemis",
+      "Diana",
+      "Artemis of the Ephesians"
+    ],
+    "displayAnswer": "Artemis (Acts 19:24, 28)",
+    "explanation": "So powerfully did the word of the Lord prevail in Ephesus that idol shrine sales plummeted, provoking Demetrius and his fellow craftsmen to riot in the theater.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_28",
+    "type": "facts",
+    "prompt": "In Acts 20:7–12, at Troas while Paul prolonged his speech until midnight, what young man sitting in the window sank into sleep, fell from the third story, and was restored alive?",
+    "bookId": "ACT",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "Eutychus",
+      "young Eutychus",
+      "youth Eutychus"
+    ],
+    "displayAnswer": "Eutychus (Acts 20:9)",
+    "explanation": "In an upper room lit by many lamps on the first day of the week at Troas, Paul embraced fallen Eutychus and comforted the church as they brought the youth away alive.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_29",
+    "type": "verse_completion",
+    "prompt": "Acts 20:35 (ESV): \"In all things I have shown you that by working hard in this way we must help the weak and remember the words of the Lord Jesus, how he himself said, 'It is more blessed to ______ than to receive.'\"",
+    "bookId": "ACT",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "give",
+      "to give",
+      "be generous"
+    ],
+    "displayAnswer": "give (Acts 20:35)",
+    "explanation": "In his tearful farewell to the Ephesian elders at Miletus, Paul preserved a cherished saying of Jesus not recorded in the four Gospels.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_30",
+    "type": "facts",
+    "prompt": "In Acts 21:10–11, at Caesarea which Christian prophet from Judea bound his own feet and hands with Paul's belt to foretell Paul's arrest in Jerusalem?",
+    "bookId": "ACT",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "Agabus",
+      "the prophet Agabus",
+      "prophet Agabus"
+    ],
+    "displayAnswer": "Agabus (Acts 21:10)",
+    "explanation": "Enacting a prophetic sign like Old Testament prophets, Agabus warned of Paul's impending bondage, to which Paul replied he was ready even to die in Jerusalem for Jesus' name.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_31",
+    "type": "facts",
+    "prompt": "In Acts 22:3, addressing the Jerusalem crowd in Aramaic, 'at the feet of' which revered Pharisee teacher did Paul say he was strictly educated in the law?",
+    "bookId": "ACT",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "Gamaliel",
+      "Rabbi Gamaliel",
+      "teacher Gamaliel"
+    ],
+    "displayAnswer": "Gamaliel (Acts 22:3)",
+    "explanation": "Educated in Jerusalem under Gamaliel I (who had earlier counseled restraint toward the apostles in Acts 5:34), Paul recounted how only the risen Christ redirected his zeal.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_32",
+    "type": "verse_completion",
+    "prompt": "Acts 23:11 (ESV): \"The following night the Lord stood by him and said, 'Take courage, for as you have testified to the facts about me in Jerusalem, so you must testify also in ______.'\"",
+    "bookId": "ACT",
+    "chapterNum": 23,
+    "acceptedAnswers": [
+      "Rome",
+      "city of Rome",
+      "in Rome"
+    ],
+    "displayAnswer": "Rome (Acts 23:11)",
+    "explanation": "While Paul was held in the Roman barracks in Jerusalem amid violent plots on his life, the risen Lord personally assured him he would bear witness in imperial Rome.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_33",
+    "type": "verse_completion",
+    "prompt": "Acts 24:16 (ESV): \"So I always take pains to have a clear ______ toward both God and man.\"",
+    "bookId": "ACT",
+    "chapterNum": 24,
+    "acceptedAnswers": [
+      "conscience",
+      "clear conscience",
+      "a clear conscience"
+    ],
+    "displayAnswer": "conscience (Acts 24:16)",
+    "explanation": "Making his defense before Governor Felix at Caesarea, Paul anchored his blameless conduct in his hope of the resurrection of both the just and the unjust.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_34",
+    "type": "facts",
+    "prompt": "In Acts 25:10–12, standing before Governor Festus's tribunal in Caesarea and exercising his right as a Roman citizen, to whom did Paul appeal his case?",
+    "bookId": "ACT",
+    "chapterNum": 25,
+    "acceptedAnswers": [
+      "Caesar",
+      "Emperor Caesar",
+      "the emperor",
+      "Nero"
+    ],
+    "displayAnswer": "Caesar (Acts 25:11–12)",
+    "explanation": "When Festus wished to do the Jerusalem leaders a favor, Paul declared 'I appeal to Caesar,' setting in motion his sovereignly promised journey to Rome ('To Caesar you will go').",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_35",
+    "type": "facts",
+    "prompt": "In Acts 26:28, which ruler listened to Paul's testimony about the risen Christ and replied, 'In a short time would you persuade me to be a Christian?'",
+    "bookId": "ACT",
+    "chapterNum": 26,
+    "acceptedAnswers": [
+      "Agrippa",
+      "King Agrippa",
+      "Herod Agrippa",
+      "Herod Agrippa II"
+    ],
+    "displayAnswer": "King Agrippa (Acts 26:28)",
+    "explanation": "Testifying before King Herod Agrippa II, Bernice, and Festus, Paul fulfilled Jesus' promise in Acts 9:15 that he would carry Christ's name before Gentiles and kings.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_36",
+    "type": "verse_completion",
+    "prompt": "Acts 27:25 (ESV): \"So take heart, men, for I have ______ in God that it will be exactly as I have been told.\"",
+    "bookId": "ACT",
+    "chapterNum": 27,
+    "acceptedAnswers": [
+      "faith",
+      "faith in God",
+      "trust"
+    ],
+    "displayAnswer": "faith (Acts 27:25)",
+    "explanation": "Amid a raging fourteen-day storm in the Mediterranean, an angel assured Paul that God had granted him all 276 lives aboard the ship so he could stand before Caesar.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_37",
+    "type": "facts",
+    "prompt": "In Acts 28:1–5, on the island of Malta after the shipwreck, what venomous creature came out because of the heat of the fire and fastened on Paul's hand before he shook it off unharmed?",
+    "bookId": "ACT",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "a viper",
+      "viper",
+      "snake",
+      "a snake",
+      "serpent"
+    ],
+    "displayAnswer": "a viper (Acts 28:3)",
+    "explanation": "Delivered from sea and viper alike on Malta, Paul went on to heal the father of Publius and many islanders through prayer.",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_act_38",
+    "type": "facts",
+    "prompt": "In Acts 28:30–31, for how many whole years did Paul live at his own expense in Rome, welcoming all who came to him and proclaiming the kingdom of God unhindered?",
+    "bookId": "ACT",
+    "chapterNum": 28,
+    "acceptedAnswers": [
+      "2",
+      "two",
+      "two years",
+      "2 years",
+      "two whole years"
+    ],
+    "displayAnswer": "two whole years (Acts 28:30)",
+    "explanation": "Acts closes triumphantly in the heart of the Roman Empire as chained Paul proclaims the Lord Jesus Christ for two whole years 'with all boldness and without hindrance.'",
+    "scope": "NT",
+    "genre": "Acts (History)"
+  },
+  {
+    "id": "a2_rom_1",
+    "type": "verse_completion",
+    "prompt": "Romans 1:16 (ESV): \"For I am not ashamed of the gospel, for it is the ______ of God for salvation to everyone who believes, to the Jew first and also to the Greek.\"",
+    "bookId": "ROM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "power",
+      "the power",
+      "power of God",
+      "saving power"
+    ],
+    "displayAnswer": "power",
+    "explanation": "Romans 1:16 declares that the gospel is the power of God for salvation to everyone who believes.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_2",
+    "type": "facts",
+    "prompt": "According to Romans 1:17, quoting Habakkuk, how shall the righteous live?",
+    "bookId": "ROM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "by faith",
+      "faith",
+      "through faith",
+      "live by faith"
+    ],
+    "displayAnswer": "by faith",
+    "explanation": "Romans 1:17 states that in the gospel the righteousness of God is revealed from faith for faith, as it is written, \"The righteous shall live by faith.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_3",
+    "type": "facts",
+    "prompt": "In Romans 1:25, Paul writes that unrighteous humanity exchanged the truth about God for a lie and worshiped and served what instead of the Creator?",
+    "bookId": "ROM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the creature",
+      "creature",
+      "created things",
+      "creation",
+      "the creation"
+    ],
+    "displayAnswer": "the creature",
+    "explanation": "Romans 1:25 indicts idolatrous humanity because they worshiped and served the creature rather than the Creator.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_4",
+    "type": "facts",
+    "prompt": "In Romans 2:4, what attribute of God is meant to lead sinners to repentance?",
+    "bookId": "ROM",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "kindness",
+      "his kindness",
+      "God's kindness",
+      "the kindness of God",
+      "goodness"
+    ],
+    "displayAnswer": "God's kindness",
+    "explanation": "Romans 2:4 asks whether one presumes on the riches of God's kindness and forbearance and patience, not knowing that God's kindness is meant to lead to repentance.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_5",
+    "type": "facts",
+    "prompt": "According to Romans 2:29, true circumcision is a matter of what organ, by the Spirit and not by the letter?",
+    "bookId": "ROM",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the heart",
+      "heart",
+      "one's heart",
+      "inward heart"
+    ],
+    "displayAnswer": "the heart",
+    "explanation": "Romans 2:29 teaches that a person is a Jew inwardly, and circumcision is a matter of the heart, by the Spirit, not by the letter.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_6",
+    "type": "facts",
+    "prompt": "According to Romans 3:2, what great advantage were the Jews entrusted with first of all?",
+    "bookId": "ROM",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "the oracles of God",
+      "oracles of God",
+      "God's words",
+      "the words of God",
+      "God's oracles"
+    ],
+    "displayAnswer": "the oracles of God",
+    "explanation": "Romans 3:2 explains that to begin with, the Jews were entrusted with the oracles of God.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_7",
+    "type": "verse_completion",
+    "prompt": "Romans 3:23 (ESV): \"for all have sinned and fall short of the ______ of God,\"",
+    "bookId": "ROM",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "glory",
+      "the glory",
+      "glory of God"
+    ],
+    "displayAnswer": "glory",
+    "explanation": "Romans 3:23 summarizes universal human sinfulness: all have sinned and fall short of the glory of God.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_8",
+    "type": "facts",
+    "prompt": "In Romans 3:24–25, believers are justified by God's grace as a gift through the redemption that is in Christ Jesus, whom God put forward as what atoning sacrifice by his blood?",
+    "bookId": "ROM",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "a propitiation",
+      "propitiation",
+      "atoning sacrifice",
+      "mercy seat"
+    ],
+    "displayAnswer": "a propitiation",
+    "explanation": "Romans 3:25 states that God put Christ Jesus forward as a propitiation by his blood, to be received by faith.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_9",
+    "type": "facts",
+    "prompt": "In Romans 4:3, which Old Testament patriarch believed God and had his faith counted to him as righteousness?",
+    "bookId": "ROM",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Abraham",
+      "Abram",
+      "Father Abraham",
+      "Patriarch Abraham"
+    ],
+    "displayAnswer": "Abraham",
+    "explanation": "Romans 4:3 quotes Genesis 15:6: \"Abraham believed God, and it was counted to him as righteousness.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_10",
+    "type": "facts",
+    "prompt": "In Romans 4:6–8, which king of Israel does Paul quote as pronouncing blessing on the one whose lawless deeds are forgiven and against whom the Lord will not count his sin?",
+    "bookId": "ROM",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "David",
+      "King David",
+      "Psalmist David"
+    ],
+    "displayAnswer": "David",
+    "explanation": "Romans 4:6–8 quotes Psalm 32, where David speaks of the blessing of the one to whom God counts righteousness apart from works.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_11",
+    "type": "verse_completion",
+    "prompt": "Romans 5:1 (ESV): \"Therefore, since we have been justified by faith, we have ______ with God through our Lord Jesus Christ.\"",
+    "bookId": "ROM",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "peace",
+      "peace with God",
+      "true peace"
+    ],
+    "displayAnswer": "peace",
+    "explanation": "Romans 5:1 declares that justification by faith brings objective peace with God through our Lord Jesus Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_12",
+    "type": "verse_completion",
+    "prompt": "Romans 5:8 (ESV): \"but God shows his love for us in that while we were still ______, Christ died for us.\"",
+    "bookId": "ROM",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "sinners",
+      "ungodly sinners",
+      "in sin"
+    ],
+    "displayAnswer": "sinners",
+    "explanation": "Romans 5:8 highlights the supreme demonstration of God's love: Christ died for us while we were still sinners.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_13",
+    "type": "facts",
+    "prompt": "In Romans 5:12–19, Paul contrasts Jesus Christ with which first man, through whose one trespass sin and death entered the world?",
+    "bookId": "ROM",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Adam",
+      "the first Adam",
+      "first man Adam"
+    ],
+    "displayAnswer": "Adam",
+    "explanation": "Romans 5:12–19 contrasts Adam, whose disobedience brought condemnation and death, with Jesus Christ, whose obedience brings justification and life.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_14",
+    "type": "facts",
+    "prompt": "In Romans 6:3–4, into what Christian ordinance have believers been buried with Christ into death so that we too might walk in newness of life?",
+    "bookId": "ROM",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "baptism",
+      "baptism into Christ",
+      "water baptism",
+      "being baptized"
+    ],
+    "displayAnswer": "baptism",
+    "explanation": "Romans 6:4 states that we were buried therefore with him by baptism into death, in order that we too might walk in newness of life.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_15",
+    "type": "verse_completion",
+    "prompt": "Romans 6:23 (ESV): \"For the wages of sin is ______, but the free gift of God is eternal life in Christ Jesus our Lord.\"",
+    "bookId": "ROM",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "death",
+      "spiritual death",
+      "eternal death"
+    ],
+    "displayAnswer": "death",
+    "explanation": "Romans 6:23 contrasts the earned wages of sin—death—with God's free gift of eternal life in Christ Jesus.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_16",
+    "type": "facts",
+    "prompt": "In Romans 7:2–3, what human covenant relationship does Paul use to illustrate how a person is released from the law only through death?",
+    "bookId": "ROM",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "marriage",
+      "matrimony",
+      "a married woman",
+      "marriage covenant",
+      "wedlock"
+    ],
+    "displayAnswer": "marriage",
+    "explanation": "Romans 7:2–3 uses the illustration of a married woman bound by law to her husband while he lives, but released if her husband dies.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_17",
+    "type": "verse_completion",
+    "prompt": "Romans 7:24 (ESV): \"______ man that I am! Who will deliver me from this body of death?\"",
+    "bookId": "ROM",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Wretched",
+      "O wretched",
+      "A wretched"
+    ],
+    "displayAnswer": "Wretched",
+    "explanation": "Romans 7:24 captures the anguished cry over indwelling sin: \"Wretched man that I am! Who will deliver me from this body of death?\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_18",
+    "type": "verse_completion",
+    "prompt": "Romans 8:1 (ESV): \"There is therefore now no ______ for those who are in Christ Jesus.\"",
+    "bookId": "ROM",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "condemnation",
+      "judgment of condemnation",
+      "guilt or condemnation"
+    ],
+    "displayAnswer": "condemnation",
+    "explanation": "Romans 8:1 opens with the triumphant assurance that there is now no condemnation for those who are in Christ Jesus.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_19",
+    "type": "facts",
+    "prompt": "According to Romans 8:15, when believers receive the Spirit of adoption as sons, what Aramaic-Greek cry do we utter to God?",
+    "bookId": "ROM",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Abba! Father!",
+      "Abba Father",
+      "Abba",
+      "Father"
+    ],
+    "displayAnswer": "Abba! Father!",
+    "explanation": "Romans 8:15 says you have received the Spirit of adoption as sons, by whom we cry, \"Abba! Father!\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_20",
+    "type": "verse_completion",
+    "prompt": "Romans 8:28 (ESV): \"And we know that for those who love God all things work together for ______, for those who are called according to his purpose.\"",
+    "bookId": "ROM",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "good",
+      "the good",
+      "our good"
+    ],
+    "displayAnswer": "good",
+    "explanation": "Romans 8:28 promises that for those who love God and are called according to his purpose, all things work together for good.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_21",
+    "type": "verse_completion",
+    "prompt": "Romans 8:37 (ESV): \"No, in all these things we are more than ______ through him who loved us.\"",
+    "bookId": "ROM",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "conquerors",
+      "victors",
+      "overcomers"
+    ],
+    "displayAnswer": "conquerors",
+    "explanation": "Romans 8:37 declares that in all trials and tribulations we are more than conquerors through him who loved us.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_22",
+    "type": "facts",
+    "prompt": "In Romans 9:13, illustrating God's sovereign election before Isaac's twin sons were born, which brother—in contrast to Esau—does Scripture declare God loved?",
+    "bookId": "ROM",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Jacob",
+      "patriarch Jacob",
+      "Israel"
+    ],
+    "displayAnswer": "Jacob",
+    "explanation": "Romans 9:13 quotes Malachi 1:2–3: \"Jacob I loved, but Esau I hated,\" underscoring God's purpose of election.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_23",
+    "type": "facts",
+    "prompt": "In Romans 9:20–21, to what craftsman molding clay into vessels for honorable or dishonorable use does Paul compare the sovereign Creator?",
+    "bookId": "ROM",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "a potter",
+      "the potter",
+      "potter"
+    ],
+    "displayAnswer": "the potter",
+    "explanation": "Romans 9:21 asks whether the potter has no right over the clay, to make out of the same lump one vessel for honorable use and another for dishonorable use.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_24",
+    "type": "verse_completion",
+    "prompt": "Romans 10:9 (ESV): \"because, if you confess with your mouth that Jesus is ______ and believe in your heart that God raised him from the dead, you will be saved.\"",
+    "bookId": "ROM",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "Lord",
+      "the Lord",
+      "Christ the Lord"
+    ],
+    "displayAnswer": "Lord",
+    "explanation": "Romans 10:9 links salvation to confessing with one's mouth that Jesus is Lord and believing in one's heart that God raised him from the dead.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_25",
+    "type": "verse_completion",
+    "prompt": "Romans 10:17 (ESV): \"So faith comes from ______, and hearing through the word of Christ.\"",
+    "bookId": "ROM",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "hearing",
+      "listening",
+      "hearing the word"
+    ],
+    "displayAnswer": "hearing",
+    "explanation": "Romans 10:17 concludes that saving faith comes from hearing, and hearing through the word of Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_26",
+    "type": "facts",
+    "prompt": "In Romans 11:4, when Elijah thought he alone was left in Israel, God answered that He had kept for Himself seven thousand men who had not bowed the knee to which false god?",
+    "bookId": "ROM",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Baal",
+      "the idol Baal",
+      "false god Baal"
+    ],
+    "displayAnswer": "Baal",
+    "explanation": "Romans 11:4 recalls God's answer to Elijah that 7,000 men in Israel had not bowed the knee to Baal, illustrating the remnant chosen by grace.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_27",
+    "type": "facts",
+    "prompt": "In Romans 11:17–24, into what kind of cultivated fruit-bearing tree does Paul say wild Gentile branches have been grafted?",
+    "bookId": "ROM",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "olive tree",
+      "an olive tree",
+      "cultivated olive tree",
+      "olive"
+    ],
+    "displayAnswer": "olive tree",
+    "explanation": "Romans 11:17–24 uses the metaphor of a cultivated olive tree into which wild olive shoots (Gentiles) were grafted.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_28",
+    "type": "verse_completion",
+    "prompt": "Romans 12:1 (ESV): \"I appeal to you therefore, brothers, by the mercies of God, to present your bodies as a ______ sacrifice, holy and acceptable to God, which is your spiritual worship.\"",
+    "bookId": "ROM",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "living",
+      "living sacrifice",
+      "a living"
+    ],
+    "displayAnswer": "living",
+    "explanation": "Romans 12:1 urges believers to present their bodies as a living sacrifice, holy and acceptable to God.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_29",
+    "type": "verse_completion",
+    "prompt": "Romans 12:2 (ESV): \"Do not be conformed to this world, but be transformed by the renewal of your ______...\"",
+    "bookId": "ROM",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "mind",
+      "minds",
+      "your mind",
+      "the mind"
+    ],
+    "displayAnswer": "mind",
+    "explanation": "Romans 12:2 commands believers not to be conformed to this world, but to be transformed by the renewal of their mind.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_30",
+    "type": "facts",
+    "prompt": "According to Romans 13:1, let every person be subject to the governing authorities, because all existing authorities have been instituted by whom?",
+    "bookId": "ROM",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "God",
+      "by God",
+      "the Lord",
+      "Almighty God"
+    ],
+    "displayAnswer": "God",
+    "explanation": "Romans 13:1 teaches that there is no authority except from God, and those that exist have been instituted by God.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_31",
+    "type": "verse_completion",
+    "prompt": "Romans 13:10 (ESV): \"Love does no wrong to a neighbor; therefore ______ is the fulfilling of the law.\"",
+    "bookId": "ROM",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "love",
+      "loving others",
+      "Christian love"
+    ],
+    "displayAnswer": "love",
+    "explanation": "Romans 13:10 summarizes ethics by stating that love does no wrong to a neighbor; therefore love is the fulfilling of the law.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_32",
+    "type": "facts",
+    "prompt": "In Romans 14:13, rather than passing judgment on one another over disputable matters, what should believers resolve never to put in the way of a brother?",
+    "bookId": "ROM",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "a stumbling block",
+      "stumbling block",
+      "a hindrance",
+      "stumbling block or hindrance",
+      "obstacle"
+    ],
+    "displayAnswer": "a stumbling block (or hindrance)",
+    "explanation": "Romans 14:13 exhorts believers to decide never to put a stumbling block or hindrance in the way of a brother.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_33",
+    "type": "facts",
+    "prompt": "In Romans 15:24 and 15:28, to which western Mediterranean land did Paul hope to travel after visiting Rome?",
+    "bookId": "ROM",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "Spain",
+      "into Spain",
+      "province of Spain"
+    ],
+    "displayAnswer": "Spain",
+    "explanation": "Romans 15:24, 28 records Paul's missionary ambition to visit the believers in Rome on his way to Spain.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_rom_34",
+    "type": "facts",
+    "prompt": "In Romans 16:1–2, which servant (deaconess) of the church at Cenchreae does Paul commend as a patron of many and of himself?",
+    "bookId": "ROM",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Phoebe",
+      "Sister Phoebe",
+      "Deaconess Phoebe"
+    ],
+    "displayAnswer": "Phoebe",
+    "explanation": "Romans 16:1–2 commends Phoebe, a servant of the church at Cenchreae, who likely carried Paul's letter to Rome.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_1",
+    "type": "verse_completion",
+    "prompt": "1 Corinthians 1:18 (ESV): \"For the word of the ______ is folly to those who are perishing, but to us who are being saved it is the power of God.\"",
+    "bookId": "1CO",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "cross",
+      "the cross",
+      "cross of Christ"
+    ],
+    "displayAnswer": "cross",
+    "explanation": "1 Corinthians 1:18 contrasts the apparent folly of the word of the cross to the perishing with its reality as the power of God to the saved.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_2",
+    "type": "facts",
+    "prompt": "In 1 Corinthians 1:11, from whose people (household) did Paul receive the report that there was quarreling and factionalism among the believers?",
+    "bookId": "1CO",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Chloe",
+      "Chloe's people",
+      "Chloe's household",
+      "household of Chloe"
+    ],
+    "displayAnswer": "Chloe's people",
+    "explanation": "1 Corinthians 1:11 notes that it was reported to Paul by Chloe's people that there was quarreling among the church.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_3",
+    "type": "verse_completion",
+    "prompt": "1 Corinthians 2:2 (ESV): \"For I decided to know nothing among you except Jesus Christ and him ______.\"",
+    "bookId": "1CO",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "crucified",
+      "him crucified",
+      "crucified on the cross"
+    ],
+    "displayAnswer": "crucified",
+    "explanation": "1 Corinthians 2:2 expresses Paul's singular gospel focus: knowing nothing among them except Jesus Christ and him crucified.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_4",
+    "type": "facts",
+    "prompt": "In 1 Corinthians 3:6, Paul writes that he planted, God gave the growth, and which eloquent co-worker watered?",
+    "bookId": "1CO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Apollos",
+      "Brother Apollos",
+      "Apollos of Alexandria"
+    ],
+    "displayAnswer": "Apollos",
+    "explanation": "1 Corinthians 3:6 states: \"I planted, Apollos watered, but God gave the growth.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_5",
+    "type": "verse_completion",
+    "prompt": "1 Corinthians 3:16 (ESV): \"Do you not know that you are God's ______ and that God's Spirit dwells in you?\"",
+    "bookId": "1CO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "temple",
+      "God's temple",
+      "sanctuary",
+      "holy temple"
+    ],
+    "displayAnswer": "temple",
+    "explanation": "1 Corinthians 3:16 reminds the church collectively that they are God's temple indwelt by God's Spirit.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_6",
+    "type": "facts",
+    "prompt": "According to 1 Corinthians 4:1–2, what is the primary requirement of stewards entrusted with the mysteries of God?",
+    "bookId": "1CO",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "be found faithful",
+      "to be found faithful",
+      "faithfulness",
+      "trustworthiness",
+      "found trustworthy",
+      "faithful",
+      "trustworthy"
+    ],
+    "displayAnswer": "be found faithful (trustworthy)",
+    "explanation": "1 Corinthians 4:2 states that it is required of stewards that they be found faithful (trustworthy).",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_7",
+    "type": "facts",
+    "prompt": "In 1 Corinthians 5:6–8, what baking ingredient does Paul say leavens the whole lump, urging the church to cleanse it out because Christ our Passover lamb has been sacrificed?",
+    "bookId": "1CO",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "leaven",
+      "old leaven",
+      "a little leaven",
+      "yeast"
+    ],
+    "displayAnswer": "leaven (yeast)",
+    "explanation": "1 Corinthians 5:6–7 warns that \"a little leaven leavens the whole lump,\" calling the church to cleanse out the old leaven of malice and evil.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_8",
+    "type": "facts",
+    "prompt": "In 1 Corinthians 6:1–7, Paul rebukes believers for having lawsuits against one another before what kind of secular judges instead of before the saints?",
+    "bookId": "1CO",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "the unrighteous",
+      "unbelievers",
+      "unrighteous",
+      "pagans",
+      "unrighteous judges"
+    ],
+    "displayAnswer": "the unrighteous (unbelievers)",
+    "explanation": "1 Corinthians 6:1, 6 rebukes Christians for taking grievances against brothers to court before the unrighteous—before unbelievers—rather than the saints.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_9",
+    "type": "verse_completion",
+    "prompt": "1 Corinthians 6:19–20 (ESV): \"You are not your own, for you were bought with a ______. So glorify God in your body.\"",
+    "bookId": "1CO",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "price",
+      "a price",
+      "high price",
+      "great price"
+    ],
+    "displayAnswer": "price",
+    "explanation": "1 Corinthians 6:19–20 grounds sexual purity in Christ's redemption: believers were bought with a price and must glorify God in their bodies.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_10",
+    "type": "facts",
+    "prompt": "In 1 Corinthians 7:32–35, Paul commends singleness for those with that gift so they may secure what kind of devotion to the Lord without distraction?",
+    "bookId": "1CO",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "undivided devotion",
+      "undivided",
+      "unhindered devotion",
+      "single-minded devotion"
+    ],
+    "displayAnswer": "undivided devotion",
+    "explanation": "1 Corinthians 7:35 explains that Paul says this to promote good order and to secure their undivided devotion to the Lord.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_11",
+    "type": "verse_completion",
+    "prompt": "1 Corinthians 8:1 (ESV): \"Now concerning food offered to idols: we know that 'all of us possess knowledge.' This 'knowledge' puffs up, but ______ builds up.\"",
+    "bookId": "1CO",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "love",
+      "Christian love",
+      "charity"
+    ],
+    "displayAnswer": "love",
+    "explanation": "1 Corinthians 8:1 contrasts prideful knowledge that puffs up with self-giving love that builds up weak brothers.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_12",
+    "type": "facts",
+    "prompt": "In 1 Corinthians 9:9, defending the right of gospel ministers to receive material support, Paul quotes the Law of Moses prohibiting muzzling what animal when it treads out the grain?",
+    "bookId": "1CO",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "an ox",
+      "ox",
+      "the ox",
+      "working ox"
+    ],
+    "displayAnswer": "an ox",
+    "explanation": "1 Corinthians 9:9 quotes Deuteronomy 25:4: \"You shall not muzzle an ox when it treads out the grain.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_13",
+    "type": "verse_completion",
+    "prompt": "1 Corinthians 9:24 (ESV): \"Do you not know that in a race all the runners run, but only one receives the ______? So run that you may obtain it.\"",
+    "bookId": "1CO",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "prize",
+      "the prize",
+      "victor's prize",
+      "crown"
+    ],
+    "displayAnswer": "prize",
+    "explanation": "1 Corinthians 9:24 uses Isthmian athletic imagery to exhort believers to run with discipline so as to obtain the imperishable prize.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_14",
+    "type": "facts",
+    "prompt": "According to 1 Corinthians 10:4, Israel drank from the spiritual Rock that followed them in the wilderness, and who was that Rock?",
+    "bookId": "1CO",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "Christ",
+      "Jesus Christ",
+      "the Christ",
+      "Messiah"
+    ],
+    "displayAnswer": "Christ",
+    "explanation": "1 Corinthians 10:4 states explicitly: \"and the Rock was Christ.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_15",
+    "type": "verse_completion",
+    "prompt": "1 Corinthians 10:13 (ESV): \"God is faithful, and he will not let you be tempted beyond your ability, but with the temptation he will also provide the way of ______, that you may be able to endure it.\"",
+    "bookId": "1CO",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "escape",
+      "way of escape",
+      "the way of escape"
+    ],
+    "displayAnswer": "escape",
+    "explanation": "1 Corinthians 10:13 assures believers that God is faithful and always provides the way of escape in temptation.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_16",
+    "type": "verse_completion",
+    "prompt": "1 Corinthians 10:31 (ESV): \"So, whether you eat or drink, or whatever you do, do all to the ______ of God.\"",
+    "bookId": "1CO",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "glory",
+      "glory of God",
+      "the glory"
+    ],
+    "displayAnswer": "glory",
+    "explanation": "1 Corinthians 10:31 provides the overarching Christian principle: do all things to the glory of God.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_17",
+    "type": "facts",
+    "prompt": "In 1 Corinthians 11:23–26, whenever believers eat the bread and drink the cup of the Lord's Supper, they proclaim the Lord's what until he comes?",
+    "bookId": "1CO",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "death",
+      "his death",
+      "the Lord's death",
+      "Christ's death"
+    ],
+    "displayAnswer": "the Lord's death",
+    "explanation": "1 Corinthians 11:26 teaches that as often as you eat this bread and drink the cup, you proclaim the Lord's death until he comes.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_18",
+    "type": "facts",
+    "prompt": "According to 1 Corinthians 11:28, what must a person do before eating of the bread and drinking of the cup at the Lord's Supper so as not to eat and drink in an unworthy manner?",
+    "bookId": "1CO",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "examine himself",
+      "self-examination",
+      "examine oneself",
+      "test himself"
+    ],
+    "displayAnswer": "examine himself",
+    "explanation": "1 Corinthians 11:28 instructs: Let a person examine himself, then, and so eat of the bread and drink of the cup.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_19",
+    "type": "facts",
+    "prompt": "In 1 Corinthians 12:12–27, to what unified living organism with many distinct members—such as eyes, hands, and feet—does Paul compare the church of Christ?",
+    "bookId": "1CO",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "a body",
+      "one body",
+      "the body",
+      "the body of Christ",
+      "human body"
+    ],
+    "displayAnswer": "the body (body of Christ)",
+    "explanation": "1 Corinthians 12:12, 27 compares the church to one human body with many members: \"Now you are the body of Christ and individually members of it.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_20",
+    "type": "facts",
+    "prompt": "According to 1 Corinthians 12:4–7, varieties of spiritual gifts are apportioned by the one Spirit for what purpose?",
+    "bookId": "1CO",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "the common good",
+      "common good",
+      "good of all",
+      "edification of all"
+    ],
+    "displayAnswer": "the common good",
+    "explanation": "1 Corinthians 12:7 states that to each is given the manifestation of the Spirit for the common good.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_21",
+    "type": "facts",
+    "prompt": "In 1 Corinthians 13:1, if someone speaks in the tongues of men and of angels, but has not love, he is only a noisy gong or what other clanging instrument?",
+    "bookId": "1CO",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "a clanging cymbal",
+      "clanging cymbal",
+      "cymbal",
+      "sounding cymbal"
+    ],
+    "displayAnswer": "a clanging cymbal",
+    "explanation": "1 Corinthians 13:1 declares that speaking in tongues without love makes one a noisy gong or a clanging cymbal.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_22",
+    "type": "verse_completion",
+    "prompt": "1 Corinthians 13:4 (ESV): \"Love is ______ and kind; love does not envy or boast; it is not arrogant\"",
+    "bookId": "1CO",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "patient",
+      "longsuffering",
+      "patient and kind"
+    ],
+    "displayAnswer": "patient",
+    "explanation": "1 Corinthians 13:4 opens Paul's famous description of love: \"Love is patient and kind...\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_23",
+    "type": "verse_completion",
+    "prompt": "1 Corinthians 13:13 (ESV): \"So now faith, hope, and love abide, these three; but the greatest of these is ______.\"",
+    "bookId": "1CO",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "love",
+      "charity",
+      "agape love"
+    ],
+    "displayAnswer": "love",
+    "explanation": "1 Corinthians 13:13 concludes the chapter by crowning love as the greatest of the three abiding virtues.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_24",
+    "type": "facts",
+    "prompt": "In 1 Corinthians 14:1–5, which intelligible spiritual gift does Paul urge believers to earnestly desire above uninterpreted tongues because it builds up, encourages, and consoles the church?",
+    "bookId": "1CO",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "prophecy",
+      "prophesying",
+      "to prophesy",
+      "gift of prophecy"
+    ],
+    "displayAnswer": "prophecy",
+    "explanation": "1 Corinthians 14:1–5 prioritizes prophecy over uninterpreted tongues in corporate worship because prophecy builds up the church.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_25",
+    "type": "facts",
+    "prompt": "According to the closing instruction of 1 Corinthians 14:40, how should all things in corporate worship be done?",
+    "bookId": "1CO",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "decently and in order",
+      "in order",
+      "orderly",
+      "properly and in order"
+    ],
+    "displayAnswer": "decently and in order",
+    "explanation": "1 Corinthians 14:40 concludes: \"But all things should be done decently and in order.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_26",
+    "type": "facts",
+    "prompt": "According to 1 Corinthians 15:6, after rising from the dead, to how many brothers at one time did Christ appear, most of whom were still alive when Paul wrote?",
+    "bookId": "1CO",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "more than five hundred",
+      "five hundred",
+      "500",
+      "over 500",
+      "more than 500",
+      "over five hundred"
+    ],
+    "displayAnswer": "more than five hundred (500)",
+    "explanation": "1 Corinthians 15:6 testifies that the risen Christ appeared to more than five hundred brothers at one time.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_27",
+    "type": "facts",
+    "prompt": "According to 1 Corinthians 15:26, what is the last enemy to be destroyed by Christ?",
+    "bookId": "1CO",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "death",
+      "the last enemy death",
+      "mortal death"
+    ],
+    "displayAnswer": "death",
+    "explanation": "1 Corinthians 15:26 declares: \"The last enemy to be destroyed is death.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_28",
+    "type": "verse_completion",
+    "prompt": "1 Corinthians 15:55 (ESV): \"O death, where is your victory? O death, where is your ______?\"",
+    "bookId": "1CO",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "sting",
+      "your sting",
+      "deadly sting"
+    ],
+    "displayAnswer": "sting",
+    "explanation": "1 Corinthians 15:55 taunts conquered death: \"O death, where is your victory? O death, where is your sting?\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_29",
+    "type": "verse_completion",
+    "prompt": "1 Corinthians 15:58 (ESV): \"Therefore, my beloved brothers, be ______, immovable, always abounding in the work of the Lord, knowing that in the Lord your labor is not in vain.\"",
+    "bookId": "1CO",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "steadfast",
+      "firm",
+      "steadfast immovable"
+    ],
+    "displayAnswer": "steadfast",
+    "explanation": "1 Corinthians 15:58 grounds steadfast, abounding Christian service in the certainty of bodily resurrection.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1co_30",
+    "type": "facts",
+    "prompt": "In 1 Corinthians 16:1–3, on the first day of every week, believers were instructed to put something aside for the relief collection being sent to the saints in which city?",
+    "bookId": "1CO",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Jerusalem",
+      "city of Jerusalem",
+      "saints in Jerusalem"
+    ],
+    "displayAnswer": "Jerusalem",
+    "explanation": "1 Corinthians 16:1–3 gives instructions for the weekly collection to carry the church's gift to the impoverished saints in Jerusalem.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_1",
+    "type": "facts",
+    "prompt": "In 2 Corinthians 1:3–4, Paul blesses the God and Father of our Lord Jesus Christ, the Father of mercies and God of all what?",
+    "bookId": "2CO",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "comfort",
+      "all comfort",
+      "God of all comfort",
+      "consolation"
+    ],
+    "displayAnswer": "comfort",
+    "explanation": "2 Corinthians 1:3–4 praises the Father of mercies and God of all comfort, who comforts us in all our affliction so we can comfort others.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_2",
+    "type": "verse_completion",
+    "prompt": "2 Corinthians 1:20 (ESV): \"For all the promises of God find their ______ in him. That is why it is through him that we utter our Amen to God for his glory.\"",
+    "bookId": "2CO",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Yes",
+      "yes",
+      "Yes and Amen"
+    ],
+    "displayAnswer": "Yes",
+    "explanation": "2 Corinthians 1:20 declares that all the promises of God find their Yes in Jesus Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_3",
+    "type": "facts",
+    "prompt": "According to 2 Corinthians 2:14–15, believers who spread the fragrance of the knowledge of God everywhere are what kind of pleasing offering to God among those being saved and perishing?",
+    "bookId": "2CO",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the aroma of Christ",
+      "aroma of Christ",
+      "fragrance of Christ",
+      "Christ's aroma"
+    ],
+    "displayAnswer": "the aroma of Christ",
+    "explanation": "2 Corinthians 2:15 states: \"For we are the aroma of Christ to God among those who are being saved and among those who are perishing.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_4",
+    "type": "facts",
+    "prompt": "In 2 Corinthians 3:2–3, Paul tells the believers that they themselves are a letter from Christ written not with ink on tablets of stone, but with the Spirit of the living God on tablets of what?",
+    "bookId": "2CO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "human hearts",
+      "hearts",
+      "tablets of human hearts",
+      "fleshly hearts"
+    ],
+    "displayAnswer": "human hearts",
+    "explanation": "2 Corinthians 3:3 echoes Ezekiel 36, describing believers as a letter from Christ written on tablets of human hearts.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_5",
+    "type": "verse_completion",
+    "prompt": "2 Corinthians 3:17 (ESV): \"Now the Lord is the Spirit, and where the Spirit of the Lord is, there is ______.\"",
+    "bookId": "2CO",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "freedom",
+      "liberty",
+      "true freedom"
+    ],
+    "displayAnswer": "freedom",
+    "explanation": "2 Corinthians 3:17 proclaims that where the Spirit of the Lord is, there is freedom from the veil of the old covenant.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_6",
+    "type": "verse_completion",
+    "prompt": "2 Corinthians 4:7 (ESV): \"But we have this treasure in ______ of clay, to show that the surpassing power belongs to God and not to us.\"",
+    "bookId": "2CO",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "jars",
+      "jars of clay",
+      "earthen vessels",
+      "clay jars"
+    ],
+    "displayAnswer": "jars",
+    "explanation": "2 Corinthians 4:7 compares frail gospel ministers to jars of clay holding priceless treasure so God's surpassing power is displayed.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_7",
+    "type": "facts",
+    "prompt": "According to 2 Corinthians 4:4, who has blinded the minds of the unbelievers to keep them from seeing the light of the gospel of the glory of Christ?",
+    "bookId": "2CO",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "the god of this world",
+      "god of this world",
+      "Satan",
+      "the devil"
+    ],
+    "displayAnswer": "the god of this world (Satan)",
+    "explanation": "2 Corinthians 4:4 states that the god of this world has blinded the minds of the unbelievers.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_8",
+    "type": "facts",
+    "prompt": "According to 2 Corinthians 4:17, what is our light momentary affliction preparing for us beyond all comparison?",
+    "bookId": "2CO",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "an eternal weight of glory",
+      "eternal weight of glory",
+      "weight of glory",
+      "eternal glory"
+    ],
+    "displayAnswer": "an eternal weight of glory",
+    "explanation": "2 Corinthians 4:17 affirms that this light momentary affliction is preparing for us an eternal weight of glory beyond all comparison.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_9",
+    "type": "verse_completion",
+    "prompt": "2 Corinthians 5:7 (ESV): \"for we walk by ______, not by sight.\"",
+    "bookId": "2CO",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "faith",
+      "by faith",
+      "trusting faith"
+    ],
+    "displayAnswer": "faith",
+    "explanation": "2 Corinthians 5:7 summarizes the pilgrim Christian life: walking by faith, not by sight.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_10",
+    "type": "verse_completion",
+    "prompt": "2 Corinthians 5:17 (ESV): \"Therefore, if anyone is in Christ, he is a ______ creation. The old has passed away; behold, the new has come.\"",
+    "bookId": "2CO",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "new",
+      "new creation",
+      "a new"
+    ],
+    "displayAnswer": "new",
+    "explanation": "2 Corinthians 5:17 celebrates union with Christ as inauguration of a new creation.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_11",
+    "type": "facts",
+    "prompt": "In 2 Corinthians 5:18–20, God entrusted us with the ministry of reconciliation, making us what official representatives for Christ as God makes his appeal through us?",
+    "bookId": "2CO",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "ambassadors",
+      "ambassadors for Christ",
+      "Christ's ambassadors",
+      "an ambassador"
+    ],
+    "displayAnswer": "ambassadors for Christ",
+    "explanation": "2 Corinthians 5:20 declares: \"Therefore, we are ambassadors for Christ, God making his appeal through us.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_12",
+    "type": "verse_completion",
+    "prompt": "2 Corinthians 5:21 (ESV): \"For our sake he made him to be ______ who knew no sin, so that in him we might become the righteousness of God.\"",
+    "bookId": "2CO",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "sin",
+      "to be sin",
+      "sin for us"
+    ],
+    "displayAnswer": "sin",
+    "explanation": "2 Corinthians 5:21 states the great exchange of atonement: God made the sinless Christ to be sin for our sake so we might become the righteousness of God.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_13",
+    "type": "verse_completion",
+    "prompt": "2 Corinthians 6:14 (ESV): \"Do not be unequally ______ with unbelievers. For what partnership has righteousness with lawlessness?\"",
+    "bookId": "2CO",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "yoked",
+      "unequally yoked",
+      "bound"
+    ],
+    "displayAnswer": "yoked",
+    "explanation": "2 Corinthians 6:14 warns believers not to be unequally yoked with unbelievers.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_14",
+    "type": "facts",
+    "prompt": "According to 2 Corinthians 7:10, whereas worldly grief produces death, what does godly grief produce without regret that leads to salvation?",
+    "bookId": "2CO",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "repentance",
+      "true repentance",
+      "godly repentance"
+    ],
+    "displayAnswer": "repentance",
+    "explanation": "2 Corinthians 7:10 contrasts godly grief—which produces a repentance that leads to salvation without regret—with worldly grief, which produces death.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_15",
+    "type": "facts",
+    "prompt": "In 2 Corinthians 8:1–2, the churches of which region gave generously beyond their means during a severe test of affliction and extreme poverty?",
+    "bookId": "2CO",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "Macedonia",
+      "churches of Macedonia",
+      "province of Macedonia",
+      "Macedonian churches"
+    ],
+    "displayAnswer": "Macedonia",
+    "explanation": "2 Corinthians 8:1–2 holds up the churches of Macedonia as an example of overflowing joy and generosity amid extreme poverty.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_16",
+    "type": "verse_completion",
+    "prompt": "2 Corinthians 8:9 (ESV): \"For you know the grace of our Lord Jesus Christ, that though he was rich, yet for your sake he became ______, so that you by his poverty might become rich.\"",
+    "bookId": "2CO",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "poor",
+      "impoverished",
+      "lowly and poor"
+    ],
+    "displayAnswer": "poor",
+    "explanation": "2 Corinthians 8:9 grounds Christian generosity in Christ's incarnation and self-impoverishment for our salvation.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_17",
+    "type": "verse_completion",
+    "prompt": "2 Corinthians 9:7 (ESV): \"Each one must give as he has decided in his heart, not reluctantly or under compulsion, for God loves a ______ giver.\"",
+    "bookId": "2CO",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "cheerful",
+      "cheerful giver",
+      "joyful"
+    ],
+    "displayAnswer": "cheerful",
+    "explanation": "2 Corinthians 9:7 teaches willing, joyful generosity because God loves a cheerful giver.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_18",
+    "type": "facts",
+    "prompt": "In 2 Corinthians 10:4–5, instead of waging war with weapons of the flesh, we destroy arguments and take every thought captive to obey whom?",
+    "bookId": "2CO",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "Christ",
+      "Jesus Christ",
+      "the Lord Christ"
+    ],
+    "displayAnswer": "Christ",
+    "explanation": "2 Corinthians 10:5 states that we destroy arguments and every lofty opinion raised against the knowledge of God, and take every thought captive to obey Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_19",
+    "type": "facts",
+    "prompt": "According to 2 Corinthians 11:14, into what radiant figure does Satan disguise himself in order to deceive?",
+    "bookId": "2CO",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "an angel of light",
+      "angel of light",
+      "messenger of light"
+    ],
+    "displayAnswer": "an angel of light",
+    "explanation": "2 Corinthians 11:14 warns that even Satan disguises himself as an angel of light.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_20",
+    "type": "facts",
+    "prompt": "In 2 Corinthians 11:24, how many times did Paul receive at the hands of the Jews the forty lashes less one?",
+    "bookId": "2CO",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "five times",
+      "five",
+      "5",
+      "5 times"
+    ],
+    "displayAnswer": "five times",
+    "explanation": "2 Corinthians 11:24 recounts in Paul's catalog of sufferings that five times he received at the hands of the Jews the forty lashes less one.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_21",
+    "type": "facts",
+    "prompt": "In 2 Corinthians 11:32–33, when the governor under King Aretas guarded Damascus to seize Paul, in what was Paul let down through a window in the wall?",
+    "bookId": "2CO",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "a basket",
+      "basket",
+      "large basket",
+      "in a basket"
+    ],
+    "displayAnswer": "a basket",
+    "explanation": "2 Corinthians 11:33 recalls that Paul was let down in a basket through a window in the wall of Damascus and escaped.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_22",
+    "type": "facts",
+    "prompt": "In 2 Corinthians 12:7, to keep Paul from becoming conceited because of the surpassing greatness of the revelations, what painful affliction was given to him—a messenger of Satan to harass him?",
+    "bookId": "2CO",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "a thorn in the flesh",
+      "thorn in the flesh",
+      "thorn",
+      "a thorn"
+    ],
+    "displayAnswer": "a thorn in the flesh",
+    "explanation": "2 Corinthians 12:7 states that to keep him from becoming conceited, a thorn was given him in the flesh, a messenger of Satan to harass him.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_23",
+    "type": "verse_completion",
+    "prompt": "2 Corinthians 12:9 (ESV): \"But he said to me, 'My grace is sufficient for you, for my power is made perfect in ______.'\"",
+    "bookId": "2CO",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "weakness",
+      "human weakness",
+      "my weakness"
+    ],
+    "displayAnswer": "weakness",
+    "explanation": "2 Corinthians 12:9 delivers the central theme of the letter: Christ's sufficient grace and power made perfect in weakness.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2co_24",
+    "type": "facts",
+    "prompt": "In 2 Corinthians 13:5, what does Paul urge his readers to do to themselves to see whether they are in the faith?",
+    "bookId": "2CO",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "examine yourselves",
+      "test yourselves",
+      "examine themselves",
+      "self-examination"
+    ],
+    "displayAnswer": "examine yourselves (test yourselves)",
+    "explanation": "2 Corinthians 13:5 commands: \"Examine yourselves, to see whether you are in the faith. Test yourselves.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_1",
+    "type": "facts",
+    "prompt": "In Galatians 1:6, Paul expresses astonishment that his readers are so quickly deserting him who called them in the grace of Christ and are turning to what?",
+    "bookId": "GAL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "a different gospel",
+      "different gospel",
+      "another gospel",
+      "false gospel"
+    ],
+    "displayAnswer": "a different gospel",
+    "explanation": "Galatians 1:6 expresses Paul's amazement that they were so quickly deserting God's grace and turning to a different gospel.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_2",
+    "type": "verse_completion",
+    "prompt": "Galatians 1:8 (ESV): \"But even if we or an angel from heaven should preach to you a gospel contrary to the one we preached to you, let him be ______.\"",
+    "bookId": "GAL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "accursed",
+      "anathema",
+      "condemned",
+      "cursed"
+    ],
+    "displayAnswer": "accursed",
+    "explanation": "Galatians 1:8 pronounces a solemn curse ('let him be accursed') on anyone—even an apostle or angel—who preaches a contrary gospel.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_3",
+    "type": "verse_completion",
+    "prompt": "Galatians 1:10 (ESV): \"For am I now seeking the approval of man, or of God? Or am I trying to please man? If I were still trying to please man, I would not be a ______ of Christ.\"",
+    "bookId": "GAL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "servant",
+      "a servant",
+      "servant of Christ",
+      "bondservant"
+    ],
+    "displayAnswer": "servant",
+    "explanation": "Galatians 1:10 contrasts man-pleasing with faithful allegiance as a servant of Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_4",
+    "type": "facts",
+    "prompt": "According to Galatians 1:11–12, Paul did not receive his gospel from any man nor was he taught it, but received it through what?",
+    "bookId": "GAL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "a revelation of Jesus Christ",
+      "revelation of Jesus Christ",
+      "revelation",
+      "a revelation",
+      "divine revelation"
+    ],
+    "displayAnswer": "a revelation of Jesus Christ",
+    "explanation": "Galatians 1:12 states that Paul did not receive the gospel from any man, nor was he taught it, but received it through a revelation of Jesus Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_5",
+    "type": "facts",
+    "prompt": "In Galatians 1:13–14, recounting his former life in Judaism when he violently persecuted the church of God, Paul says he advanced beyond many contemporaries because he was extremely zealous for what?",
+    "bookId": "GAL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the traditions of my fathers",
+      "traditions of my fathers",
+      "traditions of his fathers",
+      "ancestral traditions",
+      "traditions of the fathers"
+    ],
+    "displayAnswer": "the traditions of my fathers",
+    "explanation": "Galatians 1:13–14 recalls how Paul violently persecuted the church of God and tried to destroy it, being extremely zealous for the traditions of his fathers.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_6",
+    "type": "facts",
+    "prompt": "According to Galatians 1:17, after God revealed his Son to Paul, Paul did not go up to Jerusalem right away, but went away into which region before returning again to Damascus?",
+    "bookId": "GAL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Arabia",
+      "into Arabia",
+      "region of Arabia"
+    ],
+    "displayAnswer": "Arabia",
+    "explanation": "Galatians 1:17 records that Paul went away into Arabia, and returned again to Damascus, proving his independence from the Jerusalem apostles.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_7",
+    "type": "verse_completion",
+    "prompt": "Galatians 1:23 (ESV): \"They only were hearing it said, 'He who used to persecute us is now preaching the ______ he once tried to destroy.'\"",
+    "bookId": "GAL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "faith",
+      "the faith",
+      "gospel faith"
+    ],
+    "displayAnswer": "faith",
+    "explanation": "Galatians 1:23–24 notes that the churches of Judea glorified God because their former persecutor was now preaching the faith he once tried to destroy.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_8",
+    "type": "facts",
+    "prompt": "In Galatians 2:3, which Greek companion who went up to Jerusalem with Paul and Barnabas was not forced to be circumcised?",
+    "bookId": "GAL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Titus",
+      "Greek Titus",
+      "Brother Titus"
+    ],
+    "displayAnswer": "Titus",
+    "explanation": "Galatians 2:3 reports that even Titus, who was with Paul, was not forced to be circumcised, though he was a Greek.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_9",
+    "type": "facts",
+    "prompt": "According to Galatians 2:4, false brothers secretly brought in slipped in to spy out what possession that believers have in Christ Jesus, so that they might bring us into slavery?",
+    "bookId": "GAL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "our freedom",
+      "freedom",
+      "freedom in Christ",
+      "our freedom in Christ Jesus",
+      "Christian liberty"
+    ],
+    "displayAnswer": "our freedom (in Christ Jesus)",
+    "explanation": "Galatians 2:4 explains that false brothers slipped in to spy out our freedom that we have in Christ Jesus, seeking to enslave believers.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_10",
+    "type": "facts",
+    "prompt": "According to Galatians 2:7–8, just as Paul had been entrusted with the gospel to the uncircumcised, which apostle had been entrusted with the gospel to the circumcised?",
+    "bookId": "GAL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Peter",
+      "Cephas",
+      "Simon Peter",
+      "Apostle Peter"
+    ],
+    "displayAnswer": "Peter (Cephas)",
+    "explanation": "Galatians 2:7–8 recognizes that Peter had been entrusted with the gospel to the circumcised just as Paul was to the Gentiles.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_11",
+    "type": "facts",
+    "prompt": "In Galatians 2:11–12, when Cephas (Peter) came to Antioch, Paul opposed him to his face because he stopped eating with the Gentiles and drew back out of fear of which group?",
+    "bookId": "GAL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the circumcision party",
+      "circumcision party",
+      "those of the circumcision",
+      "men from James"
+    ],
+    "displayAnswer": "the circumcision party",
+    "explanation": "Galatians 2:11–12 recounts Paul publicly opposing Cephas at Antioch because he drew back and separated himself, fearing the circumcision party.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_12",
+    "type": "verse_completion",
+    "prompt": "Galatians 2:19 (ESV): \"For through the law I ______ to the law, so that I might live to God.\"",
+    "bookId": "GAL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "died",
+      "have died",
+      "died to the law"
+    ],
+    "displayAnswer": "died",
+    "explanation": "Galatians 2:19 declares that through the law's own execution in Christ's cross, \"I died to the law, so that I might live to God.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_13",
+    "type": "verse_completion",
+    "prompt": "Galatians 2:20 (ESV): \"I have been ______ with Christ. It is no longer I who live, but Christ who lives in me.\"",
+    "bookId": "GAL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "crucified",
+      "crucified with Christ",
+      "put to death"
+    ],
+    "displayAnswer": "crucified",
+    "explanation": "Galatians 2:20 is Paul's classic confession of union with Christ in his death and resurrection life.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_14",
+    "type": "facts",
+    "prompt": "According to Galatians 3:6, just as Abraham believed God, what was his faith counted to him as?",
+    "bookId": "GAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "righteousness",
+      "as righteousness",
+      "right standing with God"
+    ],
+    "displayAnswer": "righteousness",
+    "explanation": "Galatians 3:6 cites Genesis 15:6: just as Abraham \"believed God, and it was counted to him as righteousness.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_15",
+    "type": "verse_completion",
+    "prompt": "Galatians 3:11 (ESV): \"Now it is evident that no one is justified before God by the law, for 'The righteous shall live by ______.'\"",
+    "bookId": "GAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "faith",
+      "by faith",
+      "trusting faith"
+    ],
+    "displayAnswer": "faith",
+    "explanation": "Galatians 3:11 proves from Habakkuk 2:4 that justification is not by the law, for \"The righteous shall live by faith.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_16",
+    "type": "facts",
+    "prompt": "According to Galatians 3:13, by becoming a curse for us on a tree, from what did Christ redeem us?",
+    "bookId": "GAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "the curse of the law",
+      "curse of the law",
+      "law's curse"
+    ],
+    "displayAnswer": "the curse of the law",
+    "explanation": "Galatians 3:13 states that Christ redeemed us from the curse of the law by becoming a curse for us.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_17",
+    "type": "verse_completion",
+    "prompt": "Galatians 3:24 (ESV): \"So then, the law was our ______ until Christ came, in order that we might be justified by faith.\"",
+    "bookId": "GAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "guardian",
+      "our guardian",
+      "tutor",
+      "schoolmaster",
+      "custodian"
+    ],
+    "displayAnswer": "guardian",
+    "explanation": "Galatians 3:24 describes the temporary pedagogical role of the Mosaic law as our guardian (paidagogos) until Christ came.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_18",
+    "type": "verse_completion",
+    "prompt": "Galatians 3:28 (ESV): \"There is neither Jew nor Greek, there is neither slave nor free, there is no male and female, for you are all ______ in Christ Jesus.\"",
+    "bookId": "GAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "one",
+      "all one",
+      "one in Christ",
+      "united as one"
+    ],
+    "displayAnswer": "one",
+    "explanation": "Galatians 3:28 proclaims the spiritual unity and equal standing of all believers as one in Christ Jesus.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_19",
+    "type": "facts",
+    "prompt": "According to Galatians 3:29, if you belong to Christ, then whose offspring are you, making you heirs according to promise?",
+    "bookId": "GAL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Abraham's",
+      "Abraham",
+      "Abraham's offspring",
+      "offspring of Abraham",
+      "seed of Abraham"
+    ],
+    "displayAnswer": "Abraham's offspring",
+    "explanation": "Galatians 3:29 concludes that if you are Christ's, then you are Abraham's offspring, heirs according to promise.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_20",
+    "type": "facts",
+    "prompt": "In Galatians 4:3, Paul writes that when we were spiritual children (minors), we were enslaved to what basic forces of the world?",
+    "bookId": "GAL",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "the elementary principles of the world",
+      "elementary principles of the world",
+      "elementary principles",
+      "elemental spirits"
+    ],
+    "displayAnswer": "elementary principles of the world",
+    "explanation": "Galatians 4:3 states that when we were children, we were enslaved to the elementary principles of the world.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_21",
+    "type": "facts",
+    "prompt": "According to Galatians 4:4–5, when the fullness of time had come, God sent forth his Son, born under the law, to redeem those under the law so that we might receive what familial status?",
+    "bookId": "GAL",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "adoption as sons",
+      "adoption",
+      "sonship",
+      "adoption as children"
+    ],
+    "displayAnswer": "adoption as sons",
+    "explanation": "Galatians 4:4–5 teaches that God sent forth his Son to redeem those under the law, so that we might receive adoption as sons.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_22",
+    "type": "facts",
+    "prompt": "In Galatians 4:6, because you are sons, God has sent the Spirit of his Son into our hearts, crying what intimate address?",
+    "bookId": "GAL",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Abba! Father!",
+      "Abba Father",
+      "Abba",
+      "Father"
+    ],
+    "displayAnswer": "Abba! Father!",
+    "explanation": "Galatians 4:6 affirms that God sent the Spirit of his Son into our hearts, crying, \"Abba! Father!\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_23",
+    "type": "facts",
+    "prompt": "In the allegory of Abraham's two sons in Galatians 4:22–26, while the Jerusalem above is free and is our mother, which slave woman corresponds to Mount Sinai, bearing children for slavery?",
+    "bookId": "GAL",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Hagar",
+      "slave woman Hagar",
+      "bondwoman Hagar"
+    ],
+    "displayAnswer": "Hagar",
+    "explanation": "Galatians 4:24–26 explains allegorically that Hagar corresponds to Mount Sinai bearing children for slavery, whereas the Jerusalem above (represented by the free woman) is free.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_24",
+    "type": "verse_completion",
+    "prompt": "Galatians 4:28 (ESV): \"Now you, brothers, like Isaac, are children of ______.\"",
+    "bookId": "GAL",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "promise",
+      "the promise",
+      "God's promise"
+    ],
+    "displayAnswer": "promise",
+    "explanation": "Galatians 4:28 identifies Gentile and Jewish believers alike with Isaac as supernaturally born children of promise.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_25",
+    "type": "verse_completion",
+    "prompt": "Galatians 5:1 (ESV): \"For freedom Christ has set us free; stand firm therefore, and do not submit again to a yoke of ______.\"",
+    "bookId": "GAL",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "slavery",
+      "bondage",
+      "a yoke of slavery"
+    ],
+    "displayAnswer": "slavery",
+    "explanation": "Galatians 5:1 calls liberated believers to stand firm in gospel freedom and refuse any return to a yoke of legalistic slavery.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_26",
+    "type": "facts",
+    "prompt": "According to Galatians 5:6, in Christ Jesus neither circumcision nor uncircumcision counts for anything, but only faith working through what?",
+    "bookId": "GAL",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "love",
+      "through love",
+      "Christian love"
+    ],
+    "displayAnswer": "love (faith working through love)",
+    "explanation": "Galatians 5:6 declares that in Christ Jesus neither circumcision nor uncircumcision counts for anything, but only faith working through love.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_27",
+    "type": "facts",
+    "prompt": "In Galatians 5:13–14, after urging believers through love to serve one another, Paul states that the whole law is fulfilled in loving whom as yourself?",
+    "bookId": "GAL",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "your neighbor",
+      "neighbor",
+      "one's neighbor",
+      "fellow neighbor"
+    ],
+    "displayAnswer": "your neighbor",
+    "explanation": "Galatians 5:13–14 commands believers through love to serve one another, for the whole law is fulfilled in \"You shall love your neighbor as yourself.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_28",
+    "type": "facts",
+    "prompt": "In Galatians 5:17, what sinful nature has desires that are opposed to the Spirit, keeping you from doing the things you want to do?",
+    "bookId": "GAL",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "the flesh",
+      "flesh",
+      "desires of the flesh",
+      "sinful flesh"
+    ],
+    "displayAnswer": "the flesh",
+    "explanation": "Galatians 5:17 describes the inner conflict where the desires of the flesh are against the Spirit, and the desires of the Spirit are against the flesh.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_29",
+    "type": "verse_completion",
+    "prompt": "Galatians 5:22–23 (ESV): \"But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, ______; against such things there is no law.\"",
+    "bookId": "GAL",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "self-control",
+      "self control",
+      "temperance"
+    ],
+    "displayAnswer": "self-control",
+    "explanation": "Galatians 5:22–23 lists the ninefold fruit of the Spirit, culminating in gentleness and self-control.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_30",
+    "type": "verse_completion",
+    "prompt": "Galatians 5:25 (ESV): \"If we live by the Spirit, let us also ______ with the Spirit.\"",
+    "bookId": "GAL",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "keep in step",
+      "walk",
+      "walk in step",
+      "stay in step"
+    ],
+    "displayAnswer": "keep in step",
+    "explanation": "Galatians 5:25 exhorts believers: \"If we live by the Spirit, let us also keep in step with the Spirit.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_31",
+    "type": "facts",
+    "prompt": "According to Galatians 6:1, if anyone is caught in any transgression, you who are spiritual should restore him in a spirit of what?",
+    "bookId": "GAL",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "gentleness",
+      "a spirit of gentleness",
+      "spirit of gentleness",
+      "meekness"
+    ],
+    "displayAnswer": "gentleness",
+    "explanation": "Galatians 6:1 instructs those who are spiritual to restore a fallen brother in a spirit of gentleness, keeping watch on themselves.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_32",
+    "type": "verse_completion",
+    "prompt": "Galatians 6:2 (ESV): \"Bear one another's ______, and so fulfill the law of Christ.\"",
+    "bookId": "GAL",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "burdens",
+      "heavy burdens",
+      "loads"
+    ],
+    "displayAnswer": "burdens",
+    "explanation": "Galatians 6:2 commands mutual care in the church: bearing one another's burdens and so fulfilling the law of Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_33",
+    "type": "verse_completion",
+    "prompt": "Galatians 6:7 (ESV): \"Do not be deceived: God is not mocked, for whatever one sows, that will he also ______.\"",
+    "bookId": "GAL",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "reap",
+      "harvest",
+      "also reap"
+    ],
+    "displayAnswer": "reap",
+    "explanation": "Galatians 6:7 warns that whatever one sows—to the flesh or to the Spirit—that will he also reap.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_34",
+    "type": "facts",
+    "prompt": "In Galatians 6:9–10, encouraging us not to grow weary of doing good, Paul urges us as we have opportunity to do good to everyone, and especially to those who are of what spiritual family?",
+    "bookId": "GAL",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "the household of faith",
+      "household of faith",
+      "family of believers",
+      "household of believers"
+    ],
+    "displayAnswer": "the household of faith",
+    "explanation": "Galatians 6:9–10 exhorts us not to grow weary of doing good, doing good to everyone, and especially to those who are of the household of faith.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_35",
+    "type": "facts",
+    "prompt": "According to Galatians 6:14, far be it from Paul to boast except in what, by which the world has been crucified to him and he to the world?",
+    "bookId": "GAL",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "the cross of Christ",
+      "the cross of our Lord Jesus Christ",
+      "the cross",
+      "cross of Christ",
+      "cross",
+      "cross of Jesus Christ"
+    ],
+    "displayAnswer": "the cross of Christ",
+    "explanation": "Galatians 6:14 repudiates fleshly boasting, boasting solely in the cross of our Lord Jesus Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_gal_36",
+    "type": "facts",
+    "prompt": "According to Galatians 6:15, neither circumcision counts for anything, nor uncircumcision, but what alone counts?",
+    "bookId": "GAL",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "a new creation",
+      "new creation",
+      "being a new creation"
+    ],
+    "displayAnswer": "a new creation",
+    "explanation": "Galatians 6:15 summarizes the gospel transformation: neither circumcision nor uncircumcision counts for anything, but a new creation.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_1",
+    "type": "facts",
+    "prompt": "According to Ephesians 1:4, God chose us in Christ before the foundation of the world so that we should be what two qualities before him?",
+    "bookId": "EPH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "holy and blameless",
+      "blameless and holy",
+      "holy without blame"
+    ],
+    "displayAnswer": "holy and blameless",
+    "explanation": "Ephesians 1:4 declares that God chose us in Christ before the foundation of the world, that we should be holy and blameless before him.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_2",
+    "type": "verse_completion",
+    "prompt": "Ephesians 1:7 (ESV): \"In him we have ______ through his blood, the forgiveness of our trespasses, according to the riches of his grace,\"",
+    "bookId": "EPH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "redemption",
+      "our redemption",
+      "eternal redemption"
+    ],
+    "displayAnswer": "redemption",
+    "explanation": "Ephesians 1:7 celebrates that in Christ we have redemption through his blood, the forgiveness of our trespasses.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_3",
+    "type": "facts",
+    "prompt": "According to Ephesians 1:13–14, when believers heard the word of truth and believed in Christ, they were sealed with the promised Holy Spirit, who is what pledge of our inheritance?",
+    "bookId": "EPH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the guarantee",
+      "guarantee",
+      "guarantee of our inheritance",
+      "down payment",
+      "earnest",
+      "pledge"
+    ],
+    "displayAnswer": "the guarantee (down payment)",
+    "explanation": "Ephesians 1:13–14 teaches that the promised Holy Spirit is the guarantee of our inheritance until we acquire possession of it.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_4",
+    "type": "facts",
+    "prompt": "According to Ephesians 1:22–23, God put all things under Christ's feet and gave him as head over all things to what body?",
+    "bookId": "EPH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the church",
+      "church",
+      "his body the church",
+      "body of Christ"
+    ],
+    "displayAnswer": "the church",
+    "explanation": "Ephesians 1:22–23 states that God gave Christ as head over all things to the church, which is his body.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_5",
+    "type": "facts",
+    "prompt": "In Ephesians 2:1, what was the spiritual condition of believers in the trespasses and sins in which they once walked?",
+    "bookId": "EPH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "dead",
+      "spiritually dead",
+      "dead in trespasses",
+      "dead in sin"
+    ],
+    "displayAnswer": "dead",
+    "explanation": "Ephesians 2:1 states: \"And you were dead in the trespasses and sins in which you once walked.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_6",
+    "type": "verse_completion",
+    "prompt": "Ephesians 2:8–9 (ESV): \"For by ______ you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works, so that no one may boast.\"",
+    "bookId": "EPH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "grace",
+      "God's grace",
+      "by grace"
+    ],
+    "displayAnswer": "grace",
+    "explanation": "Ephesians 2:8–9 is the classic summary of salvation by grace alone through faith alone, apart from works.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_7",
+    "type": "verse_completion",
+    "prompt": "Ephesians 2:10 (ESV): \"For we are his ______, created in Christ Jesus for good works, which God prepared beforehand, that we should walk in them.\"",
+    "bookId": "EPH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "workmanship",
+      "handiwork",
+      "his workmanship"
+    ],
+    "displayAnswer": "workmanship",
+    "explanation": "Ephesians 2:10 teaches that saved believers are God's workmanship, created in Christ Jesus for good works.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_8",
+    "type": "facts",
+    "prompt": "In Ephesians 2:14, Christ himself is our peace, who has made both Jews and Gentiles one and has broken down in his flesh what barrier of hostility?",
+    "bookId": "EPH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the dividing wall of hostility",
+      "dividing wall of hostility",
+      "the dividing wall",
+      "dividing wall",
+      "wall of hostility"
+    ],
+    "displayAnswer": "the dividing wall of hostility",
+    "explanation": "Ephesians 2:14 proclaims that Christ broke down in his flesh the dividing wall of hostility between Jew and Gentile.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_9",
+    "type": "facts",
+    "prompt": "In Ephesians 2:20, God's household is built on the foundation of the apostles and prophets, with Christ Jesus himself being what chief structural stone?",
+    "bookId": "EPH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the cornerstone",
+      "cornerstone",
+      "chief cornerstone"
+    ],
+    "displayAnswer": "the cornerstone",
+    "explanation": "Ephesians 2:20 describes the church as built on the foundation of the apostles and prophets, Christ Jesus himself being the cornerstone.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_10",
+    "type": "facts",
+    "prompt": "According to Ephesians 3:6, the mystery of Christ hidden for ages is that the Gentiles are fellow heirs, members of the same body, and partakers of what in Christ Jesus through the gospel?",
+    "bookId": "EPH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "the promise",
+      "promise",
+      "God's promise"
+    ],
+    "displayAnswer": "the promise",
+    "explanation": "Ephesians 3:6 defines the mystery of Christ: that the Gentiles are fellow heirs, members of the same body, and partakers of the promise in Christ Jesus.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_11",
+    "type": "facts",
+    "prompt": "In Ephesians 3:14–19, Paul bows his knees before the Father, praying that Christ may dwell in believers' hearts through faith and that they may know the breadth, length, height, and depth of what?",
+    "bookId": "EPH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "the love of Christ",
+      "love of Christ",
+      "Christ's love"
+    ],
+    "displayAnswer": "the love of Christ",
+    "explanation": "Ephesians 3:18–19 prays for strength to comprehend the breadth and length and height and depth, and to know the love of Christ that surpasses knowledge.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_12",
+    "type": "verse_completion",
+    "prompt": "Ephesians 3:20 (ESV): \"Now to him who is able to do far more ______ than all that we ask or think, according to the power at work within us,\"",
+    "bookId": "EPH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "abundantly",
+      "exceedingly abundantly",
+      "immeasurably more"
+    ],
+    "displayAnswer": "abundantly",
+    "explanation": "Ephesians 3:20 doxologizes God as him who is able to do far more abundantly than all that we ask or think.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_13",
+    "type": "verse_completion",
+    "prompt": "Ephesians 4:3 (ESV): \"eager to maintain the unity of the Spirit in the bond of ______.\"",
+    "bookId": "EPH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "peace",
+      "the bond of peace",
+      "harmony and peace"
+    ],
+    "displayAnswer": "peace",
+    "explanation": "Ephesians 4:3 urges believers to walk humbly and patiently, eager to maintain the unity of the Spirit in the bond of peace.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_14",
+    "type": "facts",
+    "prompt": "In Ephesians 4:4–6, listing the sevenfold oneness of the faith, Paul writes: there is one body and one Spirit, one hope, one Lord, one faith, one God and Father of all, and one what?",
+    "bookId": "EPH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "baptism",
+      "one baptism",
+      "Christian baptism"
+    ],
+    "displayAnswer": "baptism (one baptism)",
+    "explanation": "Ephesians 4:5 confesses: \"one Lord, one faith, one baptism.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_15",
+    "type": "facts",
+    "prompt": "According to Ephesians 4:11–12, Christ gave the apostles, the prophets, the evangelists, and the shepherds and teachers to equip whom for the work of ministry?",
+    "bookId": "EPH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "the saints",
+      "saints",
+      "God's people",
+      "believers"
+    ],
+    "displayAnswer": "the saints",
+    "explanation": "Ephesians 4:11–12 states that Christ gave these leaders to equip the saints for the work of ministry, for building up the body of Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_16",
+    "type": "facts",
+    "prompt": "In Ephesians 4:15, rather than being tossed to and fro by every wind of doctrine, how are believers to speak the truth so that we grow up in every way into Christ?",
+    "bookId": "EPH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "in love",
+      "speaking the truth in love",
+      "with love",
+      "lovingly"
+    ],
+    "displayAnswer": "in love",
+    "explanation": "Ephesians 4:15 calls believers to grow up into our Head, Christ, by speaking the truth in love.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_17",
+    "type": "verse_completion",
+    "prompt": "Ephesians 4:26 (ESV): \"Be angry and do not sin; do not let the ______ go down on your anger,\"",
+    "bookId": "EPH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "sun",
+      "the sun",
+      "daylight"
+    ],
+    "displayAnswer": "sun",
+    "explanation": "Ephesians 4:26–27 warns believers not to let the sun go down on their anger and give no opportunity to the devil.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_18",
+    "type": "verse_completion",
+    "prompt": "Ephesians 4:32 (ESV): \"Be kind to one another, tenderhearted, ______ one another, as God in Christ forgave you.\"",
+    "bookId": "EPH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "forgiving",
+      "pardoning",
+      "forgiving one another"
+    ],
+    "displayAnswer": "forgiving",
+    "explanation": "Ephesians 4:32 grounds mutual kindness and forgiveness in how God in Christ forgave us.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_19",
+    "type": "verse_completion",
+    "prompt": "Ephesians 5:18 (ESV): \"And do not get drunk with wine, for that is debauchery, but be filled with the ______,\"",
+    "bookId": "EPH",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Spirit",
+      "Holy Spirit",
+      "the Spirit"
+    ],
+    "displayAnswer": "Spirit",
+    "explanation": "Ephesians 5:18 contrasts drunkenness with wine against ongoing fullness with the Holy Spirit.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_20",
+    "type": "facts",
+    "prompt": "In Ephesians 5:25, husbands are commanded to love their wives according to what supreme model of sacrificial love?",
+    "bookId": "EPH",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "as Christ loved the church",
+      "Christ loved the church",
+      "Christ's love for the church",
+      "Christ"
+    ],
+    "displayAnswer": "as Christ loved the church",
+    "explanation": "Ephesians 5:25 commands: \"Husbands, love your wives, as Christ loved the church and gave himself up for her.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_21",
+    "type": "facts",
+    "prompt": "In Ephesians 5:26, Christ gave himself up for the church that he might sanctify her, having cleansed her by the washing of water with what?",
+    "bookId": "EPH",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "the word",
+      "word",
+      "word of God",
+      "God's word"
+    ],
+    "displayAnswer": "the word",
+    "explanation": "Ephesians 5:26 says Christ sanctifies the church, having cleansed her by the washing of water with the word.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_22",
+    "type": "facts",
+    "prompt": "According to Ephesians 6:2–3, what distinction belongs to \"Honor your father and mother\"?",
+    "bookId": "EPH",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "first commandment with a promise",
+      "the first commandment with a promise",
+      "commandment with a promise"
+    ],
+    "displayAnswer": "first commandment with a promise",
+    "explanation": "Ephesians 6:2 notes that \"Honor your father and mother\" is the first commandment with a promise.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_23",
+    "type": "verse_completion",
+    "prompt": "Ephesians 6:11 (ESV): \"Put on the whole ______ of God, that you may be able to stand against the schemes of the devil.\"",
+    "bookId": "EPH",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "armor",
+      "armour",
+      "armor of God",
+      "whole armor"
+    ],
+    "displayAnswer": "armor",
+    "explanation": "Ephesians 6:11 commands believers to put on the whole armor of God to stand against the schemes of the devil.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_24",
+    "type": "facts",
+    "prompt": "In the armor of God in Ephesians 6:16, which piece of equipment enables believers to extinguish all the flaming darts of the evil one?",
+    "bookId": "EPH",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "the shield of faith",
+      "shield of faith",
+      "shield",
+      "faith"
+    ],
+    "displayAnswer": "the shield of faith",
+    "explanation": "Ephesians 6:16 instructs believers in all circumstances to take up the shield of faith, with which you can extinguish all the flaming darts of the evil one.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_25",
+    "type": "verse_completion",
+    "prompt": "Ephesians 6:17 (ESV): \"and take the helmet of salvation, and the ______ of the Spirit, which is the word of God,\"",
+    "bookId": "EPH",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "sword",
+      "the sword",
+      "sword of the Spirit"
+    ],
+    "displayAnswer": "sword",
+    "explanation": "Ephesians 6:17 identifies the offensive weapon in the armor of God as the sword of the Spirit, which is the word of God.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_eph_26",
+    "type": "facts",
+    "prompt": "In Ephesians 6:21–22, which beloved brother and faithful minister in the Lord did Paul send to tell the church how Paul was doing and encourage their hearts?",
+    "bookId": "EPH",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Tychicus",
+      "Brother Tychicus",
+      "Minister Tychicus"
+    ],
+    "displayAnswer": "Tychicus",
+    "explanation": "Ephesians 6:21–22 names Tychicus, the beloved brother and faithful minister in the Lord, as Paul's envoy carrying news to the church.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_1",
+    "type": "verse_completion",
+    "prompt": "Philippians 1:6 (ESV): \"And I am sure of this, that he who began a good work in you will bring it to ______ at the day of Jesus Christ.\"",
+    "bookId": "PHP",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "completion",
+      "perfection",
+      "fulfillment"
+    ],
+    "displayAnswer": "completion",
+    "explanation": "Philippians 1:6 expresses Paul's confidence that God will bring the good work he began in believers to completion at the day of Jesus Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_2",
+    "type": "facts",
+    "prompt": "In Philippians 1:12–13, Paul reports that his imprisonment has actually served to advance the gospel, so that his imprisonment is for Christ throughout the whole of which elite guard?",
+    "bookId": "PHP",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the imperial guard",
+      "imperial guard",
+      "praetorian guard",
+      "palace guard"
+    ],
+    "displayAnswer": "the imperial guard",
+    "explanation": "Philippians 1:13 notes that it became known throughout the whole imperial guard and to all the rest that Paul's imprisonment was for Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_3",
+    "type": "verse_completion",
+    "prompt": "Philippians 1:21 (ESV): \"For to me to live is Christ, and to die is ______.\"",
+    "bookId": "PHP",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "gain",
+      "pure gain",
+      "profit"
+    ],
+    "displayAnswer": "gain",
+    "explanation": "Philippians 1:21 is Paul's famous motto of devotion to Christ: \"For to me to live is Christ, and to die is gain.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_4",
+    "type": "facts",
+    "prompt": "According to Philippians 1:27, whatever happens, believers are told to let their manner of life be worthy of what?",
+    "bookId": "PHP",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the gospel of Christ",
+      "gospel of Christ",
+      "the gospel",
+      "Christ's gospel"
+    ],
+    "displayAnswer": "the gospel of Christ",
+    "explanation": "Philippians 1:27 urges believers: Only let your manner of life be worthy of the gospel of Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_5",
+    "type": "facts",
+    "prompt": "According to Philippians 1:29, it has been granted to believers that for the sake of Christ they should not only believe in him, but also do what for his sake?",
+    "bookId": "PHP",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "suffer",
+      "suffer for his sake",
+      "endure suffering"
+    ],
+    "displayAnswer": "suffer for his sake",
+    "explanation": "Philippians 1:29 teaches that both believing in Christ and suffering for his sake have been graciously granted to believers.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_6",
+    "type": "verse_completion",
+    "prompt": "Philippians 2:3 (ESV): \"Do nothing from selfish ambition or conceit, but in ______ count others more significant than yourselves.\"",
+    "bookId": "PHP",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "humility",
+      "lowliness",
+      "lowliness of mind"
+    ],
+    "displayAnswer": "humility",
+    "explanation": "Philippians 2:3 calls Christians to reject selfish ambition and in humility count others more significant than themselves.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_7",
+    "type": "facts",
+    "prompt": "In the Christ Hymn of Philippians 2:6–7, though Christ Jesus was in the form of God, he did not count equality with God a thing to be grasped, but emptied himself by taking the form of what?",
+    "bookId": "PHP",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "a servant",
+      "servant",
+      "bondservant",
+      "a slave"
+    ],
+    "displayAnswer": "a servant",
+    "explanation": "Philippians 2:7 states that Christ emptied himself, by taking the form of a servant, being born in the likeness of men.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_8",
+    "type": "facts",
+    "prompt": "According to Philippians 2:8, being found in human form, Christ humbled himself by becoming obedient to the point of death, even death on what?",
+    "bookId": "PHP",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "a cross",
+      "the cross",
+      "cross"
+    ],
+    "displayAnswer": "a cross",
+    "explanation": "Philippians 2:8 highlights the depth of Christ's humiliation: obedience to the point of death, even death on a cross.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_9",
+    "type": "verse_completion",
+    "prompt": "Philippians 2:10–11 (ESV): \"so that at the name of Jesus every knee should bow, in heaven and on earth and under the earth, and every ______ confess that Jesus Christ is Lord, to the glory of God the Father.\"",
+    "bookId": "PHP",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "tongue",
+      "every tongue",
+      "mouth"
+    ],
+    "displayAnswer": "tongue",
+    "explanation": "Philippians 2:10–11 proclaims Christ's supreme exaltation where every knee bows and every tongue confesses that Jesus Christ is Lord.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_10",
+    "type": "verse_completion",
+    "prompt": "Philippians 2:12 (ESV): \"Therefore, my beloved, as you have always obeyed, so now, not only as in my presence but much more in my absence, work out your own salvation with ______ and trembling,\"",
+    "bookId": "PHP",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "fear",
+      "reverent fear",
+      "awe"
+    ],
+    "displayAnswer": "fear",
+    "explanation": "Philippians 2:12–13 pairs working out our salvation with fear and trembling with the promise that God works in us both to will and to work.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_11",
+    "type": "facts",
+    "prompt": "In Philippians 2:14–15, believers are commanded to do all things without grumbling or disputing so that they may shine as what in a crooked and twisted generation?",
+    "bookId": "PHP",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "lights in the world",
+      "lights",
+      "stars",
+      "shining lights"
+    ],
+    "displayAnswer": "lights in the world",
+    "explanation": "Philippians 2:14–15 urges blameless living without grumbling, among whom believers shine as lights in the world.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_12",
+    "type": "facts",
+    "prompt": "In Philippians 2:25–30, which fellow worker and fellow soldier sent by the church nearly died for the work of Christ while ministering to Paul's need?",
+    "bookId": "PHP",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Epaphroditus",
+      "Brother Epaphroditus",
+      "Messenger Epaphroditus"
+    ],
+    "displayAnswer": "Epaphroditus",
+    "explanation": "Philippians 2:25–30 honors Epaphroditus, who risked his life and was ill near to death to complete their service to Paul.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_13",
+    "type": "facts",
+    "prompt": "In Philippians 3:5, listing his former Jewish credentials—circumcised on the eighth day, of the people of Israel, a Hebrew of Hebrews, as to the law a Pharisee—which tribe of Israel did Paul belong to?",
+    "bookId": "PHP",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Benjamin",
+      "tribe of Benjamin",
+      "Benjamite"
+    ],
+    "displayAnswer": "Benjamin (tribe of Benjamin)",
+    "explanation": "Philippians 3:5 records that Paul was of the tribe of Benjamin, a Hebrew of Hebrews, and as to the law a Pharisee.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_14",
+    "type": "facts",
+    "prompt": "In Philippians 3:8, because of the surpassing worth of knowing Christ Jesus his Lord, what strong word does Paul use for how he counts all his former gains so that he may gain Christ?",
+    "bookId": "PHP",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "rubbish",
+      "as rubbish",
+      "loss",
+      "refuse",
+      "dung",
+      "garbage"
+    ],
+    "displayAnswer": "rubbish (loss)",
+    "explanation": "Philippians 3:8 states that Paul suffered the loss of all things and counts them as rubbish, in order that he may gain Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_15",
+    "type": "verse_completion",
+    "prompt": "Philippians 3:14 (ESV): \"I press on toward the goal for the ______ of the upward call of God in Christ Jesus.\"",
+    "bookId": "PHP",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "prize",
+      "the prize",
+      "upward prize"
+    ],
+    "displayAnswer": "prize",
+    "explanation": "Philippians 3:13–14 depicts Paul forgetting what lies behind and straining forward to press on toward the goal for the prize of the upward call.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_16",
+    "type": "facts",
+    "prompt": "According to Philippians 3:20, whereas enemies of the cross have minds set on earthly things, where is the believer's citizenship?",
+    "bookId": "PHP",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "in heaven",
+      "heaven",
+      "heavenly places"
+    ],
+    "displayAnswer": "in heaven",
+    "explanation": "Philippians 3:20 declares: \"But our citizenship is in heaven, and from it we await a Savior, the Lord Jesus Christ.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_17",
+    "type": "facts",
+    "prompt": "In Philippians 4:2, Paul entreats Euodia and which other woman to agree in the Lord?",
+    "bookId": "PHP",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Syntyche",
+      "Sister Syntyche",
+      "Euodia and Syntyche"
+    ],
+    "displayAnswer": "Syntyche",
+    "explanation": "Philippians 4:2–3 personally urges Euodia and Syntyche, who labored side by side with Paul in the gospel, to agree in the Lord.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_18",
+    "type": "verse_completion",
+    "prompt": "Philippians 4:4 (ESV): \"______ in the Lord always; again I will say, rejoice.\"",
+    "bookId": "PHP",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Rejoice",
+      "Be joyful",
+      "Rejoice always"
+    ],
+    "displayAnswer": "Rejoice",
+    "explanation": "Philippians 4:4 sounds the signature refrain of the epistle: Rejoice in the Lord always.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_19",
+    "type": "facts",
+    "prompt": "According to Philippians 4:6–7, when believers do not stay anxious about anything but present their requests to God with thanksgiving, what gift of God surpassing all understanding will guard their hearts and minds?",
+    "bookId": "PHP",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "the peace of God",
+      "peace of God",
+      "peace",
+      "God's peace"
+    ],
+    "displayAnswer": "the peace of God",
+    "explanation": "Philippians 4:7 promises that the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_20",
+    "type": "facts",
+    "prompt": "In Philippians 4:11–12, whether brought low or abounding, well-fed or hungry, what secret had Paul learned in whatever situation he was?",
+    "bookId": "PHP",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "to be content",
+      "contentment",
+      "content",
+      "being content"
+    ],
+    "displayAnswer": "to be content (contentment)",
+    "explanation": "Philippians 4:11–12 testifies that Paul had learned in whatever situation he was to be content.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_21",
+    "type": "verse_completion",
+    "prompt": "Philippians 4:13 (ESV): \"I can do all things through him who ______ me.\"",
+    "bookId": "PHP",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "strengthens",
+      "gives me strength",
+      "empowers"
+    ],
+    "displayAnswer": "strengthens",
+    "explanation": "Philippians 4:13 grounds Christian contentment and endurance in Christ, who strengthens us in plenty and in need.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_php_22",
+    "type": "verse_completion",
+    "prompt": "Philippians 4:19 (ESV): \"And my God will supply every ______ of yours according to his riches in glory in Christ Jesus.\"",
+    "bookId": "PHP",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "need",
+      "every need",
+      "your need"
+    ],
+    "displayAnswer": "need",
+    "explanation": "Philippians 4:19 assures generous believers that God will supply every need of theirs according to his riches in glory in Christ Jesus.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_1",
+    "type": "facts",
+    "prompt": "In Colossians 1:7, from which beloved fellow servant and faithful minister of Christ had the church learned the gospel of grace?",
+    "bookId": "COL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Epaphras",
+      "Brother Epaphras",
+      "Minister Epaphras"
+    ],
+    "displayAnswer": "Epaphras",
+    "explanation": "Colossians 1:7 credits Epaphras, Paul's beloved fellow servant and faithful minister of Christ, with bringing the gospel to them.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_2",
+    "type": "facts",
+    "prompt": "According to Colossians 1:13, the Father has delivered us from the domain of darkness and transferred us to the kingdom of whom?",
+    "bookId": "COL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "his beloved Son",
+      "beloved Son",
+      "the Son",
+      "Jesus Christ",
+      "God's beloved Son"
+    ],
+    "displayAnswer": "his beloved Son",
+    "explanation": "Colossians 1:13 declares that God delivered us from the domain of darkness and transferred us to the kingdom of his beloved Son.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_3",
+    "type": "verse_completion",
+    "prompt": "Colossians 1:15 (ESV): \"He is the ______ of the invisible God, the firstborn of all creation.\"",
+    "bookId": "COL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "image",
+      "the image",
+      "exact image"
+    ],
+    "displayAnswer": "image",
+    "explanation": "Colossians 1:15 opens the great Christological hymn declaring Christ to be the image of the invisible God and firstborn (supreme ruler) over all creation.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_4",
+    "type": "verse_completion",
+    "prompt": "Colossians 1:17 (ESV): \"And he is before all things, and in him all things ______.\"",
+    "bookId": "COL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "hold together",
+      "consist",
+      "cohere"
+    ],
+    "displayAnswer": "hold together",
+    "explanation": "Colossians 1:17 proclaims Christ's eternal preexistence and cosmic sustaining power: in him all things hold together.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_5",
+    "type": "facts",
+    "prompt": "According to Colossians 1:20, through Christ God reconciled to himself all things, making peace by the blood of his what?",
+    "bookId": "COL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "cross",
+      "his cross",
+      "the cross"
+    ],
+    "displayAnswer": "cross (blood of his cross)",
+    "explanation": "Colossians 1:20 affirms that God reconciled all things through Christ, making peace by the blood of his cross.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_6",
+    "type": "verse_completion",
+    "prompt": "Colossians 1:27 (ESV): \"To them God chose to make known how great among the Gentiles are the riches of the glory of this mystery, which is Christ in you, the ______ of glory.\"",
+    "bookId": "COL",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "hope",
+      "the hope",
+      "hope of glory"
+    ],
+    "displayAnswer": "hope",
+    "explanation": "Colossians 1:27 defines the glorious mystery among the Gentiles as \"Christ in you, the hope of glory.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_7",
+    "type": "facts",
+    "prompt": "According to Colossians 2:3, all the treasures of wisdom and knowledge are hidden in whom?",
+    "bookId": "COL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Christ",
+      "in Christ",
+      "Jesus Christ",
+      "him"
+    ],
+    "displayAnswer": "Christ",
+    "explanation": "Colossians 2:2–3 states that in Christ are hidden all the treasures of wisdom and knowledge.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_8",
+    "type": "facts",
+    "prompt": "In Colossians 2:8, Paul warns believers to see to it that no one takes them captive by what kind of empty deceit, according to human tradition rather than Christ?",
+    "bookId": "COL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "philosophy",
+      "hollow philosophy",
+      "philosophy and empty deceit",
+      "empty philosophy"
+    ],
+    "displayAnswer": "philosophy (and empty deceit)",
+    "explanation": "Colossians 2:8 warns against anyone taking believers captive by philosophy and empty deceit, according to the elemental spirits of the world.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_9",
+    "type": "verse_completion",
+    "prompt": "Colossians 2:9 (ESV): \"For in him the whole fullness of ______ dwells bodily,\"",
+    "bookId": "COL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "deity",
+      "Godhead",
+      "the deity",
+      "divinity"
+    ],
+    "displayAnswer": "deity",
+    "explanation": "Colossians 2:9 affirms the full deity and bodily incarnation of Jesus Christ: in him the whole fullness of deity dwells bodily.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_10",
+    "type": "facts",
+    "prompt": "According to Colossians 2:14, how did God set aside the record of debt that stood against us with its legal demands?",
+    "bookId": "COL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "nailing it to the cross",
+      "nailed it to the cross",
+      "the cross",
+      "by nailing it to the cross"
+    ],
+    "displayAnswer": "nailing it to the cross",
+    "explanation": "Colossians 2:14 proclaims that God canceled the record of debt that stood against us, setting it aside and nailing it to the cross.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_11",
+    "type": "facts",
+    "prompt": "In Colossians 2:16–17, Paul says Old Testament food laws, festivals, new moons, and Sabbaths are only a shadow of things to come, whereas the substance belongs to whom?",
+    "bookId": "COL",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Christ",
+      "to Christ",
+      "Jesus Christ"
+    ],
+    "displayAnswer": "Christ",
+    "explanation": "Colossians 2:17 explains that ceremonial regulations are a shadow of the things to come, but the substance belongs to Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_12",
+    "type": "verse_completion",
+    "prompt": "Colossians 3:2 (ESV): \"Set your ______ on things that are above, not on things that are on earth.\"",
+    "bookId": "COL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "minds",
+      "mind",
+      "affections",
+      "thoughts"
+    ],
+    "displayAnswer": "minds",
+    "explanation": "Colossians 3:1–2 exhorts those raised with Christ to seek and set their minds on things that are above, where Christ is seated.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_13",
+    "type": "facts",
+    "prompt": "In Colossians 3:5, putting to death what is earthly in you—sexual immorality, impurity, passion, evil desire—Paul equates covetousness with what sin?",
+    "bookId": "COL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "idolatry",
+      "idol worship",
+      "being idolatry"
+    ],
+    "displayAnswer": "idolatry",
+    "explanation": "Colossians 3:5 explicitly identifies covetousness (greed) as idolatry.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_14",
+    "type": "verse_completion",
+    "prompt": "Colossians 3:14 (ESV): \"And above all these put on ______, which binds everything together in perfect harmony.\"",
+    "bookId": "COL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "love",
+      "charity",
+      "Christian love"
+    ],
+    "displayAnswer": "love",
+    "explanation": "Colossians 3:14 crowns the Christian virtues with love, which binds everything together in perfect harmony.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_15",
+    "type": "verse_completion",
+    "prompt": "Colossians 3:16 (ESV): \"Let the ______ of Christ dwell in you richly, teaching and admonishing one another in all wisdom, singing psalms and hymns and spiritual songs, with thankfulness in your hearts to God.\"",
+    "bookId": "COL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "word",
+      "the word",
+      "word of Christ",
+      "message"
+    ],
+    "displayAnswer": "word",
+    "explanation": "Colossians 3:16 calls the church to let the word of Christ dwell in them richly in mutual teaching and grateful worship.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_16",
+    "type": "verse_completion",
+    "prompt": "Colossians 3:23 (ESV): \"Whatever you do, work ______, as for the Lord and not for men,\"",
+    "bookId": "COL",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "heartily",
+      "wholeheartedly",
+      "from the heart"
+    ],
+    "displayAnswer": "heartily",
+    "explanation": "Colossians 3:23 transforms everyday labor by instructing believers to work heartily, as for the Lord and not for men.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_17",
+    "type": "facts",
+    "prompt": "In Colossians 4:6, believers are told to let their speech always be gracious, seasoned with what, so that they may know how they ought to answer each person?",
+    "bookId": "COL",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "salt",
+      "seasoned with salt",
+      "with salt"
+    ],
+    "displayAnswer": "salt",
+    "explanation": "Colossians 4:6 instructs: \"Let your speech always be gracious, seasoned with salt, so that you may know how you ought to answer each person.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_18",
+    "type": "facts",
+    "prompt": "In Colossians 4:9, alongside Tychicus, which faithful and beloved brother—who was one of them—did Paul send back to report everything taking place?",
+    "bookId": "COL",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Onesimus",
+      "Brother Onesimus",
+      "beloved brother Onesimus"
+    ],
+    "displayAnswer": "Onesimus",
+    "explanation": "Colossians 4:9 identifies Onesimus as the faithful and beloved brother accompanying Tychicus back to his hometown church.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_19",
+    "type": "facts",
+    "prompt": "In Colossians 4:14, which Gospel author and companion sends greetings and is called by Paul 'the beloved physician'?",
+    "bookId": "COL",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Luke",
+      "Doctor Luke",
+      "Luke the physician"
+    ],
+    "displayAnswer": "Luke",
+    "explanation": "Colossians 4:14 sends greetings from \"Luke the beloved physician\" and Demas.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_col_20",
+    "type": "facts",
+    "prompt": "In Colossians 4:16, after this letter had been read among them, with which neighboring church were they instructed to exchange and read letters?",
+    "bookId": "COL",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Laodicea",
+      "the church of the Laodiceans",
+      "Laodiceans",
+      "church in Laodicea"
+    ],
+    "displayAnswer": "Laodicea (church of the Laodiceans)",
+    "explanation": "Colossians 4:16 instructs the church to have this letter read also in the church of the Laodiceans and to read the letter from Laodicea.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_1",
+    "type": "facts",
+    "prompt": "In 1 Thessalonians 1:1, which two co-workers join Paul as co-senders in the greeting of the letter?",
+    "bookId": "1TH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Silvanus and Timothy",
+      "Silas and Timothy",
+      "Timothy and Silvanus"
+    ],
+    "displayAnswer": "Silvanus (Silas) and Timothy",
+    "explanation": "1 Thessalonians 1:1 opens with greetings from Paul, Silvanus, and Timothy.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_2",
+    "type": "facts",
+    "prompt": "In 1 Thessalonians 1:3, Paul remembers before God their work of faith, labor of love, and steadfastness of what in our Lord Jesus Christ?",
+    "bookId": "1TH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "hope",
+      "steadfastness of hope",
+      "hope in Christ"
+    ],
+    "displayAnswer": "hope",
+    "explanation": "1 Thessalonians 1:3 celebrates the triad of work of faith, labor of love, and steadfastness of hope in our Lord Jesus Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_3",
+    "type": "facts",
+    "prompt": "According to 1 Thessalonians 1:9, believers throughout Macedonia and Achaia reported how the church turned to God from what, to serve the living and true God?",
+    "bookId": "1TH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "idols",
+      "from idols",
+      "pagan idols",
+      "idolatry"
+    ],
+    "displayAnswer": "idols",
+    "explanation": "1 Thessalonians 1:9 commends their radical conversion: how they turned to God from idols to serve the living and true God.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_4",
+    "type": "facts",
+    "prompt": "According to 1 Thessalonians 2:2, in which Macedonian city had Paul and his companions previously suffered and been shamefully treated before boldly declaring the gospel of God?",
+    "bookId": "1TH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Philippi",
+      "at Philippi",
+      "city of Philippi"
+    ],
+    "displayAnswer": "Philippi",
+    "explanation": "1 Thessalonians 2:2 recalls that Paul had already suffered and been shamefully treated at Philippi (Acts 16) just before arriving.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_5",
+    "type": "facts",
+    "prompt": "In 1 Thessalonians 2:7, describing his gentle pastoral care among them, Paul compares the apostles to what tenderly caring for her own children?",
+    "bookId": "1TH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "a nursing mother",
+      "nursing mother",
+      "a mother",
+      "gentle mother"
+    ],
+    "displayAnswer": "a nursing mother",
+    "explanation": "1 Thessalonians 2:7 likens Paul's gentle ministry among the young believers to a nursing mother taking care of her own children.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_6",
+    "type": "verse_completion",
+    "prompt": "1 Thessalonians 2:13 (ESV): \"when you received the word of God, which you heard from us, you accepted it not as the word of men but as what it really is, the ______ of God, which is at work in you believers.\"",
+    "bookId": "1TH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "word",
+      "the word",
+      "word of God"
+    ],
+    "displayAnswer": "word",
+    "explanation": "1 Thessalonians 2:13 commends them for welcoming the apostolic message not as mere human speech, but as the living word of God.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_7",
+    "type": "facts",
+    "prompt": "According to 1 Thessalonians 3:1–2, when Paul could bear it no longer, in which Greek city was Paul willing to be left behind alone while sending Timothy to establish and exhort them?",
+    "bookId": "1TH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Athens",
+      "in Athens",
+      "city of Athens"
+    ],
+    "displayAnswer": "Athens",
+    "explanation": "1 Thessalonians 3:1–2 records that Paul resolved to be left behind at Athens alone so Timothy could strengthen the persecuted church.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_8",
+    "type": "verse_completion",
+    "prompt": "1 Thessalonians 3:12 (ESV): \"and may the Lord make you increase and ______ in love for one another and for all, as we do for you,\"",
+    "bookId": "1TH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "abound",
+      "overflow",
+      "increase and abound"
+    ],
+    "displayAnswer": "abound",
+    "explanation": "1 Thessalonians 3:12–13 prays that the Lord would make them increase and abound in love so their hearts may be established blameless in holiness.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_9",
+    "type": "verse_completion",
+    "prompt": "1 Thessalonians 4:3 (ESV): \"For this is the will of God, your ______: that you abstain from sexual immorality;\"",
+    "bookId": "1TH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "sanctification",
+      "holiness",
+      "your sanctification"
+    ],
+    "displayAnswer": "sanctification",
+    "explanation": "1 Thessalonians 4:3 states directly that God's will for believers is their sanctification, specifically abstaining from sexual immorality.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_10",
+    "type": "facts",
+    "prompt": "In 1 Thessalonians 4:11, Paul urges believers to aspire to live quietly, mind their own affairs, and work with what part of their bodies so they walk properly before outsiders?",
+    "bookId": "1TH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "your hands",
+      "their hands",
+      "hands",
+      "own hands"
+    ],
+    "displayAnswer": "your hands",
+    "explanation": "1 Thessalonians 4:11–12 exhorts believers to aspire to live quietly, mind their own affairs, and work with their hands.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_11",
+    "type": "facts",
+    "prompt": "In 1 Thessalonians 4:13, concerning believers who are asleep (have died), Paul wants the church to be informed so they do not grieve as others do who have no what?",
+    "bookId": "1TH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "hope",
+      "no hope",
+      "eternal hope"
+    ],
+    "displayAnswer": "hope",
+    "explanation": "1 Thessalonians 4:13 comforts bereaved Christians so that they may not grieve as others do who have no hope.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_12",
+    "type": "facts",
+    "prompt": "According to 1 Thessalonians 4:16, when the Lord himself descends from heaven with a cry of command, with the voice of an archangel, and with the sound of the trumpet of God, who will rise first?",
+    "bookId": "1TH",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "the dead in Christ",
+      "dead in Christ",
+      "believers who died in Christ"
+    ],
+    "displayAnswer": "the dead in Christ",
+    "explanation": "1 Thessalonians 4:16 assures the church that at the Lord's descent, the dead in Christ will rise first, before living believers are caught up.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_13",
+    "type": "verse_completion",
+    "prompt": "1 Thessalonians 5:2 (ESV): \"For you yourselves are fully aware that the day of the Lord will come like a ______ in the night.\"",
+    "bookId": "1TH",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "thief",
+      "a thief",
+      "thief in the night"
+    ],
+    "displayAnswer": "thief",
+    "explanation": "1 Thessalonians 5:2 echoes Jesus' teaching that the day of the Lord will come unexpectedly like a thief in the night.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_14",
+    "type": "facts",
+    "prompt": "In 1 Thessalonians 5:8, since we belong to the day, we are to be sober, having put on the breastplate of faith and love, and for a helmet the hope of what?",
+    "bookId": "1TH",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "salvation",
+      "hope of salvation",
+      "the hope of salvation"
+    ],
+    "displayAnswer": "salvation",
+    "explanation": "1 Thessalonians 5:8 outfits watchful believers with the breastplate of faith and love, and for a helmet the hope of salvation.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_15",
+    "type": "verse_completion",
+    "prompt": "1 Thessalonians 5:16–18 (ESV): \"Rejoice always, pray without ______, give thanks in all circumstances; for this is the will of God in Christ Jesus for you.\"",
+    "bookId": "1TH",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "ceasing",
+      "stopping",
+      "without ceasing"
+    ],
+    "displayAnswer": "ceasing",
+    "explanation": "1 Thessalonians 5:16–18 commands unceasing devotion: \"Rejoice always, pray without ceasing, give thanks in all circumstances.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1th_16",
+    "type": "verse_completion",
+    "prompt": "1 Thessalonians 5:19 (ESV): \"Do not ______ the Spirit.\"",
+    "bookId": "1TH",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "quench",
+      "stifle",
+      "extinguish"
+    ],
+    "displayAnswer": "quench",
+    "explanation": "1 Thessalonians 5:19 gives the concise warning: \"Do not quench the Spirit.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2th_1",
+    "type": "facts",
+    "prompt": "In 2 Thessalonians 1:3–4, Paul boasts among the churches of God about their steadfastness and faith in all their what that they were enduring?",
+    "bookId": "2TH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "persecutions and afflictions",
+      "persecutions",
+      "afflictions",
+      "suffering"
+    ],
+    "displayAnswer": "persecutions and afflictions",
+    "explanation": "2 Thessalonians 1:4 commends the church's steadfastness and faith in all their persecutions and in the afflictions that they were enduring.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2th_2",
+    "type": "verse_completion",
+    "prompt": "2 Thessalonians 1:7–8 (ESV): \"when the Lord Jesus is revealed from heaven with his mighty angels in flaming ______, inflicting vengeance on those who do not know God...\"",
+    "bookId": "2TH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "fire",
+      "flaming fire",
+      "blazing fire"
+    ],
+    "displayAnswer": "fire",
+    "explanation": "2 Thessalonians 1:7–8 describes the righteous judgment when the Lord Jesus is revealed from heaven with his mighty angels in flaming fire.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2th_3",
+    "type": "facts",
+    "prompt": "According to 2 Thessalonians 1:9, those who do not obey the gospel will suffer the punishment of eternal destruction, away from what?",
+    "bookId": "2TH",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the presence of the Lord",
+      "presence of the Lord",
+      "God's presence",
+      "the Lord's presence"
+    ],
+    "displayAnswer": "the presence of the Lord",
+    "explanation": "2 Thessalonians 1:9 describes eternal judgment as eternal destruction, away from the presence of the Lord and from the glory of his might.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2th_4",
+    "type": "facts",
+    "prompt": "In 2 Thessalonians 2:1–3, correcting rumors that the day of the Lord had already come, Paul writes that the day will not come unless the rebellion comes first and what figure—the son of destruction—is revealed?",
+    "bookId": "2TH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the man of lawlessness",
+      "man of lawlessness",
+      "man of sin",
+      "lawless one"
+    ],
+    "displayAnswer": "the man of lawlessness",
+    "explanation": "2 Thessalonians 2:3 teaches that the day of the Lord will not come unless the rebellion comes first, and the man of lawlessness is revealed.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2th_5",
+    "type": "facts",
+    "prompt": "According to 2 Thessalonians 2:4, the man of lawlessness opposes and exalts himself against every so-called god, taking his seat where and proclaiming himself to be God?",
+    "bookId": "2TH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "in the temple of God",
+      "temple of God",
+      "God's temple",
+      "the temple"
+    ],
+    "displayAnswer": "in the temple of God",
+    "explanation": "2 Thessalonians 2:4 states that the adversary takes his seat in the temple of God, proclaiming himself to be God.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2th_6",
+    "type": "verse_completion",
+    "prompt": "2 Thessalonians 2:8 (ESV): \"And then the lawless one will be revealed, whom the Lord Jesus will kill with the ______ of his mouth and bring to nothing by the appearance of his coming.\"",
+    "bookId": "2TH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "breath",
+      "the breath",
+      "breath of his mouth"
+    ],
+    "displayAnswer": "breath",
+    "explanation": "2 Thessalonians 2:8 echoes Isaiah 11:4: the Lord Jesus will effortlessly slay the lawless one with the breath of his mouth at his coming.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2th_7",
+    "type": "facts",
+    "prompt": "According to 2 Thessalonians 2:10, those who are perishing are deceived by wicked schemes because they refused to love what and so be saved?",
+    "bookId": "2TH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the truth",
+      "truth",
+      "love of the truth"
+    ],
+    "displayAnswer": "the truth",
+    "explanation": "2 Thessalonians 2:10 explains that the perishing succumb to deception because they refused to love the truth and so be saved.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2th_8",
+    "type": "verse_completion",
+    "prompt": "2 Thessalonians 2:15 (ESV): \"So then, brothers, stand ______ and hold to the traditions that you were taught by us, either by our spoken word or by our letter.\"",
+    "bookId": "2TH",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "firm",
+      "steadfast",
+      "fast"
+    ],
+    "displayAnswer": "firm",
+    "explanation": "2 Thessalonians 2:15 exhorts believers to stand firm and hold to the apostolic teaching passed down by word and letter.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2th_9",
+    "type": "verse_completion",
+    "prompt": "2 Thessalonians 3:3 (ESV): \"But the Lord is ______. He will establish you and guard you against the evil one.\"",
+    "bookId": "2TH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "faithful",
+      "trustworthy",
+      "true and faithful"
+    ],
+    "displayAnswer": "faithful",
+    "explanation": "2 Thessalonians 3:3 anchors believers in God's character: \"But the Lord is faithful. He will establish you and guard you against the evil one.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2th_10",
+    "type": "verse_completion",
+    "prompt": "2 Thessalonians 3:10 (ESV): \"For even when we were with you, we would give you this command: If anyone is not willing to ______, let him not eat.\"",
+    "bookId": "2TH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "work",
+      "labor",
+      "to work"
+    ],
+    "displayAnswer": "work",
+    "explanation": "2 Thessalonians 3:10 rebukes undisciplined idleness with Paul's rule: If anyone is not willing to work, let him not eat.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2th_11",
+    "type": "facts",
+    "prompt": "In 2 Thessalonians 3:11, Paul warns against those walking in idleness, not busy at work, but acting as what?",
+    "bookId": "2TH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "busybodies",
+      "a busybody",
+      "meddlers"
+    ],
+    "displayAnswer": "busybodies",
+    "explanation": "2 Thessalonians 3:11 plays on words to rebuke those walking in idleness, not busy at work, but busybodies.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2th_12",
+    "type": "facts",
+    "prompt": "In 2 Thessalonians 3:17, how did Paul authenticate the genuineness of every letter he sent so his readers would not be deceived by forged letters?",
+    "bookId": "2TH",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "with his own hand",
+      "with my own hand",
+      "wrote the greeting with his own hand",
+      "his own handwriting",
+      "own hand",
+      "personal signature"
+    ],
+    "displayAnswer": "with his own hand",
+    "explanation": "2 Thessalonians 3:17 notes: \"I, Paul, write this greeting with my own hand. This is the sign of genuineness in every letter of mine.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_1",
+    "type": "facts",
+    "prompt": "According to 1 Timothy 1:3, in which city did Paul urge his true child in the faith to remain so that he might charge certain persons not to teach any different doctrine?",
+    "bookId": "1TI",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Ephesus",
+      "at Ephesus",
+      "city of Ephesus"
+    ],
+    "displayAnswer": "Ephesus",
+    "explanation": "1 Timothy 1:3 records that when Paul was going into Macedonia, he urged his delegate to remain at Ephesus to confront false teachers.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_2",
+    "type": "facts",
+    "prompt": "According to 1 Timothy 1:5, what is the aim of Paul's apostolic charge, which issues from a pure heart and a good conscience and a sincere faith?",
+    "bookId": "1TI",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "love",
+      "Christian love",
+      "charity"
+    ],
+    "displayAnswer": "love",
+    "explanation": "1 Timothy 1:5 states: \"The aim of our charge is love that issues from a pure heart and a good conscience and a sincere faith.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_3",
+    "type": "verse_completion",
+    "prompt": "1 Timothy 1:15 (ESV): \"The saying is trustworthy and deserving of full acceptance, that Christ Jesus came into the world to save ______, of whom I am the foremost.\"",
+    "bookId": "1TI",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "sinners",
+      "lost sinners",
+      "the sinners"
+    ],
+    "displayAnswer": "sinners",
+    "explanation": "1 Timothy 1:15 is the first of five 'trustworthy sayings' in the Pastoral Epistles, celebrating Christ's mission to save sinners.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_4",
+    "type": "facts",
+    "prompt": "In 1 Timothy 1:19–20, which two men made shipwreck of their faith and were handed over to Satan by Paul that they might learn not to blaspheme?",
+    "bookId": "1TI",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Hymenaeus and Alexander",
+      "Alexander and Hymenaeus",
+      "Hymenaeus"
+    ],
+    "displayAnswer": "Hymenaeus and Alexander",
+    "explanation": "1 Timothy 1:20 names Hymenaeus and Alexander as men who rejected conscience, made shipwreck of their faith, and came under apostolic discipline.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_5",
+    "type": "facts",
+    "prompt": "In 1 Timothy 2:1–2, Paul urges that supplications, prayers, intercessions, and thanksgivings be made for all people, and specifically for kings and all who are in what?",
+    "bookId": "1TI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "high positions",
+      "authority",
+      "positions of authority",
+      "high position"
+    ],
+    "displayAnswer": "high positions (authority)",
+    "explanation": "1 Timothy 2:1–2 urges prayer for kings and all who are in high positions, that believers may lead a peaceful and quiet life.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_6",
+    "type": "verse_completion",
+    "prompt": "1 Timothy 2:5 (ESV): \"For there is one God, and there is one ______ between God and men, the man Christ Jesus,\"",
+    "bookId": "1TI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "mediator",
+      "one mediator",
+      "intercessor"
+    ],
+    "displayAnswer": "mediator",
+    "explanation": "1 Timothy 2:5–6 proclaims the exclusive mediatorship of the man Christ Jesus, who gave himself as a ransom for all.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_7",
+    "type": "facts",
+    "prompt": "In 1 Timothy 3:2, besides being above reproach, sober-minded, self-controlled, respectable, and hospitable, what teaching skill must an overseer (elder) possess that distinguishes him from deacons?",
+    "bookId": "1TI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "able to teach",
+      "ability to teach",
+      "apt to teach",
+      "skillful in teaching"
+    ],
+    "displayAnswer": "able to teach",
+    "explanation": "1 Timothy 3:2 requires an overseer to be able to teach—the key functional distinction between elders and deacons.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_8",
+    "type": "facts",
+    "prompt": "In 1 Timothy 3:6, an overseer must not be a recent convert, lest he become puffed up with what and fall into the condemnation of the devil?",
+    "bookId": "1TI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "conceit",
+      "pride",
+      "arrogance",
+      "puffed up with conceit"
+    ],
+    "displayAnswer": "conceit (pride)",
+    "explanation": "1 Timothy 3:6 warns that a recent convert must not be made an overseer, or he may become puffed up with conceit and fall into the condemnation of the devil.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_9",
+    "type": "facts",
+    "prompt": "In 1 Timothy 3:8–13, immediately after giving qualifications for overseers, which other ordained church office does Paul give character qualifications for?",
+    "bookId": "1TI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "deacons",
+      "deacon",
+      "office of deacon"
+    ],
+    "displayAnswer": "deacons",
+    "explanation": "1 Timothy 3:8–13 sets forth qualifications for deacons: dignified, not double-tongued, not greedy for dishonest gain, and tested first.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_10",
+    "type": "verse_completion",
+    "prompt": "1 Timothy 3:15 (ESV): \"...that you may know how one ought to behave in the household of God, which is the church of the living God, a ______ and buttress of the truth.\"",
+    "bookId": "1TI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "pillar",
+      "a pillar",
+      "pillar and buttress"
+    ],
+    "displayAnswer": "pillar",
+    "explanation": "1 Timothy 3:15 defines the local church as the household of God and a pillar and buttress of the truth.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_11",
+    "type": "facts",
+    "prompt": "In 1 Timothy 4:1–3, Paul warns that in later times some will depart from the faith by devoting themselves to deceitful spirits, forbidding what covenant institution and requiring abstinence from foods?",
+    "bookId": "1TI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "marriage",
+      "marrying",
+      "to marry",
+      "wedlock"
+    ],
+    "displayAnswer": "marriage",
+    "explanation": "1 Timothy 4:3 identifies ascetic false teachers who forbid marriage and require abstinence from foods that God created to be received with thanksgiving.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_12",
+    "type": "verse_completion",
+    "prompt": "1 Timothy 4:8 (ESV): \"for while bodily training is of some value, ______ is of value in every way, as it holds promise for the present life and also for the life to come.\"",
+    "bookId": "1TI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "godliness",
+      "spiritual godliness",
+      "piety"
+    ],
+    "displayAnswer": "godliness",
+    "explanation": "1 Timothy 4:7–8 urges training oneself for godliness, which holds promise both for the present life and the life to come.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_13",
+    "type": "verse_completion",
+    "prompt": "1 Timothy 4:12 (ESV): \"Let no one despise you for your ______, but set the believers an example in speech, in conduct, in love, in faith, in purity.\"",
+    "bookId": "1TI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "youth",
+      "young age",
+      "youthfulness"
+    ],
+    "displayAnswer": "youth",
+    "explanation": "1 Timothy 4:12 encourages young pastoral leadership to overcome bias against youth through exemplary godly character.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_14",
+    "type": "facts",
+    "prompt": "In 1 Timothy 4:13, until Paul comes, he directs his delegate to devote himself to exhortation, to teaching, and to the public reading of what?",
+    "bookId": "1TI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Scripture",
+      "the Scriptures",
+      "God's Word",
+      "the public reading of Scripture"
+    ],
+    "displayAnswer": "Scripture",
+    "explanation": "1 Timothy 4:13 prioritizes the public reading of Scripture, exhortation, and teaching in corporate worship.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_15",
+    "type": "facts",
+    "prompt": "In 1 Timothy 5:3–16, what group of vulnerable women in the church—who must be at least sixty years of age to be enrolled—does Paul instruct the church to honor and support if truly left all alone?",
+    "bookId": "1TI",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "widows",
+      "true widows",
+      "widow"
+    ],
+    "displayAnswer": "widows (true widows)",
+    "explanation": "1 Timothy 5:3–16 gives detailed pastoral instructions on caring for widows who are truly widows and have no family to support them.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_16",
+    "type": "facts",
+    "prompt": "According to 1 Timothy 5:17, let the elders who rule well be considered worthy of what, especially those who labor in preaching and teaching?",
+    "bookId": "1TI",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "double honor",
+      "a double honor",
+      "honor"
+    ],
+    "displayAnswer": "double honor",
+    "explanation": "1 Timothy 5:17–18 teaches that elders who rule well—especially those laboring in preaching and teaching—are worthy of double honor.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_17",
+    "type": "facts",
+    "prompt": "According to 1 Timothy 5:19, a charge against an elder must not be admitted except on the evidence of how many witnesses?",
+    "bookId": "1TI",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "two or three",
+      "two or three witnesses",
+      "2 or 3",
+      "at least two"
+    ],
+    "displayAnswer": "two or three witnesses",
+    "explanation": "1 Timothy 5:19 applies Deuteronomy 19:15 to protect church elders from frivolous accusations, requiring two or three witnesses.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_18",
+    "type": "verse_completion",
+    "prompt": "1 Timothy 6:6 (ESV): \"But godliness with ______ is great gain,\"",
+    "bookId": "1TI",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "contentment",
+      "being content",
+      "satisfaction"
+    ],
+    "displayAnswer": "contentment",
+    "explanation": "1 Timothy 6:6–7 counters greedy false teachers who imagine godliness is a means of financial gain: godliness with contentment is great gain.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_19",
+    "type": "verse_completion",
+    "prompt": "1 Timothy 6:10 (ESV): \"For the love of ______ is a root of all kinds of evils. It is through this craving that some have wandered away from the faith and pierced themselves with many pangs.\"",
+    "bookId": "1TI",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "money",
+      "wealth",
+      "silver"
+    ],
+    "displayAnswer": "money",
+    "explanation": "1 Timothy 6:10 warns that the love of money—not money itself—is a root of all kinds of evils.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_1ti_20",
+    "type": "verse_completion",
+    "prompt": "1 Timothy 6:12 (ESV): \"Fight the good ______ of the faith. Take hold of the eternal life to which you were called...\"",
+    "bookId": "1TI",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "fight",
+      "battle",
+      "good fight"
+    ],
+    "displayAnswer": "fight",
+    "explanation": "1 Timothy 6:12 charges the man of God: \"Fight the good fight of the faith. Take hold of the eternal life to which you were called.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_1",
+    "type": "facts",
+    "prompt": "In 2 Timothy 1:5, Paul recalls the sincere faith that dwelt first in the recipient's grandmother Lois and in his mother; what was his mother's name?",
+    "bookId": "2TI",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Eunice",
+      "Mother Eunice",
+      "Lois and Eunice"
+    ],
+    "displayAnswer": "Eunice",
+    "explanation": "2 Timothy 1:5 remembers the sincere faith passed down through grandmother Lois and mother Eunice.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_2",
+    "type": "verse_completion",
+    "prompt": "2 Timothy 1:7 (ESV): \"for God gave us a spirit not of ______, but of power and love and self-control.\"",
+    "bookId": "2TI",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "fear",
+      "cowardice",
+      "timidity"
+    ],
+    "displayAnswer": "fear",
+    "explanation": "2 Timothy 1:7 encourages fanning into flame the gift of God, for God gave us a spirit not of fear but of power and love and self-control.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_3",
+    "type": "facts",
+    "prompt": "In 2 Timothy 1:16–17, whose household does Paul pray the Lord will grant mercy to because he often refreshed Paul and was not ashamed of Paul's chains when searching for him in Rome?",
+    "bookId": "2TI",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Onesiphorus",
+      "Onesiphorus's",
+      "household of Onesiphorus",
+      "Brother Onesiphorus"
+    ],
+    "displayAnswer": "Onesiphorus",
+    "explanation": "2 Timothy 1:16–18 commends Onesiphorus, who eagerly searched for Paul in Rome and was not ashamed of his chains.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_4",
+    "type": "facts",
+    "prompt": "In 2 Timothy 2:2, what you have heard from Paul in the presence of many witnesses must be entrusted to what kind of men, who will be able to teach others also?",
+    "bookId": "2TI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "faithful men",
+      "faithful",
+      "trustworthy men",
+      "faithful people"
+    ],
+    "displayAnswer": "faithful men",
+    "explanation": "2 Timothy 2:2 outlines four generations of discipleship: entrusting gospel truth to faithful men who will be able to teach others also.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_5",
+    "type": "facts",
+    "prompt": "In 2 Timothy 2:3–6, alongside an athlete who competes according to the rules and a hard-working farmer, to what third calling—who does not get entangled in civilian pursuits—does Paul compare a Christian minister?",
+    "bookId": "2TI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "a good soldier",
+      "good soldier",
+      "a soldier",
+      "a good soldier of Christ Jesus",
+      "soldier of Christ"
+    ],
+    "displayAnswer": "a good soldier (of Christ Jesus)",
+    "explanation": "2 Timothy 2:3–4 calls the minister to share in suffering as a good soldier of Christ Jesus, aiming to please the one who enlisted him.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_6",
+    "type": "verse_completion",
+    "prompt": "2 Timothy 2:9 (ESV): \"for which I am suffering, bound with chains as a criminal. But the word of God is not ______!\"",
+    "bookId": "2TI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "bound",
+      "chained",
+      "fettered"
+    ],
+    "displayAnswer": "bound",
+    "explanation": "2 Timothy 2:9 contrasts Paul's Roman chains with the unstoppable gospel: \"But the word of God is not bound!\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_7",
+    "type": "verse_completion",
+    "prompt": "2 Timothy 2:15 (ESV): \"Do your best to present yourself to God as one ______, a worker who has no need to be ashamed, rightly handling the word of truth.\"",
+    "bookId": "2TI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "approved",
+      "tested and approved",
+      "one approved"
+    ],
+    "displayAnswer": "approved",
+    "explanation": "2 Timothy 2:15 charges gospel ministers to present themselves to God as approved workers, rightly handling the word of truth.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_8",
+    "type": "facts",
+    "prompt": "In 2 Timothy 2:17–18, Hymenaeus and Philetus swerved from the truth, upsetting the faith of some by falsely claiming that what future event had already happened?",
+    "bookId": "2TI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the resurrection",
+      "resurrection",
+      "resurrection of the dead"
+    ],
+    "displayAnswer": "the resurrection",
+    "explanation": "2 Timothy 2:17–18 warns against Hymenaeus and Philetus, whose talk spread like gangrene as they claimed the resurrection had already happened.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_9",
+    "type": "facts",
+    "prompt": "According to 2 Timothy 2:24–25, the Lord's servant must not be quarrelsome, but kind to everyone, patiently enduring evil, and correcting his opponents with what attitude?",
+    "bookId": "2TI",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "gentleness",
+      "with gentleness",
+      "meekness"
+    ],
+    "displayAnswer": "gentleness",
+    "explanation": "2 Timothy 2:25 instructs the Lord's servant to correct opponents with gentleness, trusting God may perhaps grant them repentance.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_10",
+    "type": "facts",
+    "prompt": "In 2 Timothy 3:1, Paul warns his reader to understand that in the last days there will come times of what?",
+    "bookId": "2TI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "difficulty",
+      "times of difficulty",
+      "perilous times",
+      "hardship"
+    ],
+    "displayAnswer": "difficulty (times of difficulty)",
+    "explanation": "2 Timothy 3:1 opens: \"But understand this, that in the last days there will come times of difficulty.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_11",
+    "type": "verse_completion",
+    "prompt": "2 Timothy 3:12 (ESV): \"Indeed, all who desire to live a godly life in Christ Jesus will be ______,\"",
+    "bookId": "2TI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "persecuted",
+      "suffer persecution",
+      "opposed"
+    ],
+    "displayAnswer": "persecuted",
+    "explanation": "2 Timothy 3:12 states soberly that all who desire to live a godly life in Christ Jesus will be persecuted.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_12",
+    "type": "facts",
+    "prompt": "According to 2 Timothy 3:15, from childhood Paul's protege had been acquainted with what writings, which are able to make one wise for salvation through faith in Christ Jesus?",
+    "bookId": "2TI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "the sacred writings",
+      "sacred writings",
+      "the Scriptures",
+      "Holy Scriptures"
+    ],
+    "displayAnswer": "the sacred writings (Scriptures)",
+    "explanation": "2 Timothy 3:15 reminds him how from childhood he had been acquainted with the sacred writings, which are able to make him wise for salvation.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_13",
+    "type": "verse_completion",
+    "prompt": "2 Timothy 3:16 (ESV): \"All Scripture is ______ out by God and profitable for teaching, for reproof, for correction, and for training in righteousness,\"",
+    "bookId": "2TI",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "breathed",
+      "breathed out",
+      "inspired"
+    ],
+    "displayAnswer": "breathed",
+    "explanation": "2 Timothy 3:16 affirms divine inspiration: \"All Scripture is breathed out by God and profitable...\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_14",
+    "type": "verse_completion",
+    "prompt": "2 Timothy 4:2 (ESV): \"preach the word; be ready in ______ and out of season; reprove, rebuke, and exhort, with complete patience and teaching.\"",
+    "bookId": "2TI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "season",
+      "in season",
+      "due season"
+    ],
+    "displayAnswer": "season",
+    "explanation": "2 Timothy 4:2 delivers Paul's final solemn charge to preach the word and be ready in season and out of season.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_15",
+    "type": "facts",
+    "prompt": "In 2 Timothy 4:3, Paul warns that the time is coming when people will not endure sound teaching, but having itching what, they will accumulate for themselves teachers to suit their own passions?",
+    "bookId": "2TI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "ears",
+      "itching ears",
+      "their ears"
+    ],
+    "displayAnswer": "ears (itching ears)",
+    "explanation": "2 Timothy 4:3 warns against listeners with itching ears who turn away from truth and wander off into myths.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_16",
+    "type": "verse_completion",
+    "prompt": "2 Timothy 4:7–8 (ESV): \"I have fought the good fight, I have finished the ______, I have kept the faith. Henceforth there is laid up for me the crown of righteousness...\"",
+    "bookId": "2TI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "race",
+      "the race",
+      "course"
+    ],
+    "displayAnswer": "race",
+    "explanation": "2 Timothy 4:7–8 is Paul's triumphant farewell testimony before martyrdom, awaiting the crown of righteousness.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_17",
+    "type": "facts",
+    "prompt": "In 2 Timothy 4:10, which former companion deserted Paul and went to Thessalonica because he was in love with this present world?",
+    "bookId": "2TI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Demas",
+      "companion Demas",
+      "Demas who deserted Paul"
+    ],
+    "displayAnswer": "Demas",
+    "explanation": "2 Timothy 4:10 laments: \"For Demas, in love with this present world, has deserted me and gone to Thessalonica.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_2ti_18",
+    "type": "facts",
+    "prompt": "In 2 Timothy 4:11–13, besides asking for the cloak and the books—especially the parchments—left at Troas, which restored co-worker does Paul ask to be brought along because 'he is very useful to me for ministry'?",
+    "bookId": "2TI",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Mark",
+      "John Mark",
+      "Evangelist Mark"
+    ],
+    "displayAnswer": "Mark (John Mark)",
+    "explanation": "2 Timothy 4:11 shows Paul's full reconciliation with John Mark, calling him very useful for ministry while Luke alone remained with Paul.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_tit_1",
+    "type": "verse_completion",
+    "prompt": "Titus 1:2 (ESV): \"in hope of eternal life, which God, who never ______, promised before the ages began\"",
+    "bookId": "TIT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "lies",
+      "deceives",
+      "never lies"
+    ],
+    "displayAnswer": "lies",
+    "explanation": "Titus 1:2 anchors the hope of eternal life in the unchangeable truthfulness of God, who never lies.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_tit_2",
+    "type": "facts",
+    "prompt": "According to Titus 1:5, on which Mediterranean island was Paul's delegate left behind so that he might put what remained into order?",
+    "bookId": "TIT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Crete",
+      "island of Crete",
+      "in Crete"
+    ],
+    "displayAnswer": "Crete",
+    "explanation": "Titus 1:5 states that Paul left his co-worker in Crete to put what remained into order and appoint elders in every town.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_tit_3",
+    "type": "facts",
+    "prompt": "According to Titus 1:5, what church leaders was Paul's delegate directed to appoint in every town across Crete?",
+    "bookId": "TIT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "elders",
+      "overseers",
+      "church elders",
+      "presbyters"
+    ],
+    "displayAnswer": "elders",
+    "explanation": "Titus 1:5–9 instructs the appointment of qualified elders (overseers) in every town.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_tit_4",
+    "type": "facts",
+    "prompt": "According to Titus 1:9, an elder must hold firm to the trustworthy word as taught, so that he may be able to give instruction in what kind of healthy teaching and also rebuke those who contradict it?",
+    "bookId": "TIT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "sound doctrine",
+      "healthy doctrine",
+      "sound teaching"
+    ],
+    "displayAnswer": "sound doctrine",
+    "explanation": "Titus 1:9 requires an elder to hold firm to the trustworthy word to give instruction in sound doctrine and rebuke opponents.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_tit_5",
+    "type": "verse_completion",
+    "prompt": "Titus 1:15 (ESV): \"To the ______ all things are pure, but to the defiled and unbelieving nothing is pure; both their minds and their consciences are defiled.\"",
+    "bookId": "TIT",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "pure",
+      "the pure",
+      "clean"
+    ],
+    "displayAnswer": "pure",
+    "explanation": "Titus 1:15 exposes legalistic hypocrites with the maxim: \"To the pure all things are pure, but to the defiled and unbelieving nothing is pure.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_tit_6",
+    "type": "facts",
+    "prompt": "In Titus 2:3–5, older women are to be reverent in behavior and teach what is good, training whom to love their husbands and children and be self-controlled and pure?",
+    "bookId": "TIT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the young women",
+      "young women",
+      "younger women"
+    ],
+    "displayAnswer": "the young women",
+    "explanation": "Titus 2:3–5 outlines intergenerational discipleship in which older women train the young women in godly family life.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_tit_7",
+    "type": "verse_completion",
+    "prompt": "Titus 2:11–12 (ESV): \"For the ______ of God has appeared, bringing salvation for all people, training us to renounce ungodliness and worldly passions...\"",
+    "bookId": "TIT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "grace",
+      "the grace",
+      "saving grace"
+    ],
+    "displayAnswer": "grace",
+    "explanation": "Titus 2:11–12 teaches that the same grace of God that brings salvation also trains us to live self-controlled, upright, and godly lives.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_tit_8",
+    "type": "facts",
+    "prompt": "According to Titus 2:14, Christ Jesus gave himself for us to redeem us from all lawlessness and to purify for himself a people for his own possession who are zealous for what?",
+    "bookId": "TIT",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "good works",
+      "good deeds",
+      "zealous for good works"
+    ],
+    "displayAnswer": "good works",
+    "explanation": "Titus 2:14 states that Christ redeemed and purified a people for his own possession who are zealous for good works.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_tit_9",
+    "type": "verse_completion",
+    "prompt": "Titus 3:5 (ESV): \"he saved us, not because of works done by us in righteousness, but according to his own ______, by the washing of regeneration and renewal of the Holy Spirit,\"",
+    "bookId": "TIT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "mercy",
+      "own mercy",
+      "his mercy"
+    ],
+    "displayAnswer": "mercy",
+    "explanation": "Titus 3:5 repudiates works-righteousness and celebrates salvation according to God's own mercy.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_tit_10",
+    "type": "facts",
+    "prompt": "According to Titus 3:5, God saved us according to his mercy by the renewal of the Holy Spirit and by the washing of what?",
+    "bookId": "TIT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "regeneration",
+      "washing of regeneration",
+      "rebirth",
+      "new birth"
+    ],
+    "displayAnswer": "regeneration",
+    "explanation": "Titus 3:5 attributes salvation to the washing of regeneration and renewal of the Holy Spirit poured out through Jesus Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_tit_11",
+    "type": "verse_completion",
+    "prompt": "Titus 3:10 (ESV): \"As for a person who stirs up ______, after warning him once and then twice, have nothing more to do with him,\"",
+    "bookId": "TIT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "division",
+      "factiousness",
+      "factions",
+      "discord"
+    ],
+    "displayAnswer": "division",
+    "explanation": "Titus 3:10 instructs swift pastoral discipline—after a first and second warning—toward anyone who stirs up division in the church.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_tit_12",
+    "type": "facts",
+    "prompt": "In Titus 3:12, after Paul sends Artemas or Tychicus to Crete, in which city did Paul decide to spend the winter, urging his co-worker to come meet him there?",
+    "bookId": "TIT",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Nicopolis",
+      "at Nicopolis",
+      "city of Nicopolis"
+    ],
+    "displayAnswer": "Nicopolis",
+    "explanation": "Titus 3:12 asks him to do his best to come to Paul at Nicopolis, where Paul had decided to spend the winter.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_phm_1",
+    "type": "facts",
+    "prompt": "In Philemon 1:1 and 1:9, instead of invoking his apostolic title, how does Paul describe his physical situation for Christ Jesus?",
+    "bookId": "PHM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "a prisoner for Christ Jesus",
+      "a prisoner",
+      "prisoner for Christ Jesus",
+      "imprisoned",
+      "prisoner"
+    ],
+    "displayAnswer": "a prisoner for Christ Jesus",
+    "explanation": "Philemon 1:1, 9 opens tenderly with \"Paul, a prisoner for Christ Jesus,\" appealing from chains rather than command.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_phm_2",
+    "type": "facts",
+    "prompt": "In Philemon 1:2, alongside our sister Apphia and the church in the house, which fellow soldier is addressed in the opening greeting?",
+    "bookId": "PHM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Archippus",
+      "Brother Archippus",
+      "Soldier Archippus"
+    ],
+    "displayAnswer": "Archippus",
+    "explanation": "Philemon 1:2 greets \"Apphia our sister and Archippus our fellow soldier, and the church in your house.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_phm_3",
+    "type": "verse_completion",
+    "prompt": "Philemon 1:6 (ESV): \"and I pray that the sharing of your faith may become effective for the full ______ of every good thing that is in us for the sake of Christ.\"",
+    "bookId": "PHM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "knowledge",
+      "understanding",
+      "full knowledge"
+    ],
+    "displayAnswer": "knowledge",
+    "explanation": "Philemon 1:6 prays that the sharing (fellowship) of faith may become effective for the full knowledge of every good thing in us for Christ.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_phm_4",
+    "type": "verse_completion",
+    "prompt": "Philemon 1:8–9 (ESV): \"Accordingly, though I am bold enough in Christ to command you to do what is required, yet for ______'s sake I prefer to appeal to you...\"",
+    "bookId": "PHM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "love",
+      "love's",
+      "Christian love"
+    ],
+    "displayAnswer": "love",
+    "explanation": "Philemon 1:8–9 models gospel persuasion: rather than commanding by apostolic authority, Paul appeals for love's sake.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_phm_5",
+    "type": "facts",
+    "prompt": "In Philemon 1:10, on behalf of which runaway bondservant—whose father Paul became in his imprisonment—does Paul make his appeal?",
+    "bookId": "PHM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Onesimus",
+      "bondservant Onesimus",
+      "slave Onesimus"
+    ],
+    "displayAnswer": "Onesimus",
+    "explanation": "Philemon 1:10 reveals the subject of Paul's appeal: his spiritual child Onesimus, converted during Paul's imprisonment.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_phm_6",
+    "type": "facts",
+    "prompt": "In Philemon 1:11, playing on the Greek meaning of Onesimus's name, Paul writes that formerly he was useless to his master, but now he is indeed what to both of them?",
+    "bookId": "PHM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "useful",
+      "profitable",
+      "helpful",
+      "beneficial"
+    ],
+    "displayAnswer": "useful",
+    "explanation": "Philemon 1:11 makes a gentle pun on the name Onesimus ('useful'): formerly useless to you, but now indeed useful to you and to me.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_phm_7",
+    "type": "verse_completion",
+    "prompt": "Philemon 1:16 (ESV): \"no longer as a bondservant but more than a bondservant, as a beloved ______—especially to me, but how much more to you, both in the flesh and in the Lord.\"",
+    "bookId": "PHM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "brother",
+      "beloved brother",
+      "Christian brother"
+    ],
+    "displayAnswer": "brother",
+    "explanation": "Philemon 1:16 captures how the gospel transforms social relationships: welcoming Onesimus back no longer as a slave, but as a beloved brother.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_phm_8",
+    "type": "verse_completion",
+    "prompt": "Philemon 1:18 (ESV): \"If he has wronged you at all, or owes you anything, charge that to my ______.\"",
+    "bookId": "PHM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "account",
+      "my account",
+      "own account"
+    ],
+    "displayAnswer": "account",
+    "explanation": "Philemon 1:18–19 offers Christlike substitutionary restitution: Paul pledges with his own hand to repay anything Onesimus owes.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_phm_9",
+    "type": "facts",
+    "prompt": "In Philemon 1:22, expressing hope that through their prayers he will soon be graciously given back to them, what does Paul ask his host to prepare for him?",
+    "bookId": "PHM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "a guest room",
+      "guest room",
+      "lodging",
+      "a room"
+    ],
+    "displayAnswer": "a guest room",
+    "explanation": "Philemon 1:22 requests: \"At the same time, prepare a guest room for me, for I am hoping that through your prayers I will be graciously given to you.\"",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_phm_10",
+    "type": "facts",
+    "prompt": "In Philemon 1:23, which fellow prisoner in Christ Jesus—who had founded the Colossian church—sends greetings alongside Mark, Aristarchus, Demas, and Luke?",
+    "bookId": "PHM",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Epaphras",
+      "Brother Epaphras",
+      "fellow prisoner Epaphras"
+    ],
+    "displayAnswer": "Epaphras",
+    "explanation": "Philemon 1:23–24 sends greetings from \"Epaphras, my fellow prisoner in Christ Jesus,\" along with Mark, Aristarchus, Demas, and Luke.",
+    "scope": "NT",
+    "genre": "Pauline Epistles"
+  },
+  {
+    "id": "a2_heb_1",
+    "type": "facts",
+    "prompt": "According to Hebrews 1:1–2, after speaking long ago to our fathers by the prophets at many times and in many ways, by whom has God spoken to us \"in these last days\"?",
+    "bookId": "HEB",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "his Son",
+      "Son",
+      "the Son",
+      "God's Son",
+      "Jesus",
+      "Jesus Christ"
+    ],
+    "displayAnswer": "his Son (Hebrews 1:2)",
+    "explanation": "Hebrews 1:1–2 contrasts God's partial revelations through the Old Testament prophets with his final, supreme revelation in his Son, whom he appointed the heir of all things.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_2",
+    "type": "verse_completion",
+    "prompt": "Hebrews 1:3 (ESV): \"He is the ______ of the glory of God and the exact imprint of his nature, and he upholds the universe by the word of his power.\"",
+    "bookId": "HEB",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "radiance",
+      "the radiance",
+      "brightness"
+    ],
+    "displayAnswer": "radiance (Hebrews 1:3)",
+    "explanation": "Hebrews 1:3 proclaims the full deity of the Son as the shining radiance of God's glory and the exact imprint of his divine nature.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_3",
+    "type": "facts",
+    "prompt": "According to Hebrews 2:9, Jesus was made \"for a little while lower\" than which heavenly beings so that by the grace of God he might taste death for everyone?",
+    "bookId": "HEB",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the angels",
+      "angels",
+      "heavenly angels"
+    ],
+    "displayAnswer": "the angels (Hebrews 2:9)",
+    "explanation": "Quoting Psalm 8, Hebrews 2:9 explains that Jesus temporarily took on human nature lower than the angels in order to suffer death on behalf of humanity and be crowned with glory and honor.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_4",
+    "type": "facts",
+    "prompt": "In Hebrews 2:14, Jesus shared in human flesh and blood so that through death he might destroy \"the one who has the power of death\"—whom does the verse explicitly identify that one to be?",
+    "bookId": "HEB",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the devil",
+      "devil",
+      "Satan"
+    ],
+    "displayAnswer": "the devil (Hebrews 2:14)",
+    "explanation": "Hebrews 2:14–15 teaches that by dying in human flesh, Christ broke the devil's tyranny of death and delivered those held in lifelong slavery through fear of death.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_5",
+    "type": "facts",
+    "prompt": "In Hebrews 3:2–6, Jesus is counted worthy of more glory than which faithful Old Testament leader, just as the builder of a house has more honor than the house itself?",
+    "bookId": "HEB",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Moses",
+      "Prophet Moses",
+      "the servant Moses"
+    ],
+    "displayAnswer": "Moses (Hebrews 3:3–6)",
+    "explanation": "Hebrews 3:3–6 honors Moses as a faithful servant within God's house, while exalting Christ as the faithful Son set over God's house.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_6",
+    "type": "verse_completion",
+    "prompt": "Hebrews 3:13 (ESV): \"But exhort one another every day, as long as it is called 'today,' that none of you may be hardened by the ______ of sin.\"",
+    "bookId": "HEB",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "deceitfulness",
+      "the deceitfulness",
+      "deceit"
+    ],
+    "displayAnswer": "deceitfulness (Hebrews 3:13)",
+    "explanation": "Hebrews 3:13 calls believers to daily mutual encouragement so that sin's deceptive lure does not harden their hearts in unbelief.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_7",
+    "type": "verse_completion",
+    "prompt": "Hebrews 4:12 (ESV): \"For the word of God is living and active, sharper than any ______ sword, piercing to the division of soul and of spirit, of joints and of marrow, and discerning the thoughts and intentions of the heart.\"",
+    "bookId": "HEB",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "two-edged",
+      "two edged",
+      "double-edged",
+      "double edged",
+      "twoedged"
+    ],
+    "displayAnswer": "two-edged (Hebrews 4:12)",
+    "explanation": "Hebrews 4:12 pictures God's living word as sharper than any two-edged sword, exposing the innermost thoughts and intentions of every human heart.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_8",
+    "type": "verse_completion",
+    "prompt": "Hebrews 4:16 (ESV): \"Let us then with confidence draw near to the throne of ______, that we may receive mercy and find grace to help in time of need.\"",
+    "bookId": "HEB",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "grace",
+      "the grace",
+      "God's grace"
+    ],
+    "displayAnswer": "grace (Hebrews 4:16)",
+    "explanation": "Because Jesus is our sympathetic great high priest who was tempted in every respect yet without sin, believers can boldly approach God's throne of grace (Hebrews 4:14–16).",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_9",
+    "type": "facts",
+    "prompt": "In Hebrews 5:6 and 5:10, quoting Psalm 110:4, God designated Jesus a high priest forever after the order of which ancient priest-king?",
+    "bookId": "HEB",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Melchizedek",
+      "King Melchizedek",
+      "order of Melchizedek"
+    ],
+    "displayAnswer": "Melchizedek (Hebrews 5:6, 10)",
+    "explanation": "Hebrews 5:6, 10 identifies Jesus' eternal priesthood not with the Aaronic line, but with the royal-priestly order of Melchizedek.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_10",
+    "type": "facts",
+    "prompt": "In Hebrews 5:12–13, spiritually immature believers who are unskilled in the word of righteousness are described as needing what nourishment instead of solid food?",
+    "bookId": "HEB",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "milk",
+      "pure milk",
+      "spiritual milk"
+    ],
+    "displayAnswer": "milk (Hebrews 5:12–13)",
+    "explanation": "Hebrews 5:12–14 rebukes sluggish hearers who still need milk like infants rather than solid food, which is for the mature whose powers of discernment are trained.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_11",
+    "type": "facts",
+    "prompt": "According to Hebrews 6:13, when God made a promise to Abraham, since he had no one greater by whom to swear, by whom did he swear?",
+    "bookId": "HEB",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "himself",
+      "by himself",
+      "God himself",
+      "his own name"
+    ],
+    "displayAnswer": "himself (Hebrews 6:13)",
+    "explanation": "Hebrews 6:13–18 highlights the unchangeable certainty of God's promise and oath, since God swore by himself when promising blessing to Abraham.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_12",
+    "type": "verse_completion",
+    "prompt": "Hebrews 6:19 (ESV): \"We have this as a sure and steadfast ______ of the soul, a hope that enters into the inner place behind the curtain...\"",
+    "bookId": "HEB",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "anchor",
+      "an anchor",
+      "the anchor"
+    ],
+    "displayAnswer": "anchor (Hebrews 6:19)",
+    "explanation": "Hebrews 6:19–20 describes Christian hope as a sure and steadfast anchor of the soul moored in the heavenly sanctuary where Jesus has entered as our forerunner.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_13",
+    "type": "facts",
+    "prompt": "According to Hebrews 7:1–2, Melchizedek was priest of the Most High God and king of which city, making him \"king of peace\"?",
+    "bookId": "HEB",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Salem",
+      "city of Salem",
+      "Jerusalem"
+    ],
+    "displayAnswer": "Salem (Hebrews 7:1–2)",
+    "explanation": "Hebrews 7:1–2 notes that Melchizedek means 'king of righteousness,' and as king of Salem (connected with shalom) he is also 'king of peace.'",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_14",
+    "type": "facts",
+    "prompt": "According to Hebrews 7:14, it is evident that our Lord was descended from which tribe of Israel—a tribe of which Moses spoke nothing concerning priests?",
+    "bookId": "HEB",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "Judah",
+      "tribe of Judah",
+      "the tribe of Judah"
+    ],
+    "displayAnswer": "Judah (Hebrews 7:14)",
+    "explanation": "Because Jesus descended from the royal tribe of Judah rather than Levi, his priesthood signals a decisive change in the priesthood and the law (Hebrews 7:12–14).",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_15",
+    "type": "facts",
+    "prompt": "In Hebrews 8:6–13, quoting Jeremiah 31, Christ's superior priestly ministry mediates what kind of covenant enacted on better promises?",
+    "bookId": "HEB",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "a new covenant",
+      "new covenant",
+      "the new covenant",
+      "a better covenant",
+      "better covenant"
+    ],
+    "displayAnswer": "a new covenant (Hebrews 8:6, 8)",
+    "explanation": "Hebrews 8:6–13 demonstrates that Christ mediates a better, new covenant in which God writes his laws on his people's hearts and forgives their sins.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_16",
+    "type": "verse_completion",
+    "prompt": "Hebrews 8:12 (ESV): \"For I will be merciful toward their iniquities, and I will ______ their sins no more.\"",
+    "bookId": "HEB",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "remember",
+      "recall",
+      "recollect"
+    ],
+    "displayAnswer": "remember (Hebrews 8:12)",
+    "explanation": "Quoting Jeremiah 31:34, Hebrews 8:12 grounds the new covenant in God's full and final pardon of his people's sins.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_17",
+    "type": "facts",
+    "prompt": "According to Hebrews 9:4, inside the golden ark of the covenant were a golden urn holding the manna, the tablets of the covenant, and whose staff that budded?",
+    "bookId": "HEB",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Aaron",
+      "Aaron's",
+      "Aaron's staff",
+      "Aaron's rod",
+      "staff of Aaron"
+    ],
+    "displayAnswer": "Aaron's (Hebrews 9:4)",
+    "explanation": "Hebrews 9:4 recalls the three sacred memorials associated with the ark in the Most Holy Place: the urn of manna, Aaron's budding staff, and the covenant tablets.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_18",
+    "type": "verse_completion",
+    "prompt": "Hebrews 9:22 (ESV): \"Indeed, under the law almost everything is purified with blood, and without the shedding of blood there is no ______ of sins.\"",
+    "bookId": "HEB",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "forgiveness",
+      "remission",
+      "the forgiveness"
+    ],
+    "displayAnswer": "forgiveness (Hebrews 9:22)",
+    "explanation": "Hebrews 9:22 states the foundational sacrificial principle fulfilled once for all when Christ offered his own blood to put away sin.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_19",
+    "type": "facts",
+    "prompt": "In Hebrews 10:4, the author declares that it is impossible for the blood of bulls and what other animals to take away sins?",
+    "bookId": "HEB",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "goats",
+      "goat",
+      "the goats",
+      "bulls and goats"
+    ],
+    "displayAnswer": "goats (Hebrews 10:4)",
+    "explanation": "Hebrews 10:4–10 contrasts the repeated Levitical sacrifices of bulls and goats, which could never remove sin, with Christ's single bodily offering once for all.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_20",
+    "type": "verse_completion",
+    "prompt": "Hebrews 10:24 (ESV): \"And let us consider how to stir up one another to ______ and good works...\"",
+    "bookId": "HEB",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "love",
+      "charity",
+      "brotherly love"
+    ],
+    "displayAnswer": "love (Hebrews 10:24)",
+    "explanation": "Hebrews 10:24–25 urges believers not to neglect meeting together, but to spur one another on toward love and good deeds as the Day draws near.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_21",
+    "type": "verse_completion",
+    "prompt": "Hebrews 11:1 (ESV): \"Now faith is the ______ of things hoped for, the conviction of things not seen.\"",
+    "bookId": "HEB",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "assurance",
+      "the assurance",
+      "substance"
+    ],
+    "displayAnswer": "assurance (Hebrews 11:1)",
+    "explanation": "Hebrews 11:1 opens the 'Hall of Faith' by defining faith as confident assurance regarding future promises and conviction concerning unseen realities.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_22",
+    "type": "facts",
+    "prompt": "According to Hebrews 11:5, which Old Testament patriarch was taken up by faith so that he should not see death, having been commended as having pleased God?",
+    "bookId": "HEB",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Enoch",
+      "Patriarch Enoch",
+      "Prophet Enoch"
+    ],
+    "displayAnswer": "Enoch (Hebrews 11:5)",
+    "explanation": "Hebrews 11:5–6 cites Enoch's translation to heaven without dying as proof that pleasing God requires faith that he exists and rewards those who seek him.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_23",
+    "type": "facts",
+    "prompt": "According to Hebrews 11:31, which woman of Jericho did not perish with those who were disobedient because by faith she had given a friendly welcome to the spies?",
+    "bookId": "HEB",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Rahab",
+      "Rahab the prostitute",
+      "Rahab the harlot"
+    ],
+    "displayAnswer": "Rahab (Hebrews 11:31)",
+    "explanation": "Hebrews 11:31 commends Rahab the prostitute for acting in faith toward the God of Israel by sheltering Joshua's spies when Jericho fell.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_24",
+    "type": "verse_completion",
+    "prompt": "Hebrews 12:1 (ESV): \"Therefore, since we are surrounded by so great a cloud of ______, let us also lay aside every weight, and sin which clings so closely, and let us run with endurance the race that is set before us...\"",
+    "bookId": "HEB",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "witnesses",
+      "the witnesses",
+      "faithful witnesses"
+    ],
+    "displayAnswer": "witnesses (Hebrews 12:1)",
+    "explanation": "Pointing back to the faithful saints of chapter 11 as a 'great cloud of witnesses,' Hebrews 12:1 calls Christians to cast off sin and run their race with endurance.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_25",
+    "type": "facts",
+    "prompt": "In Hebrews 12:2, believers are exhorted to look to Jesus, who endured the cross for the joy set before him and is called the \"founder and perfecter\" of what?",
+    "bookId": "HEB",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "our faith",
+      "faith",
+      "the faith"
+    ],
+    "displayAnswer": "our faith (Hebrews 12:2)",
+    "explanation": "Hebrews 12:2 fixes the believer's eyes on Jesus as both the pioneer (founder) and completer (perfecter) of our faith, seated at the right hand of God's throne.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_26",
+    "type": "facts",
+    "prompt": "In Hebrews 12:16, which Old Testament son of Isaac is cited as a warning against being an unholy person \"who sold his birthright for a single meal\"?",
+    "bookId": "HEB",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "Esau",
+      "Esau son of Isaac",
+      "Isaac's son Esau"
+    ],
+    "displayAnswer": "Esau (Hebrews 12:16)",
+    "explanation": "Hebrews 12:16–17 warns against trading eternal inheritance for fleeting gratification like Esau, who despised his birthright and afterward found no chance to undo his loss.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_27",
+    "type": "facts",
+    "prompt": "According to Hebrews 13:2, why should believers not neglect to show hospitality to strangers—whom have some thereby entertained unawares?",
+    "bookId": "HEB",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "angels",
+      "heavenly angels",
+      "angels unawares",
+      "the angels"
+    ],
+    "displayAnswer": "angels (Hebrews 13:2)",
+    "explanation": "Alluding to Abraham and Lot in Genesis 18–19, Hebrews 13:2 encourages generous Christian hospitality by noting that some have welcomed angels without knowing it.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_heb_28",
+    "type": "verse_completion",
+    "prompt": "Hebrews 13:8 (ESV): \"Jesus Christ is the ______ yesterday and today and forever.\"",
+    "bookId": "HEB",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "same",
+      "the same",
+      "unchanging"
+    ],
+    "displayAnswer": "same (Hebrews 13:8)",
+    "explanation": "Hebrews 13:8 anchors believers amid changing circumstances and false teachings in the unchanging person and faithfulness of Jesus Christ.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_1",
+    "type": "facts",
+    "prompt": "In James 1:1, how many tribes \"in the Dispersion\" does the author greet in the opening salutation of his letter?",
+    "bookId": "JAS",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "12",
+      "twelve",
+      "the twelve",
+      "the 12",
+      "twelve tribes",
+      "12 tribes"
+    ],
+    "displayAnswer": "twelve (James 1:1)",
+    "explanation": "James 1:1 addresses 'the twelve tribes in the Dispersion,' writing to Jewish Christians scattered outside Judea.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_2",
+    "type": "verse_completion",
+    "prompt": "James 1:2–3 (ESV): \"Count it all joy, my brothers, when you meet trials of various kinds, for you know that the testing of your faith produces ______.\"",
+    "bookId": "JAS",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "steadfastness",
+      "patience",
+      "endurance",
+      "perseverance"
+    ],
+    "displayAnswer": "steadfastness (James 1:3)",
+    "explanation": "James 1:2–4 teaches that trials test genuine faith and forge steadfast endurance, leading believers toward spiritual maturity and completeness.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_3",
+    "type": "facts",
+    "prompt": "According to James 1:5–6, one who asks God for wisdom must ask in faith with no doubting, \"for the one who doubts is like a wave of\" what, driven and tossed by the wind?",
+    "bookId": "JAS",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the sea",
+      "sea",
+      "a sea",
+      "the ocean",
+      "ocean"
+    ],
+    "displayAnswer": "the sea (James 1:6)",
+    "explanation": "James 1:6–8 compares a double-minded, doubting person to a wind-tossed wave of the sea, unstable in all his ways.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_4",
+    "type": "verse_completion",
+    "prompt": "James 1:19 (ESV): \"Know this, my beloved brothers: let every person be quick to hear, slow to ______, slow to anger...\"",
+    "bookId": "JAS",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "speak",
+      "to speak",
+      "talk"
+    ],
+    "displayAnswer": "speak (James 1:19)",
+    "explanation": "James 1:19–20 links humble receptivity to God's word with disciplined speech and restraint from human anger, which does not produce the righteousness of God.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_5",
+    "type": "facts",
+    "prompt": "In James 1:23–24, anyone who is a hearer of the word and not a doer is compared to a man who looks intently at his natural face in what object and at once forgets what he was like?",
+    "bookId": "JAS",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "a mirror",
+      "mirror",
+      "the mirror",
+      "glass",
+      "looking glass"
+    ],
+    "displayAnswer": "a mirror (James 1:23)",
+    "explanation": "James 1:22–25 contrasts the forgetful hearer who merely glances into a mirror with the blessed doer who perseveres in the perfect law of liberty.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_6",
+    "type": "facts",
+    "prompt": "In James 2:1–9, what sin are believers warned not to show when a rich man in fine clothing with a gold ring and a poor man in shabby clothing enter their assembly?",
+    "bookId": "JAS",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "partiality",
+      "favoritism",
+      "prejudice",
+      "respect of persons"
+    ],
+    "displayAnswer": "partiality (James 2:1, 9)",
+    "explanation": "James 2:1, 9 condemns showing partiality (favoritism based on wealth or status) as incompatible with faith in our glorious Lord Jesus Christ and a violation of God's law.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_7",
+    "type": "verse_completion",
+    "prompt": "James 2:17 (ESV): \"So also faith by itself, if it does not have ______, is dead.\"",
+    "bookId": "JAS",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "works",
+      "good works",
+      "deeds",
+      "actions"
+    ],
+    "displayAnswer": "works (James 2:17)",
+    "explanation": "James 2:14–17 insists that genuine saving faith inevitably expresses itself in loving obedience and concrete works of mercy.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_8",
+    "type": "facts",
+    "prompt": "According to James 2:19, when someone boasts, \"You believe that God is one; you do well,\" which spiritual beings also believe—and shudder?",
+    "bookId": "JAS",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the demons",
+      "demons",
+      "even the demons",
+      "devils",
+      "evil spirits"
+    ],
+    "displayAnswer": "the demons (James 2:19)",
+    "explanation": "James 2:19 proves that mere intellectual assent without devoted obedience cannot save, since even the demons affirm monotheism in terror.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_9",
+    "type": "facts",
+    "prompt": "In James 2:21–23, Abraham's faith was completed by his works when he offered which son on the altar, fulfilling the Scripture that called him a \"friend of God\"?",
+    "bookId": "JAS",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Isaac",
+      "his son Isaac",
+      "Isaac his son"
+    ],
+    "displayAnswer": "Isaac (James 2:21)",
+    "explanation": "James 2:21–23 points to Genesis 22, showing that Abraham's faith in Genesis 15:6 was demonstrated and brought to completion through his obedient offering of Isaac.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_10",
+    "type": "facts",
+    "prompt": "Alongside Abraham, which Old Testament woman is named in James 2:25 as being justified by works when she received the messengers and sent them out by another way?",
+    "bookId": "JAS",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Rahab",
+      "Rahab the prostitute",
+      "Rahab the harlot"
+    ],
+    "displayAnswer": "Rahab (James 2:25)",
+    "explanation": "Pairing the patriarch Abraham with the Gentile Rahab, James 2:25 illustrates that living faith always acts courageously in allegiance to God.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_11",
+    "type": "facts",
+    "prompt": "In James 3:3–5, to illustrate how a tiny member boasts of great things, the tongue is compared to bits in horses' mouths and to what small steering part of large ships?",
+    "bookId": "JAS",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "rudders",
+      "a rudder",
+      "rudder",
+      "the rudder",
+      "small rudders"
+    ],
+    "displayAnswer": "rudders (James 3:4)",
+    "explanation": "Just as a small bit directs a horse and a very small rudder steers a great ship through strong winds, the small tongue directs the course of one's life (James 3:3–5).",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_12",
+    "type": "verse_completion",
+    "prompt": "James 3:5–6 (ESV): \"How great a forest is set ablaze by such a small fire! And the ______ is a fire, a world of unrighteousness.\"",
+    "bookId": "JAS",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "tongue",
+      "the tongue",
+      "human tongue"
+    ],
+    "displayAnswer": "tongue (James 3:6)",
+    "explanation": "James 3:5–6 warns of the destructive power of careless and malicious speech, comparing an unbridled tongue to a spark that sets a vast forest ablaze.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_13",
+    "type": "facts",
+    "prompt": "According to James 3:8, \"no human being can tame the tongue. It is a restless evil, full of deadly\" what?",
+    "bookId": "JAS",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "poison",
+      "deadly poison",
+      "venom"
+    ],
+    "displayAnswer": "poison (James 3:8)",
+    "explanation": "James 3:7–8 contrasts humanity's ability to tame wild beasts, birds, reptiles, and sea creatures with our inability in our own strength to tame the poisonous tongue.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_14",
+    "type": "verse_completion",
+    "prompt": "James 3:18 (ESV): \"And a harvest of ______ is sown in peace by those who make peace.\"",
+    "bookId": "JAS",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "righteousness",
+      "the righteousness",
+      "justice"
+    ],
+    "displayAnswer": "righteousness (James 3:18)",
+    "explanation": "In contrast to bitter jealousy and selfish ambition, wisdom from above is pure, peaceable, gentle, and yields a harvest of righteousness (James 3:17–18).",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_15",
+    "type": "verse_completion",
+    "prompt": "James 4:10 (ESV): \"Humble yourselves before the Lord, and he will ______ you.\"",
+    "bookId": "JAS",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "exalt",
+      "lift up",
+      "exalt you"
+    ],
+    "displayAnswer": "exalt (James 4:10)",
+    "explanation": "James 4:6–10 calls proud sinners to humble repentance before God, promising that the Lord who gives grace to the humble will lift them up.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_16",
+    "type": "verse_completion",
+    "prompt": "James 4:7 (ESV): \"Submit yourselves therefore to God. Resist the ______, and he will flee from you.\"",
+    "bookId": "JAS",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "devil",
+      "the devil",
+      "Satan"
+    ],
+    "displayAnswer": "devil (James 4:7)",
+    "explanation": "James 4:7 pairs wholehearted submission to God with firm resistance against the devil, promising that the enemy must flee.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_17",
+    "type": "facts",
+    "prompt": "In James 4:14, to rebuke arrogant boasting about tomorrow's business plans, human life is compared to what fleeting phenomenon \"that appears for a little time and then vanishes\"?",
+    "bookId": "JAS",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "a mist",
+      "mist",
+      "the mist",
+      "a vapor",
+      "vapor"
+    ],
+    "displayAnswer": "a mist (James 4:14)",
+    "explanation": "James 4:13–15 reminds believers of life's brevity—like a morning mist—teaching us to say, 'If the Lord wills, we will live and do this or that.'",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_18",
+    "type": "verse_completion",
+    "prompt": "James 4:17 (ESV): \"So whoever knows the right thing to do and fails to do it, for him it is ______.\"",
+    "bookId": "JAS",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "sin",
+      "a sin",
+      "sinful"
+    ],
+    "displayAnswer": "sin (James 4:17)",
+    "explanation": "James 4:17 defines sins of omission: knowingly withholding obedience to what God requires is itself sin.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_19",
+    "type": "facts",
+    "prompt": "In James 5:11, which Old Testament sufferer is held up as an example of steadfastness through whom believers have seen how the Lord is compassionate and merciful?",
+    "bookId": "JAS",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Job",
+      "steadfastness of Job",
+      "patience of Job"
+    ],
+    "displayAnswer": "Job (James 5:11)",
+    "explanation": "James 5:11 recalls the steadfastness of Job and God's merciful restoration at the end of his trials to encourage patient endurance.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_20",
+    "type": "facts",
+    "prompt": "According to James 5:14, if anyone among the believers is sick, whom should he call to pray over him and anoint him with oil in the name of the Lord?",
+    "bookId": "JAS",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "the elders of the church",
+      "elders of the church",
+      "the elders",
+      "elders",
+      "church elders"
+    ],
+    "displayAnswer": "the elders of the church (James 5:14)",
+    "explanation": "James 5:14–15 instructs the sick believer to summon the elders of the church for prayer and anointing with oil in reliance on the Lord.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_21",
+    "type": "verse_completion",
+    "prompt": "James 5:16 (ESV): \"Therefore, confess your sins to one another and pray for one another, that you may be healed. The prayer of a ______ person has great power as it is working.\"",
+    "bookId": "JAS",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "righteous",
+      "just",
+      "godly"
+    ],
+    "displayAnswer": "righteous (James 5:16)",
+    "explanation": "James 5:16 emphasizes mutual confession, intercessory prayer in the church, and the mighty efficacy of a righteous person's prayer.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jas_22",
+    "type": "facts",
+    "prompt": "In James 5:17–18, which Old Testament prophet \"with a nature like ours\" prayed fervently that it might not rain, resulting in three years and six months without rain until he prayed again?",
+    "bookId": "JAS",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Elijah",
+      "Prophet Elijah",
+      "Elias"
+    ],
+    "displayAnswer": "Elijah (James 5:17)",
+    "explanation": "James 5:17–18 cites Elijah's prayers during the drought of 1 Kings 17–18 to encourage ordinary believers to pray fervently.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_1",
+    "type": "facts",
+    "prompt": "According to 1 Peter 1:3, according to his great mercy God has caused us to be born again to a \"living hope\" through what event of Jesus Christ from the dead?",
+    "bookId": "1PE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the resurrection",
+      "resurrection",
+      "his resurrection",
+      "resurrection of Jesus Christ"
+    ],
+    "displayAnswer": "the resurrection (1 Peter 1:3)",
+    "explanation": "1 Peter 1:3 grounds the Christian's new birth, living hope, and imperishable inheritance in the bodily resurrection of Jesus Christ from the dead.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_2",
+    "type": "facts",
+    "prompt": "In 1 Peter 1:7, tested genuine faith is declared to be more precious than which perishable metal, even though it is tested by fire?",
+    "bookId": "1PE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "gold",
+      "pure gold",
+      "perishable gold"
+    ],
+    "displayAnswer": "gold (1 Peter 1:7)",
+    "explanation": "1 Peter 1:6–7 compares fiery trials to a refiner's furnace, showing that proven faith far surpasses perishable gold and results in praise, glory, and honor when Christ is revealed.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_3",
+    "type": "verse_completion",
+    "prompt": "1 Peter 1:16 (ESV): \"...since it is written, 'You shall be ______, for I am ______.'\"",
+    "bookId": "1PE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "holy",
+      "set apart",
+      "pure"
+    ],
+    "displayAnswer": "holy (1 Peter 1:16)",
+    "explanation": "Quoting Leviticus 11:44–45 and 19:2, 1 Peter 1:15–16 calls believers to reflect the holy character of the Father who called them in all their conduct.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_4",
+    "type": "facts",
+    "prompt": "According to 1 Peter 1:18–19, believers were ransomed not with silver or gold, but with the precious blood of Christ, like that of what animal \"without blemish or spot\"?",
+    "bookId": "1PE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "a lamb",
+      "lamb",
+      "the lamb",
+      "spotless lamb"
+    ],
+    "displayAnswer": "a lamb (1 Peter 1:19)",
+    "explanation": "Drawing on Passover and Isaiah 53 imagery, 1 Peter 1:18–19 portrays Christ as the unblemished sacrificial lamb whose precious blood redeemed his people.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_5",
+    "type": "verse_completion",
+    "prompt": "1 Peter 2:2 (ESV): \"Like newborn infants, long for the pure spiritual ______, that by it you may grow up into salvation...\"",
+    "bookId": "1PE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "milk",
+      "spiritual milk",
+      "milk of the word"
+    ],
+    "displayAnswer": "milk (1 Peter 2:2)",
+    "explanation": "1 Peter 2:2–3 urges all believers who have tasted that the Lord is good to crave the pure spiritual milk of God's word with newborn eagerness.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_6",
+    "type": "facts",
+    "prompt": "In 1 Peter 2:4–7, quoting Isaiah 28:16 and Psalm 118:22, Jesus is the living stone rejected by men who has become what chief foundational stone in Zion?",
+    "bookId": "1PE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "the cornerstone",
+      "cornerstone",
+      "a cornerstone",
+      "chief cornerstone"
+    ],
+    "displayAnswer": "the cornerstone (1 Peter 2:6–7)",
+    "explanation": "1 Peter 2:4–8 presents Christ as God's chosen and precious cornerstone upon whom believers are built up as living stones into a spiritual house.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_7",
+    "type": "verse_completion",
+    "prompt": "1 Peter 2:9 (ESV): \"But you are a chosen race, a royal ______, a holy nation, a people for his own possession, that you may proclaim the excellencies of him who called you out of darkness into his marvelous light.\"",
+    "bookId": "1PE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "priesthood",
+      "royal priesthood",
+      "a priesthood"
+    ],
+    "displayAnswer": "priesthood (1 Peter 2:9)",
+    "explanation": "Applying Exodus 19:5–6 to the church, 1 Peter 2:9 declares believers a chosen race and royal priesthood commissioned to proclaim God's excellencies.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_8",
+    "type": "verse_completion",
+    "prompt": "1 Peter 2:24 (ESV): \"He himself bore our sins in his body on the tree, that we might die to sin and live to righteousness. By his ______ you have been healed.\"",
+    "bookId": "1PE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "wounds",
+      "stripes",
+      "his wounds"
+    ],
+    "displayAnswer": "wounds (1 Peter 2:24)",
+    "explanation": "Echoing Isaiah 53:5, 1 Peter 2:24 celebrates Christ's substitutionary atonement on the cross, bringing spiritual healing and new righteous life.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_9",
+    "type": "facts",
+    "prompt": "In 1 Peter 3:5–6, which Old Testament matriarch is commended as a holy woman who hoped in God, obeyed Abraham, and called him \"lord\"?",
+    "bookId": "1PE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Sarah",
+      "Sarai",
+      "Matriarch Sarah"
+    ],
+    "displayAnswer": "Sarah (1 Peter 3:6)",
+    "explanation": "1 Peter 3:5–6 points Christian wives to Sarah's inner beauty and fearless trust in God rather than mere external adornment.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_10",
+    "type": "verse_completion",
+    "prompt": "1 Peter 3:15 (ESV): \"...but in your hearts honor Christ the Lord as holy, always being prepared to make a ______ to anyone who asks you for a reason for the hope that is in you; yet do it with gentleness and respect...\"",
+    "bookId": "1PE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "defense",
+      "a defense",
+      "defence",
+      "answer"
+    ],
+    "displayAnswer": "defense (1 Peter 3:15)",
+    "explanation": "1 Peter 3:15 is the classic New Testament text for Christian apologetics (Greek apologia, 'defense'), rooted in revering Christ as Lord and marked by gentleness and respect.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_11",
+    "type": "facts",
+    "prompt": "According to 1 Peter 3:20, how many persons in all were brought safely through water inside Noah's ark?",
+    "bookId": "1PE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "8",
+      "eight",
+      "eight persons",
+      "8 persons",
+      "eight people",
+      "8 people"
+    ],
+    "displayAnswer": "eight (1 Peter 3:20)",
+    "explanation": "1 Peter 3:20 recalls Noah, his wife, his three sons, and their three wives—eight persons saved through the floodwaters inside the ark.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_12",
+    "type": "facts",
+    "prompt": "According to 1 Peter 3:21, what Christian ordinance corresponds to the floodwaters of Noah's day—not as a removal of dirt from the body, but as an appeal to God for a good conscience through the resurrection of Jesus Christ?",
+    "bookId": "1PE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "baptism",
+      "water baptism",
+      "Christian baptism"
+    ],
+    "displayAnswer": "baptism (1 Peter 3:21)",
+    "explanation": "1 Peter 3:21 explains that baptism saves not as an outward physical washing, but as a faith-filled appeal to God grounded in Christ's resurrection.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_13",
+    "type": "verse_completion",
+    "prompt": "1 Peter 4:8 (ESV): \"Above all, keep loving one another earnestly, since ______ covers a multitude of sins.\"",
+    "bookId": "1PE",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "love",
+      "charity",
+      "brotherly love"
+    ],
+    "displayAnswer": "love (1 Peter 4:8)",
+    "explanation": "Echoing Proverbs 10:12, 1 Peter 4:8 urges earnest, forgiving Christian love that bears patiently with one another's failings.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_14",
+    "type": "facts",
+    "prompt": "In 1 Peter 4:9, believers are commanded to show hospitality to one another without what negative attitude?",
+    "bookId": "1PE",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "grumbling",
+      "without grumbling",
+      "complaining",
+      "murmuring"
+    ],
+    "displayAnswer": "grumbling (1 Peter 4:9)",
+    "explanation": "1 Peter 4:9 pairs open-handed Christian hospitality with a cheerful spirit free of grumbling.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_15",
+    "type": "facts",
+    "prompt": "According to 1 Peter 4:16, if anyone suffers under what name—not as a murderer, thief, or evildoer—he should not be ashamed, but should glorify God in that name?",
+    "bookId": "1PE",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Christian",
+      "a Christian",
+      "as a Christian"
+    ],
+    "displayAnswer": "a Christian (1 Peter 4:16)",
+    "explanation": "1 Peter 4:16 contains one of the three New Testament occurrences of the word 'Christian' (alongside Acts 11:26 and Acts 26:28).",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_16",
+    "type": "facts",
+    "prompt": "According to 1 Peter 4:17, with whom is it time for judgment to begin first?",
+    "bookId": "1PE",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "the household of God",
+      "household of God",
+      "God's household",
+      "the house of God",
+      "the church"
+    ],
+    "displayAnswer": "the household of God (1 Peter 4:17)",
+    "explanation": "1 Peter 4:17 teaches that God's purifying judgment begins first with his own household, contrasting the refining trials of believers with the final fate of those who disobey the gospel.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_17",
+    "type": "facts",
+    "prompt": "According to 1 Peter 5:4, when the \"chief Shepherd\" appears, what reward will faithful elders who shepherd God's flock receive?",
+    "bookId": "1PE",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "the unfading crown of glory",
+      "unfading crown of glory",
+      "crown of glory",
+      "a crown of glory"
+    ],
+    "displayAnswer": "the unfading crown of glory (1 Peter 5:4)",
+    "explanation": "1 Peter 5:2–4 exhorts elders to shepherd God's flock willingly, eagerly, and by example, promising the unfading crown of glory at Christ's appearing.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_18",
+    "type": "verse_completion",
+    "prompt": "1 Peter 5:7 (ESV): \"...casting all your ______ on him, because he cares for you.\"",
+    "bookId": "1PE",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "anxieties",
+      "anxiety",
+      "cares",
+      "worries"
+    ],
+    "displayAnswer": "anxieties (1 Peter 5:7)",
+    "explanation": "1 Peter 5:6–7 shows that true humility under God's mighty hand expresses itself by casting all our anxieties on the Father who tenderly cares for us.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_19",
+    "type": "verse_completion",
+    "prompt": "1 Peter 5:8 (ESV): \"Be sober-minded; be watchful. Your adversary the devil prowls around like a roaring ______, seeking someone to devour.\"",
+    "bookId": "1PE",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "lion",
+      "a lion",
+      "roaring lion"
+    ],
+    "displayAnswer": "lion (1 Peter 5:8)",
+    "explanation": "1 Peter 5:8–9 calls persecuted Christians to spiritual vigilance and firm faith in resisting the devil, who prowls like a roaring lion.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1pe_20",
+    "type": "facts",
+    "prompt": "In the closing greetings of 1 Peter 5:12, through which \"faithful brother\" (also known in Acts as Silas) does the apostle state that he has written briefly?",
+    "bookId": "1PE",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "Silvanus",
+      "Silas",
+      "Brother Silvanus"
+    ],
+    "displayAnswer": "Silvanus (1 Peter 5:12)",
+    "explanation": "1 Peter 5:12 credits Silvanus (Silas) as the faithful coworker and bearer or scribe of the epistle.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_1",
+    "type": "verse_completion",
+    "prompt": "2 Peter 1:3 (ESV): \"His divine power has granted to us all things that pertain to life and ______, through the knowledge of him who called us to his own glory and excellence...\"",
+    "bookId": "2PE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "godliness",
+      "piety",
+      "holiness"
+    ],
+    "displayAnswer": "godliness (2 Peter 1:3)",
+    "explanation": "2 Peter 1:3 assures believers that God's divine power supplies everything needed for spiritual life and godly living through knowing Christ.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_2",
+    "type": "facts",
+    "prompt": "According to 2 Peter 1:4, through God's precious and very great promises, believers become \"partakers\" of what nature, having escaped from the corruption in the world?",
+    "bookId": "2PE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the divine nature",
+      "divine nature",
+      "God's divine nature"
+    ],
+    "displayAnswer": "the divine nature (2 Peter 1:4)",
+    "explanation": "2 Peter 1:4 teaches that God's promises renew believers in moral likeness to God as partakers of the divine nature, rescuing them from worldly corruption.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_3",
+    "type": "verse_completion",
+    "prompt": "2 Peter 1:5–7 (ESV): \"...make every effort to supplement your faith with virtue, and virtue with knowledge, and knowledge with self-control, and self-control with steadfastness, and steadfastness with godliness, and godliness with brotherly affection, and brotherly affection with ______.\"",
+    "bookId": "2PE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "love",
+      "charity",
+      "agape love"
+    ],
+    "displayAnswer": "love (2 Peter 1:7)",
+    "explanation": "In the sevenfold chain of Christian virtues added to faith in 2 Peter 1:5–7, love crowns the entire list.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_4",
+    "type": "facts",
+    "prompt": "In 2 Peter 1:16–18, recalling the Transfiguration of Jesus, where does the apostle say they were with Christ when they heard the voice borne from heaven (\"on the holy ______\")?",
+    "bookId": "2PE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "mountain",
+      "the holy mountain",
+      "holy mountain",
+      "mount",
+      "Mount of Transfiguration"
+    ],
+    "displayAnswer": "the holy mountain (2 Peter 1:18)",
+    "explanation": "2 Peter 1:16–18 recounts eyewitness testimony from the Mount of Transfiguration, where the Father's voice declared, 'This is my beloved Son, with whom I am well pleased.'",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_5",
+    "type": "verse_completion",
+    "prompt": "2 Peter 1:21 (ESV): \"For no prophecy was ever produced by the will of man, but men spoke from God as they were carried along by the ______.\"",
+    "bookId": "2PE",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Holy Spirit",
+      "the Holy Spirit",
+      "Spirit",
+      "Spirit of God"
+    ],
+    "displayAnswer": "Holy Spirit (2 Peter 1:21)",
+    "explanation": "2 Peter 1:20–21 sets forth the divine inspiration of Scripture: human authors spoke from God as they were borne along by the Holy Spirit.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_6",
+    "type": "facts",
+    "prompt": "According to 2 Peter 2:5, when God brought a flood upon the world of the ungodly, which \"herald of righteousness\" did he preserve with seven others?",
+    "bookId": "2PE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Noah",
+      "Patriarch Noah",
+      "righteous Noah"
+    ],
+    "displayAnswer": "Noah (2 Peter 2:5)",
+    "explanation": "2 Peter 2:5 highlights both God's judgment on the ancient ungodly world and his faithful preservation of Noah, a herald of righteousness, with seven family members.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_7",
+    "type": "facts",
+    "prompt": "According to 2 Peter 2:6–7, when God condemned the cities of Sodom and Gomorrah by turning them to ashes, which \"righteous\" man—greatly distressed by the sensual conduct of the wicked—did he rescue?",
+    "bookId": "2PE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Lot",
+      "righteous Lot",
+      "Abraham's nephew Lot"
+    ],
+    "displayAnswer": "Lot (2 Peter 2:7)",
+    "explanation": "2 Peter 2:6–9 cites God's rescue of righteous Lot from Sodom to show that the Lord knows how to rescue the godly from trials while keeping the unrighteous under punishment.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_8",
+    "type": "facts",
+    "prompt": "In 2 Peter 2:15–16, greedy false teachers are said to have followed the way of which son of Beor, who loved gain from wrongdoing and was rebuked when a speechless donkey spoke with human voice?",
+    "bookId": "2PE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Balaam",
+      "Balaam son of Beor",
+      "Balaam the son of Beor"
+    ],
+    "displayAnswer": "Balaam (2 Peter 2:15–16)",
+    "explanation": "Alluding to Numbers 22, 2 Peter 2:15–16 compares covetous false teachers to Balaam, whose madness was restrained by his speaking donkey.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_9",
+    "type": "verse_completion",
+    "prompt": "2 Peter 2:19 (ESV): \"They promise them freedom, but they themselves are slaves of corruption. For whatever overcomes a person, to that he is ______.\"",
+    "bookId": "2PE",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "enslaved",
+      "a slave",
+      "in bondage"
+    ],
+    "displayAnswer": "enslaved (2 Peter 2:19)",
+    "explanation": "2 Peter 2:19 exposes the hollow lie of antinomian false teachers who boast of freedom while remaining enslaved to their own corrupt desires.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_10",
+    "type": "facts",
+    "prompt": "According to 2 Peter 3:3–4, what kind of mockers will come in the last days with scoffing, following their own sinful desires and asking, \"Where is the promise of his coming?\"",
+    "bookId": "2PE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "scoffers",
+      "mockers",
+      "skeptics"
+    ],
+    "displayAnswer": "scoffers (2 Peter 3:3)",
+    "explanation": "2 Peter 3:3–7 warns that last-days scoffers will deny Christ's return while deliberately overlooking God's past judgment by water and coming judgment by fire.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_11",
+    "type": "verse_completion",
+    "prompt": "2 Peter 3:8 (ESV): \"But do not overlook this one fact, beloved, that with the Lord one day is as a ______ years, and a ______ years as one day.\"",
+    "bookId": "2PE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "thousand",
+      "1000",
+      "1,000",
+      "one thousand"
+    ],
+    "displayAnswer": "thousand (2 Peter 3:8)",
+    "explanation": "Drawing on Psalm 90:4, 2 Peter 3:8 reminds readers that the eternal Lord is not bound by human timetables as he fulfills his promises.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_12",
+    "type": "verse_completion",
+    "prompt": "2 Peter 3:9 (ESV): \"The Lord is not slow to fulfill his promise as some count slowness, but is patient toward you, not wishing that any should perish, but that all should reach ______.\"",
+    "bookId": "2PE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "repentance",
+      "true repentance",
+      "repent"
+    ],
+    "displayAnswer": "repentance (2 Peter 3:9)",
+    "explanation": "2 Peter 3:9 explains that the seeming delay of Christ's return is actually God's merciful patience granting time for sinners to repent.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_13",
+    "type": "facts",
+    "prompt": "According to 2 Peter 3:10, \"the day of the Lord will come like\" what unexpected figure, when the heavens will pass away with a roar and the heavenly bodies will be burned up and dissolved?",
+    "bookId": "2PE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "a thief",
+      "thief",
+      "the thief",
+      "a thief in the night"
+    ],
+    "displayAnswer": "a thief (2 Peter 3:10)",
+    "explanation": "Echoing Jesus' teaching, 2 Peter 3:10–14 warns that the day of the Lord will arrive suddenly like a thief, motivating holy and godly living.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2pe_14",
+    "type": "facts",
+    "prompt": "In 2 Peter 3:15–16, which \"beloved brother\" is commended as having written letters according to the wisdom given him—letters containing some things hard to understand, which the ignorant twist \"as they do the other Scriptures\"?",
+    "bookId": "2PE",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Paul",
+      "Apostle Paul",
+      "the apostle Paul",
+      "beloved brother Paul"
+    ],
+    "displayAnswer": "Paul (2 Peter 3:15)",
+    "explanation": "2 Peter 3:15–16 remarkably places the letters of 'our beloved brother Paul' alongside 'the other Scriptures' as authoritative Word of God.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_1",
+    "type": "facts",
+    "prompt": "In 1 John 1:1, the apostle testifies to that which was from the beginning, which they heard, saw with their eyes, looked upon, and touched with their hands, concerning what title of Christ (\"concerning the ______\")?",
+    "bookId": "1JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "word of life",
+      "the word of life",
+      "life"
+    ],
+    "displayAnswer": "word of life (1 John 1:1)",
+    "explanation": "1 John 1:1–2 affirms the tangible, historical incarnation of Jesus as 'the word of life'—the eternal life that was with the Father and was made manifest to the apostles.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_2",
+    "type": "verse_completion",
+    "prompt": "1 John 1:5 (ESV): \"This is the message we have heard from him and proclaim to you, that God is ______, and in him is no darkness at all.\"",
+    "bookId": "1JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "light",
+      "pure light",
+      "the light"
+    ],
+    "displayAnswer": "light (1 John 1:5)",
+    "explanation": "1 John 1:5 summarizes Christ's revelation of the Father's pure moral holiness and truth: 'God is light, and in him is no darkness at all.'",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_3",
+    "type": "facts",
+    "prompt": "According to 1 John 1:7, if we walk in the light, as he is in the light, we have fellowship with one another, and what cleanses us from all sin?",
+    "bookId": "1JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the blood of Jesus",
+      "blood of Jesus",
+      "the blood of Jesus his Son",
+      "blood of Jesus his Son",
+      "Jesus' blood"
+    ],
+    "displayAnswer": "the blood of Jesus his Son (1 John 1:7)",
+    "explanation": "1 John 1:7 links walking transparently in God's light with Christian fellowship and continual cleansing from all sin through the blood of Jesus his Son.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_4",
+    "type": "verse_completion",
+    "prompt": "1 John 1:9 (ESV): \"If we confess our sins, he is faithful and ______ to forgive us our sins and to cleanse us from all unrighteousness.\"",
+    "bookId": "1JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "just",
+      "righteous",
+      "faithful and just"
+    ],
+    "displayAnswer": "just (1 John 1:9)",
+    "explanation": "1 John 1:9 promises that when believers honestly confess their sins, God acts in covenant faithfulness and justice—because Christ has atoned for sin—to forgive and cleanse.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_5",
+    "type": "facts",
+    "prompt": "According to 1 John 2:1, \"if anyone does sin, we have\" what intercessory representative with the Father—Jesus Christ the righteous?",
+    "bookId": "1JN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "an advocate",
+      "advocate",
+      "the advocate",
+      "intercessor",
+      "helper"
+    ],
+    "displayAnswer": "an advocate (1 John 2:1)",
+    "explanation": "1 John 2:1 calls the risen Jesus our 'advocate' (Greek parakletos) who pleads our case before the Father on the basis of his own righteousness.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_6",
+    "type": "facts",
+    "prompt": "In 1 John 2:2 (and 4:10), what key theological term describes Jesus Christ as the wrath-satisfying sacrifice \"for our sins, and not for ours only but also for the sins of the whole world\"?",
+    "bookId": "1JN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "propitiation",
+      "the propitiation",
+      "atoning sacrifice",
+      "atonement"
+    ],
+    "displayAnswer": "propitiation (1 John 2:2)",
+    "explanation": "1 John 2:2 identifies Jesus himself as the propitiation—the sacrifice that satisfies God's righteous wrath and reconciles sinners to the Father.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_7",
+    "type": "verse_completion",
+    "prompt": "1 John 2:15 (ESV): \"Do not love the ______ or the things in the ______. If anyone loves the ______, the love of the Father is not in him.\"",
+    "bookId": "1JN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "world",
+      "the world",
+      "fallen world"
+    ],
+    "displayAnswer": "world (1 John 2:15)",
+    "explanation": "1 John 2:15–17 warns against loving the fallen world-system—characterized by the desires of the flesh, the desires of the eyes, and the pride of life—which is passing away.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_8",
+    "type": "facts",
+    "prompt": "In 1 John 2:18 and 2:22, what title—found in Scripture only in the Johannine epistles—is given both to the coming adversary and to the liar \"who denies the Father and the Son\"?",
+    "bookId": "1JN",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "antichrist",
+      "the antichrist",
+      "antichrists"
+    ],
+    "displayAnswer": "antichrist (1 John 2:18, 22)",
+    "explanation": "1 John 2:18–22 teaches that while 'antichrist is coming,' many antichrists have already appeared among false teachers who deny that Jesus is the Christ.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_9",
+    "type": "verse_completion",
+    "prompt": "1 John 3:1 (ESV): \"See what kind of love the Father has given to us, that we should be called ______ of God; and so we are.\"",
+    "bookId": "1JN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "children",
+      "the children",
+      "sons"
+    ],
+    "displayAnswer": "children (1 John 3:1)",
+    "explanation": "1 John 3:1 marvels at the Father's lavish adopting love in making believers truly children of God.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_10",
+    "type": "facts",
+    "prompt": "In 1 John 3:12, believers are urged to love one another and not be like which Old Testament figure, \"who was of the evil one and murdered his brother\" because his own deeds were evil and his brother's righteous?",
+    "bookId": "1JN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Cain",
+      "Cain son of Adam",
+      "brother of Abel"
+    ],
+    "displayAnswer": "Cain (1 John 3:12)",
+    "explanation": "1 John 3:11–15 uses Cain's envious murder of righteous Abel as the archetype of worldly hatred in contrast to sacrificial Christian love.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_11",
+    "type": "verse_completion",
+    "prompt": "1 John 3:18 (ESV): \"Little children, let us not love in word or talk but in ______ and in truth.\"",
+    "bookId": "1JN",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "deed",
+      "deeds",
+      "action",
+      "actions"
+    ],
+    "displayAnswer": "deed (1 John 3:18)",
+    "explanation": "Following Christ who laid down his life for us, 1 John 3:16–18 insists that true love moves beyond mere words into practical, generous deeds toward brothers in need.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_12",
+    "type": "facts",
+    "prompt": "According to 1 John 4:2, how do you know the Spirit of God—every spirit from God confesses that Jesus Christ has come in what?",
+    "bookId": "1JN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "the flesh",
+      "flesh",
+      "in the flesh",
+      "human flesh"
+    ],
+    "displayAnswer": "the flesh (1 John 4:2)",
+    "explanation": "1 John 4:1–3 provides the doctrinal test for discerning spirits: confessing the true incarnation of Jesus Christ come in the flesh.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_13",
+    "type": "verse_completion",
+    "prompt": "1 John 4:8 (ESV): \"Anyone who does not love does not know God, because God is ______.\"",
+    "bookId": "1JN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "love",
+      "pure love",
+      "agape"
+    ],
+    "displayAnswer": "love (1 John 4:8)",
+    "explanation": "1 John 4:7–10 grounds Christian love in the eternal nature of God himself—'God is love'—manifested supremely in sending his Son to be the propitiation for our sins.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_14",
+    "type": "facts",
+    "prompt": "According to 1 John 4:18, what does \"perfect love\" cast out, because it has to do with punishment?",
+    "bookId": "1JN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "fear",
+      "all fear",
+      "the fear"
+    ],
+    "displayAnswer": "fear (1 John 4:18)",
+    "explanation": "1 John 4:17–18 teaches that God's perfected love gives believers confidence for the day of judgment and drives out cringing fear of punishment.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_15",
+    "type": "facts",
+    "prompt": "According to 1 John 4:20, what does the apostle call anyone who says, \"I love God,\" and hates his brother?",
+    "bookId": "1JN",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "a liar",
+      "liar",
+      "the liar"
+    ],
+    "displayAnswer": "a liar (1 John 4:20)",
+    "explanation": "1 John 4:20 exposes the hypocrisy of claiming to love the unseen God while hating a visible brother: 'for he who does not love his brother whom he has seen cannot love God whom he has not seen.'",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_16",
+    "type": "facts",
+    "prompt": "According to 1 John 5:4, everyone who has been born of God overcomes the world—and what is \"the victory that has overcome the world\"?",
+    "bookId": "1JN",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "our faith",
+      "faith",
+      "the faith"
+    ],
+    "displayAnswer": "our faith (1 John 5:4)",
+    "explanation": "1 John 5:4–5 identifies the world-overcoming victory as our faith—specifically believing that Jesus is the Son of God.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_17",
+    "type": "verse_completion",
+    "prompt": "1 John 5:13 (ESV): \"I write these things to you who believe in the name of the Son of God, that you may know that you have ______.\"",
+    "bookId": "1JN",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "eternal life",
+      "everlasting life",
+      "life eternal"
+    ],
+    "displayAnswer": "eternal life (1 John 5:13)",
+    "explanation": "1 John 5:13 states the overarching pastoral purpose of the epistle: giving believers settled assurance that they possess eternal life in God's Son.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_1jn_18",
+    "type": "facts",
+    "prompt": "With what final command does the epistle conclude in 1 John 5:21: \"Little children, keep yourselves from\" what?",
+    "bookId": "1JN",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "idols",
+      "false idols",
+      "idolatry"
+    ],
+    "displayAnswer": "idols (1 John 5:21)",
+    "explanation": "Having proclaimed Jesus Christ as 'the true God and eternal life' in 1 John 5:20, the apostle closes in 5:21 by warning believers to guard themselves from every counterfeit idol.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2jn_1",
+    "type": "facts",
+    "prompt": "In the opening greeting of 2 John 1:1, by what single title does the author refer to himself?",
+    "bookId": "2JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the elder",
+      "elder",
+      "an elder"
+    ],
+    "displayAnswer": "the elder (2 John 1:1)",
+    "explanation": "Both 2 John 1:1 and 3 John 1:1 open simply with 'The elder,' reflecting the aged apostle's recognized pastoral authority among the churches.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2jn_2",
+    "type": "facts",
+    "prompt": "To whom is the letter addressed in 2 John 1:1 (along with \"her children, whom I love in truth\")?",
+    "bookId": "2JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the elect lady",
+      "elect lady",
+      "chosen lady",
+      "the chosen lady",
+      "the elect lady and her children"
+    ],
+    "displayAnswer": "the elect lady (2 John 1:1)",
+    "explanation": "2 John 1:1 addresses 'the elect lady and her children,' widely understood either as a prominent Christian woman and her family or as a personified local congregation and its members.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2jn_3",
+    "type": "verse_completion",
+    "prompt": "2 John 1:4 (ESV): \"I rejoiced greatly to find some of your children walking in the ______, just as we were commanded by the Father.\"",
+    "bookId": "2JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "truth",
+      "the truth",
+      "God's truth"
+    ],
+    "displayAnswer": "truth (2 John 1:4)",
+    "explanation": "Walking in the truth—faithful adherence to apostolic gospel doctrine lived out in love—is the central theme of 2 John (vv. 1–4).",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2jn_4",
+    "type": "verse_completion",
+    "prompt": "2 John 1:6 (ESV): \"And this is ______, that we walk according to his commandments; this is the commandment, just as you have heard from the beginning, so that you should walk in it.\"",
+    "bookId": "2JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "love",
+      "charity",
+      "Christian love"
+    ],
+    "displayAnswer": "love (2 John 1:6)",
+    "explanation": "2 John 1:5–6 inseparably unites Christian love and obedience: genuine love walks according to God's commandments.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2jn_5",
+    "type": "facts",
+    "prompt": "According to 2 John 1:7, many deceivers have gone out into the world—those who do not confess the coming of Jesus Christ in what?",
+    "bookId": "2JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the flesh",
+      "flesh",
+      "in the flesh",
+      "human flesh"
+    ],
+    "displayAnswer": "the flesh (2 John 1:7)",
+    "explanation": "2 John 1:7 identifies anyone who denies Christ's true coming in the flesh as 'the deceiver and the antichrist.'",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2jn_6",
+    "type": "verse_completion",
+    "prompt": "2 John 1:8 (ESV): \"Watch yourselves, so that you may not lose what we have worked for, but may win a full ______.\"",
+    "bookId": "2JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "reward",
+      "a full reward",
+      "the reward"
+    ],
+    "displayAnswer": "reward (2 John 1:8)",
+    "explanation": "2 John 1:8–9 urges believers to abide vigilantly in the teaching of Christ so they do not forfeit the fruit of apostolic labor, but receive a full reward.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2jn_7",
+    "type": "facts",
+    "prompt": "According to 2 John 1:10–11, if a false teacher comes and does not bring the teaching of Christ, believers must not receive him into their house or give him any what, lest they take part in his wicked works?",
+    "bookId": "2JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "greeting",
+      "a greeting",
+      "any greeting",
+      "welcome"
+    ],
+    "displayAnswer": "greeting (2 John 1:10–11)",
+    "explanation": "2 John 1:10–11 forbids extending house-church patronage, lodging, or official endorsement ('greeting') to itinerant deceivers peddling anti-Christian doctrine.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_2jn_8",
+    "type": "facts",
+    "prompt": "In 2 John 1:12, though he has much to write, the elder says he would rather not use paper and what other writing material, hoping instead to come and talk face to face so that their joy may be complete?",
+    "bookId": "2JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "ink",
+      "black ink",
+      "paper and ink"
+    ],
+    "displayAnswer": "ink (2 John 1:12)",
+    "explanation": "2 John 1:12 contrasts writing with 'paper and ink' (papyrus and ink) with the fuller fellowship and joy of speaking face to face.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_3jn_1",
+    "type": "facts",
+    "prompt": "To which \"beloved\" brother—whom the elder loves in truth—is 3 John personally addressed in 3 John 1:1?",
+    "bookId": "3JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Gaius",
+      "beloved Gaius",
+      "the beloved Gaius"
+    ],
+    "displayAnswer": "Gaius (3 John 1:1)",
+    "explanation": "3 John 1:1 addresses 'the beloved Gaius,' a faithful and hospitable church member commended throughout verses 1–8.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_3jn_2",
+    "type": "verse_completion",
+    "prompt": "3 John 1:2 (ESV): \"Beloved, I pray that all may go well with you and that you may be in good health, as it goes well with your ______.\"",
+    "bookId": "3JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "soul",
+      "your soul",
+      "spirit"
+    ],
+    "displayAnswer": "soul (3 John 1:2)",
+    "explanation": "3 John 1:2 warmly prays that Gaius's physical well-being would match the evident spiritual health of his soul.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_3jn_3",
+    "type": "verse_completion",
+    "prompt": "3 John 1:4 (ESV): \"I have no greater ______ than to hear that my children are walking in the truth.\"",
+    "bookId": "3JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "joy",
+      "rejoicing",
+      "delight"
+    ],
+    "displayAnswer": "joy (3 John 1:4)",
+    "explanation": "3 John 1:3–4 expresses the elder's supreme pastoral joy upon hearing reports of his spiritual children walking faithfully in the truth.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_3jn_4",
+    "type": "facts",
+    "prompt": "According to 3 John 1:5–7, Gaius faithfully supported traveling missionary brothers who went out for the sake of the name and accepted nothing from whom?",
+    "bookId": "3JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the Gentiles",
+      "Gentiles",
+      "unbelievers",
+      "pagans"
+    ],
+    "displayAnswer": "the Gentiles (3 John 1:7)",
+    "explanation": "3 John 1:7–8 notes that itinerant gospel workers refused financial support from non-believing Gentiles so as not to obscure free grace, making Christian hospitality vital.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_3jn_5",
+    "type": "facts",
+    "prompt": "In 3 John 1:9, which church leader \"who likes to put himself first\" refused to acknowledge the elder's authority or welcome the brothers?",
+    "bookId": "3JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Diotrephes",
+      "leader Diotrephes",
+      "proud Diotrephes"
+    ],
+    "displayAnswer": "Diotrephes (3 John 1:9)",
+    "explanation": "3 John 1:9–10 rebukes Diotrephes for his self-promoting pride, slanderous talk against the elder, and refusal to welcome faithful missionaries.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_3jn_6",
+    "type": "facts",
+    "prompt": "According to 3 John 1:10, when believers wanted to welcome the traveling brothers, Diotrephes stopped them and put them out of what?",
+    "bookId": "3JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "the church",
+      "church",
+      "the congregation",
+      "the assembly"
+    ],
+    "displayAnswer": "the church (3 John 1:10)",
+    "explanation": "3 John 1:10 records Diotrephes' abusive authoritarianism: not only refusing hospitality himself, he expelled hospitable members from the local church.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_3jn_7",
+    "type": "verse_completion",
+    "prompt": "3 John 1:11 (ESV): \"Beloved, do not imitate ______ but imitate good. Whoever does good is from God; whoever does ______ has not seen God.\"",
+    "bookId": "3JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "evil",
+      "wickedness",
+      "what is evil"
+    ],
+    "displayAnswer": "evil (3 John 1:11)",
+    "explanation": "Transitioning from Diotrephes' bad example to Demetrius's noble example, 3 John 1:11 urges Gaius not to imitate evil but to imitate good.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_3jn_8",
+    "type": "facts",
+    "prompt": "In 3 John 1:12, which exemplary brother—likely the bearer of the letter—is commended as having \"received a good testimony from everyone, and from the truth itself\"?",
+    "bookId": "3JN",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Demetrius",
+      "Brother Demetrius",
+      "faithful Demetrius"
+    ],
+    "displayAnswer": "Demetrius (3 John 1:12)",
+    "explanation": "3 John 1:12 warmly commends Demetrius with a threefold witness: from everyone, from the truth itself, and from the elder.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jud_1",
+    "type": "verse_completion",
+    "prompt": "Jude 1:3 (ESV): \"Beloved, although I was very eager to write to you about our common salvation, I found it necessary to write appealing to you to contend for the ______ that was once for all delivered to the saints.\"",
+    "bookId": "JUD",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "faith",
+      "the faith",
+      "Christian faith"
+    ],
+    "displayAnswer": "faith (Jude 1:3)",
+    "explanation": "Jude 1:3 states the urgent theme of the letter: contending earnestly for the apostolic faith entrusted once for all to God's people.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jud_2",
+    "type": "facts",
+    "prompt": "According to Jude 1:4, ungodly intruders who crept in unnoticed pervert the grace of our God into what, and deny our only Master and Lord, Jesus Christ?",
+    "bookId": "JUD",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "sensuality",
+      "licentiousness",
+      "lewdness",
+      "immorality",
+      "lust"
+    ],
+    "displayAnswer": "sensuality (Jude 1:4)",
+    "explanation": "Jude 1:4 exposes antinomian false teachers who twist God's grace into a license for sensuality while denying the lordship of Jesus Christ.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jud_3",
+    "type": "facts",
+    "prompt": "In Jude 1:5, as his first Old Testament warning example, the author reminds readers that the Lord saved a people out of which land and afterward destroyed those who did not believe?",
+    "bookId": "JUD",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Egypt",
+      "the land of Egypt",
+      "land of Egypt"
+    ],
+    "displayAnswer": "the land of Egypt (Jude 1:5)",
+    "explanation": "Jude 1:5 recalls the exodus generation: though rescued out of Egypt, the unbelieving generation perished in the wilderness (Numbers 14).",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jud_4",
+    "type": "facts",
+    "prompt": "According to Jude 1:7, which two cities (along with the surrounding cities) indulged in sexual immorality and pursued unnatural desire, serving as an example by undergoing a punishment of eternal fire?",
+    "bookId": "JUD",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Sodom and Gomorrah",
+      "Sodom & Gomorrah",
+      "Gomorrah and Sodom",
+      "Sodom, Gomorrah"
+    ],
+    "displayAnswer": "Sodom and Gomorrah (Jude 1:7)",
+    "explanation": "Alongside unbelieving Israel and rebellious angels, Jude 1:7 cites the fiery overthrow of Sodom and Gomorrah (Genesis 19) as a warning of divine judgment.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jud_5",
+    "type": "facts",
+    "prompt": "In Jude 1:9, which archangel contended with the devil and did not presume to pronounce a blasphemous judgment, but said, \"The Lord rebuke you\"?",
+    "bookId": "JUD",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Michael",
+      "Michael the archangel",
+      "the archangel Michael",
+      "Archangel Michael"
+    ],
+    "displayAnswer": "Michael (Jude 1:9)",
+    "explanation": "Jude 1:9 contrasts arrogant false teachers who blaspheme glorious ones with the archangel Michael, who entrusted judgment to the Lord.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jud_6",
+    "type": "verse_completion",
+    "prompt": "Jude 1:9 (ESV): \"But when the archangel Michael, contending with the devil, was disputing about the body of ______, he did not presume to pronounce a blasphemous judgment, but said, 'The Lord rebuke you.'\"",
+    "bookId": "JUD",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Moses",
+      "Prophet Moses",
+      "body of Moses",
+      "the body of Moses"
+    ],
+    "displayAnswer": "Moses (Jude 1:9)",
+    "explanation": "Jude 1:9 preserves the striking account of the archangel Michael disputing with the devil over the body of Moses (cf. Deuteronomy 34:5–6).",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jud_7",
+    "type": "facts",
+    "prompt": "In Jude 1:11, false teachers are denounced for walking in the way of Cain, abandoning themselves for gain to Balaam's error, and perishing in whose rebellion?",
+    "bookId": "JUD",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Korah",
+      "Korah's",
+      "Korah's rebellion",
+      "rebellion of Korah"
+    ],
+    "displayAnswer": "Korah's rebellion (Jude 1:11)",
+    "explanation": "Alluding to Numbers 16, Jude 1:11 warns that those who reject God-ordained authority follow the path of Korah's fatal rebellion against Moses and Aaron.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jud_8",
+    "type": "facts",
+    "prompt": "According to Jude 1:14–15, which patriarch—identified as \"the seventh from Adam\"—prophesied, \"Behold, the Lord comes with ten thousands of his holy ones\"?",
+    "bookId": "JUD",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Enoch",
+      "Patriarch Enoch",
+      "Prophet Enoch"
+    ],
+    "displayAnswer": "Enoch (Jude 1:14)",
+    "explanation": "Jude 1:14–15 cites the prophecy of Enoch, the seventh generation from Adam (Genesis 5:18–24), proclaiming the Lord's coming with his holy myriads to execute judgment.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jud_9",
+    "type": "verse_completion",
+    "prompt": "Jude 1:20–21 (ESV): \"But you, beloved, building yourselves up in your most holy faith and praying in the Holy Spirit, keep yourselves in the ______ of God, waiting for the mercy of our Lord Jesus Christ that leads to eternal life.\"",
+    "bookId": "JUD",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "love",
+      "the love",
+      "love of God",
+      "God's love"
+    ],
+    "displayAnswer": "love (Jude 1:21)",
+    "explanation": "Jude 1:20–21 centers Christian perseverance on the imperative 'keep yourselves in the love of God,' sustained by edification in the faith, Spirit-led prayer, and hope in Christ's mercy.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_jud_10",
+    "type": "verse_completion",
+    "prompt": "Jude 1:24 (ESV): \"Now to him who is able to keep you from ______ and to present you blameless before the presence of his glory with great joy...\"",
+    "bookId": "JUD",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "stumbling",
+      "falling",
+      "from stumbling"
+    ],
+    "displayAnswer": "stumbling (Jude 1:24)",
+    "explanation": "Jude 1:24–25 closes the epistle with one of Scripture's most beloved doxologies, praising our only God and Savior who guards his people from stumbling into apostasy.",
+    "scope": "NT",
+    "genre": "General Epistles"
+  },
+  {
+    "id": "a2_rev_1",
+    "type": "verse_completion",
+    "prompt": "Revelation 1:8 (ESV): \"'I am the ______ and the Omega,' says the Lord God, 'who is and who was and who is to come, the Almighty.'\"",
+    "bookId": "REV",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Alpha",
+      "the Alpha",
+      "beginning"
+    ],
+    "displayAnswer": "Alpha (Revelation 1:8)",
+    "explanation": "Alpha and Omega—the first and last letters of the Greek alphabet—proclaim the Lord's eternal sovereignty over all history from beginning to end (Revelation 1:8; 21:6; 22:13).",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_2",
+    "type": "facts",
+    "prompt": "According to Revelation 1:9, on what island in the Aegean Sea was the author when he received the visions on the Lord's day \"on account of the word of God and the testimony of Jesus\"?",
+    "bookId": "REV",
+    "chapterNum": 1,
+    "acceptedAnswers": [
+      "Patmos",
+      "the island of Patmos",
+      "island of Patmos",
+      "Isle of Patmos"
+    ],
+    "displayAnswer": "Patmos (Revelation 1:9)",
+    "explanation": "Revelation 1:9 places the seer on the rocky Aegean island of Patmos, sharing in the tribulation, kingdom, and patient endurance that are in Jesus.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_3",
+    "type": "facts",
+    "prompt": "In Revelation 2:1–4, which of the seven churches is praised for testing false apostles and enduring patiently, yet rebuked with the charge: \"you have abandoned the love you had at first\"?",
+    "bookId": "REV",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "Ephesus",
+      "church in Ephesus",
+      "the church in Ephesus",
+      "Ephesian church"
+    ],
+    "displayAnswer": "Ephesus (Revelation 2:1, 4)",
+    "explanation": "Addressed first among the seven churches of Asia Minor, Ephesus maintained doctrinal vigilance and toil yet abandoned its first love (Revelation 2:1–7).",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_4",
+    "type": "verse_completion",
+    "prompt": "Revelation 2:10 (ESV): \"Be faithful unto death, and I will give you the crown of ______.\"",
+    "bookId": "REV",
+    "chapterNum": 2,
+    "acceptedAnswers": [
+      "life",
+      "eternal life",
+      "the life"
+    ],
+    "displayAnswer": "life (Revelation 2:10)",
+    "explanation": "Writing to the suffering church in Smyrna facing imprisonment and persecution, the risen Christ promises the victor's 'crown of life' (Revelation 2:8–11).",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_5",
+    "type": "facts",
+    "prompt": "In Revelation 3:14–16, which of the seven churches is rebuked for being \"lukewarm, and neither hot nor cold\"?",
+    "bookId": "REV",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "Laodicea",
+      "church in Laodicea",
+      "the church in Laodicea",
+      "Laodicean church"
+    ],
+    "displayAnswer": "Laodicea (Revelation 3:14–16)",
+    "explanation": "Wealthy, self-satisfied Laodicea boasted 'I am rich, I have prospered, and I need nothing,' not realizing it was wretched, pitiable, poor, blind, and lukewarm (Revelation 3:14–17).",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_6",
+    "type": "verse_completion",
+    "prompt": "Revelation 3:20 (ESV): \"Behold, I stand at the ______ and knock. If anyone hears my voice and opens the ______, I will come in to him and eat with him, and he with me.\"",
+    "bookId": "REV",
+    "chapterNum": 3,
+    "acceptedAnswers": [
+      "door",
+      "the door",
+      "the door of the heart"
+    ],
+    "displayAnswer": "door (Revelation 3:20)",
+    "explanation": "In Revelation 3:20, the risen Lord graciously stands knocking at the door of lukewarm Laodicea, inviting repentant fellowship around his table.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_7",
+    "type": "facts",
+    "prompt": "According to Revelation 4:4, how many elders clothed in white garments and wearing golden crowns sit on thrones surrounding God's heavenly throne?",
+    "bookId": "REV",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "24",
+      "twenty-four",
+      "twenty four",
+      "24 elders",
+      "twenty-four elders"
+    ],
+    "displayAnswer": "twenty-four (Revelation 4:4)",
+    "explanation": "Revelation 4:4, 10–11 depicts twenty-four elders—representing the fullness of God's redeemed people across the twelve tribes and twelve apostles—casting their golden crowns before God's throne.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_8",
+    "type": "verse_completion",
+    "prompt": "Revelation 4:8 (ESV): \"And the four living creatures, each of them with six wings, are full of eyes all around and within, and day and night they never cease to say, '______, ______, ______, is the Lord God Almighty, who was and is and is to come!'\"",
+    "bookId": "REV",
+    "chapterNum": 4,
+    "acceptedAnswers": [
+      "Holy",
+      "holy, holy, holy",
+      "holy holy holy"
+    ],
+    "displayAnswer": "Holy (Revelation 4:8)",
+    "explanation": "Echoing the seraphim of Isaiah 6:3, the four living creatures in Revelation 4:8 ceaselessly proclaim the thrice-holy majesty of the Lord God Almighty.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_9",
+    "type": "facts",
+    "prompt": "In Revelation 5:5–6, after an elder announces that \"the Lion of the tribe of Judah, the Root of David, has conquered\" to open the scroll, what sacrificial animal does the seer behold standing \"as though it had been slain\"?",
+    "bookId": "REV",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "a Lamb",
+      "Lamb",
+      "the Lamb",
+      "Lamb of God"
+    ],
+    "displayAnswer": "a Lamb (Revelation 5:6)",
+    "explanation": "Revelation 5:5–6 reveals the heart of apocalyptic Christology: the conquering Lion of Judah triumphs precisely as the slain and risen Lamb.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_10",
+    "type": "verse_completion",
+    "prompt": "Revelation 5:12 (ESV): \"'Worthy is the Lamb who was slain, to receive power and wealth and wisdom and might and honor and ______ and blessing!'\"",
+    "bookId": "REV",
+    "chapterNum": 5,
+    "acceptedAnswers": [
+      "glory",
+      "the glory",
+      "honor and glory"
+    ],
+    "displayAnswer": "glory (Revelation 5:12)",
+    "explanation": "Myriads of angels around the throne join in sevenfold praise to the slain Lamb who ransomed people for God from every tribe, language, people, and nation (Revelation 5:9–12).",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_11",
+    "type": "facts",
+    "prompt": "According to Revelation 6:8, when the Lamb opened the fourth seal, a pale horse appeared—what was the name of its rider, whom Hades followed?",
+    "bookId": "REV",
+    "chapterNum": 6,
+    "acceptedAnswers": [
+      "Death",
+      "rider named Death",
+      "the rider Death"
+    ],
+    "displayAnswer": "Death (Revelation 6:8)",
+    "explanation": "Among the four horsemen of Revelation 6:1–8, the rider on the fourth pale (sickly green) horse is explicitly named Death, accompanied by Hades.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_12",
+    "type": "facts",
+    "prompt": "According to Revelation 7:4, what total number of servants of God were sealed on their foreheads from all the tribes of the sons of Israel (12,000 from each of twelve tribes)?",
+    "bookId": "REV",
+    "chapterNum": 7,
+    "acceptedAnswers": [
+      "144,000",
+      "144000",
+      "one hundred forty-four thousand",
+      "one hundred and forty-four thousand",
+      "a hundred and forty-four thousand"
+    ],
+    "displayAnswer": "144,000 (Revelation 7:4)",
+    "explanation": "Revelation 7:4–8 records the symbolic completeness of 144,000 sealed servants of God (12 × 12 × 1,000) protected before the winds of judgment blow.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_13",
+    "type": "facts",
+    "prompt": "According to Revelation 8:1, when the Lamb opened the seventh seal, there was silence in heaven for about how long?",
+    "bookId": "REV",
+    "chapterNum": 8,
+    "acceptedAnswers": [
+      "half an hour",
+      "about half an hour",
+      "a half hour",
+      "30 minutes",
+      "thirty minutes"
+    ],
+    "displayAnswer": "half an hour (Revelation 8:1)",
+    "explanation": "Revelation 8:1–5 describes an awe-filled silence in heaven for about half an hour as the prayers of all the saints rise with incense before God prior to the seven trumpets.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_14",
+    "type": "facts",
+    "prompt": "According to Revelation 9:11, the locusts from the bottomless pit have as king over them the angel of the bottomless pit, whose name in Greek is Apollyon—what is his name in Hebrew?",
+    "bookId": "REV",
+    "chapterNum": 9,
+    "acceptedAnswers": [
+      "Abaddon",
+      "King Abaddon",
+      "the angel Abaddon"
+    ],
+    "displayAnswer": "Abaddon (Revelation 9:11)",
+    "explanation": "Revelation 9:11 gives both the Hebrew name Abaddon ('Destruction') and the Greek name Apollyon ('Destroyer') for the angel ruling the abyss.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_15",
+    "type": "facts",
+    "prompt": "In Revelation 10:9–10, when the seer took the little scroll from the mighty angel's hand and ate it, it made his stomach bitter, yet in his mouth it was as sweet as what?",
+    "bookId": "REV",
+    "chapterNum": 10,
+    "acceptedAnswers": [
+      "honey",
+      "sweet honey",
+      "sweet as honey"
+    ],
+    "displayAnswer": "honey (Revelation 10:9–10)",
+    "explanation": "Echoing Ezekiel 2:8–3:3, eating the little scroll in Revelation 10:9–10 is sweet as honey in the mouth (God's promise of salvation) yet bitter in the stomach (coming judgment and suffering).",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_16",
+    "type": "verse_completion",
+    "prompt": "Revelation 11:15 (ESV): \"Then the seventh angel blew his trumpet, and there were loud voices in heaven, saying, 'The kingdom of the world has become the kingdom of our Lord and of his ______, and he shall reign forever and ever.'\"",
+    "bookId": "REV",
+    "chapterNum": 11,
+    "acceptedAnswers": [
+      "Christ",
+      "Messiah",
+      "Anointed"
+    ],
+    "displayAnswer": "Christ (Revelation 11:15)",
+    "explanation": "At the sounding of the seventh trumpet in Revelation 11:15, heaven celebrates the triumphant consummation of the eternal reign of the Lord and his Christ.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_17",
+    "type": "facts",
+    "prompt": "In Revelation 12:7–9, war arose in heaven in which Michael and his angels fought against and threw down which great seven-headed creature—explicitly identified as \"that ancient serpent, who is called the devil and Satan\"?",
+    "bookId": "REV",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "the dragon",
+      "dragon",
+      "the great dragon",
+      "great dragon",
+      "red dragon"
+    ],
+    "displayAnswer": "the dragon (Revelation 12:7–9)",
+    "explanation": "Revelation 12:3, 7–9 depicts Satan as a great red dragon defeated and cast out of heaven, losing his place as the accuser of the brothers.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_18",
+    "type": "verse_completion",
+    "prompt": "Revelation 12:11 (ESV): \"And they have conquered him by the ______ of the Lamb and by the word of their testimony, for they loved not their lives even unto death.\"",
+    "bookId": "REV",
+    "chapterNum": 12,
+    "acceptedAnswers": [
+      "blood",
+      "the blood",
+      "precious blood"
+    ],
+    "displayAnswer": "blood (Revelation 12:11)",
+    "explanation": "Revelation 12:11 summarizes how martyrs and faithful believers overcome Satan's accusations and rage: through the atoning blood of the Lamb and fearless witness.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_19",
+    "type": "facts",
+    "prompt": "According to Revelation 13:18, what number calls for wisdom to calculate because \"it is the number of a man\"—the number of the beast?",
+    "bookId": "REV",
+    "chapterNum": 13,
+    "acceptedAnswers": [
+      "666",
+      "six hundred sixty-six",
+      "six hundred and sixty-six"
+    ],
+    "displayAnswer": "666 (Revelation 13:18)",
+    "explanation": "Revelation 13:18 states that the beast's number is 666, symbolizing fallen human pretension falling forever short of divine perfection (seven).",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_20",
+    "type": "verse_completion",
+    "prompt": "Revelation 14:13 (ESV): \"And I heard a voice from heaven saying, 'Write this: Blessed are the dead who die in the Lord from now on.' 'Blessed indeed,' says the Spirit, 'that they may ______ from their labors, for their deeds follow them!'\"",
+    "bookId": "REV",
+    "chapterNum": 14,
+    "acceptedAnswers": [
+      "rest",
+      "cease",
+      "rest from their labors"
+    ],
+    "displayAnswer": "rest (Revelation 14:13)",
+    "explanation": "The second of Revelation's seven beatitudes (Revelation 14:13) contrasts the torment of beast-worshipers with the blessed Sabbath rest of saints who die in the Lord.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_21",
+    "type": "facts",
+    "prompt": "According to Revelation 15:2–3, those who had conquered the beast stood beside a sea of glass mingled with fire and sang the song of the Lamb and the song of which \"servant of God\"?",
+    "bookId": "REV",
+    "chapterNum": 15,
+    "acceptedAnswers": [
+      "Moses",
+      "the servant Moses",
+      "song of Moses"
+    ],
+    "displayAnswer": "Moses (Revelation 15:3)",
+    "explanation": "Recalling Israel's victory song at the Red Sea (Exodus 15), the redeemed in Revelation 15:3 sing 'the song of Moses, the servant of God, and the song of the Lamb.'",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_22",
+    "type": "facts",
+    "prompt": "According to Revelation 16:16, when the sixth bowl of wrath was poured out, demonic spirits assembled the kings of the whole world for battle at the place that in Hebrew is called what?",
+    "bookId": "REV",
+    "chapterNum": 16,
+    "acceptedAnswers": [
+      "Armageddon",
+      "Har-Magedon",
+      "Harmagedon",
+      "Mount Megiddo"
+    ],
+    "displayAnswer": "Armageddon (Revelation 16:16)",
+    "explanation": "Revelation 16:14–16 names Armageddon (Hebrew 'Mount of Megiddo') as the symbolic gathering place for the final battle on the great day of God the Almighty.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_23",
+    "type": "verse_completion",
+    "prompt": "Revelation 17:14 (ESV): \"They will make war on the Lamb, and the Lamb will conquer them, for he is Lord of lords and ______ of kings, and those with him are called and chosen and faithful.\"",
+    "bookId": "REV",
+    "chapterNum": 17,
+    "acceptedAnswers": [
+      "King",
+      "the King",
+      "King of kings"
+    ],
+    "displayAnswer": "King (Revelation 17:14)",
+    "explanation": "Revelation 17:14 declares the certain victory of the Lamb over the ten kings allied with the beast, because Christ reigns as Lord of lords and King of kings.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_24",
+    "type": "facts",
+    "prompt": "In Revelation 18:2 and 18:10, a mighty angel cries out, \"Fallen, fallen\" over which symbolic \"great city\" of idolatrous luxury and violence, whose judgment comes in a single hour?",
+    "bookId": "REV",
+    "chapterNum": 18,
+    "acceptedAnswers": [
+      "Babylon",
+      "Babylon the great",
+      "city of Babylon"
+    ],
+    "displayAnswer": "Babylon the great (Revelation 18:2, 10)",
+    "explanation": "Revelation 18 laments and celebrates the sudden fall of 'Babylon the great,' representing ungodly imperial power, economic arrogance, and persecution of the saints.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_25",
+    "type": "facts",
+    "prompt": "In Revelation 19:7–9, after Babylon's fall, heaven rejoices and pronounces a blessing on those who are invited to the marriage supper of whom?",
+    "bookId": "REV",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "the Lamb",
+      "Lamb",
+      "the Lamb of God",
+      "Christ"
+    ],
+    "displayAnswer": "the Lamb (Revelation 19:9)",
+    "explanation": "Revelation 19:7–9 celebrates the union of Christ and his Bride, the church clothed in fine linen, declaring, 'Blessed are those who are invited to the marriage supper of the Lamb.'",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_26",
+    "type": "facts",
+    "prompt": "According to Revelation 19:11–13, what color is the horse ridden out of opened heaven by the warrior named \"Faithful and True\" and \"The Word of God\"?",
+    "bookId": "REV",
+    "chapterNum": 19,
+    "acceptedAnswers": [
+      "white",
+      "a white horse",
+      "white horse"
+    ],
+    "displayAnswer": "white (Revelation 19:11)",
+    "explanation": "Revelation 19:11–16 portrays the returning Christ riding a white horse of righteous victory, followed by the armies of heaven on white horses.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_27",
+    "type": "facts",
+    "prompt": "According to Revelation 20:2–3, an angel came down from heaven with a great chain and bound the dragon (Satan) in the bottomless pit for how long so that he might not deceive the nations any longer?",
+    "bookId": "REV",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "1,000 years",
+      "1000 years",
+      "a thousand years",
+      "one thousand years",
+      "1,000",
+      "1000",
+      "a thousand",
+      "one thousand"
+    ],
+    "displayAnswer": "a thousand years (Revelation 20:2–3)",
+    "explanation": "Revelation 20:1–7 six times mentions the 'thousand years' (the millennium) during which Satan is bound and Christ's saints reign with him.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_28",
+    "type": "verse_completion",
+    "prompt": "Revelation 20:15 (ESV): \"And if anyone's name was not found written in the book of ______, he was thrown into the lake of fire.\"",
+    "bookId": "REV",
+    "chapterNum": 20,
+    "acceptedAnswers": [
+      "life",
+      "the book of life",
+      "eternal life"
+    ],
+    "displayAnswer": "life (Revelation 20:15)",
+    "explanation": "At the great white throne judgment in Revelation 20:11–15, eternal destiny hinges on whether one's name is written in the Lamb's book of life.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_29",
+    "type": "verse_completion",
+    "prompt": "Revelation 21:4 (ESV): \"He will wipe away every ______ from their eyes, and death shall be no more, neither shall there be mourning, nor crying, nor pain anymore, for the former things have passed away.\"",
+    "bookId": "REV",
+    "chapterNum": 21,
+    "acceptedAnswers": [
+      "tear",
+      "tears",
+      "every tear"
+    ],
+    "displayAnswer": "tear (Revelation 21:4)",
+    "explanation": "In the new heaven and new earth where God dwells with his people (Revelation 21:1–4), he personally wipes away every tear and banishes death, sorrow, and pain forever.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
+  {
+    "id": "a2_rev_30",
+    "type": "verse_completion",
+    "prompt": "Revelation 22:2 (ESV): \"...also, on either side of the river, the tree of life with its twelve kinds of fruit, yielding its fruit each month. The leaves of the tree were for the ______ of the nations.\"",
+    "bookId": "REV",
+    "chapterNum": 22,
+    "acceptedAnswers": [
+      "healing",
+      "the healing",
+      "cure"
+    ],
+    "displayAnswer": "healing (Revelation 22:2)",
+    "explanation": "Bringing the biblical story full circle from Eden in Genesis 2–3 to the New Jerusalem in Revelation 22:1–3, the curse is lifted and the tree of life brings healing to the nations.",
+    "scope": "NT",
+    "genre": "Apocalyptic"
+  },
   {
     "id": "bmpi_1",
     "type": "book_chapter",

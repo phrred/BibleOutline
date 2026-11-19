@@ -4,7 +4,8 @@ import {
   debouncedSaveOutlineStorage,
   exportToMarkdown,
   exportToPrintableHTML,
-  printOrSaveToPDF
+  printOrSaveToPDF,
+  getAllAnnotationsAcrossBible
 } from "./storage.js";
 import { BIBLE_BOOKS, getBookById } from "../data/bible_catalog.js";
 import { fetchESVChapter, extractESVHeadings } from "./esv_api.js";
@@ -22,9 +23,11 @@ import { renderSidebar } from "./components/Sidebar.js";
 import { renderTopNavbar } from "./components/TopNavbar.js";
 import { renderBookRollupView } from "./components/BookRollupView.js";
 import { renderChapterEditorView } from "./components/ChapterEditorView.js";
+import { renderHighlightsNotesView } from "./components/HighlightsNotesView.js";
 import { renderDiagnosticQuizView } from "./components/DiagnosticQuizView.js";
 import { attachOutlinerListeners } from "./controllers/OutlinerController.js";
 import { attachChapterGroupListeners } from "./controllers/ChapterGroupController.js";
+import { attachVerseAnnotationListeners, positionVerseFloatingPill } from "./controllers/VerseAnnotationController.js";
 import { attachQuizListeners } from "./controllers/QuizController.js";
 
 // Global map of collapsed states for headings
@@ -35,7 +38,7 @@ class BibleOutlineStudio {
     this.data = loadOutlineStorage();
     this.selectedBookId = "GEN";
     this.selectedChapterNum = 1;
-    this.activeView = "chapter-outliner"; // 'chapter-outliner' | 'book-rollup' | 'quiz-diagnostic'
+    this.activeView = "chapter-outliner"; // 'chapter-outliner' | 'book-rollup' | 'highlights-notes' | 'quiz-diagnostic'
     this.splitViewMode = "split"; // 'split' | 'outline' | 'scripture'
     const savedRatio = parseFloat(localStorage.getItem("bibleOutline_splitRatio"));
     this.splitRatio = !isNaN(savedRatio) ? savedRatio : 50;
@@ -55,6 +58,16 @@ class BibleOutlineStudio {
     this.chapterGroupModal = null; // { editingGroupId, title, startChapter, endChapter, errorMessage }
     this.collapsedChapterGroups = new Set(); // keys shaped "GEN:grp_123"
 
+    // Verse highlights & notes transient UI state
+    this.verseSelectionState = null; // { chKey, anchorVerse, startVerse, endVerse, verses, mode, editingNoteId, draftText }
+    this.showInlineVerseNotes = localStorage.getItem("bibleOutline_showInlineVerseNotes") === "1";
+    this.annotationsFilterType = "ALL"; // 'ALL' | 'HIGHLIGHTS' | 'NOTES'
+    this.annotationsFilterTestament = "ALL"; // 'ALL' | 'OT' | 'NT'
+    this.annotationsFilterBookId = "ALL";
+    this.annotationsSearchQuery = "";
+    this.editingHubNote = null;
+    this.pendingScrollToVerse = null; // { bookId, chapterNum, verseNum }
+
     // Quiz & Diagnostic state
     this.activeQuizTab = "diagnostic"; // 'diagnostic' | 'book-quizzes' | 'history'
     this.quizSession = null;
@@ -66,6 +79,13 @@ class BibleOutlineStudio {
     this.selectedQuizFocus = "all"; // 'all' | 'headings'
     this.selectedQuizQuestionCount = 25;
     this.selectedBookQuizMode = "all"; // 'all' | 'headings'
+    const savedBookQuizCount = localStorage.getItem("bibleOutline_bookQuizQuestionCount");
+    this.selectedBookQuizQuestionCount =
+      savedBookQuizCount === "ALL"
+        ? "ALL"
+        : !isNaN(parseInt(savedBookQuizCount, 10)) && parseInt(savedBookQuizCount, 10) > 0
+        ? parseInt(savedBookQuizCount, 10)
+        : 15;
     this.historySearchQuery = "";
     this.historyScopeFilter = "ALL";
     this.flagModalData = null; // Question flag report modal state
@@ -302,6 +322,8 @@ class BibleOutlineStudio {
 
     if (activeView === "quiz-diagnostic") {
       return `#/quiz/${tab || "diagnostic"}`;
+    } else if (activeView === "highlights-notes") {
+      return `#/highlights`;
     } else if (activeView === "book-rollup") {
       return `#/book/${bookId}`;
     } else {
@@ -316,6 +338,7 @@ class BibleOutlineStudio {
     let stateChanged = false;
     let oldBookId = this.selectedBookId;
     let oldCh = this.selectedChapterNum;
+    let oldView = this.activeView;
 
     if (options.activeView && options.activeView !== this.activeView) {
       this.activeView = options.activeView;
@@ -338,6 +361,12 @@ class BibleOutlineStudio {
       stateChanged = true;
     }
 
+    const chapterChanged = this.selectedBookId !== oldBookId || this.selectedChapterNum !== oldCh;
+    if (chapterChanged || this.activeView !== oldView) {
+      this.verseSelectionState = null;
+      this.editingHubNote = null;
+    }
+
     const newHash = this.getHash();
     if (window.location.hash !== newHash) {
       if (replace) {
@@ -349,7 +378,6 @@ class BibleOutlineStudio {
 
     this.render();
 
-    const chapterChanged = this.selectedBookId !== oldBookId || this.selectedChapterNum !== oldCh;
     if (this.activeView === "chapter-outliner" && (chapterChanged || options.forceLoadESV)) {
       this.autoLoadESVForCurrentChapter();
     }
@@ -379,6 +407,12 @@ class BibleOutlineStudio {
     }
 
     const first = parts[0].toLowerCase();
+
+    if (first === "highlights") {
+      this.activeView = "highlights-notes";
+      this.render();
+      return;
+    }
 
     if (first === "book" && parts[1]) {
       const bId = parts[1].toUpperCase();
@@ -550,13 +584,15 @@ class BibleOutlineStudio {
       });
 
       // Update Top Navbar
+      const annotationCount = getAllAnnotationsAcrossBible(this.data).length;
       topNavbarContainer.innerHTML = renderTopNavbar({
         activeView: this.activeView,
         selectedBook: book,
         selectedChapterNum: this.selectedChapterNum,
         googleUser: this.googleUser,
         cloudSyncStatus: this.cloudSyncStatus,
-        theme: this.theme
+        theme: this.theme,
+        annotationCount
       });
 
       // Update Main View Canvas
@@ -572,11 +608,21 @@ class BibleOutlineStudio {
           selectedQuestionCount: this.selectedQuizQuestionCount,
           selectedBookId: this.selectedBookId,
           selectedBookQuizMode: this.selectedBookQuizMode,
+          selectedBookQuizQuestionCount: this.selectedBookQuizQuestionCount,
           historySearchQuery: this.historySearchQuery,
           historyScopeFilter: this.historyScopeFilter,
           retakeModalTest: this.retakeModalTest,
           flagModalData: this.flagModalData,
           data: this.data
+        });
+      } else if (this.activeView === "highlights-notes") {
+        mainScrollCanvas.innerHTML = renderHighlightsNotesView({
+          data: this.data,
+          filterType: this.annotationsFilterType,
+          filterTestament: this.annotationsFilterTestament,
+          filterBookId: this.annotationsFilterBookId,
+          searchQuery: this.annotationsSearchQuery,
+          editingHubNote: this.editingHubNote
         });
       } else if (this.activeView === "book-rollup") {
         mainScrollCanvas.innerHTML = renderBookRollupView({
@@ -584,7 +630,8 @@ class BibleOutlineStudio {
           data: this.data,
           rollupLayout: this.bookRollupLayout || "document",
           chapterGroupModal: this.chapterGroupModal,
-          collapsedChapterGroups: this.collapsedChapterGroups
+          collapsedChapterGroups: this.collapsedChapterGroups,
+          selectedBookQuizQuestionCount: this.selectedBookQuizQuestionCount
         });
       } else {
         mainScrollCanvas.innerHTML = renderChapterEditorView({
@@ -594,6 +641,8 @@ class BibleOutlineStudio {
           splitRatio: this.splitRatio,
           isLoadingESV: this.isLoadingESV,
           esvErrorMessage: this.esvErrorMessage,
+          verseSelectionState: this.verseSelectionState,
+          showInlineVerseNotes: this.showInlineVerseNotes,
           data: this.data
         });
       }
@@ -603,6 +652,7 @@ class BibleOutlineStudio {
       this.attachEventListeners();
       this.scrollActiveChapterPillIntoView();
       this.restoreChapterEditorScrollPositions();
+      this.scrollToPendingTargetVerse();
     } catch (err) {
       console.error("Studio Render Error:", err);
       if (this.rootElement) {
@@ -629,6 +679,7 @@ class BibleOutlineStudio {
     this.attachBookRollupListeners();
     attachOutlinerListeners(this);
     attachChapterGroupListeners(this);
+    attachVerseAnnotationListeners(this);
     attachQuizListeners(this);
     this.attachKeyboardNavigation();
   }
@@ -982,6 +1033,12 @@ class BibleOutlineStudio {
       }
 
       if (this.activeView === "chapter-outliner") {
+        if (e.key === "Escape" && this.verseSelectionState) {
+          e.preventDefault();
+          this.verseSelectionState = null;
+          this.render();
+          return;
+        }
         if (e.key === "ArrowRight") {
           this.stepToNextChapter();
         } else if (e.key === "ArrowLeft") {
@@ -1182,10 +1239,42 @@ class BibleOutlineStudio {
       if (outlineEditor && typeof outlineScroll === "number") {
         outlineEditor.scrollTop = outlineScroll;
       }
+      positionVerseFloatingPill();
     };
 
     applyScroll();
     requestAnimationFrame(applyScroll);
+  }
+
+  scrollToPendingTargetVerse() {
+    if (!this.pendingScrollToVerse || this.activeView !== "chapter-outliner") return;
+    const { bookId, chapterNum, verseNum } = this.pendingScrollToVerse;
+    if (bookId !== this.selectedBookId || chapterNum !== this.selectedChapterNum) return;
+
+    const scripturePanel = document.getElementById("chapter-scripture-panel");
+    const verseEl = document.getElementById(`esv-verse-${verseNum}`);
+    if (!scripturePanel || !verseEl) return;
+
+    const chKey = `${bookId}-${chapterNum}`;
+    this.pendingScrollToVerse = null;
+
+    requestAnimationFrame(() => {
+      const panel = document.getElementById("chapter-scripture-panel");
+      const target = document.getElementById(`esv-verse-${verseNum}`);
+      if (!panel || !target) return;
+
+      const panelRect = panel.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      const nextScrollTop = Math.max(0, targetRect.top - panelRect.top + panel.scrollTop - panel.clientHeight * 0.25);
+      panel.scrollTop = nextScrollTop;
+      this.scriptureScrollPositions[chKey] = nextScrollTop;
+
+      const verseSpans = panel.querySelectorAll(`.esv-verse-segment[data-verse="${verseNum}"]`);
+      verseSpans.forEach((sp) => sp.classList.add("esv-verse-jump-flash"));
+      setTimeout(() => {
+        verseSpans.forEach((sp) => sp.classList.remove("esv-verse-jump-flash"));
+      }, 1700);
+    });
   }
 
   scrollActiveChapterPillIntoView() {

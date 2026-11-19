@@ -7,9 +7,12 @@ export function renderBookRollupView({
   data,
   rollupLayout = "document",
   chapterGroupModal = null,
-  collapsedChapterGroups = null
+  collapsedChapterGroups = null,
+  selectedBookQuizQuestionCount = 15
 }) {
   const bookData = data.books[selectedBook.id] || { bookSummary: "" };
+  const presetCounts = [5, 10, 15, 25, 50, "ALL"];
+  const isCustomCount = !presetCounts.some((c) => String(c) === String(selectedBookQuizQuestionCount));
 
   return `
     <div id="book-rollup-scroll-container" class="h-full w-full overflow-y-auto bg-[#141413] text-[#EAE8E2]">
@@ -101,8 +104,29 @@ export function renderBookRollupView({
           <span class="text-[#333330] hidden sm:inline">|</span>
 
           <!-- Quiz Actions -->
+          <select
+            id="rollup-book-quiz-count-select"
+            class="px-2 py-1.5 rounded-lg bg-[#1D1D1B] hover:bg-[#262623] text-[#DBCFB3] border border-[#33332E] text-xs font-mono transition shadow cursor-pointer focus:outline-none focus:border-[#C4B79C]"
+            title="Select number of questions for ${selectedBook.name} quiz"
+          >
+            ${
+              isCustomCount
+                ? `<option value="${selectedBookQuizQuestionCount}" selected>${selectedBookQuizQuestionCount} Qs</option>`
+                : ""
+            }
+            ${presetCounts
+              .map(
+                (c) => `
+                  <option value="${c}" ${String(selectedBookQuizQuestionCount) === String(c) ? "selected" : ""}>
+                    ${c === "ALL" ? "All Qs" : `${c} Qs`}
+                  </option>
+                `
+              )
+              .join("")}
+          </select>
           <button
             data-launch-book-headings-quiz="${selectedBook.id}"
+            data-quiz-count="${selectedBookQuizQuestionCount}"
             class="launch-book-headings-quiz-btn px-2.5 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#2A2A27] text-[#DBCFB3] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
             title="Test major chapter headings for ${selectedBook.name}"
           >
@@ -110,6 +134,7 @@ export function renderBookRollupView({
           </button>
           <button
             data-launch-book-quiz="${selectedBook.id}"
+            data-quiz-count="${selectedBookQuizQuestionCount}"
             class="launch-book-quiz-btn px-3 py-1.5 rounded-lg bg-[#22221F] hover:bg-[#C4B79C] text-[#C4B79C] hover:text-[#141413] border border-[#33332E] text-xs font-semibold transition shadow flex items-center gap-1.5 cursor-pointer"
             title="Launch a full chapter mastery quiz for ${selectedBook.name}"
           >

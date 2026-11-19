@@ -1,4 +1,12 @@
-export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, googleUser, cloudSyncStatus, theme = "dark" }) {
+export function renderTopNavbar({
+  activeView,
+  selectedBook,
+  selectedChapterNum,
+  googleUser,
+  cloudSyncStatus,
+  theme = "dark",
+  annotationCount = 0
+}) {
   return `
     <header class="h-12 bg-[#141413] border-b border-[#242422] px-6 flex items-center justify-between shrink-0 select-none text-xs">
       <!-- Left: Book & Chapter indicator -->
@@ -16,7 +24,7 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
       <nav class="flex items-center gap-1 bg-[#1A1A18] p-0.5 rounded-md border border-[#262624]">
         <button
           data-view="chapter-outliner"
-          class="studio-view-btn px-3 py-1 rounded text-xs transition ${
+          class="studio-view-btn px-3 py-1 rounded text-xs transition cursor-pointer ${
             activeView === "chapter-outliner"
               ? "bg-[#2B2B28] text-[#EAE8E2] font-medium shadow-2xs"
               : "text-[#8C8A84] hover:text-[#EAE8E2]"
@@ -27,7 +35,7 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
 
         <button
           data-view="book-rollup"
-          class="studio-view-btn px-3 py-1 rounded text-xs transition ${
+          class="studio-view-btn px-3 py-1 rounded text-xs transition cursor-pointer ${
             activeView === "book-rollup"
               ? "bg-[#2B2B28] text-[#EAE8E2] font-medium shadow-2xs"
               : "text-[#8C8A84] hover:text-[#EAE8E2]"
@@ -37,15 +45,32 @@ export function renderTopNavbar({ activeView, selectedBook, selectedChapterNum, 
         </button>
 
         <button
+          data-view="highlights-notes"
+          class="studio-view-btn px-3 py-1 rounded text-xs transition flex items-center gap-1.5 cursor-pointer ${
+            activeView === "highlights-notes"
+              ? "bg-[#2B2B28] text-[#EAE8E2] font-medium shadow-2xs"
+              : "text-[#8C8A84] hover:text-[#EAE8E2]"
+          }"
+        >
+          <span>✨</span>
+          <span>Highlights &amp; Notes</span>
+          ${
+            annotationCount > 0
+              ? `<span class="px-1.5 py-0.2 rounded-full text-[10px] font-mono bg-[#C4B79C]/20 text-[#C4B79C]">${annotationCount}</span>`
+              : ""
+          }
+        </button>
+
+        <button
           data-view="quiz-diagnostic"
-          class="studio-view-btn px-3 py-1 rounded text-xs transition flex items-center gap-1.5 ${
+          class="studio-view-btn px-3 py-1 rounded text-xs transition flex items-center gap-1.5 cursor-pointer ${
             activeView === "quiz-diagnostic"
               ? "bg-[#2B2B28] text-[#EAE8E2] font-medium shadow-2xs"
               : "text-[#8C8A84] hover:text-[#EAE8E2]"
           }"
         >
           <span>🎯</span>
-          <span>Diagnostic & Quizzes</span>
+          <span>Diagnostic &amp; Quizzes</span>
         </button>
       </nav>
 

@@ -136,7 +136,7 @@ Your task is to analyze user feedback on a flagged question and decide on the be
 Style & Prompt Design Principles:
 1. Clarity & Conciseness: Avoid flowery, hyperbolic, or melodramatic editorial phrasing. Never use subjective jargon such as "masterclass of Christian tact", "foundational doctrinal exposition", "majestic epistle", "fiery polemical", "masterpiece of Christian doctrine", or "dramatic climax". Instead, use clear, natural, and objective biblical descriptions.
 2. Direct Biblical Language: Frame questions around key biblical characters, narrative events, core theological themes, or direct ESV quotations.
-3. Comprehensive Accepted Answers: For `book_id` questions, ensure `acceptedAnswers` includes canonical name (e.g. "Romans"), standard abbreviation (e.g. "Rom"), and natural phrasing (e.g. "Book of Romans", "Letter to the Romans", "Epistle to the Romans"). For `book_chapter` questions, include both full and abbreviated formats (e.g. ["Romans 6", "Rom 6", "Romans Chapter 6"]).
+3. Comprehensive Accepted Answers: Because all questions use a free-text input box (no multiple choice), `facts` and `verse_completion` prompts must point unambiguously to one concise ESV word/name/short phrase (1–5 words) and include generous natural phrasing variations in `acceptedAnswers` (with/without articles, common synonyms, both digits and words for numbers). Never make the book's own name the answer for single-book `a2_*` questions. For `book_id` questions, include canonical name and standard abbreviations; for `book_chapter`, include full and abbreviated formats.
 4. Grounded Explanation: Provide a concise ESV verse reference (e.g. Philemon 1:16) and direct explanation of why the answer is correct.
 
 Question Schema:

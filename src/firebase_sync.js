@@ -133,7 +133,33 @@ export function cleanChapterData(ch) {
   const deletedHeadings = Array.isArray(ch.deletedHeadings) && ch.deletedHeadings.length > 0 ? ch.deletedHeadings : null;
   const headingsInitialized = Boolean(ch.headingsInitialized);
 
-  const hasContent = activeSections.length > 0 || takeaway.length > 0 || richHTML.length > 0 || Boolean(deletedHeadings);
+  const highlights = Array.isArray(ch.highlights)
+    ? [...new Set(ch.highlights.map((n) => parseInt(n, 10)).filter((n) => !isNaN(n) && n > 0))].sort((a, b) => a - b)
+    : [];
+  const verseNotes = Array.isArray(ch.verseNotes)
+    ? ch.verseNotes
+        .filter((vn) => vn && typeof vn.text === "string" && vn.text.trim() && !isNaN(parseInt(vn.startVerse, 10)))
+        .map((vn) => {
+          const s = parseInt(vn.startVerse, 10);
+          const e = Math.max(s, parseInt(vn.endVerse ?? s, 10) || s);
+          return {
+            id: vn.id,
+            startVerse: s,
+            endVerse: e,
+            text: vn.text.trim(),
+            updatedAt: vn.updatedAt || Date.now()
+          };
+        })
+    : [];
+  const annotationsUpdatedAt = ch.annotationsUpdatedAt || null;
+  const hasAnnotations = highlights.length > 0 || verseNotes.length > 0 || Boolean(annotationsUpdatedAt);
+
+  const hasContent =
+    activeSections.length > 0 ||
+    takeaway.length > 0 ||
+    richHTML.length > 0 ||
+    Boolean(deletedHeadings) ||
+    hasAnnotations;
   if (!hasContent) return null;
 
   const compact = {};
@@ -144,6 +170,11 @@ export function cleanChapterData(ch) {
   if (updatedAt) compact.updatedAt = updatedAt;
   if (deletedHeadings) compact.deletedHeadings = deletedHeadings;
   if (headingsInitialized) compact.headingsInitialized = true;
+  if (hasAnnotations) {
+    compact.highlights = highlights;
+    compact.verseNotes = verseNotes;
+    if (annotationsUpdatedAt) compact.annotationsUpdatedAt = annotationsUpdatedAt;
+  }
   return compact;
 }
 
@@ -573,6 +604,43 @@ export function mergeCloudAndLocalState(cloudData, localData) {
       }
       if (ch.headingsInitialized) {
         localData.chapters[cid].headingsInitialized = true;
+      }
+
+      if (!Array.isArray(localData.chapters[cid].highlights)) {
+        localData.chapters[cid].highlights = [];
+      }
+      if (!Array.isArray(localData.chapters[cid].verseNotes)) {
+        localData.chapters[cid].verseNotes = [];
+      }
+      const cloudAnnStamp = ch.annotationsUpdatedAt || 0;
+      const localAnnStamp = localData.chapters[cid].annotationsUpdatedAt || 0;
+      const cloudHasLegacyAnn =
+        !cloudAnnStamp &&
+        ((Array.isArray(ch.highlights) && ch.highlights.length > 0) ||
+          (Array.isArray(ch.verseNotes) && ch.verseNotes.length > 0));
+      if (cloudAnnStamp > localAnnStamp || (cloudHasLegacyAnn && localAnnStamp === 0)) {
+        localData.chapters[cid].highlights = Array.isArray(ch.highlights)
+          ? [...new Set(ch.highlights.map((n) => parseInt(n, 10)).filter((n) => !isNaN(n) && n > 0))].sort((a, b) => a - b)
+          : [];
+        localData.chapters[cid].verseNotes = Array.isArray(ch.verseNotes)
+          ? ch.verseNotes
+              .filter((vn) => vn && typeof vn.text === "string" && vn.text.trim() && !isNaN(parseInt(vn.startVerse, 10)))
+              .map((vn) => {
+                const s = parseInt(vn.startVerse, 10);
+                const e = Math.max(s, parseInt(vn.endVerse ?? s, 10) || s);
+                return {
+                  id: vn.id,
+                  startVerse: s,
+                  endVerse: e,
+                  text: vn.text.trim(),
+                  updatedAt: vn.updatedAt || cloudAnnStamp || Date.now()
+                };
+              })
+          : [];
+        if (cloudAnnStamp) {
+          localData.chapters[cid].annotationsUpdatedAt = cloudAnnStamp;
+        }
+        merged = true;
       }
 
       const cloudSections = ch.headingBlocks || ch.sections || [];

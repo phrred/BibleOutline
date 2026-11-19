@@ -1,4 +1,5 @@
 import { BIBLE_BOOKS } from "../data/bible_catalog.js";
+import { extractVersesText } from "./esv_api.js";
 
 const STORAGE_KEY = "bible_outline_studio_v1";
 
@@ -19,6 +20,9 @@ export function createInitialStorage() {
       const chKey = `${book.id}-${ch}`;
       chapters[chKey] = {
         headingBlocks: [], // Array of heading blocks e.g. { heading, verses, points, notes }
+        highlights: [], // Sorted array of highlighted verse numbers e.g. [1, 4, 5]
+        verseNotes: [], // Array of verse/range notes e.g. { id, startVerse, endVerse, text, updatedAt }
+        annotationsUpdatedAt: null,
         chapterScripture: "", // Cached bible scripture text for the chapter reader
         status: "empty", // 'empty' | 'in-progress' | 'completed'
         takeaway: "",
@@ -76,6 +80,12 @@ export function loadOutlineStorage() {
           const chData = data.chapters[chKey];
           if (!Array.isArray(chData.headingBlocks)) {
             chData.headingBlocks = [];
+          }
+          if (!Array.isArray(chData.highlights)) {
+            chData.highlights = [];
+          }
+          if (!Array.isArray(chData.verseNotes)) {
+            chData.verseNotes = [];
           }
           // Backward-compatibility: auto-migrate legacy notes/sections if headingBlocks is empty
           if (chData.headingBlocks.length === 0) {
@@ -327,6 +337,319 @@ export function deleteChapterGroup(data, bookId, groupId) {
   data.books[bookId].chapterGroupsUpdatedAt = Date.now();
   return true;
 }
+
+// --------------------------------------------------------------------------
+// VERSE HIGHLIGHTS & VERSE NOTES
+// Whole-verse Warm Gold highlights and single-verse or contiguous-range notes
+// stored on data.chapters[chKey], synced via annotationsUpdatedAt.
+// --------------------------------------------------------------------------
+
+function ensureChapterAnnotationArrays(data, chKey) {
+  if (!data || !chKey) return null;
+  if (!data.chapters) data.chapters = {};
+  if (!data.chapters[chKey]) {
+    data.chapters[chKey] = {
+      headingBlocks: [],
+      highlights: [],
+      verseNotes: [],
+      annotationsUpdatedAt: null,
+      chapterScripture: "",
+      status: "empty",
+      takeaway: "",
+      updatedAt: null
+    };
+  }
+  const ch = data.chapters[chKey];
+  if (!Array.isArray(ch.highlights)) ch.highlights = [];
+  if (!Array.isArray(ch.verseNotes)) ch.verseNotes = [];
+  return ch;
+}
+
+export function formatVerseRef(startVerse, endVerse = startVerse) {
+  const s = parseInt(startVerse, 10);
+  const e = parseInt(endVerse ?? startVerse, 10);
+  if (isNaN(s)) return "";
+  if (isNaN(e) || e <= s) return `v${s}`;
+  return `v${s}–${e}`;
+}
+
+export function getChapterHighlights(data, chKey) {
+  const ch = data?.chapters?.[chKey];
+  if (!ch || !Array.isArray(ch.highlights)) return [];
+  return [...new Set(ch.highlights.map((n) => parseInt(n, 10)).filter((n) => !isNaN(n) && n > 0))].sort((a, b) => a - b);
+}
+
+export function isVerseHighlighted(data, chKey, verseNum) {
+  const v = parseInt(verseNum, 10);
+  if (isNaN(v) || v <= 0) return false;
+  return getChapterHighlights(data, chKey).includes(v);
+}
+
+export function setVerseHighlighted(data, chKey, verseNums, shouldHighlight) {
+  const ch = ensureChapterAnnotationArrays(data, chKey);
+  if (!ch) return { highlighted: false, highlights: [] };
+
+  const targets = (Array.isArray(verseNums) ? verseNums : [verseNums])
+    .map((n) => parseInt(n, 10))
+    .filter((n) => !isNaN(n) && n > 0);
+  if (targets.length === 0) {
+    return { highlighted: false, highlights: getChapterHighlights(data, chKey) };
+  }
+
+  const currentSet = new Set(getChapterHighlights(data, chKey));
+  if (shouldHighlight) {
+    targets.forEach((v) => currentSet.add(v));
+  } else {
+    targets.forEach((v) => currentSet.delete(v));
+  }
+
+  ch.highlights = [...currentSet].sort((a, b) => a - b);
+  ch.annotationsUpdatedAt = Date.now();
+  return { highlighted: Boolean(shouldHighlight), highlights: ch.highlights };
+}
+
+export function toggleVerseHighlights(data, chKey, verseNums) {
+  const targets = (Array.isArray(verseNums) ? verseNums : [verseNums])
+    .map((n) => parseInt(n, 10))
+    .filter((n) => !isNaN(n) && n > 0);
+  if (targets.length === 0) {
+    return { highlighted: false, highlights: getChapterHighlights(data, chKey) };
+  }
+  const currentSet = new Set(getChapterHighlights(data, chKey));
+  const allAlreadyHighlighted = targets.every((v) => currentSet.has(v));
+  return setVerseHighlighted(data, chKey, targets, !allAlreadyHighlighted);
+}
+
+export function getChapterVerseNotes(data, chKey) {
+  const ch = data?.chapters?.[chKey];
+  if (!ch || !Array.isArray(ch.verseNotes)) return [];
+  return [...ch.verseNotes]
+    .filter((n) => n && typeof n.text === "string" && n.text.trim().length > 0 && !isNaN(parseInt(n.startVerse, 10)))
+    .map((n) => {
+      const s = parseInt(n.startVerse, 10);
+      const e = Math.max(s, parseInt(n.endVerse ?? s, 10) || s);
+      return {
+        id: n.id,
+        startVerse: s,
+        endVerse: e,
+        text: n.text,
+        updatedAt: n.updatedAt || null
+      };
+    })
+    .sort((a, b) => (a.startVerse - b.startVerse) || (a.endVerse - b.endVerse));
+}
+
+export function findVerseNoteForRange(data, chKey, startVerse, endVerse = startVerse) {
+  const a = parseInt(startVerse, 10);
+  const b = parseInt(endVerse ?? startVerse, 10);
+  if (isNaN(a)) return null;
+  const s = Math.min(a, isNaN(b) ? a : b);
+  const e = Math.max(a, isNaN(b) ? a : b);
+  return getChapterVerseNotes(data, chKey).find((n) => n.startVerse === s && n.endVerse === e) || null;
+}
+
+export function upsertVerseNote(data, chKey, { id = null, startVerse, endVerse = startVerse, text = "" } = {}) {
+  const ch = ensureChapterAnnotationArrays(data, chKey);
+  if (!ch) return null;
+
+  const a = parseInt(startVerse, 10);
+  const b = parseInt(endVerse ?? startVerse, 10);
+  if (isNaN(a) || a < 1) return null;
+  const s = Math.min(a, isNaN(b) || b < 1 ? a : b);
+  const e = Math.max(a, isNaN(b) || b < 1 ? a : b);
+  const trimmed = String(text || "").trim();
+
+  // Empty text removes an existing note if present
+  if (!trimmed) {
+    if (id) {
+      deleteVerseNote(data, chKey, id);
+    } else {
+      const existing = ch.verseNotes.find(
+        (n) => parseInt(n.startVerse, 10) === s && parseInt(n.endVerse ?? n.startVerse, 10) === e
+      );
+      if (existing) deleteVerseNote(data, chKey, existing.id);
+    }
+    return null;
+  }
+
+  let note = id
+    ? ch.verseNotes.find((n) => n.id === id)
+    : ch.verseNotes.find(
+        (n) => parseInt(n.startVerse, 10) === s && parseInt(n.endVerse ?? n.startVerse, 10) === e
+      );
+
+  const now = Date.now();
+  if (note) {
+    note.startVerse = s;
+    note.endVerse = e;
+    note.text = trimmed;
+    note.updatedAt = now;
+  } else {
+    note = {
+      id: `vn_${now}_${Math.random().toString(36).slice(2, 6)}`,
+      startVerse: s,
+      endVerse: e,
+      text: trimmed,
+      updatedAt: now
+    };
+    ch.verseNotes.push(note);
+  }
+
+  ch.verseNotes.sort((x, y) => (x.startVerse - y.startVerse) || ((x.endVerse || x.startVerse) - (y.endVerse || y.startVerse)));
+  ch.annotationsUpdatedAt = now;
+  return note;
+}
+
+export function deleteVerseNote(data, chKey, noteId) {
+  const ch = data?.chapters?.[chKey];
+  if (!ch || !Array.isArray(ch.verseNotes)) return false;
+  const idx = ch.verseNotes.findIndex((n) => n.id === noteId);
+  if (idx === -1) return false;
+  ch.verseNotes.splice(idx, 1);
+  ch.annotationsUpdatedAt = Date.now();
+  return true;
+}
+
+export function countAllAnnotations(data) {
+  let highlightCount = 0;
+  let noteCount = 0;
+  if (data && data.chapters) {
+    for (const ch of Object.values(data.chapters)) {
+      if (!ch) continue;
+      if (Array.isArray(ch.highlights)) highlightCount += ch.highlights.length;
+      if (Array.isArray(ch.verseNotes)) {
+        noteCount += ch.verseNotes.filter((n) => n && n.text && n.text.trim()).length;
+      }
+    }
+  }
+  return { highlightCount, noteCount, total: highlightCount + noteCount };
+}
+
+// Collects all highlighted passages & verse notes in canonical order with optional filtering
+export function getAllAnnotationsAcrossBible(
+  data,
+  { filterType = "ALL", testament = "ALL", bookId = "ALL", searchQuery = "" } = {}
+) {
+  if (!data || !data.chapters) return [];
+  const items = [];
+  const qLower = String(searchQuery || "").trim().toLowerCase();
+
+  for (const book of BIBLE_BOOKS) {
+    if (testament !== "ALL" && book.testament !== testament) continue;
+    if (bookId !== "ALL" && book.id !== bookId) continue;
+
+    for (let chNum = 1; chNum <= book.chapterCount; chNum++) {
+      const chKey = `${book.id}-${chNum}`;
+      const chData = data.chapters[chKey];
+      if (!chData) continue;
+
+      const highlights = getChapterHighlights(data, chKey);
+      const notes = getChapterVerseNotes(data, chKey);
+      if (highlights.length === 0 && notes.length === 0) continue;
+
+      const highlightSet = new Set(highlights);
+      const consumedHighlightedVerses = new Set();
+      const chapterItems = [];
+
+      // 1. Add all saved notes (marking whether their verse range is also highlighted)
+      notes.forEach((note) => {
+        const rangeVerses = [];
+        for (let v = note.startVerse; v <= note.endVerse; v++) {
+          rangeVerses.push(v);
+        }
+        const anyHighlighted = rangeVerses.some((v) => highlightSet.has(v));
+        const allHighlighted = rangeVerses.every((v) => highlightSet.has(v));
+        if (allHighlighted) {
+          rangeVerses.forEach((v) => consumedHighlightedVerses.add(v));
+        }
+
+        const verseCite =
+          note.endVerse > note.startVerse
+            ? `${book.name} ${chNum}:${note.startVerse}–${note.endVerse}`
+            : `${book.name} ${chNum}:${note.startVerse}`;
+        const snippet = chData.chapterScripture
+          ? extractVersesText(chData.chapterScripture, note.startVerse, note.endVerse)
+          : "";
+
+        chapterItems.push({
+          key: `note_${chKey}_${note.id}`,
+          bookId: book.id,
+          bookName: book.name,
+          testament: book.testament,
+          category: book.category,
+          chapterNum: chNum,
+          chKey,
+          startVerse: note.startVerse,
+          endVerse: note.endVerse,
+          reference: verseCite,
+          verseLabel: formatVerseRef(note.startVerse, note.endVerse),
+          isHighlighted: anyHighlighted,
+          allHighlighted,
+          hasNote: true,
+          noteId: note.id,
+          noteText: note.text,
+          verseSnippet: snippet,
+          updatedAt: note.updatedAt || chData.annotationsUpdatedAt || null
+        });
+      });
+
+      // 2. Group remaining standalone highlighted verses into contiguous runs (e.g. v4–6)
+      const remaining = highlights.filter((v) => !consumedHighlightedVerses.has(v));
+      let idx = 0;
+      while (idx < remaining.length) {
+        const runStart = remaining[idx];
+        let runEnd = runStart;
+        while (idx + 1 < remaining.length && remaining[idx + 1] === runEnd + 1) {
+          idx++;
+          runEnd = remaining[idx];
+        }
+        idx++;
+
+        const verseCite =
+          runEnd > runStart ? `${book.name} ${chNum}:${runStart}–${runEnd}` : `${book.name} ${chNum}:${runStart}`;
+        const snippet = chData.chapterScripture
+          ? extractVersesText(chData.chapterScripture, runStart, runEnd)
+          : "";
+
+        chapterItems.push({
+          key: `hl_${chKey}_${runStart}_${runEnd}`,
+          bookId: book.id,
+          bookName: book.name,
+          testament: book.testament,
+          category: book.category,
+          chapterNum: chNum,
+          chKey,
+          startVerse: runStart,
+          endVerse: runEnd,
+          reference: verseCite,
+          verseLabel: formatVerseRef(runStart, runEnd),
+          isHighlighted: true,
+          allHighlighted: true,
+          hasNote: false,
+          noteId: null,
+          noteText: "",
+          verseSnippet: snippet,
+          updatedAt: chData.annotationsUpdatedAt || null
+        });
+      }
+
+      chapterItems.sort((a, b) => (a.startVerse - b.startVerse) || (a.endVerse - b.endVerse));
+
+      for (const item of chapterItems) {
+        if (filterType === "HIGHLIGHTS" && !item.isHighlighted) continue;
+        if (filterType === "NOTES" && !item.hasNote) continue;
+        if (qLower) {
+          const haystack = `${item.reference} ${item.bookName} ${item.noteText} ${item.verseSnippet}`.toLowerCase();
+          if (!haystack.includes(qLower)) continue;
+        }
+        items.push(item);
+      }
+    }
+  }
+
+  return items;
+}
+
 
 
 // Helper to export Book or full Bible Outline to clean Markdown format (Document or Grid Table layout)

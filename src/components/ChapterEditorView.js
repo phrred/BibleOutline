@@ -1,5 +1,11 @@
 import { BIBLE_BOOKS } from "../../data/bible_catalog.js";
 import { formatESVTextToHTML, extractESVHeadings } from "../esv_api.js";
+import {
+  getChapterHighlights,
+  getChapterVerseNotes,
+  findVerseNoteForRange,
+  formatVerseRef
+} from "../storage.js";
 
 export function renderChapterEditorView({
   selectedBook,
@@ -8,6 +14,8 @@ export function renderChapterEditorView({
   splitRatio = 50,
   isLoadingESV = false,
   esvErrorMessage = null,
+  verseSelectionState = null,
+  showInlineVerseNotes = false,
   data
 }) {
   const chKey = `${selectedBook.id}-${chapterNum}`;
@@ -451,47 +459,231 @@ export function renderChapterEditorView({
         </div>
 
         <!-- COLUMN 2 / PANEL B: BIBLE SCRIPTURE READER -->
-        <div
-          id="chapter-scripture-panel"
-          class="flex-1 h-full overflow-y-auto p-8 bg-[#151513] flex flex-col min-w-[260px]"
-        >
-          <!-- Quiet Bible Reader Header -->
-          <div class="flex items-center justify-between border-b border-[#242422] pb-2 shrink-0">
-            <span class="text-xs font-mono uppercase tracking-wider text-[#A19E97]">
-              ESV Scripture • ${selectedBook.name} ${chapterNum}
-            </span>
-          </div>
+        ${(() => {
+          const chHighlights = getChapterHighlights(data, chKey);
+          const chHighlightSet = new Set(chHighlights);
+          const chVerseNotes = getChapterVerseNotes(data, chKey);
+          const activeSel =
+            verseSelectionState &&
+            verseSelectionState.chKey === chKey &&
+            Array.isArray(verseSelectionState.verses) &&
+            verseSelectionState.verses.length > 0
+              ? verseSelectionState
+              : null;
 
-          <!-- Scripture Reader Display -->
-          <div class="flex-1 pt-4">
-            ${
-              isLoadingESV
-                ? `
-                    <div class="flex flex-col items-center justify-center py-20 text-xs text-[#8C8A84] space-y-2">
-                      <div>Fetching ${selectedBook.name} ${chapterNum} from official ESV API...</div>
-                    </div>
-                  `
-                : esvErrorMessage
-                ? `
-                    <div class="text-xs text-[#E57373] py-4">
-                      ${esvErrorMessage}
-                    </div>
-                  `
-                : chData.chapterScripture && chData.chapterScripture.trim()
-                ? `
-                    <div
-                      id="scripture-reader-display"
-                      class="font-reader text-[15.5px] leading-[1.85] text-[#ECE9E0] space-y-3.5"
-                    >${formatESVTextToHTML(chData.chapterScripture)}</div>
-                  `
-                : `
-                    <div class="text-xs text-[#8C8A84] py-8">
-                      Loading scripture...
-                    </div>
-                  `
-            }
-          </div>
-        </div>
+          const selectedVerses = activeSel ? activeSel.verses : [];
+          const sVerse = activeSel ? activeSel.startVerse : null;
+          const eVerse = activeSel ? activeSel.endVerse : null;
+          const selLabel = activeSel ? formatVerseRef(sVerse, eVerse) : "";
+          const allSelectedHighlighted =
+            activeSel && selectedVerses.length > 0 && selectedVerses.every((v) => chHighlightSet.has(v));
+          const existingNote = activeSel
+            ? (activeSel.editingNoteId
+                ? chVerseNotes.find((n) => n.id === activeSel.editingNoteId)
+                : findVerseNoteForRange(data, chKey, sVerse, eVerse))
+            : null;
+          const draftText = activeSel
+            ? activeSel.draftText !== undefined
+              ? activeSel.draftText
+              : existingNote
+              ? existingNote.text
+              : ""
+            : "";
+          const escapedDraft = String(draftText || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+
+          return `
+            <div
+              id="chapter-scripture-panel"
+              class="relative flex-1 h-full overflow-y-auto p-8 bg-[#151513] flex flex-col min-w-[260px]"
+            >
+              <!-- Quiet Bible Reader Header -->
+              <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#242422] pb-2 shrink-0">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-mono uppercase tracking-wider text-[#A19E97]">
+                    ESV Scripture • ${selectedBook.name} ${chapterNum}
+                  </span>
+                  ${
+                    chHighlights.length > 0 || chVerseNotes.length > 0
+                      ? `<span class="text-[11px] font-mono text-[#8C8A84]">• ${chHighlights.length} highlighted · ${chVerseNotes.length} note${chVerseNotes.length === 1 ? "" : "s"}</span>`
+                      : `<span class="text-[11px] text-[#6D6B66] hidden lg:inline">• Click verse to highlight or note</span>`
+                  }
+                </div>
+
+                ${
+                  chVerseNotes.length > 0
+                    ? `
+                      <button
+                        type="button"
+                        id="toggle-inline-verse-notes-btn"
+                        class="text-[11px] font-mono px-2 py-0.5 rounded border transition cursor-pointer ${
+                          showInlineVerseNotes
+                            ? "bg-[#252522] border-[#C4B79C]/50 text-[#C4B79C]"
+                            : "bg-transparent border-[#2B2B28] text-[#8C8A84] hover:text-[#EAE8E2]"
+                        }"
+                        title="Toggle inline display of all verse notes in this chapter"
+                      >
+                        📝 ${showInlineVerseNotes ? "Hide Inline Notes" : "Show Notes Inline"}
+                      </button>
+                    `
+                    : ""
+                }
+              </div>
+
+              <!-- Floating Verse Action Pill / Note Popover -->
+              ${
+                activeSel
+                  ? activeSel.mode === "note"
+                    ? `
+                      <div
+                        id="verse-floating-pill"
+                        data-anchor-verse="${sVerse}"
+                        class="absolute z-40 w-72 sm:w-80 bg-[#1C1C1A] border border-[#C4B79C]/60 rounded-xl p-3.5 shadow-2xl space-y-2.5 select-none"
+                        style="top: 48px; left: 32px;"
+                      >
+                        <div class="flex items-center justify-between gap-2 border-b border-[#2A2A27] pb-2">
+                          <span class="font-mono text-xs font-semibold text-[#C4B79C]">
+                            📝 ${selectedBook.name} ${chapterNum}:${sVerse}${eVerse > sVerse ? `–${eVerse}` : ""}
+                          </span>
+                          <button
+                            type="button"
+                            id="verse-pill-close-btn"
+                            class="text-xs text-[#8C8A84] hover:text-[#EAE8E2] px-1 rounded cursor-pointer"
+                            title="Close (Esc)"
+                          >
+                            ✕
+                          </button>
+                        </div>
+
+                        <textarea
+                          id="verse-note-textarea"
+                          rows="3"
+                          placeholder="Write a note for ${selLabel}..."
+                          class="w-full bg-[#141413] border border-[#2B2B28] focus:border-[#C4B79C] rounded-lg p-2.5 text-xs text-[#EAE8E2] placeholder:text-[#6D6B66] leading-relaxed focus:outline-none font-sans select-text"
+                        >${escapedDraft}</textarea>
+
+                        <div class="flex items-center justify-between gap-2 pt-0.5">
+                          <div>
+                            ${
+                              existingNote
+                                ? `
+                                  <button
+                                    type="button"
+                                    id="verse-note-delete-btn"
+                                    data-delete-note-id="${existingNote.id}"
+                                    class="px-2 py-1 rounded text-[11px] text-[#8C8A84] hover:text-rose-400 hover:bg-rose-500/15 transition cursor-pointer"
+                                  >
+                                    Delete
+                                  </button>
+                                `
+                                : `<span class="text-[10px] text-[#6D6B66] font-mono">⌘+Enter to save</span>`
+                            }
+                          </div>
+                          <div class="flex items-center gap-1.5">
+                            <button
+                              type="button"
+                              id="verse-note-cancel-btn"
+                              class="px-2.5 py-1 rounded bg-[#242421] hover:bg-[#2E2E2A] text-[#A19E97] hover:text-[#EAE8E2] text-xs transition cursor-pointer"
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              type="button"
+                              id="verse-note-save-btn"
+                              class="px-3 py-1 rounded bg-[#C4B79C] hover:bg-[#DBCFB3] text-[#141413] font-semibold text-xs transition cursor-pointer shadow-xs"
+                            >
+                              Save Note
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    `
+                    : `
+                      <div
+                        id="verse-floating-pill"
+                        data-anchor-verse="${sVerse}"
+                        class="absolute z-40 inline-flex items-center gap-1.5 bg-[#1C1C1A] border border-[#C4B79C]/60 rounded-full px-2.5 py-1 shadow-2xl text-xs select-none"
+                        style="top: 48px; left: 32px;"
+                      >
+                        <span class="font-mono text-[11px] font-semibold text-[#C4B79C] px-1">
+                          ${selLabel}
+                        </span>
+                        <span class="w-[1px] h-3.5 bg-[#2D2D2A]"></span>
+                        <button
+                          type="button"
+                          id="verse-pill-highlight-btn"
+                          class="px-2.5 py-1 rounded-full transition font-medium flex items-center gap-1 cursor-pointer ${
+                            allSelectedHighlighted
+                              ? "bg-[#C4B79C] text-[#141413] font-semibold"
+                              : "hover:bg-[#2A2A27] text-[#EAE8E2]"
+                          }"
+                          title="${allSelectedHighlighted ? 'Remove gold highlight' : 'Highlight selected verse(s) in warm gold'}"
+                        >
+                          <span>${allSelectedHighlighted ? "✦" : "✨"}</span>
+                          <span>${allSelectedHighlighted ? "Highlighted" : "Highlight"}</span>
+                        </button>
+                        <button
+                          type="button"
+                          id="verse-pill-note-btn"
+                          class="px-2.5 py-1 rounded-full hover:bg-[#2A2A27] text-[#EAE8E2] transition font-medium flex items-center gap-1 cursor-pointer"
+                          title="${existingNote ? 'View or edit verse note' : 'Attach a note to selected verse(s)'}"
+                        >
+                          <span>📝</span>
+                          <span>${existingNote ? "Edit Note" : "Note"}</span>
+                        </button>
+                        <button
+                          type="button"
+                          id="verse-pill-close-btn"
+                          class="px-1.5 py-0.5 rounded-full text-[#8C8A84] hover:text-[#EAE8E2] transition cursor-pointer"
+                          title="Dismiss (Esc)"
+                        >
+                          ✕
+                        </button>
+                      </div>
+                    `
+                  : ""
+              }
+
+              <!-- Scripture Reader Display -->
+              <div class="flex-1 pt-4">
+                ${
+                  isLoadingESV
+                    ? `
+                        <div class="flex flex-col items-center justify-center py-20 text-xs text-[#8C8A84] space-y-2">
+                          <div>Fetching ${selectedBook.name} ${chapterNum} from official ESV API...</div>
+                        </div>
+                      `
+                    : esvErrorMessage
+                    ? `
+                        <div class="text-xs text-[#E57373] py-4">
+                          ${esvErrorMessage}
+                        </div>
+                      `
+                    : chData.chapterScripture && chData.chapterScripture.trim()
+                    ? `
+                        <div
+                          id="scripture-reader-display"
+                          class="font-reader text-[15.5px] leading-[1.85] text-[#ECE9E0] space-y-3.5"
+                        >${formatESVTextToHTML(chData.chapterScripture, {
+                          highlights: chHighlights,
+                          verseNotes: chVerseNotes,
+                          selectedVerses,
+                          showNotesInline: Boolean(showInlineVerseNotes),
+                          interactive: true
+                        })}</div>
+                      `
+                    : `
+                        <div class="text-xs text-[#8C8A84] py-8">
+                          Loading scripture...
+                        </div>
+                      `
+                }
+              </div>
+            </div>
+          `;
+        })()}
       </div>
     </div>
   `;

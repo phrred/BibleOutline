@@ -28,7 +28,9 @@ class UnitTester:
             ("Markdown & PDF Exporter Integrity", self.test_markdown_and_pdf_export),
             ("Question Flag Modal & Categories Integrity", self.test_flag_question_modal),
             ("Dynamic Random Heading Quiz Generation", self.test_dynamic_random_heading_generation),
-            ("Chapter Group CRUD, Validation & Export", self.test_chapter_groups)
+            ("Chapter Group CRUD, Validation & Export", self.test_chapter_groups),
+            ("Acts2-Style 66-Book Free-Answer ESV Quiz Bank & Normalization", self.test_acts2_free_answer_66_books),
+            ("Verse Highlights, Range Notes, Search Index & Cloud Merge", self.test_verse_highlights_and_notes)
         ]
 
         results = []
@@ -882,5 +884,201 @@ class UnitTester:
         assert r.get("newerCloudWins") == True, "A newer cloud timestamp should replace the local group list"
         assert r.get("deletionPropagates") == True, "An empty cloud array with a newer stamp must clear local groups"
         assert r.get("noResurrection") == True, "An older cloud payload must not resurrect a locally deleted group"
+
+    def test_acts2_free_answer_66_books(self):
+        js = """
+        (() => {
+            const allBooks = BIBLE_BOOKS;
+            const a2Questions = CURATED_QUESTION_BANK.filter((q) => q.id.startsWith("a2_"));
+            let underpopulatedBooks = [];
+            let nonActs2InBookQuiz = 0;
+            let multipleChoiceFieldsFound = 0;
+
+            for (const b of allBooks) {
+                const bQs = a2Questions.filter((q) => q.bookId === b.id);
+                if (bQs.length < 6) {
+                    underpopulatedBooks.push({ id: b.id, count: bQs.length });
+                }
+                const quiz = generateDynamicQuestions({ specificBookId: b.id, count: "ALL", headingOnly: false });
+                if (quiz.some((q) => !q.id.startsWith("a2_") || !["facts", "verse_completion"].includes(q.type))) {
+                    nonActs2InBookQuiz++;
+                }
+                if (quiz.some((q) => Array.isArray(q.options) || Array.isArray(q.choices))) {
+                    multipleChoiceFieldsFound++;
+                }
+            }
+
+            const galAll = generateDynamicQuestions({ specificBookId: "GAL", count: "ALL", headingOnly: false });
+            const galRun1 = generateDynamicQuestions({ specificBookId: "GAL", count: 15, headingOnly: false });
+            const galRun2 = generateDynamicQuestions({ specificBookId: "GAL", count: 15, headingOnly: false });
+            const galShuffled = galRun1.map((q) => q.id).join(",") !== galRun2.map((q) => q.id).join(",");
+
+            // Smart free-answer normalization checks
+            const sampleCurseQ = {
+                id: "test_curse",
+                type: "facts",
+                acceptedAnswers: ["curse of the law"]
+            };
+            const sampleNumberQ = {
+                id: "test_num",
+                type: "facts",
+                acceptedAnswers: ["52", "52 days"]
+            };
+            const sampleThousandsQ = {
+                id: "test_thousands",
+                type: "facts",
+                acceptedAnswers: ["3,000"]
+            };
+
+            return {
+                a2Count: a2Questions.length,
+                underpopulatedCount: underpopulatedBooks.length,
+                underpopulatedBooks,
+                nonActs2InBookQuiz,
+                multipleChoiceFieldsFound,
+                galCount: galAll.length,
+                galShuffled,
+                articleMatch: evaluateAnswer(sampleCurseQ, "the curse of the law").isCorrect,
+                prepMatch: evaluateAnswer(sampleCurseQ, "from the curse of the law").isCorrect,
+                wrongConceptRejected: !evaluateAnswer(sampleCurseQ, "works of the flesh").isCorrect,
+                compoundNumMatch: evaluateAnswer(sampleNumberQ, "fifty-two").isCorrect,
+                wrongNumRejected: !evaluateAnswer(sampleNumberQ, "40").isCorrect,
+                commaNumMatch: evaluateAnswer(sampleThousandsQ, "3000").isCorrect,
+                wordThousandsMatch: evaluateAnswer(sampleThousandsQ, "three thousand").isCorrect
+            };
+        })()
+        """
+        r = self.eval_js(js)
+        assert r.get("a2Count") >= 1200, f"Expected >= 1200 Acts2-style questions across 66 books, got {r.get('a2Count')}"
+        assert r.get("underpopulatedCount") == 0, f"Books with < 6 Acts2 questions: {r.get('underpopulatedBooks')}"
+        assert r.get("nonActs2InBookQuiz") == 0, "Standard book quizzes should contain only Acts2-style facts/verse_completion questions"
+        assert r.get("multipleChoiceFieldsFound") == 0, "Questions should be free-answer only (no multiple choice options)"
+        assert r.get("galCount") >= 30, f"Expected >= 30 Galatians questions, got {r.get('galCount')}"
+        assert r.get("galShuffled") == True, "Expected Galatians questions to be shuffled across runs"
+        assert r.get("articleMatch") == True, "Leading article 'the' should be accepted in free-answer matching"
+        assert r.get("prepMatch") == True, "Leading preposition 'from the' should be accepted in free-answer matching"
+        assert r.get("wrongConceptRejected") == True, "Unrelated answer must be rejected"
+        assert r.get("compoundNumMatch") == True, "'fifty-two' should match '52'"
+        assert r.get("wrongNumRejected") == True, "'40' must not match '52'"
+        assert r.get("commaNumMatch") == True, "'3000' should match '3,000'"
+        assert r.get("wordThousandsMatch") == True, "'three thousand' should match '3,000'"
+
+    def test_verse_highlights_and_notes(self):
+        js = """
+        (() => {
+            const d = createInitialStorage();
+            d.chapters["GAL-2"].chapterScripture =
+                "Justified by Faith\\n\\n  [19] For through the law I died to the law, so that I might live to God. [20] I have been crucified with Christ. It is no longer I who live, but Christ who lives in me.\\n    And the life I now live in the flesh I live by faith.";
+            d.chapters["GEN-1"].chapterScripture =
+                "The Creation\\n\\n  [1] In the beginning, God created the heavens and the earth. [2] The earth was without form. [3] And God said, Let there be light.";
+
+            // 1. Toggle single & range highlights
+            toggleVerseHighlights(d, "GAL-2", [20]);
+            const afterSingleHl = getChapterHighlights(d, "GAL-2");
+            toggleVerseHighlights(d, "GEN-1", [3, 1, 2]);
+            const afterRangeHl = getChapterHighlights(d, "GEN-1");
+            // Toggling same range again unhighlights all three
+            toggleVerseHighlights(d, "GEN-1", [1, 2, 3]);
+            const afterRangeUnhl = getChapterHighlights(d, "GEN-1");
+
+            // Re-highlight GEN 1:1-2 without note to test contiguous grouping
+            setVerseHighlighted(d, "GEN-1", [1, 2], true);
+
+            // 2. Single-verse note & range note CRUD
+            const note20 = upsertVerseNote(d, "GAL-2", { startVerse: 20, endVerse: 20, text: "Union with Christ" });
+            const rangeNote = upsertVerseNote(d, "GAL-2", { startVerse: 19, endVerse: 20, text: "Dead to law, alive to God" });
+            const idBeforeEdit = note20.id;
+            upsertVerseNote(d, "GAL-2", { id: idBeforeEdit, startVerse: 20, endVerse: 20, text: "Crucified and risen with Christ" });
+            const notesGal2 = getChapterVerseNotes(d, "GAL-2");
+
+            // 3. Verse snippet extraction (including indented continuation line) & HTML formatting
+            const extracted20 = extractVersesText(d.chapters["GAL-2"].chapterScripture, 20, 20);
+            const htmlCollapsed = formatESVTextToHTML(d.chapters["GAL-2"].chapterScripture, {
+                highlights: getChapterHighlights(d, "GAL-2"),
+                verseNotes: notesGal2,
+                selectedVerses: [19],
+                showNotesInline: false,
+                interactive: true
+            });
+            const htmlInline = formatESVTextToHTML(d.chapters["GAL-2"].chapterScripture, {
+                highlights: getChapterHighlights(d, "GAL-2"),
+                verseNotes: notesGal2,
+                selectedVerses: [],
+                showNotesInline: true,
+                interactive: true
+            });
+
+            // 4. Bible-wide index & search/filtering
+            const allItems = getAllAnnotationsAcrossBible(d, {});
+            const onlyNotes = getAllAnnotationsAcrossBible(d, { filterType: "NOTES" });
+            const searchCrucified = getAllAnnotationsAcrossBible(d, { searchQuery: "crucified" });
+            const otOnly = getAllAnnotationsAcrossBible(d, { testament: "OT" });
+
+            // 5. Cloud serialization & last-write-wins deletion propagation
+            const galClean = cleanChapterData(d.chapters["GAL-2"]);
+            const localFresh = createInitialStorage();
+            mergeCloudAndLocalState({ chapters: { "GAL-2": galClean } }, localFresh);
+            const syncedHlCount = getChapterHighlights(localFresh, "GAL-2").length;
+            const syncedNoteCount = getChapterVerseNotes(localFresh, "GAL-2").length;
+
+            // Delete on cloud (newer stamp) propagates empty arrays without resurrection
+            const newerStamp = (galClean.annotationsUpdatedAt || Date.now()) + 5000;
+            mergeCloudAndLocalState(
+                { chapters: { "GAL-2": { highlights: [], verseNotes: [], annotationsUpdatedAt: newerStamp } } },
+                localFresh
+            );
+            const afterCloudDeleteHl = getChapterHighlights(localFresh, "GAL-2").length;
+            const afterCloudDeleteNotes = getChapterVerseNotes(localFresh, "GAL-2").length;
+
+            // Older cloud payload must NOT resurrect deleted annotations
+            mergeCloudAndLocalState({ chapters: { "GAL-2": galClean } }, localFresh);
+            const noResurrectHl = getChapterHighlights(localFresh, "GAL-2").length === 0;
+
+            return {
+                afterSingleHl,
+                afterRangeHl,
+                afterRangeUnhlCount: afterRangeUnhl.length,
+                notesGal2Count: notesGal2.length,
+                editedText: notesGal2.find((n) => n.id === idBeforeEdit)?.text,
+                rangeRefLabel: formatVerseRef(rangeNote.startVerse, rangeNote.endVerse),
+                extractedHasContinuation: extracted20.includes("crucified with Christ") && extracted20.includes("live by faith"),
+                htmlHasHighlightClass: htmlCollapsed.includes("esv-verse-highlighted"),
+                htmlHasSelectedClass: htmlCollapsed.includes("esv-verse-selected"),
+                htmlHasNoteBadge: htmlCollapsed.includes("data-verse-note-badge"),
+                collapsedHidesInlineCard: !htmlCollapsed.includes("esv-inline-note-card"),
+                inlineShowsCard: htmlInline.includes("esv-inline-note-card"),
+                allItemsCount: allItems.length,
+                genContiguousRef: otOnly[0]?.reference,
+                onlyNotesCount: onlyNotes.length,
+                searchCrucifiedCount: searchCrucified.length,
+                syncedHlCount,
+                syncedNoteCount,
+                afterCloudDeleteHl,
+                afterCloudDeleteNotes,
+                noResurrectHl
+            };
+        })()
+        """
+        r = self.eval_js(js)
+        assert r.get("afterSingleHl") == [20], f"Expected [20], got {r.get('afterSingleHl')}"
+        assert r.get("afterRangeHl") == [1, 2, 3], f"Expected sorted [1, 2, 3], got {r.get('afterRangeHl')}"
+        assert r.get("afterRangeUnhlCount") == 0, "Expected toggling highlighted range to unhighlight all"
+        assert r.get("notesGal2Count") == 2, f"Expected 2 notes in GAL-2, got {r.get('notesGal2Count')}"
+        assert r.get("editedText") == "Crucified and risen with Christ", "Note in-place update failed"
+        assert r.get("rangeRefLabel") == "v19\u201320", f"Expected v19–20, got {r.get('rangeRefLabel')}"
+        assert r.get("extractedHasContinuation") == True, "extractVersesText should include indented continuation lines"
+        assert r.get("htmlHasHighlightClass") == True, "Highlighted verse missing esv-verse-highlighted class"
+        assert r.get("htmlHasSelectedClass") == True, "Selected verse missing esv-verse-selected class"
+        assert r.get("htmlHasNoteBadge") == True, "Note badge missing from rendered ESV HTML"
+        assert r.get("collapsedHidesInlineCard") == True, "Inline note card should be hidden when showNotesInline is false"
+        assert r.get("inlineShowsCard") == True, "Inline note card should appear when showNotesInline is true"
+        assert r.get("genContiguousRef") == "Genesis 1:1\u20132", f"Expected contiguous highlight 'Genesis 1:1–2', got {r.get('genContiguousRef')}"
+        assert r.get("onlyNotesCount") == 2, f"Expected 2 note items, got {r.get('onlyNotesCount')}"
+        assert r.get("searchCrucifiedCount") >= 1, "Search across verse snippet & note text failed"
+        assert r.get("syncedHlCount") == 1 and r.get("syncedNoteCount") == 2, "Cloud merge failed to import highlights/notes"
+        assert r.get("afterCloudDeleteHl") == 0 and r.get("afterCloudDeleteNotes") == 0, "Cloud deletion failed to propagate"
+        assert r.get("noResurrectHl") == True, "Stale cloud payload resurrected deleted highlights"
+
+
 
 

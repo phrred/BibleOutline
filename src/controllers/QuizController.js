@@ -13,9 +13,43 @@ import { fetchESVChapter, formatESVTextToHTML } from "../esv_api.js";
  * Encapsulates diagnostic quiz sessions, exam answering, scorecard review,
  * past test history management, inline scripture inspection, and question flagging.
  */
+function resolveBookQuizQuestionCount(app, rawCountAttr) {
+  const val = rawCountAttr || app.selectedBookQuizQuestionCount || 15;
+  if (String(val).toUpperCase() === "ALL") return "ALL";
+  const parsed = parseInt(val, 10);
+  return !isNaN(parsed) && parsed > 0 ? parsed : 15;
+}
+
+function setBookQuizCount(app, rawVal) {
+  if (String(rawVal).toUpperCase() === "ALL") {
+    app.selectedBookQuizQuestionCount = "ALL";
+  } else {
+    const parsed = parseInt(rawVal, 10);
+    if (!isNaN(parsed) && parsed > 0) {
+      app.selectedBookQuizQuestionCount = Math.min(200, Math.max(1, parsed));
+    } else {
+      return false;
+    }
+  }
+  try {
+    localStorage.setItem("bibleOutline_bookQuizQuestionCount", String(app.selectedBookQuizQuestionCount));
+  } catch (_) {}
+  return true;
+}
+
 export function attachQuizListeners(app) {
   // Flag Modal event listeners can appear in any view if opened
   attachFlagModalListeners(app);
+
+  // Book Rollup question count selector
+  const rollupCountSelect = document.getElementById("rollup-book-quiz-count-select");
+  if (rollupCountSelect) {
+    rollupCountSelect.addEventListener("change", (e) => {
+      if (setBookQuizCount(app, e.target.value)) {
+        app.render();
+      }
+    });
+  }
 
   // Book quiz launch buttons can appear in book rollup view or quiz view
   const launchBookQuizBtns = document.querySelectorAll(".launch-book-quiz-btn");
@@ -29,9 +63,7 @@ export function attachQuizListeners(app) {
       app.activeView = "quiz-diagnostic";
       app.activeQuizTab = "diagnostic";
       const isHeadings = mode === "headings";
-      const qCount = isHeadings
-        ? Math.min(Math.max(bObj.chapterCount, 10), 15)
-        : Math.min(bObj.chapterCount, 15);
+      const qCount = resolveBookQuizQuestionCount(app, btn.getAttribute("data-quiz-count"));
       app.quizSession = new DiagnosticSession({
         scope: "ALL",
         questionCount: qCount,
@@ -55,7 +87,7 @@ export function attachQuizListeners(app) {
       app.selectedBookId = bId;
       app.activeView = "quiz-diagnostic";
       app.activeQuizTab = "diagnostic";
-      const qCount = Math.min(Math.max(bObj.chapterCount, 10), 15);
+      const qCount = resolveBookQuizQuestionCount(app, btn.getAttribute("data-quiz-count"));
       app.quizSession = new DiagnosticSession({
         scope: "ALL",
         questionCount: qCount,
@@ -112,6 +144,48 @@ export function attachQuizListeners(app) {
       app.render();
     });
   });
+
+  const setBookQuizCountBtns = document.querySelectorAll(".set-book-quiz-count-btn");
+  setBookQuizCountBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const raw = btn.getAttribute("data-set-book-quiz-count");
+      if (setBookQuizCount(app, raw)) {
+        app.render();
+      }
+    });
+  });
+
+  const customBookQuizCountInput = document.getElementById("custom-book-quiz-count-input");
+  if (customBookQuizCountInput) {
+    customBookQuizCountInput.addEventListener("input", (e) => {
+      if (setBookQuizCount(app, e.target.value)) {
+        const countLabel =
+          app.selectedBookQuizQuestionCount === "ALL"
+            ? "All Qs"
+            : `${app.selectedBookQuizQuestionCount} Qs`;
+        const isHeadings = app.selectedBookQuizMode === "headings";
+        document.querySelectorAll(".launch-book-quiz-btn").forEach((b) => {
+          b.setAttribute("data-quiz-count", String(app.selectedBookQuizQuestionCount));
+          const labelSpan = b.querySelector("div.border-t span:first-child");
+          if (labelSpan) {
+            labelSpan.textContent = `${isHeadings ? "📑 Quiz Headings" : "Start Book Quiz"} (${countLabel})`;
+          }
+        });
+        document.querySelectorAll(".set-book-quiz-count-btn").forEach((b) => {
+          const val = b.getAttribute("data-set-book-quiz-count");
+          const isSel = String(val) === String(app.selectedBookQuizQuestionCount);
+          b.className = `set-book-quiz-count-btn px-2.5 py-1 rounded font-mono transition cursor-pointer ${
+            isSel ? "bg-[#C4B79C] text-[#141413] font-bold shadow-xs" : "text-[#8C8A84] hover:text-[#EAE8E2]"
+          }`;
+        });
+      }
+    });
+    customBookQuizCountInput.addEventListener("change", (e) => {
+      if (setBookQuizCount(app, e.target.value)) {
+        app.render();
+      }
+    });
+  }
 
   const selectCountBtns = document.querySelectorAll(".select-count-btn");
   selectCountBtns.forEach((btn) => {

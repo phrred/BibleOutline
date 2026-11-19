@@ -32,6 +32,7 @@ class E2ETester:
             ("E2E: Heading Re-order (Buttons and Drag/Drop)", self.test_heading_reorder),
             ("E2E: Scripture & Outline Scroll Retention on Add/Delete Heading", self.test_scripture_scroll_retention_on_heading_mutation),
             ("E2E: Chapter Grouping Lifecycle (Create/Collapse/Edit/Delete)", self.test_chapter_grouping_lifecycle),
+            ("E2E: Verse Highlights, Range Notes & Searchable Hub Lifecycle", self.test_verse_highlights_and_notes_lifecycle),
             ("E2E: Cloud Sync & Deep Merge Lifecycle", self.test_cloud_sync_lifecycle)
         ]
 
@@ -342,7 +343,7 @@ class E2ETester:
             }
             app.render();
 
-            // 3. Test Book Quizzes tab mode switcher
+            // 3. Test Book Quizzes tab mode switcher & question count selector
             app.activeQuizTab = 'book-quizzes';
             app.quizSession = null;
             app.quizScorecard = null;
@@ -352,20 +353,47 @@ class E2ETester:
             if (setHeadingModeBtn) setHeadingModeBtn.click();
             const bookModeAfterClick = app.selectedBookQuizMode;
 
-            // Click Genesis book quiz
+            // Set book quiz count to 5 via preset button
+            const setCount5Btn = document.querySelector('[data-set-book-quiz-count="5"]');
+            if (setCount5Btn) setCount5Btn.click();
+            const bookQuizCountAfterPreset = app.selectedBookQuizQuestionCount;
+
+            // Click Genesis book quiz and verify 5 questions
             const genCard = document.querySelector('[data-launch-book-quiz="GEN"]');
             if (genCard) genCard.click();
             const genSessionHeadingOnly = app.quizSession ? Boolean(app.quizSession.headingOnly) : false;
             const genSessionBookId = app.quizSession ? app.quizSession.specificBookId : null;
+            const genSessionQCount5 = app.quizSession ? app.quizSession.questions.length : 0;
 
-            // 4. Test BookRollupView Quiz Headings button
+            // Test custom book quiz count input (e.g. 22 questions for Genesis)
+            app.activeQuizTab = 'book-quizzes';
+            app.quizSession = null;
+            app.render();
+            const customInput = document.getElementById('custom-book-quiz-count-input');
+            if (customInput) {
+                customInput.value = '22';
+                customInput.dispatchEvent(new Event('input', { bubbles: true }));
+                customInput.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+            const bookQuizCountAfterCustom = app.selectedBookQuizQuestionCount;
+            const genCard2 = document.querySelector('[data-launch-book-quiz="GEN"]');
+            if (genCard2) genCard2.click();
+            const genSessionQCount22 = app.quizSession ? app.quizSession.questions.length : 0;
+
+            // 4. Test BookRollupView Quiz Headings button & question count select
             app.activeView = 'book-rollup';
             app.selectedBookId = 'EXO';
             app.render();
+            const rollupSelect = document.getElementById('rollup-book-quiz-count-select');
+            if (rollupSelect) {
+                rollupSelect.value = '10';
+                rollupSelect.dispatchEvent(new Event('change', { bubbles: true }));
+            }
             const exoHeadingsBtn = document.querySelector('[data-launch-book-headings-quiz="EXO"]');
             if (exoHeadingsBtn) exoHeadingsBtn.click();
             const exoSessionHeadingOnly = app.quizSession ? Boolean(app.quizSession.headingOnly) : false;
             const exoSessionBookId = app.quizSession ? app.quizSession.specificBookId : null;
+            const exoSessionQCount10 = app.quizSession ? app.quizSession.questions.length : 0;
 
             return {
                 focusAfterClick,
@@ -373,10 +401,15 @@ class E2ETester:
                 hasInputAfterNext,
                 hasScorecard: Boolean(app.quizScorecard || scorecard),
                 bookModeAfterClick,
+                bookQuizCountAfterPreset,
                 genSessionHeadingOnly,
                 genSessionBookId,
+                genSessionQCount5,
+                bookQuizCountAfterCustom,
+                genSessionQCount22,
                 exoSessionHeadingOnly,
-                exoSessionBookId
+                exoSessionBookId,
+                exoSessionQCount10
             };
         })()
         """)
@@ -384,10 +417,15 @@ class E2ETester:
         assert r.get("sessionIsHeadingOnly") == True, "Diagnostic session should be headingOnly"
         assert r.get("hasInputAfterNext") == True, "Exam answer input missing after advancing question"
         assert r.get("bookModeAfterClick") == "headings", f"Expected selectedBookQuizMode to be 'headings', got {r.get('bookModeAfterClick')}"
+        assert r.get("bookQuizCountAfterPreset") == 5, f"Expected selectedBookQuizQuestionCount to be 5, got {r.get('bookQuizCountAfterPreset')}"
         assert r.get("genSessionHeadingOnly") == True, "Genesis book session should be headingOnly"
         assert r.get("genSessionBookId") == "GEN", f"Expected book ID GEN, got {r.get('genSessionBookId')}"
+        assert r.get("genSessionQCount5") == 5, f"Expected 5 questions for Genesis quiz, got {r.get('genSessionQCount5')}"
+        assert r.get("bookQuizCountAfterCustom") == 22, f"Expected custom book quiz count 22, got {r.get('bookQuizCountAfterCustom')}"
+        assert r.get("genSessionQCount22") == 22, f"Expected 22 questions for custom Genesis quiz, got {r.get('genSessionQCount22')}"
         assert r.get("exoSessionHeadingOnly") == True, "Exodus BookRollup session should be headingOnly"
         assert r.get("exoSessionBookId") == "EXO", f"Expected book ID EXO, got {r.get('exoSessionBookId')}"
+        assert r.get("exoSessionQCount10") == 10, f"Expected 10 questions for Exodus rollup quiz, got {r.get('exoSessionQCount10')}"
 
     def test_cloud_sync_lifecycle(self):
         r = self.eval_js("""
@@ -1066,5 +1104,128 @@ class E2ETester:
         assert r5.get("chapter1Still") == True, "Deleting the group removed chapter 1's card"
         assert r5.get("chapter11Still") == True, "Deleting the group removed chapter 11's card"
         assert r5.get("chapterDataIntact") == True, "Chapter outline data was lost on group delete"
+
+    def test_verse_highlights_and_notes_lifecycle(self):
+        # 1. Seed GAL-2 scripture and open Side-by-Side Outliner
+        r1 = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            app.data.chapters["GAL-2"] = {
+                headingBlocks: [{ heading: "Justified by Faith", verses: "v15–21", points: ["Point 1"], notes: "Point 1" }],
+                highlights: [],
+                verseNotes: [],
+                annotationsUpdatedAt: null,
+                chapterScripture: "Justified by Faith\\n\\n  [19] For through the law I died to the law, so that I might live to God. [20] I have been crucified with Christ. It is no longer I who live, but Christ who lives in me. [21] I do not nullify the grace of God.",
+                status: "in-progress"
+            };
+            app.showInlineVerseNotes = false;
+            app.navigateTo({ activeView: "chapter-outliner", bookId: "GAL", chapterNum: 2 });
+
+            // Click verse 20 to open compact floating pill
+            const v20 = document.getElementById("esv-verse-20");
+            if (v20) v20.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+
+            const pill = document.getElementById("verse-floating-pill");
+            const hlBtn = document.getElementById("verse-pill-highlight-btn");
+            const noteBtn = document.getElementById("verse-pill-note-btn");
+
+            // Click Highlight button -> toggles Warm Gold highlight on v20
+            if (hlBtn) hlBtn.click();
+
+            const v20AfterHl = document.getElementById("esv-verse-20");
+            const isHighlightedDOM = Boolean(v20AfterHl && v20AfterHl.classList.contains("esv-verse-highlighted"));
+            const storedHl = app.data.chapters["GAL-2"].highlights || [];
+
+            return {
+                pillOpened: Boolean(pill),
+                hasBothMinimalBtns: Boolean(hlBtn && noteBtn),
+                isHighlightedDOM,
+                storedHl
+            };
+        })()
+        """)
+        assert r1.get("pillOpened") == True, "Clicking a verse did not open the floating action pill"
+        assert r1.get("hasBothMinimalBtns") == True, "Floating pill missing Highlight or Note button"
+        assert r1.get("isHighlightedDOM") == True, "Verse 20 missing esv-verse-highlighted class after clicking Highlight"
+        assert r1.get("storedHl") == [20], f"Expected stored highlights [20], got {r1.get('storedHl')}"
+
+        # 2. Shift-click range v19–20 and attach a shared range note + test inline toggle
+        r2 = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            // Select v19 first, then shift-click v20
+            document.getElementById("esv-verse-19").dispatchEvent(new MouseEvent("click", { bubbles: true }));
+            document.getElementById("esv-verse-20").dispatchEvent(new MouseEvent("click", { bubbles: true, shiftKey: true }));
+
+            const pillText = document.getElementById("verse-floating-pill")?.textContent || "";
+            document.getElementById("verse-pill-note-btn").click();
+
+            const ta = document.getElementById("verse-note-textarea");
+            ta.value = "Died to the law and crucified with Christ";
+            ta.dispatchEvent(new Event("input", { bubbles: true }));
+            document.getElementById("verse-note-save-btn").click();
+
+            const badge = document.querySelector("[data-verse-note-badge]");
+            const inlineCardsBeforeToggle = document.querySelectorAll(".esv-inline-note-card").length;
+
+            // Toggle inline notes in header
+            const toggleBtn = document.getElementById("toggle-inline-verse-notes-btn");
+            if (toggleBtn) toggleBtn.click();
+            const inlineCardsAfterToggle = document.querySelectorAll(".esv-inline-note-card").length;
+
+            return {
+                pillShowsRange: pillText.includes("v19\u201320"),
+                hasBadge: Boolean(badge),
+                badgeText: badge ? badge.textContent.trim() : "",
+                inlineCardsBeforeToggle,
+                inlineCardsAfterToggle
+            };
+        })()
+        """)
+        assert r2.get("pillShowsRange") == True, "Shift-clicking verses 19–20 did not display v19–20 on floating pill"
+        assert r2.get("hasBadge") == True, "Saved range note did not render subtle note badge"
+        assert "v19\u201320" in r2.get("badgeText", ""), f"Expected range label on badge, got {r2.get('badgeText')}"
+        assert r2.get("inlineCardsBeforeToggle") == 0, "Inline note cards should be hidden before toggling on"
+        assert r2.get("inlineCardsAfterToggle") == 1, "Clicking Show Notes Inline should render inline note card"
+
+        # 3. Navigate to searchable Highlights & Notes view in TopNavbar, search, edit, jump back, and clean up
+        r3 = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            const navBtn = document.querySelector('[data-view="highlights-notes"]');
+            if (navBtn) navBtn.click();
+
+            const onHubView = app.activeView === "highlights-notes" && window.location.hash === "#/highlights";
+            const searchInput = document.getElementById("annotations-search-input");
+            searchInput.value = "crucified";
+            searchInput.dispatchEvent(new Event("input", { bubbles: true }));
+
+            const jumpBtns = document.querySelectorAll(".ann-jump-verse-btn");
+            const matchCount = jumpBtns.length;
+
+            // Click Open Verse -> jumps back to GAL 2 in chapter-outliner
+            if (jumpBtns[0]) jumpBtns[0].click();
+            const jumpedBack = app.activeView === "chapter-outliner" && app.selectedBookId === "GAL" && app.selectedChapterNum === 2;
+
+            // Clean up GAL-2 test annotations
+            app.data.chapters["GAL-2"].highlights = [];
+            app.data.chapters["GAL-2"].verseNotes = [];
+            app.data.chapters["GAL-2"].annotationsUpdatedAt = null;
+            app.showInlineVerseNotes = false;
+            app.render();
+
+            return {
+                hasNavBtn: Boolean(navBtn),
+                onHubView,
+                matchCount,
+                jumpedBack
+            };
+        })()
+        """)
+        assert r3.get("hasNavBtn") == True, "Highlights & Notes button missing from TopNavbar"
+        assert r3.get("onHubView") == True, "Clicking Highlights & Notes did not navigate to #/highlights"
+        assert r3.get("matchCount") >= 1, "Search for 'crucified' in Highlights & Notes returned no matches"
+        assert r3.get("jumpedBack") == True, "Clicking Open Verse did not jump back to Galatians 2 outliner"
+
 
 
