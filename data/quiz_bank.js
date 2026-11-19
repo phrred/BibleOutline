@@ -1,5 +1,5 @@
 // Comprehensive Diagnostic & Biblical Mastery Question Bank
-// Contains 1420 Acts2-style 66-book ESV free-answer questions + 1730 heading & diagnostic questions (3150 total)
+// Contains 1420 Acts2-style 66-book ESV free-answer questions + 1729 heading & diagnostic questions (3149 total)
 
 export const CURATED_QUESTION_BANK = [
   {
@@ -50250,27 +50250,6 @@ export const CURATED_QUESTION_BANK = [
     ],
     "displayAnswer": "Matthew 14 (or Chapter 14)",
     "explanation": "Matthew 14 contains the ESV heading 'The Death of John the Baptist'. Herod beheads John; Jesus miraculously feeds the five thousand and walks on the stormy sea.",
-    "scope": "NT",
-    "genre": "Gospels"
-  },
-  {
-    "id": "hdg_mat_15",
-    "type": "chapter_in_book",
-    "prompt": "In Matthew, what chapter contains the heading: 'Traditions and Defilement'?",
-    "bookId": "MAT",
-    "chapterNum": 15,
-    "acceptedAnswers": [
-      "15",
-      "Chapter 15",
-      "Ch 15",
-      "Matthew 15",
-      "Matt 15",
-      "Matthew Chapter 15",
-      "Matt Ch 15",
-      "MAT 15"
-    ],
-    "displayAnswer": "Matthew 15 (or Chapter 15)",
-    "explanation": "Matthew 15 contains the ESV heading 'Traditions and Defilement'. Jesus teaches that defilement comes from the heart, heals a Canaanite woman's daughter, and feeds four thousand.",
     "scope": "NT",
     "genre": "Gospels"
   },
