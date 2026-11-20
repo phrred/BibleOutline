@@ -289,6 +289,13 @@ html.light .bg-\[\#1B1A17\] {
    VERSE HIGHLIGHTS, SELECTION & NOTES (DARK & LIGHT)
    ======================================================== */
 
+.esv-section-heading {
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
 .esv-verse-interactive {
   cursor: pointer;
   border-radius: 3px;

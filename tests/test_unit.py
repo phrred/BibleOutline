@@ -1034,6 +1034,94 @@ class UnitTester:
             mergeCloudAndLocalState({ chapters: { "GAL-2": galClean } }, localFresh);
             const noResurrectHl = getChapterHighlights(localFresh, "GAL-2").length === 0;
 
+            // 6. Headers between two verses (unindented, 4-space poetry-indented, acrostic, speaker, bracketed editorial, long superscription)
+            //    must NEVER be highlighted or included in extracted verse snippets
+            const mat2Scripture = [
+                "Herod Kills the Children",
+                "",
+                "  [17] Then was fulfilled what was spoken by the prophet Jeremiah:",
+                "",
+                "    [18] “A voice was heard in Ramah,",
+                "        weeping and loud lamentation,",
+                "    Rachel weeping for her children;",
+                "        she refused to be comforted, because they are no more.”",
+                "    ",
+                "    ",
+                "    The Return to Nazareth",
+                "",
+                "  [19] But when Herod died, behold, an angel of the Lord appeared in a dream to Joseph in Egypt."
+            ].join("\\n");
+            const mat2Html = formatESVTextToHTML(mat2Scripture, {
+                highlights: [18, 19],
+                selectedVerses: [18, 19],
+                interactive: true
+            });
+            const mat2Snippet = extractVersesText(mat2Scripture, 18, 19);
+            const mat2Headings = extractESVHeadings(mat2Scripture, "Matthew 2").map((h) => h.heading);
+            const tmpMat = document.createElement("div");
+            tmpMat.innerHTML = mat2Html;
+            const mat2HighlightedText = Array.from(tmpMat.querySelectorAll(".esv-verse-highlighted"))
+                .map((el) => el.textContent)
+                .join(" ");
+            const mat2HeadingEl = Array.from(tmpMat.querySelectorAll("h4")).find((el) =>
+                el.textContent.includes("The Return to Nazareth")
+            );
+
+            // Song of Solomon mid-verse speaker rubric ("Others") & between-verse speaker ("She")
+            const sngScripture = [
+                "The Bride Confesses Her Love",
+                "",
+                "    [4] Draw me after you; let us run.",
+                "        The king has brought me into his chambers.",
+                "    ",
+                "    ",
+                "    Others",
+                "    ",
+                "    We will exult and rejoice in you;",
+                "    ",
+                "    ",
+                "    She",
+                "    ",
+                "    [5] I am very dark, but lovely."
+            ].join("\\n");
+            const sngHtml = formatESVTextToHTML(sngScripture, { highlights: [4, 5], interactive: true });
+            const tmpSng = document.createElement("div");
+            tmpSng.innerHTML = sngHtml;
+            const sngHighlightedText = Array.from(tmpSng.querySelectorAll(".esv-verse-highlighted"))
+                .map((el) => el.textContent)
+                .join(" ");
+            const sngSnippet = extractVersesText(sngScripture, 4, 5);
+
+            // Bracketed editorial header (Mark 16:8-9) & 2-space prose continuation (Ephesians 1:1)
+            const mrkScripture = [
+                "The Resurrection",
+                "",
+                "  [8] And they went out and fled from the tomb.",
+                "",
+                "[Some of the earliest manuscripts do not include 16:9–20.]",
+                "",
+                "Jesus Appears to Mary Magdalene",
+                "",
+                "  [[[9] Now when he rose early on the first day of the week."
+            ].join("\\n");
+            const tmpMrk = document.createElement("div");
+            tmpMrk.innerHTML = formatESVTextToHTML(mrkScripture, { highlights: [8, 9], interactive: true });
+            const mrkHighlightedText = Array.from(tmpMrk.querySelectorAll(".esv-verse-highlighted"))
+                .map((el) => el.textContent)
+                .join(" ");
+            const mrkSnippet = extractVersesText(mrkScripture, 8, 9);
+
+            const ephScripture = [
+                "Greeting",
+                "",
+                "  [1] Paul, an apostle of Christ Jesus by the will of God,",
+                "",
+                "  To the saints who are in Ephesus, and are faithful in Christ Jesus:",
+                "",
+                "  [2] Grace to you and peace from God our Father."
+            ].join("\\n");
+            const ephSnippet1 = extractVersesText(ephScripture, 1, 1);
+
             return {
                 afterSingleHl,
                 afterRangeHl,
@@ -1055,7 +1143,26 @@ class UnitTester:
                 syncedNoteCount,
                 afterCloudDeleteHl,
                 afterCloudDeleteNotes,
-                noResurrectHl
+                noResurrectHl,
+                mat2HeaderIsH4: Boolean(mat2HeadingEl && !mat2HeadingEl.classList.contains("esv-verse-highlighted")),
+                mat2HeaderExcludedFromHl:
+                    !mat2HighlightedText.includes("The Return to Nazareth") &&
+                    !mat2Snippet.includes("The Return to Nazareth") &&
+                    mat2Snippet.includes("she refused to be comforted") &&
+                    mat2Snippet.includes("when Herod died"),
+                mat2ExtractsIndentedHeading: mat2Headings.includes("The Return to Nazareth"),
+                sngExcludesSpeakersKeepsMidVerse:
+                    !sngHighlightedText.includes("Others") &&
+                    !sngHighlightedText.includes("She") &&
+                    sngHighlightedText.includes("We will exult and rejoice in you") &&
+                    !sngSnippet.includes("Others") &&
+                    sngSnippet.includes("We will exult and rejoice in you"),
+                mrkExcludesEditorialBracket:
+                    !mrkHighlightedText.includes("earliest manuscripts") &&
+                    !mrkHighlightedText.includes("Jesus Appears to Mary Magdalene") &&
+                    !mrkHighlightedText.includes("[[") &&
+                    !mrkSnippet.includes("earliest manuscripts"),
+                ephPreservesProseContinuation: ephSnippet1.includes("To the saints who are in Ephesus")
             };
         })()
         """
@@ -1072,12 +1179,20 @@ class UnitTester:
         assert r.get("htmlHasNoteBadge") == True, "Note badge missing from rendered ESV HTML"
         assert r.get("collapsedHidesInlineCard") == True, "Inline note card should be hidden when showNotesInline is false"
         assert r.get("inlineShowsCard") == True, "Inline note card should appear when showNotesInline is true"
+        assert r.get("allItemsCount") >= 3, "Expected >= 3 annotation items"
         assert r.get("genContiguousRef") == "Genesis 1:1\u20132", f"Expected contiguous highlight 'Genesis 1:1–2', got {r.get('genContiguousRef')}"
         assert r.get("onlyNotesCount") == 2, f"Expected 2 note items, got {r.get('onlyNotesCount')}"
         assert r.get("searchCrucifiedCount") >= 1, "Search across verse snippet & note text failed"
         assert r.get("syncedHlCount") == 1 and r.get("syncedNoteCount") == 2, "Cloud merge failed to import highlights/notes"
         assert r.get("afterCloudDeleteHl") == 0 and r.get("afterCloudDeleteNotes") == 0, "Cloud deletion failed to propagate"
         assert r.get("noResurrectHl") == True, "Stale cloud payload resurrected deleted highlights"
+        assert r.get("mat2HeaderIsH4") == True, "Indented section header after poetry should render as unhighlighted <h4>"
+        assert r.get("mat2HeaderExcludedFromHl") == True, "Highlighting verses across a section header must not highlight or extract the header"
+        assert r.get("mat2ExtractsIndentedHeading") == True, "extractESVHeadings should include indented section headers after poetry"
+        assert r.get("sngExcludesSpeakersKeepsMidVerse") == True, "Speaker headers must not be highlighted while preserving mid-verse poetry lines"
+        assert r.get("mrkExcludesEditorialBracket") == True, "Editorial manuscript notes and headers between verses must not be highlighted"
+        assert r.get("ephPreservesProseContinuation") == True, "2-space prose continuations within a verse should still be preserved"
+
 
 
 

@@ -110,6 +110,19 @@ export function attachVerseAnnotationListeners(app) {
     };
 
     if (readerDisplay) {
+      // Prevent Shift+mousedown on a verse from creating a native browser selection across intermediate section headers
+      readerDisplay.addEventListener("mousedown", (e) => {
+        if (
+          e.shiftKey &&
+          app.verseSelectionState &&
+          app.verseSelectionState.chKey === chKey &&
+          app.verseSelectionState.anchorVerse &&
+          e.target.closest(".esv-verse-segment[data-verse]")
+        ) {
+          e.preventDefault();
+        }
+      });
+
       readerDisplay.addEventListener("click", (e) => {
         const badgeBtn = e.target.closest("[data-verse-note-badge]");
         if (badgeBtn) {
@@ -130,8 +143,33 @@ export function attachVerseAnnotationListeners(app) {
         const verseSpan = e.target.closest(".esv-verse-segment[data-verse]");
         if (!verseSpan) return;
 
-        // Ignore only if the user actively drag-selected text inside the Scripture reader itself
+        const prev = app.verseSelectionState && app.verseSelectionState.chKey === chKey ? app.verseSelectionState : null;
         const domSelection = window.getSelection ? window.getSelection() : null;
+
+        // Shift-click extends a contiguous range from anchorVerse without selecting headers
+        if (e.shiftKey && prev && prev.anchorVerse) {
+          e.stopPropagation();
+          const clickedVerse = parseInt(verseSpan.getAttribute("data-verse"), 10);
+          if (isNaN(clickedVerse) || clickedVerse < 1) return;
+          if (domSelection && domSelection.removeAllRanges) {
+            domSelection.removeAllRanges();
+          }
+          app.saveActiveChapterEditorBeforeSwitch();
+          const range = buildContiguousRange(prev.anchorVerse, clickedVerse);
+          app.verseSelectionState = {
+            chKey,
+            anchorVerse: prev.anchorVerse,
+            startVerse: range.startVerse,
+            endVerse: range.endVerse,
+            verses: range.verses,
+            mode: "pill",
+            editingNoteId: null
+          };
+          app.render();
+          return;
+        }
+
+        // Ignore only if the user actively drag-selected text inside the Scripture reader itself
         if (
           domSelection &&
           !domSelection.isCollapsed &&
@@ -147,24 +185,6 @@ export function attachVerseAnnotationListeners(app) {
         if (isNaN(clickedVerse) || clickedVerse < 1) return;
 
         app.saveActiveChapterEditorBeforeSwitch();
-
-        const prev = app.verseSelectionState && app.verseSelectionState.chKey === chKey ? app.verseSelectionState : null;
-
-        // Shift-click extends a contiguous range from anchorVerse
-        if (e.shiftKey && prev && prev.anchorVerse) {
-          const range = buildContiguousRange(prev.anchorVerse, clickedVerse);
-          app.verseSelectionState = {
-            chKey,
-            anchorVerse: prev.anchorVerse,
-            startVerse: range.startVerse,
-            endVerse: range.endVerse,
-            verses: range.verses,
-            mode: "pill",
-            editingNoteId: null
-          };
-          app.render();
-          return;
-        }
 
         // Clicking the exact same single selected verse while in pill mode dismisses it
         if (

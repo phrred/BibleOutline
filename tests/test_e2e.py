@@ -1227,5 +1227,78 @@ class E2ETester:
         assert r3.get("matchCount") >= 1, "Search for 'crucified' in Highlights & Notes returned no matches"
         assert r3.get("jumpedBack") == True, "Clicking Open Verse did not jump back to Galatians 2 outliner"
 
+        # 4. Highlighting two verses with a header between them (including 4-space poetry-indented ESV headers)
+        #    must NEVER highlight the header in the Scripture Reader or in Highlights & Notes
+        r4 = self.eval_js("""
+        (() => {
+            const app = window.bibleOutlineApp;
+            app.data.chapters["GAL-2"].chapterScripture = [
+                "Paul Opposes Cephas",
+                "",
+                "  [14] But when I saw that their conduct was not in step with the truth of the gospel, I spoke to Cephas.",
+                "",
+                "Justified by Faith",
+                "",
+                "    [15] We ourselves are Jews by birth",
+                "        and not Gentile sinners;",
+                "    ",
+                "    ",
+                "    Living by Faith in the Son of God",
+                "",
+                "  [16] yet we know that a person is not justified by works of the law."
+            ].join("\\n");
+            app.data.chapters["GAL-2"].highlights = [];
+            app.navigateTo({ activeView: "chapter-outliner", bookId: "GAL", chapterNum: 2 });
+
+            // Click v14, then shift-click v16 across BOTH unindented and 4-space indented headers
+            document.getElementById("esv-verse-14").dispatchEvent(new MouseEvent("click", { bubbles: true }));
+            document.getElementById("esv-verse-16").dispatchEvent(new MouseEvent("click", { bubbles: true, shiftKey: true }));
+            document.getElementById("verse-pill-highlight-btn").click();
+
+            const reader = document.getElementById("scripture-reader-display");
+            const highlightedSpansText = Array.from(reader.querySelectorAll(".esv-verse-highlighted"))
+                .map((el) => el.textContent)
+                .join(" ");
+            const headers = Array.from(reader.querySelectorAll("h4.esv-section-heading"));
+            const anyHeaderHighlighted = headers.some(
+                (h) =>
+                    h.classList.contains("esv-verse-highlighted") ||
+                    h.classList.contains("esv-verse-selected") ||
+                    Boolean(h.querySelector(".esv-verse-highlighted, .esv-verse-selected")) ||
+                    getComputedStyle(h).userSelect !== "none"
+            );
+
+            // Check Highlights & Notes view snippet as well
+            app.annotationsSearchQuery = "";
+            app.navigateTo({ activeView: "highlights-notes" });
+            const hubQuote = document.querySelector("#highlights-notes-scroll-container blockquote")?.textContent || "";
+
+            // Clean up
+            app.data.chapters["GAL-2"].highlights = [];
+            app.data.chapters["GAL-2"].annotationsUpdatedAt = null;
+            app.navigateTo({ activeView: "chapter-outliner", bookId: "GAL", chapterNum: 2 });
+
+            return {
+                headerCount: headers.length,
+                anyHeaderHighlighted,
+                highlightedExcludesHeaders:
+                    !highlightedSpansText.includes("Justified by Faith") &&
+                    !highlightedSpansText.includes("Living by Faith in the Son of God") &&
+                    highlightedSpansText.includes("conduct was not in step") &&
+                    highlightedSpansText.includes("not justified by works"),
+                hubQuoteExcludesHeaders:
+                    !hubQuote.includes("Justified by Faith") &&
+                    !hubQuote.includes("Living by Faith in the Son of God") &&
+                    hubQuote.includes("conduct was not in step") &&
+                    hubQuote.includes("not justified by works")
+            };
+        })()
+        """)
+        assert r4.get("headerCount") == 3, f"Expected all 3 headers rendered as h4.esv-section-heading, got {r4.get('headerCount')}"
+        assert r4.get("anyHeaderHighlighted") == False, "Section headers must never be highlighted, selected, or user-selectable"
+        assert r4.get("highlightedExcludesHeaders") == True, "Highlighted spans in Scripture Reader included a section header!"
+        assert r4.get("hubQuoteExcludesHeaders") == True, "Highlighted snippet in Highlights & Notes included a section header!"
+
+
 
 

@@ -59540,6 +59540,55 @@ function escapeHTML(str) {
     .replace(/"/g, "&quot;");
 }
 
+/**
+ * Classifies a line of ESV API v3 passage text so headers between verses are
+ * never mistaken for verse continuation text:
+ * - "blank": empty or whitespace-only line
+ * - "verse": line containing one or more [N] verse markers
+ * - "speaker": dramatic speaker rubric (e.g. "She", "He", "Others" in Song of Solomon)
+ * - "heading": section heading, acrostic stanza header, book division, superscription/colophon, or editorial note
+ * - "verse_continuation": indented prose/poetry continuation belonging to the active verse
+ */
+function classifyESVLine(lines, index) {
+  const line = lines[index] ?? "";
+  const t = line.trim();
+  if (!t) return "blank";
+
+  // Any line containing a [N] verse number marker is scripture text
+  if (/\[\d+\]/.test(t)) return "verse";
+
+  const indent = line.length - line.trimStart().length;
+
+  // Unindented lines (< 2 leading spaces) without [N] are always headings, superscriptions, or editorial notes
+  if (indent < 2) return "heading";
+
+  const prevIsBlank = index === 0 || lines[index - 1].trim() === "";
+  const nextIsBlank = index === lines.length - 1 || lines[index + 1].trim() === "";
+
+  // ESV API v3 carries 4-space poetry indentation onto headings/rubrics that follow poetic lines
+  // (whereas prose continuations use 2 or 6 spaces and doxologies/declarations use 30+ spaces).
+  if (prevIsBlank && nextIsBlank && indent === 4) {
+    // Live ESV API v3 resets the line immediately following a section/acrostic/book heading to ""
+    if (index + 1 < lines.length && lines[index + 1] === "" && !/^["“‘']/.test(t)) {
+      return "heading";
+    }
+    // Dramatic speaker rubrics in Song of Solomon (followed by '    ' blank line, may occur mid-verse)
+    if (/^(She|He|Others)$/.test(t)) {
+      return "speaker";
+    }
+    // Musical colophons at the end of poetic chapters (e.g. Habakkuk 3:19)
+    if (/^To the choirmaster\b/i.test(t)) {
+      return "heading";
+    }
+    // Fallback for whitespace-trimmed text: standalone heading without opening quote or terminal clause punctuation
+    if (!/^["“‘']/.test(t) && !/[.,;?!—\-:"”’')]$/.test(t)) {
+      return "heading";
+    }
+  }
+
+  return "verse_continuation";
+}
+
 // Extract plain ESV text for a single verse or contiguous verse range [startVerse..endVerse]
 function extractVersesText(rawText, startVerse, endVerse = startVerse) {
   if (!rawText || !startVerse) return "";
@@ -59547,16 +59596,21 @@ function extractVersesText(rawText, startVerse, endVerse = startVerse) {
   const e = parseInt(endVerse || startVerse, 10);
   if (isNaN(s) || isNaN(e)) return "";
 
-  const lines = rawText.split("\n");
+  const lines = rawText.replace(/\r/g, "").split("\n");
   let activeVerseNum = null;
   const collected = [];
 
-  for (const line of lines) {
+  for (let idx = 0; idx < lines.length; idx++) {
+    const line = lines[idx];
     const t = line.trim();
     if (!t) continue;
-    const isHeading = !line.startsWith("  ") && !t.includes("[") && !t.includes("]") && t.length < 75 && !/^\d/.test(t);
-    if (isHeading) {
+
+    const lineType = classifyESVLine(lines, idx);
+    if (lineType === "heading") {
       activeVerseNum = null;
+      continue;
+    }
+    if (lineType === "speaker") {
       continue;
     }
 
@@ -59612,17 +59666,19 @@ function formatESVTextToHTML(rawText, options = {}) {
   const seenVerses = new Set();
   let activeVerseNum = null;
 
-  const lines = rawText.split("\n");
+  const lines = rawText.replace(/\r/g, "").split("\n");
   const formatted = lines
-    .map((line) => {
+    .map((line, lineIdx) => {
       const t = line.trim();
       if (!t) return `<div class="h-2"></div>`;
 
-      // Check if it's a section heading (not indented poetry, no verse bracket)
-      const isHeading = !line.startsWith("  ") && !t.includes("[") && !t.includes("]") && t.length < 75 && !/^\d/.test(t);
-      if (isHeading) {
+      const lineType = classifyESVLine(lines, lineIdx);
+      if (lineType === "heading") {
         activeVerseNum = null;
-        return `<h4 class="font-serif font-bold text-[#DBCFB3] text-base pt-4 pb-1 tracking-tight">${escapeHTML(t)}</h4>`;
+        return `<h4 class="esv-section-heading font-serif font-bold text-[#DBCFB3] text-base pt-4 pb-1 tracking-tight select-none">${escapeHTML(t)}</h4>`;
+      }
+      if (lineType === "speaker") {
+        return `<div class="esv-section-heading font-serif italic text-[#C4B79C] text-sm pt-2 pb-0.5 tracking-wide select-none">${escapeHTML(t)}</div>`;
       }
 
       const parts = t.split(/(\[\d+\])/g);
@@ -59669,7 +59725,7 @@ function formatESVTextToHTML(rawText, options = {}) {
 
       const inlineNotesHTML =
         showNotesInline && inlineNotesForParagraph.length > 0
-          ? `<div class="space-y-1.5 mb-3 mt-1">${inlineNotesForParagraph
+          ? `<div class="space-y-1.5 mb-3 mt-1 select-none">${inlineNotesForParagraph
               .map((note) => {
                 const refLabel =
                   note.endVerse && note.endVerse > note.startVerse
@@ -59706,7 +59762,7 @@ function extractESVHeadings(rawText, canonicalTitle = "") {
     return [{ heading: "Chapter Overview", verses: "", notes: "" }];
   }
 
-  const lines = rawText.split("\n");
+  const lines = rawText.replace(/\r/g, "").split("\n");
   const extracted = [];
   let currentHeading = null;
   let firstVerseInHeading = null;
@@ -59741,8 +59797,15 @@ function extractESVHeadings(rawText, canonicalTitle = "") {
       continue;
     }
 
-    // Check if line is an ESV Section Heading (not indented, no brackets)
-    if (!line.startsWith(" ") && !line.includes("[") && !line.includes("]") && trimmed.length > 2) {
+    // Check if line is an ESV Section Heading (including headings following poetic blocks)
+    const isColophonAfterVerses = lastVerseSeen !== null && /^To the choirmaster\b/i.test(trimmed);
+    if (
+      classifyESVLine(lines, i) === "heading" &&
+      !trimmed.includes("[") &&
+      !trimmed.includes("]") &&
+      !isColophonAfterVerses &&
+      trimmed.length > 2
+    ) {
       if (currentHeading) {
         let vRange = "";
         if (firstVerseInHeading && lastVerseSeen) {
@@ -61472,6 +61535,19 @@ function attachVerseAnnotationListeners(app) {
     };
 
     if (readerDisplay) {
+      // Prevent Shift+mousedown on a verse from creating a native browser selection across intermediate section headers
+      readerDisplay.addEventListener("mousedown", (e) => {
+        if (
+          e.shiftKey &&
+          app.verseSelectionState &&
+          app.verseSelectionState.chKey === chKey &&
+          app.verseSelectionState.anchorVerse &&
+          e.target.closest(".esv-verse-segment[data-verse]")
+        ) {
+          e.preventDefault();
+        }
+      });
+
       readerDisplay.addEventListener("click", (e) => {
         const badgeBtn = e.target.closest("[data-verse-note-badge]");
         if (badgeBtn) {
@@ -61492,8 +61568,33 @@ function attachVerseAnnotationListeners(app) {
         const verseSpan = e.target.closest(".esv-verse-segment[data-verse]");
         if (!verseSpan) return;
 
-        // Ignore only if the user actively drag-selected text inside the Scripture reader itself
+        const prev = app.verseSelectionState && app.verseSelectionState.chKey === chKey ? app.verseSelectionState : null;
         const domSelection = window.getSelection ? window.getSelection() : null;
+
+        // Shift-click extends a contiguous range from anchorVerse without selecting headers
+        if (e.shiftKey && prev && prev.anchorVerse) {
+          e.stopPropagation();
+          const clickedVerse = parseInt(verseSpan.getAttribute("data-verse"), 10);
+          if (isNaN(clickedVerse) || clickedVerse < 1) return;
+          if (domSelection && domSelection.removeAllRanges) {
+            domSelection.removeAllRanges();
+          }
+          app.saveActiveChapterEditorBeforeSwitch();
+          const range = buildContiguousRange(prev.anchorVerse, clickedVerse);
+          app.verseSelectionState = {
+            chKey,
+            anchorVerse: prev.anchorVerse,
+            startVerse: range.startVerse,
+            endVerse: range.endVerse,
+            verses: range.verses,
+            mode: "pill",
+            editingNoteId: null
+          };
+          app.render();
+          return;
+        }
+
+        // Ignore only if the user actively drag-selected text inside the Scripture reader itself
         if (
           domSelection &&
           !domSelection.isCollapsed &&
@@ -61509,24 +61610,6 @@ function attachVerseAnnotationListeners(app) {
         if (isNaN(clickedVerse) || clickedVerse < 1) return;
 
         app.saveActiveChapterEditorBeforeSwitch();
-
-        const prev = app.verseSelectionState && app.verseSelectionState.chKey === chKey ? app.verseSelectionState : null;
-
-        // Shift-click extends a contiguous range from anchorVerse
-        if (e.shiftKey && prev && prev.anchorVerse) {
-          const range = buildContiguousRange(prev.anchorVerse, clickedVerse);
-          app.verseSelectionState = {
-            chKey,
-            anchorVerse: prev.anchorVerse,
-            startVerse: range.startVerse,
-            endVerse: range.endVerse,
-            verses: range.verses,
-            mode: "pill",
-            editingNoteId: null
-          };
-          app.render();
-          return;
-        }
 
         // Clicking the exact same single selected verse while in pill mode dismisses it
         if (
