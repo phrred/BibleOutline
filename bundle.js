@@ -7246,23 +7246,6 @@ const CURATED_QUESTION_BANK = [
     "genre": "Historical"
   },
   {
-    "id": "a2_ezr_12",
-    "type": "facts",
-    "prompt": "In Ezra 8:15 and 8:21, beside what river/canal did the second wave of returning exiles camp for three days, recruit Levites, and fast to seek a safe journey from God?",
-    "bookId": "EZR",
-    "chapterNum": 8,
-    "acceptedAnswers": [
-      "Ahava",
-      "the Ahava",
-      "river Ahava",
-      "Ahava canal"
-    ],
-    "displayAnswer": "the river Ahava (Ezra 8:15, 21)",
-    "explanation": "At the river running to Ahava in Ezra 8:15–23, the travelers humbled themselves in fasting and prayer before carrying vast temple treasures across unguarded territory.",
-    "scope": "OT",
-    "genre": "Historical"
-  },
-  {
     "id": "a2_ezr_13",
     "type": "verse_completion",
     "prompt": "Ezra 8:22 (ESV): \"For I was ashamed to ask the king for a band of soldiers and horsemen to protect us against the enemy on our way, since we had told the king, 'The ______ of our God is for good on all who seek him, and the power of his wrath is against all who forsake him.'\"",
