@@ -6144,22 +6144,6 @@ export const CURATED_QUESTION_BANK = [
     "genre": "Historical"
   },
   {
-    "id": "a2_ezr_8",
-    "type": "facts",
-    "prompt": "In Ezra 6:1–2, in the palace at what fortress city in the province of Media was the scroll containing Cyrus's original temple decree discovered during Darius's archival search?",
-    "bookId": "EZR",
-    "chapterNum": 6,
-    "acceptedAnswers": [
-      "Ecbatana",
-      "city of Ecbatana",
-      "fortress of Ecbatana"
-    ],
-    "displayAnswer": "Ecbatana (Ezra 6:2)",
-    "explanation": "Ezra 6:1–12 displays God's providence over imperial bureaucracy: finding Cyrus's memo at Ecbatana moved Darius not only to protect the builders, but to fund the temple from royal taxes.",
-    "scope": "OT",
-    "genre": "Historical"
-  },
-  {
     "id": "a2_ezr_9",
     "type": "verse_completion",
     "prompt": "Ezra 6:22 (ESV): \"And they kept the Feast of Unleavened Bread seven days with ______, for the Lord had made them joyful and had turned the heart of the king of Assyria to them, so that he aided them in the work of the house of God, the God of Israel.\"",
